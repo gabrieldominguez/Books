@@ -1,0 +1,33 @@
+Pro ASP.NET Web Api Security.pdf
+    Chapter 8 - Knowledge Factors
+	Implementar Basic (pag 138) y digest auth middlewares (pag 148)
+	Pag 142/403 - Security Defenses
+
+Architecture
+F:\Mis Archivos\Sync\Books\Data\Software Architecture\[ Design Patterns ]\POSA - Pattern-Oriented Software Architecture
+F:/Mis%20Archivos/Sync/Books/Data/Software%20Architecture/Martin%20Fowler/Patterns%20of%20Enterprise%20Application%20Architecture%20-%20Martin%20Fowler.pdf - desde pag 21 - Who This Book Is For
+F:\Mis Archivos\Sync\Books\Data\Software Architecture\[ DDD - Domain Driven Design ]\Vaughn Vernon
+
+Machine Learning 
+Machine Learning Projects for .NET Developers
+
+F:\Mis Archivos\Sync\Books\Theory\[ Regular Expressions ]\Regular Expressions - MUST
+
+The Passionate Programmer
+Clean Code: A Handbook of Agile Software Craftsmanship - Robert C. Martin
+
+
+.NET
+Programming Reactive Extensions and LINQ
+Threading in C#
+CLR via C#
+Pro C# 7
+More Effective C# 7
+Entity Framework Core
+Concurrency in .NET
+Parallel Programming in C# (free ebook)
+Writing High Performance .NET Code?—?Ben Watson
+Advanced .NET Debugging?—?Mario Hewardt
+Microsoft .NET?—?Architecting Applications for the Enterprise, 2nd Edition
+Adaptive Code Via C#: Agile Coding with Design Patterns and SOLID Principles
+

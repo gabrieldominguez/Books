@@ -1,0 +1,136 @@
+<html>
+<head>
+<SCRIPT LANGUAGE="JavaScript" SRC="un4seen.js"></SCRIPT>
+<link rel=stylesheet type=text/css href=un4seen.css>
+<title>BASS</title>
+<script>head("bass");</script>
+</head>
+
+<body marginheight=0 marginwidth=0 leftmargin=0 topmargin=0 bgcolor=#FFFFFF>
+<a name="top"></a>
+<table align=center width=500 cellspacing=0 cellpadding=0>
+
+<tr><td align=center>
+ <table align=center width=412 cellspacing=0 cellpadding=0>
+  <tr>
+   <td><img src="_/logo_bass.gif" width=94 height=43 alt="BASS sound system"></td>
+   <td>
+    <table cellspacing=6 cellpadding=0><tr>
+     <td class=phead><b>Version:<br>Platform:</b></td>
+     <td class=phead>2.0 <font size=1>(.0.20)</font><br>Win32</td>
+    </tr>
+</table>
+   </td> 
+   <td align=right valign=bottom>
+    <a href="download.cgi?bass20"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a>
+   </td>
+  </tr>
+  <tr><td colspan=3><img src="_/div2.gif" width=412 height=1 vspace=5></td></tr>
+  <tr><td colspan=3 align=right class=phead><a href=#license><b>Licensing</b> <img align=absmiddle src="_/down.gif" width=11 height=12></a></td></tr>
+ </table>
+</td></tr>
+
+<tr><td align=center>
+ <table align=center width=100% cellspacing=0 cellpadding=10>
+  <tr><td>
+<br>
+<b>BASS</b> is an audio library for use in Windows software. It's purpose is to provide developers with the most powerful and efficient (yet easy to use), sample, stream (MP3, MP2, MP1, OGG, WAV, custom generated, <a class=link href=#addons>WMA & CD via the add-ons</a>), MOD music (XM, IT, S3M, MOD, MTM, UMX), MO3 music (MP3/OGG compressed MODs), and recording functions. All in a tiny DLL, under 100KB in size.<br><br>
+<b>BASS</b> requires DirectX 3 or above, and takes advantage of DirectSound and DirectSound3D hardware accelerated drivers, and MMX CPUs. But it is also functional without these performance enhancers. C/C++, Visual Basic, Delphi and MASM APIs are provided, with several examples to get you started. <a class=link href=#apis>Other APIs</a> are also available.
+  </td></tr>
+ </table>
+<br>
+</td></tr>
+<tr><td><table width=100% cellspacing=0><tr><td width=100%></td><td class=head>&nbsp;Main features&nbsp;</td></tr></table></td></tr>
+<tr><td><img src="_/div.gif" width=100% height=1></td></tr>
+<tr><td align=center>
+ <table align=center width=100% cellspacing=0 cellpadding=4 
+  <tr><td>
+   <table align=center cellspacing=4 cellpadding=1>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>WAV/MP3/MP2/MP1/OGG samples</b></a><br>Supports mono/stereo 8/16 bit samples (including compressed WAVs)</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Custom samples</b></a><br>Load or generate custom samples</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Sample streams</b></a><br>Stream any sample data in 8/16/32 bit</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>File streams</b></a><br>MP3/MP2/MP1/OGG and WAV (including compressed) file streaming</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Internet file streaming</b></a><br>Stream MP3/MP2/MP1/OGG (inc. Shoutcast, Icecast and Icecast2) and WAV (inc. compressed) files from the internet (HTTP and FTP servers), with adjustable buffering, (<a class=link href="files/netradio_delphi.zip">Delphi NetRadio example</a> - C/VB examples are included in the main BASS distribution)</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Custom file streaming</b></a><br>Stream MP3/MP2/MP1/OGG and WAV (including compressed) data from anywhere using any delivery method</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Multi-channel streaming</b></a><br>Support for more than plain stereo, including multi-channel OGG/WAV files (<a class=link href=#addons>multi-channel WMA via the add-on</a>)</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>MOD music</b></a><br>Uses the same engine as XMPlay (very accurate, fast, high quality reproduction), with full support for all effects, filters, stereo samples, DMO effects, etc...</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>MO3 music</b></a><br>MODs with MP3 or OGG compressed samples (vastly reduced file size with virtually identical sound quality), MO3s are created using the <a class=link href=mo3.html>MO3 encoder</a></td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Multiple outputs</b></a><br>Simultaneously use multiple soundcards</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Recording</b></a><br>Very flexible recording system, with multiple device support and input selection, (<a class=link href=#addons>WMA encoding & broadcasting via the add-on</a>, <a class=link href=#addons>and other formats via BASSenc</a>)</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Decode without playback</b></a><br>Streams and musics can be outputted in any way you want (recoded, written to disk, streamed across a network, etc...)</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Speaker assignment</b></a><br>Assign streams and musics to specific speakers to take advantage of hardware capable of more than plain stereo (up to 4 separate stereo outputs with a 7.1 soundcard)</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>High precision synchronization</b></a><br>Synchronize events in your software to the MOD music and streams, synchronize playback of multiple channels together</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>DirectX 8 effects</b></a><br>Chorus / compressor / distortion / echo / flanger / gargle / parametric eq / reverb, 2 different implementations each with it's benefits</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Custom DSP</b></a><br>Apply any effects that you want</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>32 bit floating-point decoding and processing</b></a><br>Floating-point stream/music decoding, DSP, FX, and recording</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>3D sound</b></a><br>Play samples/streams/musics in any 3D position, with EAX support for enhanced 3D sound with 3D reverberations</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Flexible</b></a><br>Small buffers for realtime performance, large buffers for stability, automatic and manual buffer updating</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Expandable</b></a><br>Underlying DirectSound object interfaces are accessible, add-on system for additional format support (<a class=link href="mailto:bass@un4seen.com?subject=Add-on API">C/C++ API available on request</a>)</td></tr>
+    <tr><td valign=top><img src="_/feat.gif" width=11 height=11></td><td><a><b>Small</b></a><br>BASS is less than 100KB, so won't bloat your distribution</td></tr>
+   </table>
+  </td></tr>
+ </table>
+<br>
+</td></tr>
+<tr><td><a name=license></a><table width=100% cellspacing=0><tr><td width=100%></td><td class=head>&nbsp;Licensing&nbsp;</td></tr></table></td></tr>
+<tr><td><img src="_/div.gif" width=100% height=1></td></tr>
+<tr><td align=center>
+   <table width=100% align=center cellspacing=8 cellpadding=1>
+    <tr><td colspan=2>The BASS library is free for non-money making use - if you are not charging for the software (and it has no other commercial purpose, eg. advertising), then you can use BASS in it for free. If you're intending to sell your software, you'll require one of the following licenses...</td></tr>
+    <tr><td valign=top><a href="https://secure.shareit.com/shareit/checkout.html?productid=202725" target=_blank><img src="_/ico_register.gif" width=75 height=23 alt="purchase"></a></td><td><a><b>Shareware license: &euro;100</b></a><br>The "shareware" license allows the usage of BASS in an unlimited number of your shareware products. If you're an individual making and selling your own software, this is the license for you.</td></tr>
+    <tr><td valign=top><a href="mailto:bass@un4seen.com?subject=Single Commercial license purchase enquiry"><img src="_/ico_register.gif" width=75 height=23 alt="purchase"></a></td><td><a><b>Single Commercial license: &euro;850</b></a><br>The "single commercial" license allows the usage of BASS in a single commercial product.</td></tr>
+    <tr><td valign=top><a href="mailto:bass@un4seen.com?subject=Unlimited Commercial license purchase enquiry"><img src="_/ico_register.gif" width=75 height=23 alt="purchase"></td><td><a><b>Unlimited Commercial license: &euro;2250</b></a><br>The "unlimited commercial" license allows the usage of BASS in an unlimited number of your commercial products. This license applies to a single site.</td></tr>
+    <tr><td colspan=2 align=center>In all cases there are no royalties to pay, and you can use all future BASS updates without further cost. Reselling is not permitted. Got questions? <a class=link href="mailto:bass@un4seen.com?subject=BASS license enquiry">Get in touch</a>.</td></tr>
+    <tr><td colspan=2 align=center style="font-size:10px;">note that all prices are quoted in Euros, but payment can also be made in several other currencies</td></tr>
+ </table>
+<br>
+</td></tr>
+<tr><td><a name=addons></a><table width=100% cellspacing=0><tr><td width=100%></td><td class=head>&nbsp;Add-ons&nbsp;</td></tr></table></td></tr>
+<tr><td><img src="_/div.gif" width=100% height=1></td></tr>
+<tr><td align=center>
+ <table align=center width=100% cellspacing=8 cellpadding=1>
+    <tr><td valign=top><a href="download.cgi?basswm20"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a></td><td><a><b>BASSWMA 2.0</b> <font size=1>(.0.2)</font></a><br>An extension to BASS, enabling the playback of WMA files and streams, and also WMA file encoding and network broadcasting. Requires the Windows Media Format modules, which come installed with Windows Media Player, or can be installed separately (<a class=link href="files/wmfdist.exe">wmfdist.exe</a>). C/C++, Visual Basic, Delphi and MASM APIs are included.</td></tr>
+    <tr><td valign=top><a href="download.cgi?basscd20"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a></td><td><a><b>BASSCD 2.0</b> <font size=1>(.0.5)</font></a><br>An extension to BASS, enabling digital streaming and ripping of audio CDs. C/C++, Visual Basic, Delphi and MASM APIs are included.</td></tr>
+    <tr><td valign=top><a href="download.cgi?bassenc20"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a></td><td><a><b>BASSenc 2.0</b></a><br>A small extension that allows BASS channels to be encoded using any command-line encoder that has STDIN support (LAME/OGGENC/etc). C/C++, Visual Basic and Delphi APIs are included.</td></tr>
+ </table>
+</td></tr>
+<tr><td><br><a name=maddons></a><table width=100% cellspacing=0><tr><td width=100%></td><td class=head>&nbsp;More add-ons&nbsp;</td></tr></table></td></tr>
+<tr><td><img src="_/div.gif" width=100% height=1></td></tr>
+<tr><td align=center>
+ <table align=center width=100% cellspacing=8 cellpadding=1>
+    <tr><td valign=top><a href="files/bass_fx20alpha.zip"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a></td><td><a><b>BASS FX 2.0 alpha</b></a><br>An extension providing several DSP functions. C/C++, Visual Basic and Delphi APIs are included.</td></tr>
+    <tr><td valign=top><a href="files/BassVis.zip"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a></td><td><a><b>BassVis 1.3.1</b></a><br>An extension allowing Sonique visual plugins to be used very easily. C/C++, Visual Basic and Delphi APIs are included.</td></tr>
+    <tr><td valign=top><a href="http://home.zonnet.nl/hebels13/basswa.zip"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a></td><td><a><b>BASS_WA</b></a><br>An extension allowing Winamp visual plugins to be used very easily. C/C++, Visual Basic and Delphi APIs are included with examples.</td></tr>
+ </table>
+</td></tr>
+<tr><td><br><a name=apis></a><table width=100% cellspacing=0><tr><td width=100%></td><td class=head>&nbsp;Other APIs&nbsp;</td></tr></table></td></tr>
+<tr><td><img src="_/div.gif" width=100% height=1></td></tr>
+<tr><td align=center>
+ <table align=center width=100% cellspacing=8 cellpadding=1>
+    <tr><td valign=top><a href="files/bassNet.zip"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a></td><td><a><b>VB.Net 2.0</b> <font size=1>(.0.1)</font> <sup><font color=red>2.0 compatible</font></sup></a><br>VB.Net APIs for BASS, BASSWMA, BASSCD, BASSenc and BASSFX. With several examples included. Can also be used with C#.</td></tr>
+    <tr><td valign=top><a href="http://members.aol.com/wtgdana/private/Bass/" target=_blank><img src="_/ico_visit.gif" width=46 height=24 alt="visit"></a></td><td><a><b>Delphi dynamic</b> <sup><font color=red>2.0 compatible</font></sup></a><br>Allows dynamic loading of BASS, BASSWMA, BASSCD, BASSenc and BASSFX with Delphi.</td></tr>
+    <tr><td valign=top><a href="http://sourceforge.net/projects/nbass/" target=_blank><img src="_/ico_visit.gif" width=46 height=24 alt="visit"></a></td><td><a><b>nBASS</b></a><br>A .NET wrapper for BASS and BASSWMA written in C#. Source code and examples are included. nBASS is an open-source project - new contributors are welcomed.</td></tr>
+    <tr><td valign=top><a href="http://www.loki-sd.pwp.blueyonder.co.uk/projects.htm#bass" target=_blank><img src="_/ico_visit.gif" width=46 height=24 alt="visit"></a></td><td><a><b>Blitz BASS</b></a><br>A wrapper by <a class=link href="http://www.loki-sd.pwp.blueyonder.co.uk/" target=_blank>Tarropithium Software</a> to use BASS with <a class=link href="http://www.blitzbasic.com/" target=_blank>Blitz</a>, a programming language designed for game creation.</td></tr>
+    <tr><td valign=top><a href="http://www.codingarea.co.uk/DLL_s___Plug-ins/dll_s___plug-ins.html" target=_blank><img src="_/ico_visit.gif" width=46 height=24 alt="visit"></a></td><td><a><b>DarkBASIC</b></a><br>An interface to use BASS with <a class=link href="http://www.darkbasicpro.com/" target=_blank>DarkBASIC Pro</a>, another programming language designed for game creation.</td></tr>
+<tr><td colspan=2><i>Note: these APIs are provided by 3rd-parties, so may not always be up-to-date with the latest BASS version & features.</i></td></tr>
+ </table>
+</td></tr>
+<tr><td><br><a name=stuff></a><table width=100% cellspacing=0><tr><td width=100%></td><td class=head>&nbsp;Other stuff&nbsp;</td></tr></table></td></tr>
+<tr><td><img src="_/div.gif" width=100% height=1></td></tr>
+<tr><td align=center>
+ <table align=center width=100% cellspacing=8 cellpadding=1>
+    <tr><td valign=top><a href="download.cgi?bass16m"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a></td><td><a><b>BASSMOD 1.6</b> (Win32 & Linux)</a><br>A MOD only version of BASS... useful for demos, or anything else where you only want to play some MOD music. Includes the BASS synchronizers. Uses the MultiMedia drivers on Win32 platforms, and the OSS drivers on Linux, so no special libraries/drivers are required to be installed. C/C++, Visual Basic, Delphi (static and dynamic-loading) and MASM APIs are included.</td></tr>
+    <tr><td valign=top><a href="download.cgi?xmms-bassmod"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a></td><td><a><b>BASSMOD XMMS plugin 0.1a</b> (Linux)</a><br>A plugin for <a class=link href="http://xmms.org/" target=_blank>XMMS</a>, using BASSMOD for playback, and <a class=link href="mo3.html#stuff">UNMO3</a> for MO3 support. Source-code included.</td></tr>
+    <tr><td valign=top><a href="http://www.xs4all.nl/~mon/jt_strng.zip"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a></td><td><a><b>Sound quality?</b></a><br>Stranglehold by Wave/<a class=link href="http://www.xs4all.nl/~mon" target=_blank>MON</a>, the ultimate test in quality of any MOD playback engine.</td></tr>
+    <tr><td valign=top><a href="files/6chan.zip"><img src="_/ico_download.gif" width=70 height=23 alt="download"></a></td><td><a><b>Multi-channel test files</b></a><br>6 channel (5.1) OGG and WMA files, to test multi-channel stream playback.</td></tr>
+<tr><td align=center colspan=2>
+<a class=link href=bass_showcase.cgi><b style="font-size:18px;">The BASS Showcase</b></a><br>
+Free-for-all list of stuff that use BASS
+</td></tr>
+ </table>
+<br>
+</td></tr>
+<tr><td align=right><a href="#top"><img src="_/up.gif" width=11 height=12 alt="top"></a><br><img src="_/div.gif" width=100% height=1></td></tr>
+</table>
+</body>
+</html>

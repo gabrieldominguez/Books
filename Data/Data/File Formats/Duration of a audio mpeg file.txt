@@ -1,0 +1,5 @@
+--------------------------------------------------------------------------
+Q101    How can you calculate the duration of a audio mpeg file?
+
+A101    DurationInSec =  (FileLength * 8) / (TotaleBitRate * 1024)
+--------------------------------------------------------------------------

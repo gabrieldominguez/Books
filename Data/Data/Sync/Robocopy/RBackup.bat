@@ -1,0 +1,1 @@
+robocopy "F:\Mis Archivos\Source" "C:\Archivos\BKP\Target" /MIR >> C:\Archivos\BKP\RBackup.log

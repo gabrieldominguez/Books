@@ -1,0 +1,374 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Tag format specs - MP3 Manager</TITLE>
+<META 
+content="MP3 Manager is a wide use, features rich playlist application for managing MP3 sound files and frontend for MP3 players. It is based on adding ID3 Tags and Lyrics3 Tags from MP3 files into powerful database system." 
+name=description>
+<META content="mp3, manager, mpeg, lyrics, tag, petr, strnad, saxtus" 
+name=keywords>
+<META 
+content="This site was created by Michael Cohen of Saxtus web works - http://www.saxtus.gr/" 
+name=author>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252"><LINK 
+href="mp3man.css" rel=stylesheet>
+<SCRIPT language=JavaScript src="navbar.js"></SCRIPT>
+
+<META content="MSHTML 6.00.2720.3000" name=GENERATOR></HEAD>
+<BODY text=#ffffff vLink=#66ccff aLink=#66ff00 link=#66ffff bgProperties=fixed 
+bgColor=#000000 background=images/MMtile.jpg onload=init()>
+<DIV align=center><FONT 
+face="Verdana CE,Verdana, Arial CE, Arial, Helvetica CE, Helvetica, sans-serif CE, sans-serif" 
+size=1><SPAN class=UpperMenu><A href="index.htm">News</A> | <A 
+href="download.htm">Download</A> | <A href="shots.htm">Screen shots</A> | <A 
+href="features.htm">About/Features</A> | <A href="register.htm">Register</A> | 
+<A href="tags.htm">Tag format specs</A> | <A href="greets.htm">Greetings</A> | 
+<A href="contact.htm">Contact</A> | <A href="mirrors.htm">Mirrors</A> | <A 
+href="links.htm">Links</A></SPAN></FONT></DIV><BR><!--Custom content here -->
+<H1>Tag format specs</H1>
+<H6>
+<SCRIPT language=JavaScript src="lastupd.js"></SCRIPT>
+</H6>
+<H2 align=center>ID3 Tag</H2>
+<P>ID3 Tag standard = 128 bytes of text divided into 6 fields which can be added 
+on end of MP3 file. This standard was created by NamkraD in 1996. </P>
+<P align=center>ID3 Tag begins on position -128 bytes from end of file. If there 
+is an ID3 Tag identifier - "TAG" on position 0, then the ID3 Tag is already 
+appended. Next fields carry data:&nbsp; </P>
+<DIV align=center>
+<CENTER>
+<TABLE cols=7 width="80%" border=1>
+  <TBODY>
+  <TR>
+    <TD>
+      <P align=center>Byte </P></TD>
+    <TD>
+      <P align=center>3 - 32 </P></TD>
+    <TD>
+      <P align=center>33 - 62 </P></TD>
+    <TD>
+      <P align=center>63 - 92 </P></TD>
+    <TD>
+      <P align=center>93 - 96 </P></TD>
+    <TD>
+      <P align=center>97 - 126 </P></TD>
+    <TD>
+      <P align=center>127 </P></TD></TR>
+  <TR>
+    <TD>
+      <P align=center>Field name </P></TD>
+    <TD>
+      <P align=center>Track name </P></TD>
+    <TD>
+      <P align=center>Artist name </P></TD>
+    <TD>
+      <P align=center>Album name </P></TD>
+    <TD>
+      <P align=center>Year </P></TD>
+    <TD>
+      <P align=center>Comment </P></TD>
+    <TD>
+      <P align=center>Genre </P></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P> </P>
+<P>You can see that genres are determined by one byte of data only. This byte 
+has to be translated into text from following listing: 
+<UL>
+  <P>Byte&nbsp; Description<BR>--------------------- <BR>&nbsp; 00 - Blues 
+  <BR>&nbsp; 01 - Classic Rock <BR>&nbsp; 02 - Country <BR>&nbsp; 03 - Dance 
+  <BR>&nbsp; 04 - Disco <BR>&nbsp; 05 - Funk <BR>&nbsp; 06 - Grunge <BR>&nbsp; 
+  07 - Hip-Hop <BR>&nbsp; 08 - Jazz <BR>&nbsp; 09 - Metal <BR>&nbsp; 10 - New 
+  Age <BR>&nbsp; 11 - Oldies <BR>&nbsp; 12 - Other <BR>&nbsp; 13 - Pop 
+  <BR>&nbsp; 14 - R&amp;B <BR>&nbsp; 15 - Rap <BR>&nbsp; 16 - Reggae <BR>&nbsp; 
+  17 - Rock <BR>&nbsp; 18 - Techno <BR>&nbsp; 19 - Industrial <BR>&nbsp; 20 - 
+  Alternative <BR>&nbsp; 21 - Ska <BR>&nbsp; 22 - Death Metal <BR>&nbsp; 23 - 
+  Pranks <BR>&nbsp; 24 - Soundtrack <BR>&nbsp; 25 - Euro-Techno <BR>&nbsp; 26 - 
+  Ambient <BR>&nbsp; 27 - Trip-Hop <BR>&nbsp; 28 - Vocal <BR>&nbsp; 29 - 
+  Jazz+Funk <BR>&nbsp; 30 - Fusion <BR>&nbsp; 31 - Trance <BR>&nbsp; 32 - 
+  Classical <BR>&nbsp; 33 - Instrumental <BR>&nbsp; 34 - Acid <BR>&nbsp; 35 - 
+  House <BR>&nbsp; 36 - Game <BR>&nbsp; 37 - Sound Clip <BR>&nbsp; 38 - Gospel 
+  <BR>&nbsp; 39 - Noise <BR>&nbsp; 40 - Alternative Rock <BR>&nbsp; 41 - Bass 
+  <BR>&nbsp; 42 - Soul <BR>&nbsp; 43 - Punk <BR>&nbsp; 44 - Space <BR>&nbsp; 45 
+  - Meditative <BR>&nbsp; 46 - Instrumental Pop <BR>&nbsp; 47 - Instrumental 
+  Rock <BR>&nbsp; 48 - Ethnic <BR>&nbsp; 49 - Gothic <BR>&nbsp; 50 - Darkwave 
+  <BR>&nbsp; 51 - Techno-Industrial <BR>&nbsp; 52 - Electronic <BR>&nbsp; 53 - 
+  Pop-Folk <BR>&nbsp; 54 - Eurodance <BR>&nbsp; 55 - Dream <BR>&nbsp; 56 - 
+  Southern Rock <BR>&nbsp; 57 - Comedy <BR>&nbsp; 58 - Cult <BR>&nbsp; 59 - 
+  Gangsta <BR>&nbsp; 60 - Top 40 <BR>&nbsp; 61 - Christian Rap <BR>&nbsp; 62 - 
+  Pop/Funk <BR>&nbsp; 63 - Jungle <BR>&nbsp; 64 - Native US <BR>&nbsp; 65 - 
+  Cabaret <BR>&nbsp; 66 - New Wave <BR>&nbsp; 67 - Psychadelic <BR>&nbsp; 68 - 
+  Rave <BR>&nbsp; 69 - Showtunes <BR>&nbsp; 70 - Trailer <BR>&nbsp; 71 - Lo-Fi 
+  <BR>&nbsp; 72 - Tribal <BR>&nbsp; 73 - Acid Punk <BR>&nbsp; 74 - Acid Jazz 
+  <BR>&nbsp; 75 - Polka <BR>&nbsp; 76 - Retro <BR>&nbsp; 77 - Musical <BR>&nbsp; 
+  78 - Rock &amp; Roll <BR>&nbsp; 79 - Hard Rock <BR>Added on December 12, 1997 
+  in cooperation with Winamp: <BR>&nbsp; 80 - Folk <BR>&nbsp; 81 - Folk-Rock 
+  <BR>&nbsp; 82 - National Folk <BR>&nbsp; 83 - Swing <BR>&nbsp; 84 - Fast 
+  Fusion <BR>&nbsp; 85 - Bebob <BR>&nbsp; 86 - Latin <BR>&nbsp; 87 - Revival 
+  <BR>&nbsp; 88 - Celtic <BR>&nbsp; 89 - Bluegrass <BR>&nbsp; 90 - Avantgarde 
+  <BR>&nbsp; 91 - Gothic Rock <BR>&nbsp; 92 - Progressive Rock <BR>&nbsp; 93 - 
+  Psychedelic Rock <BR>&nbsp; 94 - Symphonic Rock <BR>&nbsp; 95 - Slow Rock 
+  <BR>&nbsp; 96 - Big Band <BR>&nbsp; 97 - Chorus <BR>&nbsp; 98 - Easy Listening 
+  <BR>&nbsp; 99 - Acoustic <BR>100 - Humour <BR>101 - Speech <BR>102 - Chanson 
+  <BR>103 - Opera <BR>104 - Chamber Music <BR>105 - Sonata <BR>106 - Symphony 
+  <BR>107 - Booty Bass <BR>108 - Primus <BR>109 - Porn Groove <BR>110 - Satire 
+  <BR>Added on January 26, 1998 to ensure compatibility with Winamp 1.7: <BR>111 
+  - Slow Jam <BR>112 - Club <BR>113 - Tango <BR>114 - Samba <BR>115 - Folklore 
+  <BR>Added on April 13, 1998 to ensure compatibility with Winamp 1.90: <BR>116 
+  - Ballad <BR>117 - Power Ballad <BR>118 - Rhytmic Soul <BR>119 - Freestyle 
+  <BR>120 - Duet <BR>121 - Punk Rock <BR>122 - Drum Solo <BR>123 - Acapella 
+  <BR>124 - Euro-House <BR>125 - Dance Hall <BR>126 - Goa <BR>127 - Drum &amp; 
+  Bass <BR>128 - Club-House <BR>129 - Hardcore <BR>130 - Terror <BR>131 - Indie 
+  <BR>132 - BritPop <BR>133 - Negerpunk <BR>134 - Polsk Punk <BR>135 - Beat 
+  <BR>136 - Christian Gangsta Rap <BR>137 - Heavy Metal <BR>138 - Black Metal 
+  <BR>139 - Crossover <BR>140 - Contemporary Christian <BR>141 - Christian Rock 
+  <BR>Added on Jun 1, 1998 to ensure compatibility with Winamp 1.91: <BR>142 - 
+  Merengue <BR>143 - Salsa <BR>144 - Trash Metal <BR>145 - Anime <BR>146 - Jpop 
+  <BR>147 - Synthpop <BR></P></UL>
+<HR width="50%">
+
+<H2 align=center><A name=Lyrics3Tag></A>Lyrics3 Tag</H2>
+<P>Updates: <BR>July 2, 1999 - linking images with relative path has been 
+improved <BR>October 27, 2000 - third indication field added</P>
+<P>The Lyrics3 Tag is an expansion of the ID3 Tags. It adds the data at the end 
+of the file, before the ID tag. <BR>To check for Lyrics tag, first look for the 
+9 bytes BEFORE the ID TAG (i.e. read at location -137 from the end of the file, 
+9 bytes. If the 9 bytes read 'LYRICSEND' then this means that an Lyrics3 Tag 
+v1.00 has been used. If the 9 bytes read 'LYRICS200' then the new Lyrics3 Tag 
+v2.00 has been used. If a new application is to be build, it should support 
+besides of Lyrics3 Tag 2.00 as well the reading of Lyrics3 Tag version 1.00 
+because of backward compatibility. </P>
+<H3><B>Lyrics3 v1.00 Tag</B></H3>
+<P>This older tag uses a seek method. If you find 'LYRICSEND' just before the ID 
+tag, read 5100 bytes before that string, and search for the string 
+'LYRICSBEGIN'. If you find it, then the lyrics starts from right after then last 
+char of the 'LYRICSBEGIN' (no null terminator) and ends just before the 
+'LYRICSEND'. Line delimiters are CR+LF, and no null char used. </P>
+<P>The file has the following sections: </P>
+<OL>
+  <LI>Bare MP3 file 
+  <LI>LYRICSBEGIN 
+  <LI>Lyrics text 
+  <LI>LYRICSEND 
+  <LI>ID TAG </LI></OL>
+<P>There are no delimiters between each section! </P>
+<P>The lyrics can include Timestamps. Timestamps are marked by [mm:ss] and must 
+not use spaces. They can appear anywhere in the lyrics (beginning or anywhere in 
+each line) and more then one timestamp can be used in the same line. Timestamps 
+must not necessarily increase with the lines... a song can go back to the 
+refrain several times which can be only once in the text, and have several 
+different timestamps on them. </P>
+<H3><B>Lyrics3 Tag v2.00</B></H3>
+<P>The new v2.00 tag is more complicated, but faster for use, and can be 
+enhanced with full backward compatibility. </P>
+<P>The tag uses text only. Even the sizes are written as fixed 5 or 6 bytes of 
+digits (with padded zeros - no spaces allowed). Fields data can include chars at 
+the range of ASCII 01 to 254. </P>
+<P>Lyrics3 v2.00 uses FIELDS. There can be an unlimited number of fields 
+(currently there are only a few defined, but others will be added in the 
+future). Each field has its own variable or fixed size. All fields uses a simple 
+structure that includes the field ID, it's size and the field data. This makes 
+it possible to read unknown fields and write them back when saving the tag. 
+<BR>There are no required fields in the tag, but at least one field must exist. 
+Fields can appear in any order in the tag, except the indication field, that 
+MUST be the first field, if it is used. </P>
+<P>Here is the <B>structure of the file</B> using Lyrics3 v2.00 tags: </P>
+<OL>
+  <LI>Bare MP3 file 
+  <LI>'LYRICSBEGIN' string (without any delimiter and the ' signs) 
+  <LI>Any number of field records (structure to follow) 
+  <LI>6 chars (digit) which are the size of all the lyrics3 data (sections 2 and 
+  3) 
+  <LI>'LYRICS200' string (without a delimiter and the ' signs) 
+  <LI>ID3 Tag </LI></OL>
+<P>A <B>field record structure</B> is: </P>
+<OL>
+  <LI>3 CAPITAL chars field ID. This must match one of the defined field IDs. 
+  Even if the field ID is unknown, the application should read the field, since 
+  it needs to write it back when the tag is saved. 
+  <LI>5 chars (digits), which are the size of the following data. Size can't be 
+  zero. A maximum size value is defined for each field ID. 
+  <LI>Field data. For instance: 'EAL00030This is an extended Album Name' 
+</LI></OL>
+<P>Here is a <B>step by step description of how to read</B> the lyrics3 v2.00 
+tag: </P>
+<OL>
+  <LI>Read the 9 bytes before the ID tag. They must be 'LYRICS200'. 
+  <LI>Read the previous 6 bytes, which are text digits that define the size of 
+  the all of tag fields and the 'LYRICSBEGIN' delimiter (from now on LSZ). 
+  <LI>Go back LSZ bytes previous to the location where the LSZ was read. 
+  <LI>Read 11 chars and make sure they are 'LYRICSBEGIN'. 
+  <LI>Start <B>reading fields</B>, until you read LSZ bytes (including the 
+  'LYRICSBEGIN'). </LI></OL>
+<P><B>Reading a field</B> (step 5): </P>
+<OL>
+  <LI>Read 3 chars, which are the field ID. Case that ID to the list of known 
+  fields. 
+  <LI>Read 5 chars (digits) which are the size of the following data (from now 
+  on FSZ). 
+  <LI>Read the following FSZ bytes, which are the field data. If you don't know 
+  what the field ID is (like new fields) then just keep the data as is and write 
+  it back (with the field ID &amp; size, of course) - when saving the tag. 
+  Please make sure to implement this, since the user might use an old 
+  application on an mpeg files that has new fields which the application doesn't 
+  understand. If not implemented, these new fields will be removed when saving. 
+  <LI>If you already read LSZ bytes including the 'LYRICSBEGIN' then stop 
+  reading fields. If not, go back to 1. </LI></OL>
+<P>Fields that include more then one line uses <CR><LF>delimiters between lines. 
+</P>
+<H3>Field IDs</H3>
+<P>Following is the list of <B>currently defined field IDs</B>. Other fields 
+will be added, if needed on newer versions of the Lyrics3 v2.00 specifications, 
+but the tag is designed in such a way that unknown fields can be ignored. </P><PRE>ID   Max size  Description
+---  --------  ----------------------------------------------------------
+<B>IND</B>    00003   Indications field. This is a fixed record field that
+               currently includes three indications. In the future other
+               indications might be added after the existing ones, but
+               existing indications will stay on the same byte positions
+               inside the field record.
+               If the indication field is used, it MUST be the first field!
+               The indication field structure is to follow.
+<B>LYR</B>    99999   Lyrics multi line text. Timestamps can be used anywhere in
+               the text in any order. Timestamp format is [mm:ss] (no spaces 
+               allowed in the timestamps).
+<B>INF</B>    99999   Additional information multi line text.
+<B>AUT</B>    00250   Lyrics/Music Author name.
+<B>EAL</B>    00250   Extended Album name.
+<B>EAR</B>    00250   Extended Artist name.
+<B>ETT</B>    00250   Extended Track Title.
+<B>IMG</B>    99999   Link to an image files (BMP, JPG, GIF format).
+               Image lines include filename, description and timestamp
+               separated by delimiter - two ASCII chars 124 ("||").
+               Description and timestamp are optional, but if timestamp is 
+               used, and there is no description, two delimiters ("||||") 
+               should be used between the filename and the timestamp.
+               Multiple images are allowed by using a [CR][LF] delimiter
+               between each image line. No [CR][LF] is needed after the last
+               image line. Number of images is not limited (except by the
+               field size).
+               <B>Filename</B> can be in one of these formats:
+               - Filename only - when the image is located in the same path
+                 as the MP3 file (preferred, since if you move the mp3 file
+                 this will still be correct)
+               - Relative Path + Filename - when the image is located in a
+                 subdirectory below the MP3 file (i.e. images\cover.jpg) or
+                 in any directory above the MP3 file (i.e. ..\artist.jpg or
+                 ...\image.jpg - as per dot convency)
+               - Full path + Filename - when the image is located in a
+                 totally different path or drive. This will not work if the
+                 image is moved or drive letters has changed, and so should
+                 be avoided if possible (i.e. c:\images\artist.jpg)
+               <B>Description</B> can be up to 250 chars long.
+               <B>Timestamp</B> must be formatted like the lyrics timestamp
+               which is "[mm:ss]". If an image has a timestamp, then
+               the visible image will automatically switch to that image
+               on the timestamp play time, just the same as the selected
+               lyrics line is switched based on timestamps.
+</PRE>
+<P>The extended Album, Artist and Track are an extension to the fields in the 
+ID3v1 tag - which are limited to 30 chars. If these extended fields exist, make 
+sure their first 30 chars are exactly the same as the ones in the ID3v1 tag. If 
+they are the same, display the extended field. If not, display the one from the 
+ID tag. These 'mismatched' extended fields, should be removed when saving the 
+lyrics tag. </P>
+<P>When saving the extended fields, make sure to copy the first 30 chars of each 
+field to the ID3 tag matching fields. It is recommended NOT to save extended 
+fields at all, if they are not larger then 30 chars. </P>
+<H3>Indications field Structure: </H3><PRE>Offset Bytes  Meaning
+-----  -----  ------------------------------------------------------------
+  0      1    Lyrics found. '1' if an LYR field found in the tag, and '0' if not.
+  1      1    Timestamps used - '1' if Timestamps are used in the LYR tag
+              and '0' if not.
+  2      1    Inhibit tracks for random selection - '1' if inhibited, '0' if not.
+</PRE>
+<P>There must be at least one field in the lyrics3 v2.00. If no field exists the 
+lyrics3 v2.00 tag should not be saved at all. </P>
+<H3>Example:</H3>
+<P>The following includes all the information from AFTER the mp3 data until the 
+ID tag. Please note that unless a [CR] [LF] is at the end of the line, no [CR] 
+or [LF] should be added between lines. </P><PRE>LYRICSBEGIN
+IND00003
+110
+EAL00041
+Album name that is larger then 30 chars !
+EAR00050
+Artist name or band that is larger then 30 chars !
+ETT00042
+Track name which is larger then 30 chars !
+INF00090
+This track was actually recorded in several places around the world[CR][LF]
+and mixed at the US[CR][LF]
+AUT00048
+The lyrics were written by someone.. is it you ?
+IMG00086
+album_cover.jpg||Album cover||[00:10][CR][LF]
+jumping.jpg||He jumps at the audience!||[01:00]
+LYR00630
+[00:02]Let's talk about time[CR][LF]
+[00:02]tickin' away every day[CR][LF]
+[00:05]so wake on up before it's gone away[CR][LF]
+[00:10]catch the 411 and stay up like the sun[CR][LF]
+[00:20]remind yourself what's done and done[CR][LF]
+[00:32]so let yesterday stay with the bygones[CR][LF]
+[00:40]keep your body and soul and your mind on[CR][LF]
+[00:55]the right track infact you gotta stay on[CR][LF]
+[01:20]the real black[CR][LF]
+[CR][LF]
+Chorus:[CR][LF]
+[01:25][05:45]Time is tickin' away[CR][LF]
+[01:42][05:55]you've gotta - live your life -[CR][LF]
+[02:11][06:24]day by day[CR][LF]
+[02:26][06:35]happy or sad, good or bad[CR][LF]
+[02:31][06:42]life is too short[CR][LF]
+[02:58][07:13]you've gotta - keep your head -[CR][LF]
+[03:01][07:19](Repeat)[CR][LF]
+001065LYRICS200
+</PRE>
+<P>The indications field size is three bytes. They are characters '110', which 
+mean that LYR field is to be found in the tag, timestamps are used in it and the 
+track is not inhibited for random selection. <BR>The extended Album text size is 
+41 chars <BR>The extended Artist name size is 50 chars <BR>The extended Track 
+name size is 42 chars <BR>The Additional information size is 90 chars <BR>The 
+Lyrics Author size is 48 chars <BR>The Image file link size is 86 chars <BR>The 
+Lyrics text size is 630 chars <BR>All the fields together (with the 
+'LYRICSBEGIN') is 001064 chars. </P>
+<P>The ID3v1 tag that comes after this example should have : <BR>Album field: 
+'Album name that is larger then' <BR>Artist field: 'Artist name or band that is 
+la' <BR>Title field: 'Track name which is larger the' </P>
+<H3><B>Contact information</B></H3>
+<P>The Lyrics3 Tag specifications were written by <A 
+href="mailto:mp3manager@atlas.cz">Petr Strnad</A> and <A 
+href="mailto:gingold@hiker.org.il">Alon Gingold</A>.</P>
+<HR width="50%">
+
+<H2>ID3v2 &amp; Lyrics3 tags</H2>
+<H3>About Lyrics3 Tag version 2.00 and ID3v2</H3>
+<P>Few reasons, why MP3 Manager 32 does not support ID3v2: 
+<UL>
+  <LI>The ID3v2 system is complicated and its implementation is unproportionally 
+  demanding. 
+  <LI>What's even worse - In my opinion ID3v2 system can be dangerous to 
+  hardware (hard disk): Position ID3v2 tag on beginning of mp3 file implies that 
+  every change in ID3v2 tag requires moving all the stuff that will go after the 
+  new information. So to add or make changes to an existing mp3 file would 
+  require moving all the music data, even if one just changes few bytes in the 
+  tag. But moving around big amounts of data is slow and can cause hard drive 
+  damage. Most people never have a hard disk failure simply because they don't 
+  move much data around often. But with a prefix tag, there would be more moving 
+  than usual. Couple this with the fact that mp3s are generally around 4MB and 
+  you have lots of data moving fairly often. Using any mass-editing function 
+  could then lead to hard disk failure. On the other hand I agree that position 
+  on beginning of file is good for streaming... but most mp3's are played from 
+  HD. <BR><B>Remark:</B> Some people think that hardware (HD) damage by extended 
+  use is impossible. Could anybody point me to any site with real laboratory 
+  tests of HD's? <A name=ID3v2></A>
+  <LI>It will be impossible to detect bitrate from mp3s with ID3v2 added for 
+  helper/playlist/player frontend mp3 software which is non-ID3v2 compliant, 
+  because all such not-directly playing software recognizes bitrate from header 
+  of first frame located on beginning of mp3 file. <A name=ID3v2></A>
+  <LI>I am missing backward compatibility with ID3 Tag v1. Maybe I am wrong, but 
+  I am not able to learn, if both tags should be updated with new data for basic 
+  fields (title, artist...) which are in both ID3v1 and ID3v2 Tag. Will software 
+  have to read/save both tags? What to do if both tags keep different data? <A 
+  name=ID3v2></A>
+  <LI>I really don't think that mp3 file should contain other binary data as 
+  pictures - on the contrary to lyrics text which should be added into mp3 file 
+  because of eliminating FAT space loss. Will you perhaps add image for album 
+  cover into all tracks from album? Linking to local image file is so simple... 
+  </LI></UL><!--Custom content end --></BODY></HTML>

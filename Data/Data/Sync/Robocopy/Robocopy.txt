@@ -1,0 +1,252 @@
+PS F:\Mis Archivos\Test> robocopy
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Herramienta para copia eficaz de archivos
+-------------------------------------------------------------------------------
+
+  Inicio: jueves, 31 de octubre de 201912:40:59
+       Uso sencillo :: ROBOCOPY origen destino /MIR
+
+             origen :: Directorio de origen (unidad:\ruta o
+                       \\servidor\recurso_compartido\ruta).
+            destino :: Directorio de destino  (unidad:\ruta o
+                       \\servidor\recurso_compartido\ruta).
+               /MIR :: Reflejar un árbol de directorios completo.
+
+    Para obtener más información de uso, ejecute ROBOCOPY /?
+
+
+****  /MIR puede tanto ELIMINAR archivos como copiarlos
+PS F:\Mis Archivos\Test> robocopy /?
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Herramienta para copia eficaz de archivos
+-------------------------------------------------------------------------------
+
+  Inicio: jueves, 31 de octubre de 201912:41:18
+                Uso :: ROBOCOPY origen destino [archivo [archivo]...]
+                       [opciones]
+
+             origen :: Directorio de origen  (unidad:\ruta o
+                       \\servidor\recurso_compartido\ruta).
+            destino :: Directorio de destino (unidad:\ruta o
+                       \\servidor\recurso_compartido\ruta).
+            archivo :: Archivos para copiar  (nombres/comodines: el valor
+                       predeterminado es "*.*").
+
+::
+:: Opciones de copia :
+::
+                 /S :: Copiar subdirectorios, pero no los vacíos.
+                 /E :: Copiar subdirectorios, incluidos los vacíos.
+             /LEV:n :: Copiar solo los n niveles superiores del árbol de
+                       directorios de origen.
+
+                 /Z :: Copiar archivos en modo reiniciable.
+                 /B :: Copiar archivos en modo de copia de seguridad.
+                /ZB :: Usar modo reiniciable; si se deniega el acceso, usar
+                       modo de copia de seguridad.
+                 /J :: copiar mediante E/S no almacenada en el búfer
+                       (recomendado para archivos muy grandes).
+            /EFSRAW :: copiar todos los archivos cifrados en modo EFS RAW.
+
+     /COPY:marca(s) :: qué copiar de los archivos (el valor predeterminado
+                       es /COPY:DAT).
+                       (marcas: D=datos, A=atributos, T=marcas de tiempo).
+                       (S=seguridad=ACL NTFS, O=información de propietario,
+                       U=información de auditoría).
+
+
+               /SEC :: copiar archivos con seguridad (equivalente a /COPY:DATS).
+           /COPYALL :: copiar toda la información del archivo
+                       (equivalente a /COPY:DATSOU).
+            /NOCOPY :: no copiar información del archivo (útil con /PURGE).
+            /SECFIX :: corregir seguridad de todos los archivos, incluso
+                       los omitidos.
+            /TIMFIX :: corregir la hora de todos los archivos, incluso los
+                       omitidos.
+
+             /PURGE :: eliminar los archivos y directorios de destino que
+                       ya no existen en el origen.
+               /MIR :: reflejar un árbol de directorios
+                       (equivalente a /E más /PURGE).
+
+               /MOV :: mover archivos (eliminar en el origen después de
+                       copiarlos).
+              /MOVE :: mover archivos y directorios
+                       (eliminar en el origen después de copiarlos).
+
+     /A+:[RASHCNET] :: agregar los atributos dados a los archivos copiados.
+     /A-:[RASHCNET] :: quitar los atributos dados de los archivos copiados.
+
+            /CREATE :: crear solo árbol de directorios y archivos de
+                       longitud cero.
+               /FAT :: crear archivos de destino solo con nombres de
+                       archivo FAT 8.3.
+               /256 :: desactivar compatibilidad con rutas muy largas
+                       (> 256 caracteres).
+
+             /MON:n :: supervisar origen; ejecutar de nuevo cuando se ven
+                       más de n cambios.
+             /MOT:m :: supervisar origen; ejecutar de nuevo en m minutos
+                       si cambia.
+
+      /RH:hhmm-hhmm :: horas de ejecución: cuándo se pueden iniciar
+                       nuevas copias.
+                /PF :: comprobar horas de ejecución por archivo (no por ronda).
+
+             /IPG:n :: intervalo entre paquetes (ms), para liberar ancho
+                       de banda en líneas lentas.
+
+                /SL :: copiar los vínculos simbólicos frente al destino.
+
+            /MT[:n] :: hacer copias multiproceso con n subprocesos
+                       (valor predeterminado: 8).
+                       n debe estar comprendido entre 1 y 128.
+                       Esta opción no es compatible con las
+                       opciones /IPG y /EFSRAW.
+                       Redirija la salida con la opción /LOG para un mejor
+                       rendimiento.
+
+    /DCOPY:marca[s] :: qué copiar para los directorios (el valor
+                       predeterminado es /DCOPY:DA).
+                       (marcas: D=datos, A=atributos, T=marcas de tiempo).
+
+           /NODCOPY :: no copiar información del directorio (de manera
+                       predeterminada, se realiza /DCOPY:DA).
+
+         /NOOFFLOAD :: copia archivos sin usar el mecanismo de descarga
+                       de copia de Windows.
+
+::
+:: Opciones de selección de archivos :
+::
+                 /A :: Copiar sólo archivos con el atributo Archivo
+                       establecido.
+                 /M :: Copiar sólo archivos con el atributo Archivo y
+                       restablecerlo.
+    /IA:[RASHCNETO] :: Incluir solo archivos con alguno de los atributos dados
+                       establecido.
+    /XA:[RASHCNETO] :: Excluir archivos con alguno de los atributos dados
+                       establecido.
+
+ /XF file [arch]... :: Excluir archivos con nombres, rutas o comodines dados.
+ /XD dirs [dirs]... :: Excluir directorios con nombres o rutas dados.
+
+                /XC :: Excluir archivos cambiados.
+                /XN :: Excluir archivos más recientes.
+                /XO :: Excluir archivos más antiguos.
+                /XX :: Excluir archivos y directorios extra.
+                /XL :: Excluir archivos y directorios solos.
+                /IS :: Incluir archivos iguales.
+                /IT :: Incluir archivos modificados.
+
+             /MAX:n :: Tamaño máximo de archivo, excluir archivos con más de
+                       n bytes.
+             /MIN:n :: Tamaño mínimo de archivo, excluir archivos con menos
+                       de n bytes.
+
+          /MAXAGE:n :: Antigüedad máxima de archivo, excluir archivos más
+                       antiguos de n días o fecha.
+          /MINAGE:n :: Antigüedad mínima de archivo, excluir archivos más
+                       nuevos de n días o fecha.
+          /MAXLAD:n :: Fecha máxima del último acceso, excluir archivos no
+                       usados desde n.
+          /MINLAD:n :: Fecha mínima del último acceso, excluir archivos usados
+                       desde n.
+                       (Si n < 1900 entonces n = n días; si no n = fecha
+                       AAAAMMDD).
+
+                /XJ :: excluir puntos de unión y los vínculos simbólicos. (incluidos normalmente de manera predeterminada).
+
+               /FFT :: Asumir la hora de los archivos FAT (granularidad de 2
+                       segundos).
+               /DST :: Compensar diferencias de una hora por horario de verano.
+
+               /XJD :: excluir puntos de unión y los vínculos simbólicos de Directorios.
+               /XJF :: excluir los vínculos simbólicos de Archivos.
+
+                /IM :: incluir archivos modificados (tiempos de cambio diferentes).
+::
+:: Opciones de reintento:
+::
+               /R:n :: Número de reintentos en copias con errores; valor
+                       predeterminado: 1 millón.
+               /W:n :: Tiempo de espera entre reintentos; valor
+                       predeterminado: 30 segundos.
+
+               /REG :: Guardar /R:n y /W:n en el Registro como valores
+                       predeterminados.
+
+               /TBD :: Esperar nombres de recursos compartidos por definir
+                       (error de reintento 67).
+
+::
+:: Opciones de registro:
+::
+                 /L :: Solo mostrar, no copiar, agregar marca de tiempo ni
+                       eliminar archivos.
+                 /X :: Informar de todos los archivos extra, no solo de los
+                       seleccionados.
+                 /V :: Producir resultados detallados, incluidos los archivos
+                       omitidos.
+                /TS :: Incluir marca de tiempo del archivo de origen en el
+                       resultado.
+                /FP :: Incluir ruta de acceso completa de los archivos en el
+                       resultado.
+             /BYTES :: Imprimir tamaños en bytes.
+
+                /NS :: Sin tamaño, no registrar tamaños de archivo.
+                /NC :: Sin clase, no registrar clases de archivo.
+               /NFL :: Sin lista de archivos, no registrar nombres de archivo.
+               /NDL :: Sin lista de directorios, no registrar nombres de
+                       directorio.
+
+                /NP :: Sin progreso, no mostrar porcentaje copiado.
+               /ETA :: Mostrar tiempo estimado de llegada de los archivos
+                       copiados.
+
+       /LOG:archivo :: Incluir estado en archivo LOG (sobrescribir registro
+                       existente).
+      /LOG+:archivo :: Incluir estado en archivo LOG (anexar a registro
+                       existente).
+
+    /UNILOG:archivo :: Incluir estado en archivo LOG como UNICODE
+                       (sobrescribir registro existente).
+   /UNILOG+:archivo :: Incluir estado en archivo LOG como UNICODE (anexar a
+                       registro existente).
+
+               /TEE :: Enviar resultado a ventana de consola y a archivo de
+                       registro.
+
+               /NJH :: Sin encabezado de trabajo.
+               /NJS :: Sin resumen de trabajo.
+
+           /UNICODE :: Mostrar estado como UNICODE.
+
+::
+:: Opciones de trabajo:
+::
+        JOB:trabajo :: Tomar parámetros del archivo JOB nombrado.
+      /SAVE:trabajo :: Guardar parámetros en el archivo de trabajo nombrado
+              /QUIT :: Salir después de procesar la línea de comandos (para
+                       ver parámetros).
+              /NOSD :: No se especifica directorio de origen.
+              /NODD :: NO se especifica directorio de destino.
+                /IF :: Incluir los siguientes archivos.
+
+::
+:: Observaciones :
+::
+       El uso de /PURGE o /MIR en el directorio raíz del volumen anteriormente provocó
+       que robocopy también aplicara la operación solicitada en el directorio
+       de información de volumen del sistema. Este ya no es el caso; tanto
+       si se especifica el uno como el otro, robocopy omitirá cualquier archivo o directorio con ese
+       nombre en los directorios de origen y destino de nivel superior de la sesión de copia.
+
+       La clasificación de archivos modificados se aplica solo cuando tanto los sistemas de archivos
+       de origen como de destino admiten marcas de tiempo cambiantes (por ejemplo, NTFS)
+       y los archivos de origen y de destino tienen horas de cambio diferentes pero
+       son iguales. Estos archivos no se copian de forma predeterminada; es necesario especificar el comando /IM
+       para incluirlos.
+PS F:\Mis Archivos\Test>

@@ -1,0 +1,184 @@
+<HTML>
+<!--This document was exported from FinalWriter 5 word processor for the
+Amiga computers, Copyright (c) Softwood, Inc. 1995, 1996-->
+<!--HTML document export driver V1.0.-->
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 3.0 Win">
+  <TITLE>Web Graphics Tutorial 3</TITLE>
+</HEAD>
+<BODY basefont="3" BGCOLOR="#ffffff">
+
+<P><CENTER><U><FONT SIZE="+3">Graphics for Websites</FONT></U><BR>
+By Steve Greenfield</CENTER></P>
+
+<P>In keeping with the philosophy of content over style, this
+rather dry article on graphics for the web has no graphics. The
+irony does not escape me...</P>
+
+<P>This month we'll cover saving graphics for websites, including
+differences between filetypes and how to have a page that loads
+quickly and looks good. I will not cover anything requiring plug-ins
+for the browser to view. Emphasis will be on compatibility.</P>
+
+<P>When I refer to 'compression', I mean making the finished file
+size smaller, not changing the display size of the graphics.</P>
+
+<P>There are only three basic types of graphics files for web
+pages, although each has several subtypes. Note the requirements
+for naming graphics for websites are strict, because that is how
+most browsers identify the filetype. So each filetype ends in
+.gif, .jpg (or .jpe or .jpeg), or .png. Because many systems on
+the Internet are case-sensitive, I suggest you name all graphics
+files in lower-case only.</P>
+
+<P>When you see an image load by coming in blocky and fuzzy and
+then get progressively more sharp, you are seeing a progressive
+image. All three filetypes support progressive image display.</P>
+
+<P><B>GIF</B> (Graphics Interchange Format) is a palette based
+format similar to IFF ILBMs. GIFs can have a maximum of 256 colors,
+or 8 bits, chosen from a total of 16.7 Million, or 24 bits. GIFs
+can also be animated. They are not a very efficient way of compressing
+graphics with lots of colors, but work very well for graphics
+with few colors, things like logos and buttons. A color may be
+chosen as a transparent color.</P>
+
+<P>If your target audience includes a lot of PC and/or Mac users
+with only 256 color screens, you should use the so-called 216
+color Web Safe Palette for GIFs. PCs and Macs with only 256 colors
+have a fixed palette they can use, after taking out the ones that
+are used by the operating system, the browser itself, and such,
+there are 216 colors that you know won't be altered and so your
+graphics can appear without dithering or correction. That doesn't
+mean that a given image will look good, just that you will see
+it as it will appear on the above mentioned systems. This does
+not affect systems running in 24 bit screens, and has different
+effects on the Amiga's native 256 color AGA, which is capable
+of picking those colors from a 16.7 million color palette.</P>
+
+<P>The GIF format is very well supported, although, due to legal
+problems and technical advances, a freeware format called PNG
+was developed to replace it. Unfortunately, the PNG format hasn't
+caught on.</P>
+
+<P><B>JPG or JPEG</B> (Joint Photographic Experts Group, pronounced
+'jay-peg') is a 24 bit format that can be a very efficient way
+to compress graphics for websites, due to its use of lossy compression.
+The JPEG file format was created to select information that can
+be lost in saving, based on how our eyes respond to details and
+such in pictures. It was developed specifically for photographic
+images, and does not work well on images with large areas of constant
+or slowly changing colors like logos or buttons. You can select
+how much to compress a file, and therefore how much information
+is lost. How visible the degradation of the image is depends on
+the image itself, so there is no TRUE 'rule of thumb' for how
+much to compress graphics this way. Compression may be expressed
+as a percentage of Quality or Compression, some other arbitrary
+method such as 0 to 255 or simply 'Hi Quality', 'Med Quality',
+and 'Low Quality'.</P>
+
+<P>The JPEG format is also very well supported. It is strongly
+suggested that you use only three letters of this as the suffix
+due to MSDOS limitations. The letters JPG are used by convention.</P>
+
+<P><B>PNG</B> (Portable Network Graphics, pronounced 'ping' or
+just 'pee-en-gee') was supposed to be the super-duper graphics
+file format to replace GIF everywhere, and challenge JPEG for
+many purposes. PNG is capable of color depths from two colors,
+or 1 bit, to 16.7 million colors with an Alpha channel, or 32
+bit. PNG format allows progressive loading, and something called
+an Alpha Channel. Alpha Channels allow not only transparent areas
+that don't rely on specific colors in the image, but also allow
+variable transparency, unlike GIF's transparency which only allows
+a pixel to be invisible if it is the selected transparent palette
+color, or fully visible if it is not. The format also supports
+something called Gamma Correction, which is supposed to correct
+how the graphic appears on different systems, i.e., Mac vs PC
+(appears similar to the PC on an Amiga browser).</P>
+
+<P>PNG does an excellent job of compressing without losing any
+information, although since it is -not- lossy, JPEG files may
+still be smaller. Because of its non-lossy compression and variable
+bit depth, it is better than GIF at anything GIF is good at (except
+PNG won't do animations) but you may find it difficult to find
+tools for PNG as advanced as those for working with GIFs.</P>
+
+<P>Like many good things, PNG was first really only well supported
+on Amiga browsers, and even then many of its capabilities are
+not supported. There are few or no programs to create them that
+support all of PNG's features, such as multiple alpha channel
+transparency and gamma correction. For a while, many Amiga sites
+were set up to exclude non-Amiga browsers by use of PNG image
+maps. Mac and PC browsers now do a better job of supporting PNG,
+if you have the latest versions.</P>
+
+<P>To save a graphic for your Website, first you have to decide
+what is the best format to use.</P>
+
+<P>Small solid color graphic buttons tend to save best as GIFs
+or PNGs. Don't just set it to 256 colors and save, it helps if
+you have an image processing program that can count the number
+of different colors to give you a starting point. You can sometimes
+reduce the colors to surprisingly low numbers, especially if your
+graphic button or logo sticks with one or two hues in several
+shades. For instance, the head graphic at the new UPCHUG site,
+www.polyphoto.com/upchug is a GIF with only 16 colors, and only
+15 visible as one is the transparent backdrop color. You will
+have to experiment with the individual graphic to find the lowest
+acceptable number of colors. Usually you want Dithering, but not
+always.</P>
+
+<P>PNG may not be the best format for reaching the maximum number
+of people. If you know that your entire target audience supports
+PNG, then I'd strongly suggest using it instead of GIF. You will
+discover it much harder to find tools to make PNGs, however, and
+if you want an animation then PNG is out.</P>
+
+<P>Large photographic images tend to save smaller and better looking
+as JPEGs than as GIFs, for although GIF is technically a lossless
+format, in order to save as a GIF you must first reduce the colors
+to 256 or less. In order to determine a trade-off between file
+size (compression) and quality, you must experiment with the program
+you are using and the images you are saving as JPEGs.</P>
+
+<P>I find that most Amiga programs overall do an excellent job
+of saving files as JPGs. I use ImageFX, ImageStudio, and Photogenics
+for saving as JPGs, although they are not the only ones suitable.
+Amiga graphics programs tend to use the free example C code from
+the JPEG website for loading and saving as JPEG, and so you will
+find that they use a scale of Quality from 1 (most compression
+and loss) to 100% (least compression and loss). Within this arbitrary
+standard, I have found that images can be compressed quite a bit
+with acceptable JPG artifacts (those squarish noise things in
+overly compressed JPEG images). Many of the images on my commercial
+site, <A HREF="http://www.polyphoto.com/">www.polyphoto.com</A>,
+were set to 50% Quality JPEG in ImageFX 2 or 3, or ImageStudio.</P>
+
+<P>If you are using Photoshop in a Mac or PC emulator to do your
+graphics, well, too bad because Photoshop does a legendarily bad
+job of saving as JPEG. Set to maximum quality, the file sizes
+are huge, set to anything less than max quality and unacceptable
+JPEG artifacts show up, and the file sizes are still quite large.
+Saving as GIF and PNG files can get very tricky with Photoshop,
+depending on the version. You can get PC and Mac programs that
+are just to save for the web, but they tend to cost so much that
+you could buy an entire image processing program like ImageFX
+for your Amiga for the price.</P>
+
+<P>I hope that you have enjoyed this month's Graphics column and
+found it useful. Next month I'm thinking of covering the actual
+creation of graphics for Websites including effects like shadows
+and glows, animations, and creation of good looking logos and
+buttons. You can contact me at <A HREF="mailto:polymorph@polyphoto.com">polymorph@polyphoto.com</A>
+or 253-318-2473, and check out the evolving UPCHUG club website
+at <A HREF="http://www.polyphoto.com/upchug">www.polyphoto.com/upchug</A>.</P>
+
+<P>The above article appeared in the UPCHUG (University Place
+Commodore Home User's Group) Amiga club newsletter, and subsequently
+in several other club newsletters. It has had a few revisions
+and corrections since then as things have changed. If you would
+like permission to use this or other Amiga related articles, you
+must contact me for permission. My usual charge is one free issue.
+
+</BODY>
+</HTML>

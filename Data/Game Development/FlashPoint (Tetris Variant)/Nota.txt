@@ -1,0 +1,1 @@
+Flash Point is similar to the Flash mode in Columns, where you're given a predetermined layout and need to eliminate a single block. 

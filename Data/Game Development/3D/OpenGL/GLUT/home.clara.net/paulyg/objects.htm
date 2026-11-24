@@ -1,0 +1,644 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>New Page 1</title>
+<TITLE>loading objects</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</head>
+
+<body BGCOLOR="#006090" TEXT="#E0E0E0" LINK="#B0D0F0" VLINK="#303030" ALINK="#FFFFFF">
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+      loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">object
+
+      loading</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+      object loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">object
+
+      loading</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+      object loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">objec</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"><br>
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">ding</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">object
+
+      loading</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+      object loading </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+      loading</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+      object loading </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+      loading</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">&nbsp;<br>
+
+      ct loading </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+      loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">object
+
+      loading </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+      loading object loading object lo</font></B></NOBR></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a href="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a HREF="#LWO">loading .lwo objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font></font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">ing</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+      loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">object
+
+      loading</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+      object loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">object
+
+      loading</font><font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+      loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">o</font></B></NOBR></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<P><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>introduction</b>
+
+ </font>It's no use writing 3D applications if we limit ourselves by
+
+constructing objects solely from opengl primitives.&nbsp; It's better to design objects
+
+using a dedicated modeler.&nbsp; These provide the proper tools we need for such
+
+a task.&nbsp; Of course, after we've designed and built our object we need to
+
+load it into opengl.&nbsp; Initially to keep things simple, we'll design a
+
+limited 'object language' that will allow us to load objects and colour
+
+properties.<br>
+
+<br>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2><TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">ing</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+      loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">object
+
+      loading</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+      object loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">object
+
+      loading</font><font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+      loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">o</font></B></NOBR></TABLE>
+
+
+
+  </font>
+
+
+
+</font>
+
+<p><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>issues&nbsp; </b></font><font face="Helvetica, Sans-Serif" size="2">So
+
+how do 'real' object formats store their data? Below is an example of a simple,
+
+easy to parse file format that contains the type of data necessary to record the
+
+shape and properties of an object.&nbsp; To the right is an explanation of the
+
+file format.</font></p>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<table border="0" width="100%">
+
+  <tr>
+
+    <td width="7%" bgcolor="#006090">
+
+      &nbsp;
+
+    </td>
+
+    <td width="31%" bgcolor="#98CCD0">
+
+      <div CLASS="CompText">
+
+        <font color="#305080" size="2" face="Helvetica, Sans-Serif"><b>VERTEX: 8<br>
+
+        -1 1 0<br>
+
+        1 1 0<br>
+
+        1 -1 0<br>
+
+        -1 -1 0<br>
+
+        -1 1 1<br>
+
+        1 1 1<br>
+
+        1 -1 1<br>
+
+        -1 -1 1<br>
+
+        <br>
+
+        MATERIAL: 2<br>
+
+        R: 0.3 G: 0.3 B: 0.6<br>
+
+        R: 0.4 G: 0.4 B: 0.1<br>
+
+        <br>
+
+        FACE: 6<br>
+
+        0 1 2 3 1<br>
+
+        0 4 5 1 1<br>
+
+        3 7 6 2 1<br>
+
+        4 5 6 7 0<br>
+
+        0 4 7 3 1<br>
+
+        1 5 6 2 1</b></font>
+
+      </div>
+
+    </td>
+
+    <td valign="top" width="92%">&nbsp;
+
+
+
+</font>
+
+      <ul>
+
+        <li><font face="Helvetica, Sans-Serif" size="2">You'll notice that the file is divided into three main
+
+          parts, the first deals with vertices.&nbsp; The total number of
+
+          vertices in the object is given at the top - we need this number to
+
+          allocate the required amount of memory.<br>
+
+          The following lines (eight lines in this case) show where the vertices
+
+          are placed in 3D space. Each number will be represented as a GLfloat
+
+          in an array.<br>
+
+          </font></li>
+
+        <li><font face="Helvetica, Sans-Serif" size="2">'Material' tells the parser that a collection of red,
+
+          green, blue triples are coming next.<br>
+
+          Their values are expressed here as GLfloats. In the future these will
+
+          probably be changed to GLubytes - they take up less space.<br>
+
+          </font></li>
+
+        <li><font face="Helvetica, Sans-Serif" size="2">Next is the face component. The keyword will direct
+
+          the parser to enter 'face mode'. A check can done here to test whether
+
+          the correct number of vertices has been read.<br>
+
+          Again the single number is to allocate memory for the object.&nbsp;
+
+          The number of polygons (or faces) is indicated.<br>
+
+          The following numbers are indices to
+
+          elements in the vertex array.&nbsp; Each line represents a polygon.&nbsp;
+
+          The fifth number on each line is an index to the material that this
+
+          polygon will have.</font></li>
+
+      </ul>
+
+    </td>
+
+  </tr>
+
+</table>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<p>So there you have it. A commented, clear (IE no pointer passing) version of
+
+the simple parser is here.</p>
+
+<a href="download/meshload.zip" tppabs="http://home.clara.net/paulyg/download/meshload.zip">
+
+<p><b>[mesh loader]</b></p>
+
+</a>
+
+<p>It works okay as long as you don't throw any dodgy files its way.&nbsp;
+
+Remember we're trying to keep it simple, so there is no error checking.&nbsp;
+
+Notice how it creates the display list and optimises the material properties to
+
+minimise colour state changes...<br>
+
+</p>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">ing</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+      loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">object
+
+      loading</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+      object loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">object
+
+      loading</font><font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+      loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">o</font></B></NOBR></TABLE>
+
+
+
+</font>
+
+
+
+</font>
+
+<p><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b><a HREF="#LWO" name="LWO"></a>lightwave</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>&nbsp;
+
+</b></font>Just to make it clear, I have nothing against lightwave for modeling
+
+and rendering.&nbsp; <b><a href="tte.htm" tppabs="http://home.clara.net/paulyg/tte.htm">[texture tools extortion]</a></b>
+
+explains why lightwave models aren't the best choice for objects in
+
+games.&nbsp;&nbsp;<br>
+
+<br>
+
+</font><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b><a name="MILK"></a>milkshape</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>&nbsp;
+
+</b></font>Okay, so we're smug in the knowledge that this kind of thing actually isn't that difficult. Lets try something a little more challenging.</font></p>
+
+<p><FONT FACE="Helvetica, Sans-Serif" SIZE=2>Firstly read a copy of <b><u><a href="javascript:if(confirm('http://www.swissquake.ch/chumbalum-soft/files/ms3dsdk11.zip  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.swissquake.ch/chumbalum-soft/files/ms3dsdk11.zip'" tppabs="http://www.swissquake.ch/chumbalum-soft/files/ms3dsdk11.zip">[milkshape's file format]</a></u></b>. Now breathe and relax!&nbsp;<br>
+
+Like the program before, we want our function to return a pointer to a display list. This time however we'll be loading textures, mapping them onto surfaces and making normals for smooth shading.<br>
+
+<br>
+
+If we stick to good software engineering principles all of this is not as horrific as it sounds. For starters, a single function like in the previous program wouldn't be any use. We'll need a number of smaller functions collected together to form a library. This helps us reason about the problem in small pieces and ensures that we get each part working properly on its own without the rest of the project to worry about.<br>
+
+If you're new to programming then you should buy a good software engineering book with plenty of examples - the simpler the language the better (IE stay away from
+
+C/C++ for as long as is humanly possible!)<br>
+
+<br>
+
+We're splitting our main task into a few 'subtasks'. These will the basis for
+
+our .c functions that will make up the library. If we're careful about how we separate our functions, adding extra functionality (like normal and texture
+
+coordinate generation) is much easier</font></p>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+  <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">ing</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+        loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">object
+
+        loading</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+        object loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">object
+
+        loading</font><font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">object
+
+        loading </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">o</font></B></NOBR></TABLE>
+
+
+
+</font>
+
+<p align="left"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>story
+
+so far...</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><b><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">&nbsp;
+
+</font></b>The binary filespec. in the SDK appears to be incorrect - either <i>it's</i>
+
+wrong or <i>I'm</i> being incredibly stoopid.&nbsp; So we'll be loading the
+
+ascii version of the files.&nbsp; This isn't what I'd hoped, but its not a total
+
+disaster.
+
+</font></p>
+
+<p align="center"><img border="0" src="graphics/IF.png" tppabs="http://home.clara.net/paulyg/graphics/IF.png" width="510" height="381"></p>
+
+<p align="left"><font face="Helvetica, Sans-Serif" size="2">Now this picture is
+
+the indie fighter from i-war (no, I've never seen it this close either).&nbsp;
+
+You can see that the ship fully textured, we've generated our own normals - lots
+
+of people ask how to do this, so we'll ignore the normals calculated by
+
+milkshape.</font></p>
+
+<p align="left"><font face="Helvetica, Sans-Serif" size="2">The textures for the
+
+Indie Fighter were collected together into one 256x256 image, the benefits of
+
+milkshape's interactive texturecoord editing become clear - as we said in <a href="tte.htm" tppabs="http://home.clara.net/paulyg/tte.htm"><b>
+
+[texture tools extortion]</b></a>, you save on texture memory and on opengl state
+
+changes.</font></p>
+
+<p align="left"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b><a name="SOURCE"></a>first
+
+release</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><b><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">&nbsp;
+
+</font></b>The two zip files below contain everything necessary to load
+
+milkshape ascii files.&nbsp; The code for both libraries is heavily commented
+
+but quite a few new opengl functions are introduced.&nbsp;&nbsp;</font></p>
+
+<font FACE="Helvetica, Sans-Serif" SIZE="2">
+
+<ul>
+
+  <li><a HREF="download/milkdisplaylist.zip" tppabs="http://home.clara.net/paulyg/download/milkdisplaylist.zip"><b>milkshape displaylist loader</b></a>&nbsp; The 'preferred'
+
+    method.&nbsp; We parse the ascii file can lock it all away into a display
+
+    list.&nbsp; Click the link to download the source and exe.<br>
+
+  <li><a HREF="download/milkvertexarrays.zip" tppabs="http://home.clara.net/paulyg/download/milkvertexarrays.zip"><b>milkshape&nbsp; vertex-array loader</b></a>&nbsp;
+
+    Vertex arrays are 'fashionable' at the moment and in all fairness, they can
+
+    have their advantages.&nbsp; Click the link to download the source and exe.<br>
+
+    <b>NOTE:<br>
+
+    </b>You <b>MUST</b> quit the
+
+    program using the escape key to free the memory allocated for the model.&nbsp;
+
+    That's one of the major problems with GLUT, no exit function.
+
+</ul>
+
+<p>You'll want an object with textures to try it out too.&nbsp; The <b><a href="download/milkobj.zip" tppabs="http://home.clara.net/paulyg/download/milkobj.zip">[starship
+
+enterprise]</a></b> has always been a favourite of mine.&nbsp; The screenshots
+
+below were grabbed from the displaylist version of the program.&nbsp; Press '1'
+
+to see the model untextured, you can see more clearly that we generate vertex normals and use
+
+</font>
+
+<font face="Courier New" SIZE="2">
+
+glMaterial
+
+</font>
+
+<font FACE="Helvetica, Sans-Serif" SIZE="2">
+
+ to set emission properties for the deflector dish and running lights.</p>
+
+<table border="0" width="100%">
+
+  <tr>
+
+    <td width="50%">
+
+      <p align="center"><img border="0" src="graphics/1701texture.png" tppabs="http://home.clara.net/paulyg/graphics/1701texture.png" width="258" height="277"></td>
+
+    <td width="50%">
+
+      <p align="center"><img border="0" src="graphics/1701notexture.png" tppabs="http://home.clara.net/paulyg/graphics/1701notexture.png" width="258" height="277"></td>
+
+  </tr>
+
+</table>
+
+</font>
+
+<p><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>&quot;to
+
+do&quot; checklist</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><b><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">&nbsp;
+
+</font></b>There's a few things wrong with this that need fixing:</font></p>
+
+<table border="2" width="100%" bgcolor="#305080" bordercolorlight="#006090" bordercolordark="#006090" bordercolor="#006090" cellspacing="0" cellpadding="2">
+
+  <tr>
+
+    <td width="9%">
+
+      <p align="center"><font face="Helvetica, Sans-Serif" size="1">[done]</font></td>
+
+    <td width="91%"><font face="Helvetica, Sans-Serif" size="2">Smoothed normals
+
+      would be nice.</font></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="9%">
+
+      <p align="center"><font face="Helvetica, Sans-Serif" size="1">[pending]</font></td>
+
+    <td width="91%"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>EVERY surface needs a texture or
+
+    you get garbage mapped on to it.&nbsp; I'm really lazy, a simple</font><FONT face="Courier New" SIZE=2>
+
+    <b> if</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    statement would fix this.</font></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="9%">
+
+      <p align="center"><font face="Helvetica, Sans-Serif" size="1">[pending]</font></td>
+
+    <td width="91%"><font face="Helvetica, Sans-Serif" size="2">Textures need flipping after
+
+    you've mapped them in milkshape.&nbsp; I'm at a loss with this one.&nbsp;
+
+    Once you've mapped your object in milkshape and you run it through the
+
+    loader the textures appear upside down.&nbsp; Just flip them in your art
+
+    package and you'll be fine.&nbsp; You could flip them in the tgaloader (make
+
+    a bit field argument like TGA_FLIP_VERTICAL).&nbsp; It's probably something
+
+    to do with the way milkshape assigns UV coords...</font></td>
+
+  </tr>
+
+  <tr>
+
+    <td width="9%">
+
+      <p align="center"><font face="Helvetica, Sans-Serif" size="1">[pending]</font></td>
+
+    <td width="91%"><font face="Helvetica, Sans-Serif" size="2">Texture names can't have a
+
+    full path.&nbsp; The tgaloader goes funny if the textures you're loading aren't
+
+    in the same directory.</font></td>
+
+  </tr>
+
+</table>
+
+<p><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>the future...</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>&nbsp;&nbsp;</b></font><br>
+
+I'd like to add support for
+
+multipass texturing - lightmaps or damage maps.&nbsp; This is where the vertex
+
+arrays will realy come into their own because the geometry isn't static we can
+
+still play about with it.&nbsp; Keep checking back for more updates.</font></p>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">ion</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">compilation</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> compilation
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">compilation</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      compilation </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">co</font> </B></NOBR></TABLE>
+
+
+
+<P><font size="1"><i><font FACE="Helvetica, Sans-Serif">Website and content,
+
+Paul Groves</font></i></font><i><font face="Helvetica, Sans-Serif" size="1">.<br>
+
+</font></font><font face="Helvetica, Sans-Serif" size="1">Indie Fighter model taken from <a href="javascript:if(confirm('http://www.independencewar.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.independencewar.com/'" tppabs="http://www.independencewar.com/">[Independence
+
+War]</a> Copyright (c) 1999, 2000 <a href="javascript:if(confirm('http://www.particle-systems.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.particle-systems.com/'" tppabs="http://www.particle-systems.com/">[Particle
+
+Systems]</a> and Infogrames.&nbsp; Used with permission.</font></i></BODY>
+
+</html>

@@ -1,0 +1,275 @@
+<HTML><HEAD><TITLE>texture tools extortion</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#303030 ALINK=#FFFFFF>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878>
+
+      <p align="center"><font size="4"><b><nobr><FONT FACE="Helvetica, Sans-Serif" COLOR=#204070>coordinates
+
+      2 <FONT COLOR=#305080>texture coordinates</FONT></FONT><font color="#305080" face="Helvetica, Sans-Serif">
+
+      2</font><FONT FACE="Helvetica, Sans-Serif" COLOR=#204070> texture coordinates
+
+      2 <FONT COLOR=#305080>texture coordinates</FONT></FONT><font color="#305080" face="Helvetica, Sans-Serif">
+
+      2</font><FONT FACE="Helvetica, Sans-Serif" COLOR=#204070> textu</FONT><font face="Helvetica, Sans-Serif" size="4" color="#305080"><br>
+
+      </font><font face="Helvetica, Sans-Serif" color="#204070">na</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">tes
+
+      2</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">texture coordinates
+
+      2</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> texture coordinates
+
+      2 </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">texture coordinates</font><font face="Helvetica, Sans-Serif" color="#305080">
+
+      2</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> texture
+
+      cooi<br>
+
+ </font><FONT face="Helvetica, Sans-Serif" color="#305080">t</font><font color="#305080"><FONT face="Helvetica, Sans-Serif">exture coordinates
+
+      2</font></font><FONT face="Helvetica, Sans-Serif" COLOR="#204070"> texture coordinates
+
+      2 <FONT COLOR=#305080>texture coordinates</FONT></font><font color="#305080" face="Helvetica, Sans-Serif">
+
+      2</font><FONT face="Helvetica, Sans-Serif" COLOR="#204070"> texture coordinates</font></nobr></b></font></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">tes</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">texture coordinates
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">texture coordinates</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> texture coordinates
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">texture
+
+      c</font></B></NOBR></TABLE>
+
+
+
+
+
+<P><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>no lightwave
+
+loader?</b>&nbsp; </font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>If you've been here before then you'll know about my lightwave object loader.  I'm sorry to say that I've put it on temporary hold - I'll keep the source in case I win the lottery or something.<br>
+
+<br>
+
+You see, for lightwave to be any good, you have to pay pounds and pounds for plugins-to-do-this and
+
+plugins-to-do-that. Plus I've only got an ancient
+
+amiga version and fiddling around with emulators and such is a pain (especially
+
+when you have a broken monitor like mine).
+
+
+
+</font>
+
+
+
+
+
+<P><FONT FACE="Helvetica, Sans-Serif" SIZE=2><TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">tes</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">texture coordinates
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">texture coordinates</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> texture coordinates
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">texture
+
+      c</font></B></NOBR></TABLE>
+
+
+
+</font>
+
+
+
+
+
+<P align="left"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>i'm
+
+still not convinced&nbsp; </b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>There is a deeper, even more compelling reason though.  It's the texture coordinates.  Generating our own was a nice little exercise, but it was pretty pointless.  Most developers and artists use special tools to UV map their objects these days.<br>
+
+<br>
+
+Let's look at <a href="javascript:if(confirm('http://www.independencewar.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.independencewar.com/'" tppabs="http://www.independencewar.com/"><b> [independence war's]</b></a> destroyer object again.  The texture map below has lots of wasted
+
+space.&nbsp;&nbsp;The two smaller textures could easily fit into the void.<br>
+
+
+
+</font>
+
+
+
+
+
+<table border="0" width="100%" cellspacing="10">
+
+  <tr>
+
+    <td width="50%"><img border="0" src="graphics/uvbad.jpg" tppabs="http://home.clara.net/paulyg/graphics/uvbad.jpg" width="410" height="256"></td>
+
+    <td width="50%"><img border="0" src="graphics/uvgood.jpg" tppabs="http://home.clara.net/paulyg/graphics/uvgood.jpg" align="right" width="256" height="256"></td>
+
+  </tr>
+
+</table>
+
+
+
+
+
+<P align="left"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+Remember that every time we upload a texture by using
+
+
+
+</font>
+
+<FONT face="Courier New" SIZE=2> glBindTexture
+
+
+
+</font>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2> we are performing an opengl state change
+
+and these can be slow.  If we could put all our little textures into the wasted space around the picture of the hull and somehow fudge the texture coordinates then we wouldn't need half as many separate images.  This saves us
+
+rendering time by cutting down on state changes.&nbsp; Even better, it also saves us valuable texture memory on the
+
+video card.
+
+
+
+</font>
+
+
+
+
+
+<P align="left"><FONT FACE="Helvetica, Sans-Serif" SIZE=2><br>
+
+<a href="javascript:if(confirm('http://www.swissquake.ch/chumbalum-soft/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.swissquake.ch/chumbalum-soft/index.html'" tppabs="http://www.swissquake.ch/chumbalum-soft/index.html"><b>
+
+[milkshape]</b></a> and <a href="javascript:if(confirm('http://www.cinegraphics.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.cinegraphics.net/'" tppabs="http://www.cinegraphics.net/"><b> [uview]</b></a> are two programs that let you assign texture coordinates directly to surfaces.  The difference is that milkshape costs $20, while uview costs $799.  The real stinger is that if you want to use uview with lightwave, the plugin that imports and exports UV coordinates costs a further $99!&nbsp;
+
+Now that my friends, is extortion.
+
+
+
+</font>
+
+
+
+
+
+<P align="center"><img border="0" src="graphics/uvMulti.jpg" tppabs="http://home.clara.net/paulyg/graphics/uvMulti.jpg" width="693" height="216">
+
+
+
+
+
+<P align="left"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>Using a system like the two described above, means
+
+that we can select where the
+
+renderer is too look in the image for the texels.&nbsp; In the three images
+
+above you can see the polygons in each surface have been moved, scaled and
+
+rotated to fit the parts of the image we need.<br>
+
+<br>
+
+If you were hell-bent on reading lightwave files you could write a program that
+
+lets you choose areas to texture map on the image (like in milkshape, above).&nbsp;
+
+These values could be exported as a file containing the size of the bounding
+
+boxes for each of the sub-textures.&nbsp; It wouldn't be that difficult...<br>
+
+<br>
+
+</font>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">tes</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">texture coordinates
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">texture coordinates</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> texture coordinates
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">texture
+
+      c</font></B></NOBR></TABLE>
+
+
+
+<P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font></font><i><font face="Helvetica, Sans-Serif" size="1">.<br>
+
+Destroyer model taken from <a href="javascript:if(confirm('http://www.independencewar.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.independencewar.com/'" tppabs="http://www.independencewar.com/">[Independence
+
+War]</a> Copyright (c) 1999, 2000 <a href="javascript:if(confirm('http://www.particle-systems.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.particle-systems.com/'" tppabs="http://www.particle-systems.com/">[Particle
+
+Systems]</a> and Infogrames.&nbsp; Used with permission.</font></i>
+
+</BODY>

@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxcreatecontextwithconfigsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxcreatecontextwithconfigsgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXCreateContextWithConfigSGIX(3G)			OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXCreateContextWithConfigSGIX - create a new GLX rendering context with
+     specified frame buffer configuration
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLXContext	glXCreateContextWithConfigSGIX(	Display	*dpy,
+						 GLXFBConfigSGIX config,
+						int render_type,
+						GLXContext share_list,
+						Bool direct )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	  Specifies the	connection to the X server.
+
+
+     config	  Specifies the	GLX frame buffer configuration that defines
+		  the frame buffer resources available to the rendering
+		  context.
+
+
+     render_type  Specifies the	type of	rendering context desired. Must	be one
+		  of GLX_RGBA_TYPE_SGIX	or GLX_COLOR_INDEX_TYPE_SGIX.
+
+
+     share_list	  Specifies the	context	with which to share display lists and
+		  texture objects.  NULL indicates that	no sharing is to take
+		  place.
+
+
+     direct	  Specifies whether rendering is to be done with a direct
+		  connection to	the graphics system if possible	(True) or
+		  through the X	server (False).
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXCreateContextWithConfigSGIX creates a GLX rendering context and
+     returns its handle.  If glXCreateContextWithConfigSGIX fails to create a
+     rendering context,	NULL is	returned.
+
+     If	direct is True,	then a direct rendering	context	is created if the
+     implementation supports direct rendering and the connection is to an X
+     server that is local.  If direct is False,	then a rendering context that
+     renders through the X server is always created.  Direct rendering
+     provides a	performance advantage.	However, direct	rendering contexts
+     cannot be shared outside a	single process,	and they cannot	be used	to
+     render to GLX pixmaps.
+
+     If	share_list is not NULL,	then all display-list and texture object
+     indexes and definitions are shared	by context share_list and by the newly
+     created context.  An arbitrary number of contexts can share a single
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXCreateContextWithConfigSGIX(3G)			OpenGL Reference - GLX
+</FONT>
+
+
+     display-list and texture object space, as long as these contexts exist in
+     the same address space.  Two rendering contexts share an address space if
+     both are nondirect	using the same server, or if both are direct and owned
+     by	a single process.  Note	that in	the nondirect case, it is not
+     necessary for the calling threads to share	an address space, only for
+     their related rendering contexts to share an address space.
+
+     The context created by glXCreateContextWithConfigSGIX can be used to
+     render into windows, GLX pixmaps and/or GLX pbuffers. Before rendering,
+     the context must be made current to a thread and GLX drawable by calling
+     glXMakeCurrent. The context can only be made current to a drawable	that
+     is	compatible with	it. This requires the following	conditions to be met:
+
+	  The context's	render_type attribute (either GLX_RGBA_TYPE_SGIX or
+	  GLX_COLOR_INDEX_TYPE_SGIX) is	supported by the GLXFBConfigSGIX that
+	  the drawable was created with. For example, if the context's
+	  render_type attribute	is GLX_RGBA_TYPE_SGIX, then the
+	  GLX_RENDER_TYPE_SGIX attribute of the	drawable's GLXFBConfigSGIX
+	  must have the	GLX_RGBA_BIT_SGIX bit set.
+
+	  All color buffers and	ancillary buffers that exist in	both the
+	  drawable's and context's GLXFBConfigSGIX have	the same depth.	For
+	  example, a GLXFBConfigSGIX that has a	front left buffer and a	back
+	  left buffer with red,	green and blue sizes of	4 is not compatible
+	  with a GLXFBConfigSGIX that has only a front left buffer with	red,
+	  green	and blue sizes of 8. However, it is compatible with a
+	  GLXFBConfigSGIX that has only	a front	left buffer if the red,	green
+	  and blue sizes are 4.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXCreateContextWithConfigSGIX is part of the GLX_SGIX_fbconfig
+     extension.
+
+     A process is a single execution environment, implemented in a single
+     address space, consisting of one or more threads.
+
+     A thread is one of	a set of subprocesses that share a single address
+     space, but	maintain separate program counters, stack spaces, and other
+     related global data.  A thread that is the	only member of its subprocess
+     group is equivalent to a process.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     NULL is returned if execution fails on the	client side.
+
+     BadMatch is generated if the context to be	created	would not share	the
+     address space or the screen of the	context	specified by share_list.
+
+     GLXBadFBConfigSGIX	is generated if	config is not a	valid GLXFBConfig.
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXCreateContextWithConfigSGIX(3G)			OpenGL Reference - GLX
+</FONT>
+
+
+     GLXBadContext is generated	if share_list is not a GLX context and is not
+     NULL.
+
+     BadAlloc is generated if the server does not have enough resources	to
+     allocate the new context.
+
+     BadValue if render_type does not refer to a valid rendering type.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXDestroyContext,	glXIsDirect, glXCreateContext, glXMakeCurrent,
+     glXGetFBConfigAttribSGIX, glXChooseFBConfigSGIX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

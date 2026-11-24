@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glubeginsurface Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glubeginsurface</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluBeginSurface(3G)	       OpenGL Reference		   gluBeginSurface(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluBeginSurface, gluEndSurface - delimit a	NURBS surface definition
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluBeginSurface( GLUnurbs* nurb )
+
+     void gluEndSurface( GLUnurbs* nurb	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     nurb  Specifies the NURBS object (created with gluNewNurbsRenderer).
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Use gluBeginSurface to mark the beginning of a NURBS surface definition.
+     After calling gluBeginSurface, make one or	more calls to gluNurbsSurface
+     to	define the attributes of the surface.  Exactly one of these calls to
+     gluNurbsSurface must have a surface type of GL_MAP2_VERTEX_3 or
+     GL_MAP2_VERTEX_4.	To mark	the end	of the NURBS surface definition, call
+     gluEndSurface.
+
+     Trimming of NURBS surfaces	is supported with gluBeginTrim,	gluPwlCurve,
+     gluNurbsCurve, and	gluEndTrim.  Refer to the gluBeginTrim reference page
+     for details.
+
+     OpenGL evaluators are used	to render the NURBS surface as a set of
+     polygons.	Evaluator state	is preserved during rendering with
+     glPushAttrib(GL_EVAL_BIT) and glPopAttrib(). See the glPushAttrib
+     reference page for	details	on exactly what	state these calls preserve.
+
+
+<FONT COLOR="#0000CC">EXAMPLE
+</FONT>     The following commands render a textured NURBS surface with normals; the
+     texture coordinates and normals are also described	as NURBS surfaces:
+
+
+	  gluBeginSurface(nobj);
+	     gluNurbsSurface(nobj, ...,	GL_MAP2_TEXTURE_COORD_2);
+	     gluNurbsSurface(nobj, ...,	GL_MAP2_NORMAL);
+	     gluNurbsSurface(nobj, ...,	GL_MAP2_VERTEX_4);
+	  gluEndSurface(nobj);
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluBeginCurve, gluBeginTrim, gluNewNurbsRenderer, gluNurbsCurve,
+     gluNurbsSurface, gluPwlCurve
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

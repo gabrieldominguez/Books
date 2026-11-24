@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gldepthmask Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gldepthmask</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glDepthMask(3G)		       OpenGL Reference		       glDepthMask(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glDepthMask - enable or disable writing into the depth buffer
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glDepthMask( GLboolean flag )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     flag  Specifies whether the depth buffer is enabled for writing.  If flag
+	   is zero, depth buffer writing is disabled.  Otherwise, it is
+	   enabled.  Initially,	depth buffer writing is	enabled.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glDepthMask specifies whether the depth buffer is enabled for writing.
+     If	flag is	zero, depth buffer writing is disabled.	 Otherwise, it is
+     enabled.  Initially, depth	buffer writing is enabled.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glDepthMask is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_DEPTH_WRITEMASK
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glColorMask, glDepthFunc, glDepthRange, glIndexMask, glStencilMask
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

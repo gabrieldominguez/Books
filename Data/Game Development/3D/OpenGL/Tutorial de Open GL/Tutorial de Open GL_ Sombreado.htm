@@ -1,0 +1,1291 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/Cabecera+Indice.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>Tutorial de Open GL. Sombreado</TITLE>
+<!-- #EndEditable --> <!-- #BeginEditable "Meta" --> 
+<META CONTENT="ingenieros,informatica,ingenieria,ingeniero,informaticos,colegio,profesional,perito,peritos,auditoria,auditor,consultoria,consultor,informacion,universidad,estudiantes,estudiante,tecnico,diplomado,licenciado,diplomatura,licenciatura" NAME="KEYWORDS">
+<META CONTENT="En este sitio los ingenieros en informatica tienen un lugar de encuentro donde obtener toda la informacion relevante para su profesion. Da cabida a todos los titulados y estudiantes universitarios en informatica de cualquier grado, medio o superior." NAME="DESCRIPTION">
+<META name="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- #EndEditable --> 
+<STYLE TYPE="text/css">
+body         { color: black }
+td           { color: black }
+p            { color: black ; text-align: justify}
+a:link       { color: #330066; text-decoration: underline }
+a:visited    { color: #330066; text-decoration: underline }
+a:hover      { color: red; text-decoration: underline }
+a.smooth:link    {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:visited {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:hover   {  font-family: Verdana, Arial, Helvetica, sans-serif; color: red; font-size: 8pt; text-decoration: none}
+
+</STYLE>
+<script language="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+<!--
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+</HEAD>
+<BODY bgcolor="#FFFFFF" onLoad="MM_preloadImages('../../images/cabecera_r2_c2_f2.gif','../../images/botcab_r1_c02_f2.gif','../../images/botcab_r1_c04_f2.gif','../../images/botcab_r1_c06_f2.gif','../../images/botcab_r1_c08_f2.gif','../../images/botcab_r1_c10_f2.gif','../../images/botcab_r1_c12_f2.gif')" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE width="760" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD height="71"> <!-- #BeginLibraryItem "/Library/cabecera.lbi" --><!-- Fireworks 3.0  Dreamweaver 3.0 LBI target.  Created Tue Oct 03 00:01:17 GMT+0200 (Romance Daylight Time) 2000 -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="cabecera1.png" fwbase="cabecera.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="344" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="340" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td colspan="3"><img name="cabecera_r1_c1" src="../../images/cabecera_r1_c1.gif" width="760" height="50" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="50" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 2 -->
+   <td rowspan="2"><img name="cabecera_r2_c1" src="../../images/cabecera_r2_c1.gif" width="344" height="35" border="0"></td>
+   <td><a href="#" onMouseOut="MM_swapImgRestore();"  onMouseOver="MM_swapImage('cabecera_r2_c2','','../../images/cabecera_r2_c2_f2.gif',1)" ><img name="cabecera_r2_c2" src="../../images/cabecera_r2_c2.gif" width="76" height="16" border="0"></a></td>
+   <td rowspan="2"><img name="cabecera_r2_c3" src="../../images/cabecera_r2_c3.gif" width="340" height="35" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 3 -->
+   <td><img name="cabecera_r3_c2" src="../../images/cabecera_r3_c2.gif" width="76" height="19" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="19" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --></TD>
+  </TR>
+  <TR> 
+    <TD> <!-- #BeginLibraryItem "/Library/botcab.lbi" -->
+<SCRIPT language="JavaScript" type="text/javascript">
+<!--
+     NS4 = (document.layers);
+     IE4 = (document.all);
+    ver4 = (NS4 || IE4);
+	 IE5 = (IE4 && navigator.appVersion.indexOf("5.")!=-1);
+   isMac = (navigator.appVersion.indexOf("Mac") != -1);
+  isMenu = (NS4 || (IE4 && !isMac) || (IE5 && isMac));
+function popUp(){return};
+function popDown(){return};
+if (!ver4) event=null;
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+menuVersion = 3;
+menuWidth = 120;
+childOverlap = 1;
+childOffset = 0;
+perCentOver = null;
+secondsVisible = 0.10;
+clickStart = false;
+clickKill = false;
+fntCol = "#5C7BBC";
+fntSiz = "7";
+fntBold = true;
+fntItal = false;
+fntFam = "Verdana,Arial,Helvetica,sans-serif";
+backCol = "#FFFFFF";
+overCol = "#FFCC33";
+overFnt = "#000000";
+borWid = 1;
+borCol = "#5C7BBC";
+borSty = "solid";
+itemPad = 1;
+imgSrc = "menu/tri.gif";
+imgSiz = 10;
+separator = 0;
+separatorCol = "#5C7BBC";
+isFrames = false;
+keepHilite = true; 
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierArrays.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierMenus.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="botonescabecera.png" fwbase="botcab.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="292" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td><img name="botcab_r1_c01" src="../../images/botcab_r1_c01.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu1');"  onMouseOver="MM_swapImage('botcab_r1_c02','','../../images/botcab_r1_c02_f2.gif',1);popUp('elMenu1',event)" onClick="return false"><img name="botcab_r1_c02" src="../../images/botcab_r1_c02.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c03" src="../../images/botcab_r1_c03.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu2');"  onMouseOver="MM_swapImage('botcab_r1_c04','','../../images/botcab_r1_c04_f2.gif',1);popUp('elMenu2',event)" onClick="return false"><img name="botcab_r1_c04" src="../../images/botcab_r1_c04.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c05" src="../../images/botcab_r1_c05.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu3');"  onMouseOver="MM_swapImage('botcab_r1_c06','','../../images/botcab_r1_c06_f2.gif',1);popUp('elMenu3',event)" onClick="return false"><img name="botcab_r1_c06" src="../../images/botcab_r1_c06.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c07" src="../../images/botcab_r1_c07.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu4');"  onMouseOver="MM_swapImage('botcab_r1_c08','','../../images/botcab_r1_c08_f2.gif',1);popUp('elMenu4',event)" onClick="return false"><img name="botcab_r1_c08" src="../../images/botcab_r1_c08.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c09" src="../../images/botcab_r1_c09.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu5');"  onMouseOver="MM_swapImage('botcab_r1_c10','','../../images/botcab_r1_c10_f2.gif',1);popUp('elMenu5',event)" onClick="return false"><img name="botcab_r1_c10" src="../../images/botcab_r1_c10.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c11" src="../../images/botcab_r1_c11.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu6');"  onMouseOver="MM_swapImage('botcab_r1_c12','','../../images/botcab_r1_c12_f2.gif',1);popUp('elMenu6',event)" onClick="return false"><img name="botcab_r1_c12" src="../../images/botcab_r1_c12.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c13" src="../../images/botcab_r1_c13.gif" width="292" height="16" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --> </TD>
+  </TR>
+</TABLE>
+<!-- #BeginEditable "Region%20editable" --> 
+<TABLE width="761" border="0" cellspacing="0" cellpadding="0" name="Navegacion" height="20" bgcolor="#FFFFFF">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="2" height="3"></TD>
+    <TD><IMG src="../../images/1x1.gif" width="758" height="3"></TD>
+  </TR>
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="1" height="1" ></TD>
+    <TD><A href="http://www.ingenieroseninformatica.org/index.html" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Principal</A> 
+      <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="intro.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none"> 
+      Tutorial de OpenGL</A> <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="cap8.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Capítulo 
+      8</A> </TD>  
+  </TR>
+</TABLE>
+<DIV id="Body" style="position:absolute; width:760px; height:15550px; z-index:3; left: 0px; top: 150px; visibility: visible"> 
+  <div id="Footer" style="position:absolute; width:200px; height:20px; z-index:4; left: 0px; top: 15470px"><!-- #BeginLibraryItem "/Library/Pie de Página.lbi" -->
+<TABLE width="755" border="0" cellspacing="0" cellpadding="1">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="755" height="1"></TD>
+  </TR>
+  <TR> 
+    <TD><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1">Me interesaría 
+      informarme de cómo insertar <A href="../../publicidad.htm">publicidad</A> en 
+      esta página.</FONT></TD>
+  </TR>
+  <TR> 
+    <TD bgcolor="#330066"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">© 
+      2000 IngenierosenInformatica.org</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+      <A href="../../avisolegal.htm"><FONT color="#CCFF33">Aviso legal</FONT></A></FONT></TD>
+  </TR>
+</TABLE>
+<!-- #EndLibraryItem --></div>
+  <div id="Cuerpo" style="position:absolute; width:670px; height:15225px; z-index:4; left: 75px; top: 0px; overflow: visible"> 
+    <P><!-- #BeginLibraryItem "/Library/Tabla cuerpo.lbi" --><TABLE width="610" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD><IMG alt="" border=0 height=1 width=610 src="../../images/1x1.gif"></TD>
+  </TR>
+</TABLE><!-- #EndLibraryItem --><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"></FONT> 
+    <H2><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">8. 
+      Sombreado (E06)</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FF9900"> 
+      </FONT></H2>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Esta función 
+      introduce los conceptos del sombreado. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Para ello el 
+      objeto que se dibuja en pantalla deja el aspecto esquelético que mostraba 
+      en los ejemplos anteriores y pasa a ser de aspecto sólido. También es necesario 
+      introducir el concepto de normales, tanto al polígono, como a los vértices.<BR>
+      </FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Para 
+      que se vea más claro, en el ejemplo se introduce una luz difusa, blanca 
+      y fija (las luces se muestran en el ejemplo siguiente a éste). </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">El sombreado 
+      tiene dos formas, sombreado suave (smooth) y sombreado plano (flat). Para 
+      el sombreado plano, hay que indicar la normal al polígono, mientras que 
+      con el sombrado suave hay que indicar las normales a los vértices. Estas 
+      normales, se calculan, en el ejemplo, a la vez que se crea el objeto, es 
+      decir en la función LoadWaveFront(). </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">También es 
+      necesario definir ciertos parámetros a la hora de dibujar, para que se puedan 
+      apreciar las diferencias entre los dos tipos de sombreado. Estas características 
+      están relacionadas con la manera de construir el objeto, y la forma de representarlo 
+      en pantalla. Así se introduce el buffer de profundidad, que permite que 
+      los polígonos más lejanos se oculten de los más cercanos, también la propiedad 
+      de ocultar caras, de tal forma que las caras no visibles no tengan que pintarse, 
+      ahorrando tiempo en cálculos que no se apreciarían. Estos parámetros se 
+      pueden modificar en el menú, así se puede comprobar los efectos sobre una 
+      misma figura. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Funciones añadidas 
+      en esta aplicación: </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>void 
+          Light ()</B> - Procedimiento en el cual se inicializan todos los elementos 
+          relacionados con las luces y los materiales. Es creado por el programador, 
+          y puede variar el nombre y los parámetros. No es propio de OpenGL. Dentro 
+          se puede observar las siguientes funciones: </FONT> </P>
+        <UL>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glDepthFunc 
+              ( function_test )</B> - Selecciona la verificación de profundidad 
+              para la eliminación de caras ocultas. El argumento indica la función 
+              de comparación del buffer de profundidad que se usará. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>GlClearDepth 
+              ( GLfloat )</B> - Valor con el que se borra el buffer de profundidad. 
+              Indica el valor inicial de referencia en Z. Por defecto OpenGL lo 
+              inicializa a 1.0, que representa la distancia máxima, si la ecuación 
+              elegida es GL_LESS. Sus valores van del 0.0 al 1.0. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glEnable 
+              ( GL_DEPTH_TEST )</B> - Activa la función que controla el buffer 
+              de profundidad.. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glCullFace 
+              ( GL_BACK )</B> - Especifica si hay que eliminar de un polígono 
+              la cara frontal o la trasera. Su argumento puede valer GL_BACK o 
+              GL_FRONT. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glFrontFace 
+              ( GL_CCW )</B> - Especifica qué cara del polígono es la frontal, 
+              según el orden en que se definen los vértices. GL_CCW indica que 
+              están en sentido antihorario, mientras que GL_CW que están en sentido 
+              horario. Es necesario que todos los polígonos se definan en el mismo 
+              orden para evitar ocultar aquellos que no se desean. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glEnable 
+              ( GL_CULL_FACE )</B> - Activa la eliminación de las caras ocultas, 
+              según la opción definida en glCullFace(). Lo que hace es eliminar 
+              los cálculos, así como la iluminación, sombreado etc, de la cara 
+              seleccionada, con lo que se gana velocidad. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glEnable 
+              ( GL_LIGHTING )</B> - Se estudia más adelante en otro ejemplo. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glLightfv 
+              ( GL_LIGHT0, GL_ DIFFUSE, diffuseLight )</B> - Se estudia más adelante 
+              en otro ejemplo. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glLightfv 
+              ( GL_LIGHT0, GL_POSITION, lightPos )</B> - Se estudia más adelante 
+              en otro ejemplo. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glEnable 
+              ( GL_LIGHT0 )</B> - Se estudia más adelante en otro ejemplo. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glEnable 
+              (GL_COLOR_MATERIAL )</B> - Se estudia más adelante en otro ejemplo. 
+              </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glColorMaterial 
+              (GL_FRONT,GL_DIFFUSE )</B> - Se estudia más adelante en otro ejemplo. 
+              </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glEnable 
+              ( GL_NORMALIZE )</B> - Activa la conversión automática de las normales 
+              a normales unidad. </FONT></P>
+          </LI>
+        </UL>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glNormal3f 
+          ( poly->xVNormal[i], poly->yVNormal[i], poly->yVNormal[i] )</B> - Define 
+          una normal a la superficie para el próximo vértice o grupo de vértices 
+          especificados. Se usa para los cálculos de sombreado e iluminación. 
+          La velocidad de generación se mejora especificando normales de longitud 
+          1, para ello se puede activar GL_NORMALIZE ya vista. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glShadeModel 
+          ( GL_SMOOTH ) </B>- Selecciona el tipo de sombreado que se va a realizar. 
+          El argumento puede tomar los valores GL_SMOOT, sombreado suave y GL_FLAT, 
+          sombreado plano. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glDisable 
+          ( GL_CULL_FACE )</B> - Desactiva la opción de eliminación de caras. 
+          </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>GlutChangeToMenuEntry 
+          (4, "Disable Cull Face", 3)</B> - Modifica el nombre del ítem indicado 
+          en el submenu actual. Los ítems se numeran de 1 a glutGet( GLUT_MENU_NUM_ITEMS 
+          ). </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>GLUT_DEPTH</B> 
+          - Se añade el parámetro que activa el buffer de profundidad, al llamar 
+          a la función glutInitDisplayMode. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>GL_DEPTH_BUFFER_BIT</B> 
+          - Se añade el parámetro que indica borrar el buffer de profundidad en 
+          glClear. </FONT></P>
+      </LI>
+    </UL>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Otras funciones 
+      relacionadas con el sombreado o con las propiedades del material de los 
+      polígonos son: </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glPolygonMode 
+          ( cara, modo )</B> - Selecciona el modo en que se generan los polígonos. 
+          Por defecto los polígonos se dibujan en modo sólido por las dos caras. 
+          El primer argumento señala a que cara se va a aplicar, y el segundo 
+          especifica el modo de dibujo, FILL ( sólido), LINE (perfiles) o POINT 
+          (solo los vértices). </FONT></P>
+      </LI>
+    </UL>
+    <P>&nbsp;</P>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">C&oacute;digo 
+      fuente </FONT></H3>
+      
+    <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">E06.c</FONT></H4>
+    <BLOCKQUOTE> 
+      <PRE>
+#include < windows.h >
+#include < GL/gl.h >
+#include < GL/glut.h >
+#include < GL/glu.h >
+
+#include < gc.h >
+#include < list.h >
+#include < polygon.h >
+#include < wavefront.h >
+#include < trfm3D.h >
+#include < Camera.h > 
+#include < E06.h >    
+
+
+
+void Display( void )
+{
+    polygon *poly;
+	int      j = 1;
+	int      i;
+	int      numPol;
+    GLfloat  glMatrix[16];
+	GLint    viewport[4];
+
+	glGetIntegerv( GL_VIEWPORT, viewport ); 
+
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+
+	gluPerspective(FEA_Camera->angle, viewport[2]/viewport[3],
+		           FEA_Camera->front, FEA_Camera->back);  
+
+	glMatrixMode( GL_MODELVIEW );
+	glLoadIdentity();
+
+	glPushMatrix(); 
+
+	SetGlMatrix( FEA_Transform, glMatrix );
+	glLoadMatrixf( glMatrix );
+
+	gluLookAt( 
+FEA_Camera->eyeX,    FEA_Camera->eyeY,    FEA_Camera->eyeZ,
+	FEA_Camera->centerX, FEA_Camera->centerY, FEA_Camera->centerZ,
+	FEA_Camera->upX,     FEA_Camera->upY,     FEA_Camera->upZ); 
+
+
+	glColor3f( 0.0, 1.0, 0.0 );
+
+
+	if ( FEA_Shade == FLAT ) glShadeModel ( GL_FLAT );  // new
+	else glShadeModel ( GL_SMOOTH );  // new
+	
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );	
+
+	
+    /***********************/
+
+	poly = StartLoop( FEA_ListPol );
+
+	numPol = ElementsInList( FEA_ListPol );
+
+	while ( j <= numPol )
+	{ 
+		
+		if (poly->numVert == 2) 
+		{ 
+			glColor3f( 1.0f, 0.0f, 0.0f);
+			glBegin( GL_LINES );
+				glVertex3f( poly->xCoor[0], poly->yCoor[0], 
+poly->zCoor[0] );
+glVertex3f( poly->xCoor[1], poly->yCoor[1], 
+poly->zCoor[1] );
+			glEnd();
+		}
+		else
+		{
+			glColor3f( 0.0f, 1.0f, 0.0f);
+			glBegin( GL_POLYGON );
+			
+			if ( FEA_Shade == FLAT ) 
+			{
+				glNormal3f( poly->normalVector->xnv, 
+				        	poly->normalVector->ynv, 
+						poly->normalVector->znv );
+			}
+			for ( i=0; i < poly->numVert; i++ )
+			{
+				if ( FEA_Shade == SMOOTH ) 
+				{
+					glNormal3f( poly->xVNormal[i], 
+poly->yVNormal[i], 
+poly->yVNormal[i] ); 
+				}
+				glVertex3f( poly->xCoor[i], poly->yCoor[i], 
+poly->zCoor[i] );
+			}
+			glEnd();
+
+		}
+		j++;
+		poly=GetNext( FEA_ListPol );
+	}
+
+	glPopMatrix();
+	glutSwapBuffers();
+}
+
+
+void CalculateMaxMin ( )  
+{
+
+    polygon *poly;
+	int      j = 1;
+	int      i;
+	int      numPol;
+
+	poly = StartLoop( FEA_ListPol );
+
+	numPol = ElementsInList( FEA_ListPol );
+
+	FEA_maxX    = poly->xCoor[1];
+FEA_minX    = poly->xCoor[1];
+    	FEA_maxY    = poly->yCoor[1];
+    	FEA_minY    = poly->yCoor[1];
+    	FEA_maxZ    = poly->zCoor[1];
+    	FEA_minZ    = poly->zCoor[1];
+
+	while ( j <= numPol )
+	{ 
+		for ( i=0; i < poly->numVert; i++ )
+		{
+			if ( FEA_maxX < poly->xCoor[i] ) 
+FEA_maxX = poly->xCoor[i];
+			if ( FEA_minX > poly->xCoor[i] ) 
+FEA_minX = poly->xCoor[i];
+			if ( FEA_maxY < poly->yCoor[i] ) 
+FEA_maxY = poly->yCoor[i];
+			if ( FEA_minY > poly->yCoor[i] ) 
+FEA_minY = poly->yCoor[i];
+			if ( FEA_maxZ < poly->zCoor[i] ) 
+FEA_maxZ = poly->zCoor[i];
+			if ( FEA_minZ > poly->zCoor[i] ) 
+FEA_minZ = poly->zCoor[i];
+		}
+		j++;
+		poly=GetNext( FEA_ListPol );
+	}
+}
+
+
+
+void Resize( int w, int h )
+{
+	glClearColor(1.0, 1.0, 1.0, 1.0);
+
+	glViewport( 0, 0, w, h );
+
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+
+gluPerspective(FEA_Camera->angle, w/h, FEA_Camera->front, 
+FEA_Camera->back);
+
+	glMatrixMode( GL_MODELVIEW );
+	glLoadIdentity();
+
+	glutPostRedisplay();
+
+}
+
+//******************************************************************
+//				LUCES Y MATERIALES
+//******************************************************************
+
+void Light ()   // new
+{
+
+
+	GLfloat diffuseLight[] = { 0.8f, 0.8f, 0.8f, 1.0f };
+	GLfloat lightPos[]     = { 100.0f, 100.0f, 100.0f, 1.0f };
+
+	glDepthFunc( GL_GREATER );  
+// utilizada por el buffer de profundidad 
+	glClearDepth(0.0);
+	glEnable( GL_DEPTH_TEST );
+
+
+	glCullFace (GL_BACK);
+	glFrontFace (GL_CCW);
+	glEnable( GL_CULL_FACE );
+
+	// definimos las luces
+
+	glEnable( GL_LIGHTING );
+
+	glLightfv( GL_LIGHT0, GL_DIFFUSE, diffuseLight );
+	glLightfv( GL_LIGHT0, GL_POSITION, lightPos );
+	glEnable( GL_LIGHT0 );
+
+	glEnable (GL_COLOR_MATERIAL );
+
+	glColorMaterial (GL_FRONT,GL_DIFFUSE );
+	
+	glEnable(GL_NORMALIZE);
+
+
+}
+
+
+
+//******************************************************************
+//				INTERACCION (Teclado / menu)
+//******************************************************************
+
+
+void Keyboard ( unsigned char key, int x, int y)
+{
+	switch( key )
+	{
+	case 27: // <ESC>
+		exit(0);
+		break;
+	}
+	glutPostRedisplay();
+}
+
+
+
+static void SpecialKey(int k, int x, int y) 
+{
+	switch(k) 
+	{
+	case GLUT_KEY_UP:
+		{
+		if (FEA_Action == CAM_MERI_PARAL ) 
+CamMeridiam ( FEA_Camera, 1.0 );
+		else if (FEA_Action == CAM_TILT_ZOOM ) 
+CamZoom ( FEA_Camera, -1.0 );
+		}
+		break;
+	case GLUT_KEY_DOWN:
+		{
+		if (FEA_Action == CAM_MERI_PARAL ) 
+CamMeridiam ( FEA_Camera, -1.0 );
+		else if (FEA_Action == CAM_TILT_ZOOM ) 
+CamZoom ( FEA_Camera, 1.0 );
+		}
+		break;
+	case GLUT_KEY_RIGHT:
+		{
+		if (FEA_Action == CAM_MERI_PARAL ) 
+CamParalell ( FEA_Camera, 1.0 );
+		else if (FEA_Action == CAM_TILT_ZOOM ) 
+CamTilt ( FEA_Camera, 1.0 );
+		}
+		break;
+	case GLUT_KEY_LEFT:
+		{
+		if (FEA_Action == CAM_MERI_PARAL ) 
+CamParalell ( FEA_Camera, -1.0 );
+		else if (FEA_Action == CAM_TILT_ZOOM ) 
+CamTilt ( FEA_Camera, -1.0 );
+		}
+		break;
+	case GLUT_KEY_F1:
+		FEA_Action = CAM_MERI_PARAL;
+		break;
+	case GLUT_KEY_F2:
+		FEA_Action = CAM_TILT_ZOOM;
+		break;
+	case GLUT_KEY_F3:
+		CamReset( FEA_Camera );
+		break;
+	default:
+		break;
+	}
+	glutPostRedisplay();
+}
+
+//***********************  MENU  ****************************
+
+void MainMenu (int opcion)
+{
+	switch( opcion )
+	{
+		case 0:  exit(0);
+			break;
+	}
+}
+
+
+void MenuCamera (int identificador)
+{ 
+	switch( identificador)
+	{
+	case 0: FEA_Action = CAM_MERI_PARAL;
+		break;
+	case 1: FEA_Action = CAM_TILT_ZOOM;
+		break;
+	case 2: CamReset( FEA_Camera);
+		break;
+	}
+	glutPostRedisplay();
+}
+
+void MenuShade (int identificador)
+{ 
+	switch( identificador)
+	{
+	case 0: 
+		if ( FEA_Shade == FLAT )
+		{
+			FEA_Shade = SMOOTH;
+			glutChangeToMenuEntry(1, "FLAT", 0);  // new
+		}
+		else
+		{
+			FEA_Shade = FLAT;
+			glutChangeToMenuEntry(1, "SMOOTH", 0);  // new
+		}
+		break;
+	}
+	glutPostRedisplay();
+}
+
+void MenuView (int identificador)
+{ 
+	switch( identificador)
+	{
+	case 0: 
+		if (FEA_Depth == DEPTH_DISABLE )
+		{
+			glEnable( GL_DEPTH_TEST );
+			glutChangeToMenuEntry(1, "Disable Depth Test", 0);  // new
+			FEA_Depth = DEPTH_ENABLE;
+			printf("Enable DEPTH_TEST  \n");
+		}
+		else
+		{
+			glDisable( GL_DEPTH_TEST );
+			glutChangeToMenuEntry(1, "Enable Depth Test", 0);  
+// new
+			FEA_Depth = DEPTH_DISABLE;
+			printf("Disable DEPTH_TEST  \n");
+		}
+		break;
+	case 1:
+		if (FEA_Test == GL_LESS)
+		{ 
+			glDepthFunc( GL_GREATER );  		
+		glutChangeToMenuEntry(2, "Test = LESS", 1);  // new
+			FEA_Test = GL_GREATER;
+			glClearDepth(0.0);
+			printf("GREATER \n");
+		}
+		else	
+		{	
+			glDepthFunc( GL_LESS );
+			glutChangeToMenuEntry(2, "Test = GREATER", 1);  
+// new
+			FEA_Test = GL_LESS;
+			glClearDepth(1.0);
+			printf("LESS \n");
+		}
+		break;
+
+	case 2:
+		if (FEA_Face == FACE_FRONT )
+		{
+			glCullFace (GL_BACK);
+			glutChangeToMenuEntry(3, "Front", 2);  // new
+			FEA_Face = FACE_BACK;
+			printf("CullFace = BACK \n");
+		}
+		else
+		{
+			glCullFace (GL_FRONT);
+			glutChangeToMenuEntry(3, "Back", 2);  // new
+			FEA_Face = FACE_FRONT;
+			printf("CullFace = FRONT \n");
+		}
+		break;
+	case 3:
+		if ( FEA_Front == FRONT_CW )
+		{
+			glFrontFace (GL_CCW);
+			glutChangeToMenuEntry(4, "CW", 3);  // new
+			FEA_Front = FRONT_CCW;
+			printf("FrontFace = CCW \n");
+		}
+		else
+		{
+			glFrontFace (GL_CW);
+			glutChangeToMenuEntry(4, "CCW", 3);  // new
+			FEA_Front = FRONT_CW;
+			printf("FrontFace = CW \n");
+		}
+		break;
+	case 4:
+		if ( FEA_Cull == CULL_DISABLE )
+		{
+			glEnable( GL_CULL_FACE );
+			glutChangeToMenuEntry(5, "Disable Cull Face", 4);  
+// new
+			FEA_Cull = CULL_ENABLE;
+			printf("Enable CULL_FACE \n");
+		}
+		else
+		{
+			glDisable( GL_CULL_FACE );
+			glutChangeToMenuEntry(5, "Enable Cull Face", 4);  
+// new
+			FEA_Cull = CULL_DISABLE;
+			printf("Disable CULL_FACE \n");
+		}
+		break;
+	}
+	glutPostRedisplay();
+}
+
+
+void Menu ()
+{
+
+	int camMenu;
+	int shadeMenu;
+	int viewMenu;
+
+
+	viewMenu = glutCreateMenu (MenuView);
+	glutAddMenuEntry( "Disable Depth Test", 0 );
+	glutAddMenuEntry( "Test = LESS", 1 );
+	glutAddMenuEntry( "Front", 2 );
+	glutAddMenuEntry( "CW", 3 );
+	glutAddMenuEntry( "Disable Cull Face", 4 );
+
+	camMenu = glutCreateMenu ( MenuCamera );
+	glutAddMenuEntry( "Paralell / Meridiam  F1", 0 );
+	glutAddMenuEntry( "Zoom / Tilt          F2", 1 );
+	glutAddMenuEntry( "Reset Camera         F3", 2 );
+
+
+	shadeMenu = glutCreateMenu ( MenuShade );
+	glutAddMenuEntry( "SMOOTH", 0 );
+
+	glutCreateMenu( MainMenu );
+	glutAddSubMenu ( "Model View", viewMenu );
+	glutAddSubMenu ( "Camara", camMenu );
+	glutAddSubMenu ( "Shade", shadeMenu );
+	glutAddMenuEntry( "Salir", 0 );
+
+	glutAttachMenu( GLUT_RIGHT_BUTTON );
+}
+
+
+/*****************************************************************/
+//			 MAIN	//
+/*****************************************************************/
+
+int main(int argc, char** argv){
+
+	char fileName[100];
+	strcpy( fileName, "File.obj" );	
+
+	FEA_Transform = CreateTrfm3D();
+
+	FEA_ListPol = CreateVoidList();
+	LoadWavefront( fileName, FEA_ListPol );
+
+	CalculateMaxMin();  
+
+	FEA_Camera = CamCreate ( FEA_maxX, FEA_maxY, FEA_maxZ,
+		                     FEA_minX, FEA_minY, FEA_minZ); 
+	
+	glutInit( &argc, argv );
+	glutInitDisplayMode ( GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH );  // new Depth
+	glutInitWindowSize ( WIDTH, HEIGHT );
+	glutInitWindowPosition ( 100, 100 );
+	glutCreateWindow("E06: Sombreado ");
+
+	Menu();
+
+	Light();
+	
+	glutDisplayFunc( Display );
+	glutKeyboardFunc( Keyboard );
+	glutReshapeFunc( Resize );
+	glutSpecialFunc( SpecialKey );
+
+	glutMainLoop();
+	return 0;   
+}
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        E06.h</FONT><BR>
+      </H4>
+      <PRE>
+#ifndef E06_H
+#define E06_H
+
+
+
+#include < GL/glut.h >
+
+
+#include < list.h >
+#include < trfm3D.h >
+#include < Camera.h >
+
+
+#define WIDTH  400		/* Ancho ventanas en pixels */
+#define HEIGHT 400		/* Alto ventanas en pixels */
+
+#define SMOOTH 101
+#define FLAT   102
+
+
+// Keyboard actions
+#define CAM_MERI_PARAL  105
+#define CAM_TILT_ZOOM   106
+
+// Material State
+#define DEPTH_ENABLE	200 
+#define DEPTH_DISABLE	201 
+#define FACE_BACK		202 
+#define FACE_FRONT		203 
+#define FRONT_CCW		204 
+#define FRONT_CW		205 
+#define CULL_ENABLE		206 
+#define CULL_DISABLE	207
+
+// state data
+static GLfloat  FEA_Red     = 0.0f;
+static GLfloat  FEA_Green   = 0.0f;
+static GLfloat  FEA_Blue    = 0.0f;
+static int      FEA_Action  = CAM_MERI_PARAL;
+static int		FEA_Shade   = FLAT;
+
+static int		FEA_Depth	= DEPTH_ENABLE;
+static GLenum	FEA_Test	= GL_GREATER;
+static int		FEA_Face	= FACE_BACK;
+static int		FEA_Front	= FRONT_CCW;
+static int		FEA_Cull	= CULL_ENABLE;
+
+static GLfloat  FEA_maxX;
+static GLfloat  FEA_minX;
+static GLfloat  FEA_maxY;
+static GLfloat  FEA_minY;
+static GLfloat  FEA_maxZ;
+static GLfloat  FEA_minZ;
+
+// model data
+static trfm3D  *FEA_Transform;
+static list    *FEA_ListPol;
+static camera  *FEA_Camera;
+
+#endif /* E06.h *//</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        Polygon.h</FONT><BR>
+      </H4>
+      <PRE>
+#ifndef POLYGON_H
+#define POLYGON_H
+
+#ifndef TRUE
+#define TRUE 1
+#endif
+
+#ifndef FALSE
+#define FALSE 0
+#endif
+
+#include < trfm3D.h >
+
+typedef struct _UnitVector
+{
+    float          xnv;
+    float          ynv;
+    float          znv;
+} unitVector;
+void        DestroyUnitVector( unitVector * );
+unitVector *CreateUnitVector( float x, float y, float z);
+float Escalar( unitVector *thisVector, unitVector *two );
+
+typedef struct _Polygon
+{
+    int           numVert;
+    unitVector   *normalVector; /* unit vector normal to polygon */
+    float        *xCoor; 
+/* from 0 to numVert, numVert is the initial point */
+    float        *yCoor;
+    float        *zCoor;
+    float        *xVNormal;
+    float        *yVNormal;
+    float        *zVNormal;
+ 
+} polygon;
+void     DestroyPolygon( polygon * );
+polygon *CreatePolygon( int numVert, float *x, float *y, float *z );
+polygon *CopyPolygon( polygon *other, int order ); // FALSE inverts vertex order
+
+void AddVertsNormals( polygon *thisPolygon, 
+float *x, float *y, float *z );
+
+/* se le pasan los arrays ya construidos */
+void     SetPolygonNormal( polygon * );
+
+#endif /* POLYGON_H */
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        Polygon.c</FONT><BR>
+      </H4>
+      <PRE>
+
+#include < stdlib.h >
+#include < math.h >
+#include < gc.h >
+#include < polygon.h >
+
+void DestroyUnitVector( unitVector *thisVector )
+{
+    free( thisVector );
+}
+
+unitVector *CreateUnitVector( float x, float y, float z)
+{
+    double       modulo;
+    unitVector  *newUnitVector;
+
+    newUnitVector = (unitVector *) malloc( sizeof(unitVector) * 1 );
+
+    modulo = x*x + y*y + z*z;
+    if( modulo > MIN_FLOAT ) 
+        modulo = 1.0 / sqrt( modulo );
+    else
+        modulo = 1.0;
+
+    newUnitVector->xnv = x * (float) modulo;
+    newUnitVector->ynv = y * (float) modulo;
+    newUnitVector->znv = z * (float) modulo;
+    return newUnitVector;
+}
+
+float Escalar( unitVector *thisVector, unitVector *two )
+{
+    float producto;
+
+    producto = thisVector->xnv * two->xnv + 
+               thisVector->ynv * two->ynv + 
+               thisVector->znv * two->znv;
+
+    return producto;
+}
+
+void DestroyPolygon( polygon *thisPolygon )
+{
+    free( thisPolygon->xCoor );
+    free( thisPolygon->yCoor );
+    free( thisPolygon->zCoor );
+    if( thisPolygon->xVNormal ) {
+        free( thisPolygon->xVNormal );
+        free( thisPolygon->yVNormal );
+        free( thisPolygon->zVNormal );
+ 
+    }
+    DestroyUnitVector( thisPolygon->normalVector );
+    free( thisPolygon );
+}
+
+polygon *CreatePolygon( int numVert, float *x, float *y, float *z )
+{
+    polygon  *newPolygon;
+
+    newPolygon = (polygon *) malloc( sizeof(polygon) * 1 );
+    newPolygon->numVert   = numVert;
+    newPolygon->xCoor     = x;
+    newPolygon->yCoor     = y;
+    newPolygon->zCoor     = z;
+    newPolygon->xVNormal  = NULL;
+    newPolygon->yVNormal  = NULL;
+    newPolygon->zVNormal  = NULL;
+
+    SetPolygonNormal( newPolygon );
+
+    return newPolygon;
+}
+
+polygon *CopyPolygon( polygon *thisPolygon, int order )
+{
+    polygon  *newPolygon;
+    float    *xx,  *yy,  *zz;
+    int       i;
+    int       nv;
+
+    nv = thisPolygon->numVert;
+    xx = (float *) malloc( sizeof( float ) * nv+1 );
+    yy = (float *) malloc( sizeof( float ) * nv+1 );
+    zz = (float *) malloc( sizeof( float ) * nv+1 );
+
+    if( order ) {
+        for ( i=0; i < nv+1; i++ ) {
+            xx[i] = thisPolygon-> xCoor[i];
+            yy[i] = thisPolygon->yCoor[i];
+            zz[i] = thisPolygon->zCoor[i];
+        }
+    }
+    else {
+        for ( i=0; i < nv+1; i++ ) {
+            xx[i] = thisPolygon-> xCoor[nv-i];
+            yy[i] = thisPolygon->yCoor[nv-i];
+            zz[i] = thisPolygon->zCoor[nv-i];
+        }
+    }
+
+    newPolygon = CreatePolygon( nv, xx, yy, zz );
+
+    return newPolygon;
+}
+
+void AddVertsNormals( polygon *thisPolygon, float *x, float *y, float *z )
+{
+    int  nn;
+
+    if( thisPolygon->xVNormal ) {
+        free( thisPolygon->xVNormal );
+        free( thisPolygon->yVNormal );
+        free( thisPolygon->zVNormal );
+    }
+    else {
+        nn = thisPolygon->numVert;
+    }
+    thisPolygon->xVNormal = x;
+    thisPolygon->yVNormal = y;
+    thisPolygon->zVNormal = z;
+}
+
+void SetPolygonNormal( polygon *thisPolygon )
+{
+    int         nv;
+    float      *xp, *yp, *zp;
+    float       A,   B,   C;
+ 
+    A = B = C = 0;
+
+    nv = thisPolygon->numVert;
+    xp = thisPolygon->xCoor;
+    yp = thisPolygon->yCoor;
+    zp = thisPolygon->zCoor;
+
+	A = yp[1]*(zp[2]-zp[3]) + yp[2]*(zp[3]-zp[1]) + 
+yp[3]*(zp[1]-zp[2]);
+	B = zp[1]*(xp[2]-xp[3]) + zp[2]*(xp[3]-xp[1]) + 
+zp[3]*(xp[1]-xp[2]);
+	C = xp[1]*(yp[2]-yp[3]) + xp[2]*(yp[3]-yp[1]) + 
+xp[3]*(yp[1]-yp[2]);
+
+    thisPolygon->normalVector = CreateUnitVector( A, B, C );
+}
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        Gc.h</FONT>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap6.htm">E04</A></PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        List.h</FONT>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap5.htm">E03</A>.</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        List.c</FONT>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap5.htm">E03</A>.</PRE>
+      <H4><FONT color="#FF9900" face="Verdana, Arial, Helvetica, sans-serif">
+        WaveFront.c</FONT>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap6.htm">E04</A>.</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        WaveFront.h</FONT>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap6.htm">E04</A></PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        Camera.h</FONT>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap7.htm">E05</A>.</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        Camera.c</FONT>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap7.htm">E05</A>
+
+
+    </PRE>
+      </BLOCKQUOTE>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+      Ventana Output. (Visual C++)</FONT><BR>
+    </H3>
+    <TABLE width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+      <TR>
+        <TD><IMG src="cap8_1.gif" width="552" height="213"></TD>
+      </TR>
+    </TABLE>
+    <P> <FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Muestra el 
+      resultado de la compilacion y la construccion del ejecutable.</FONT></P>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">Ventana 
+      Workspace. (Visual C++)</FONT></H3>
+    <TABLE width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+      <TR>
+        <TD><IMG src="cap8_2.gif" width="289" height="360"></TD>
+      </TR>
+    </TABLE>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Muestra los 
+      ficheros de los que consta el ejemplo</FONT> </P>
+    <BLOCKQUOTE>
+      <PRE>&nbsp;
+</PRE>
+    </BLOCKQUOTE>
+    <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+      <TR>
+        <TD>
+          <DIV align="center"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"><A href="cap7.htm">Anterior</A> 
+            | <A href="intro.htm">Indice</A> | <A href="cap9.htm">Siguiente</A></FONT> 
+          </DIV>
+        </TD>
+      </TR>
+    </TABLE>
+    <P>&nbsp;</P>
+  </div>
+</DIV>
+<!-- #EndEditable --> 
+</BODY>
+<!-- #EndTemplate -->
+</HTML>
+<!-- Start SuperStats code version 3.0a. -->
+<script language="JavaScript">
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_1333267&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</script> <noscript>
+<img src="http://stats.superstats.com/b.cgi?u=hmv_1333267&z=1&fg=2" border=0 width=1 height=1>
+</noscript>
+<!-- End SuperStats tracking code. -->

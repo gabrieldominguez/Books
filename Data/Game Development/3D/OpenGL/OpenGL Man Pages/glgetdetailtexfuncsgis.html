@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetdetailtexfuncsgis Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetdetailtexfuncsgis</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetDetailTexFuncSGIS(3G)     OpenGL Reference	    glGetDetailTexFuncSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetDetailTexFuncSGIS - get detail texture scaling function
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetDetailTexFuncSGIS( GLenum target,
+				  GLfloat *points )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  The texture whose detail texture scaling function is to be
+	     retrieved.	 Must be GL_TEXTURE_2D.
+
+     points  A pointer to a floating-point array which receives	the retrieved
+	     detail texture function.  Each pair of elements in	the array
+	     receives an LOD (level-of-detail) value and a scaling function
+	     value.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetDetailTexFuncSGIS retrieves the detail texture scaling function
+     samples specified by glDetailTexFuncSGIS.	See glDetailTexFuncSGIS	for a
+     discussion	of detail texturing.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The number	of elements in points may be queried by	calling
+     glGetTexParameter with target set to GL_TEXTURE_2D	and pname set to
+     GL_DETAIL_TEXTURE_FUNC_POINTS_SGIS.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not an allowable	value.
+
+     GL_INVALID_OPERATION is generated if glGetDetailTexFuncSGIS is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems detail texturing	may
+     not be used when rendering	to pixmaps.
+
+     RealityEngine, RealityEngine2, and	VTX systems do not support
+     glGetDetailTexFuncSGIS correctly.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDetailTexFuncSGIS.
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

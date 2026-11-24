@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxdestroyglxvideosourcesgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxdestroyglxvideosourcesgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXDestroyGLXVideoSourceSGIX(3G)			OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXDestroyGLXVideoSourceSGIX - destroy a GLX video	source
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glXDestroyGLXVideoSourceSGIX(	Display	*dpy,
+					GLXVideoSourceSGIX videosource )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	  The connection to the	X server on which the GLX video	source
+		  was created.
+
+     videosource  The GLX video	source to be destroyed.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     If	the GLX	video source videosource is not	current	to any client,
+     glXDestroyGLXVideoSourceSGIX destroys it immediately.  Otherwise,
+     videosource is destroyed when it becomes not current to any client.  In
+     either case, the resource ID is freed immediately.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXDestroyGLXVideoSourceSGIX is part of the SGIX_video_source extension.
+     See glXintro for more information about GLX extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLXBadDrawable is generated if videosource	is not a valid GLX video
+     source.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateGLXVideoSourceSGIX, glXMakeCurrentReadSGI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,783 @@
+<HTML><HEAD><TITLE>program two</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#E0E0E0 ALINK=#FFFFFF>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070>source <FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </FONT></NOBR></B></font><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">sour<br>
+
+    urce </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source&nbsp;<br>
+
+    </font></B></NOBR><font face="Helvetica, Sans-Serif" size="4"><b><nobr><font color="#204070">u
+
+    </font><FONT face="Helvetica, Sans-Serif" size=4 COLOR="#204070"><FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font size="4" color="#204070">source </font><font size="4" color="#305080">source</font><font size="4" color="#204070">
+
+    source</font><font size="4" color="#305080"> source </font><font color="#204070">source
+
+    </font><font color="#305080">sou</font></nobr></b></font></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font></font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<P align="left"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b><a href="download/program2.zip" tppabs="http://home.clara.net/paulyg/download/program2.zip">[program
+
+two]</a></b></font><font face="Helvetica, Sans-Serif" size="2" color="#E0E0E0">&nbsp;
+
+</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>This program renders a glu sphere with lighting. Rather than repeating the whole code, I'll only detail the
+
+changes I've made to program1 or any new lines/functions.&nbsp;&nbsp;<br>
+
+Print out the source file from the zip and keep it
+
+handy, that way you'll be able to tell what's going on properly.
+
+
+
+</font>
+
+<P align="center"><FONT FACE="Helvetica, Sans-Serif" SIZE=2><br>
+
+<img border="0" src="graphics/prog2.gif" tppabs="http://home.clara.net/paulyg/graphics/prog2.gif" width="258" height="277">
+
+<br>
+
+
+
+</font>
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+ </B></NOBR><NOBR><B><font face="Helvetica, Sans-Serif" size="4"><font color="#305080"> 
+
+      </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<p class="BodyText">After we've declared the standard include files we create
+
+some global variables to hold our lighting and object rotation data.<br>
+
+The floats on line 1 store the angle of rotation for the sphere object.&nbsp;
+
+The integers on line 3 store data for glut's window interaction mechanism (more on
+
+that later).&nbsp; The variable array on line 5 sets the colour for the ambient
+
+light in the scene.&nbsp; Line 6 is the colour for the light source in the
+
+scene.&nbsp; Finally line 7 stores the position from the origin for the
+
+light.&nbsp; These variables will be used later to setup the illumination model.</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; <b>float</b> angle, angle2;<br>
+
+[2]<br>
+
+[3]&nbsp;&nbsp;&nbsp; <b>int</b> moving, startx, starty;<br>
+
+[4]<br>
+
+[5]&nbsp;&nbsp;&nbsp; <b>float</b>  ambient_light[] = {0.3, 0.3, 0.45, 1.0};<br>
+
+[6]&nbsp;&nbsp;&nbsp;<b> float</b> source_light[]&nbsp; = {0.9, 0.8, 0.8, 1.0};<br>
+
+[7]&nbsp;&nbsp;&nbsp; <b>float</b>      light_pos[]&nbsp;&nbsp;&nbsp;&nbsp; = {7.0, 0.0, 0.0, 1.0};<br>
+
+
+
+</font>
+
+<hr>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<p class="BodyText">In this program the &quot;init&quot; function has to set up
+
+the illumination model.&nbsp; We enable
+
+
+
+</font>
+
+
+
+
+
+<FONT face="Courier New" SIZE=2>
+
+
+
+
+
+ GL_LIGHTING
+
+
+
+</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+ at line 5 and set the
+
+lighting model (see the manual) in the subsequent lines.&nbsp; </font><FONT face="Courier New" SIZE=2>GL_COLOR_MATERIAL
+
+
+
+</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+is also required for lighting to work, so we enable that on line 11.&nbsp;
+
+Finally line 14 enables 'culling' back facing polygons - hopefully speeding up
+
+the rendering.&nbsp; Lighting is pretty complex and I'm not going into much
+
+detail here, so read the linked manual pages.</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; <b>void</b> init ( <b>void</b> )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+<font color="#E0E0E0">[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable (
+
+GL_DEPTH_TEST );<br>
+
+[4]<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable       ( GL_LIGHTING );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/lightmodel.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/lightmodel.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/lightmodel.html" target="_blank">glLightModelfv</a> (
+
+GL_LIGHT_MODEL_AMBIENT, ambient_light );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/light.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/light.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/light.html" target="_blank">glLightfv</a>      ( GL_LIGHT0,
+
+GL_DIFFUSE,&nbsp; source_light );<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLightfv      ( GL_LIGHT0,
+
+GL_POSITION, light_pos&nbsp;&nbsp;&nbsp; );<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable&nbsp; ( GL_LIGHT0 );<br>
+
+[10]<br>
+
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable        ( GL_COLOR_MATERIAL );<br>
+
+[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/colormaterial.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/colormaterial.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/colormaterial.html" target="_blank">glColorMaterial</a> ( GL_FRONT, GL_AMBIENT_AND_DIFFUSE );<br>
+
+[13]<br>
+
+[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable&nbsp;&nbsp;&nbsp;&nbsp; ( GL_CULL_FACE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+);<br>
+
+[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glClearColor ( 0.0, 0.0, 0.0, 0.0 );</font><br>
+
+[16]&nbsp;&nbsp; }<br>
+
+
+
+</font>
+
+<hr>
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>The next function,
+
+&quot;draw_earth&quot; renders a solid filled glu sphere.&nbsp; Line 3 pops a
+
+new matrix onto the stack (so subsequent transformations effectively start from
+
+a new 'origin').&nbsp;&nbsp;<br>
+
+Line 4 rotates anything we draw 90 degrees in the X axis.&nbsp; We do this
+
+because glu spheres are rendered on their side by default and look a bit
+
+silly.&nbsp;&nbsp;<br>
+
+Line 5 changes the current colour to pure white.&nbsp; Line 6 sets up the
+
+variable &quot;q&quot; to store the quadric glu sphere (don't worry about that
+
+at this stage).&nbsp; The next two lines set the draw style of the quadric
+
+object &quot;q&quot;.&nbsp; Line 9 draws the sphere, using quadric
+
+&quot;q&quot;, a radius of 1.0 and 20 vertical and horizontal slices.&nbsp;
+
+Finally, line 11 pops back to the previous transformation matrix.&nbsp;</font>
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; <b>void</b> draw_earth ( <b>void </b>)<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPushMatrix ( );<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/rotate.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/rotate.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/rotate.html" target="_blank">glRotatef</a>    ( 90.0, 1.0, 0.0, 0.0 );<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/color.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/color.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/color.html" target="_blank">glColor4f</a>    ( 1.0, 1.0, 1.0, 1.0 );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLUquadricObj*    q = <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/newquadric.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/newquadric.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/newquadric.html" target="_blank"> gluNewQuadric</a>&nbsp;
+
+( );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/quadricdrawstyle.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/quadricdrawstyle.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/quadricdrawstyle.html" target="_blank">gluQuadricDrawStyle</a> ( q, GLU_FILL&nbsp;&nbsp;
+
+);<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/quadricnormals.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/quadricnormals.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/quadricnormals.html" target="_blank">gluQuadricNormals</a>&nbsp;&nbsp; ( q, GLU_SMOOTH );<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/sphere.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/sphere.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/sphere.html" target="_blank">gluSphere</a> ( q, 1.0, 20, 20 );<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/deletequadric.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/deletequadric.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/deletequadric.html" target="_blank">gluDeleteQuadric</a> ( q );<br>
+
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPopMatrix ( );<br>
+
+[12]&nbsp;&nbsp;&nbsp; }<br>
+
+
+
+</font>
+
+<hr>
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>&quot;display&quot;
+
+has changed somewhat.&nbsp; We clear the screen and depth buffer as before, but
+
+this time we also set the light position.&nbsp; Then we move the drawing
+
+position -4.0
+
+units along the Z axis.&nbsp; This is analogous to moving a 'camera' +4.0 units
+
+in the Z axis and viewing our objects from there.<br>
+
+Lines 7 and 8 rotate the current transformation
+
+matrix in the X and Y axes.&nbsp; The variables angle and angle2 are altered by
+
+other functions.</font>
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; <b>void</b> display ( <b>void</b>
+
+)<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glClear ( GL_COLOR_BUFFER_BIT |
+
+GL_DEPTH_BUFFER_BIT );<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLightfv ( GL_LIGHT0,GL_POSITION,light_pos );<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPushMatrix   ( );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/translate.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/translate.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/translate.html" target="_blank">glTranslatef</a> ( 0.0, 0.0, -4.0 );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef  ( angle2, 1.0, 0.0, 0.0 );<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef  ( angle, 0.0, 1.0, 0.0  );<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw_earth&nbsp; ( );<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPopMatrix  ( );<br>
+
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutSwapBuffers ( );<br>
+
+[12]&nbsp;&nbsp; }<br>
+
+</font>
+
+<hr>
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">glut has
+
+callbacks for mouse/window interaction.&nbsp; The following function is called
+
+when the mouse is over the glut window.&nbsp; If the left button is pressed, a
+
+global variable &quot;moving&quot; is set to true and the current X and Y window
+
+positions are stored.</font>
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; <b>void</b> mouse ( <b> int</b> button, <b> int</b> state,
+
+<b> int</b> x, <b> int</b> y )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b> ( button == GLUT_LEFT_BUTTON &amp;&amp; state == GLUT_DOWN )<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; moving = 1;<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; startx = x;<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starty = y;<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;</b> <b>if</b> ( button == GLUT_LEFT_BUTTON &amp;&amp; state == GLUT_UP )<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; moving = 0;<br>
+
+[11]&nbsp;&nbsp; }<br>
+
+</font> 
+
+<hr>
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">When the mouse
+
+is moving over the glut window the current X and Y positions are subtracted from
+
+the mouse's initial start position (which was stored when &quot;mouse&quot; was
+
+called).&nbsp; That value, which we should call the delta value - or change - is
+
+added the existing 'angle' variables.&nbsp; The current X and Y become the new
+
+'start' X and Y.&nbsp; Finally, we force glut to immediately redraw the screen.<br>
+
+<br>
+
+Don't worry too much about the specifics of these two mouse-motion
+
+functions.&nbsp; Functions like these aren't exclusive to glut/opengl.&nbsp; Any
+
+Windows program that tracks the mouse has to do a similar thing.</font>
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; <b>void</b> motion ( <b> int</b> x, <b> int</b> y )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b> ( moving )<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; angle&nbsp;
+
+= angle&nbsp; + ( x - startx );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; angle2 = angle2 +
+
+( y - starty );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; startx = x;<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; starty = y;<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+glutPostRedisplay();<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+
+[11]&nbsp;&nbsp; }<br>
+
+</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<hr>
+
+<p class="BodyText">The idle function is called once every system update when
+
+OpenGL isn't doing anything else.&nbsp;
+
+We use it here to update the axial rotation of our ball, the value of which is
+
+stored in the variable &quot;angle&quot;.&nbsp; The <b>if </b>statement keeps
+
+the value in range.&nbsp; As before, </font>
+
+
+
+
+
+<FONT face="Courier New" SIZE=2>
+
+
+
+
+
+ glutPostRedisplay</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+ orders an immediate
+
+redraw.&nbsp;</font>
+
+<p class="code"><font face="Courier New" size="2">[1]&nbsp;&nbsp;&nbsp; <b>void</b> idle_func ( <b> void</b> )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; angle = angle + 0.1;<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (angle == 360)&nbsp;<br>
+
+[5]&nbsp;&nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font face="Courier New" size="2">angle = 0;<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutPostRedisplay ( );<br>
+
+[7]&nbsp;&nbsp;&nbsp; }<br>
+
+</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<hr>
+
+<p class="BodyText">The 'main loop'
+
+is very similar, it just adds lines for the new mouse, motion and idle callbacks
+
+- (Lines 9, 10 and 14)
+
+<p class="code"></font><font face="Courier New" size="2">[1]&nbsp;&nbsp;&nbsp; <b>int</b> main ( <b> int</b> argc,
+
+<b>char</b>** argv )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutInit ( &amp;argc, argv );<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutInitDisplayMode ( GLUT_RGB | GLUT_DOUBLE );<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutInitWindowSize  ( 250, 250 );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutCreateWindow    ( argv[0] );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; init ( );<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutReshapeFunc  ( reshape&nbsp; );<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutMouseFunc&nbsp;&nbsp; ( mouse&nbsp;&nbsp;&nbsp;
+
+);<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutMotionFunc&nbsp; ( motion&nbsp;&nbsp;
+
+);<br>
+
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutKeyboardFunc( keyboard  );<br>
+
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutDisplayFunc  ( display&nbsp; );<br>
+
+[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutIdleFunc     ( idle_func );<br>
+
+[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutMainLoop ( );<br>
+
+[16]<br>
+
+[17]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>return</b> 0;<br>
+
+[18]&nbsp;&nbsp; }
+
+</font>
+
+
+
+
+
+<p>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+  <P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font>
+
+
+
+</font>
+
+</BODY>

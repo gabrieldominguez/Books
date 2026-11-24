@@ -1,0 +1,1000 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp -->
+<HTML><HEAD><TITLE>The Code Project - GLUT Window Template - OpenGL</TITLE><!-- START Insight XE-->
+<SCRIPT language=JavaScript> 
+var if_Site_ID = "ipro"; 
+var if_sid="1"; 
+var if_protocol=window.location.protocol; 
+var mep1="&Site="+escape("codeproject.com"); 
+</SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="GLUT Window Template - OpenGL_files/ipro_if.js"></SCRIPT>
+<!-- END Insight XE-->
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META 
+content="This program sets up an OpenGL window on any platform using the GLUT library." 
+name=Description>
+<META 
+content="Free source code, OpenGL, Visual C++, MFC, Windows, window glut GL Utility Toolkit template" 
+name=keywords>
+<META 
+content="Article content copyright Ali BaderEddin, 2005, everthing else Copyright © CodeProject, 1999-2005, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK href="/favicon.ico" type=image/ico 
+rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="GLUT Window Template - OpenGL_files/global.css" type=text/css 
+rel=stylesheet>
+<SCRIPT language=javascript 
+src="GLUT Window Template - OpenGL_files/oncopy.js"></SCRIPT>
+
+<META content="MSHTML 6.00.2800.1505" name=GENERATOR></HEAD>
+<BODY oncopy="return copyCode();" text=black vLink=purple aLink=red link=blue 
+bgColor=white leftMargin=3 topMargin=3>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE cellSpacing=1 cellPadding=0 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD vAlign=top><A href="http://www.codeproject.com/"><IMG height=72 
+            alt="The Code Project" 
+            src="GLUT Window Template - OpenGL_files/logo225x72.gif" width=225 
+            border=0></A></TD>
+          <TD align=right><SPAN id=AdBanner4>
+            <TABLE cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD><A class=AdLink 
+                  href="http://www.codeproject.com/script/admentor/ads.asp">View 
+                  our advertisers</A></TD>
+                <TD align=right><A class=AdLink 
+                  href="http://www.codeproject.com/info/mediakit">Advertise with 
+                  us</A></TD></TR>
+              <TR>
+                <TD colSpan=2>
+                  <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=1202&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FMainsoft%5Fhorizontal03a%2Egif&C=False&id=1202\" alt=\"Visual Studio .NET on Linux\" border=0 width=468 height=60></a>");</SCRIPT>
+                </TD></TR></TBODY></TABLE></SPAN></TD></TR>
+        <TR>
+          <TD bgColor=#fbedbb colSpan=2>
+            <TABLE cellPadding=3 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%"><FONT style="FONT-SIZE: 8pt"><A 
+                  href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+                  href="http://www.codeproject.com/?cat=2">MFC / C++</A> 
+                  &gt;&gt; <A 
+                  href="http://www.codeproject.com/opengl/">OpenGL</A> &gt;&gt; 
+                  <A 
+                  href="http://www.codeproject.com/opengl/#General">General</A></FONT><BR><BR><B><FONT 
+                  style="FONT-SIZE: 16pt" size=4>GLUT Window 
+                  Template</FONT></B><BR><B>By <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?id=2040670">Ali 
+                  BaderEddin</A> </B><BR><BR><FONT style="FONT-SIZE: 9pt">This 
+                  program sets up an OpenGL window on any platform using the 
+                  GLUT library.&nbsp;</FONT> </TD>
+                <TD vAlign=top align=right>
+                  <TABLE cellSpacing=0 cellPadding=1 width=200 border=0>
+                    <TBODY>
+                    <TR vAlign=top>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText>C++ (VC5, VC6)<BR>Windows (NT4, 
+                        Win2K, WinXP, Win95, Win98)<BR>Win32, VS (VS5, VS6), 
+                        OpenGL<BR>Dev</TD></TR>
+                    <TR>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText noWrap>Posted 21 Jul 2005 1:17</TD></TR>
+                    <TR vAlign=top>
+                      <TD><IMG height=16 
+                        src="GLUT Window Template - OpenGL_files/hlp.gif" 
+                        width=16></TD>
+                      <TD class=SmallText noWrap><A 
+                        href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=2040670">Articles 
+                        by this author</A></TD></TR>
+                    <TR vAlign=top>
+                      <TD></TD>
+                      <TD class=SmallText noWrap><B>1,025</B> 
+                    views</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE id=tblSiteToolbar cellSpacing=0 cellPadding=1 width="100%" 
+            border=0>
+              <TBODY>
+              <TR>
+                <FORM name=Search action=/info/search.asp method=post>
+                <TD vAlign=top align=left width="100%">
+                  <TABLE cellSpacing=0 cellPadding=1 border=0>
+                    <TBODY>
+                    <TR vAlign=center>
+                      <TD class=smallText><B><FONT 
+                        color=white>Search:</FONT></B></TD>
+                      <TD class=navbar noWrap><INPUT class=smallText 
+                        maxLength=255 size=18 name=target></TD>
+                      <TD vAlign=top><SELECT class=smallText name=st> 
+                          <OPTION value=kw selected>Articles</OPTION> <OPTION 
+                          value=au>Authors</OPTION></SELECT></TD>
+                      <TD><INPUT class=formButton type=submit value=Go></TD></TR></TBODY></TABLE></TD></FORM>
+                <TD>
+                  <DIV id=MenuPos 
+                  style="WIDTH: 380px; POSITION: relative; HEIGHT: 20px">
+                  <TABLE height=20 cellSpacing=0 cellPadding=2 width=375>
+                    <TBODY>
+                    <TR>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                        Boards</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/store/">StoreFront</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+            <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+            <SCRIPT src="GLUT Window Template - OpenGL_files/cpmenu_var.js" 
+            type=text/javascript></SCRIPT>
+
+            <SCRIPT src="GLUT Window Template - OpenGL_files/menu10_com.js" 
+            type=text/javascript></SCRIPT>
+          </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=1 border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD vAlign=top bgColor=#fbedbb rowSpan=2>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <SCRIPT language=javascript>
+function ErrorHandle() {}
+window.onerror = ErrorHandle;
+
+function OnNLSubmit(option)
+{
+	if (option=="up")
+		document.subForm.action = "/script/profile/modify.asp?ct=%2Fopengl%2FGLUT%5FWINDOW%5FTEMPLATE%2Easp";
+	else if (option=="in")
+		document.subForm.action = "/script/profile/process_logon.asp?ct=%2Fopengl%2FGLUT%5FWINDOW%5FTEMPLATE%2Easp";
+	document.subForm.submit();
+	return true;
+}
+</SCRIPT>
+
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=3 cellPadding=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=InfoBarHeader>Toolbox</TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="GLUT Window Template - OpenGL_files/space.gif" 
+              width=1></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Window Template - OpenGL_files/sitebuild_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=GLUT%5FWINDOW%5FTEMPLATE%2Fopengl7%2F21%2F2005">Broken 
+                  Article?</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Window Template - OpenGL_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>VS.NET 2003 from 
+                  $899</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Window Template - OpenGL_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>Ultimate Toolbox 
+                  $499</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Window Template - OpenGL_files/print.gif" 
+                width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?print=true" 
+                  target=_print>Print version</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Window Template - OpenGL_files/link.gif" 
+width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fopengl%2FGLUT%5FWINDOW%5FTEMPLATE%2Easp&amp;guid=GLUT%5FWINDOW%5FTEMPLATE%2Fopengl7%2F21%2F2005">Bookmark 
+                  this</A></TD></TR></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Window Template - OpenGL_files/mail.gif" 
+width=16></TD>
+                <TD class=SmallText><A 
+                  href="http://www.codeproject.com/script/recommend/form.asp?guid=GLUT%5FWINDOW%5FTEMPLATE%2Fopengl7%2F21%2F2005">Send 
+                  to a friend</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=InfoBarHeader>My Profile</TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="GLUT Window Template - OpenGL_files/space.gif" 
+              width=1></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Window Template - OpenGL_files/profile_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/modify.asp?ct=/opengl/GLUT_WINDOW_TEMPLATE.asp">My 
+                  Settings</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Window Template - OpenGL_files/submit_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+                  Articles</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Window Template - OpenGL_files/bookmarks.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+                  Bookmarks</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Window Template - OpenGL_files/logoff_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/logoff.asp?ct=/opengl/GLUT_WINDOW_TEMPLATE.asp">Sign 
+                  out</A></TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="GLUT Window Template - OpenGL_files/space.gif" 
+              width=1></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=1201&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FMainsoft%5Fvertical03%2Egif&C=False&id=1201\" alt=\"Visual Studio .NET on Linux\" border=0 width=120 height=600></a>");</SCRIPT>
+            <BR></CENTER><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=5 rowSpan=2><IMG height=1 
+      src="GLUT Window Template - OpenGL_files/space.gif" width=5> </TD>
+    <TD align=right width="100%" bgColor=white>
+      <TABLE width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText vAlign=top noWrap></TD>
+          <TD noWrap align=right><A name=__top></A>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=smallText align=right>5 members have rated this 
+                  article. Result:</TD>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 border=2>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=5 
+                        src="GLUT Window Template - OpenGL_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="GLUT Window Template - OpenGL_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="GLUT Window Template - OpenGL_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="GLUT Window Template - OpenGL_files/red.gif" 
+                        width=9 border=0><IMG height=5 
+                        src="GLUT Window Template - OpenGL_files/white.gif" 
+                        width=11 border=0></TD>
+                      <TD><IMG height=5 
+                        src="GLUT Window Template - OpenGL_files/white.gif" 
+                        width=20 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=smallText align=right colSpan=2><A 
+                  title="Calculated as rating x Log10(# votes)" 
+                  href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                  2.41</A>. Rating: <B>3.45</B> out of 
+        5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD vAlign=top width="100%">
+      <DIV id=contentdiv><!-- Article Starts -->
+      <UL class=download>
+        <LI><A 
+        href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE/Program_1_exe.zip">Download 
+        demo project - 33.3 Kb</A> 
+        <LI><A 
+        href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE/Program_1_src.zip">Download 
+        source - 2.87 Kb</A> </LI></UL>
+      <P><IMG height=450 src="GLUT Window Template - OpenGL_files/view_1.jpg" 
+      width=600></P>
+      <H2>Introduction</H2>
+      <P>This program sets up an OpenGL window on any platform using the GLUT 
+      library. GLUT stands for GL Utility Toolkit. This program just displays a 
+      window on the screen. The background color of the window is set to black. 
+      You can use this code as a template for your OpenGL programs so that you 
+      never have to write the same code every time you want to set up an OpenGL 
+      window. The code is fully commented...</P>
+      <H2>Using the code</H2><PRE><SPAN class=cpp-literal>1</SPAN>     <SPAN class=cpp-comment>//*************************************************************************</SPAN>
+<SPAN class=cpp-literal>2</SPAN>     <SPAN class=cpp-comment>//</SPAN>
+<SPAN class=cpp-literal>3</SPAN>     <SPAN class=cpp-comment>//  File Name: Glut Window Template</SPAN>
+<SPAN class=cpp-literal>4</SPAN>     <SPAN class=cpp-comment>//  Author   : Ali BaderEddin</SPAN>
+<SPAN class=cpp-literal>5</SPAN>     <SPAN class=cpp-comment>//  </SPAN>
+<SPAN class=cpp-literal>6</SPAN>     <SPAN class=cpp-comment>//  Description: Just opening a window using GLUT library...</SPAN>
+<SPAN class=cpp-literal>7</SPAN>     <SPAN class=cpp-comment>//  </SPAN>
+<SPAN class=cpp-literal>8</SPAN>     <SPAN class=cpp-comment>//*************************************************************************</SPAN>
+
+<SPAN class=cpp-literal>9</SPAN>
+<SPAN class=cpp-literal>10</SPAN>    #include &lt;gl/glut.h&gt;
+<SPAN class=cpp-literal>11</SPAN>
+<SPAN class=cpp-literal>12</SPAN>    <SPAN class=cpp-comment>// Link the lib files to the program. This is not necessary </SPAN>
+<SPAN class=cpp-literal>13</SPAN>    <SPAN class=cpp-comment>// if you have added the lib names using Project/Settings/Link</SPAN>
+<SPAN class=cpp-literal>14</SPAN>    #pragma comment (lib, <SPAN class=cpp-string>"opengl32.lib"</SPAN>)
+<SPAN class=cpp-literal>15</SPAN>    #pragma comment (lib, <SPAN class=cpp-string>"glut32.lib"</SPAN>)
+<SPAN class=cpp-literal>16</SPAN>    #pragma comment (lib, <SPAN class=cpp-string>"glu32.lib"</SPAN>)
+<SPAN class=cpp-literal>17</SPAN>
+<SPAN class=cpp-literal>18</SPAN>    <SPAN class=cpp-comment>//  define the window position on screen</SPAN>
+<SPAN class=cpp-literal>19</SPAN>    <SPAN class=cpp-keyword>int</SPAN> window_X_position;
+<SPAN class=cpp-literal>20</SPAN>    <SPAN class=cpp-keyword>int</SPAN> window_Y_position;
+<SPAN class=cpp-literal>21</SPAN>
+<SPAN class=cpp-literal>22</SPAN>    <SPAN class=cpp-comment>//  variables representing the window size</SPAN>
+<SPAN class=cpp-literal>23</SPAN>    <SPAN class=cpp-keyword>int</SPAN> window_width = <SPAN class=cpp-literal>512</SPAN>;
+<SPAN class=cpp-literal>24</SPAN>    <SPAN class=cpp-keyword>int</SPAN> window_height = <SPAN class=cpp-literal>512</SPAN>;
+<SPAN class=cpp-literal>25</SPAN>
+<SPAN class=cpp-literal>26</SPAN>    <SPAN class=cpp-comment>//  variable representing the window title</SPAN>
+<SPAN class=cpp-literal>27</SPAN>    <SPAN class=cpp-keyword>char</SPAN> *window_title = <SPAN class=cpp-string>"Lesson 1"</SPAN>;
+<SPAN class=cpp-literal>28</SPAN>
+<SPAN class=cpp-literal>29</SPAN>    <SPAN class=cpp-comment>//  Tells whether to display the window full screen or not</SPAN>
+<SPAN class=cpp-literal>30</SPAN>    <SPAN class=cpp-comment>//  This is a boolean, but you know C doesn't support boolean.</SPAN>
+<SPAN class=cpp-literal>31</SPAN>    <SPAN class=cpp-comment>//  Press Alt + Esc to exit a full screen.</SPAN>
+<SPAN class=cpp-literal>32</SPAN>    <SPAN class=cpp-keyword>int</SPAN> fullScreen = <SPAN class=cpp-literal>0</SPAN>;
+<SPAN class=cpp-literal>33</SPAN>
+<SPAN class=cpp-literal>34</SPAN>    <SPAN class=cpp-comment>//  Function that initializes some values that won't change</SPAN>
+<SPAN class=cpp-literal>35</SPAN>    <SPAN class=cpp-comment>//  throughout the program...</SPAN>
+<SPAN class=cpp-literal>36</SPAN>    <SPAN class=cpp-keyword>void</SPAN> init (<SPAN class=cpp-keyword>void</SPAN>);
+<SPAN class=cpp-literal>37</SPAN>
+<SPAN class=cpp-literal>38</SPAN>    <SPAN class=cpp-comment>//  This function is used to display all the graphics objects</SPAN>
+<SPAN class=cpp-literal>39</SPAN>    <SPAN class=cpp-comment>//  on the screen. It is the most important function in OpenGL.</SPAN>
+<SPAN class=cpp-literal>40</SPAN>    <SPAN class=cpp-comment>//  Don't be confused, you can give 'display' another name like 'foo'...</SPAN>
+<SPAN class=cpp-literal>41</SPAN>    <SPAN class=cpp-comment>//  This function gains its importance when you write the command</SPAN>
+<SPAN class=cpp-literal>42</SPAN>    <SPAN class=cpp-comment>//  glutDisplayFunc (display) or glutDisplayFunc (foo) in function 'main'.</SPAN>
+<SPAN class=cpp-literal>43</SPAN>    <SPAN class=cpp-keyword>void</SPAN> display (<SPAN class=cpp-keyword>void</SPAN>);
+<SPAN class=cpp-literal>44</SPAN>
+<SPAN class=cpp-literal>45</SPAN>    <SPAN class=cpp-comment>//  This function centers your window on the screen</SPAN>
+<SPAN class=cpp-literal>46</SPAN>    <SPAN class=cpp-keyword>void</SPAN> centerOnScreen (<SPAN class=cpp-keyword>void</SPAN>);
+<SPAN class=cpp-literal>47</SPAN>
+<SPAN class=cpp-literal>48</SPAN>    <SPAN class=cpp-keyword>void</SPAN> init ()
+<SPAN class=cpp-literal>49</SPAN>       {
+<SPAN class=cpp-literal>50</SPAN>        <SPAN class=cpp-comment>//  Set the clear color to be black. If you have any confusions about </SPAN>
+<SPAN class=cpp-literal>51</SPAN>        <SPAN class=cpp-comment>//  how the color can be set, then here is a brief description.</SPAN>
+<SPAN class=cpp-literal>52</SPAN>        <SPAN class=cpp-comment>//  First, you must be familiar with RGBA. The A is alpha and is</SPAN>
+<SPAN class=cpp-literal>53</SPAN>        <SPAN class=cpp-comment>//  used for transparency. The values range from 0.0 to 1.0</SPAN>
+<SPAN class=cpp-literal>54</SPAN>        <SPAN class=cpp-comment>//  To display yellow (255, 255, 0), then (255/255.0, 255/255.0, 0, 0) = </SPAN>
+<SPAN class=cpp-literal>55</SPAN>        <SPAN class=cpp-comment>//  (1.0, 1.0, 0.0, 0.0) is the argument you specify to glClearColor.</SPAN>
+<SPAN class=cpp-literal>56</SPAN>        glClearColor (<SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>);
+<SPAN class=cpp-literal>57</SPAN>       }
+<SPAN class=cpp-literal>58</SPAN>
+<SPAN class=cpp-literal>59</SPAN>    <SPAN class=cpp-keyword>void</SPAN> display ()
+<SPAN class=cpp-literal>60</SPAN>       {
+<SPAN class=cpp-literal>61</SPAN>        <SPAN class=cpp-comment>//  Clear the window or more specifically the frame buffer...</SPAN>
+<SPAN class=cpp-literal>62</SPAN>        <SPAN class=cpp-comment>//  This happens by replacing all the contents of the frame</SPAN>
+<SPAN class=cpp-literal>63</SPAN>        <SPAN class=cpp-comment>//  buffer by the clear color (black in our case)</SPAN>
+<SPAN class=cpp-literal>64</SPAN>        glClear (GL_COLOR_BUFFER_BIT);
+<SPAN class=cpp-literal>65</SPAN>
+<SPAN class=cpp-literal>66</SPAN>        <SPAN class=cpp-comment>/* There is nothing to be displayed */</SPAN>
+<SPAN class=cpp-literal>67</SPAN>
+<SPAN class=cpp-literal>68</SPAN>        <SPAN class=cpp-comment>//  Copy the contents of the frame buffer to the window so that</SPAN>
+<SPAN class=cpp-literal>69</SPAN>        <SPAN class=cpp-comment>//  they can be displayed... In other words, it forces execution </SPAN>
+<SPAN class=cpp-literal>70</SPAN>        <SPAN class=cpp-comment>//  of GL commands in finite time</SPAN>
+<SPAN class=cpp-literal>71</SPAN>        glFlush ();
+<SPAN class=cpp-literal>72</SPAN>       }
+<SPAN class=cpp-literal>73</SPAN>
+<SPAN class=cpp-literal>74</SPAN>    <SPAN class=cpp-keyword>void</SPAN> centerOnScreen (<SPAN class=cpp-keyword>void</SPAN>)
+<SPAN class=cpp-literal>75</SPAN>       {
+<SPAN class=cpp-literal>76</SPAN>        <SPAN class=cpp-comment>//  Set the window position such that the window becomes centered</SPAN>
+<SPAN class=cpp-literal>77</SPAN>        window_X_position = (glutGet (GLUT_SCREEN_WIDTH) - window_width)/<SPAN class=cpp-literal>2</SPAN>;
+<SPAN class=cpp-literal>78</SPAN>        window_Y_position = (glutGet (GLUT_SCREEN_HEIGHT) - window_height)/<SPAN class=cpp-literal>2</SPAN>;
+<SPAN class=cpp-literal>79</SPAN>       }
+<SPAN class=cpp-literal>80</SPAN>
+<SPAN class=cpp-literal>81</SPAN>    <SPAN class=cpp-keyword>void</SPAN> main (<SPAN class=cpp-keyword>int</SPAN> argc, <SPAN class=cpp-keyword>char</SPAN> **argv)
+<SPAN class=cpp-literal>82</SPAN>       {
+<SPAN class=cpp-literal>83</SPAN>        <SPAN class=cpp-comment>//  Center the window on the screen... Notice that I'm really </SPAN>
+<SPAN class=cpp-literal>84</SPAN>        <SPAN class=cpp-comment>//  doing nothing but changing the varaibles window_X_position</SPAN>
+<SPAN class=cpp-literal>85</SPAN>        <SPAN class=cpp-comment>//  and window_Y_position.</SPAN>
+<SPAN class=cpp-literal>86</SPAN>        centerOnScreen ();
+<SPAN class=cpp-literal>87</SPAN>
+<SPAN class=cpp-literal>88</SPAN>        <SPAN class=cpp-comment>//  Connect to the windowing system + create a window</SPAN>
+<SPAN class=cpp-literal>89</SPAN>        <SPAN class=cpp-comment>//  with the specified dimensions and position</SPAN>
+<SPAN class=cpp-literal>90</SPAN>        <SPAN class=cpp-comment>//  + set the display mode + specify the window title.</SPAN>
+<SPAN class=cpp-literal>91</SPAN>        glutInit(&amp;argc, argv);
+<SPAN class=cpp-literal>92</SPAN>        glutInitWindowSize (window_width, window_height);
+<SPAN class=cpp-literal>93</SPAN>        glutInitWindowPosition (window_X_position, window_Y_position);
+<SPAN class=cpp-literal>94</SPAN>        glutInitDisplayMode (GLUT_RGB);
+<SPAN class=cpp-literal>95</SPAN>        glutCreateWindow (window_title);
+<SPAN class=cpp-literal>96</SPAN>
+<SPAN class=cpp-literal>97</SPAN>        <SPAN class=cpp-comment>//  Initialize stuff that remain constant throughout the</SPAN>
+<SPAN class=cpp-literal>98</SPAN>        <SPAN class=cpp-comment>//  program.</SPAN>
+<SPAN class=cpp-literal>99</SPAN>               init();
+<SPAN class=cpp-literal>100</SPAN>
+<SPAN class=cpp-literal>101</SPAN>       <SPAN class=cpp-keyword>if</SPAN> (fullScreen)
+<SPAN class=cpp-literal>102</SPAN>           glutFullScreen ();
+<SPAN class=cpp-literal>103</SPAN>
+<SPAN class=cpp-literal>104</SPAN>       <SPAN class=cpp-comment>// Set the display function</SPAN>
+<SPAN class=cpp-literal>105</SPAN>       glutDisplayFunc (display);
+<SPAN class=cpp-literal>106</SPAN>
+<SPAN class=cpp-literal>107</SPAN>       glutMainLoop();
+<SPAN class=cpp-literal>108</SPAN>     }</PRE><!-- Article Ends --></DIV>
+      <H2>Ali BaderEddin</H2>
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText noWrap><BR></TD>
+          <TD class=smallText width="100%">
+            <P class=smallText>Click <A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=2040670">here</A> 
+            to view Ali BaderEddin's online profile.</P></TD></TR></TBODY></TABLE><BR>
+      <TABLE cellPadding=4 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD width="100%">
+            <H2>Other popular articles:</H2>
+            <UL>
+              <LI><A href="http://www.codeproject.com/opengl/wrl_viewer.asp">A 
+              small VRML viewer using OpenGL and MFC</A>
+              <LI><A href="http://www.codeproject.com/opengl/EGA.asp">Part One: 
+              Euclidian Geometric Algebra and Quaternions</A><BR><SPAN 
+              class=smalltext>Geometric Algebra applied to OpenGL</SPAN>
+              <LI><A href="http://www.codeproject.com/opengl/oglwiz.asp">OpenGL 
+              Win32 AppWizard</A><BR><SPAN class=smalltext>This Custom AppWizard 
+              for VC++ 6.0 or VC++.NET creates an OpenGL enabled Win32 
+              application suitable for demos and simple games.</SPAN>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/glexport.asp">Achieving 
+              PostScript and Wmf outputs for OpenGL</A><BR><SPAN 
+              class=smalltext>This article explains how to generate resolution 
+              independent versions of 3D meshes rendered by OpenGL/MFC programs, 
+              i.e. how to export the rendering results to vectorial formats such 
+              as encapsulated postscript (EPS) and Windows enhanced metafile 
+              (EMF) formats. The main goal consists of being able 
+            to</SPAN></LI></UL></TD>
+          <TD width=360>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/admentor/include/ServeAdHTML.aspx?C=False&id=786\" border=0 frameborder=0 scrolling=no width=300 height=250></IFRAME>");</SCRIPT>
+          </TD></TR></TBODY></TABLE>
+      <FORM action=/script/rating/code/app/insert_vote.asp method=post><INPUT 
+      type=hidden value=GLUT_WINDOW_TEMPLATE/opengl7/21/2005 name=vote_name> 
+      <INPUT type=hidden value=/opengl/GLUT_WINDOW_TEMPLATE.asp name=goal> 
+      <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD width="100%">
+            <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#fbedbb 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD class=smalltext vAlign=center>[<A 
+                  href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#__top">Top</A>]</TD>
+                <TD vAlign=center noWrap align=right><I><B>Rate this Article 
+                  for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; <I>Poor</I><INPUT 
+                  type=radio value=1 name=rate><INPUT type=radio value=2 
+                  name=rate><INPUT type=radio value=3 name=rate><INPUT 
+                  type=radio value=4 name=rate><INPUT type=radio value=5 
+                  name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD vAlign=top>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=544&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2Fdundas%5Fbluelogo%5F12060CP%2Egif&C=False&id=544\" alt=\"\" border=0 width=120 height=60></a>");</SCRIPT>
+            <BR><FONT size=1><A 
+            href="http://www.codeproject.com/info/MediaKit/">Premium 
+            Sponsor</A></FONT></CENTER><BR></TD>
+          <TD vAlign=top noWrap align=middle><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=1094&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FWholeTomato%5FAutoSuggest%2Egif&C=False&id=1094\" alt=\"The intellisense upgrade for Visual Studio .NET - make your IDE as smart as you.\" border=0 width=468 height=60></a>");</SCRIPT>
+            </SPAN></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><A 
+name=__comments></A>
+<SCRIPT language=JavaScript>
+function MsgVoteForm(UserID, MsgID)
+{
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString() + "' onclick='RateMsg(" + UserID.toString() + ", " + MsgID.toString() + ", " + i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	document.write(" (out of 5)");
+}
+
+function RateMsg(userid, msgid, score) 
+{ 
+	open("/script/comments/vote.asp?js=1&user="+userid.toString()+"&msg="+msgid.toString()+"&score="+score.toString() ,"helpful","toolbar=no,resizable=yes,scrollbars=yes,directories=no,menubar=no,width=300,height=200");
+	return false;
+}
+</SCRIPT>
+
+<SCRIPT language=JavaScript>
+var Selected = "";
+var AdTime = new Date();
+
+function SwitchMessage(elm)
+{
+	
+	var elmref;
+	if (Selected != "")
+	{
+		elmref = eval("document.getElementById('" + Selected + "_h1')");
+		if (elmref) elmref.style.display = 'none';
+		elmref = eval("document.getElementById('" + Selected + "_h0')");
+		if (elmref) elmref.bgColor = '#FEF9E7';
+	}
+	if (Selected != elm.name) 
+	{
+		Selected = elm.name;
+		elmref = eval("document.getElementById('" + Selected + "_h1')");
+		if (elmref) 
+		{
+			if (elmref.style.display=='none') elmref.style.display='';
+			else elmref.style.display = 'none';
+		}
+		elmref = eval("document.getElementById('" + Selected + "_h0')");
+		if (elmref) 
+			elmref.bgColor = '#99CCFF';
+	}
+	else
+		Selected="";
+		
+	window.location = "#xx" + Selected + "xx";
+
+	return false;
+}
+
+</SCRIPT>
+
+<SCRIPT language=javascript event=onclick for=DynMessLink>
+return SwitchMessage(this);
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+      bgColor=#ff9900 border=0>
+        <FORM 
+        action=/script/comments/app/do_filtermessages.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505 
+        method=post>
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=3 width="100%" bgColor=white 
+            border=0>
+              <TBODY>
+              <TR bgColor=#fbedbb>
+                <TD class=smalltext noWrap><A 
+                  href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                  height=16 src="GLUT Window Template - OpenGL_files/info.gif" 
+                  width=16 align=absMiddle border=0> <B>FAQ</B></A>&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>Noise level 
+                  <SELECT class=smalltext size=1 name=noise><OPTION 
+                    value=1>Very High</OPTION> <OPTION value=2>High</OPTION> 
+                    <OPTION value=3 selected>Medium</OPTION> <OPTION 
+                    value=4>Low</OPTION> <OPTION value=5>Very 
+                  low</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=center noWrap align=right 
+                  colSpan=2><A 
+                  href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=200505"><IMG 
+                  height=15 src="GLUT Window Template - OpenGL_files/search.gif" 
+                  width=16 border=0> Search comments</A> &nbsp;</TD>
+                <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+              <TR bgColor=#ff9900>
+                <TD width="100%">&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>View <SELECT 
+                  class=smalltext size=1 name=expand><OPTION value=0>Normal 
+                    (slow)</OPTION> <OPTION value=2>Preview (slow)</OPTION> 
+                    <OPTION value=5 selected>Message View</OPTION> <OPTION 
+                    value=6>Topic View</OPTION> <OPTION value=1>Thread 
+                    View</OPTION> <OPTION value=3>Expanded (Supporters 
+                    only)</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap>Per page <SELECT 
+                  class=smalltext size=1 name=perpage><OPTION 
+                    value=10>10</OPTION> <OPTION value=25 selected>25</OPTION> 
+                    <OPTION value=50>50</OPTION></SELECT></TD>
+                <TD colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+        <TR bgColor=#fbedbb>
+          <TD><A name=xx0xx></A>
+            <TABLE cellPadding=2 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR>
+                <TD class=messagetitle><A class=HoverLink 
+                  title="Add a new message to the discussions" 
+                  href="http://www.codeproject.com/script/comments/user_new.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505" 
+                  target=_top name=HoverNL><B><IMG height=16 
+                  src="GLUT Window Template - OpenGL_files/admin_modify.gif" 
+                  width=16 align=top border=0> New thread</B></A></TD>
+                <TD class=messagetitle>Msgs 1 to 4 of 4 (Total: 4) (<A 
+                  href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;forumid=200505">Refresh</A>)</TD>
+                <TD noWrap align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <SPAN class=HoverLink>Next</SPAN> <SPAN 
+                  class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+              </FONT></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=white>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=messagetitle width="100%">Subject&nbsp;</TD>
+                      <TD class=messagetitle noWrap width=140>Author&nbsp;</TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT 
+                    class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="GLUT Window Template - OpenGL_files/t.gif" width=1 
+                  border=0></TD></TR>
+              <TR id=1172379_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1172379xx></A><IMG 
+                        src="GLUT Window Template - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;forumid=200505&amp;select=1172379#xx1172379xx" 
+                        name=1172379><B>IYet Another CoderYet Another CoderUgly 
+                        Organization</B></A><IMG height=12 
+                        src="GLUT Window Template - OpenGL_files/New.gif"></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=2142190"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="GLUT Window Template - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle><B>INeedAf***enName</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>10:10 24 Jul 
+                        '05</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1172379_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="GLUT Window Template - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Hey... 
+                                <BR><BR>The article written has a real bad 
+                                shape... However, it's content is good. Check it 
+                                out and you'll see that it is 
+                                helpful..<BR><BR>To be fair.. I rate him 3.5 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1172379">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1172379">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;tid=1172379&amp;forumid=200505&amp;select=1172379#xx1172379xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?msg=1172379#xx1172379xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1172379"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1172379"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(2142190,1172379);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="GLUT Window Template - OpenGL_files/t.gif" width=1 
+                  border=0></TD></TR>
+              <TR id=1172381_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1172381xx></A><IMG height=1 
+                        src="GLUT Window Template - OpenGL_files/ind.gif" 
+                        width=18><IMG 
+                        src="GLUT Window Template - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;forumid=200505&amp;select=1172381#xx1172381xx" 
+                        name=1172381>Ha HA</A><IMG height=12 
+                        src="GLUT Window Template - OpenGL_files/New.gif"></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=2142190"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="GLUT Window Template - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle>MyNameIsRobertLAngdon&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>10:11 24 Jul 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1172381_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="GLUT Window Template - OpenGL_files/ind.gif" 
+                        width=18><IMG 
+                        src="GLUT Window Template - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>HA 
+                                HA..<BR><BR>I was just joking... He doesn't 
+                                deserve the 4.. So I'll give huim 3! 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1172381">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1172381">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;tid=1172379&amp;forumid=200505&amp;select=1172381#xx1172381xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?msg=1172381#xx1172381xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1172381"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1172381"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(2142190,1172381);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="GLUT Window Template - OpenGL_files/t.gif" width=1 
+                  border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="GLUT Window Template - OpenGL_files/t.gif" width=1></TD></TR>
+              <TR id=1169450_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1169450xx></A><IMG 
+                        src="GLUT Window Template - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;forumid=200505&amp;select=1169450#xx1169450xx" 
+                        name=1169450><B>Why I voted your article a 1</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=7741"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="GLUT Window Template - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle><B>John 
+                        Simmons / outlaw programmer</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>8:05 21 Jul 
+                        '05</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1169450_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="GLUT Window Template - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>There's 
+                                no article. My advice is to look around the 
+                                site, especially at the higher-rated articles, 
+                                and use them as an example. <BR><BR>------- 
+                                <SMALL>sig starts</SMALL><BR><BR><I>"I've heard 
+                                some drivers saying, 'We're going too fast 
+                                here...'. If you're not here to race, go the 
+                                hell home - don't come here and grumble about 
+                                going too fast. Why don't you tie a kerosene rag 
+                                around your ankles so the ants won't climb up 
+                                and eat your candy ass..."</I> - <B>Dale 
+                                Earnhardt</B><BR><BR><I>"...the staggering 
+                                layers of obscenity in your statement make it a 
+                                work of art on so many levels."</I> - <B>Jason 
+                                Jystad, 
+                                10/26/2001</B><BR><BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1169450">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1169450">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;tid=1169450&amp;forumid=200505&amp;select=1169450#xx1169450xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?msg=1169450#xx1169450xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1169450"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1169450"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(7741,1169450);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="GLUT Window Template - OpenGL_files/t.gif" width=1 
+                  border=0></TD></TR>
+              <TR id=1169484_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1169484xx></A><IMG height=1 
+                        src="GLUT Window Template - OpenGL_files/ind.gif" 
+                        width=18><IMG 
+                        src="GLUT Window Template - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;forumid=200505&amp;select=1169484#xx1169484xx" 
+                        name=1169484>Re: Why I voted your article a 1</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=2040670"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="GLUT Window Template - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Ali 
+                        BaderEddin&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>8:38 21 Jul 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1169484_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="GLUT Window Template - OpenGL_files/ind.gif" 
+                        width=18><IMG 
+                        src="GLUT Window Template - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I 
+                                didn't really feel the need to put any more 
+                                details because the comments are highly 
+                                detailed.<BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1169484">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1169484">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;tid=1169450&amp;forumid=200505&amp;select=1169484#xx1169484xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?msg=1169484#xx1169484xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1169484"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=200505&amp;select=1169484"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(2040670,1169484);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="GLUT Window Template - OpenGL_files/t.gif" width=1 
+                  border=0></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=#fbedbb>
+          <TD>
+            <TABLE cellPadding=2 width="100%">
+              <TBODY>
+              <TR>
+                <TD class=messagetitle>Last Visit: 17:49 Friday 22nd July, 
+                2005</TD>
+                <TD noWrap align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <SPAN class=HoverLink>Next</SPAN> <SPAN 
+                  class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+              </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=5 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD><FONT style="FONT-SIZE: 7pt" size=1><A 
+      href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+      href="http://www.codeproject.com/?cat=2">MFC / C++</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/opengl/">OpenGL</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/opengl/#General">General</A> <BR>Updated: 
+      21 Jul 2005 1:17 </FONT></TD>
+    <TD align=right><FONT style="FONT-SIZE: 7pt" size=1>Article content 
+      copyright Ali BaderEddin, 2005<BR>everything else Copyright © <A 
+      href="mailto:webmaster@codeproject.com">CodeProject</A>, 1999-2005</A>. 
+      <BR><A href="http://www.codeproject.com/info/MediaKit">Advertise on The 
+      Code Project</A> | <A 
+      href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+  </FONT></TD></TR></TBODY></TABLE><BR>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#ff9900 height=1><IMG height=1 
+      src="GLUT Window Template - OpenGL_files/space.gif"></TD></TR>
+  <TR>
+    <TD align=middle><FONT size=1><A 
+      href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A> • <A 
+      href="http://www.codeproject.com/redir.asp?id=235">MSDN Communities</A> | 
+      <A href="http://www.aspalliance.com/">ASP Alliance</A> • <A 
+      href="http://www.developerfusion.co.uk/">Developer Fusion</A> • <A 
+      href="http://www.developersdex.com/">Developersdex</A> • <A 
+      href="http://www.devguru.com/">DevGuru</A> • <A 
+      href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+      href="http://www.planet-source-code.com/">Planet Source Code</A> • <A 
+      href="http://www.tek-tips.com/">Tek-Tips Forums</A> • 
+</FONT></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>

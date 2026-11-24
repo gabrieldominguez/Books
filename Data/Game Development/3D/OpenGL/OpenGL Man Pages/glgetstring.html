@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetstring Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetstring</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetString(3G)		       OpenGL Reference		       glGetString(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetString - returns a string describing the current GL connection
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     const GLubyte * glGetString( GLenum name )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     name  Specifies a symbolic	constant, one of GL_VENDOR, GL_RENDERER,
+	   GL_VERSION, or GL_EXTENSIONS.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetString returns a pointer to a	static string describing some aspect
+     of	the current GL connection.  name can be	one of the following:
+
+     GL_VENDOR
+	     Returns the company responsible for this GL implementation.  This
+	     name does not change from release to release.  For	Silicon
+	     Graphics the string is "SGI".
+
+     GL_RENDERER
+	     Returns the name of the renderer.	This name is typically
+	     specific to a particular configuration of a hardware platform.
+	     It	does not change	from release to	release.  The renderer strings
+	     for Silicon Graphics graphic engines are listed in	the MACHINE
+	     DEPENDENCIES section below.
+
+     GL_VERSION
+	     Returns a version or release number.  For SGI releases prior to
+	     Irix 5.3 the string is "1.0".  For	Irix 5.3 and subsequent
+	     releases the format is
+	     "&amp;lt;GL version&gt; Irix	<release number> patch <patch number>";	for
+	     example in	the Irix 5.3 release the string	is "1.0	Irix 5.3".
+
+     GL_EXTENSIONS
+	     Returns a space-separated list of supported extensions to GL.
+
+     Because GL	does not include queries for the performance characteristics
+     of	an implementation, it is expected that some applications will be
+     written to	recognize known	platforms and will modify their	GL usage based
+     on	known performance characteristics of these platforms.  Strings
+     GL_VENDOR and GL_RENDERER together	uniquely specify a platform, and will
+     not change	from release to	release.  They should be used by such platform
+     recognition algorithms.  The format and contents of the GL_VENDOR and the
+     GL_RENDERER strings depend	on the implementation.
+
+     Some applications will want to make use of	features which are not part of
+     the standard GL.  These features may be implemented as extensions to the
+     standard GL.  The GL_EXTENSIONS string is a space seperated list of
+     supported GL extensions. (Extension names never contain a space
+     character.)
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetString(3G)		       OpenGL Reference		       glGetString(3G)
+</FONT>
+
+
+     The GL_VERSION string begins with a version number.  The version number
+     is	of the form major_number.minor_number or
+     major_number.minor_number.release_number. Vendor specific information may
+     follow the	version	number.	Its format depends on the implementation, but
+     a space always seperates the version number and the vendor	specific
+     information.
+
+     All strings are null-terminated.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	an error is generated, glGetString returns zero.
+
+     The client	and server may support different versions or extensions.
+     glGetString always	returns	a compatible version number or list of
+     extensions. The release number always describes the server.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if name is not an accepted value.
+
+     GL_INVALID_OPERATION is generated if glGetString is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The GL_RENDERER strings returned by glGetString for each graphics system
+     are listed	below.	Square brackets	([,]) surround optional	parts of the
+     string, and angle brackets	(&amp;lt;,&gt;) surround multi-valued parts that are
+     always present. Neither the square	brackets nor the angle brackets	are
+     part of the string.
+
+     Indy and XL: "NEWPORT &amp;lt;nplanes&gt;", where nplanes is	the number of
+	  configured bitplanes:	8 or 24.
+
+     Personal Iris: "GR1.&amp;lt;version&gt;[/24][/Z][/Turbo]", where version is the
+	  board	version: 1 or 2; /24 indicates 24 bitplanes (otherwise 8); /Z
+	  indicates a hardware depth buffer; /Turbo indicates the "Turbo"
+	  option.
+
+     VGX and VGXT: "VGX[T][&amp;lt;spans&gt;]", where spans is either /5 or /10
+	  indicating the number	of spans other than 20.
+
+     Indigo Entry: "LIGHT".
+
+     XS, XZ, Elan, and Extreme:	"&amp;lt;type&gt;-<graphics>", where type	is one of
+	  GR2, GR3, GU1	or GR2MP and graphics is one of	XS, XSM, XS24, XS24-Z,
+	  XZ, Elan, or Extreme,	corresponding to the configuration of the
+	  graphics board.
+
+     RealityEngine, RealityEngine2, and	VTX: "&amp;lt;type&gt;/<pixd>/<nrm>/<texsz>",
+	  where	type is	REC, RE, or REV	corresponding to Crimson, Power	Series
+	  or Onyx/VTX; pixd is S, M, or	L, corresponding to small, medium, or
+	  large	pixel depth, respectively; nrm is 1, 2,	or 4, indicating the
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetString(3G)		       OpenGL Reference		       glGetString(3G)
+</FONT>
+
+
+	  number of raster manager boards; texsz is 2 or 8 indicating the size
+	  of the texture memory	in megatexels.	(Each texel is 16 bits in
+	  size.)
+
+     InfiniteReality: "&amp;lt;type&gt;/<pixd>/<nrm>/<texsz>/<nge>",
+	  where	type is	IR or IRS, corresponding to Onyx with R4400 or R10000,
+	  respectively;	pixd is	S, M, or L, corresponding to small, medium, or
+	  large	pixel depth, respectively; nrm is 1, 2,	or 4, indicating the
+	  number of raster manager boards; texsz is 16 or 64 indicating	the
+	  size of texture memory in megabytes; and nge indicates the number of
+	  Geometry Engines on the geometry engine board.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetsharpentexfuncsgis Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetsharpentexfuncsgis</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetSharpenTexFuncSGIS(3G)    OpenGL Reference	   glGetSharpenTexFuncSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetSharpenTexFuncSGIS - get sharpen texture scaling function
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetSharpenTexFuncSGIS( GLenum target,
+				   GLfloat *points )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  The texture whose sharpen texture scaling function	is to be
+	     retrieved.	 Must be GL_TEXTURE_1D,	GL_TEXTURE_2D, or
+	     GL_TEXTURE_3D_EXT.
+
+     points  A pointer to a floating-point array which receives	the retrieved
+	     scaling function.	Each pair of elements in the array receives an
+	     LOD (level-of-detail) value and a scaling function	value.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetSharpenTexFuncSGIS retrieves the sharpen texture scaling function
+     samples specified by glSharpenTexFuncSGIS.	 See glSharpenTexFuncSGIS for
+     a discussion of sharpen texturing.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The number	of elements in points may be queried by	calling
+     glGetTexParameter with target set to GL_TEXTURE_1D, GL_TEXTURE_2D,	or
+     GL_TEXTURE_3D_EXT and pname set to	GL_SHARPEN_TEXTURE_FUNC_POINTS_SGIS.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not one of the allowable
+     values.
+
+     GL_INVALID_OPERATION is generated if glGetSharpenTexFuncSGIS is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems sharpen texturing may
+     not be used with 3D textures or when rendering to pixmaps.
+
+     The default scaling function is incorrect on InfiniteReality systems.
+     This will be fixed	in a future release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glSharpenTexFuncSGIS.
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

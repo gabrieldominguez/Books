@@ -1,0 +1,1552 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0049)http://nehe.gamedev.net/tutorials/lesson.asp?l=33 -->
+<HTML><HEAD><TITLE>Jeff Molofee's OpenGL Windows Tutorial #33</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<STYLE type=text/css>A:link {
+	COLOR: #ccaaff; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #ccaaff; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #ccaaff; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ffccaa; TEXT-DECORATION: none
+}
+</STYLE>
+<!-- Begin Ban Man Pro Banner Code -  Zone: NeHe -->
+<SCRIPT language=JAVASCRIPT>
+<!--
+var browName = navigator.appName;
+var browDateTime = (new Date()).getTime();
+var browVersion = parseInt(navigator.appVersion);
+var ua=navigator.userAgent.toLowerCase();
+var adcode='';
+if (browName=='Netscape'){
+     if (browVersion>=5) 
+          { document.write('<ifr'+'ame src="http://www.gamedev.net/banman/banman.asp?ZoneID=4&Task=Get&Browser=NETSCAPE6&X=' + browDateTime + '" width=468 height=60 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+     else if ((browVersion>=4)&&(ua.indexOf("mac")==-1))
+          { document.write('<S'+'CRIPT src="http://www.gamedev.net/banman/banman.asp?ZoneID=4&Task=Get&Browser=NETSCAPE4">');
+          document.write('</'+'scr'+'ipt>');
+          document.write(adcode); }
+     else if (browVersion>=3) 
+          { document.write('<A HREF="http://www.gamedev.net/banman/banman.asp?ZoneID=4&Task=Click&Mode=HTML&PageID=15076&RandomNumber=' + browDateTime + '" target="_new"><IMG SRC="http://www.gamedev.net/banman/banman.asp?ZoneID=4&Task=Get&Mode=HTML&PageID=15076&RandomNumber=' + browDateTime + '" width="468" height="60" border="0"></A>'); } }
+if (browName=='Microsoft Internet Explorer')
+     { document.write('<ifr'+'ame src="http://www.gamedev.net/banman/banman.asp?ZoneID=4&Task=Get&X=' + browDateTime + '" width=468 height=60 Marginwidth=0 Marginheight=0 Hspace=0 Vspace=0 Frameborder=0 Scrolling=No></ifr'+'ame>'); }
+// --> 
+</SCRIPT>
+<NOSCRIPT>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>
+<BODY text=#ffffff bgColor=#000000>
+<CENTER><A 
+href="http://www.gamedev.net/banman/banman.asp?ZoneID=4&amp;Task=Click&amp;Mode=HTML&amp;PageID=15076" 
+target=_new><IMG height=60 
+src="Jeff Molofee's OpenGL Windows Tutorial #33_files/media13927.gif" width=468 
+border=0></A> 
+</NOSCRIPT><!-- End Ban Man Pro Banner Code -  Zone: NeHe --></CENTER><BR><BR>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width=326 height=130><IMG height=130 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/logo.png" 
+    width=326></TD>
+    <TD vAlign=center align=middle width="75%"><FONT color=#ffccaa 
+      size=+3><B><I>Lesson 33</I></B></FONT></TD>
+    <TD vAlign=center align=middle width="25%"><A 
+      href="http://nehe.gamedev.net/tutorials/lesson.asp?l=33&amp;p"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/printer.jpg" 
+      border=0></A></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Loading Uncompressed 
+      and RunLength Encoded TGA images By Evan "terminate" Pipho. <BR><BR>I've 
+      seen lots of people ask around in #gamdev, the gamedev forums, and other 
+      places about TGA loading. The following code and explanation will show you 
+      how to load both uncompressed TGA files and RLE compressed files. This 
+      particular tutorial is geared toward OpenGL, but I plan to make it more 
+      universal in the future. <BR><BR>We will begin with the two header files. 
+      The first file will hold our texture structure, the second, structures and 
+      variables used by the loading code. <BR><BR>Like every header file we need 
+      some inclusion guards to prevent the file from being included multiple 
+      times. <BR><BR>At the top of the file add these lines: </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	#ifndef __TEXTURE_H__				<FONT color=#ffffaa>// See If The Header Has Been Defined Yet</FONT>
+	#define __TEXTURE_H__				<FONT color=#ffffaa>// If Not, Define It.</FONT>
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Then scroll all the 
+      way down to the bottom and add: </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	#endif						<FONT color=#ffffaa>// __TEXTURE_H__ End Inclusion Guard</FONT>
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>These three lines 
+      prevent the file from being included more than once into a file. The rest 
+      of the code in the file will be between the first two, and the last line. 
+      <BR><BR>Into this header file we we will insert the standard headers we 
+      will need for everything we do. Add the following lines after the #define 
+      __TGA_H__ command. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	#pragma comment(lib, "OpenGL32.lib")		<FONT color=#ffffaa>// Link To Opengl32.lib</FONT>
+	#include &lt;windows.h&gt;				<FONT color=#ffffaa>// Standard Windows header</FONT>
+	#include &lt;stdio.h&gt;				<FONT color=#ffffaa>// Standard Header For File I/O</FONT>
+	#include &lt;gl\gl.h&gt;				<FONT color=#ffffaa>// Standard Header For OpenGL</FONT>
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>The first header is 
+      the standard windows header, the second is for the file I/O functions we 
+      will be using later, and the 3rd is the standard OpenGL header file for 
+      OpenGL32.lib. <BR><BR>We will need a place to store image data and 
+      specifications for generating a texture usable by OpenGL. We will use the 
+      following structure. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	typedef struct
+	{
+		GLubyte* imageData;			<FONT color=#ffffaa>// Hold All The Color Values For The Image.</FONT>
+		GLuint  bpp;				<FONT color=#ffffaa>// Hold The Number Of Bits Per Pixel.			</FONT>
+		GLuint width;				<FONT color=#ffffaa>// The Width Of The Entire Image.	</FONT>
+		GLuint height;				<FONT color=#ffffaa>// The Height Of The Entire Image.	</FONT>
+		GLuint texID;				<FONT color=#ffffaa>// Texture ID For Use With glBindTexture.	</FONT>
+		GLuint type;			 	<FONT color=#ffffaa>// Data Stored In * ImageData (GL_RGB Or GL_RGBA)</FONT>
+	} Texture;
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Now for the other, 
+      longer head file. Again we will need some includsion guards, same as the 
+      last one. <BR><BR>Next come two more structures used during processing of 
+      the TGA file. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	typedef struct
+	{
+		GLubyte Header[12];			<FONT color=#ffffaa>// File Header To Determine File Type</FONT>
+	} TGAHeader;
+
+	typedef struct
+	{
+		GLubyte header[6];			<FONT color=#ffffaa>// Holds The First 6 Useful Bytes Of The File</FONT>
+		GLuint bytesPerPixel;			<FONT color=#ffffaa>// Number Of BYTES Per Pixel (3 Or 4)</FONT>
+		GLuint imageSize;			<FONT color=#ffffaa>// Amount Of Memory Needed To Hold The Image</FONT>
+		GLuint type;				<FONT color=#ffffaa>// The Type Of Image, GL_RGB Or GL_RGBA</FONT>
+		GLuint Height;				<FONT color=#ffffaa>// Height Of Image					</FONT>
+		GLuint Width;				<FONT color=#ffffaa>// Width Of Image				</FONT>
+		GLuint Bpp;				<FONT color=#ffffaa>// Number Of BITS Per Pixel (24 Or 32)</FONT>
+	} TGA;
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Now we declare some 
+      instances of our two structures so we can use them within our code. 
+    </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	TGAHeader tgaheader;				<FONT color=#ffffaa>// Used To Store Our File Header</FONT>
+	TGA tga;					<FONT color=#ffffaa>// Used To Store File Information</FONT>
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>We need to define a 
+      couple file headers so we can tell the program what kinds of file headers 
+      are on valid images. The first 12 bytes will be 0 0 2 0 0 0 0 0 0 0 0 0 if 
+      it is uncompressed TGA image and 0 0 10 0 0 0 0 0 0 0 0 0 if it an RLE 
+      compressed one. These two values allow us to check to see if the file we 
+      are reading is valid. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Uncompressed TGA Header</FONT>
+	GLubyte uTGAcompare[12] = {0,0, 2,0,0,0,0,0,0,0,0,0};
+	<FONT color=#ffffaa>// Compressed TGA Header</FONT>
+	GLubyte cTGAcompare[12] = {0,0,10,0,0,0,0,0,0,0,0,0};
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Finally we declare a 
+      pair of functions to use in the loading process. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Load An Uncompressed File</FONT>
+	bool LoadUncompressedTGA(Texture *, char *, FILE *);
+	<FONT color=#ffffaa>// Load A Compressed File</FONT>
+	bool LoadCompressedTGA(Texture *, char *, FILE *);
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Now, on to the cpp 
+      file, and the real brunt of the code. I will leave out some of the error 
+      message code and the like to make the tutorial shorter and more readable. 
+      You may look in the included file (link at the bottom of the article) 
+      <BR><BR>Right off the bat we have to include the file we just made so at 
+      the top of the file put. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	#include "tga.h"				<FONT color=#ffffaa>// Include The Header We Just Made</FONT>
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>We don't have to 
+      include any other files, because we included them inside our header we 
+      just completed. <BR><BR>The next thing we see is the first function, which 
+      is called LoadTGA(...). </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Load A TGA File!</FONT>
+	bool LoadTGA(Texture * texture, char * filename)
+	{
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>It takes two 
+      parameters. The first is a pointer to a Texture structure, which you must 
+      have declared in your code some where (see included example). The second 
+      parameter is a string that tells the computer where to find your texture 
+      file. <BR><BR>The first two lines of the function declare a file pointer 
+      and then open the file specified by "filename" which was passed to the 
+      function in the second parem for reading. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	FILE * fTGA;					<FONT color=#ffffaa>// Declare File Pointer</FONT>
+	fTGA = fopen(filename, "rb");			<FONT color=#ffffaa>// Open File For Reading</FONT>
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>The next few lines 
+      check to make sure that the file opened correctly. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	if(fTGA == NULL)				<FONT color=#ffffaa>// If Here Was An Error</FONT>
+	{
+		...Error code...
+		return false;				<FONT color=#ffffaa>// Return False</FONT>
+	}		
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Next we try to read 
+      the first twelve bytes of the file and store them in out TGAHeader 
+      structure so we can check on the file type. If fread fails, the file is 
+      closed, an error displayed, and the function returns false. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Attempt To Read The File Header</FONT>
+	if(fread(&amp;tgaheader, sizeof(TGAHeader), 1, fTGA) == 0)
+	{
+		...Error code here...
+		return false;				<FONT color=#ffffaa>// Return False If It Fails</FONT>
+	}		
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Next we try to 
+      determine what type of file it is by comparing our newly aquired header 
+      with our two hard coded ones. This will tell us if its compressed, 
+      uncompressed, or even if its the wrong file type. For this purpose we will 
+      use the memcmp(...) function. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// If The File Header Matches The Uncompressed Header</FONT>
+	if(memcmp(uTGAcompare, &amp;tgaheader, sizeof(tgaheader)) == 0)
+	{
+		<FONT color=#ffffaa>// Load An Uncompressed TGA</FONT>
+		LoadUncompressedTGA(texture, filename, fTGA);
+	}
+	<FONT color=#ffffaa>// If The File Header Matches The Compressed Header</FONT>
+	else if(memcmp(cTGAcompare, &amp;tgaheader, sizeof(tgaheader)) == 0)
+	{											
+		<FONT color=#ffffaa>// Load A Compressed TGA</FONT>
+		LoadCompressedTGA(texture, filename, fTGA);
+	}
+	else						<FONT color=#ffffaa>// If It Doesn't Match Either One</FONT>
+	{
+		...Error code here...						
+		return false;				<FONT color=#ffffaa>// Return False</FONT>
+	}									
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>We will begin this 
+      section with the loading of an UNCOMPRESSED file. This function is heavily 
+      based on NeHe's code in lesson 25. <BR><BR>First thing we come to, as 
+      always, is the function header. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Load An Uncompressed TGA!</FONT>
+	bool LoadUncompressedTGA(Texture * texture, char * filename, FILE * fTGA)
+	{
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>This function takes 
+      three parameters. The first two are the same as from LoadTGA, and are 
+      simply passed on. The third is the file pointer from the previous function 
+      so that we dont lose our place. <BR><BR>Next we try to read the next 6 
+      bytes of the file, and store them in tga.header. If it fails, we run some 
+      error code, and return false. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Attempt To Read Next 6 Bytes</FONT>
+	if(fread(tga.header, sizeof(tga.header), 1, fTGA) == 0)
+	{										
+		...Error code here...
+		return false;				<FONT color=#ffffaa>// Return False</FONT>
+	}	
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Now we have all the 
+      information we need to calculate the height, width and bpp of our image. 
+      We store it in both the texture and local structure. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	texture-&gt;width  = tga.header[1] * 256 + tga.header[0];	<FONT color=#ffffaa>// Calculate Height</FONT>
+	texture-&gt;height = tga.header[3] * 256 + tga.header[2];	<FONT color=#ffffaa>// Calculate The Width</FONT>
+	texture-&gt;bpp = tga.header[4];				<FONT color=#ffffaa>// Calculate Bits Per Pixel</FONT>
+	tga.Width = texture-&gt;width;				<FONT color=#ffffaa>// Copy Width Into Local Structure</FONT>
+	tga.Height = texture-&gt;height;				<FONT color=#ffffaa>// Copy Height Into Local Structure</FONT>
+	tga.Bpp = texture-&gt;bpp;					<FONT color=#ffffaa>// Copy Bpp Into Local Structure</FONT>
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Now we check to make 
+      sure that the height and width are at least one pixel, and that the bpp is 
+      either 24 or 32. If any of the values are outside their boundries we again 
+      display an error, close the file, and leave the function. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Make Sure All Information Is Valid</FONT>
+	if((texture-&gt;width &lt;= 0) || (texture-&gt;height &lt;= 0) || ((texture-&gt;bpp != 24) &amp;&amp; (texture-&gt;bpp !=32)))
+	{
+		...Error code here...
+		return false;				<FONT color=#ffffaa>// Return False</FONT>
+	}
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Next we set the type 
+      of the image. 24 bit images are type GL_RGB and 32 bit images are type 
+      GL_RGBA </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	if(texture-&gt;bpp == 24)				<FONT color=#ffffaa>// Is It A 24bpp Image?</FONT>
+	{
+		texture-&gt;type	= GL_RGB;		<FONT color=#ffffaa>// If So, Set Type To GL_RGB</FONT>
+	}
+	else						<FONT color=#ffffaa>// If It's Not 24, It Must Be 32</FONT>
+	{
+		texture-&gt;type	= GL_RGBA;		<FONT color=#ffffaa>// So Set The Type To GL_RGBA</FONT>
+	}
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Now we caclulate the 
+      BYTES per pixel and the total size of the image data. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	tga.bytesPerPixel = (tga.Bpp / 8);		<FONT color=#ffffaa>// Calculate The BYTES Per Pixel</FONT>
+	<FONT color=#ffffaa>// Calculate Memory Needed To Store Image</FONT>
+	tga.imageSize = (tga.bytesPerPixel * tga.Width * tga.Height);
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>We need some place to 
+      store all that image data so we will use malloc to allocate the right 
+      amount of memory. <BR><BR>Then we check to make sure memory was allocated, 
+      and is not NULL. If there was an error, run error handling code. 
+</FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Allocate Memory</FONT>
+	texture-&gt;imageData = (GLubyte *)malloc(tga.imageSize);
+	if(texture-&gt;imageData == NULL)			<FONT color=#ffffaa>// Make Sure It Was Allocated Ok</FONT>
+	{
+		...Error code here...
+		return false;				<FONT color=#ffffaa>// If Not, Return False</FONT>
+	}
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Here we try to read 
+      all the image data. If we can't, we trigger error code again. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Attempt To Read All The Image Data</FONT>
+	if(fread(texture-&gt;imageData, 1, tga.imageSize, fTGA) != tga.imageSize)
+	{
+		...Error code here...								
+		return false;				<FONT color=#ffffaa>// If We Cant, Return False</FONT>
+	}
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>TGA files store their 
+      image in reverse order than what OpenGL wants so we much change the format 
+      from BGR to RGB. To do this we swap the first and third bytes in every 
+      pixel. <BR><BR>Steve Thomas Adds: I've got a little speedup in TGA loading 
+      code. It concerns switching BGR into RGB using only 3 binary operations. 
+      Instead of using a temp variable you XOR the two bytes 3 times. 
+      <BR><BR>Then we close the file, and exit the function successfully. 
+    </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Start The Loop</FONT>
+	for(GLuint cswap = 0; cswap &lt; (int)tga.imageSize; cswap += tga.bytesPerPixel)
+	{
+		<FONT color=#ffffaa>// 1st Byte XOR 3rd Byte XOR 1st Byte XOR 3rd Byte</FONT>
+		texture-&gt;imageData[cswap] ^= texture-&gt;imageData[cswap+2] ^=
+		texture-&gt;imageData[cswap] ^= texture-&gt;imageData[cswap+2];
+	}
+
+	fclose(fTGA);					<FONT color=#ffffaa>// Close The File</FONT>
+	return true;					<FONT color=#ffffaa>// Return Success</FONT>
+}
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Thats all there is to 
+      loading an uncompressed TGA file. Loading a RLE compressed one is only 
+      slightly harder. We read the header and collect height/width/bpp as usual, 
+      sme as the uncompressed version, so i will just post the code, you can 
+      look in the previous pages for a complete explanation. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	bool LoadCompressedTGA(Texture * texture, char * filename, FILE * fTGA)
+	{ 
+		if(fread(tga.header, sizeof(tga.header), 1, fTGA) == 0)
+		{
+			...Error code here...
+		}							
+		texture-&gt;width  = tga.header[1] * 256 + tga.header[0];
+		texture-&gt;height = tga.header[3] * 256 + tga.header[2];
+		texture-&gt;bpp	= tga.header[4];
+		tga.Width	= texture-&gt;width;
+		tga.Height	= texture-&gt;height;
+		tga.Bpp	= texture-&gt;bpp;
+		if((texture-&gt;width &lt;= 0) || (texture-&gt;height &lt;= 0) || ((texture-&gt;bpp != 24) &amp;&amp; (texture-&gt;bpp !=32)))
+		{
+			...Error code here...
+		}								}
+		tga.bytesPerPixel	= (tga.Bpp / 8);
+		tga.imageSize		= (tga.bytesPerPixel * tga.Width * tga.Height);
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Now we need to 
+      allocate the amount of storage for the image to use AFTER we uncompress 
+      it, we will use malloc. If memory fails to be allocated, run error code, 
+      and return false. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Allocate Memory To Store Image Data</FONT>
+	texture-&gt;imageData	= (GLubyte *)malloc(tga.imageSize);
+	if(texture-&gt;imageData == NULL)			<FONT color=#ffffaa>// If Memory Can Not Be Allocated...</FONT>
+	{
+		...Error code here...
+		return false;				<FONT color=#ffffaa>// Return False</FONT>
+	}	
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Next we need to 
+      determine how many pixels make up the image. We will store it in the 
+      variable "pixelcount" <BR><BR>We also need to store which pixel we are 
+      currently on, and what byte of the imageData we are writing to, to avoid 
+      overflows and overwriting old data. <BR><BR>We will allocate enough memory 
+      to store one pixel. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	GLuint pixelcount = tga.Height * tga.Width;	<FONT color=#ffffaa>// Number Of Pixels In The Image</FONT>
+	GLuint currentpixel	= 0;			<FONT color=#ffffaa>// Current Pixel We Are Reading From Data</FONT>
+	GLuint currentbyte	= 0;			<FONT color=#ffffaa>// Current Byte We Are Writing Into Imagedata</FONT>
+	<FONT color=#ffffaa>// Storage For 1 Pixel</FONT>
+	GLubyte * colorbuffer = (GLubyte *)malloc(tga.bytesPerPixel);
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Next we have a big 
+      loop. <BR><BR>Lets break it down into more manageable chunks. 
+      <BR><BR>First we declare a variable in order to store the chunk header. A 
+      chunk header dictates wheather the following section is RLE, or RAW, and 
+      how long it is. If the one byte header is less than or equal to 127, then 
+      it is a RAW header. The value of the header is the number of colors, minus 
+      one, that we read ahead and copy into memory, before we hit another header 
+      byte. So we add one to the value we get, and then read that many pixels 
+      and copy them into the ImageData, just like we did with the uncompressed 
+      ones. If the header is ABOVE 127, then it is the number of times that the 
+      next pixel value is repeated consequtively. To get the actual number of 
+      repetitions we take the value returned and subtract 127 to get rid of the 
+      one bit header identifier. Then we read the next one pixel and copy it the 
+      said number of times consecutively into the memory. <BR><BR>On to the 
+      code. First we read the one byte header. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	do						<FONT color=#ffffaa>// Start Loop</FONT>
+	{
+	GLubyte chunkheader = 0;			<FONT color=#ffffaa>// Variable To Store The Value Of The Id Chunk</FONT>
+	if(fread(&amp;chunkheader, sizeof(GLubyte), 1, fTGA) == 0)	<FONT color=#ffffaa>// Attempt To Read The Chunk's Header</FONT>
+	{
+		...Error code...
+		return false;				<FONT color=#ffffaa>// If It Fails, Return False</FONT>
+	}
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Next we will check to 
+      see if it a RAW header. If it is, we need to add one to the value to get 
+      the total number of pixels following the header. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	if(chunkheader &lt; 128)				<FONT color=#ffffaa>// If The Chunk Is A 'RAW' Chunk</FONT>
+	{													
+		chunkheader++;				<FONT color=#ffffaa>// Add 1 To The Value To Get Total Number Of Raw Pixels</FONT>
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>We then start another 
+      loop to read all the color information. It will loop the amout of times 
+      specified in the chunk header, and will read and store one pixel each 
+      loop. <BR><BR>First we read and verify the pixel data. The data for one 
+      pixel will be stored in the colorbuffer variable. Next we will check to 
+      see if it a RAW header. If it is, we need to add one to the value to get 
+      the total number of pixels following the header. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Start Pixel Reading Loop</FONT>
+	for(short counter = 0; counter &lt; chunkheader; counter++)
+	{
+		<FONT color=#ffffaa>// Try To Read 1 Pixel</FONT>
+		if(fread(colorbuffer, 1, tga.bytesPerPixel, fTGA) != tga.bytesPerPixel)
+		{
+			...Error code...
+			return false;			<FONT color=#ffffaa>// If It Fails, Return False</FONT>
+		}
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>The next part in our 
+      loop will take the color values stored in colorbuffer and writing them to 
+      the imageData varable to be used later. In the process it will flip the 
+      data from BGR format to RGB or from BGRA to RGBA depending on the number 
+      of bits per pixel. When we are done we increment the current byte, and 
+      current pixel counters. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	texture-&gt;imageData[currentbyte] = colorbuffer[2];		<FONT color=#ffffaa>// Write The 'R' Byte</FONT>
+	texture-&gt;imageData[currentbyte + 1	] = colorbuffer[1];	<FONT color=#ffffaa>// Write The 'G' Byte</FONT>
+	texture-&gt;imageData[currentbyte + 2	] = colorbuffer[0];	<FONT color=#ffffaa>// Write The 'B' Byte</FONT>
+	if(tga.bytesPerPixel == 4)					<FONT color=#ffffaa>// If It's A 32bpp Image...</FONT>
+	{
+		texture-&gt;imageData[currentbyte + 3] = colorbuffer[3];	<FONT color=#ffffaa>// Write The 'A' Byte</FONT>
+	}
+	<FONT color=#ffffaa>// Increment The Byte Counter By The Number Of Bytes In A Pixel</FONT>
+	currentbyte += tga.bytesPerPixel;
+	currentpixel++;					<FONT color=#ffffaa>// Increment The Number Of Pixels By 1</FONT>
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>The next section 
+      deals with the chunk headers that represent the RLE sections. First thing 
+      we do is subtract 127 from the chunkheader to get the amount of times the 
+      next color is repeated. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	else						<FONT color=#ffffaa>// If It's An RLE Header</FONT>
+	{
+		chunkheader -= 127;			<FONT color=#ffffaa>// Subtract 127 To Get Rid Of The ID Bit</FONT>
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>The we attempt to 
+      read the next color value. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Read The Next Pixel</FONT>
+	if(fread(colorbuffer, 1, tga.bytesPerPixel, fTGA) != tga.bytesPerPixel)
+	{	
+		...Error code...
+		return false;				<FONT color=#ffffaa>// If It Fails, Return False</FONT>
+	}
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Next we begin a loop 
+      to copy the pixel we just read into memory multiple times, as dictated by 
+      the value from the RLE header. <BR><BR>Then we copy the the color values 
+      into the image data, preforming the R and B value switch. <BR><BR>Then we 
+      increment the current bytes, and current pixel, so we are in the right 
+      spot when we write the values again. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>	<FONT color=#ffffaa>// Start The Loop</FONT>
+	for(short counter = 0; counter &lt; chunkheader; counter++)
+	{
+		<FONT color=#ffffaa>// Copy The 'R' Byte</FONT>
+		texture-&gt;imageData[currentbyte] = colorbuffer[2];
+		<FONT color=#ffffaa>// Copy The 'G' Byte</FONT>
+		texture-&gt;imageData[currentbyte + 1	] = colorbuffer[1];
+		<FONT color=#ffffaa>// Copy The 'B' Byte</FONT>
+		texture-&gt;imageData[currentbyte + 2	] = colorbuffer[0];
+		if(tga.bytesPerPixel == 4)		<FONT color=#ffffaa>// If It's A 32bpp Image</FONT>
+		{
+			<FONT color=#ffffaa>// Copy The 'A' Byte</FONT>
+			texture-&gt;imageData[currentbyte + 3] = colorbuffer[3];
+		}
+		currentbyte += tga.bytesPerPixel;	<FONT color=#ffffaa>// Increment The Byte Counter</FONT>
+		currentpixel++;				<FONT color=#ffffaa>// Increment The Pixel Counter</FONT>
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Then we contiune the 
+      main loop, as long as we still have pixels left to read. <BR><BR>Last of 
+      all we close up the file and return success. </FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><FONT color=#aaffaa size=3><PRE>		while(currentpixel &lt; pixelcount);	<FONT color=#ffffaa>// More Pixels To Read? ... Start Loop Over</FONT>
+		fclose(fTGA);				<FONT color=#ffffaa>// Close File</FONT>
+		return true;				<FONT color=#ffffaa>// Return Success</FONT>
+	}
+</PRE></FONT>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/tr.png" 
+  width=28></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/l.png"></TD>
+    <TD vAlign=top width="100%"><FONT face=arial size=-1>Now you have some 
+      image data ready for glGenTextures and glBindTexture. I suggest you check 
+      out NeHe's tutorial #6 and #24 for info on these commands. That concludes 
+      my first ever tutorial. I do not guarantee my code is error free, though i 
+      made an effort to see that it was. Special thanks to Jeff "NeHe" Molofee 
+      for his great tutorials and to Trent "ShiningKnight" Polack for helping me 
+      revise this tutorial. If you find errors, have suggestions, or comments 
+      please feel free to email me (terminate@gdnmail.net), or ICQ me at UIN# 
+      38601160. Enjoy! <BR><BR><B>Evan Pipho</B> (<B>Terminate</B>) 
+      <BR><BR><B>Jeff Molofee</B> (<B>NeHe</B>) <BR><BR>* DOWNLOAD <A 
+      href="http://nehe.gamedev.net/tutorials/vc/lesson33.zip">Visual C++</A> 
+      Code For This Lesson. <BR><BR><BR><BR>
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD align=left width="50%"><B><FONT size=-1><A 
+            href="http://nehe.gamedev.net/tutorials/lesson.asp?l=32">&lt; Lesson 
+            32</A></FONT></B></TD>
+          <TD align=right width="50%"><B><FONT size=-1><A 
+            href="http://nehe.gamedev.net/tutorials/lesson.asp?l=34">Lesson 34 
+            &gt;</A></FONT></B></TD></TR></TBODY></TABLE></FONT></TD>
+    <TD 
+      background="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"><IMG 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/r.png"></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bl.png" width=28></TD>
+    <TD width="100%"><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/bc.png" 
+    width="100%"></TD>
+    <TD><IMG height=28 
+      src="Jeff Molofee's OpenGL Windows Tutorial #33_files/br.png" 
+  width=28></TD></TR></TBODY></TABLE><BR><BR>
+<CENTER><!-- --></CENTER></BODY></HTML>

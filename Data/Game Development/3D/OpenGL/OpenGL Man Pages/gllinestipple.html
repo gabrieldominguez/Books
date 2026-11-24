@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gllinestipple Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gllinestipple</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glLineStipple(3G)	       OpenGL Reference		     glLineStipple(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glLineStipple - specify the line stipple pattern
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glLineStipple( GLint factor,
+			 GLushort pattern )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     factor   Specifies	a multiplier for each bit in the line stipple pattern.
+	      If factor	is 3, for example, each	bit in the pattern will	be
+	      used three times before the next bit in the pattern is used.
+	      factor is	clamped	to the range [1, 256] and defaults to one.
+
+     pattern  Specifies	a 16-bit integer whose bit pattern determines which
+	      fragments	of a line will be drawn	when the line is rasterized.
+	      Bit zero is used first, and the default pattern is all ones.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Line stippling masks out certain fragments	produced by rasterization;
+     those fragments will not be drawn.	 The masking is	achieved by using
+     three parameters:	the 16-bit line	stipple	pattern	pattern, the repeat
+     count factor, and an integer stipple counter s.
+
+     Counter s is reset	to zero	whenever glBegin is called, and	before each
+     line segment of a glBegin(GL_LINES)/glEnd sequence	is generated.  It is
+     incremented after each fragment of	a unit width aliased line segment is
+     generated,	or after each i	fragments of an	i width	line segment are
+     generated.	 The i fragments associated with count s are masked out	if
+
+			 pattern bit (s	/ factor) mod 16
+
+     is	zero, otherwise	these fragments	are sent to the	frame buffer.  Bit
+     zero of pattern is	the least significant bit.
+
+     Antialiased lines are treated as a	sequence of 1xwidth rectangles for
+     purposes of stippling.  Rectangle s is rasterized or not based on the
+     fragment rule described for aliased lines,	counting rectangles rather
+     than groups of fragments.
+
+     Line stippling is enabled or disabled using glEnable and glDisable	with
+     argument GL_LINE_STIPPLE.	When enabled, the line stipple pattern is
+     applied as	described above.  When disabled, it is as if the pattern were
+     all ones.	Initially, line	stippling is disabled.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glLineStipple	is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glLineStipple(3G)	       OpenGL Reference		     glLineStipple(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_LINE_STIPPLE_PATTERN
+     glGet with	argument GL_LINE_STIPPLE_REPEAT
+     glIsEnabled with argument GL_LINE_STIPPLE
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glLineWidth, glPolygonStipple
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glubegincurve Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glubegincurve</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluBeginCurve(3G)	       OpenGL Reference		     gluBeginCurve(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluBeginCurve, gluEndCurve	- delimit a NURBS curve	definition
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluBeginCurve( GLUnurbs* nurb	)
+
+     void gluEndCurve( GLUnurbs* nurb )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     nurb  Specifies the NURBS object (created with gluNewNurbsRenderer).
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Use gluBeginCurve to mark the beginning of	a NURBS	curve definition.
+     After calling gluBeginCurve, make one or more calls to gluNurbsCurve to
+     define the	attributes of the curve.  Exactly one of the calls to
+     gluNurbsCurve must	have a curve type of GL_MAP1_VERTEX_3 or
+     GL_MAP1_VERTEX_4.	To mark	the end	of the NURBS curve definition, call
+     gluEndCurve.
+
+     OpenGL evaluators are used	to render the NURBS curve as a series of line
+     segments.	Evaluator state	is preserved during rendering with
+     glPushAttrib(GL_EVAL_BIT) and glPopAttrib(). See the glPushAttrib
+     reference page for	details	on exactly what	state these calls preserve.
+
+
+<FONT COLOR="#0000CC">EXAMPLE
+</FONT>     The following commands render a textured NURBS curve with normals;
+     texture coordinates and normals are also specified	as NURBS curves:
+
+
+	  gluBeginCurve(nobj);
+	     gluNurbsCurve(nobj, ..., GL_MAP1_TEXTURE_COORD_2);
+	     gluNurbsCurve(nobj, ..., GL_MAP1_NORMAL);
+	     gluNurbsCurve(nobj, ..., GL_MAP1_VERTEX_4);
+	  gluEndCurve(nobj);
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluBeginSurface, gluBeginTrim, gluNewNurbsRenderer, gluNurbsCurve,
+     glPopAttrib, glPushAttrib
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

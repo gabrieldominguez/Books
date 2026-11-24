@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxgetvisualfromfbconfigsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxgetvisualfromfbconfigsgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXGetVisualFromFBConfigSGIX(3G)			OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXGetVisualFromFBConfigSGIX - return visual that is associated with the
+     frame buffer configuration
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     XVisualInfo * glXGetVisualFromFBConfigSGIX( Display *dpy,
+						 GLXFBConfigSGIX config	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy     Specifies the connection to the X server.
+
+     config  Specifies the GLX frame buffer configuration.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     If	config is a valid GLX frame buffer configuration and it	has an
+     associated	X Visual then information describing that visual is returned;
+     otherwise NULL is returned.  Use XFree to free the	data returned.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXGetVisualFromFBConfigSGIX is part of the GLX_SGIX_fbconfig extension.
+
+     XVisualInfo is defined in Xutil.h.	 It is a structure that	includes
+     visual, visualID, screen, and depth elements.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     Returns NULL if config is not a valid GLXFBConfig.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXGetFBConfigAttribSGIX, glXChooseFBConfigSGIX, glXChooseVisual,
+     glXGetConfig
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

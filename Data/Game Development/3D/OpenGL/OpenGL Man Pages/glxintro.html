@@ -1,0 +1,424 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxintro Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxintro</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXIntro(3G)		    OpenGL Reference - GLX		  glXIntro(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXIntro -	Introduction to	OpenGL in the X	window system
+
+
+
+<FONT COLOR="#0000CC">OVERVIEW
+</FONT>     OpenGL is a high-performance 3-D-oriented renderer.  It is	available in
+     the X window system through the GLX extension.  Use glXQueryExtension and
+     glXQueryVersion to	establish whether the GLX extension is supported by an
+     X server, and if so, what version is supported.
+
+     GLX extended servers make a subset	of their visuals available for OpenGL
+     rendering.	 Drawables created with	these visuals can also be rendered
+     using the core X renderer and with	the renderer of	any other X extension
+     that is compatible	with all core X	visuals.
+
+     GLX extends drawables with	several	buffers	other than the standard	color
+     buffer.  These buffers include back and auxiliary color buffers, a	depth
+     buffer, a stencil buffer, and a color accumulation	buffer.	 Some or all
+     are included in each X visual that	supports OpenGL.
+
+     To	render using OpenGL into an X drawable,	you must first choose a	visual
+     that defines the required OpenGL buffers.	glXChooseVisual	can be used to
+     simplify selecting	a compatible visual.  If more control of the selection
+     process is	required, use XGetVisualInfo and glXGetConfig to select	among
+     all the available visuals.
+
+     Use the selected visual to	create both a GLX context and an X drawable.
+     GLX contexts are created with glXCreateContext, and drawables are created
+     with either XCreateWindow or glXCreateGLXPixmap.  Finally,	bind the
+     context and the drawable together using glXMakeCurrent.  This
+     context/drawable pair becomes the current context and current drawable,
+     and it is used by all OpenGL commands until glXMakeCurrent	is called with
+     different arguments.
+
+     Both core X and OpenGL commands can be used to operate on the current
+     drawable.	The X and OpenGL command streams are not synchronized,
+     however, except at	explicitly created boundaries generated	by calling
+     glXWaitGL,	glXWaitX, XSync, and glFlush.
+
+
+
+<FONT COLOR="#0000CC">EXAMPLES
+</FONT>     Below is the minimum code required	to create an RGBA-format, OpenGL-
+     compatible	X window and clear it to yellow.  The code is correct, but it
+     does not include any error	checking.  Return values dpy, vi, cx, cmap,
+     and win should all	be tested.
+
+	  #include &amp;lt;GL/glx.h&gt;
+	  #include &amp;lt;GL/gl.h&gt;
+	  #include &amp;lt;unistd.h&gt;
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXIntro(3G)		    OpenGL Reference - GLX		  glXIntro(3G)
+</FONT>
+
+
+	  static int attributeListSgl[]	= {
+		  GLX_RGBA,
+		  GLX_RED_SIZE,	  1, /*get the deepest buffer  with 1 red bit*/
+		  GLX_GREEN_SIZE, 1,
+		  GLX_BLUE_SIZE,  1,
+		  None };
+
+	  static int attributeListDbl[]	= {
+		  GLX_RGBA,
+		  GLX_DOUBLE_BUFFER, /*In case Single buffering	is not supported*/
+		  GLX_RED_SIZE,	  1,
+		  GLX_GREEN_SIZE, 1,
+		  GLX_BLUE_SIZE,  1,
+		  None };
+
+
+	  static Bool WaitForNotify(Display *d,	XEvent *e, char	*arg) {
+	      return (e-&gt;type == MapNotify) && (e->xmap.window == (Window)arg);
+	  }
+
+	  int main(int argc, char **argv) {
+	      Display *dpy;
+	      XVisualInfo *vi;
+	      Colormap cmap;
+	      XSetWindowAttributes swa;
+	      Window win;
+	      GLXContext cx;
+	      XEvent event;
+	      int swap_flag = FALSE;
+
+
+	      /* get a connection */
+	      dpy = XOpenDisplay(0);
+
+	      /* get an	appropriate visual */
+	      vi = glXChooseVisual(dpy,	DefaultScreen(dpy), attributeListSgl);
+	      if (vi ==	NULL) {
+		 vi = glXChooseVisual(dpy, DefaultScreen(dpy), attributeListDbl);
+		 swap_flag = TRUE;
+	      }
+
+
+	      /* create	a GLX context */
+	      cx = glXCreateContext(dpy, vi, 0,	GL_TRUE);
+
+	      /* create	a color	map */
+	      cmap = XCreateColormap(dpy, RootWindow(dpy, vi-&gt;screen),
+			    vi-&gt;visual,	AllocNone);
+
+	      /* create	a window */
+	      swa.colormap = cmap;
+	      swa.border_pixel = 0;
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXIntro(3G)		    OpenGL Reference - GLX		  glXIntro(3G)
+</FONT>
+
+
+	      swa.event_mask = StructureNotifyMask;
+	      win = XCreateWindow(dpy, RootWindow(dpy, vi-&gt;screen), 0, 0, 100, 100,
+				  0, vi-&gt;depth,	InputOutput, vi->visual,
+				  CWBorderPixel|CWColormap|CWEventMask,	&swa);
+	      XMapWindow(dpy, win);
+	      XIfEvent(dpy, &event, WaitForNotify, (char*)win);
+
+	      /* connect the context to	the window */
+	      glXMakeCurrent(dpy, win, cx);
+
+	      /* clear the buffer */
+	      glClearColor(1,1,0,1);
+	      glClear(GL_COLOR_BUFFER_BIT);
+	      glFlush();
+	      if (swap_flag) glXSwapBuffers(dpy,win);
+
+
+	      /* wait a	while */
+	      sleep(10);
+	  }
+
+     OpenGL programs must be linked with the GL	and X11	libraries.  (They also
+     require the GLU library if	they use any of	the routines in	the OpenGL
+     Utilities.)  For example, to compile the program above, use the following
+     command line:
+
+	  cc example.c -lGL -lX11
+
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     A color map must be created and passed to XCreateWindow.  See the example
+     code above.
+
+     A GLX context must	be created and attached	to an X	drawable before	OpenGL
+     commands can be executed.	OpenGL commands	issued while no
+     context/drawable pair is current are ignored.
+
+     Exposure events indicate that all buffers associated with the specified
+     window may	be damaged and should be repainted.  Although certain buffers
+     of	some visuals on	some systems may never require repainting (the depth
+     buffer, for example), it is incorrect to code assuming that these buffers
+     will not be damaged.
+
+     GLX commands manipulate XVisualInfo structures rather than	pointers to
+     visuals or	visual IDs.  XVisualInfo structures contain visual, visualID,
+     screen, and depth elements, as well as other X-specific information.
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXIntro(3G)		    OpenGL Reference - GLX		  glXIntro(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">GLX EXTENSIONS
+</FONT>     The SGI_video_sync	extension provides a means for synchronization with
+     the video frame rate of a monitor--or, in the case	of an interlaced
+     monitor, with the field rate of the monitor. For more information see:
+     glXGetVideoSyncSGI, glXWaitVideoSyncSGI.
+
+     The SGI_swap_control extension provides new parameters that modify	the
+     semantics of glXSwapBuffers. With this extension an application can
+     specify a minimum periodicity for color buffer swaps, measured in display
+     retrace periods.  For more	information see	glXSwapIntervalSGI.
+
+     The EXT_import_context allows multiple X clients to share an indirect
+     rendering context.	Also, two convenience routines are added: one to get
+     the display for the current context and one to retrieve the attributes
+     that a context was	created	with. For more information see
+     glXGetCurrentDisplayEXT, glXQueryContextInfoEXT, glXGetContextIDEXT,
+     glXImportContextEXT, and glXFreeContextEXT.
+
+     The EXT_visual_rating extension allows servers to identify	a particular
+     GLX visual	as undesirable.	A new visual attribute is introduced,
+     providing a way for servers to specify caveats (e.g., slow	or non-
+     conformant) for a visual. The attribute may be queried using
+     glXGetConfig; it is also used by glXChooseVisual to discriminate against
+     visuals with caveats.
+
+     This extension allows servers to export visuals with improved features or
+     image quality, but	lower performance or greater system burden, without
+     having to have these visuals selected preferentially.
+
+     The EXT_visual_info extension allows the user to request a	particular X
+     visual type to be associated with a GLX visual, and allows	the user to
+     query the X visual	type underlying	a GLX visual. In addition, this
+     extension provides	a means	to request a visual with a transparent pixel
+     and to query whether a visual supports a transparent pixel	value and the
+     value of the transparent pixel.
+
+     The SGIX_fbconfig extension introduces a new way to describe the
+     capabilities of a GLX drawable (i.e., to describe the depth of color
+     buffer components and the type and	size of	ancillary buffers), removes
+     the "similarity" requirement when making a	context	current	to a drawable,
+     and supports RGBA rendering to one- and two-component Windows and GLX
+     Pixmaps. For more information see glXGetFBConfigAttribSGIX,
+     glXChooseFBConfigSGIX, glXCreateGLXPixmapWithConfigSGIX,
+     glXCreateContextWithConfigSGIX, glXGetVisualFromFBConfigSGIX,
+     glXGetFBConfigFromVisualSGIX.
+
+     The SGIX_pbuffer extension	defines	GLX pixel buffers, which are
+     additional	non-visible rendering buffers for an OpenGL renderer.  GLX
+     pixel buffers are typically allocated in non-visible frame	buffer memory.
+     They are intended to be "static" resources, in that a program will
+     typically allocate	them only once,	rather than as a part of its rendering
+     loop. Also	the frame buffer resources that	are associated with a GLX
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXIntro(3G)		    OpenGL Reference - GLX		  glXIntro(3G)
+</FONT>
+
+
+     pixel buffer are static, and are deallocated only when the	GLXPbuffer is
+     destroyed,	or, in the case	of a unpreserved GLX pixel buffer, as a	result
+     of	X server activity that changes its frame buffer	requirements.  For
+     more information see glXCreateGLXPbufferSGIX, glXDestroyGLXPbufferSGIX,
+     glXQueryGLXPbufferSGIX, glXSelectEventSGIX, glXGetSelectedEventSGIX.
+     SGIX_pbuffer is only supported on RealityEngine, RealityEngine2, and VTX
+     systems, InfiniteReality systems and High Impact and Maximum Impact
+     systems.
+
+     The SGIS_multisample extension provides a mechanism to antialias all
+     primitives. (This extension is described in more detail in	glIntro.) In
+     order to support multisampling both GLX and OpenGL	had to be extended.
+     The GLX portion of	the extension, designated as GLX_SGIS_multisample,
+     includes new visual attributes which can be specified when	calling
+     glXChooseVisual and glXGetConfig. SGIS_multisample	is only	supported on
+     RealityEngine, RealityEngine2, and	VTX systems, InfiniteReality systems
+     and High Impact and Maximum Impact	systems.
+
+     The SGI_make_current_read extension allows	OpenGL pixel operations	to
+     read pixel	data from the buffers of one drawable and draw into the
+     buffers of	another.  For example, pixels can be copied from one window
+     into another, or from a GLX pixel buffer into a window.  For more
+     information see glXMakeCurrentReadSGI and glXGetCurrentReadDrawableSGI.
+     SGI_make_current_read is only supported on	RealityEngine, RealityEngine2,
+     and VTX systems, InfiniteReality systems and High Impact and Maximum
+     Impact systems.
+
+     The SGIX_video_source extension allows pixel data to be sourced from a
+     video input stream.  It defines a new type	of drawable,
+     GLXVideoSourceSGIX, that represents the drain node	of a Video Library
+     (VL) path.	 A GLXVideoSourceSGIX may be passed as a parameter to
+     glXMakeCurrentReadSGI to indicate that pixel data should be read from the
+     specified video source instead of from the	framebuffer.  For more
+     information, see glXCreateGLXVideoSourceSGIX and
+     glXDestroyGLXVideoSourceSGIX.  SGIX_video_source is only supported	on
+     RealityEngine, RealityEngine2, and	VTX systems, and InfiniteReality
+     systems.
+
+     The SGIX_video_resize extension allows the	frame buffer to	be resized to
+     the output	resolution of the video	channel	when glXSwapBuffers is called
+     for the window that is bound to the video channel.	 SGIX_video_resize is
+     only supported on InfiniteReality systems.
+
+
+<FONT COLOR="#0000CC">USING GLX EXTENSIONS
+</FONT>     Procedure names and tokens	for GLX	extensions are either suffixed with
+     EXT, SGI, SGIS or SGIX. The meaning of these suffixes is described	in
+     glIntro.
+
+     All supported GLX extensions will have a corresponding definition in
+     glx.h and a token in the extension	string returned	by
+     glXQueryExtensionsString. For example, if the SGI_video_sync extension is
+
+
+
+									Page 5
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXIntro(3G)		    OpenGL Reference - GLX		  glXIntro(3G)
+</FONT>
+
+
+     supported then GLX_SGI_video_sync will be defined in glx.h	and
+     GLX_SGI_video_sync	will appear in the extension string returned by
+     glXQueryExtensionsString. The definitions in glx.h	can be used at compile
+     time to determine if procedure calls corresponding	to an extension	exist
+     in	the library. However, extensions which are defined in glx.h might not
+     be	implemented on all SGI platforms.
+
+     OpenGL also has been extended. Refer to glIntro for more information.
+
+
+<FONT COLOR="#0000CC">GLX 1.1
+</FONT>     SGI now supports GLX 1.1: this is backwards compatible with GLX 1.0 and
+     corresponds to OpenGL version 1.0.	Call glXQueryVersion to	determine at
+     runtime what version of GLX is being used.	(If you	are doing remote
+     rendering,	GLX version 1.1	will only be used if both the client and
+     server can	support	it. This allows	GLX 1.1	clients	and servers to
+     communicate with GLX 1.0 clients and servers.)  You can also check	the
+     GLX version at compile time: GLX_VERSION_1_1 will be defined in glx.h if
+     GLX 1.1 calls are supported.
+
+     The following new calls were introduced in	GLX 1.1:
+     glXQueryExtensionsString, glXQueryServerString, and glXGetClientString.
+     GLX extensions cannot be supported	in GLX version 1.0, since
+     glXQueryExtensionsString is only available	in GLX versions	1.1 and	later.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glFinish, glFlush,	glXChooseVisual, glXCopyContext, glXCreateContext,
+     glXCreateGLXPixmap, glXCreateGLXVideoSourceSGIX, glXDestroyContext,
+     glXGetClientString, glXGetConfig, glXIsDirect, glXMakeCurrent,
+     glXMakeCurrentReadSGI, glXQueryExtension, glXQueryExtensionsString,
+     glXQueryServerString, glXQueryVersion, glXSwapBuffers, glXUseXFont,
+     glXWaitGL,	glXWaitX, XCreateColormap, XCreateWindow, XSync
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 6
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxqueryversion Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxqueryversion</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXQueryVersion(3G)	    OpenGL Reference - GLX	   glXQueryVersion(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXQueryVersion - return the version numbers of the GLX extension
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     Bool glXQueryVersion( Display *dpy,
+			   int *major,
+			   int *minor )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy    Specifies the connection to	the X server.
+
+
+     major  Returns the	major version number of	the GLX	server extension.
+
+
+     minor  Returns the	minor version number of	the GLX	server extension.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXQueryVersion returns the major and minor version numbers of the	GLX
+     extension implemented by the server associated with connection dpy.
+     Implementations with the same major version number	are upward compatible,
+     meaning that the implementation with the higher minor number is a
+     superset of the version with the lower minor number.
+
+     major and minor do	not return values if they are specified	as NULL.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     glXQueryVersion returns False if it fails,	True otherwise.	 major and
+     minor are not updated when	False is returned.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	the GLX	version	is 1.1 or 1.0, then the	GL version must	be 1.0.
+
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXQueryExtension
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

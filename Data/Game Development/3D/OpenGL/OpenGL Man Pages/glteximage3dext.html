@@ -1,0 +1,556 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glteximage3dext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glteximage3dext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glTexImage3DEXT(3G)	       OpenGL Reference		   glTexImage3DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glTexImage3DEXT - specify a three-dimensional texture image
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glTexImage3DEXT( GLenum target,
+			   GLint level,
+			   GLenum internalformat,
+			   GLsizei width,
+			   GLsizei height,
+			   GLsizei depth,
+			   GLint border,
+			   GLenum format,
+			   GLenum type,
+			   const GLvoid	*pixels	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target	     Specifies the target texture.  Must be GL_TEXTURE_3D_EXT
+		     or	GL_PROXY_TEXTURE_3D_EXT.
+
+     level	     Specifies the level-of-detail number.  Level 0 is the
+		     base image	level.	Level n	is the nth mipmap reduction
+		     image.
+
+     internalformat  Specifies the internal storage format of the texture
+		     image.  it	must be	one of the following symbolic
+		     constants:	 GL_ALPHA, GL_ALPHA4_EXT, GL_ALPHA8_EXT,
+		     GL_ALPHA12_EXT, GL_ALPHA16_EXT, GL_LUMINANCE,
+		     GL_LUMINANCE4_EXT,	GL_LUMINANCE8_EXT, GL_LUMINANCE12_EXT,
+		     GL_LUMINANCE16_EXT, GL_LUMINANCE_ALPHA,
+		     GL_LUMINANCE4_ALPHA4_EXT, GL_LUMINANCE6_ALPHA2_EXT,
+		     GL_LUMINANCE8_ALPHA8_EXT, GL_LUMINANCE12_ALPHA4_EXT,
+		     GL_LUMINANCE12_ALPHA12_EXT, GL_LUMINANCE16_ALPHA16_EXT,
+		     GL_INTENSITY_EXT, GL_INTENSITY4_EXT, GL_INTENSITY8_EXT,
+		     GL_INTENSITY12_EXT, GL_INTENSITY16_EXT, GL_RGB,
+		     GL_RGB2_EXT, GL_RGB4_EXT, GL_RGB5_EXT, GL_RGB8_EXT,
+		     GL_RGB10_EXT, GL_RGB12_EXT, GL_RGB16_EXT, GL_RGBA,
+		     GL_RGBA2_EXT, GL_RGBA4_EXT, GL_RGB5_A1_EXT, GL_RGBA8_EXT,
+		     GL_RGB10_A2_EXT, GL_RGBA12_EXT, GL_RGBA16_EXT,
+		     GL_DUAL_ALPHA4_SGIS, GL_DUAL_ALPHA8_SGIS,
+		     GL_DUAL_ALPHA12_SGIS, GL_DUAL_ALPHA16_SGIS,
+		     GL_DUAL_LUMINANCE4_SGIS, GL_DUAL_LUMINANCE8_SGIS,
+		     GL_DUAL_LUMINANCE12_SGIS, GL_DUAL_LUMINANCE16_SGIS,
+		     GL_DUAL_INTENSITY4_SGIS, GL_DUAL_INTENSITY8_SGIS,
+		     GL_DUAL_INTENSITY12_SGIS, GL_DUAL_INTENSITY16_SGIS,
+		     GL_DUAL_LUMINANCE_ALPHA4_SGIS,
+		     GL_DUAL_LUMINANCE_ALPHA8_SGIS, GL_QUAD_ALPHA4_SGIS,
+		     GL_QUAD_ALPHA8_SGIS, GL_QUAD_LUMINANCE4_SGIS,
+		     GL_QUAD_LUMINANCE8_SGIS, GL_QUAD_INTENSITY4_SGIS, or
+		     GL_QUAD_INTENSITY8_SGIS.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexImage3DEXT(3G)	       OpenGL Reference		   glTexImage3DEXT(3G)
+</FONT>
+
+
+     width	     Specifies the width of the	texture	image.	Must be
+		     2**n+2*border for some integer n.
+
+     height	     Specifies the height of the texture image.	 Must be
+		     2**m+I*border for some integer m, where I is 2 when
+		     GL_INTERLACE_SGIX is disabled, and	1 otherwise.
+
+     depth	     Specifies the depth of the	texture	image.	Must be
+		     2**l+2*border for some integer l.
+
+     border	     Specifies the width of the	border.	 Must be either	0 or
+		     1.
+
+     format	     Specifies the format of the pixel data.  The following
+		     symbolic values are accepted:  GL_COLOR_INDEX, GL_RED,
+		     GL_GREEN, GL_BLUE,	GL_ALPHA, GL_RGB, GL_RGBA,
+		     GL_ABGR_EXT, GL_LUMINANCE,	and GL_LUMINANCE_ALPHA.
+
+     type	     Specifies the data	type of	the pixel data.	 The following
+		     symbolic values are accepted:  GL_UNSIGNED_BYTE, GL_BYTE,
+		     GL_UNSIGNED_SHORT,	GL_SHORT, GL_UNSIGNED_INT, GL_INT,
+		     GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2_EXT,
+		     GL_UNSIGNED_SHORT_4_4_4_4_EXT,
+		     GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+		     GL_UNSIGNED_INT_8_8_8_8_EXT, and
+		     GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+     pixels	     Specifies a pointer to the	image data in memory.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Texturing maps a portion of a specified texture image onto	each graphical
+     primitive for which texturing is enabled.	Three-dimensional texturing is
+     enabled and disabled using	glEnable and glDisable with argument
+     GL_TEXTURE_3D_EXT.
+
+     Texture images are	defined	with glTexImage3DEXT. The arguments describe
+     the parameters of the texture image, such as height, width, depth,	width
+     of	the border, level-of-detail number (see	glTexParameter), and the
+     internal resolution and format used to store the image.  The last three
+     arguments describe	the way	the image is represented in memory, and	they
+     are identical to the pixel	formats	used for glDrawPixels.
+
+     If	target is GL_PROXY_TEXTURE_3D_EXT no data is read from pixels,	but
+     all of the	texture	image state is recalculated, checked for consistency,
+     and checked against the implementation's capabilities.  If	the
+     implementation cannot handle a texture of the requested texture size, it
+     will set all of the texture image state to	0 (GL_TEXTURE_WIDTH,
+     GL_TEXTURE_HEIGHT,	GL_TEXTURE_BORDER, GL_TEXTURE_COMPONENTS,
+     GL_TEXTURE_RED_SIZE_EXT, GL_TEXTURE_GREEN_SIZE_EXT,
+     GL_TEXTURE_BLUE_SIZE_EXT, GL_TEXTURE_ALPHA_SIZE_EXT,
+     GL_TEXTURE_LUMINANCE_SIZE_EXT, and	GL_TEXTURE_INTENSITY_SIZE_EXT),	but no
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexImage3DEXT(3G)	       OpenGL Reference		   glTexImage3DEXT(3G)
+</FONT>
+
+
+     error will	be generated.
+
+     If	target is GL_TEXTURE_3D_EXT, data is read from pixels as a sequence of
+     signed or unsigned	bytes, shorts, or longs, or single-precision
+     floating-point values, depending on type. These values are	grouped	into
+     sets of one, two, three, or four values, depending	on format, to form
+     elements.	(Note that if type is set to GL_UNSIGNED_BYTE_3_3_2_EXT,
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT then it is
+     a special case in which all the elements of each group are	packed into a
+     single unsigned byte, unsigned short, or unsigned int. This is described
+     in	glDrawPixels.)
+
+     The first element corresponds to the lower-left-rear corner of the
+     texture volume.  Subsequent elements progress left-to-right through the
+     remaining texels in the lowest-rear row of	the texture volume, then in
+     successively higher rows of the rear 2D slice of the texture volume, then
+     in	successively closer 2D slices of the texture volume.  The final
+     element corresponds to the	upper-right-front corner of the	texture
+     volume.
+
+     When GL_INTERLACE_SGIX is enabled,	only rows (0,2,4,...) of each S-T
+     slice (where the border is	considered part	of the slice) are defined.
+     Rows (1,3,5,...) are left undefined and can only be defined using
+     glTexSubImage3DEXT	or glCopyTexSubImage3DEXT.  Note, that when
+     GL_INTERLACE_SGIX is enabled the total height (i.e., the height of
+     interior texture image plus twice the border) of the defined texture is
+     2*height.
+
+     Each element of pixels is converted to an RGBA element according to
+     format, as	detailed below.	 Except	for GL_COLOR_INDEX, after the
+     conversion	to RGBA, each component	is multiplied by the signed scale
+     factor GL_c_SCALE,	added to the signed bias GL_c_BIAS, and	clamped	to the
+     range [0,1], where	c is RED, GREEN, BLUE, or ALPHA, respectively (see
+     glPixelTransfer).
+
+     According to format, the conversion to RGBA is as follows:
+
+     GL_COLOR_INDEX
+	       Each element is a single	value, a color index. It is converted
+	       to fixed	point (with an unspecified number of zero bits to the
+	       right of	the binary point), shifted left	or right depending on
+	       the value and sign of GL_INDEX_SHIFT, and added to
+	       GL_INDEX_OFFSET (see glPixelTransfer). The resulting index is
+	       converted to a set of color components using the
+	       GL_PIXEL_MAP_I_TO_R, GL_PIXEL_MAP_I_TO_G, GL_PIXEL_MAP_I_TO_B,
+	       and GL_PIXEL_MAP_I_TO_A tables, and clamped to the range	[0,1].
+
+     GL_RED    Each element is a single	red component. It is converted to
+	       floating	point and assembled into an RGBA element by attaching
+	       0.0 for green and blue, and 1.0 for alpha.
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexImage3DEXT(3G)	       OpenGL Reference		   glTexImage3DEXT(3G)
+</FONT>
+
+
+     GL_GREEN  Each element is a single	green component. It is converted to
+	       floating	point and assembled into an RGBA element by attaching
+	       0.0 for red and blue, and 1.0 for alpha.
+
+     GL_BLUE   Each element is a single	blue component.	It is converted	to
+	       floating	point and assembled into an RGBA element by attaching
+	       0.0 for red and green, and 1.0 for alpha.
+
+     GL_ALPHA  Each element is a single	alpha component. It is converted to
+	       floating	point and assembled into an RGBA element by attaching
+	       0.0 for red, green, and blue.
+
+     GL_RGB    Each element is an RGB triple.  It is converted to floating
+	       point and assembled into	an RGBA	element	by attaching 1.0 for
+	       alpha.  (see  glPixelTransfer).
+
+     GL_RGBA,
+
+     GL_ABGR_EXT
+	       Each element contains all four components; for GL_RGBA, the red
+	       component is first, followed by green, then blue, and then
+	       alpha; for GL_ABGR_EXT the order	is alpha, blue,	green, and
+	       then red.
+
+     GL_LUMINANCE
+	       Each element is a single	luminance value.  It is	converted to
+	       floating	point, then assembled into an RGBA element by
+	       replicating the luminance value three times for red, green, and
+	       blue and	attaching 1.0 for alpha.
+
+     GL_LUMINANCE_ALPHA
+	       Each element is a luminance/alpha pair.	It is converted	to
+	       floating	point, then assembled into an RGBA element by
+	       replicating the luminance value three times for red, green, and
+	       blue.
+
+     Please refer to the glDrawPixels reference	page for a description of the
+     acceptable	values for the type parameter.
+
+     An	application may	desire that the	texture	be stored at a certain
+     resolution, or that it be stored in a certain format. This	resolution and
+     format can	be requested by	internalformat,	but the	implementation may not
+     support that resolution (The formats of GL_LUMINANCE, GL_LUMINANCE_ALPHA,
+     GL_RGB, and GL_RGBA must be supported.)  When a resolution	and storage
+     format is specified, the implementation will update the texture state to
+     provide the best match to the requested resolution. The
+     GL_PROXY_TEXTURE_3D_EXT target can	be used	to try a resolution and
+     format.  The implementation will compute its best match for the requested
+     storage resolution	and format; this state can then	be queried using
+     glGetTexLevelParameter.
+
+
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexImage3DEXT(3G)	       OpenGL Reference		   glTexImage3DEXT(3G)
+</FONT>
+
+
+     A one-component texture image uses	only the red component of the RGBA
+     color extracted from pixels. A two-component image	uses the R and A
+     values.  A	three-component	image uses the R, G, and B values.  A four-
+     component image uses all of the RGBA components.
+
+     The mapping of components from the	canonical RGBA to the internal storage
+     formats that begin	with GL_DUAL_ and GL_QUAD_ needs to be clarified.
+     There are three cases.  The first case is for the GL_DUAL_	formats	that
+     are groups	of GL_ALPHA, GL_LUMINANCE, and GL_INTENSITY.  The R value goes
+     to	the first group	while the A value goes to the second group.  The
+     second case is for	the GL_DUAL_ formats that are groups of
+     GL_LUMINANCE_ALPHA.  The R	and G values go	to the first group while the B
+     and A values go to	the second group.  The third case is for the GL_QUAD_
+     formats.  The R value goes	to the first group, the	G value	to the second
+     group, the	B value	to the third group, and	the A value to the fourth
+     group.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Texturing has no effect in	color index mode.
+
+     The texture image can be represented by the same data formats and types
+     as	the pixels in a	glDrawPixels command, except that formats
+     GL_STENCIL_INDEX and GL_DEPTH_COMPONENT cannot be used, and type
+     GL_BITMAP cannot be used.	glPixelStore and glPixelTransfer modes affect
+     texture images in exactly the way they affect glDrawPixels.
+
+     A texture image with zero height, width, or depth indicates the null
+     texture.  If the null texture is specified	for level-of-detail 0, it is
+     as	if texturing were disabled.
+
+     glTexImage3DEXT is	part of	the EXT_texture3d extension.
+
+     If	type is	set to GL_UNSIGNED_BYTE_3_3_2_EXT,
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT and	the
+     EXT_packed_pixels extension is not	supported then a GL_INVALID_ENUM error
+     is	generated.
+
+     See glIntro for more information on using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated when target is not an	accepted value.
+
+     GL_INVALID_ENUM is	generated when format is not an	accepted value.
+
+     GL_INVALID_ENUM is	generated when type is not an accepted value.
+
+     GL_INVALID_VALUE is generated if level is less than zero or greater than
+     log2(max),	where max is the returned value	of GL_MAX_3D_TEXTURE_SIZE_EXT.
+
+
+
+
+
+
+									Page 5
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexImage3DEXT(3G)	       OpenGL Reference		   glTexImage3DEXT(3G)
+</FONT>
+
+
+     GL_INVALID_VALUE is generated if internalformat is	not an accepted	value.
+
+     GL_INVALID_VALUE is generated if width, height, or	depth is less than
+     zero or greater than GL_MAX_3D_TEXTURE_SIZE_EXT, when width, or depth
+     cannot be represented as 2**k+2*border for	some integer k,	or when	height
+     cannot be represented as 2**k+I*border, where I is	2 when
+     GL_INTERLACE_SGIX is disabled and 1 otherwise.
+
+     GL_INVALID_VALUE is generated if border is	not 0 or 1.
+
+     GL_INVALID_OPERATION is generated if glTexImage3DEXT is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+     GL_TEXTURE_TOO_LARGE_EXT is generated if the implementation cannot
+     accomodate	a texture of the size requested.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexImage
+     glIsEnabled with argument GL_TEXTURE_3D_EXT
+     glGetTexLevelParameter with a first argument of GL_PROXY_TEXTURE_3D_EXT
+     and a third argument of GL_TEXTURE_RED_SIZE_EXT,
+     GL_TEXTURE_GREEN_SIZE_EXT,	GL_TEXTURE_BLUE_SIZE_EXT,
+     GL_TEXTURE_ALPHA_SIZE_EXT,	GL_TEXTURE_LUMINANCE_SIZE_EXT,
+     GL_TEXTURE_INTENSITY_SIZE_EXT, GL_TEXTURE_WIDTH, GL_TEXTURE_HEIGHT,
+     GL_TEXTURE_DEPTH_EXT, GL_TEXTURE_BORDER, or GL_TEXTURE_COMPONENTS.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support convolving
+     images as they are	loaded into texture memory.
+
+     InfiniteReality systems have limited support for convolving images	as
+     they are loaded into texture memory.  The image resulting from
+     convolution must be a multiple of 8 in width.
+
+     RealityEngine, RealityEngine2, and	VTX systems do not support histogram
+     or	minmax operations on images as they are	being loaded into texture
+     memory.
+
+     The SGIX_interlace	extension is supported only on InfiniteReality systems
+     and on RealityEngine, RealityEngine2, and VTX systems.
+
+     The EXT_packed_pixels extension is	not supported on RealityEngine,
+     RealityEngine2, and VTX systems; it will be supported on High Impact and
+     Maximum Impact systems in a future	release.
+
+     High Impact and Maximum Impact systems do not support texture internal
+     formats of	the type GL_INTENSITY or GL_ALPHA. Internally the number of
+     bits per component	is the same for	all components and will	be 4, 8, or 12
+     bits per component. All specified internal	formats	will receive an	equal
+     or	greater	representation in this scheme, up to the 12-bit	limit.
+
+
+
+									Page 6
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexImage3DEXT(3G)	       OpenGL Reference		   glTexImage3DEXT(3G)
+</FONT>
+
+
+     High Impact and Maximum Impact systems without the	TRAM option card
+     support 4 bits per	component for GL_RGB and GL_RGBA, 4/8 bits per
+     component for GL_LUMINANCE_ALPHA, and 4/8/12 bits per component for
+     GL_RGBA.
+
+     On	RealityEngine, RealityEngine2, and VTX systems,	the following
+     restrictions apply	to 3D texturing:
+
+	  1.  The texture environment must be defined and texturing must be
+	      enabled before loading a texture.
+
+	  2.  Texture formats composed only of alpha are not supported.
+
+	  3.  Borders are not supported; hence the border width	must be	0.
+
+	  4.  Proxy textures are not supported.
+
+	  5.  3D mipmaps are not supported. Hence, the minifying function must
+	      be set to	GL_NEAREST or GL_LINEAR	(see glTexParameter).
+
+	  6   3D texturing when	rendering to pixmaps is	not supported.
+
+	  7.  GL_INTERLACE_SGIX	is not supported (see glEnable).
+
+     On	InfiniteReality	systems, defining 2D and 3D textures in	arbitrary
+     order can cause incorrect results if texture memory is overcommitted.
+     Workarounds are to	define all 3D textures before defining any 2D
+     textures, or to ensure that the application never defines more textures
+     than will fit in texture memory.  This will be fixed in the next release.
+
+     On	High Impact and	Maximum	Impact systems,	the following restrictions
+     apply to 3D texturing:
+
+	  1.  Perspective views	are not	supported.
+
+	  2.  Borders are not supported; hence the border width	must be	0.
+
+	  3.  3D mipmaps are not supported. Hence, the minifying function must
+	      be set to	GL_NEAREST or GL_LINEAR	(see glTexParameter), and the
+	      level parameter must be 0.
+
+	  4.  Textures that have a width of 16 or less will not	render
+	      correctly	at the wrap_s boundary.
+
+     Texture borders are not supported on InfiniteReality systems, so the
+     border width should always	be zero.  Borders will be supported in future
+     releases.	However, borders use texture memory very inefficiently;	up to
+     four times	the memory required by the base	texture	may be needed to
+     support borders properly.	Whenever possible, applications	should use the
+     texture wrap mode GL_CLAMP_TO_EDGE_SGIS and borderless textures.  This
+     might be essential	for large textures, which otherwise won't fit in
+     texture memory because of the border overhead.
+
+
+
+									Page 7
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexImage3DEXT(3G)	       OpenGL Reference		   glTexImage3DEXT(3G)
+</FONT>
+
+
+     The SGIS_texture_select extension is supported only on InfiniteReality
+     systems and on High Impact	and Maximum Impact systems with	the TRAM
+     option card.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDrawPixels, glFog, glPixelStore,	glPixelTransfer, glTexEnv, glTexGen,
+     glTexImage1D, glTexImage2D, glTexParameter,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 8
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

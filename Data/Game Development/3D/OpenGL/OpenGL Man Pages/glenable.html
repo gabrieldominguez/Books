@@ -1,0 +1,490 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glenable Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glenable</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glEnable(3G)		       OpenGL Reference			  glEnable(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glEnable, glDisable - enable or disable GL	capabilities
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glEnable( GLenum cap )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     cap  Specifies a symbolic constant	indicating a GL	capability.
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glDisable( GLenum cap	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     cap  Specifies a symbolic constant	indicating a GL	capability.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glEnable and glDisable enable and disable various capabilities.  Use
+     glIsEnabled or glGet to determine the current setting of any capability.
+
+     Both glEnable and glDisable take a	single argument, cap, which can	assume
+     one of the	following values:
+
+     GL_ALPHA_TEST	      If enabled, do alpha testing. See	glAlphaFunc.
+
+     GL_AUTO_NORMAL	      If enabled, compute surface normal vectors
+			      analytically when	either GL_MAP2_VERTEX_3	or
+			      GL_MAP2_VERTEX_4 is used to generate vertices.
+			      See glMap2.
+
+     GL_BLEND		      If enabled, blend	the incoming RGBA color	values
+			      with the values in the color buffers.  See
+			      glBlendFunc.
+
+     GL_CLIP_PLANEi	      If enabled, clip geometry	against	user-defined
+			      clipping plane i.	 See glClipPlane.
+
+     GL_COLOR_ARRAY_EXT	      If enabled, glArrayElementEXT and
+			      glDrawArraysEXT will transfer colors from	the
+			      array supplied to	glColorPointerEXT.  See
+			      glColorPointerEXT.
+
+     GL_COLOR_MATERIAL	      If enabled, have one or more material parameters
+			      track the	current	color.	See glColorMaterial.
+
+     GL_COLOR_TABLE_SGI	      If enabled, the colors produced by the pixel
+			      transfer operation are mapped by a lookup	table
+			      before being used	by convolution.	 See
+			      glColorTableSGI.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glEnable(3G)		       OpenGL Reference			  glEnable(3G)
+</FONT>
+
+
+     GL_CONVOLUTION_1D_EXT    If enabled, perform one-dimensional convolution
+			      during pixel transfers.  See
+			      glConvolutionFilter1DEXT.
+
+     GL_CONVOLUTION_2D_EXT    If enabled, perform two-dimensional convolution
+			      during pixel transfers.  See
+			      glConvolutionFilter2DEXT.
+
+     GL_CULL_FACE	      If enabled, cull polygons	based on their winding
+			      in window	coordinates.  See glCullFace.
+
+     GL_DEPTH_TEST	      If enabled, do depth comparisons and update the
+			      depth buffer.  See glDepthFunc and
+			      glDepthRange.
+
+     GL_DITHER		      If enabled, dither color components or indices
+			      before they are written to the color buffer.
+
+     GL_EDGE_FLAG_ARRAY_EXT   If enabled, glArrayElementEXT and
+			      glDrawArraysEXT will transfer edge flags from
+			      the array	supplied to glEdgeFlagPointerEXT.  See
+			      glEdgeFlagPointerEXT.
+
+     GL_FOG		      If enabled, blend	a fog color into the
+			      posttexturing color.  See	glFog.
+
+     GL_FOG_OFFSET_SGIX	      If enabled, apply	an offset to the Z value used
+			      for computing fog.  See glFog.
+
+     GL_HISTOGRAM_EXT	      If enabled, compute a histogram during pixel
+			      transfers.  See glHistogramEXT.
+
+     GL_INDEX_ARRAY_EXT	      If enabled, glArrayElementEXT and
+			      glDrawArraysEXT will transfer color indices from
+			      the array	supplied to glIndexPointerEXT.	See
+			      glIndexPointerEXT.
+
+     GL_INTERLACE_SGIX	      If enabled, modifies the behavior	of
+			      glDrawPixels, glCopyPixels, glTexImage2D,
+			      glTexSubImage2DEXT, glCopyTexImage2DEXT and
+			      glCopyTexSubImage2DEXT, such that	the source
+			      image is considered to be	a field	of an
+			      "interlaced" frame.  That	is, the	effective
+			      source image has height equal to twice the
+			      original height, with rows (0,2,4,...)
+			      corresponding to rows (0,1,2,...)	of original
+			      source image, and	rows (1,3,5,...)  made of
+			      "transparent" pixels that	do not affect the
+			      corresponding destination	pixels in the target
+			      image.  Thus, two	successive operations can be
+			      used to assemble a complete frame	by interlacing
+			      two fields.  See the reference pages for the
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glEnable(3G)		       OpenGL Reference			  glEnable(3G)
+</FONT>
+
+
+			      above commands for more details.
+
+     GL_LIGHTi		      If enabled, include light	i in the evaluation of
+			      the lighting equation.  See glLightModel and
+			      glLight.
+
+     GL_LIGHTING	      If enabled, use the current lighting parameters
+			      to compute the vertex color or index.
+			      Otherwise, simply	associate the current color or
+			      index with each vertex.  See glMaterial,
+			      glLightModel, and	glLight.
+
+     GL_LINE_SMOOTH	      If enabled, draw lines with correct filtering.
+			      Otherwise, draw aliased lines.  See glLineWidth.
+
+     GL_LINE_STIPPLE	      If enabled, use the current line stipple pattern
+			      when drawing lines.  See glLineStipple.
+
+     GL_LOGIC_OP	      If enabled, apply	the currently selected logical
+			      operation	to the incoming	and color buffer
+			      indices.	See glLogicOp.
+
+     GL_MAP1_COLOR_4	      If enabled, calls	to glEvalCoord1, glEvalMesh1,
+			      and glEvalPoint1 will generate RGBA values.  See
+			      glMap1.
+
+     GL_MAP1_INDEX	      If enabled, calls	to glEvalCoord1, glEvalMesh1,
+			      and glEvalPoint1 will generate color indices.
+			      See glMap1.
+
+     GL_MAP1_NORMAL	      If enabled, calls	to glEvalCoord1, glEvalMesh1,
+			      and glEvalPoint1 will generate normals.  See
+			      glMap1.
+
+     GL_MAP1_TEXTURE_COORD_1  If enabled, calls	to glEvalCoord1, glEvalMesh1,
+			      and glEvalPoint1 will generate s texture
+			      coordinates.  See	glMap1.
+
+     GL_MAP1_TEXTURE_COORD_2  If enabled, calls	to glEvalCoord1, glEvalMesh1,
+			      and glEvalPoint1 will generate s and t texture
+			      coordinates.  See	glMap1.
+
+     GL_MAP1_TEXTURE_COORD_3  If enabled, calls	to glEvalCoord1, glEvalMesh1,
+			      and glEvalPoint1 will generate s,	t, and r
+			      texture coordinates.  See	glMap1.
+
+     GL_MAP1_TEXTURE_COORD_4  If enabled, calls	to glEvalCoord1, glEvalMesh1,
+			      and glEvalPoint1 will generate s,	t, r, and q
+			      texture coordinates.  See	glMap1.
+
+
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glEnable(3G)		       OpenGL Reference			  glEnable(3G)
+</FONT>
+
+
+     GL_MAP1_VERTEX_3	      If enabled, calls	to glEvalCoord1, glEvalMesh1,
+			      and glEvalPoint1 will generate will generate x,
+			      y, and z vertex coordinates.  See	glMap1.
+
+     GL_MAP1_VERTEX_4	      If enabled, calls	to glEvalCoord1, glEvalMesh1,
+			      and glEvalPoint1 will generate homogeneous x, y,
+			      z, and w vertex coordinates.  See	glMap1.
+
+     GL_MAP2_COLOR_4	      If enabled, calls	to glEvalCoord2, glEvalMesh2,
+			      and glEvalPoint2 will generate RGBA values.  See
+			      glMap2.
+
+     GL_MAP2_INDEX	      If enabled, calls	to glEvalCoord2, glEvalMesh2,
+			      and glEvalPoint2 will generate color indices.
+			      See glMap2.
+
+     GL_MAP2_NORMAL	      If enabled, calls	to glEvalCoord2, glEvalMesh2,
+			      and glEvalPoint2 will generate normals.  See
+			      glMap2.
+
+     GL_MAP2_TEXTURE_COORD_1  If enabled, calls	to glEvalCoord2, glEvalMesh2,
+			      and glEvalPoint2 will generate s texture
+			      coordinates.  See	glMap2.
+
+     GL_MAP2_TEXTURE_COORD_2  If enabled, calls	to glEvalCoord2, glEvalMesh2,
+			      and glEvalPoint2 will generate s and t texture
+			      coordinates.  See	glMap2.
+
+     GL_MAP2_TEXTURE_COORD_3  If enabled, calls	to glEvalCoord2, glEvalMesh2,
+			      and glEvalPoint2 will generate s,	t, and r
+			      texture coordinates.  See	glMap2.
+
+     GL_MAP2_TEXTURE_COORD_4  If enabled, calls	to glEvalCoord2, glEvalMesh2,
+			      and glEvalPoint2 will generate s,	t, r, and q
+			      texture coordinates.  See	glMap2.
+
+     GL_MAP2_VERTEX_3	      If enabled, calls	to glEvalCoord2, glEvalMesh2,
+			      and glEvalPoint2 will generate will generate x,
+			      y, and z vertex coordinates.  See	glMap2.
+
+     GL_MAP2_VERTEX_4	      If enabled, calls	to glEvalCoord2, glEvalMesh2,
+			      and glEvalPoint2 will generate homogeneous x, y,
+			      z, and w vertex coordinates.  See	glMap2.
+
+     GL_MINMAX_EXT	      If enabled, compute the minimum and maximum
+			      values of	each color component during pixel
+			      transfers.  See glMinmaxEXT.
+
+     GL_MULTISAMPLE_SGIS      If enabled, perform multisampling	of fragments
+			      for single-pass antialiasing and other effects.
+			      See glSampleMaskSGIS and glSamplePatternSGIS.
+
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glEnable(3G)		       OpenGL Reference			  glEnable(3G)
+</FONT>
+
+
+     GL_NORMAL_ARRAY_EXT      If enabled, glArrayElementEXT and
+			      glDrawArraysEXT will transfer surface normals
+			      from the array supplied to glNormalPointerEXT.
+			      See glNormalPointerEXT.
+
+     GL_NORMALIZE	      If enabled, normal vectors specified with
+			      glNormal are scaled to unit length after
+			      transformation.  See glNormal.
+
+     GL_POLYGON_OFFSET_EXT    If enabled, an offset is added to	z values of a
+			      polygon's	fragments before the depth comparison
+			      is performed.
+
+     GL_POINT_SMOOTH	      If enabled, draw points with proper filtering.
+			      Otherwise, draw aliased points.  See
+			      glPointSize.
+
+     GL_POLYGON_SMOOTH	      If enabled, draw polygons	with proper filtering.
+			      Otherwise, draw aliased polygons.	 See
+			      glPolygonMode.
+
+     GL_POLYGON_STIPPLE	      If enabled, use the current polygon stipple
+			      pattern when rendering polygons.	See
+			      glPolygonStipple.
+
+     GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI
+			      If enabled, the colors produced by the color
+			      matrix operation are mapped by a lookup table
+			      before being used	by the histogram operation.
+			      See glColorTableSGI.
+
+     GL_POST_CONVOLUTION_COLOR_TABLE_SGI
+			      If enabled, the colors produced by convolution
+			      are mapped by a lookup table before being	used
+			      by the color matrix operation.  See
+			      glColorTableSGI.
+
+     GL_REFERENCE_PLANE_SGIX  If enabled, depth	values for pixel fragments are
+			      computed from a reference	plane rather than from
+			      the primitive being drawn.  See
+			      glReferencePlaneSGIX.
+
+     GL_SAMPLE_ALPHA_TO_MASK_SGIS
+			      If enabled, convert fragment alpha values	to
+			      multisample coverage modification	masks.	See
+			      glSampleMaskSGIS.
+
+     GL_SAMPLE_ALPHA_TO_ONE_SGIS
+			      If enabled, set fragment alpha to	the maximum
+			      permissible value	after computing	multisample
+			      coverage modification masks.  See
+			      glSampleMaskSGIS.
+
+
+
+									Page 5
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glEnable(3G)		       OpenGL Reference			  glEnable(3G)
+</FONT>
+
+
+     GL_SAMPLE_MASK_SGIS      If enabled, apply	a mask to modify fragment
+			      coverage during multisampling.  See
+			      glSampleMaskSGIS.
+
+     GL_SCISSOR_TEST	      If enabled, discard fragments that are outside
+			      the scissor rectangle.  See glScissor.
+
+     GL_SEPARABLE_2D_EXT      If enabled, perform separable two-dimensional
+			      convolution during pixel transfers.  See
+			      glSeparableFilter2DEXT.
+
+     GL_STENCIL_TEST	      If enabled, do stencil testing and update	the
+			      stencil buffer.  See glStencilFunc and
+			      glStencilOp.
+
+     GL_TEXTURE_1D	      If enabled, one-dimensional texturing is
+			      performed	(unless	two-dimensional	texturing is
+			      also enabled).  See glTexImage1D.
+
+     GL_TEXTURE_2D	      If enabled, two-dimensional texturing is
+			      performed.  See glTexImage2D.
+
+     GL_TEXTURE_3D_EXT	      If enabled, three-dimensional texturing is
+			      performed.  See glTexImage3DEXT.
+
+     GL_TEXTURE_COLOR_TABLE_SGI
+			      If enabled, the colors produced by texturing are
+			      mapped by	a lookup table before being used to
+			      generate pixel fragments.	 See glColorTableSGI.
+
+     GL_TEXTURE_COORD_ARRAY_EXT
+			      If enabled, glArrayElementEXT and
+			      glDrawArraysEXT will transfer texture
+			      coordinates from the array supplied to
+			      glTexCoordPointerEXT.  See glTexCoordPointerEXT.
+
+     GL_TEXTURE_GEN_Q	      If enabled, the q	texture	coordinate is computed
+			      using the	texture	generation function defined
+			      with glTexGen.  Otherwise, the current q texture
+			      coordinate is used.  See glTexGen.
+
+     GL_TEXTURE_GEN_R	      If enabled, the r	texture	coordinate is computed
+			      using the	texture	generation function defined
+			      with glTexGen.  Otherwise, the current r texture
+			      coordinate is used.  See glTexGen.
+
+     GL_TEXTURE_GEN_S	      If enabled, the s	texture	coordinate is computed
+			      using the	texture	generation function defined
+			      with glTexGen.  Otherwise, the current s texture
+			      coordinate is used.  See glTexGen.
+
+
+
+
+
+									Page 6
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glEnable(3G)		       OpenGL Reference			  glEnable(3G)
+</FONT>
+
+
+     GL_TEXTURE_GEN_T	      If enabled, the t	texture	coordinate is computed
+			      using the	texture	generation function defined
+			      with glTexGen.  Otherwise, the current t texture
+			      coordinate is used.  See glTexGen.
+
+     GL_VERTEX_ARRAY_EXT      If enabled, glArrayElementEXT and
+			      glDrawArraysEXT will transfer vertex coordinates
+			      from the array supplied to glVertexPointerEXT.
+			      See glVertexPointerEXT.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if cap is not	one of the values listed
+     above.
+
+     GL_INVALID_OPERATION is generated if glEnable or glDisable	is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     GL_COLOR_TABLE_SGI, GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI and
+     GL_POST_CONVOLUTION_COLOR_TABLE_SGI are part of the SGI_color_table
+     extension which is	not supported on RealityEngine,	RealityEngine2,	and
+     VTX systems.
+
+     The SGIX_interlace	extension is supported only on InfiniteReality systems
+     and on RealityEngine, RealityEngine2, and VTX systems.
+
+     On	RealityEngine, RealityEngine2, and VTX systems,	do not enable or
+     disable GL_VERTEX_ARRAY_EXT, GL_NORMAL_ARRAY_EXT, GL_COLOR_ARRAY_EXT,
+     GL_INDEX_ARRAY_EXT, GL_TEXTURE_COORD_ARRAY_EXT, or	GL_EDGE_FLAG_ARRAY_EXT
+     between a call to glNewList and the corresponding call to glEndList.
+     Instead, enable or	disable	before the call	to glNewList.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glAlphaFunc, glBlendFunc, glClipPlane, glColorMaterial,
+     glConvolutionFilter1DEXT, glConvolutionFilter2DEXT, glCullFace,
+     glDepthFunc, glDepthRange,	glFog, glGet, glHistogramEXT, glIsEnabled,
+     glLight, glLightModel, glLineWidth, glLineStipple,	glLogicOp, glMap1,
+     glMap2, glMaterial, glMinmaxEXT, glNormal,	glPointSize, glPolygonMode,
+     glPolygonOffsetEXT, glPolygonStipple, glReferencePlaneSGIX, glSampleMask,
+     glScissor,	glSeparableFilter2DEXT,	glStencilFunc, glStencilOp, glTexGen,
+     glTexImage1D, glTexImage2D, glTexImage3DEXT
+
+
+
+
+
+
+
+
+
+
+
+									Page 7
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

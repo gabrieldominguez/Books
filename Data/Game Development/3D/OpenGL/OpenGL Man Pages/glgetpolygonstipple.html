@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetpolygonstipple Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetpolygonstipple</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetPolygonStipple(3G)	       OpenGL Reference	       glGetPolygonStipple(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetPolygonStipple - return the polygon stipple pattern
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetPolygonStipple( GLubyte *mask )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mask  Returns the stipple pattern.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetPolygonStipple returns to mask a 32x32 polygon stipple pattern.  The
+     pattern is	packed into memory as if glReadPixels with both	height and
+     width of 32, type of GL_BITMAP, and format	of GL_COLOR_INDEX were called,
+     and the stipple pattern were stored in an internal	32x32 color index
+     buffer.  Unlike glReadPixels, however, pixel transfer operations (shift,
+     offset, pixel map)	are not	applied	to the returned	stipple	image.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	an error is generated, no change is made to the	contents of mask.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glGetPolygonStipple is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glPixelStore, glPixelTransfer, glPolygonStipple, glReadPixels
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

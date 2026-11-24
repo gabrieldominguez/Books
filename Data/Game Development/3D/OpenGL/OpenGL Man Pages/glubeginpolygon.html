@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glubeginpolygon Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glubeginpolygon</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluBeginPolygon(3G)	       OpenGL Reference		   gluBeginPolygon(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluBeginPolygon, gluEndPolygon - delimit a	polygon	description
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluBeginPolygon( GLUtesselator* tess )
+
+     void gluEndPolygon( GLUtesselator*	tess )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     tess  Specifies the tessellation object (created with gluNewTess).
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluBeginPolygon and gluEndPolygon delimit the definition of a nonconvex
+     polygon.  To define such a	polygon, first call gluBeginPolygon.  Then
+     define the	contours of the	polygon	by calling gluTessVertex for each
+     vertex and	gluNextContour to start	each new contour.  Finally, call
+     gluEndPolygon to signal the end of	the definition.	 See the gluTessVertex
+     and gluNextContour	reference pages	for more details.
+
+     Once gluEndPolygon	is called, the polygon is tessellated, and the
+     resulting triangles are described through callbacks.  See gluTessCallback
+     for descriptions of the callback functions.
+
+     This command is obsolete and is provided for backwards compatibility
+     only. Calls to gluBeginPolygon are	mapped to gluTessBeginPolygon followed
+     by	gluTessBeginContour. Calls to gluEndPolygon are	mapped to
+     gluTessEndContour followed	by gluTessEndPolygon.
+
+
+<FONT COLOR="#0000CC">EXAMPLE
+</FONT>     A quadrilateral with a triangular hole in it can be described like	this:
+
+
+	  gluBeginPolygon(tobj);
+	     gluTessVertex(tobj, v1, v1);
+	     gluTessVertex(tobj, v2, v2);
+	     gluTessVertex(tobj, v3, v3);
+	     gluTessVertex(tobj, v4, v4);
+	  gluNextContour(tobj, GLU_INTERIOR);
+	     gluTessVertex(tobj, v5, v5);
+	     gluTessVertex(tobj, v6, v6);
+	     gluTessVertex(tobj, v7, v7);
+	  gluEndPolygon(tobj);
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">gluBeginPolygon(3G)	       OpenGL Reference		   gluBeginPolygon(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluNewTess, gluNextContour, gluTessCallback, gluTessVertex,
+     gluTessBeginPolygon, gluTessBeginContour
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

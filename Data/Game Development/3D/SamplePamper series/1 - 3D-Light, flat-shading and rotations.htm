@@ -1,0 +1,1268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://www.codeproject.com/useritems/LightSample.asp -->
+<HTML><HEAD><TITLE>SamplePamper series - Part 1: 3D-Light, flat-shading and rotations - The Code Project - C# Algorithms</TITLE>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META http-equiv=Content-Type content="text/html; charset=ISO-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META 
+content="This article is one in a series and will turn to you who wants to know about 3D when it comes to calculation of the light falling on a surface. It will explain in an easy manner for you who don't want to see all those graphical formulas in Greek, as can be very confusing. Not just for use in C#" 
+name=Description>
+<META content=kbArticle name=Search.TopicType>
+<META content=Windmiller name=Author>
+<META content="05 Sep 2007 14:00:00 GMT" name=Search.PublishDate>
+<META content="05 Sep 2007 14:00:00 GMT" name=Search.RevisedDate>
+<META content="Free source code, , Visual C++, MFC, Windows, Article" 
+name=keywords>
+<META 
+content="Article content copyright Windmiller, 2007, everthing else Copyright © CodeProject, 1999-2007, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Lounge Postings" 
+href="http://www.codeproject.com/webservices/LoungeRSS.aspx" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - VB.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6" 
+type=application/rss+xml rel=alternate><LINK title="The Code Project" 
+href="http://www.codeproject.com/info/OpenSearch.xml" 
+type=application/opensearchdescription+xml rel=search><LINK href="/favicon.ico" 
+type=image/ico rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="1 - 3D-Light, flat-shading and rotations_archivos/global.css" 
+type=text/css rel=stylesheet>
+<SCRIPT language=javascript 
+src="1 - 3D-Light, flat-shading and rotations_archivos/oncopy.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+if (top != self) top.location.href = location.href;
+if (typeof(DemoUrl) != "undefined")
+	document.write('<me' + 'ta http' + '-equiv="re' + 'fresh" con' + 'tent="1;url=' + DemoUrl + '">');
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR></HEAD>
+<BODY style="MARGIN: 0px" oncopy="return copyCode();" text=black vLink=navy 
+aLink=red link=blue bgColor=white>
+<SCRIPT src="1 - 3D-Light, flat-shading and rotations_archivos/urchin.js" 
+type=text/javascript>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+_uacct = "UA-1735123-1";
+urchinTracker();
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=HeaderLogo><A href="http://www.codeproject.com/"><IMG height=90 
+      alt=Home 
+      src="1 - 3D-Light, flat-shading and rotations_archivos/codeproject225x90.gif" 
+      border=0></A></TD>
+    <TD class=HeaderBanner><SPAN id=AdBanner4>
+      <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3894&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FInfragistics%5Fdotnet%5Fgeneral%5F728x90b%2Ejpg&C=False&id=3894&cb=4650513\" alt=\"\" border=0 width=728 height=90></a>");</SCRIPT>
+      </SPAN></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=MemberNavBar cellSpacing=0 cellPadding=5 width="100%" 
+      border=0>
+        <TBODY>
+        <TR vAlign=center>
+          <TD class=smallText style="FONT-WEIGHT: bold">4,488,300 members and 
+            growing! &nbsp; 12,860 now online. </TD>
+          <TD class=userNavText align=right><A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?id=512155">Gabriel 
+            Dominguez </A>| <A 
+            href="http://www.codeproject.com/script/profile/modify.asp?ct=/useritems/LightSample.asp"><B>My 
+            Settings</B></A> | <A 
+            href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+            Bookmarks</A> | <A 
+            href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+            Articles</A> | <A 
+            href="http://www.codeproject.com/script/profile/logoff.asp?ct=/useritems/LightSample.asp">Sign 
+            out</A> </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=SiteNavBar id=tblSiteToolbar cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD><A href="http://www.codeproject.com/">Home</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=2">MFC/C++</A></TD>
+          <TD><A href="http://www.codeproject.com/index.asp?cat=3">C#</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=4">ASP.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=6">VB.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=8">Architect</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=9">SQL</A></TD>
+          <TD class=SelCat noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=1">All Topics</A></TD>
+          <TD width="100%">&nbsp;</TD>
+          <TD>
+            <DIV id=MenuPos 
+            style="WIDTH: 300px; POSITION: relative; TOP: 1px; HEIGHT: 22px">
+            <TABLE id=MPH 
+            style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 20px; BORDER-RIGHT-WIDTH: 0px" 
+            cellSpacing=0 cellPadding=0 width=300>
+              <TBODY>
+              <TR vAlign=center>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                  Boards</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+      <SCRIPT 
+      src="1 - 3D-Light, flat-shading and rotations_archivos/cpmenu_var.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT 
+      src="1 - 3D-Light, flat-shading and rotations_archivos/menu10_com.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT type=text/javascript>
+var MPH = document.getElementById("MPH");
+if (MPH) MPH.style.display='none';
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=ArticleUneditedHeader cellSpacing=0 cellPadding=3 
+      width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText style="PADDING-RIGHT: 10px"><A 
+            href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+            href="http://www.codeproject.com/?cat=3">C#</A>, <A 
+            href="http://www.codeproject.com/?cat=5">.NET</A> &gt;&gt; <A 
+            href="http://www.codeproject.com/cs/algorithms/">C# Algorithms</A> 
+            &gt;&gt; <A 
+            href="http://www.codeproject.com/cs/algorithms/#Unedited+Reader+Contributions">Unedited 
+            Reader Contributions</A> &nbsp;(<SPAN class=SmallText 
+            style="FONT-WEIGHT: bold; COLOR: green">Beginner</SPAN>)<BR><BR>
+            <DIV style="FONT-WEIGHT: bold; FONT-SIZE: 16pt">SamplePamper series 
+            - Part 1: 3D-Light, flat-shading and rotations</DIV><B>By <A 
+            href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=3107109">Windmiller</A></B>. 
+            <BR><BR>
+            <DIV style="FONT-SIZE: 12px">This article is one in a series and 
+            will turn to you who wants to know about 3D when it comes to 
+            calculation of the light falling on a surface. It will explain in an 
+            easy manner for you who don't want to see all those graphical 
+            formulas in Greek, as can be very confusing. Not just for use in 
+            C#</DIV></TD>
+          <TD class=smallText style="WIDTH: 200px">C#<BR>Windows, 
+            .NET<BR>Win32, VS<BR>Dev<BR><SPAN 
+            style="PADDING-RIGHT: 2ex">Posted</SPAN>: <B>6 Sep 2007 
+            </B><BR><SPAN style="PADDING-RIGHT: 3ex">Views</SPAN>: <B>2,670</B> 
+          </TD></TR>
+        <TR class=ArticleUneditedHeader>
+          <TD colSpan=2>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD class=smallText width="100%"><B>Note: <A 
+                  title="Click here for more information" 
+                  href="http://www.codeproject.com/info/unedited.asp">This is an 
+                  unedited reader contribution</B></A> </TD>
+                <TD class=SmallText noWrap><A 
+                  href="http://www.codeproject.com/script/Submit/EditArticle1.asp?guid=LightSample%2Fuseritems9%2F6%2F2007">Modify</A> 
+                  | <A 
+                  href="http://www.codeproject.com/script/Submit/DeleteArticle1.asp?guid=LightSample%2Fuseritems9%2F6%2F2007">Delete</A>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=LHNavBar rowSpan=2><!-- Yes, there are IE hacks that will allow us to create a min-width DIV 
+	     (eg http://www.webreference.com/programming/min-width/) but I couldn't
+	     be arsed. Wait for it in v2.0 -->
+            <DIV class=FeatureBlockHeader>Announcements</DIV>
+            <DIV class="FeatureBlockContent RHFeatureBar">
+            <DIV style="PADDING-TOP: 5px"><IMG 
+            style="PADDING-RIGHT: 10px; FLOAT: left; MARGIN-LEFT: 5px; MARGIN-RIGHT: 10px" 
+            height=20 alt=Comp 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/prize_winner_sm.gif" 
+            width=10><A 
+            href="http://www.codeproject.com/script/competitions/monthly/">Monthly 
+            Competition</A></DIV></DIV>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=3977&cb=4650527\" border=0 frameborder=0 scrolling=no width=160 height=600></IFRAME>");</SCRIPT>
+            </CENTER><BR><BR><IMG height=1 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/t.gif" 
+            width=160> </TD>
+          <TD width="100%">
+            <TABLE class=SearchHeaderBar cellSpacing=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=center noWrap align=right width="60%">
+                  <FORM style="MARGIN: 0px" name=Search action=/info/search.asp 
+                  method=post><B>Search &nbsp;</B><INPUT class=smallText 
+                  style="WIDTH: 200px" name=target> <SELECT 
+                  style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" name=st> <OPTION 
+                    value=kw selected>Articles</OPTION> <OPTION 
+                    value=au>Authors</OPTION></SELECT> <INPUT style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" type=submit value=" Go! "> 
+                  &nbsp; </FORM></TD>
+                <TD class=tinyText noWrap><A 
+                  href="http://www.codeproject.com/info/search.asp">Advanced 
+                  Search</A><BR><A 
+                  href="http://www.codeproject.com/script/articles/sections.asp">Sitemap</A> 
+                </TD></TR></TBODY></TABLE>
+            <TABLE width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=SmallText noWrap>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText noWrap><IMG 
+                        src="1 - 3D-Light, flat-shading and rotations_archivos/print.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/useritems/LightSample.asp?print=true" 
+                        target=_print>Print</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="1 - 3D-Light, flat-shading and rotations_archivos/sitebuild_icon.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=LightSample%2Fuseritems9%2F6%2F2007">Broken 
+                        Article?</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="1 - 3D-Light, flat-shading and rotations_archivos/link.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fuseritems%2FLightSample%2Easp&amp;guid=LightSample%2Fuseritems9%2F6%2F2007">Bookmark</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="1 - 3D-Light, flat-shading and rotations_archivos/mail_small.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/useritems/LightSample.asp#__comments">Discuss</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="1 - 3D-Light, flat-shading and rotations_archivos/mail.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/script/recommend/form.asp?guid=LightSample%2Fuseritems9%2F6%2F2007">Send 
+                        to a friend</A></TD></TR></TBODY></TABLE></TD>
+                <TD noWrap align=right><A name=__top></A>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText align=right>6 votes for this 
+                      article.</TD>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 border=2>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/red.gif" 
+                              width=17 border=0><IMG height=5 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/white.gif" 
+                              width=3 border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD class=smallText align=right colSpan=2><A 
+                        title="Calculated as rating x Log10(# votes)" 
+                        href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                        3.77</A>. Rating: <B>4.84</B> out of 
+                  5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=ArticlePane>
+            <P class=smallText 
+            style="PADDING-RIGHT: 5px; BORDER-TOP: #ff9900 1px dashed; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 5px; PADDING-TOP: 5px; BORDER-BOTTOM: #ff9900 1px dashed" 
+            ?><B>Note:</B> This is an unedited contribution. If this article is 
+            inappropriate, needs attention or copies someone else's work without 
+            reference then please <A 
+            href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=LightSample%2Fuseritems9%2F6%2F2007">Report 
+            this article</A>.</P><SPAN id=intelliTXT>
+            <DIV id=contentdiv><!-- Article Starts -->
+            <UL class=download>
+              <LI><A 
+              href="http://www.codeproject.com/useritems/LightSample/SampleC_.zip">Download 
+              SampleC#.zip - 8.5 KB (For VS.NET)</A> 
+              <LI><A 
+              href="http://www.codeproject.com/useritems/LightSample/SampleFlash8.zip">Download 
+              SampleFlash8.zip - 7.7 KB (For Macromedia Flash 8)</A> </LI></UL><A 
+            name=top>-</A> 
+            <H2>Introduction</H2>
+            <P>This article is Part One of the Sample Pamper series and will 
+            apply to you who wants to know about 3D programming when it comes to 
+            shading and lightning of a surface. The most irritating thing for a 
+            beginner as I can recall it is to see all formulas and signs, as we 
+            might not know much about and are only confused by. Therefore I 
+            wanted to ease the pain and show everything more concrete with some 
+            complete examples without embedding it into nice objects with 
+            interfaces, matrices and the use of e.g. DirectX / OpenGL or Glut. 
+            Although, still there will be formulas but not the graphical ones in 
+            Greek. So there is no fancy code in these examples but the important 
+            things for learning. </P>
+            <P>So... this article will describe: </P>
+            <UL>
+              <LI><A 
+              href="http://www.codeproject.com/useritems/LightSample.asp#requirement">Requirement.</A> 
+
+              <LI><A 
+              href="http://www.codeproject.com/useritems/LightSample.asp#story">The 
+              story.</A> 
+              <LI><A 
+              href="http://www.codeproject.com/useritems/LightSample.asp#theexample">The 
+              example.</A> 
+              <UL>
+                <LI><A 
+                href="http://www.codeproject.com/useritems/LightSample.asp#vectorlength">Calculating 
+                vector length.</A> 
+                <LI><A 
+                href="http://www.codeproject.com/useritems/LightSample.asp#normalvector">The 
+                Normal vector.</A> 
+                <LI><A 
+                href="http://www.codeproject.com/useritems/LightSample.asp#crossformel">The 
+                cross product.</A> 
+                <LI><A 
+                href="http://www.codeproject.com/useritems/LightSample.asp#crossingmatrix">Crossing 
+                the matrix.</A> 
+                <LI><A 
+                href="http://www.codeproject.com/useritems/LightSample.asp#normalize">To 
+                normalize.</A> 
+                <LI><A 
+                href="http://www.codeproject.com/useritems/LightSample.asp#lightvector">The 
+                light vector.</A> 
+                <LI><A 
+                href="http://www.codeproject.com/useritems/LightSample.asp#dotproduct">The 
+                Dot product.</A> 
+                <LI><A 
+                href="http://www.codeproject.com/useritems/LightSample.asp#rotationexample">The 
+                rotation matrices.</A> 
+                <UL>
+                  <LI><A 
+                  href="http://www.codeproject.com/useritems/LightSample.asp#multiply">The 
+                  matrix multiplication.</A> </LI></UL></LI></UL>
+              <LI><A 
+              href="http://www.codeproject.com/useritems/LightSample.asp#points_interest">Points 
+              of Interest.</A> 
+              <LI><A 
+              href="http://www.codeproject.com/useritems/LightSample.asp#history">History 
+              of this article.</A> 
+              <LI><A 
+              href="http://www.codeproject.com/useritems/LightSample.asp#references">References 
+              - for further reading.</A> 
+              <LI><A 
+              href="http://www.codeproject.com/useritems/LightSample.asp#license">License.</A> 
+              </LI></UL>
+            <HR>
+
+            <P><A name=requirement>-</A></P>
+            <H3>Requirement</H3>
+            <P>You will need a computer and a calculator to try to find the 
+            results by your own. Must have either Visual Studio .NET or 
+            Macromedia Flash 8 installed to try the downloadable source codes. 
+            Paper and a pen would be good to be able to do the matrix 
+            multiplications. Then you're ready to go! </P>
+            <P><A name=story>-</A></P>
+            <H3>The story</H3>
+            <P><IMG height=215 alt="Screenshot - flatshade1.gif" 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/flatshade1.gif" 
+            width=332> </P>
+            <P>When we're drawing a surface in a 3D-environment and wants to 
+            calculate how the light should fall, we can then use the cross 
+            product of two vectors in that surface to get the Normal vector and 
+            the Dot product to compute the angle between the Normal and the 
+            light vector. What the Normal vector is will be explained soon, hold 
+            on. </P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/LightSample.asp#top">Back 
+            to top?</A> </P>
+            <P><A name=theexample>-</A> </P>
+            <H3>The example</H3>
+            <P>This example is a "Flat-shade" which means that the illumination 
+            stays constant across the surface. The Normal vector is not actually 
+            constant across the polygon surface as we assume when using the 
+            "Flat-shading", but it is the first step into the other level of 
+            knowledge. Now pretend that we are calculating the light for this 
+            surface: </P>
+            <P><IMG height=241 alt="Screenshot - coord1.gif" 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/coord1.gif" 
+            width=338> </P>
+            <P>Here we must know the location of the points (P 0-3) of the 
+            surface and the direction and position (LP 0-1) of the light 
+            coordinates in space. We can imagine that P0 has the coordinates 
+            x=5, y=10 and z=-6 and the point P2 is x=8, y=1 and z=-3, and 
+            finally the third point P1 which has the coordinates x=2.5,y=6 and 
+            z=4. </P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/LightSample.asp#top">Back 
+            to top?</A> </P>
+            <P><A name=vectorlength>-</A></P>
+            <H3>Calculating vector length</H3>
+            <P><IMG height=237 alt="Screenshot - coord2.gif" 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/coord2.gif" 
+            width=338> </P>
+            <P>We must now also calculate the length of U and V that will give 
+            us the following values. </P><PRE>Ux = (P2x – P1x) = (8 – 2.5) = 5.5
+Uy = (P2y – P1y) = (1 - 6) = -5
+Uz = (P2z – P1z) = ((-3) - 4) = -7
+</PRE>
+            <P>And now we will do the same for the V vector. </P><PRE>Vx = (P2x – P0x) = (8 - 5) = 3
+Vy = (P2y – P0y) = (1 - 10) = -9
+Vz = (P2z – P0z) = ((-3) - (-6)) = 3
+</PRE>
+            <P><A name=normalvector>-</A> </P>
+            <H3>The Normal vector</H3>
+            <P>To be able to calculate the light against this surface we must 
+            also have one more vector to know how much light will fall on it, 
+            this vector is called the Normal vector. The Normal vector is a 
+            vector that will stand out 90 degrees from the surface and to find 
+            this vector we must use something called the Cross product that is a 
+            mathematical way of handle already existing number coordinates in a 
+            surface to retrieve this Normal one. In this figure you can see the 
+            Normal vector sticking out from the surface front side and being lit 
+            on the backside by the light. U is the vector between P1 and P2 and 
+            V is the vector between point P2 and P0. The Cross product as 
+            follows will use these vectors U and V to build the N vector. </P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/LightSample.asp#top">Back 
+            to top?</A> </P>
+            <P><A name=crossformel>-</A> </P>
+            <H3>The cross product</H3><PRE>U X V = |U| * |V| * sin * n</PRE>
+            <P>Where |U| denotes the length of vector U and |V| of vector V, and 
+            sin is the angle between them, and the n is a unit vector. </P>
+            <P><A name=crossingmatrix>-</A></P>
+            <H3>Crossing the matrix</H3>
+            <P><IMG height=63 alt="Screenshot - crossmatrix.gif" 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/crossmatrix.gif" 
+            width=152> </P>(to get Nx, cross like the lines in the matrix, 
+            explained more below) 
+            <P>There are more things to add into this but I'm going to exclude 
+            them because they are not needed, like the tree unit vectors 
+            parallel to the x, y, and z-axes. We compute the cross product of U 
+            and V and start by retrieving the Normal vectors x direction (Nx) by 
+            crossing in the matrix like this. </P><PRE>Nx = Uy * Vz – Uz * Vy =  (-5 * 3) – (-7 * -9) = -78
+</PRE>
+            <P>Then we are going to do the same for the Ny, like this. </P><PRE>Ny = Uz * Vx – Ux * Vz = (-7 * 3) – (5.5 * 3) = -37.5
+</PRE>
+            <P>And finally to find the (Nz) which should be a negative value in 
+            our case (seen in the picture with the surface). </P><PRE>Nz = Ux * Vy – Uy * Vx = (5.5 * -9) – (-5 * 3) = -34,5
+</PRE>
+            <P>In these numbers you can se that the normal vector will have a 
+            negative path in the x, y, and z – axis. Pointing down to the left 
+            and into the picture. </P>
+            <P><A name=normalize>-</A></P>
+            <H3>To normalize</H3>
+            <P>Then you must also normalize it by dividing by the length to get 
+            the n (which is a normalized normal (N) vector). </P><PRE>|N| = sqrt(Nx^2 + Ny^2 + Nz^2) = sqrt(78^2 + 37.5^2 + 34.5^2) = 93.17
+
+n = N / |N| = N / 93.17
+
+nx = Nx / |N| = -78 / 93.17 = -0.84
+ny = Ny / |N| = -37.5 / 93.17 = -0.4
+nz = Nz / |N| = -34.5 / 93.17 = -0.37
+</PRE>
+            <P><A 
+            href="http://www.codeproject.com/useritems/LightSample.asp#top">Back 
+            to top?</A> </P>
+            <P><A name=lightvector>-</A></P>
+            <H3>The light vector</H3>
+            <P>Now we must compute the vector of the light as we will set to the 
+            point (LP0) x=12, y=8, z=0 and the (LP1) to x=5, y=6, z=0, and then 
+            calculate the vector parts like in the following. </P><PRE>Lx = (LP0 x – LP1x) = (12 - 5) = 7
+Ly = (LP0y – LP1x) = (8 – 6) = 2
+Lz = (LP0z – LP1z) = (0 - 0) = 0
+</PRE>
+            <P>And this must also be normalized to make sence to us. </P><PRE>lx = Lx / |L| = 7 / sqrt(7^2+2^2+0^2) = 0.96
+ly = Ly / |L| = 2 / sqrt(7^2+2^2+0^2) = 0.28
+lz = Lz / |L| = 0 / sqrt(7^2+2^2+0^2) = 0
+</PRE>
+            <P><A 
+            href="http://www.codeproject.com/useritems/LightSample.asp#top">Back 
+            to top?</A> </P>
+            <P><A name=dotproduct>-</A></P>
+            <H3>The Dot product</H3>
+            <P>There we have it, now you can plug them into another mathematical 
+            function, as is the Dot product. We will use this equation to find 
+            the angle between the normal and the light vector and it looks like 
+            this. </P><PRE>N . L = |N| * |L| = nx * lx + ny * ly + nz * lz
+
+x = -0.84 * 0.96 + -0.4 * 0.28 + -0.37 * 0 = -0.92
+</PRE>
+            <P>A negative value as means that the light is falling on the 
+            backside of the surface as you can see in the picture. Now if you 
+            take the inverted sine of the result of x you'll get the angle 
+            between the light and the normal vector around –67 degrees, which 
+            means that the surface is being lit on its backside by a 67 degree 
+            of angle. Now you can use this x variable to multiply it by the 
+            color of the surface to get the shading effect you want. This is 
+            called flat shading and is not used so much anymore because it's 
+            giving the surface a false look when it's being lit by a constant 
+            all over it, but it is a good start to get to know about putting the 
+            light into the picture. </P>
+            <HR>
+
+            <P><A 
+            href="http://www.codeproject.com/useritems/LightSample.asp#top">Back 
+            to top?</A> </P>
+            <P><A name=rotationexample>-</A></P>
+            <H3>The rotation matrices</H3>
+            <P>I will also explain rotation round the x and y-axis here because 
+            I've implemented it in the .zip downloadable source code file. It 
+            will rotate the polygon surface around the x and y-axis. If you know 
+            how to do a multiplication of matrices then it will be easy for you 
+            to add the third one to also be able to rotate around the z-axis on 
+            your own. This will be briefly explained in this following part. 
+</P>
+            <P>I guess you have heard about the rotation matrices before, they 
+            look like this. </P>
+            <P><IMG height=120 alt="Screenshot - xrot.gif" 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/xrot.gif" 
+            width=301> </P>
+            <P><IMG height=117 alt="Screenshot - yrot.gif" 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/yrot.gif" 
+            width=323> </P>
+            <P>And yes there is one more for the rotation round the z-axis but I 
+            will exclude it from this article. </P>
+            <P><A name=multiply>-</A></P>
+            <H3>The matrix multiplication</H3>
+            <P><IMG height=160 alt="Screenshot - matrixmulti.gif" 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/matrixmulti.gif" 
+            width=300> </P>
+            <P>The matrix to the left is rotation around the x-axis and the 
+            right for rotation round the y-axis. Now as you can se in the gif 
+            animation above that we are multiplying these matrices together 
+            which will result into the following matrix. </P>
+            <P><IMG height=92 alt="Screenshot - resultmatrix.gif" 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/resultmatrix.gif" 
+            width=325> </P>
+            <P>Now you have your combined matrix for rotation round both the x 
+            and the y-axis at the same time. We leave the fourth column and row 
+            out because those are only needed for translation. To start rotating 
+            your surface you must plug the points P(0-2) and the new matrix into 
+            a new formula. </P><PRE>P0newX = (P0x * CoY) + (P0y * 0) + (P0z * -siY)
+P0newY = (P0x * (siX * siY)) + (P0y * coX) + (P0z * (siX * coY))
+P0newZ = (P0x * (coX * siY)) + (P0y * -siX) + (P0z * (coX * coY))
+</PRE>
+            <P>This will give you the new position of the point P0 and you'll 
+            have to do the same for all the remaining points to rotate. </P><PRE>P1newX = (P1x * CoY) + (P1y * 0) + (P1z * -siY)
+P1newY = (P1x * (siX * siY)) + (P1y * coX) + (P1z * (siX * coY))
+P1newZ = (P1x * (coX * siY)) + (P1y * -siX) + (P1z * (coX * coY))
+</PRE>
+            <P>And the point P2 as follows here. </P><PRE>P2newX = (P2x * CoY) + (P2y * 0) + (P2z * -siY)
+P2newY = (P2x * (siX * siY)) + (P2y * coX) + (P2z * (siX * coY))
+P2newZ = (P2x * (coX * siY)) + (P2y * -siX) + (P2z * (coX * coY))
+</PRE>
+            <P>That's it! To see the example, chose the zip that will suit you 
+            and download it to play around with it.</P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/LightSample.asp#top">Back 
+            to top?</A> </P>
+            <P><A name=points_interest>-</A> </P>
+            <H2>Points of Interest</H2>
+            <P>There are two samples to play around with, one in C# and the 
+            other for Macromedia Flash 8. If you want to step even further and 
+            learn about the reflection vector, you can hold your eyes whide open 
+            for Part Two in this series.</P><A 
+            href="http://www.codeproject.com/useritems/LightSample.asp#top">Back 
+            to top?</A> 
+            <P><A name=history>-</A> </P>
+            <H2>History</H2>
+            <P>Version 1.0, uploaded 6 sep 2007 - Two versions included for the 
+            article, one for C# and the other for Macromedia Flas 8.</P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/LightSample.asp#top">Back 
+            to top?</A> </P>
+            <P><A name=references>-</A> </P>
+            <H2>References</H2>
+            <P>Books: </P>
+            <P>"Tricks of the windows Game programming gurus – Fundamentals of 
+            2d and 3D game programming". Vol1 - (SAMS) by André Lamothe ISBN: 
+            0-672-31361-8 </P>
+            <P>Links: </P>
+            <P>Link to Part Two - Reflection Vectors (Will be here soon) <BR><A 
+            href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp">http://www.codeproject.com/csharp/Basic_Illumination_Model.asp</A><BR><A 
+            href="http://www.codeproject.com/cs/media/exoengine.asp">http://www.codeproject.com/cs/media/exoengine.asp</A> 
+            </P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/LightSample.asp#top">Back 
+            to top?</A> </P>
+            <P><A name=license>-</A> </P>
+            <H2>License</H2>
+            <P>This software is provided 'as-is' without any express or implied 
+            warranty. In no event will the authors be held liable for any 
+            damages arising from the use of this software. Permission is granted 
+            to anyone to use this software for any purpose including commercial 
+            applications. If you use this software in a product, an 
+            acknowledgment in the product documentation would be appreciated but 
+            is not required. And never could you claim that it is yours. </P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/LightSample.asp#top">Back 
+            to top?</A> </P><!-- Article Ends --></DIV></SPAN>
+            <SCRIPT 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/togglePre.js" 
+            type=text/javascript></SCRIPT>
+
+            <H2>About Windmiller</H2>
+            <DIV style="OVERFLOW: hidden">
+            <TABLE border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText noWrap><IMG 
+                  src="1 - 3D-Light, flat-shading and rotations_archivos/{41B1450E-9859-4613-A939-DCCE79AAB50D}.gif"><BR></TD>
+                <TD class=smallText>Professional programmer, degree in 
+                  Informatics and Applied Systems Science.
+                  <P class=smallText>Click <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=3107109">here</A> 
+                  to view Windmiller's online 
+            profile.</P></TD></TR></TBODY></TABLE></DIV><BR>
+            <TABLE cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%">
+                  <H2>Other popular C# Algorithms articles:</H2>
+                  <UL>
+                    <LI><A 
+                    href="http://www.codeproject.com/cs/algorithms/colorspace1.asp">Manipulating 
+                    colors in .NET - Part 1</A>
+                    <DIV class=smallText>Understand and use color models in 
+                    .NET</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/cs/algorithms/graphs_astar.asp">C#: 
+                    A-Star is born</A>
+                    <DIV class=smallText>Understand graphs and A* path-finding 
+                    algorithm with C#</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/cs/algorithms/StoringPasswords.asp">The 
+                    Art &amp; Science of Storing Passwords</A>
+                    <DIV class=smallText>Three approaches to storing passwords - 
+                    explained with examples.</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/cs/algorithms/NeuralNetwork_1.asp">AI 
+                    : Neural Network for beginners (Part 1 of 3)</A>
+                    <DIV class=smallText>AI : An introduction into Neural 
+                    Networks</DIV></LI></UL></TD>
+                <TD width=360>
+                  <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=4109&cb=4650541\" border=0 frameborder=0 scrolling=no width=300 height=250></IFRAME>");</SCRIPT>
+                </TD></TR></TBODY></TABLE>
+            <FORM action=/script/rating/code/app/insert_vote.asp 
+            method=post><INPUT type=hidden value=LightSample/useritems9/6/2007 
+            name=vote_name> <INPUT type=hidden value=/useritems/LightSample.asp 
+            name=goal> 
+            <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=4 width="100%" 
+                  bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=smalltext vAlign=center>[<A 
+                        href="http://www.codeproject.com/useritems/LightSample.asp#__top">Top</A>]</TD>
+                      <TD vAlign=center noWrap align=right><I><B>Rate this 
+                        Article for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <I>Poor</I><INPUT type=radio value=1 name=rate><INPUT 
+                        type=radio value=2 name=rate><INPUT type=radio value=3 
+                        name=rate><INPUT type=radio value=4 name=rate><INPUT 
+                        type=radio value=5 
+name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+            <CENTER>
+            <DIV style="MARGIN: 10px"><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3263&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FCWS%5Fnet%5F468x60%2Egif&C=False&id=3263&cb=4650516\" alt=\"\" border=0 width=468 height=60></a>");</SCRIPT>
+            </SPAN></DIV></CENTER><A name=__comments></A>
+            <SCRIPT language=JavaScript>
+
+function MsgVoteForm(MemberID, MsgID)
+{
+	document.write("<span id=\"MVF" + MsgID + "\">");
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+	{
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString());
+		document.write("' onclick='return RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ", ");
+		document.write(i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	}
+	document.write(" (out of 5)");
+	document.writeln("</span>");
+	
+	
+	document.write("<br />Report as <a href='#xx" + MsgID.toString() + "xx' title='Mark as Spam' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-1)'>Spam</a> or ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' title='Mark as Abuse' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-2)'>Abuse</a>");
+	
+}
+
+function RetypeForm(MemberID, MsgID)
+{
+	var types = [
+				 {pic:'news_general.gif',  id: 1},
+	             {pic:'news_info.gif',     id: 2},
+	             {pic:'news_question.gif', id: 4},
+	             {pic:'news_answer.gif',   id: 8},
+	             {pic:'news_game.gif',     id: 16},
+	             {pic:'news_spam.gif',     id: 32}
+	            ];
+	
+	document.write("<span id=\"RTF" + MsgID + "\">");
+	for (var i=0;i<types.length;i++)
+	{
+		document.write("<a href='/script/comments/retype?msg=" + MsgID.toString());
+		document.write("&mid=" + MemberID.toString() + "&type=" + types[i].id + "'>");
+		document.write("<img border=0 src='/script/images/" + types[i].pic + "'></a><br />");
+	}
+	document.writeln("</span>");
+}
+
+function ReportMsg(userid, msgid, score)
+{
+	if (confirm("Are you sure you want to report this message?") == true)
+		return RateMsg(userid, msgid, score);
+	else return false;
+}
+
+
+function RateMsg(userid, msgid, score)
+{
+
+   var req = new ActiveXObject("Msxml2.XMLHTTP"); 
+
+   req.onreadystatechange = function()
+   {
+      if ( req.readyState == 4 )
+      {
+         if ( req.status == 200 )
+         {
+         	var respText = req.responseText;
+         	var re = new RegExp("\<div\>([^\<]*)\</div\>", "g");
+         	var match = re.exec(respText);
+         	status.innerHTML = "<b>" + (match)?match[1]:"An error occured" + "</b>";
+         }
+         else
+         {
+            status.innerHTML = "<b style='color:red'>Failed!" + req.statusText + "</b>";
+         }
+      }
+   }
+   
+   var status = document.getElementById("MVF" + msgid);
+   if (!status) return;  // should never happen...   
+   status.innerHTML = "<b style='color:green'>Voting...</b>";
+   
+   var strAction = "/script/comments/vote.asp?js=1&user="+userid+"&msg="+msgid+"&score="+score;
+   req.open("GET", strAction, true);
+   req.send(null);
+   return false;
+}
+
+</SCRIPT>
+
+            <SCRIPT language=JavaScript>
+var Selected = "";
+
+var AdTime = new Date();
+
+
+// Ensures the expanded message appears reasonably close to where 
+// it should appear: on screen, and if possible, under the mouse cursor.
+function SwitchMessage(e)
+{
+   if ( !e ) e = window.event;
+   var target = e.target ? e.target : e.srcElement;
+
+   // is it a post?
+   while ( target && target.id != 'DynMessLink' )
+      target = target.parentNode;
+   if ( !target || target.id != 'DynMessLink' )
+      return;
+
+   if (Selected)
+   {
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+         body.style.display = 'none';
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#FEF9E7';
+   }
+
+   if (Selected == target.name) // just collapse
+      Selected="";
+   else
+   {
+      Selected = target.name;
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+      {
+         if (body.style.display=='none')
+            body.style.display='';
+         else
+            body.style.display = 'none';
+      }
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#99CCFF';
+
+      if ( body && head && body.style.display != 'none' )
+      {
+         // the bit that keeps the post on-screen and under the cursor
+         //var dif = (getRealPos(head, "Top") + head.offsetHeight/2) - (document.body.scrollTop+e.clientY);
+         //document.body.scrollTop += dif;
+         document.body.scrollTop = getRealPos(head, "Top") - document.body.clientHeight/10;
+         EnsureMessageVisible(target.name, true);
+      }
+   }
+
+   if ( e.preventDefault )
+      e.preventDefault();
+   else
+      e.returnValue = false;
+   return false;
+}
+
+// does its best to make a message visible on-screen (vs. scrolled off somewhere).
+function EnsureMessageVisible(msgID, bShowTop) {
+   var msgHeader = document.getElementById(msgID + "_h0");
+   var msgBody = document.getElementById(msgID + "_h1");
+
+   // determine scroll position of top and bottom
+   var scrollContainer = document.body;
+   var top = getRealPos(msgHeader, 'Top');
+   var bottom = getRealPos(msgBody, 'Top') + msgBody.offsetHeight;
+
+   // if not already visible, scroll to make it so
+   if ( scrollContainer.scrollTop > top && !bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+   if ( scrollContainer.scrollTop+scrollContainer.clientHeight < bottom )
+      scrollContainer.scrollTop = bottom-scrollContainer.clientHeight;
+   if ( scrollContainer.scrollTop > top && bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+}
+
+// utility
+function getRealPos(i,which)
+{
+   iPos = 0
+   while (i!=null)
+   {
+      iPos += i["offset" + which];
+      i = i.offsetParent;
+   }
+   return iPos
+}
+
+
+</SCRIPT>
+
+            <DIV id=_MessageBoard onclick=SwitchMessage(event)>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+                  bgColor=#ff9900 border=0>
+                    <FORM 
+                    action=/script/comments/app/do_filtermessages.asp?main=/useritems/LightSample.asp&amp;df=100&amp;forumid=456605 
+                    method=post>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=3 width="100%" 
+                        bgColor=white border=0>
+                          <TBODY>
+                          <TR bgColor=#fbedbb>
+                            <TD class=smalltext noWrap><A 
+                              href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                              height=16 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/forum_faq.gif" 
+                              width=16 align=absMiddle border=0> 
+                            <B>FAQ</B></A>&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>Message score threshold <SELECT 
+                              class=smalltext size=1 name=noise><OPTION 
+                                value=1>1.0</OPTION> <OPTION 
+                                value=2>2.0</OPTION> <OPTION value=3 
+                                selected>3.0</OPTION> <OPTION 
+                                value=4>4.0</OPTION> <OPTION 
+                              value=5>5.0</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=center noWrap align=right 
+                            colSpan=2><A 
+                              href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=456605"><IMG 
+                              height=15 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/forum_search.gif" 
+                              width=16 border=0> Search comments</A> &nbsp;</TD>
+                            <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+                          <TR bgColor=#ff9900>
+                            <TD width="100%">&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>View <SELECT class=smalltext size=1 
+                              name=expand><OPTION value=0>Normal 
+                                (slow)</OPTION> <OPTION value=2>Preview 
+                                (slow)</OPTION> <OPTION value=5 selected>Message 
+                                View</OPTION> <OPTION value=6>Topic 
+                                View</OPTION> <OPTION value=1>Thread 
+                                View</OPTION> <OPTION 
+                              value=3>Expanded</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap>Per page 
+                              <SELECT class=smalltext size=1 
+                                name=perpage><OPTION value=10>10</OPTION> 
+                                <OPTION value=25 selected>25</OPTION> <OPTION 
+                                value=50>50</OPTION></SELECT></TD>
+                            <TD 
+                    colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+                    <TR bgColor=#fbedbb>
+                      <TD><A name=xx0xx></A>
+                        <TABLE cellPadding=2 width="100%" bgColor=#fbedbb 
+                        border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle><IMG height=16 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/forum_newmsg.gif" 
+                              width=16 align=top border=0><A class=HoverLink 
+                              title="Add a new message to the discussions" 
+                              href="http://www.codeproject.com/script/comments/user_new.asp?main=/useritems/LightSample.asp&amp;df=100&amp;forumid=456605" 
+                              target=_top name=HoverNL><B>New Message</B></A></TD>
+                            <TD class=messagetitle>Msgs 1 to 3 of 3 (Total: 3) 
+                              (<A 
+                              href="http://www.codeproject.com/useritems/LightSample.asp?df=100&amp;forumid=456605">Refresh</A>)</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=white>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD class=messagetitle 
+                                width="100%">Subject&nbsp;</TD>
+                                <TD class=messagetitle noWrap 
+                                width=140>Author&nbsp;</TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT 
+                                class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2215910_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2215910xx></A><IMG 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?df=100&amp;forumid=456605&amp;select=2215910#xx2215910xx" 
+                                name=2215910><B>Excellent</B></A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3589667"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle><B>andalmeida</B>&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle><B>11:07 6 
+                                Sep 
+                            '07</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2215910_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Excellent! Got my 5! 
+                                <BR><BR>
+                                <DIV class=ForumSig>Anderson J. 
+                                Almeida<BR>Systems 
+                                Analyst<BR>SimSysBr</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/useritems/LightSample.asp&amp;df=100&amp;forumid=456605&amp;select=2215910">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/useritems/LightSample.asp&amp;df=100&amp;forumid=456605&amp;select=2215910">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?df=100&amp;tid=2215910&amp;forumid=456605&amp;select=2215910#xx2215910xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?msg=2215910#xx2215910xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?msg=2215910#xx2215910xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 4.3 (2 
+                                votes).
+                                <SCRIPT language=Javascript>MsgVoteForm(3589667,2215910);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2218621_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2218621xx></A><IMG 
+                                height=1 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/news_question.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?df=100&amp;forumid=456605&amp;select=2218621#xx2218621xx" 
+                                name=2218621>Re: Excellent</A><IMG height=12 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/New.gif"></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3107109"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>Windmiller&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>9:23 8 Sep 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2218621_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Thank 
+                                you!<BR><BR>Then I guess it's OK for you that 
+                                I've put a link for "further reading" to 
+                                you?<BR><BR>Regards,<BR>Morgan<BR><BR><BR>
+                                <DIV class=ForumSig>The day I became a WhuShu 
+                                coder..</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/useritems/LightSample.asp&amp;df=100&amp;forumid=456605&amp;select=2218621">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/useritems/LightSample.asp&amp;df=100&amp;forumid=456605&amp;select=2218621">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?df=100&amp;tid=2215910&amp;forumid=456605&amp;select=2218621#xx2218621xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?msg=2218621#xx2218621xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?msg=2215910#xx2215910xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(3107109,2218621);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2218628_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2218628xx></A><IMG 
+                                height=1 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/ind.gif" 
+                                width=36><IMG 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/news_answer.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?df=100&amp;forumid=456605&amp;select=2218628#xx2218628xx" 
+                                name=2218628>Re: Excellent</A><IMG height=12 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/New.gif"></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3589667"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>andalmeida&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>9:34 8 Sep 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2218628_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/ind.gif" 
+                                width=36><IMG 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Hey, 
+                                thanks <IMG 
+                                src="1 - 3D-Light, flat-shading and rotations_archivos/smiley_smile.gif" 
+                                align=absMiddle> <BR><BR>
+                                <DIV class=ForumSig>Anderson J. 
+                                Almeida<BR>Systems 
+                                Analyst<BR>SimSysBr<BR>www.simsysbr.com</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/useritems/LightSample.asp&amp;df=100&amp;forumid=456605&amp;select=2218628">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/useritems/LightSample.asp&amp;df=100&amp;forumid=456605&amp;select=2218628">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?df=100&amp;tid=2215910&amp;forumid=456605&amp;select=2218628#xx2218628xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?msg=2218628#xx2218628xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/useritems/LightSample.asp?msg=2215910#xx2215910xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(3589667,2218628);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="1 - 3D-Light, flat-shading and rotations_archivos/t.gif" 
+                              width=1 border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=#fbedbb>
+                      <TD>
+                        <TABLE cellPadding=2 width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle>Last Visit: 12:50 Friday 
+                              7th September, 2007</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+            <P class=smallText><IMG 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/news_general.gif" 
+            align=absMiddle> General comment &nbsp;&nbsp; <IMG 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/news_info.gif" 
+            align=absMiddle> News / Info &nbsp;&nbsp; <IMG 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/news_question.gif" 
+            align=absMiddle> Question &nbsp;&nbsp; <IMG 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/news_answer.gif" 
+            align=absMiddle> Answer &nbsp;&nbsp; <IMG 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/news_game.gif" 
+            align=absMiddle> Joke / Game &nbsp;&nbsp; <IMG 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/news_sticky.gif" 
+            align=absMiddle> Admin message</P><BR>
+            <TABLE cellSpacing=5 width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText>Updated: 6 Sep 2007 </TD>
+                <TD class=SmallText align=right>Article content copyright 
+                  Windmiller, 2007<BR>everything else Copyright © <A 
+                  href="mailto:webmaster@codeproject.com">CodeProject</A>, 
+                  1999-2007</A>. <BR>Web12 | <A 
+                  href="http://www.codeproject.com/info/MediaKit">Advertise on 
+                  The Code Project</A> | <A 
+                  href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <SCRIPT src="" type=text/javascript></SCRIPT>
+      <BR>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#ff9900 height=1><IMG height=1 
+            src="1 - 3D-Light, flat-shading and rotations_archivos/space.gif"></TD></TR>
+        <TR>
+          <TD align=middle><FONT size=1><A 
+            href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A> • 
+            <A href="http://aspalliance.com/">ASP Alliance</A> • <A 
+            href="http://www.developerfusion.co.uk/">Developer Fusion</A> • <A 
+            href="http://www.developersdex.com/">Developersdex</A> • <A 
+            href="http://www.devguru.com/">DevGuru</A> • <A 
+            href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+            href="http://www.planet-source-code.com/">Planet Source Code</A> • 
+            <A href="http://www.tek-tips.com/">Tek-Tips Forums</A> • 
+        </FONT></TD></TR></TBODY></TABLE></CENTER></TR></TBODY></TABLE></BODY></HTML>

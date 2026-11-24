@@ -1,0 +1,456 @@
+<HTML><HEAD><TITLE>program five</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#E0E0E0 ALINK=#FFFFFF>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070>source <FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </FONT></NOBR></B></font><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">sour<br>
+
+    urce </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source&nbsp;<br>
+
+    </font></B></NOBR><font face="Helvetica, Sans-Serif" size="4"><b><nobr><font color="#204070">u
+
+    </font><FONT face="Helvetica, Sans-Serif" size=4 COLOR="#204070"><FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font size="4" color="#204070">source </font><font size="4" color="#305080">source</font><font size="4" color="#204070">
+
+    source</font><font size="4" color="#305080"> source </font><font color="#204070">source
+
+    </font><font color="#305080">sou</font></nobr></b></font></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font></font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<P align="left"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b><a href="download/program5.zip" tppabs="http://home.clara.net/paulyg/download/program5.zip">[program
+
+five]</a>&nbsp;</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">
+
+</font>This example shows how to load 'real' file formats supported in popular
+art packages.&nbsp;<br>
+
+We'll write a library of functions to support loading .tga images.&nbsp; These
+
+can be 8-bit greyscale, 24 and 32-bit.&nbsp; The loader also supports compressed
+.tga files.&nbsp; (NB.&nbsp; The .tga specification only allows compressed for
+24, 32 and 8-bit paletted images - NOT 8-bit greyscale images)<br>
+<br>
+
+The file, program5.cpp remains almost completely unchanged.&nbsp; We add another
+
+variable for zooming with the right mouse button and change the initialisation
+
+function to use our new texture loading library.</font><P align="center"><img border="0" src="graphics/prog5.gif" tppabs="http://home.clara.net/paulyg/graphics/prog5.gif" width="258" height="277"><FONT FACE="Helvetica, Sans-Serif" SIZE=2><br>
+
+
+
+</font>
+
+<P align="left"><font face="Helvetica, Sans-Serif" size="2">Lots of the code is
+
+devoted to parsing the different parts on the .tga format.&nbsp; Since this
+
+isn't the point of the tutorial, much of that won't be covered.&nbsp; The code
+
+is annotated quite well anyway.</font><P align="left">&nbsp;
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+ </B></NOBR><NOBR><B><font face="Helvetica, Sans-Serif" size="4"><font color="#305080"> 
+
+      </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">This function
+gets the compressed texture extension for us.&nbsp; We call </font><font face="Courier New" SIZE="2">wglGetProcAddress
+</font><font face="Helvetica, Sans-Serif" size="2">to fetch the pointer of the
+functions from the opengl driver.&nbsp; From now on when we call </font><font face="Courier New" size="2">glCompressedTexImage2DARB
+</font><font face="Helvetica, Sans-Serif" size="2">it'll use the correct
+function.&nbsp;&nbsp;<br>
+If the pointer is still </font><font face="Courier New" size="2">NULL</font><font face="Helvetica, Sans-Serif" size="2">
+after this, its safe to assume that your driver doesn't support the extension.</font></p>
+<p class="code"><font face="Courier New" size="2">[1]&nbsp;&nbsp;&nbsp; <b>void</b> tgaGetExtensions (
+<b> void</b> )<br>
+[2]&nbsp;&nbsp;&nbsp; {&nbsp;<br>
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glCompressedTexImage2DARB  = ( PFNGLCOMPRESSEDTEXIMAGE2DARBPROC  )&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wglGetProcAddress ( "glCompressedTexImage2DARB"  );<br>
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glGetCompressedTexImageARB = ( PFNGLGETCOMPRESSEDTEXIMAGEARBPROC )&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; wglGetProcAddress ( "glGetCompressedTexImageARB" );<br>
+[5]<br>
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b> ( glCompressedTexImage2DARB == NULL ||&nbsp;<br>
+</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<font face="Courier New" size="2">glGetCompressedTexImageARB == NULL )<br>
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tgaCompressedTexSupport = false;<br>
+[8]&nbsp;&nbsp;&nbsp; }</font>
+<hr>
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+We need a function to pass the image to OpenGL.&nbsp; Because we wanted our
+library to be flexible we have to perform quite a few checks to determine what
+kind of internal we're going to need.&nbsp; We do this by passing in the 'mode'
+and using switch statements to direct the program flow.</font>
+
+<p class="code"><font face="Courier New" size="2">[1]&nbsp;&nbsp;&nbsp; <b>void</b> tgaUploadImage ( image_t *p, tgaFLAG mode )<br>
+[2]&nbsp;&nbsp;&nbsp; {<br>
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLenum internal_format = p-&gt;info.tgaColourType;</font><p><font face="Helvetica, Sans-Serif" size="2">The
+first switch statement takes the mode variable and checks to see whether we want
+to upload the texture in a lower quality.&nbsp; So line 1 checks if we want to
+use low quality mode and line 3 starts the switch statement.&nbsp; We set the
+internal texture format to XXX4 (where XXX is RGB, RGBA, LUMINANCE or
+ALPHA).&nbsp; Be aware that the OpenGL spec. states that a driver can ignore
+these lower bit precision formats if hardware doesn't support them.&nbsp; The
+driver is allowed to make its own decision on this and use the closest format
+available.</font>
+
+<p class="code"><font face="Courier New" size="2">[1]&nbsp;&nbsp;&nbsp; <b>if </b> ( mode&amp;TGA_LOW_QUALITY )<br>
+[2]&nbsp;&nbsp;&nbsp; {<br>
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>switch</b> ( p->info.tgaColourType )<br>
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>case</b> GL_RGB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+: internal_format = GL_RGB4; <b>break</b>;<br>
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>case</b> GL_RGBA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+: internal_format = GL_RGBA4; <b>break</b>;&nbsp;<br>
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>case</b> GL_LUMINANCE : internal_format = GL_LUMINANCE4;
+<b>break</b>;<br>
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>case</b> GL_ALPHA&nbsp;&nbsp;&nbsp;&nbsp;
+: internal_format = GL_ALPHA4; <b>break</b>;&nbsp;<br>
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+[10]&nbsp;&nbsp; }<br>
+</font><p><font face="Helvetica, Sans-Serif" size="2">The second switch
+statement chooses the most appropriate compressed texture format.&nbsp; Line 1
+checks if we wanted compressed textures with the mode variable and whether or
+not compressed textures are supported by the hardware.&nbsp; Again, the spec.
+states that OpenGL can do what it likes when confronted with these enumerants.&nbsp;
+If the driver does support compressed textures, it'll choose the format it
+thinks is best for the job.</font>
+
+<p class="code"><font face="Courier New" size="2">[1]</font><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;
+<b>if</b> ( mode&amp;TGA_COMPRESS &amp;&amp; tgaCompressedTexSupport )<br>
+[2]&nbsp;&nbsp;&nbsp; {&nbsp;<br>
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>switch</b> ( p->info.tgaColourType )<br>
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>case</b> GL_RGB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+: internal_format = GL_COMPRESSED_RGB_ARB; <b> break;</b><br>
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>case</b> GL_RGBA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+: internal_format = GL_COMPRESSED_RGBA_ARB; <b>break</b>;&nbsp;<br>
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>case</b> GL_LUMINANCE : internal_format = GL_COMPRESSED_LUMINANCE_ARB;
+<b>break</b>;&nbsp;<br>
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>case</b> GL_ALPHA&nbsp;&nbsp;&nbsp;&nbsp;
+: internal_format = GL_COMPRESSED_ALPHA_ARB; <b>break</b>;&nbsp;<br>
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+[10]&nbsp;&nbsp; }&nbsp;<br>
+</font><p><font face="Helvetica, Sans-Serif" size="2">Finally we check if wanted
+mipmaps and call either </font><font size="2" face="Courier New">gluBuildMipmaps</font><font face="Helvetica, Sans-Serif" size="2">
+or </font><font size="2" face="Courier New">glTexImage</font><font face="Helvetica, Sans-Serif" size="2">
+depending on the choice.</font>
+
+<p class="code"><font face="Courier New" size="2">[1]</font><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp;
+<b>if</b> ( !( mode&amp;TGA_NO_MIPMAPS ))<br>
+[2]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluBuild2DMipmaps ( GL_TEXTURE_2D, internal_format, p->info.width,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; p->info.height, p->info.tgaColourType, GL_UNSIGNED_BYTE, p->data );<br>
+[3]&nbsp;&nbsp;&nbsp; <b>else</b><br>
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTexImage2D ( GL_TEXTURE_2D, 0, internal_format, p->info.width,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; p->info.height, 0, p->info.tgaColourType, GL_UNSIGNED_BYTE, p->data );&nbsp;<br>
+[5]}</font><font face="Helvetica, Sans-Serif" size="2">
+
+
+
+<hr>
+
+<p class="BodyText">There isn't anything remarkable about the remaining
+
+functions in 'tgaload.cpp'.&nbsp; So lets look at the program source itself.<br>
+
+<br>
+
+In the initialisation function we call our .tga loader.&nbsp; Notice how we use </font><FONT face="Courier New" SIZE=2>glBindTexture</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+as before.&nbsp; The final parameter of tgaLoad is special, it's a bit
+
+field.&nbsp; This means you can give it multiple identifiers.&nbsp; Line 5 loads
+
+the cloud image, frees the image after passing it opengl and forces the image
+
+format to LUMINANCE.&nbsp; Quite a powerful mechanism, but it has absolutely
+
+nothing to do with opengl!</font>
+
+<p class="code"><font size="2" face="Courier New">...</font><FONT face="Courier New" SIZE=2><br>
+
+[1]&nbsp;&nbsp;&nbsp; glBindTexture ( GL_TEXTURE_2D, texture_id [ EARTH_IMAGE ] );<br>
+
+[2]&nbsp;&nbsp;&nbsp; tgaLoad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( &quot;earth.tga&quot;, &amp;temp_image,
+
+TGA_FREE );<br>
+
+[3]<br>
+
+[4]&nbsp;&nbsp;&nbsp; glBindTexture ( GL_TEXTURE_2D, texture_id [ CLOUD_IMAGE ] );<br>
+
+[5]&nbsp;&nbsp;&nbsp; tgaLoad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( &quot;clouds.tga&quot;, &amp;temp_image,
+
+TGA_FREE | TGA_LUMINANCE
+
+);</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><br>
+
+</font><font size="2" face="Courier New">...
+
+</font>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">If you're feeling particularly
+lazy you can call the function</font><font size="2" face="Courier New">
+tgaLoadAndBind</font><font face="Helvetica, Sans-Serif" size="2">.&nbsp; This
+performs the </font><font size="2" face="Courier New">glBindTexture</font><font face="Helvetica, Sans-Serif" size="2">
+command internally and doesn't require an external</font><font size="2" face="Courier New">
+image_t</font><font face="Helvetica, Sans-Serif" size="2"> variable.&nbsp; It's
+been commented out in the source, for reference you use it like this:</font><p class="code"><FONT face="Courier New" SIZE=2>&nbsp;&nbsp;&nbsp;
+texture_id [ EARTH_IMAGE ] = tgaLoadAndBind ( &quot;earth.tga&quot;, TGA_DEFAULT
+
+);</font><p><font face="Helvetica, Sans-Serif" size="2">Note that the </font><font size="2" face="Courier New">texture_id</font><font face="Helvetica, Sans-Serif" size="2">
+array is just like the previous version, the bound texture name is placed in the
+position pointed to by the index '</font><font size="2" face="Courier New">EARTH_IMAGE</font><font face="Helvetica, Sans-Serif" size="2">'.&nbsp;
+LoadAndBind frees the image automatically, so we use the blank bitfield '</font><font size="2" face="Courier New">TGA_DEFAULT</font><font face="Helvetica, Sans-Serif" size="2">'
+to stop the compiler complaining.</font>
+
+
+
+
+
+<p>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+  <P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font>
+
+
+
+</font>
+
+</BODY>

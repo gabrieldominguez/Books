@@ -1,0 +1,1481 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0062)http://www.codeproject.com/csharp/Basic_Illumination_Model.asp -->
+<HTML><HEAD><TITLE>Basic Illumination Model in C# - The Code Project - C# Programming</TITLE>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META http-equiv=Content-Type content="text/html; charset=ISO-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META content="Basic Illumination Model in C#" name=Description>
+<META content=kbArticle name=Search.TopicType>
+<META content=andalmeida name=Author>
+<META content="25 Jul 2007 14:00:00 GMT" name=Search.PublishDate>
+<META content="09 Aug 2007 14:00:00 GMT" name=Search.RevisedDate>
+<META content="Free source code, , Visual C++, MFC, Windows, Article" 
+name=keywords>
+<META 
+content="Article content copyright andalmeida, 2007, everthing else Copyright © CodeProject, 1999-2007, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Lounge Postings" 
+href="http://www.codeproject.com/webservices/LoungeRSS.aspx" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - VB.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6" 
+type=application/rss+xml rel=alternate><LINK title="The Code Project" 
+href="http://www.codeproject.com/info/OpenSearch.xml" 
+type=application/opensearchdescription+xml rel=search><LINK href="/favicon.ico" 
+type=image/ico rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="Basic Illumination Model in C#_archivos/global.css" type=text/css 
+rel=stylesheet>
+<SCRIPT language=javascript 
+src="Basic Illumination Model in C#_archivos/oncopy.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+if (top != self) top.location.href = location.href;
+if (typeof(DemoUrl) != "undefined")
+	document.write('<me' + 'ta http' + '-equiv="re' + 'fresh" con' + 'tent="1;url=' + DemoUrl + '">');
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR></HEAD>
+<BODY style="MARGIN: 0px" oncopy="return copyCode();" text=black vLink=navy 
+aLink=red link=blue bgColor=white>
+<SCRIPT src="Basic Illumination Model in C#_archivos/urchin.js" 
+type=text/javascript>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+_uacct = "UA-1735123-1";
+urchinTracker();
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=HeaderLogo><A href="http://www.codeproject.com/"><IMG height=90 
+      alt=Home 
+      src="Basic Illumination Model in C#_archivos/codeproject225x90.gif" 
+      border=0></A></TD>
+    <TD class=HeaderBanner><SPAN id=AdBanner4>
+      <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=4184&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FDynamsoft%5Fultimate%5F728x90%2Egif&C=False&id=4184&cb=4719959\" alt=\"\" border=0 width=728 height=90></a>");</SCRIPT>
+      </SPAN></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=MemberNavBar cellSpacing=0 cellPadding=5 width="100%" 
+      border=0>
+        <TBODY>
+        <TR vAlign=center>
+          <TD class=smallText style="FONT-WEIGHT: bold">4,488,325 members and 
+            growing! &nbsp; 11,370 now online. </TD>
+          <TD class=userNavText align=right><A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?id=512155">Gabriel 
+            Dominguez </A>| <A 
+            href="http://www.codeproject.com/script/profile/modify.asp?ct=/csharp/Basic_Illumination_Model.asp"><B>My 
+            Settings</B></A> | <A 
+            href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+            Bookmarks</A> | <A 
+            href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+            Articles</A> | <A 
+            href="http://www.codeproject.com/script/profile/logoff.asp?ct=/csharp/Basic_Illumination_Model.asp">Sign 
+            out</A> </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=SiteNavBar id=tblSiteToolbar cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD><A href="http://www.codeproject.com/">Home</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=2">MFC/C++</A></TD>
+          <TD><A href="http://www.codeproject.com/index.asp?cat=3">C#</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=4">ASP.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=6">VB.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=8">Architect</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=9">SQL</A></TD>
+          <TD class=SelCat noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=1">All Topics</A></TD>
+          <TD width="100%">&nbsp;</TD>
+          <TD>
+            <DIV id=MenuPos 
+            style="WIDTH: 300px; POSITION: relative; TOP: 1px; HEIGHT: 22px">
+            <TABLE id=MPH 
+            style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 20px; BORDER-RIGHT-WIDTH: 0px" 
+            cellSpacing=0 cellPadding=0 width=300>
+              <TBODY>
+              <TR vAlign=center>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                  Boards</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+      <SCRIPT src="Basic Illumination Model in C#_archivos/cpmenu_var.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT src="Basic Illumination Model in C#_archivos/menu10_com.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT type=text/javascript>
+var MPH = document.getElementById("MPH");
+if (MPH) MPH.style.display='none';
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=ArticleHeader cellSpacing=0 cellPadding=3 width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText style="PADDING-RIGHT: 10px"><A 
+            href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+            href="http://www.codeproject.com/?cat=3">C#</A>, <A 
+            href="http://www.codeproject.com/?cat=5">.NET</A> &gt;&gt; <A 
+            href="http://www.codeproject.com/csharp/">C# Programming</A> 
+            &gt;&gt; <A 
+            href="http://www.codeproject.com/csharp/#Graphics">Graphics</A><BR><BR>
+            <DIV style="FONT-WEIGHT: bold; FONT-SIZE: 16pt">Basic Illumination 
+            Model in C#</DIV><B>By <A 
+            href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=3589667">andalmeida</A></B>. 
+            <BR><BR>
+            <DIV style="FONT-SIZE: 12px">Basic Illumination Model in C#</DIV></TD>
+          <TD class=smallText style="WIDTH: 200px">C# (C# 2.0)<BR>Windows, 
+            .NET (.NET 2.0)<BR>Win32, VS (VS2005), WebForms, 
+            ASP.NET<BR>Dev<BR><SPAN style="PADDING-RIGHT: 2ex">Posted</SPAN>: 
+            <B>26 Jul 2007</B><BR><SPAN 
+            style="PADDING-RIGHT: 0.3ex">Updated</SPAN>: <B>10 Aug 
+            2007</B><BR><SPAN style="PADDING-RIGHT: 3ex">Views</SPAN>: 
+            <B>8,676</B> </TD></TR></TD></TR></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=LHNavBar rowSpan=2><!-- Yes, there are IE hacks that will allow us to create a min-width DIV 
+	     (eg http://www.webreference.com/programming/min-width/) but I couldn't
+	     be arsed. Wait for it in v2.0 -->
+            <DIV class=FeatureBlockHeader>Announcements</DIV>
+            <DIV class="FeatureBlockContent RHFeatureBar">
+            <DIV style="PADDING-TOP: 5px"><IMG 
+            style="PADDING-RIGHT: 10px; FLOAT: left; MARGIN-LEFT: 5px; MARGIN-RIGHT: 10px" 
+            height=20 alt=Comp 
+            src="Basic Illumination Model in C#_archivos/prize_winner_sm.gif" 
+            width=10><A 
+            href="http://www.codeproject.com/script/competitions/monthly/">Monthly 
+            Competition</A></DIV></DIV>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=3940&cb=4719970\" border=0 frameborder=0 scrolling=no width=160 height=600></IFRAME>");</SCRIPT>
+            </CENTER><BR><BR><IMG height=1 
+            src="Basic Illumination Model in C#_archivos/t.gif" width=160> </TD>
+          <TD width="100%">
+            <TABLE class=SearchHeaderBar cellSpacing=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=center noWrap align=right width="60%">
+                  <FORM style="MARGIN: 0px" name=Search action=/info/search.asp 
+                  method=post><B>Search &nbsp;</B><INPUT class=smallText 
+                  style="WIDTH: 200px" name=target> <SELECT 
+                  style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" name=st> <OPTION 
+                    value=kw selected>Articles</OPTION> <OPTION 
+                    value=au>Authors</OPTION></SELECT> <INPUT style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" type=submit value=" Go! "> 
+                  &nbsp; </FORM></TD>
+                <TD class=tinyText noWrap><A 
+                  href="http://www.codeproject.com/info/search.asp">Advanced 
+                  Search</A><BR><A 
+                  href="http://www.codeproject.com/script/articles/sections.asp">Sitemap</A> 
+                </TD></TR></TBODY></TABLE>
+            <TABLE width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=SmallText noWrap>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText noWrap><IMG 
+                        src="Basic Illumination Model in C#_archivos/print.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?print=true" 
+                        target=_print>Print</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="Basic Illumination Model in C#_archivos/sitebuild_icon.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=Basic%5FIllumination%5FModel%2Fuseritems7%2F26%2F2007">Broken 
+                        Article?</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="Basic Illumination Model in C#_archivos/link.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fcsharp%2FBasic%5FIllumination%5FModel%2Easp&amp;guid=Basic%5FIllumination%5FModel%2Fuseritems7%2F26%2F2007">Bookmark</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="Basic Illumination Model in C#_archivos/mail_small.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp#__comments">Discuss</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="Basic Illumination Model in C#_archivos/mail.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/script/recommend/form.asp?guid=Basic%5FIllumination%5FModel%2Fuseritems7%2F26%2F2007">Send 
+                        to a friend</A></TD></TR></TBODY></TABLE></TD>
+                <TD noWrap align=right><A name=__top></A>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText align=right>10 votes for this 
+                        article.</TD>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 border=2>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="Basic Illumination Model in C#_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="Basic Illumination Model in C#_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="Basic Illumination Model in C#_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="Basic Illumination Model in C#_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="Basic Illumination Model in C#_archivos/red.gif" 
+                              width=16 border=0><IMG height=5 
+                              src="Basic Illumination Model in C#_archivos/white.gif" 
+                              width=4 border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD class=smallText align=right colSpan=2><A 
+                        title="Calculated as rating x Log10(# votes)" 
+                        href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                        4.8</A>. Rating: <B>4.8</B> out of 
+                5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=ArticlePane><SPAN id=intelliTXT>
+            <DIV id=contentdiv><!-- Article Starts -->
+            <UL class=download>
+              <LI><A 
+              href="http://www.codeproject.com/csharp/Basic_Illumination_Model/raytracingvi.zip">Download 
+              source - 4.2 KB</A> 
+              <LI><A 
+              href="http://www.simsysbr.com/articles/raytracing/raytracingvi.zip">Download 
+              Latest Version</A> </LI></UL>
+            <P><A 
+            href="http://www.simsysbr.com/articles/raytracing/raytracingappII.aspx">See 
+            sample</A></P>
+            <P align=center>
+            <TABLE class=articletable style="WIDTH: 100%" cellSpacing=2 
+            cellPadding=2 align=middle border=2>
+              <TBODY>
+              <TR>
+                <TD style="WIDTH: 33%">
+                  <P align=center><IMG id=IMG1 height=200 
+                  alt="Screenshot - 1.png" 
+                  src="Basic Illumination Model in C#_archivos/raytracingII.png" 
+                  width=200><BR>Ambient</P></TD>
+                <TD style="WIDTH: 33%">
+                  <P align=center><IMG height=200 alt="Screenshot - 2.png" 
+                  src="Basic Illumination Model in C#_archivos/raytracingIII.png" 
+                  width=200><BR>Diffuse</P></TD>
+                <TD style="WIDTH: 33%">
+                  <P align=center><IMG height=200 alt="Screenshot - 3.png" 
+                  src="Basic Illumination Model in C#_archivos/raytracingV.png" 
+                  width=200><BR>Specular</P></TD></TR>
+              <TR>
+                <TD style="WIDTH: 33%">
+                  <P align=center><IMG height=200 alt="Screenshot - 4.png" 
+                  src="Basic Illumination Model in C#_archivos/raytracingIV.png" 
+                  width=200><BR>Ambient+Diffuse</P></TD>
+                <TD style="WIDTH: 33%">
+                  <P align=center><IMG height=200 alt="Screenshot - 5.png" 
+                  src="Basic Illumination Model in C#_archivos/raytracingVII.png" 
+                  width=200><BR>Diffuse+Specular</P></TD>
+                <TD style="WIDTH: 33%">
+                  <P align=center><IMG height=200 alt="Screenshot - 6.png" 
+                  src="Basic Illumination Model in C#_archivos/raytracingVI.png" 
+                  width=200><BR>Ambient+Diffuse+Specular</P></TD></TR></TBODY></TABLE></P>
+            <H2>Introduction</H2>
+            <P>In my previous article <A 
+            href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_.asp">Simple 
+            Ray Tracing in C#</A> we have seen how to display spheres using a 
+            simple ray tracing algorithm. Now we will start from the last point 
+            and will be working with basic illumination models. </P>
+            <P>By definition we have 3 types of light: </P>
+            <UL>
+              <LI>Ambient 
+              <LI>Diffuse 
+              <LI>Specular </LI></UL>
+            <H4>Ambient</H4>
+            <P>It is considered as the light distributed by the environment, 
+            which contributes to the global illumination independently of the 
+            light position, objects or observer.</P>
+            <H4>Diffuse</H4>
+            <P>It is the light which contribution depends on its incidence 
+            angle. Diffuse light hit can be reflected in all directions.</P>
+            <H4>Specular</H4>
+            <P>Specular lights represents the bright spots in the objects, as 
+            more reflective we get smaller bright spot.</P>
+            <H2>Background</H2>
+            <P>To proceed with an illumination algorithm we need to get the 
+            ambient, diffuse and specular constants for the material we want to 
+            model, for example here we use brass constants which are:</P>
+            <P>
+            <TABLE class=articletable style="WIDTH: 100%" cellSpacing=1 
+            cellPadding=1>
+              <TBODY>
+              <TR>
+                <TD>K</TD>
+                <TD>Ambient </TD>
+                <TD>Diffuse</TD>
+                <TD>Specular </TD></TR>
+              <TR>
+                <TD>RED </TD>
+                <TD>0.329412</TD>
+                <TD>0.780392</TD>
+                <TD>0.992157</TD></TR>
+              <TR>
+                <TD>GREEN</TD>
+                <TD>0.223529</TD>
+                <TD>0.568627</TD>
+                <TD>0.941176</TD></TR>
+              <TR>
+                <TD>BLUE</TD>
+                <TD>0.027451</TD>
+                <TD>0.113725</TD>
+                <TD>0.807843</TD></TR></TBODY></TABLE></P>
+            <P>Exponent 27.8974 </P>
+            <P>The ray tracing algorithm used is the same as you can see on <A 
+            href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_.asp">Simple 
+            Ray Tracing in C#</A> with the improvements of a basic illumination 
+            model.</P>
+            <H2>The Equations</H2>
+            <P>Light Source is defined as an R<SUP>3</SUP> (x,y,z) point with a 
+            (v<SUB>x</SUB>,v<SUB>y</SUB>,v<SUB>z</SUB>) direction vector.</P>
+            <P>Observer is defined as an R<SUP>3</SUP> (x,y,z) point with a 
+            (v<SUB>x</SUB>,v<SUB>y</SUB>,v<SUB>z</SUB>) direction vector.</P>
+            <P>Theta is defined as the angle between light ray and normal vector 
+            at the intersection point P on surface.</P>
+            <P>Phi is defined as the angle between the reflected light ray at 
+            intersection point P on surface and the viewer ray to the same point 
+            P.</P>
+            <H4>The Sphere Equation</H4>
+            <UL>
+              <LI>r<SUP>2</SUP> = 
+              (x-cx)<SUP>2</SUP>+(y-cy)<SUP>2</SUP>+(z-cz)<SUP>2</SUP> </LI></UL>
+            <H4>Illumination on a given pixel:</H4>
+            <UL>
+              <LI>I<SUB>Ambient</SUB> = I * K<SUB>Ambient</SUB> 
+              <LI>I<SUB>Diffuse </SUB>= I * K<SUB>Diffuse</SUB> * cos(theta) 
+              <LI>I<SUB>Specular</SUB> = I * K<SUB>Specular</SUB> * 
+              cos(phi)<SUP>n</SUP> 
+              <LI>I = I<SUB>Ambient</SUB> + I<SUB>Diffuse</SUB> + I<SUB>Specular 
+              </SUB></LI></UL>
+            <H4>Reflection calculation:</H4>
+            <UL>
+              <LI>i' = i - (2 * n * dot(i, n)) </LI></UL>
+            <P>where</P>
+            <UL>
+              <LI>i = incidence light ray 
+              <LI>n = normal at intersection 
+              <LI>i' = reflected ray </LI></UL>
+            <H2>The Code</H2><PRE lang=cs>...
+if (spherehit != null)
+     {
+     double intersx  = px + t * vx, intersy = py + t * vy,
+                       intersz = pz + t * vz;
+     double vNormalX = intersx - spherehit.cx,
+                       vNormalY=intersy - spherehit.cy,
+                       vNormalZ=intersz - spherehit.cz;
+     double cost     = tAlgebra.GetCosAngleV1V2(lvx, lvy, lvz, vNormalX,
+                       vNormalY, vNormalZ);
+     if (cost &lt; 0) cost = 0;
+
+     double vReflX = 0, vReflY = 0, vReflZ = 0;
+     double vEye2IntersX = px - intersx, vEye2IntersY = py - intersy,
+                           vEye2IntersZ = pz - intersz;
+
+     tAlgebra.Reflect(lvx,lvy,lvz, vNormalX,vNormalY,vNormalZ,ref vReflX,
+                      ref vReflY, ref vReflZ);
+     double cosf = tAlgebra.GetCosAngleV1V2(vReflX, vReflY, vReflZ,
+                   vEye2IntersX, vEye2IntersY, vEye2IntersZ);
+     if (cosf &lt; 0) cosf = 0;
+
+     double result1 = cost * 255.0;
+     double result2 = Math.Pow(cosf, spherehit.shininess) * 255.0;
+     double rgbR = (spherehit.ambientR * 255.0)+(spherehit.diffuseR *
+                    result1) + (spherehit.specularR * result2);
+     double rgbG = (spherehit.ambientG * 255.0) +(spherehit.diffuseG *
+                    result1) + spherehit.specularG * result2);
+     double rgbB = (spherehit.ambientB * 255.0) +(spherehit.diffuseB *
+                    result1) + (spherehit.specularB * result2);
+     rgbR = Math.Min(rgbR, 255);
+     rgbG = Math.Min(rgbG, 255);
+     rgbB = Math.Min(rgbB, 255);
+     color = Color.FromArgb((int)rgbR, (int)rgbG, (int)rgbB);
+     ...
+     }
+...</PRE><!-- Article Ends --></DIV></SPAN>
+            <SCRIPT src="Basic Illumination Model in C#_archivos/togglePre.js" 
+            type=text/javascript></SCRIPT>
+
+            <H2>About andalmeida</H2>
+            <DIV style="OVERFLOW: hidden">
+            <TABLE border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText noWrap><IMG 
+                  src="Basic Illumination Model in C#_archivos/{9D04B36A-6D61-4974-91CC-7F40F06C777F}.jpg"><BR></TD>
+                <TD class=smallText>I have started programming in 1990 at 
+                  College with GWBASIC, Fortran and Pascal.<BR>In 1992 started 
+                  programming in C and them didn't stop, passing through C++, 
+                  C#.NET, Java, ASP, COM, DCOM, VRML, OPENGL and other. <BR>
+                  <P class=smallText>Click <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=3589667">here</A> 
+                  to view andalmeida's online 
+            profile.</P></TD></TR></TBODY></TABLE></DIV><BR>
+            <TABLE cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%">
+                  <H2>Other popular C# Programming articles:</H2>
+                  <UL>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/zedgraph.asp">A 
+                    flexible charting library for .NET</A>
+                    <DIV class=smallText>Looking for a way to draw 2D line 
+                    graphs with C#? Here's yet another charting class library 
+                    with a high degree of configurability, that is also easy to 
+                    use.</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/csppleds.asp">I/O 
+                    Ports Uncensored - 1 - Controlling LEDs (Light Emiting 
+                    Diodes) with Parallel Port</A>
+                    <DIV class=smallText>Controlling LEDs (Light Emiting Diodes) 
+                    with Parallel Port</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/AsyncMethodInvocation.asp">Asynchronous 
+                    Method Invocation</A>
+                    <DIV class=smallText>How to use .NET to call methods in a 
+                    non-blocking mode.</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/cspplcds.asp">I/O 
+                    Ports Uncensored Part 2 - Controlling LCDs (Liquid Crystal 
+                    Displays) and VFDs (Vacuum Fluorescent Displays) with 
+                    Parallel Port</A>
+                    <DIV class=smallText>Controlling LCDs (Liquid Crystal 
+                    Displays) and VFDs (Vacuum Fluorescent Displays) with 
+                    Parallel Port</DIV></LI></UL></TD>
+                <TD width=360>
+                  <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=4109&cb=4719977\" border=0 frameborder=0 scrolling=no width=300 height=250></IFRAME>");</SCRIPT>
+                </TD></TR></TBODY></TABLE>
+            <FORM action=/script/rating/code/app/insert_vote.asp 
+            method=post><INPUT type=hidden 
+            value=Basic_Illumination_Model/useritems7/26/2007 name=vote_name> 
+            <INPUT type=hidden value=/csharp/Basic_Illumination_Model.asp 
+            name=goal> 
+            <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=4 width="100%" 
+                  bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=smalltext vAlign=center>[<A 
+                        href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp#__top">Top</A>]</TD>
+                      <TD vAlign=center noWrap align=right><I><B>Rate this 
+                        Article for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <I>Poor</I><INPUT type=radio value=1 name=rate><INPUT 
+                        type=radio value=2 name=rate><INPUT type=radio value=3 
+                        name=rate><INPUT type=radio value=4 name=rate><INPUT 
+                        type=radio value=5 
+name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+            <CENTER>
+            <DIV style="MARGIN: 10px"><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=4114&cb=4719966\" border=0 frameborder=0 scrolling=no width=468 height=60></IFRAME>");</SCRIPT>
+            </SPAN></DIV></CENTER><A name=__comments></A>
+            <SCRIPT language=JavaScript>
+
+function MsgVoteForm(MemberID, MsgID)
+{
+	document.write("<span id=\"MVF" + MsgID + "\">");
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+	{
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString());
+		document.write("' onclick='return RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ", ");
+		document.write(i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	}
+	document.write(" (out of 5)");
+	document.writeln("</span>");
+	
+	
+	document.write("<br />Report as <a href='#xx" + MsgID.toString() + "xx' title='Mark as Spam' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-1)'>Spam</a> or ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' title='Mark as Abuse' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-2)'>Abuse</a>");
+	
+}
+
+function RetypeForm(MemberID, MsgID)
+{
+	var types = [
+				 {pic:'news_general.gif',  id: 1},
+	             {pic:'news_info.gif',     id: 2},
+	             {pic:'news_question.gif', id: 4},
+	             {pic:'news_answer.gif',   id: 8},
+	             {pic:'news_game.gif',     id: 16},
+	             {pic:'news_spam.gif',     id: 32}
+	            ];
+	
+	document.write("<span id=\"RTF" + MsgID + "\">");
+	for (var i=0;i<types.length;i++)
+	{
+		document.write("<a href='/script/comments/retype?msg=" + MsgID.toString());
+		document.write("&mid=" + MemberID.toString() + "&type=" + types[i].id + "'>");
+		document.write("<img border=0 src='/script/images/" + types[i].pic + "'></a><br />");
+	}
+	document.writeln("</span>");
+}
+
+function ReportMsg(userid, msgid, score)
+{
+	if (confirm("Are you sure you want to report this message?") == true)
+		return RateMsg(userid, msgid, score);
+	else return false;
+}
+
+
+function RateMsg(userid, msgid, score)
+{
+
+   var req = new ActiveXObject("Msxml2.XMLHTTP"); 
+
+   req.onreadystatechange = function()
+   {
+      if ( req.readyState == 4 )
+      {
+         if ( req.status == 200 )
+         {
+         	var respText = req.responseText;
+         	var re = new RegExp("\<div\>([^\<]*)\</div\>", "g");
+         	var match = re.exec(respText);
+         	status.innerHTML = "<b>" + (match)?match[1]:"An error occured" + "</b>";
+         }
+         else
+         {
+            status.innerHTML = "<b style='color:red'>Failed!" + req.statusText + "</b>";
+         }
+      }
+   }
+   
+   var status = document.getElementById("MVF" + msgid);
+   if (!status) return;  // should never happen...   
+   status.innerHTML = "<b style='color:green'>Voting...</b>";
+   
+   var strAction = "/script/comments/vote.asp?js=1&user="+userid+"&msg="+msgid+"&score="+score;
+   req.open("GET", strAction, true);
+   req.send(null);
+   return false;
+}
+
+</SCRIPT>
+
+            <SCRIPT language=JavaScript>
+var Selected = "";
+
+var AdTime = new Date();
+
+
+// Ensures the expanded message appears reasonably close to where 
+// it should appear: on screen, and if possible, under the mouse cursor.
+function SwitchMessage(e)
+{
+   if ( !e ) e = window.event;
+   var target = e.target ? e.target : e.srcElement;
+
+   // is it a post?
+   while ( target && target.id != 'DynMessLink' )
+      target = target.parentNode;
+   if ( !target || target.id != 'DynMessLink' )
+      return;
+
+   if (Selected)
+   {
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+         body.style.display = 'none';
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#FEF9E7';
+   }
+
+   if (Selected == target.name) // just collapse
+      Selected="";
+   else
+   {
+      Selected = target.name;
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+      {
+         if (body.style.display=='none')
+            body.style.display='';
+         else
+            body.style.display = 'none';
+      }
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#99CCFF';
+
+      if ( body && head && body.style.display != 'none' )
+      {
+         // the bit that keeps the post on-screen and under the cursor
+         //var dif = (getRealPos(head, "Top") + head.offsetHeight/2) - (document.body.scrollTop+e.clientY);
+         //document.body.scrollTop += dif;
+         document.body.scrollTop = getRealPos(head, "Top") - document.body.clientHeight/10;
+         EnsureMessageVisible(target.name, true);
+      }
+   }
+
+   if ( e.preventDefault )
+      e.preventDefault();
+   else
+      e.returnValue = false;
+   return false;
+}
+
+// does its best to make a message visible on-screen (vs. scrolled off somewhere).
+function EnsureMessageVisible(msgID, bShowTop) {
+   var msgHeader = document.getElementById(msgID + "_h0");
+   var msgBody = document.getElementById(msgID + "_h1");
+
+   // determine scroll position of top and bottom
+   var scrollContainer = document.body;
+   var top = getRealPos(msgHeader, 'Top');
+   var bottom = getRealPos(msgBody, 'Top') + msgBody.offsetHeight;
+
+   // if not already visible, scroll to make it so
+   if ( scrollContainer.scrollTop > top && !bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+   if ( scrollContainer.scrollTop+scrollContainer.clientHeight < bottom )
+      scrollContainer.scrollTop = bottom-scrollContainer.clientHeight;
+   if ( scrollContainer.scrollTop > top && bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+}
+
+// utility
+function getRealPos(i,which)
+{
+   iPos = 0
+   while (i!=null)
+   {
+      iPos += i["offset" + which];
+      i = i.offsetParent;
+   }
+   return iPos
+}
+
+
+</SCRIPT>
+
+            <DIV id=_MessageBoard onclick=SwitchMessage(event)>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+                  bgColor=#ff9900 border=0>
+                    <FORM 
+                    action=/script/comments/app/do_filtermessages.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654 
+                    method=post>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=3 width="100%" 
+                        bgColor=white border=0>
+                          <TBODY>
+                          <TR bgColor=#fbedbb>
+                            <TD class=smalltext noWrap><A 
+                              href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                              height=16 
+                              src="Basic Illumination Model in C#_archivos/forum_faq.gif" 
+                              width=16 align=absMiddle border=0> 
+                            <B>FAQ</B></A>&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>Message score threshold <SELECT 
+                              class=smalltext size=1 name=noise><OPTION 
+                                value=1>1.0</OPTION> <OPTION 
+                                value=2>2.0</OPTION> <OPTION value=3 
+                                selected>3.0</OPTION> <OPTION 
+                                value=4>4.0</OPTION> <OPTION 
+                              value=5>5.0</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=center noWrap align=right 
+                            colSpan=2><A 
+                              href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=442654"><IMG 
+                              height=15 
+                              src="Basic Illumination Model in C#_archivos/forum_search.gif" 
+                              width=16 border=0> Search comments</A> &nbsp;</TD>
+                            <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+                          <TR bgColor=#ff9900>
+                            <TD width="100%">&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>View <SELECT class=smalltext size=1 
+                              name=expand><OPTION value=0>Normal 
+                                (slow)</OPTION> <OPTION value=2>Preview 
+                                (slow)</OPTION> <OPTION value=5 selected>Message 
+                                View</OPTION> <OPTION value=6>Topic 
+                                View</OPTION> <OPTION value=1>Thread 
+                                View</OPTION> <OPTION 
+                              value=3>Expanded</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap>Per page 
+                              <SELECT class=smalltext size=1 
+                                name=perpage><OPTION value=10>10</OPTION> 
+                                <OPTION value=25 selected>25</OPTION> <OPTION 
+                                value=50>50</OPTION></SELECT></TD>
+                            <TD 
+                    colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+                    <TR bgColor=#fbedbb>
+                      <TD><A name=xx0xx></A>
+                        <TABLE cellPadding=2 width="100%" bgColor=#fbedbb 
+                        border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle><IMG height=16 
+                              src="Basic Illumination Model in C#_archivos/forum_newmsg.gif" 
+                              width=16 align=top border=0><A class=HoverLink 
+                              title="Add a new message to the discussions" 
+                              href="http://www.codeproject.com/script/comments/user_new.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654" 
+                              target=_top name=HoverNL><B>New Message</B></A></TD>
+                            <TD class=messagetitle>Msgs 1 to 7 of 7 (Total: 7) 
+                              (<A 
+                              href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;forumid=442654">Refresh</A>)</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=white>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD class=messagetitle 
+                                width="100%">Subject&nbsp;</TD>
+                                <TD class=messagetitle noWrap 
+                                width=140>Author&nbsp;</TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT 
+                                class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="Basic Illumination Model in C#_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2167040_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2167040xx></A><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle style="COLOR: #aa0000" 
+                                width="100%"><A class=messagetitle 
+                                id=DynMessLink style="COLOR: #aa0000" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;forumid=442654&amp;select=2167040#xx2167040xx" 
+                                name=2167040><B>Specular Highlight 
+                                [modified]</B></A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=4182602"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="Basic Illumination Model in C#_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT class=messagetitle 
+                                style="COLOR: #aa0000"><B>efi_germany</B>&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle 
+                                style="COLOR: #aa0000"><B>14:43 3 Aug 
+                                '07</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2167040_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Hi.<BR><BR>I didn't dive 
+                                into the article and sample project too deep, 
+                                but from my first glance at the provided images 
+                                I wondered why the specular lighting is not (or 
+                                seems not to be) related to the direction of the 
+                                light in any way.<BR><BR>On the screenshot it 
+                                looks like the bright highlight is caused 
+                                directly by the camera.<BR><BR>If the light 
+                                comes from aside, the highlight cannot be in the 
+                                center of the sphere's visible area. And imagine 
+                                a scene similar to a solar eclipse: The light is 
+                                behind the sphere - no specular highlight at all 
+                                would be visible. <IMG 
+                                src="Basic Illumination Model in C#_archivos/smiley_smile.gif" 
+                                align=absMiddle><BR><BR>Anyways it's nice to 
+                                have some CG topics covered here! 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2167040">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2167040">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;tid=2167040&amp;forumid=442654&amp;select=2167040#xx2167040xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2167040#xx2167040xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2167040#xx2167040xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 5.0 (1 
+                                vote).
+                                <SCRIPT language=Javascript>MsgVoteForm(4182602,2167040);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="Basic Illumination Model in C#_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2167060_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2167060xx></A><IMG 
+                                height=1 
+                                src="Basic Illumination Model in C#_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;forumid=442654&amp;select=2167060#xx2167060xx" 
+                                name=2167060>Re: Specular Highlight</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3589667"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="Basic Illumination Model in C#_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>andalmeida&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>15:01 3 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2167060_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="Basic Illumination Model in C#_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Hi,<BR><BR>the observer and 
+                                light are on same side of object for those 
+                                tracings...<BR><BR>Follows the settings: 
+                                <BR><BR>// observer/eye/camera<BR>double px = 
+                                0.0;<BR>double py = 0.0;<BR>double pz = 
+                                600.0;<BR><BR>// light position<BR>double lpx = 
+                                200.0;<BR>double lpy = 200.0;<BR>double lpz = 
+                                200.0;<BR><BR><BR>// sphere centered at (0,0,90) 
+                                radius=100<BR>tSphere sph1 = new tSphere(0.0, 
+                                0.0, 90.0, 100.0, 0.0, 0.0, 255.0);<BR><BR>// 
+                                ambient properties for the material 
+                                <BR>sph1.ambientR = 0.329412;<BR>sph1.ambientG = 
+                                0.223529;<BR>sph1.ambientB = 0.027451;<BR><BR>// 
+                                specular properties for the material 
+                                <BR>sph1.specularR = 0.992157;<BR>sph1.specularG 
+                                = 0.941176;<BR>sph1.specularB = 
+                                0.807843;<BR>sph1.shininess = 
+                                27.8974;<BR><BR>sph1.diffuseR = 
+                                0.780392;<BR>sph1.diffuseG = 
+                                0.568627;<BR>sph1.diffuseB = 
+                                0.113725;<BR><BR>double intersx = px + t * vx, 
+                                intersy = py + t * vy, <BR>intersz = pz + t * 
+                                vz;<BR>double vNormalX = intersx - spherehit.cx, 
+                                vNormalY=intersy - <BR>spherehit.cy, 
+                                vNormalZ=intersz - 
+                                spherehit.cz;<BR><BR>//diffuse calculation: 
+                                based on the angle theta (the angle 
+                                between<BR>ray direction and surface normal at 
+                                intersection)<BR>double cost = 
+                                tAlgebra.GetCosAngleV1V2(lvx, lvy, lvz, 
+                                vNormalX, <BR>vNormalY, vNormalZ);<BR><BR>double 
+                                vReflX = 0, vReflY = 0, vReflZ = 0;<BR>double 
+                                vEye2IntersX = px - intersx, vEye2IntersY = py - 
+                                intersy, <BR>vEye2IntersZ = pz - 
+                                intersz;<BR>tAlgebra.Reflect(lvx,lvy,lvz, 
+                                vNormalX,vNormalY,vNormalZ,ref vReflX,<BR>ref 
+                                vReflY, ref vReflZ); <BR><BR>// specular 
+                                calculation: based on the angle phi (the angle 
+                                between<BR>viewing direction and reflected ray 
+                                direction) <BR>double cosf = 
+                                tAlgebra.GetCosAngleV1V2(vReflX, vReflY, vReflZ, 
+                                <BR>vEye2IntersX, vEye2IntersY, 
+                                vEye2IntersZ);<BR><BR>Anyway, i have applied 
+                                some rotation to the final points in some shots 
+                                <IMG 
+                                src="Basic Illumination Model in C#_archivos/smiley_smile.gif" 
+                                align=absMiddle> <BR><BR>
+                                <DIV class=ForumSig>Anderson J. 
+                                Almeida<BR>Systems 
+                                Analyst<BR>SimSysBr</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2167060">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2167060">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;tid=2167040&amp;forumid=442654&amp;select=2167060#xx2167060xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2167060#xx2167060xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2167040#xx2167040xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(3589667,2167060);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="Basic Illumination Model in C#_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2167115_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2167115xx></A><IMG 
+                                height=1 
+                                src="Basic Illumination Model in C#_archivos/ind.gif" 
+                                width=36><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle style="COLOR: #aa0000" 
+                                width="100%"><A class=messagetitle 
+                                id=DynMessLink style="COLOR: #aa0000" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;forumid=442654&amp;select=2167115#xx2167115xx" 
+                                name=2167115>Re: Specular Highlight</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=4182602"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="Basic Illumination Model in C#_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT class=messagetitle 
+                                style="COLOR: #aa0000">efi_germany&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle 
+                                style="COLOR: #aa0000">15:24 3 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2167115_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="Basic Illumination Model in C#_archivos/ind.gif" 
+                                width=36><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Wow. 
+                                Thank you for your fast reply.<BR><BR>As the 
+                                code you just provided makes clear - as far as I 
+                                can see (not that far <IMG 
+                                src="Basic Illumination Model in C#_archivos/smiley_smile.gif" 
+                                align=absMiddle> ) that the specularity does not 
+                                take the exact position of the light source into 
+                                consideration.<BR><BR>This is not the way mother 
+                                nature (and leading 3D applications) do their 
+                                calculations.<BR><BR>I prepared a little image 
+                                with two spheres - one diffuse only and one 
+                                diffuse+secular and a light source coming from 
+                                the bottom left and a bit from the front (where 
+                                the camera is 
+                                located).<BR><BR>http://img181.imageshack.us/img181/3341/3ddemo1np4.jpg<BR><BR>I 
+                                included one of your images as reference. You 
+                                can see that the "real" specularity lies not in 
+                                the sphere's center but is halfway moved to 
+                                where the light source is located.<BR><BR>Hope 
+                                it got clearer what I treid to express. <IMG 
+                                src="Basic Illumination Model in C#_archivos/smiley_wink.gif" 
+                                align=absMiddle> <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2167115">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2167115">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;tid=2167040&amp;forumid=442654&amp;select=2167115#xx2167115xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2167115#xx2167115xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2167040#xx2167040xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 5.0 (1 
+                                vote).
+                                <SCRIPT language=Javascript>MsgVoteForm(4182602,2167115);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="Basic Illumination Model in C#_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2167290_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2167290xx></A><IMG 
+                                height=1 
+                                src="Basic Illumination Model in C#_archivos/ind.gif" 
+                                width=54><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;forumid=442654&amp;select=2167290#xx2167290xx" 
+                                name=2167290>Re: Specular Highlight</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3589667"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="Basic Illumination Model in C#_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>andalmeida&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>17:38 3 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2167290_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="Basic Illumination Model in C#_archivos/ind.gif" 
+                                width=54><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>You are 
+                                right, i will change my model to fit the real 
+                                calculation <IMG 
+                                src="Basic Illumination Model in C#_archivos/smiley_smile.gif" 
+                                align=absMiddle> <BR><BR>
+                                <DIV class=ForumSig>Anderson J. 
+                                Almeida<BR>Systems 
+                                Analyst<BR>SimSysBr</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2167290">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2167290">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;tid=2167040&amp;forumid=442654&amp;select=2167290#xx2167290xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2167290#xx2167290xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2167040#xx2167040xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(3589667,2167290);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="Basic Illumination Model in C#_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2177549_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2177549xx></A><IMG 
+                                height=1 
+                                src="Basic Illumination Model in C#_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;forumid=442654&amp;select=2177549#xx2177549xx" 
+                                name=2177549>Re: Specular Highlight</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3589667"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="Basic Illumination Model in C#_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>andalmeida&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>11:34 10 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2177549_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="Basic Illumination Model in C#_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>It is 
+                                fixed now. I helped me also to find an issue in 
+                                my algebra class, thanks so much.<BR><BR><IMG 
+                                src="Basic Illumination Model in C#_archivos/smiley_smile.gif" 
+                                align=absMiddle> <BR><BR>
+                                <DIV class=ForumSig>Anderson J. 
+                                Almeida<BR>Systems 
+                                Analyst<BR>SimSysBr</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2177549">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2177549">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;tid=2167040&amp;forumid=442654&amp;select=2177549#xx2177549xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2177549#xx2177549xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2167040#xx2167040xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(3589667,2177549);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="Basic Illumination Model in C#_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR height=1>
+                            <TD bgColor=#ff9900><IMG height=1 
+                              src="Basic Illumination Model in C#_archivos/t.gif" 
+                              width=1></TD></TR>
+                          <TR id=2152852_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2152852xx></A><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;forumid=442654&amp;select=2152852#xx2152852xx" 
+                                name=2152852><B>nice one</B></A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=2264323"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="Basic Illumination Model in C#_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle><B>Amar 
+                                Chaudhary</B>&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle><B>19:45 26 
+                                Jul 
+                            '07</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2152852_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>thats 
+                                what i was looking for but for a cube<BR>
+                                <DIV class=CPhogPost 
+                                style="DISPLAY: none"></DIV><BR><BR>
+                                <DIV class=ForumSig><SMALL>It is Good to be 
+                                Important but!<BR>it is more Important to be 
+                                Good<BR></SMALL></DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2152852">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2152852">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;tid=2152852&amp;forumid=442654&amp;select=2152852#xx2152852xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2152852#xx2152852xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2152852#xx2152852xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 1.8 (2 
+                                votes).
+                                <SCRIPT language=Javascript>MsgVoteForm(2264323,2152852);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="Basic Illumination Model in C#_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2156384_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2156384xx></A><IMG 
+                                height=1 
+                                src="Basic Illumination Model in C#_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;forumid=442654&amp;select=2156384#xx2156384xx" 
+                                name=2156384>Re: nice one</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3589667"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="Basic Illumination Model in C#_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>andalmeida&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>9:57 29 Jul 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2156384_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="Basic Illumination Model in C#_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="Basic Illumination Model in C#_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Hi,<BR><BR>I just finished 
+                                a new algorith of ray tracing with triangles and 
+                                a cube as model, will post here <IMG 
+                                src="Basic Illumination Model in C#_archivos/smiley_smile.gif" 
+                                align=absMiddle> <BR><BR>
+                                <DIV class=ForumSig>Anderson J. 
+                                Almeida<BR>Systems 
+                                Analyst<BR>SimSysBr</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2156384">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Basic_Illumination_Model.asp&amp;df=100&amp;forumid=442654&amp;select=2156384">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?df=100&amp;tid=2152852&amp;forumid=442654&amp;select=2156384#xx2156384xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2156384#xx2156384xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Basic_Illumination_Model.asp?msg=2152852#xx2152852xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(3589667,2156384);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="Basic Illumination Model in C#_archivos/t.gif" 
+                              width=1 border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=#fbedbb>
+                      <TD>
+                        <TABLE cellPadding=2 width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle>Last Visit: 12:50 Friday 
+                              7th September, 2007</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+            <P class=smallText><IMG 
+            src="Basic Illumination Model in C#_archivos/news_general.gif" 
+            align=absMiddle> General comment &nbsp;&nbsp; <IMG 
+            src="Basic Illumination Model in C#_archivos/news_info.gif" 
+            align=absMiddle> News / Info &nbsp;&nbsp; <IMG 
+            src="Basic Illumination Model in C#_archivos/news_question.gif" 
+            align=absMiddle> Question &nbsp;&nbsp; <IMG 
+            src="Basic Illumination Model in C#_archivos/news_answer.gif" 
+            align=absMiddle> Answer &nbsp;&nbsp; <IMG 
+            src="Basic Illumination Model in C#_archivos/news_game.gif" 
+            align=absMiddle> Joke / Game &nbsp;&nbsp; <IMG 
+            src="Basic Illumination Model in C#_archivos/news_sticky.gif" 
+            align=absMiddle> Admin message</P><BR>
+            <TABLE cellSpacing=5 width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText>Updated: 10 Aug 2007 </TD>
+                <TD class=SmallText align=right>Article content copyright 
+                  andalmeida, 2007<BR>everything else Copyright © <A 
+                  href="mailto:webmaster@codeproject.com">CodeProject</A>, 
+                  1999-2007</A>. <BR>Web07 | <A 
+                  href="http://www.codeproject.com/info/MediaKit">Advertise on 
+                  The Code Project</A> | <A 
+                  href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <SCRIPT src="" type=text/javascript></SCRIPT>
+      <BR>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#ff9900 height=1><IMG height=1 
+            src="Basic Illumination Model in C#_archivos/space.gif"></TD></TR>
+        <TR>
+          <TD align=middle><FONT size=1><A 
+            href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A> • 
+            <A href="http://aspalliance.com/">ASP Alliance</A> • <A 
+            href="http://www.developerfusion.co.uk/">Developer Fusion</A> • <A 
+            href="http://www.developersdex.com/">Developersdex</A> • <A 
+            href="http://www.devguru.com/">DevGuru</A> • <A 
+            href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+            href="http://www.planet-source-code.com/">Planet Source Code</A> • 
+            <A href="http://www.tek-tips.com/">Tek-Tips Forums</A> • 
+        </FONT></TD></TR></TBODY></TABLE></CENTER></TR></TBODY></TABLE></BODY></HTML>

@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gluquadricnormals Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gluquadricnormals</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluQuadricNormals(3G)	       OpenGL Reference		 gluQuadricNormals(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluQuadricNormals - specify what kind of normals are desired for quadrics
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluQuadricNormals( GLUquadric* quad,
+			     GLenum normal )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     quad    Specifes the quadrics object (created with	gluNewQuadric).
+
+     normal  Specifies the desired type	of normals.  Valid values are
+	     GLU_NONE, GLU_FLAT, and GLU_SMOOTH.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluQuadricNormals specifies what kind of normals are desired for quadrics
+     rendered with quad.  The legal values are as follows:
+
+     GLU_NONE	  No normals are generated.
+
+     GLU_FLAT	  One normal is	generated for every facet of a quadric.
+
+     GLU_SMOOTH	  One normal is	generated for every vertex of a	quadric.  This
+		  is the default.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluNewQuadric, gluQuadricDrawStyle, gluQuadricOrientation,
+     gluQuadricTexture
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

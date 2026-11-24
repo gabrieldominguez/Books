@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glviewport Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glviewport</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glViewport(3G)		       OpenGL Reference			glViewport(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glViewport	- set the viewport
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glViewport( GLint x,
+		      GLint y,
+		      GLsizei width,
+		      GLsizei height )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     x,	y Specify the lower left corner	of the viewport	rectangle, in pixels.
+	  The default is (0,0).
+
+     width, height
+	  Specify the width and	height,	respectively, of the viewport.	When a
+	  GL context is	first attached to a window, width and height are set
+	  to the dimensions of that window.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glViewport	specifies the affine transformation of x and y from normalized
+     device coordinates	to window coordinates.	Let (x	, y  ) be normalized
+     device coordinates.  Then the window coordinates (x , yd) are computed as
+     follows:						w   w
+
+			      x	 = (x  +1)(_____) + x
+			       w     nd	  (  2	)
+			     y	= (y  +1)(______) + y
+			      w	    nd	 (  2	)
+     Viewport width and	height are silently clamped to a range that depends on
+     the implementation.  This range is	queried	by calling glGet with argument
+     GL_MAX_VIEWPORT_DIMS.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if either width or height is	negative.
+
+     GL_INVALID_OPERATION is generated if glViewport is	executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_VIEWPORT
+     glGet with	argument GL_MAX_VIEWPORT_DIMS
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDepthRange
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

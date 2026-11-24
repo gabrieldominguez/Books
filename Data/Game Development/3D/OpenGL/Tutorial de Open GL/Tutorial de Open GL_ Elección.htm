@@ -1,0 +1,1137 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/Cabecera+Indice.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>Tutorial de Open GL. Elecci&oacute;n</TITLE>
+<!-- #EndEditable --> <!-- #BeginEditable "Meta" --> 
+<META CONTENT="ingenieros,informatica,ingenieria,ingeniero,informaticos,colegio,profesional,perito,peritos,auditoria,auditor,consultoria,consultor,informacion,universidad,estudiantes,estudiante,tecnico,diplomado,licenciado,diplomatura,licenciatura" NAME="KEYWORDS">
+<META CONTENT="En este sitio los ingenieros en informatica tienen un lugar de encuentro donde obtener toda la informacion relevante para su profesion. Da cabida a todos los titulados y estudiantes universitarios en informatica de cualquier grado, medio o superior." NAME="DESCRIPTION">
+<META name="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- #EndEditable --> 
+<STYLE TYPE="text/css">
+body         { color: black }
+td           { color: black }
+p            { color: black ; text-align: justify}
+a:link       { color: #330066; text-decoration: underline }
+a:visited    { color: #330066; text-decoration: underline }
+a:hover      { color: red; text-decoration: underline }
+a.smooth:link    {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:visited {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:hover   {  font-family: Verdana, Arial, Helvetica, sans-serif; color: red; font-size: 8pt; text-decoration: none}
+
+</STYLE>
+<script language="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+<!--
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+</HEAD>
+<BODY bgcolor="#FFFFFF" onLoad="MM_preloadImages('../../images/cabecera_r2_c2_f2.gif','../../images/botcab_r1_c02_f2.gif','../../images/botcab_r1_c04_f2.gif','../../images/botcab_r1_c06_f2.gif','../../images/botcab_r1_c08_f2.gif','../../images/botcab_r1_c10_f2.gif','../../images/botcab_r1_c12_f2.gif')" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE width="760" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD height="71"> <!-- #BeginLibraryItem "/Library/cabecera.lbi" --><!-- Fireworks 3.0  Dreamweaver 3.0 LBI target.  Created Tue Oct 03 00:01:17 GMT+0200 (Romance Daylight Time) 2000 -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="cabecera1.png" fwbase="cabecera.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="344" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="340" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td colspan="3"><img name="cabecera_r1_c1" src="../../images/cabecera_r1_c1.gif" width="760" height="50" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="50" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 2 -->
+   <td rowspan="2"><img name="cabecera_r2_c1" src="../../images/cabecera_r2_c1.gif" width="344" height="35" border="0"></td>
+   <td><a href="#" onMouseOut="MM_swapImgRestore();"  onMouseOver="MM_swapImage('cabecera_r2_c2','','../../images/cabecera_r2_c2_f2.gif',1)" ><img name="cabecera_r2_c2" src="../../images/cabecera_r2_c2.gif" width="76" height="16" border="0"></a></td>
+   <td rowspan="2"><img name="cabecera_r2_c3" src="../../images/cabecera_r2_c3.gif" width="340" height="35" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 3 -->
+   <td><img name="cabecera_r3_c2" src="../../images/cabecera_r3_c2.gif" width="76" height="19" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="19" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --></TD>
+  </TR>
+  <TR> 
+    <TD> <!-- #BeginLibraryItem "/Library/botcab.lbi" -->
+<SCRIPT language="JavaScript" type="text/javascript">
+<!--
+     NS4 = (document.layers);
+     IE4 = (document.all);
+    ver4 = (NS4 || IE4);
+	 IE5 = (IE4 && navigator.appVersion.indexOf("5.")!=-1);
+   isMac = (navigator.appVersion.indexOf("Mac") != -1);
+  isMenu = (NS4 || (IE4 && !isMac) || (IE5 && isMac));
+function popUp(){return};
+function popDown(){return};
+if (!ver4) event=null;
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+menuVersion = 3;
+menuWidth = 120;
+childOverlap = 1;
+childOffset = 0;
+perCentOver = null;
+secondsVisible = 0.10;
+clickStart = false;
+clickKill = false;
+fntCol = "#5C7BBC";
+fntSiz = "7";
+fntBold = true;
+fntItal = false;
+fntFam = "Verdana,Arial,Helvetica,sans-serif";
+backCol = "#FFFFFF";
+overCol = "#FFCC33";
+overFnt = "#000000";
+borWid = 1;
+borCol = "#5C7BBC";
+borSty = "solid";
+itemPad = 1;
+imgSrc = "menu/tri.gif";
+imgSiz = 10;
+separator = 0;
+separatorCol = "#5C7BBC";
+isFrames = false;
+keepHilite = true; 
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierArrays.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierMenus.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="botonescabecera.png" fwbase="botcab.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="292" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td><img name="botcab_r1_c01" src="../../images/botcab_r1_c01.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu1');"  onMouseOver="MM_swapImage('botcab_r1_c02','','../../images/botcab_r1_c02_f2.gif',1);popUp('elMenu1',event)" onClick="return false"><img name="botcab_r1_c02" src="../../images/botcab_r1_c02.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c03" src="../../images/botcab_r1_c03.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu2');"  onMouseOver="MM_swapImage('botcab_r1_c04','','../../images/botcab_r1_c04_f2.gif',1);popUp('elMenu2',event)" onClick="return false"><img name="botcab_r1_c04" src="../../images/botcab_r1_c04.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c05" src="../../images/botcab_r1_c05.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu3');"  onMouseOver="MM_swapImage('botcab_r1_c06','','../../images/botcab_r1_c06_f2.gif',1);popUp('elMenu3',event)" onClick="return false"><img name="botcab_r1_c06" src="../../images/botcab_r1_c06.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c07" src="../../images/botcab_r1_c07.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu4');"  onMouseOver="MM_swapImage('botcab_r1_c08','','../../images/botcab_r1_c08_f2.gif',1);popUp('elMenu4',event)" onClick="return false"><img name="botcab_r1_c08" src="../../images/botcab_r1_c08.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c09" src="../../images/botcab_r1_c09.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu5');"  onMouseOver="MM_swapImage('botcab_r1_c10','','../../images/botcab_r1_c10_f2.gif',1);popUp('elMenu5',event)" onClick="return false"><img name="botcab_r1_c10" src="../../images/botcab_r1_c10.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c11" src="../../images/botcab_r1_c11.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu6');"  onMouseOver="MM_swapImage('botcab_r1_c12','','../../images/botcab_r1_c12_f2.gif',1);popUp('elMenu6',event)" onClick="return false"><img name="botcab_r1_c12" src="../../images/botcab_r1_c12.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c13" src="../../images/botcab_r1_c13.gif" width="292" height="16" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --> </TD>
+  </TR>
+</TABLE>
+<!-- #BeginEditable "Region%20editable" --> 
+<TABLE width="761" border="0" cellspacing="0" cellpadding="0" name="Navegacion" height="20" bgcolor="#FFFFFF">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="2" height="3"></TD>
+    <TD><IMG src="../../images/1x1.gif" width="758" height="3"></TD>
+  </TR>
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="1" height="1" ></TD>
+    <TD><A href="http://www.ingenieroseninformatica.org/index.html" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Principal</A> 
+      <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="intro.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none"> 
+      Tutorial de OpenGL</A> <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="cap10.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Capítulo 
+      10</A> </TD>  
+  </TR>
+</TABLE>
+<DIV id="Body" style="position:absolute; width:760px; height:13335px; z-index:3; left: 0px; top: 150px; visibility: visible"> 
+  <div id="Footer" style="position:absolute; width:200px; height:20px; z-index:4; left: 0px; top: 13270px"><!-- #BeginLibraryItem "/Library/Pie de Página.lbi" -->
+<TABLE width="755" border="0" cellspacing="0" cellpadding="1">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="755" height="1"></TD>
+  </TR>
+  <TR> 
+    <TD><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1">Me interesaría 
+      informarme de cómo insertar <A href="../../publicidad.htm">publicidad</A> en 
+      esta página.</FONT></TD>
+  </TR>
+  <TR> 
+    <TD bgcolor="#330066"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">© 
+      2000 IngenierosenInformatica.org</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+      <A href="../../avisolegal.htm"><FONT color="#CCFF33">Aviso legal</FONT></A></FONT></TD>
+  </TR>
+</TABLE>
+<!-- #EndLibraryItem --></div>
+  <div id="Cuerpo" style="position:absolute; width:670px; height:12950px; z-index:4; left: 75px; top: 0px; overflow: visible"> 
+    <P><!-- #BeginLibraryItem "/Library/Tabla cuerpo.lbi" --><TABLE width="610" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD><IMG alt="" border=0 height=1 width=610 src="../../images/1x1.gif"></TD>
+  </TR>
+</TABLE><!-- #EndLibraryItem --><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"></FONT> 
+    <H2><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">10. 
+      Elecci&oacute;n (E08)</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FF9900"> 
+      </FONT></H2>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Esta función 
+      explica los pasos a realizar para que el usuario pueda seleccionar objetos 
+      de la pantalla. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Con las propiedades 
+      de selección se puede definir un volumen y determinar que objetos se encuentran 
+      en el. De esta forma elegir entre estos objetos y modificarlos o moverlos. 
+      <BR>
+      Para ello el ejemplo lo que hace es generar el juego del tres en raya (tick 
+      tack tres). El usuario selecciona una pieza y luego la casilla a la que 
+      la quiere mover. Para realizar estas selecciones primero es necesario especificar 
+      un buffer de selección en el cual en lugar de dibujar la escena se localizan 
+      los objetos que se dibujarían en ese punto de la escena. Para poder saber 
+      que objetos se deberían dibujar en ese punto es necesario especificar que 
+      es lo que se dibuja en ese momento. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Las instrucciones 
+      utilizadas para realizar todo esto son: </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glLoadName(GREEN1)</B> 
+          - Introduce en la pila de nombres, cambiando el actual por el que identificará 
+          a las figuras a dibujar mientras no se especifique otro. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>void 
+          ProcessPick( GLuint *selectBuff)</B> - Función que procesa la información 
+          que se encuentra en el buffer de selección. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>void 
+          ProcessSelection ( int x, int y )</B> - Función que procesa las coordenadas 
+          del ratón en el momento que se pulsa, y que genera el buffer de selección, 
+          así como la localización de los objetos que se encuentran en ese momento 
+          en las coordenadas del ratón. Es creada por el programador y en ella 
+          se encuentran las siguientes funciones: </FONT> </P>
+        <UL>
+          <LI> 
+            <P align="center"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"><B>glSelectBuffer(64, 
+              selectBuff)</B> - Selecciona el buffer donde se crearan los puntos 
+              de referencia, en lugar de ser pintados en pantalla. Se indica el 
+              numero de valores que se pueden escribir y un puntero a memoria 
+              donde comienza a guardarse la información. <BR>
+              El buffer de selección tiene el siguiente formato: <BR>
+              </FONT></P>
+            <DIV align="center"> 
+              <TABLE width="535" border="1" cellspacing="0" cellpadding="0" align="center">
+                <TR> 
+                  <TD> 
+                    <PRE><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Buffer de selección                   [0]      Numero de identificadores en la pila con un
+                                                      tiempo t=n0 
+                                            [1]      Mínimo valor de Z 
+                                            [2]      Máximo valor de Z 
+                                            [n0+2] Fin pila de identificadores 
+                                             ... 
+Siguiente punto de referencia -&gt; [n0+3] Numero de identificadores en la pila 
+                                                      para el registro n1 
+                                            [n0+4] Mínimo valor de Z </FONT></PRE>
+                  </TD>
+                </TR>
+              </TABLE>
+              <FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Figura 
+              3.1 - Formato de almacenamiento del buffer de selección</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+              </FONT></DIV>
+          </LI>
+        </UL>
+        <BLOCKQUOTE> 
+          <P>&nbsp;</P>
+        </BLOCKQUOTE>
+        <UL>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"><B>glRenderMode(GL_SELECT)</B> 
+              - Activa el modo de generación. Este puede ser GL_RENDER, por defecto, 
+              las operaciones de dibujo colocan los pixels en el buffer de cuadro 
+              (dibujo), GL_SELECT, no se modifica el buffer de cuadro, en su lugar 
+              se escriben puntos de referencia en el buffer de selección, GL_FEEDBACK, 
+              modo de reglamentación. Esta función devuelve un valor que depende 
+              del modo de generación. En el caso de GL_SELECT es el numero de 
+              puntos de referencia escritos en el buffer de selección. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"><B>gluPickMatrix(x, 
+              (HEIGHT-y), 2,2,viewport)</B> - Especifica la zona de selección. 
+              Indica también la precisión de ésta, en este caso dos pixels de 
+              ancho y de alto. Sobre la posición del ratón explicar que OpenGL 
+              ordena la coordenada Y de abajo a arriba, y Windows al contrario, 
+              por lo tanto hay que convertir la coordenada Y, restándosela al 
+              alto de la ventana. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"><B>glInitNames()</B> 
+              - Inicializa la pila de nombres. </FONT></P>
+          </LI>
+          <LI>
+            <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"><B>glPushName(0)</B> 
+              - Introduce un cero en la pila de nombres. </FONT> </P>
+          </LI>
+        </UL>
+        <P>&nbsp;</P>
+      </LI>
+    </UL>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">C&oacute;digo 
+      fuente </FONT></H3>
+      
+    <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">E08.c</FONT></H4>
+    <BLOCKQUOTE> 
+      <PRE>
+#include < windows.h>
+#include < GL/gl.h>
+#include < GL/glaux.h>
+#include < GL/glut.h>
+#include < GL/glu.h>
+#include < E08.h>    
+
+//******************************************************
+//				Dibujar el tablero
+//******************************************************
+
+void DrawObj () 
+{
+
+	GLUquadricObj *quadObj;
+
+		// Setup Quadric Styles
+		quadObj = gluNewQuadric();
+		gluQuadricDrawStyle(quadObj,GLU_FILL); 
+// GLU_LINE
+		gluQuadricNormals(quadObj,GLU_SMOOTH); 
+// One for each vertex
+		gluQuadricOrientation(quadObj,GLU_INSIDE); 
+// Normals point out
+
+		glColor3f ( 0.0f, 1.0f, 0.0f);
+		glLoadName(GREEN1);
+		glPushMatrix();
+glTranslatef(FEA_greenX[GREEN1-GREEN], 0.0f, 
+FEA_greenZ[GREEN1-GREEN]);
+		glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
+			gluCylinder(quadObj,1.5f, 0.0f, 1.0f, 25, 25);
+		glPopMatrix();
+		
+		glLoadName(GREEN2);
+		glPushMatrix();
+		glTranslatef(FEA_greenX[GREEN2-GREEN], 0.0f, 
+FEA_greenZ[GREEN2-GREEN]);
+		glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
+			gluCylinder(quadObj,1.5f, 0.0f, 1.0f, 25, 25);
+		glPopMatrix();
+
+		glLoadName(GREEN3);
+		glPushMatrix();
+glTranslatef(FEA_greenX[GREEN3-GREEN], 0.0f, 
+FEA_greenZ[GREEN3-GREEN]);
+			glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
+			gluCylinder(quadObj,1.5f, 0.0f, 1.0f, 25, 25);
+		glPopMatrix();
+
+		glColor3f ( 0.0f, 0.0f, 1.0f);
+
+
+		glLoadName(BLUE1);
+		glPushMatrix();
+			glTranslatef(FEA_blueX[BLUE1-BLUE], 0.0f, 
+FEA_blueZ[BLUE1-BLUE]);
+			glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
+			gluCylinder(quadObj,1.5f, 0.0f, 1.2f, 25, 25);
+		glPopMatrix();
+
+		glLoadName(BLUE2);
+		glPushMatrix();
+			glTranslatef(FEA_blueX[BLUE2-BLUE], 0.0f, 
+FEA_blueZ[BLUE2-BLUE]);
+			glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
+			gluCylinder(quadObj,1.5f, 0.0f, 1.2f, 25, 25);
+		glPopMatrix();
+
+		glLoadName(BLUE3);
+		glPushMatrix();
+			glTranslatef(FEA_blueX[BLUE3-BLUE], 0.0f, 
+FEA_blueZ[BLUE3-BLUE]);
+			glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
+			gluCylinder(quadObj,1.5f, 0.0f, 1.2f, 25, 25);
+		glPopMatrix();
+		
+		
+		gluDeleteQuadric(quadObj);
+}
+
+
+
+void DrawTable()
+{
+	int x = 0;
+	int z = 0;
+
+	glPushMatrix();
+	glNormal3f( 0.0f, 1.0f, 0.0f );
+
+	glColor3f ( 1.0f, 0.0f, 0.0f);
+	glLoadName(ZONA1);
+	glBegin(GL_QUADS);
+		glVertex3f( 4.0, 0.0, 0.0);
+		glVertex3f( 8.0, 0.0, 0.0);
+		glVertex3f( 8.0, 0.0, 4.0);
+		glVertex3f( 4.0, 0.0, 4.0);
+	glEnd();
+
+	glColor3f ( 1.0f, 1.0f, 1.0f);
+	glLoadName(ZONA2);
+	glBegin(GL_QUADS);
+		glVertex3f(  8.0, 0.0, 0.0);
+		glVertex3f( 12.0, 0.0, 0.0);
+		glVertex3f( 12.0, 0.0, 4.0);
+		glVertex3f(  8.0, 0.0, 4.0); 
+	glEnd();
+
+	glColor3f ( 1.0f, 0.0f, 0.0f);
+	glLoadName(ZONA3);
+	glBegin(GL_QUADS);
+		glVertex3f( 12.0, 0.0, 0.0);
+		glVertex3f( 16.0, 0.0, 0.0);
+		glVertex3f( 16.0, 0.0, 4.0);
+		glVertex3f( 12.0, 0.0, 4.0);
+	glEnd();
+
+	glColor3f ( 1.0f, 1.0f, 1.0f);
+	glLoadName(ZONA4);
+	glBegin(GL_QUADS);
+		glVertex3f( 4.0, 0.0, 4.0);
+		glVertex3f( 8.0, 0.0, 4.0);
+		glVertex3f( 8.0, 0.0, 8.0);
+		glVertex3f( 4.0, 0.0, 8.0);
+	glEnd();
+
+	glColor3f ( 1.0f, 0.0f, 0.0f);
+	glLoadName(ZONA5);
+	glBegin(GL_QUADS);
+		glVertex3f(  8.0, 0.0, 4.0);
+		glVertex3f( 12.0, 0.0, 4.0);
+		glVertex3f( 12.0, 0.0, 8.0);
+		glVertex3f(  8.0, 0.0, 8.0);
+	glEnd();
+
+	glColor3f ( 1.0f, 1.0f, 1.0f);
+	glLoadName(ZONA6);
+	glBegin(GL_QUADS);
+		glVertex3f( 12.0, 0.0, 4.0);
+		glVertex3f( 16.0, 0.0, 4.0);
+		glVertex3f( 16.0, 0.0, 8.0);
+		glVertex3f( 12.0, 0.0, 8.0);
+	glEnd();
+
+	glColor3f ( 1.0f, 0.0f, 0.0f);
+	glLoadName(ZONA7);
+	glBegin(GL_QUADS);
+		glVertex3f( 4.0, 0.0,  8.0);
+		glVertex3f( 8.0, 0.0,  8.0);
+		glVertex3f( 8.0, 0.0, 12.0);
+		glVertex3f( 4.0, 0.0, 12.0);
+	glEnd();
+
+	glColor3f ( 1.0f, 1.0f, 1.0f);
+	glLoadName(ZONA8);
+	glBegin(GL_QUADS);
+		glVertex3f(  8.0, 0.0,  8.0);
+		glVertex3f( 12.0, 0.0,  8.0);
+		glVertex3f( 12.0, 0.0, 12.0);
+		glVertex3f(  8.0, 0.0, 12.0);
+	glEnd();
+
+	glColor3f ( 1.0f, 0.0f, 0.0f);
+	glLoadName(ZONA9);
+	glBegin(GL_QUADS);
+		glVertex3f( 12.0, 0.0,  8.0);
+		glVertex3f( 16.0, 0.0,  8.0);
+		glVertex3f( 16.0, 0.0, 12.0);
+		glVertex3f( 12.0, 0.0, 12.0);
+	glEnd();
+
+	glColor3f ( 0.0f, 0.0f, 0.5f);
+	glLoadName(ZONAa1);
+	glBegin(GL_QUADS);
+		glVertex3f( 0.0, 0.0, 0.0);
+		glVertex3f( 4.0, 0.0, 0.0);
+		glVertex3f( 4.0, 0.0, 4.0);
+		glVertex3f( 0.0, 0.0, 4.0);
+	glEnd();
+	
+	glLoadName(ZONAa2);
+	glBegin(GL_QUADS);
+		glVertex3f( 0.0, 0.0, 4.0);
+		glVertex3f( 4.0, 0.0, 4.0);
+		glVertex3f( 4.0, 0.0, 8.0);
+		glVertex3f( 0.0, 0.0, 8.0);
+	glEnd();
+
+	glLoadName(ZONAa3);
+	glBegin(GL_QUADS);
+		glVertex3f( 0.0, 0.0,  8.0);
+		glVertex3f( 4.0, 0.0,  8.0);
+		glVertex3f( 4.0, 0.0, 12.0);
+		glVertex3f( 0.0, 0.0, 12.0);
+	glEnd();
+
+	glColor3f ( 0.0f, 0.5f, 0.0f);
+	glLoadName(ZONAv1);
+	glBegin(GL_QUADS);
+		glVertex3f( 16.0, 0.0, 0.0);
+		glVertex3f( 20.0, 0.0, 0.0);
+		glVertex3f( 20.0, 0.0, 4.0);
+		glVertex3f( 16.0, 0.0, 4.0);
+	glEnd();
+
+	glLoadName(ZONAv2);
+	glBegin(GL_QUADS);
+		glVertex3f( 16.0, 0.0, 4.0);
+		glVertex3f( 20.0, 0.0, 4.0);
+		glVertex3f( 20.0, 0.0, 8.0);
+		glVertex3f( 16.0, 0.0, 8.0);
+	glEnd();
+
+	glLoadName(ZONAv3);
+	glBegin(GL_QUADS);
+		glVertex3f( 16.0, 0.0, 8.0);
+		glVertex3f( 20.0, 0.0, 8.0);
+		glVertex3f( 20.0, 0.0, 12.0);
+		glVertex3f( 16.0, 0.0, 12.0);
+	glEnd();
+
+	
+	
+	glPopMatrix();
+}
+
+
+
+void DrawWordl ()
+{
+	DrawObj();
+	DrawTable();
+}
+
+
+//******************************************************
+//******************************************************
+void Display( void )
+{
+	int      j = 1;
+	GLint    viewport[4];
+
+
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );	
+	
+	glGetIntegerv( GL_VIEWPORT, viewport ); 
+
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+
+	gluPerspective(60.0, viewport[2]/viewport[3],
+		           0.0, 100.0);  
+
+	glMatrixMode( GL_MODELVIEW );
+	glLoadIdentity();
+
+	glPushMatrix(); 
+
+	gluLookAt( FEA_eyeX,    FEA_eyeY,		FEA_eyeZ,
+	           FEA_centerX, FEA_centerY,	FEA_centerZ,
+			   0.0f,		1.0f,			0.0f);
+
+	glShadeModel ( GL_SMOOTH ); 
+
+	DrawWordl();
+	
+	glPopMatrix();
+	glutSwapBuffers();
+}
+
+
+void Resize( int w, int h )
+{
+	glClearColor(0.0f, 0.7f, 0.7f, 0.0f);
+
+	glViewport( 0, 0, w, h );
+
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+
+
+
+	glMatrixMode( GL_MODELVIEW );
+	glLoadIdentity();
+
+	glutPostRedisplay();
+
+}
+
+//******************************************************************
+//				LUCES Y MATERIALES
+//******************************************************************
+
+void Light ()
+{	
+
+	GLfloat DiffuseLight[4] = { 0.8f, 0.8f, 0.8f, 1.0f };
+	GLfloat AmbientLight[4] = { 0.3f, 0.3f, 0.3f, 1.0f };
+	GLfloat SpecularLight[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	GLfloat LightPos[4] = {0.0f, 10.0f, 10.0f, 1.0f };
+
+
+	glDepthFunc( GL_LESS); 
+	glClearDepth(1.0);
+	glEnable( GL_DEPTH_TEST );
+
+
+	glCullFace (GL_BACK);
+	glFrontFace (GL_CW);
+	glEnable( GL_CULL_FACE );
+
+	// definimos las luces
+	glEnable( GL_LIGHTING );
+
+
+	glLightfv( GL_LIGHT0, GL_AMBIENT, AmbientLight );
+	glLightfv( GL_LIGHT0, GL_DIFFUSE, DiffuseLight );
+	glLightfv( GL_LIGHT0, GL_SPECULAR, SpecularLight );
+	glLightfv( GL_LIGHT0, GL_POSITION, LightPos );
+	glEnable( GL_LIGHT0 );
+
+
+	glEnable (GL_COLOR_MATERIAL );
+
+	glColorMaterial (GL_FRONT,GL_AMBIENT_AND_DIFFUSE );
+
+	glMaterialfv (GL_FRONT, GL_SPECULAR, SpecularLight);
+	glMateriali (GL_FRONT, GL_SHININESS, 128);
+	
+	glEnable(GL_NORMALIZE);
+
+}
+
+//******************************************************************
+//				SELECCION
+//******************************************************************
+
+void ControlSquare ( int square )
+{
+	// Solo par aVisual C++
+	if (FEA_select == NOSELECT) 
+MessageBox( NULL, "Tiene que elegir ficha","AVISO",MB_OK);
+	else 
+	{
+		if (FEA_player == BLUE)
+		{
+			FEA_blueX[FEA_select-BLUE] = FEA_zonasX[square];
+			FEA_blueZ[FEA_select-BLUE] = FEA_zonasZ[square];
+			FEA_player = GREEN;
+			FEA_select = NOSELECT;
+		}
+		else
+		{
+			FEA_greenX[FEA_select-GREEN] = FEA_zonasX[square];
+			FEA_greenZ[FEA_select-GREEN] = FEA_zonasZ[square];
+			FEA_player = BLUE;
+			FEA_select = NOSELECT;
+		}
+	}
+	glutPostRedisplay();
+
+}
+
+
+void ControlGreen ( int domino )
+{
+	if ((FEA_player == BLUE) && (FEA_select == NOSELECT))  
+		// Solo par aVisual C++
+		MessageBox( NULL, 
+"Tiene que elegir una AZUL","BLUE",MB_OK);
+	else if (FEA_select != NOSELECT) 
+		// Solo par aVisual C++
+		MessageBox( NULL, "CASILLA OCUPADA","AVISO",MB_OK);
+	else if (FEA_select == NOSELECT) 
+		// Elegir Ficha
+		FEA_select = domino;
+}
+
+void ControlBlue ( int domino )
+{
+	if ((FEA_player == GREEN) && (FEA_select == NOSELECT)) 
+		// Solo par aVisual C++
+		MessageBox( NULL, 
+"Tiene que elegir una VERDE","VERDE",MB_OK);
+	else if (FEA_select != NOSELECT) 
+		// Solo par aVisual C++
+		MessageBox( NULL, "CASILLA OCUPADA","AVISO",MB_OK);
+	else if (FEA_select == NOSELECT) 
+		// Elegir Ficha
+		FEA_select = domino;
+}
+
+
+void ProcessPick( GLuint *selectBuff)
+{
+	int id, count;
+	
+	count = selectBuff[0];
+	id = selectBuff[3];
+
+	switch(id)
+	{
+	case GREEN1:
+		ControlGreen( GREEN1);
+		break;
+	case GREEN2:
+		ControlGreen( GREEN2);
+		break;
+	case GREEN3:
+		ControlGreen( GREEN3);
+		break;
+	case BLUE1:
+		ControlBlue( BLUE1);
+		break;
+	case BLUE2:
+		ControlBlue( BLUE2);
+		break;
+	case BLUE3:
+		ControlBlue( BLUE3);
+		break;
+	
+	case ZONA1:
+		ControlSquare(ZONA1);
+		break;
+	case ZONA2:
+		ControlSquare(ZONA2);
+		break;
+	case ZONA3:
+		ControlSquare(ZONA3);
+		break;
+	case ZONA4:
+		ControlSquare(ZONA4);
+		break;
+	case ZONA5:
+		ControlSquare(ZONA5);
+		break;
+	case ZONA6:
+		ControlSquare(ZONA6);
+		break;
+	case ZONA7:
+		ControlSquare(ZONA7);
+		break;
+	case ZONA8:
+		ControlSquare(ZONA8);
+		break;
+	case ZONA9:
+		ControlSquare(ZONA9);
+		break;
+	}
+
+}
+
+void ProcessSelection ( int x, int y )
+{
+
+	// Espacio para el buffer de seleccion
+	GLuint selectBuff[64];
+	// control de entrada y almacenamiento de la vista
+	GLint hits, viewport[4];
+
+	// define el buffer
+	glSelectBuffer(64, selectBuff);
+	// coge la vista
+	glGetIntegerv(GL_VIEWPORT, viewport);
+	// cambia la proyeccion y la almacena
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+
+	// Cambia el modo a Seleccion
+	glRenderMode(GL_SELECT);
+
+	// Se establece un nuevo espacio de trabajo de na unidad cubica
+	// alrededor de la posicion del raton  extendiendo dos pixels en 
+	// vertical y horizontal, Es la precision de la seleccion.
+	glLoadIdentity();
+	gluPickMatrix(x, (HEIGHT-y), 2,2,viewport);
+
+	// Dibuja la escena
+
+	gluPerspective(60.0, viewport[2]/viewport[3],
+		           0.0, 100.0);  
+	gluLookAt( FEA_eyeX,    FEA_eyeY,		FEA_eyeZ,
+	           FEA_centerX, FEA_centerY,	FEA_centerZ,
+		     0.0f,		1.0f,			0.0f); 
+
+	glInitNames();
+	glPushName(0);
+
+	DrawWordl();
+
+	// recoge los puntos de referencia
+	hits = glRenderMode( GL_RENDER);
+
+	// Si tiene lugar una entrada actua
+	if (hits >= 1) ProcessPick(selectBuff);
+
+	// Recupera la matriz de proyeccion
+	glMatrixMode ( GL_PROJECTION);
+	glPopMatrix();
+
+	// Vuelve al modelador
+	glMatrixMode(GL_MODELVIEW);
+}
+
+
+
+
+void ControlMouse ( int button, int state, int x, int y)
+{
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+		ProcessSelection( x,y);
+}
+
+
+//******************************************************************
+//				INTERACCION (Teclado / menu)
+//******************************************************************
+
+
+void Keyboard ( unsigned char key, int x, int y)
+{
+	switch( key )
+	{
+
+	case 27: // <ESC>
+		exit(0);
+		break;
+	}
+	glutPostRedisplay();
+}
+
+
+
+static void SpecialKey(int k, int x, int y) 
+{
+
+	switch(k) 
+	{
+
+	default:
+		break;
+	}
+	glutPostRedisplay();
+}
+
+//***********************  MENU  ****************************
+
+void MainMenu (int opcion)
+{
+	switch( opcion )
+	{
+	case 0:
+		FEA_greenX[1] = 18.0f; 
+		FEA_greenZ[1] = 2.0f; 
+
+		FEA_greenX[2] = 18.0f; 
+		FEA_greenZ[2] = 6.0f; 
+
+		FEA_greenX[3] = 18.0f; 
+		FEA_greenZ[3] = 10.0f; 
+		
+		FEA_blueX[1] = 2.0f; 
+		FEA_blueZ[1] = 2.0f;
+
+		FEA_blueX[2] = 2.0f; 
+		FEA_blueZ[2] = 6.0f;
+
+		FEA_blueX[3] = 2.0f; 
+		FEA_blueZ[3] = 10.0f;
+
+		FEA_player = BLUE;
+		FEA_select = NOSELECT;
+		break;
+	case 1:  exit(0);
+			break;
+	}
+	glutPostRedisplay();
+}
+
+
+
+
+void Menu ()
+{
+
+
+	glutCreateMenu( MainMenu );
+	glutAddMenuEntry ( "New", 0 );
+	glutAddMenuEntry( "Salir", 1 );
+
+	glutAttachMenu( GLUT_RIGHT_BUTTON );
+}
+
+
+
+/*****************************************************************/
+//				 MAIN			//
+/*****************************************************************/
+
+int main(int argc, char** argv){
+
+	char fileName[100];
+	strcpy( fileName, "File.obj" );	
+
+	
+	glutInit( &argc, argv );
+	glutInitDisplayMode ( GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH );  
+	glutInitWindowSize ( WIDTH, HEIGHT );
+	glutInitWindowPosition ( 100, 100 );
+	glutCreateWindow("E08: Tick Tack 3 ");
+
+	Menu();
+
+	Light();
+	
+	glutDisplayFunc( Display );
+	glutKeyboardFunc( Keyboard );
+	glutReshapeFunc( Resize );
+	glutSpecialFunc( SpecialKey );
+	glutMouseFunc( ControlMouse );
+
+	glutMainLoop();
+	return 0;   
+}
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        E08.h</FONT><BR>
+      </H4>
+      <PRE>
+#ifndef E08_H
+#define E08_H
+
+#include < GL/glut.h>
+
+
+#define WIDTH  400		/* Ancho ventanas en pixels */
+#define HEIGHT 400		/* Alto ventanas en pixels */
+
+#define NOSELECT 99
+#define BLUE	100
+#define GREEN	200
+
+#define BLUE1	101
+#define BLUE2	102
+#define BLUE3	103
+
+#define GREEN1	201
+#define GREEN2	202
+#define GREEN3	203
+
+#define ZONA1	1
+#define ZONA2	2
+#define ZONA3	3
+#define ZONA4	4
+#define ZONA5	5
+#define ZONA6	6
+#define ZONA7	7
+#define ZONA8	8
+#define ZONA9	9
+#define ZONAa1	10
+#define ZONAa2	11
+#define ZONAa3	12
+#define ZONAv1	13
+#define ZONAv2	14
+#define ZONAv3	15
+
+
+
+static GLfloat  FEA_eyeX = 10.0f;
+static GLfloat  FEA_eyeY = 15.5f;
+static GLfloat  FEA_eyeZ = -13.0f; // 25
+
+static GLfloat  FEA_centerX = 10.0f;
+static GLfloat  FEA_centerY = 1.0f;
+static GLfloat  FEA_centerZ = 6.0f;
+
+static int	FEA_player = BLUE;
+static int	FEA_select = NOSELECT;
+
+static GLfloat FEA_zonasX[16] = {0.0f, 6.0f, 10.0f, 14.0f, 6.0f, 10.0f, 14.0f,
+                                 6.0f, 10.0f, 14.0f, 2.0f, 2.0f, 2.0f, 18.0f, 
+                                 18.0f, 18.0f};
+static GLfloat FEA_zonasZ[16] = {0.0f, 2.0f, 2.0f, 2.0f, 6.0f, 6.0f, 6.0f, 
+                                 10.0f, 10.0f, 10.0f, 2.0f, 6.0f, 10.0f, 2.0f,
+                                 6.0f, 10.0f};
+
+static GLfloat FEA_greenX[4] = { 0.0f, 18.0f, 18.0f, 18.0f}; 
+static GLfloat FEA_greenZ[4] = { 0.0f, 2.0f, 6.0f, 10.0f}; 
+
+static GLfloat FEA_blueX[4] = { 0.0f, 2.0f, 2.0f, 2.0f}; 
+static GLfloat FEA_blueZ[4] = { 0.0f, 2.0f, 6.0f, 10.0f}; 
+
+#endif /* E08.h */
+
+    </PRE>
+      </BLOCKQUOTE>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+      Ventana Output. (Visual C++)</FONT><BR>
+    </H3>
+    <TABLE width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+      <TR>
+        <TD><IMG src="cap10_1.gif" width="552" height="213"></TD>
+      </TR>
+    </TABLE>
+    <P> <FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Muestra el 
+      resultado de la compilacion y la construccion del ejecutable.</FONT></P>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">Ventana 
+      Workspace. (Visual C++)</FONT></H3>
+    <TABLE width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+      <TR>
+        <TD><IMG src="cap10_2.gif" width="289" height="360"></TD>
+      </TR>
+    </TABLE>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Muestra los 
+      ficheros de los que consta el ejemplo</FONT> </P>
+    <BLOCKQUOTE>
+      <PRE>&nbsp;
+</PRE>
+    </BLOCKQUOTE>
+    <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+      <TR>
+        <TD height="13"> 
+          <DIV align="center"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"><A href="cap9.htm">Anterior</A> 
+            | <A href="intro.htm">Indice</A> | <A href="cap11.htm">Siguiente</A></FONT> 
+          </DIV>
+        </TD>
+      </TR>
+    </TABLE>
+    <P>&nbsp;</P>
+  </div>
+</DIV>
+<!-- #EndEditable --> 
+</BODY>
+<!-- #EndTemplate -->
+</HTML>
+<!-- Start SuperStats code version 3.0a. -->
+<script language="JavaScript">
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_1333267&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</script> <noscript>
+<img src="http://stats.superstats.com/b.cgi?u=hmv_1333267&z=1&fg=2" border=0 width=1 height=1>
+</noscript>
+<!-- End SuperStats tracking code. -->

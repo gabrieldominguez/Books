@@ -1,0 +1,1322 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/Cabecera+Indice.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>Tutorial de Open GL. C&aacute;mara</TITLE>
+<!-- #EndEditable --> <!-- #BeginEditable "Meta" --> 
+<META CONTENT="ingenieros,informatica,ingenieria,ingeniero,informaticos,colegio,profesional,perito,peritos,auditoria,auditor,consultoria,consultor,informacion,universidad,estudiantes,estudiante,tecnico,diplomado,licenciado,diplomatura,licenciatura" NAME="KEYWORDS">
+<META CONTENT="En este sitio los ingenieros en informatica tienen un lugar de encuentro donde obtener toda la informacion relevante para su profesion. Da cabida a todos los titulados y estudiantes universitarios en informatica de cualquier grado, medio o superior." NAME="DESCRIPTION">
+<META name="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- #EndEditable --> 
+<STYLE TYPE="text/css">
+body         { color: black }
+td           { color: black }
+p            { color: black ; text-align: justify}
+a:link       { color: #330066; text-decoration: underline }
+a:visited    { color: #330066; text-decoration: underline }
+a:hover      { color: red; text-decoration: underline }
+a.smooth:link    {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:visited {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:hover   {  font-family: Verdana, Arial, Helvetica, sans-serif; color: red; font-size: 8pt; text-decoration: none}
+
+</STYLE>
+<script language="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+<!--
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+</HEAD>
+<BODY bgcolor="#FFFFFF" onLoad="MM_preloadImages('../../images/cabecera_r2_c2_f2.gif','../../images/botcab_r1_c02_f2.gif','../../images/botcab_r1_c04_f2.gif','../../images/botcab_r1_c06_f2.gif','../../images/botcab_r1_c08_f2.gif','../../images/botcab_r1_c10_f2.gif','../../images/botcab_r1_c12_f2.gif')" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE width="760" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD height="71"> <!-- #BeginLibraryItem "/Library/cabecera.lbi" --><!-- Fireworks 3.0  Dreamweaver 3.0 LBI target.  Created Tue Oct 03 00:01:17 GMT+0200 (Romance Daylight Time) 2000 -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="cabecera1.png" fwbase="cabecera.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="344" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="340" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td colspan="3"><img name="cabecera_r1_c1" src="../../images/cabecera_r1_c1.gif" width="760" height="50" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="50" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 2 -->
+   <td rowspan="2"><img name="cabecera_r2_c1" src="../../images/cabecera_r2_c1.gif" width="344" height="35" border="0"></td>
+   <td><a href="#" onMouseOut="MM_swapImgRestore();"  onMouseOver="MM_swapImage('cabecera_r2_c2','','../../images/cabecera_r2_c2_f2.gif',1)" ><img name="cabecera_r2_c2" src="../../images/cabecera_r2_c2.gif" width="76" height="16" border="0"></a></td>
+   <td rowspan="2"><img name="cabecera_r2_c3" src="../../images/cabecera_r2_c3.gif" width="340" height="35" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 3 -->
+   <td><img name="cabecera_r3_c2" src="../../images/cabecera_r3_c2.gif" width="76" height="19" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="19" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --></TD>
+  </TR>
+  <TR> 
+    <TD> <!-- #BeginLibraryItem "/Library/botcab.lbi" -->
+<SCRIPT language="JavaScript" type="text/javascript">
+<!--
+     NS4 = (document.layers);
+     IE4 = (document.all);
+    ver4 = (NS4 || IE4);
+	 IE5 = (IE4 && navigator.appVersion.indexOf("5.")!=-1);
+   isMac = (navigator.appVersion.indexOf("Mac") != -1);
+  isMenu = (NS4 || (IE4 && !isMac) || (IE5 && isMac));
+function popUp(){return};
+function popDown(){return};
+if (!ver4) event=null;
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+menuVersion = 3;
+menuWidth = 120;
+childOverlap = 1;
+childOffset = 0;
+perCentOver = null;
+secondsVisible = 0.10;
+clickStart = false;
+clickKill = false;
+fntCol = "#5C7BBC";
+fntSiz = "7";
+fntBold = true;
+fntItal = false;
+fntFam = "Verdana,Arial,Helvetica,sans-serif";
+backCol = "#FFFFFF";
+overCol = "#FFCC33";
+overFnt = "#000000";
+borWid = 1;
+borCol = "#5C7BBC";
+borSty = "solid";
+itemPad = 1;
+imgSrc = "menu/tri.gif";
+imgSiz = 10;
+separator = 0;
+separatorCol = "#5C7BBC";
+isFrames = false;
+keepHilite = true; 
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierArrays.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierMenus.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="botonescabecera.png" fwbase="botcab.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="292" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td><img name="botcab_r1_c01" src="../../images/botcab_r1_c01.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu1');"  onMouseOver="MM_swapImage('botcab_r1_c02','','../../images/botcab_r1_c02_f2.gif',1);popUp('elMenu1',event)" onClick="return false"><img name="botcab_r1_c02" src="../../images/botcab_r1_c02.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c03" src="../../images/botcab_r1_c03.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu2');"  onMouseOver="MM_swapImage('botcab_r1_c04','','../../images/botcab_r1_c04_f2.gif',1);popUp('elMenu2',event)" onClick="return false"><img name="botcab_r1_c04" src="../../images/botcab_r1_c04.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c05" src="../../images/botcab_r1_c05.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu3');"  onMouseOver="MM_swapImage('botcab_r1_c06','','../../images/botcab_r1_c06_f2.gif',1);popUp('elMenu3',event)" onClick="return false"><img name="botcab_r1_c06" src="../../images/botcab_r1_c06.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c07" src="../../images/botcab_r1_c07.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu4');"  onMouseOver="MM_swapImage('botcab_r1_c08','','../../images/botcab_r1_c08_f2.gif',1);popUp('elMenu4',event)" onClick="return false"><img name="botcab_r1_c08" src="../../images/botcab_r1_c08.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c09" src="../../images/botcab_r1_c09.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu5');"  onMouseOver="MM_swapImage('botcab_r1_c10','','../../images/botcab_r1_c10_f2.gif',1);popUp('elMenu5',event)" onClick="return false"><img name="botcab_r1_c10" src="../../images/botcab_r1_c10.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c11" src="../../images/botcab_r1_c11.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu6');"  onMouseOver="MM_swapImage('botcab_r1_c12','','../../images/botcab_r1_c12_f2.gif',1);popUp('elMenu6',event)" onClick="return false"><img name="botcab_r1_c12" src="../../images/botcab_r1_c12.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c13" src="../../images/botcab_r1_c13.gif" width="292" height="16" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --> </TD>
+  </TR>
+</TABLE>
+<!-- #BeginEditable "Region%20editable" --> 
+<TABLE width="761" border="0" cellspacing="0" cellpadding="0" name="Navegacion" height="20" bgcolor="#FFFFFF">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="2" height="3"></TD>
+    <TD><IMG src="../../images/1x1.gif" width="758" height="3"></TD>
+  </TR>
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="1" height="1" ></TD>
+    <TD><A href="http://www.ingenieroseninformatica.org/index.html" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Principal</A> 
+      <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="intro.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none"> 
+      Tutorial de OpenGL</A> <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="cap7.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Capítulo 
+      7</A> </TD>  
+  </TR>
+</TABLE>
+<DIV id="Body" style="position:absolute; width:760px; height:16295px; z-index:3; left: 0px; top: 150px; visibility: visible"> 
+  <div id="Footer" style="position:absolute; width:200px; height:20px; z-index:4; left: 0px; top: 16230px"><!-- #BeginLibraryItem "/Library/Pie de Página.lbi" -->
+<TABLE width="755" border="0" cellspacing="0" cellpadding="1">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="755" height="1"></TD>
+  </TR>
+  <TR> 
+    <TD><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1">Me interesaría 
+      informarme de cómo insertar <A href="../../publicidad.htm">publicidad</A> en 
+      esta página.</FONT></TD>
+  </TR>
+  <TR> 
+    <TD bgcolor="#330066"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">© 
+      2000 IngenierosenInformatica.org</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+      <A href="../../avisolegal.htm"><FONT color="#CCFF33">Aviso legal</FONT></A></FONT></TD>
+  </TR>
+</TABLE>
+<!-- #EndLibraryItem --></div>
+  <div id="Cuerpo" style="position:absolute; width:670px; height:15900px; z-index:4; left: 75px; top: 0px; overflow: visible"> 
+    <P><!-- #BeginLibraryItem "/Library/Tabla cuerpo.lbi" --><TABLE width="610" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD><IMG alt="" border=0 height=1 width=610 src="../../images/1x1.gif"></TD>
+  </TR>
+</TABLE><!-- #EndLibraryItem --><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"></FONT> 
+    <H2><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">7. 
+      C&aacute;mara(E05)</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FF9900"> 
+      </FONT></H2>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Esta función 
+      introduce efectos de cámara. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Para la cámara 
+      es necesario definir 2 puntos, el ojo o posición desde donde se mira (eye), 
+      y el centro o punto de mira (center), aquel punto a donde se dirige la vista; 
+      un vector, que indica la inclinación, o "verticalidad" de la cabeza (up); 
+      y un ángulo, con el que se indica el ángulo de visión o zoom. También hay 
+      que definir dos distancias, para determinar el volumen de visualización, 
+      son el 'near' y el 'back'. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Las funciones 
+      que tiene la cámara son las siguientes: </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"><B>CamCreate( 
+          Max, Min )</B> - Crea una cámara, con un volumen de visualización que 
+          abarca Max, Min, y reserva memoria. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"><B>CamMeridiam 
+          ( , )</B> - Rota la cámara alrededor de un eje paralelo al X de la cámara 
+          y que pasa por Center. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"><B>CamParalell 
+          ( , )</B> - Rota la cámara alrededor de un eje paralelo al Y del mundo 
+          y pasa por Center.</FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>CamTilt 
+          ( , )</B> - Rota la cámara por su eje Z negativo. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"><B>CamZoom 
+          ( , )</B> - Realiza un zoom, acercamiento y/o alejamiento, al variar 
+          el ángulo de visión. </FONT></P>
+      </LI>
+    </UL>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">La interfaz 
+      utilizada es una ampliación al de <A href="cap6.htm">E04</A>, al que se 
+      le añaden las teclas F5 y F6. Con estas dos teclas se selecciona el tipo 
+      de acción a realizar posteriormente con los cursores. F5 activa las acciones 
+      Meridiam y Paralell, que se manejan con los cursores Up/Down para la acción 
+      Meridiam y Rigth/Left para la función Paralell, mientras que F6 activa las 
+      acciones Tilt y Zoom, con los cursores Up/Down para el Zoom y Rigth/Left 
+      para Tilt. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Funciones añadidas 
+      en esta aplicación: </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>gluLookAt( 
+          ojo, centro, inclinación)</B> - Sitúa la cámara en el mundo. La cámara 
+          se sitúa en el punto referenciado por ojo, mirando a centro. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glPerspective( 
+          ángulo, relación, frontal, fondo )</B> - Esta función define el volumen 
+          de visualización para una vista en perspectiva cónica. Los parámetros 
+          son el ángulo en vertical, la relación entre la anchura y la altura, 
+          la distancia del objeto más cercano y la del más lejano. </FONT></P>
+      </LI>
+    </UL>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Estas funciones 
+      están relacionadas con las funciones siguientes ya vistas en ejemplos anteriores, 
+      pero que no estaban explicadas: </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glMatrixMode( 
+          )</B> - Esta función especifica la matriz actual, es decir determina 
+          que pila de matrices se utilizará en las operaciones de matrices. Esta 
+          matriz puede ser de los tipos GL_MODELVIEW, se emplea para mover objetos 
+          por la escena, afecta a la pila de matrices del Modelador, GL_PROJECTION, 
+          se emplea para definir el volumen de trabajo, afecta a la pila de matrices 
+          de la Proyección, y GL_TEXTURE, manipula las coordenadas de textura, 
+          que se verá en otro ejemplo más adelante. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glLoadIdentity()</B> 
+          - Reemplaza la matriz actual por la matriz Identidad. Afecta a la pila 
+          de matrices indicada la última vez por glMatrixMode(). </FONT></P>
+      </LI>
+      <LI>
+        <P><B><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> glOrtho( 
+          -50.0, 50.0, -50.0, 50.0, -50.0, 50.0 )</FONT></B><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+          - Define el volumen de trabajo paralelo, perspectiva ortogonal. Los 
+          parámetros son en coordenadas cartesianas, la X mínima y máximo, Y mínimo 
+          y máximo, y Z mínimo y máximo. </FONT></P>
+      </LI>
+    </UL>
+    <P>&nbsp; </P>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">C&oacute;digo 
+      fuente </FONT></H3>
+      
+    <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">E05.c</FONT></H4>
+    <BLOCKQUOTE> 
+      <PRE>
+
+// el usuario puede cambiar el color
+
+// pulsando las teclas 'r' 'g' 'b'
+// en minusculas decrementa
+// en mayusculas incrementa
+// leemos la figura del archivo "file.obj"
+
+// el usuario puede mover el objeto ...
+// F1 - Rotar	usando las flechas
+// F2 - Trasladar	usando las flechas
+// F3 - Escalar usando flechas Up/Down
+// F4 - Vuelve a poner el objeto en su posicion inicial
+
+// ... y la camara
+// F5 - CamParallel y CamMeridiam
+// F6 - CamTilt y Zoom
+
+#include < windows.h >
+#include < GL/gl.h >
+#include < GL/glut.h >
+#include < GL/glu.h >
+
+#include < gc.h >
+#include < list.h >
+#include < polygon.h >
+#include < wavefront.h >
+#include < trfm3D.h >
+#include < Camera.h > // new
+#include < E05.h >  // new  
+
+
+
+void Display( void )
+{
+      polygon *poly;
+	int      j = 1;
+	int      i;
+	int      numPol;
+      GLfloat  glMatrix[16];
+	GLint    viewport[4];
+
+	glGetIntegerv( GL_VIEWPORT, viewport ); // new
+
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+
+	gluPerspective(FEA_Camera->angle, viewport[2]/viewport[3],
+		           FEA_Camera->front, FEA_Camera->back);  // new
+
+	glMatrixMode( GL_MODELVIEW );
+	glLoadIdentity();
+
+	glPushMatrix(); 
+
+	SetGlMatrix( FEA_Transform, glMatrix );
+	glLoadMatrixf( glMatrix );
+
+// new
+gluLookAt( 	
+FEA_Camera->eyeX,    FEA_Camera->eyeY,    FEA_Camera->eyeZ,
+     	FEA_Camera->centerX, FEA_Camera->centerY, FEA_Camera->centerZ,
+	FEA_Camera->upX,     FEA_Camera->upY,     FEA_Camera->upZ); 
+
+
+	glClear( GL_COLOR_BUFFER_BIT );
+	glColor3f( FEA_Red, FEA_Green, FEA_Blue );
+
+	poly = StartLoop( FEA_ListPol );
+
+	numPol = ElementsInList( FEA_ListPol );
+
+	while ( j <= numPol )
+	{ 
+		for ( i=0; i < poly->numVert; i++ )
+		{
+			glBegin( GL_LINES );
+				glVertex3f( poly->xCoor[i], poly->yCoor[i], 
+poly->zCoor[i] );
+glVertex3f( poly->xCoor[i+1], poly->yCoor[i+1], 
+poly->zCoor[i+1] );
+			glEnd();
+		}
+		j++;
+		poly=GetNext( FEA_ListPol );
+	}
+	glPopMatrix();
+	glutSwapBuffers();
+}
+
+
+void CalculateMaxMin ( )  // new
+{
+
+    polygon *poly;
+	int      j = 1;
+	int      i;
+	int      numPol;
+
+
+	poly = StartLoop( FEA_ListPol );
+
+	numPol = ElementsInList( FEA_ListPol );
+
+	FEA_maxX    = poly->xCoor[1];
+    	FEA_minX    = poly->xCoor[1];
+    	FEA_maxY    = poly->yCoor[1];
+    	FEA_minY    = poly->yCoor[1];
+    	FEA_maxZ    = poly->zCoor[1];
+    	FEA_minZ    = poly->zCoor[1];
+
+
+	while ( j <= numPol )
+	{ 
+		for ( i=0; i < poly->numVert; i++ )
+		{
+			if ( FEA_maxX < poly->xCoor[i] ) 
+FEA_maxX = poly->xCoor[i];
+if ( FEA_minX > poly->xCoor[i] ) 
+FEA_minX = poly->xCoor[i];
+if ( FEA_maxY < poly->yCoor[i] ) 
+FEA_maxY = poly->yCoor[i];
+if ( FEA_minY > poly->yCoor[i] ) 
+FEA_minY = poly->yCoor[i];
+if ( FEA_maxZ < poly->zCoor[i] ) 
+FEA_maxZ = poly->zCoor[i];
+if ( FEA_minZ > poly->zCoor[i] ) 
+FEA_minZ = poly->zCoor[i];
+}
+	j++;
+		poly=GetNext( FEA_ListPol );
+	}
+}
+
+
+
+void Resize( int w, int h )
+{
+	glClearColor(1.0, 1.0, 1.0, 1.0);
+
+	glViewport( 0, 0, w, h );
+
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+
+gluPerspective(FEA_Camera->angle, w/h, FEA_Camera->front, 
+FEA_Camera->back);  // new
+glMatrixMode( GL_MODELVIEW );
+	glLoadIdentity();
+
+
+}
+
+//******************************************************************
+//				INTERACCION 
+//******************************************************************
+
+
+void Keyboard ( unsigned char key, int x, int y)
+{
+	switch( key )
+	{
+	case 'r': 
+		if ( FEA_Red != 0.0 ) FEA_Red = FEA_Red - 0.1;
+		
+		break;
+	case 'R':
+		if ( FEA_Red != 1.0 ) FEA_Red = FEA_Red + 0.1;
+		break;
+	case 'b': 
+		if ( FEA_Blue != 0.0 ) FEA_Blue = FEA_Blue - 0.1;
+		break;
+	case 'B':
+		if ( FEA_Blue != 1.0 ) FEA_Blue = FEA_Blue + 0.1;
+		break;
+	case 'g': 
+		if ( FEA_Green != 0.0 ) FEA_Green = FEA_Green - 0.1;
+		break;
+	case 'G':
+		if ( FEA_Green != 1.0 ) FEA_Green = FEA_Green + 0.1;
+		break;
+	case 'q':
+		CamReset(FEA_Camera);
+		break;
+	case 27: // <ESC>
+		exit(0);
+		break;
+	}
+	glutPostRedisplay();
+}
+
+static void SpecialKey(int k, int x, int y) 
+{
+	switch(k) 
+	{
+	case GLUT_KEY_UP:
+		{
+		if      (FEA_Action == ROTATE) 
+AddRotX  ( FEA_Transform, 0.5f );
+else if (FEA_Action == MOVE )  
+AddTrans ( FEA_Transform, 0.0f, 5.0f, 0.0f );
+else if (FEA_Action == SCALE ) 
+AddScale ( FEA_Transform, 0.9f );
+else if (FEA_Action == CAM_MERI_PARAL ) 
+CamMeridiam ( FEA_Camera, 1.0 );
+		else if (FEA_Action == CAM_TILT_ZOOM ) 
+CamZoom ( FEA_Camera, -1.0 );
+}
+break;
+case GLUT_KEY_DOWN:
+		{
+		if      (FEA_Action == ROTATE) 
+AddRotX  ( FEA_Transform, -0.5 );
+else if (FEA_Action == MOVE )  
+AddTrans ( FEA_Transform, 0.0, -5.0, 0.0 );
+		else if (FEA_Action == SCALE ) 
+AddScale ( FEA_Transform, 1.1f );
+else if (FEA_Action == CAM_MERI_PARAL ) 
+CamMeridiam ( FEA_Camera, -1.0 );
+else if (FEA_Action == CAM_TILT_ZOOM ) 
+CamZoom ( FEA_Camera, 1.0 );
+}
+break;
+	case GLUT_KEY_RIGHT:
+		{
+		if      (FEA_Action == ROTATE ) 
+AddRotY  ( FEA_Transform, 0.5 );
+else if (FEA_Action == MOVE )  
+AddTrans ( FEA_Transform, 5.0, 0.0, 0.0 );
+else if (FEA_Action == CAM_MERI_PARAL ) 
+CamParalell ( FEA_Camera, -1.0 );
+		else if (FEA_Action == CAM_TILT_ZOOM ) 
+CamTilt ( FEA_Camera, 1.0 );
+}
+break;
+case GLUT_KEY_LEFT:
+		{
+		if      (FEA_Action == ROTATE) 
+AddRotY  ( FEA_Transform, -0.5 );
+else if (FEA_Action == MOVE )  
+AddTrans ( FEA_Transform, -5.0, 0.0, 0.0 );
+		else if (FEA_Action == CAM_MERI_PARAL ) 
+CamParalell ( FEA_Camera, 1.0 );
+else if (FEA_Action == CAM_TILT_ZOOM ) 
+CamTilt ( FEA_Camera, -1.0 );
+}
+break;
+case GLUT_KEY_F1:
+		FEA_Action = ROTATE;
+		break;
+	case GLUT_KEY_F2:
+		FEA_Action = MOVE;
+		break;
+	case GLUT_KEY_F3:
+		FEA_Action = SCALE;
+		break;
+	case GLUT_KEY_F4:
+		DestroyTrfm3D( FEA_Transform );
+		FEA_Transform = CreateTrfm3D();
+		break;
+	case GLUT_KEY_F5:
+		FEA_Action = CAM_MERI_PARAL;
+		break;
+	case GLUT_KEY_F6:
+		FEA_Action = CAM_TILT_ZOOM;
+		break;
+	default:
+		break;
+	}
+	glutPostRedisplay();
+}
+
+//***********************  MENU  ****************************
+
+void MainMenu (int opcion)
+{
+	switch( opcion )
+	{
+		case 0:  exit(0);
+			break;
+	}
+}
+
+
+
+void Menu ()
+{
+
+	glutCreateMenu( MainMenu );
+	glutAddMenuEntry( "Salir", 0 );
+
+	glutAttachMenu( GLUT_RIGHT_BUTTON );
+}
+
+
+/************************************************************************/
+//					 MAIN		//
+/************************************************************************/
+
+int main(int argc, char** argv){
+
+	char fileName[100];
+	strcpy( fileName, "File.obj" );	
+
+	FEA_Transform = CreateTrfm3D();
+
+	FEA_ListPol = CreateVoidList();
+	LoadWavefront( fileName, FEA_ListPol );
+
+	CalculateMaxMin();  // new
+
+	FEA_Camera = CamCreate ( FEA_maxX, FEA_maxY, FEA_maxZ,
+		                     FEA_minX, FEA_minY, FEA_minZ); // new
+	
+	glutInit( &argc, argv );
+	glutInitDisplayMode ( GLUT_DOUBLE | GLUT_RGB );
+	glutInitWindowSize ( WIDTH, HEIGHT );
+	glutInitWindowPosition ( 100, 100 );
+	glutCreateWindow("E05: La Camara ");
+
+	Menu();
+
+	glutDisplayFunc( Display );
+	glutKeyboardFunc( Keyboard );
+	glutReshapeFunc( Resize );
+	glutSpecialFunc( SpecialKey );
+
+	glutMainLoop();
+	return 0;   
+}
+
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        E05.h</FONT><BR>
+      </H4>
+      <PRE>
+#ifndef E05_H
+#define E05_H
+
+
+#include < GL/glut.h >
+
+
+#include < list.h >
+#include < trfm3D.h >
+#include < Camera.h >
+
+
+#define WIDTH  200		/* Ancho ventanas en pixels */
+#define HEIGHT 200		/* Alto ventanas en pixels */
+
+// Keyboard actions
+#define ROTATE		    101
+#define MOVE		    102
+#define SCALE		    103
+#define CAM_MERI_PARAL  105
+#define CAM_TILT_ZOOM   106
+
+
+// state data
+static GLfloat  FEA_Red     =  0.0f;
+static GLfloat  FEA_Green   =  0.0f;
+static GLfloat  FEA_Blue    =  0.0f;
+static int      FEA_Action  =  ROTATE;
+
+static GLfloat  FEA_maxX;
+static GLfloat  FEA_minX;
+static GLfloat  FEA_maxY;
+static GLfloat  FEA_minY;
+static GLfloat  FEA_maxZ;
+static GLfloat  FEA_minZ;
+
+
+// model data
+static trfm3D  *FEA_Transform;
+static list    *FEA_ListPol;
+static camera  *FEA_Camera;
+
+#endif /* E05.h */
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        Camera.h</FONT><BR>
+      </H4>
+      <PRE>
+/* camera.h */
+
+#ifndef CAMERA_H
+#define CAMERA_H
+
+#include < stdlib.h >
+
+typedef struct _Camera
+{
+	float eyeX,    eyeY,    eyeZ;     
+// posicion del ojo de la camara
+	float centerX, centerY, centerZ;  
+// punto al que mira la camara
+	float upX,     upY,     upZ;      
+// vector de inclinacion de la camara
+	float angle;                      
+// angulo de apertura de vision
+	float front,   back;              
+// tamaño del campo de vision  
+
+	float initEyeX,	   initEyeY,    initEyeZ;     
+// posicion del ojo de la camara
+	float initCenterX, initCenterY, initCenterZ;  
+// punto al que mira la camara
+	float initUpX,     initUpY,     initUpZ;      
+// vector de inclinacion de la camara
+	float initAngle;                      
+// angulo de apertura de vision
+	float initFront,   initBack;              
+// tamaño del campo de vision  
+
+} camera;
+
+// con eye y center obtengo el vector de coordenadas  'n-'
+// con eye y up obtengo el vector de coordenadas 'v+'
+// el vector de coordenadas 'u+' se obtiene con los anteriores 
+
+camera *CamCreate(float maxX, float maxY, float maxZ,
+  			      float minX, float minY, float minZ);
+// La camara se inicializa paralela al eje Zw. 
+// Englobando en su volumen de vision lo contenido dentro de los 
+// puntos dados con una inclinacion vertical. Y un angulo de apertura 
+// inicial de 60º
+
+
+void CamMeridiam ( camera *cam, float angle );
+// rotacion sobre el eje paralelo a Xw y que pasa por center
+
+void CamParalell ( camera *cam, float angle );
+// rotacion sobre el eje paralelo al Yw y que pasa por center
+
+void CamTilt ( camera *cam, float angle );
+// rotacion sobre el eje Zc
+
+void CamZoom ( camera *cam, float angle);
+// modifica el angulo de vision
+
+void CamReset ( camera *cam );
+// situa la camara en su posicion inicial
+
+#endif /* camera.h */
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        Camera.c</FONT><BR>
+      </H4>
+      <PRE>
+#include < camera.h >
+#include < GL/glut.h >
+#include < gc.h >
+#include < trfm3D.h >
+
+// con eye y center obtengo el vector de coordenadas  'n-'
+// con eye y up obtengo el vector de coordenadas 'v+'
+// el vector de coordenadas 'u+' se obtiene con los anteriores 
+
+camera *CamCreate ( float maxX, float maxY, float maxZ,
+				    float minX, float minY, float minZ)
+{ // La camara se inicializa paralela al eje Xw. 
+  // Englobando en su volumen de vision lo contenido dentro de los 
+  // puntos dados con una inclinacion vertical. Y un angulo de 
+  // apertura inicial de 60º
+	
+	float radio, distance;
+	float alpha = 60;
+	camera *newCamera;
+
+	newCamera = (camera *) malloc( sizeof(camera) * 1);
+
+
+	newCamera->centerX = (maxX + minX)/2;
+	newCamera->centerY = (maxY + minY)/2;
+	newCamera->centerZ = (maxZ + minZ)/2;
+
+	radio = (sqrt(  pow(maxX-newCamera->centerX,2) 
+	 	          + pow(maxY-newCamera->centerY,2)
+		          + pow(maxZ-newCamera->centerZ,2)));
+
+
+	distance = radio / tan ( DEGREE_TO_RAD * (alpha/2));  
+
+	newCamera->eyeX = ((maxX + minX)/2) + distance*3/2;
+	newCamera->eyeY = (maxY + minY)/2;
+	newCamera->eyeZ = (maxZ + minZ)/2;
+
+	newCamera->upX = 0.0;
+	newCamera->upY = 1.0;
+	newCamera->upZ = 0.0;
+
+	newCamera->angle = alpha;
+
+	newCamera->front  = distance * 3;
+	newCamera->back = distance / 10;
+
+	newCamera->initCenterX = newCamera->centerX;
+	newCamera->initCenterY = newCamera->centerY;
+	newCamera->initCenterZ = newCamera->centerZ;
+
+	newCamera->initEyeX = newCamera->eyeX;
+	newCamera->initEyeY = newCamera->eyeY;
+	newCamera->initEyeZ = newCamera->eyeZ;
+
+	newCamera->initUpX = newCamera->upX;
+	newCamera->initUpY = newCamera->upY;
+	newCamera->initUpZ = newCamera->upZ;
+
+	newCamera->initAngle = newCamera->angle;
+	newCamera->initFront = newCamera->front;
+	newCamera->initBack  = newCamera->back;
+
+	return newCamera;
+}
+
+void CamMeridiam ( camera *cam, float angle )
+{// rotacion sobre el eje paralelo a Xw y que pasa por center
+
+	trfm3D *matrix;     
+	float  px, py, pz;  
+	float  vx, vy, vz;
+	float  cx, cy, cz;
+	float  ex, ey, ez;
+	float  ux, uy, uz;
+
+	cx = cam->centerX;
+	cy = cam->centerY;
+	cz = cam->centerZ;
+
+	ex = cam->eyeX;
+	ey = cam->eyeY;
+	ez = cam->eyeZ;
+
+	ux = cam->upX;
+	uy = cam->upY;
+	uz = cam->upZ;
+
+	// Calculamos el vector Center-Eye
+
+	vx = cx-ex;
+	vy = cy-ey;
+	vz = cz-ez;
+
+	// Calculamos el eje X de la camara, que es el producto 
+// cartesiano entre v-u
+
+	
+	px = vy* uz - vz*uy;
+	py = vz* ux - vx*uz;
+	pz = vx* uy - vy*ux;
+
+	// Con el vector que define el eje X, obtenemos el eje por sobre 
+// el que debe girar la camara
+
+	vx = cx+px;
+	vy = cy+py;
+	vz = cz+pz;
+
+
+	matrix = SetAxisRot (	vx, vy, vz,
+					cx, cy, cz,	
+					angle );
+
+	// localizamos el punto sobre el que se apoya la inclinacion de 
+// la camara
+
+	px = ex+ux;
+	py = ey+uy;
+	pz = ez+uz;
+
+	// rotamos el ojo (eye)
+
+	Transform3D ( matrix, &ex, &ey, &ez);
+
+	cam->eyeX = ex;
+	cam->eyeY = ey;
+	cam->eyeZ = ez;
+
+	// rotamos la inlinacion de la camara
+
+	Transform3D( matrix, &px, &py, &pz );
+
+	cam->upX = px - cam->eyeX;
+	cam->upY = py - cam->eyeY;
+	cam->upZ = pz - cam->eyeZ;
+
+}
+
+
+void CamParalell ( camera *cam, float angle )
+{// rotacion sobre el eje paralelo al Yw y que pasa por center
+
+	float ci, an, bn, alpha, cs;
+	float cx, cz, ex, ez, ux, uz;
+
+	cx = cam->centerX;
+	cz = cam->centerZ;
+	ex = cam->eyeX;
+	ez = cam->eyeZ;
+	ux = cam->upX+cam->eyeX;
+	uz = cam->upZ+cam->eyeZ;
+
+	if (ez < cz) angle = -angle; 
+
+	ci = sqrt ( pow((cx-ex),2) + pow((cz-ez),2));
+
+	if (ci != 0 ) // evita la division por cero
+		cs = (ex-cx)/ci;
+	else cs = 1.0;
+
+	alpha = acos(cs);
+
+	an = cos(alpha+(DEGREE_TO_RAD * angle))*ci;
+	bn = sin(alpha+(DEGREE_TO_RAD * angle))*ci;
+
+	cam- >eyeX = cx+an;
+
+	if (ez < cz) cam- >eyeZ = cz-bn; 		
+	else cam->eyeZ = cz+bn;
+
+	// ahora relizamos la rotacion del punto donde se apoya la 
+// inclinacion de la camara
+	// para que esta no cambie, en relacion a la nueva posicion
+
+	ci = sqrt ( pow((cx-ux),2) + pow((cz-uz),2));
+
+	if (ci != 0 ) // evita la division por cero
+		cs = (ux-cx)/ci;
+	else cs = 1.0;
+
+	alpha = acos(cs);
+
+	an = cos(alpha+(DEGREE_TO_RAD * angle))*ci;
+	bn = sin(alpha+(DEGREE_TO_RAD * angle))*ci;
+
+	ux = cx+an;
+
+	if (uz < cz) uz = cz-bn; 		
+	else uz = cz+bn;
+
+	cam- >upX = ux-cam->eyeX;
+	cam->upZ = uz-cam->eyeZ;
+
+}
+
+
+void CamTilt ( camera *cam, float angle )
+{// rotacion sobre el eje Zc
+
+	trfm3D *matrix;
+	float  px, py, pz;
+
+	matrix = SetAxisRot ( cam-> eyeX,   cam->eyeY,    cam->eyeZ,
+			          cam->centerX, cam->centerY, cam->centerZ,
+			          angle );
+	 
+	px = cam->eyeX + cam->upX;
+	py = cam->eyeY + cam->upY;
+	pz = cam->eyeZ + cam->upZ;
+
+	Transform3D( matrix, &px, &py, &pz );
+
+	cam->upX = px - cam->eyeX;
+	cam->upY = py - cam->eyeY;
+	cam->upZ = pz - cam->eyeZ;
+
+}
+
+
+void CamZoom ( camera *cam, float angle)
+{// modifica el angulo de vision
+	cam->angle = cam->angle + angle;
+}
+
+
+
+
+void CamReset ( camera *cam )
+{
+	cam->centerX = cam->initCenterX;
+	cam->centerY = cam->initCenterY;
+	cam->centerZ = cam->initCenterZ;
+
+	cam->eyeX    = cam->initEyeX;
+	cam->eyeY    = cam->initEyeY;
+	cam->eyeZ    = cam->initEyeZ;
+
+	cam->upX     = cam->initUpX;
+	cam->upY     = cam->initUpY;
+	cam->upZ     = cam->initUpZ;
+
+	cam->angle   = cam->initAngle;
+	cam->front   = cam->initFront;
+	cam->back    = cam->initBack;
+}
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        Trfm3D.h</FONT><BR>
+      </H4>
+      <PRE>
+#ifndef TRFM3D_H
+#define TRFM3D_H
+
+#include < windows.h >
+#include < GL/gl.h >
+
+typedef struct _Trfm3D
+{
+    /* la matriz la almacenamos descompuesta en elementos */
+    float  r1X, r1Y, r1Z;
+    float  r2X, r2Y, r2Z;
+    float  r3X, r3Y, r3Z;
+    float  scl;
+    float  trX, trY, trZ;
+} trfm3D;
+
+    /* aloca memoria para una estructura trfm3D, 
+       da valor a los elementos de la estructura,
+       instala la transformacion identidad y devuelve el pointer */
+void    DestroyTrfm3D( trfm3D * );
+trfm3D *CreateTrfm3D();
+trfm3D *CopyTrfm3D( trfm3D * );
+
+void SetGlMatrix( trfm3D *thisTrfm3D, GLfloat *glmatrix );
+
+    /* El pointer que se pasa debe apuntar a una estructura creada previamente
+       Los angulos se pasan en radianes (ver comentario abajo) */
+void RotX(  trfm3D * , float angle );
+void RotY(  trfm3D * , float angle );
+void RotZ(  trfm3D * , float angle );
+void Trans( trfm3D * , float tx, float ty, float tz );
+void Scale( trfm3D * , float scale );
+
+void AddRotX(  trfm3D * , float angle );
+void AddRotY(  trfm3D * , float angle );
+void AddRotZ(  trfm3D * , float angle );
+void AddTrans( trfm3D * , float tx, float ty, float tz );
+void AddScale( trfm3D * , float scale );
+
+/* Devuelve la matriz que permite rotar un punto alrededor de un eje arbitrario
+   definido mediante los puntos que pasan los argumentos p1 y p2, un angulo 
+   determinado expresado en grados*/
+trfm3D *SetAxisRot ( float p1x, float p1y, float p1z,
+				  float p2x, float p2y, float p2z,
+				  float angle );
+
+    /* recibe coordenadas y las devuelve transformadas */
+void Transform3D( trfm3D *, float *xtr, float *ytr, float *ztr );
+
+    /* compone la transformacion add sobre la transformacion previous
+       [previous] = [previous] * [add] */
+void ComponerTrfm3D( trfm3D *previous, trfm3D *add );
+
+
+#endif /* TRFM3D_H */
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        Trfm3D.c</FONT><BR>
+      </H4>
+      <PRE>
+****** Se añaden dos funciones. El resto igual al de <A href="cap6.htm">E04</A>. *******
+
+trfm3D *SetAxisRot ( float p1x, float p1y, float p1z,
+				  float p2x, float p2y, float p2z,
+				  float angle )
+{
+	float  angRad, cosAng, sinAng, t;
+	trfm3D *matrix1, *matrix2, *matrix3;
+	float axisX, axisY, axisZ;
+	float length;
+
+	matrix1 = CreateTrfm3D();
+	matrix2 = CreateTrfm3D();
+	matrix3 = CreateTrfm3D();
+
+	angRad = DEGREE_TO_RAD * angle;
+	cosAng = cos(angRad);
+	sinAng = sin(angRad);
+	t = 1.0 - cosAng;
+
+	Trans ( matrix1, -p1x, -p1y, -p1z);
+	Trans ( matrix3, p1x, p1y, p1z);
+
+	axisX = p2x - p1x;
+	axisY = p2y - p1y;
+	axisZ = p2z - p1z;
+
+	// normalizar Axis
+	length = sqrt ( axisX*axisX + axisY*axisY + axisZ*axisZ);
+	axisX = axisX/length;
+	axisY = axisY/length;
+	axisZ = axisZ/length;
+
+	matrix2->r1X = t*axisX*axisX + cosAng;
+	matrix2->r2X = t*axisX*axisY - sinAng*axisZ;
+	matrix2->r3X = t*axisX*axisZ + sinAng*axisY;
+
+	matrix2->r1Y = t*axisY*axisX + sinAng*axisZ;
+	matrix2->r2Y = t*axisY*axisY + cosAng;
+	matrix2->r3Y = t*axisY*axisZ - sinAng*axisX;
+	
+	matrix2->r1Z = t*axisZ*axisX - sinAng*axisY;
+	matrix2->r2Z = t*axisZ*axisY + sinAng*axisX;
+	matrix2->r3Z = t*axisZ*axisZ + cosAng;
+
+	ComponerTrfm3D( matrix2, matrix3 );
+	ComponerTrfm3D( matrix1, matrix2 );
+	// this = (m3 * m2) * m1
+
+	DestroyTrfm3D(matrix2);
+	DestroyTrfm3D(matrix3);
+
+	return matrix1;
+  }
+
+
+void Transform3D( trfm3D *thisTrfm3D, float *xTr, float *yTr, float *zTr )
+{
+    float   tmpR1X, tmpR1Y, tmpR1Z;
+    float   tmpR2X, tmpR2Y, tmpR2Z;
+    float   tmpR3X, tmpR3Y, tmpR3Z;
+    float   tmpTrX, tmpTrY, tmpTrZ;
+    float   tmpX,   tmpY,   tmpZ;
+    float   scale;
+
+    tmpX = *xTr;
+    tmpY = *yTr;
+    tmpZ = *zTr;
+
+    scale = thisTrfm3D->scl;
+    tmpR1X = thisTrfm3D->r1X * scale;
+    tmpR1Y = thisTrfm3D->r1Y * scale;
+    tmpR1Z = thisTrfm3D->r1Z * scale;
+    tmpR2X = thisTrfm3D->r2X * scale;
+    tmpR2Y = thisTrfm3D->r2Y * scale;
+    tmpR2Z = thisTrfm3D->r2Z * scale;
+    tmpR3X = thisTrfm3D->r3X * scale;
+    tmpR3Y = thisTrfm3D->r3Y * scale;
+    tmpR3Z = thisTrfm3D->r3Z * scale;
+    tmpTrX = thisTrfm3D->trX;
+    tmpTrY = thisTrfm3D->trY;
+    tmpTrZ = thisTrfm3D->trZ;
+
+    *xTr = tmpX * tmpR1X + tmpY * tmpR2X + tmpZ * tmpR3X + tmpTrX;
+    *yTr = tmpX * tmpR1Y + tmpY * tmpR2Y + tmpZ * tmpR3Y + tmpTrY;
+    *zTr = tmpX * tmpR1Z + tmpY * tmpR2Z + tmpZ * tmpR3Z + tmpTrZ;
+}
+
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        Gc.h</FONT>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap6.htm">E04</A></PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        List.h
+        </FONT></H4>
+      <PRE>Se mantiene igual que en <A href="cap5.htm">E03</A>.</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        
+        List.c
+        </FONT>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap5.htm">E03</A>.</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+   
+        Polygon.h
+        </FONT>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap5.htm">E03</A>.</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+     
+        Polygon.c
+        </FONT> 
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap5.htm">E03</A>.</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+       
+        WaveFront.c
+        </FONT> 
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap6.htm">E04</A>.</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        
+        WaveFront.h
+        </FONT>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap6.htm">E04</A>
+
+
+    </PRE>
+      </BLOCKQUOTE>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+      Ventana Output. (Visual C++)</FONT><BR>
+    </H3>
+    <TABLE width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+      <TR>
+        <TD><IMG src="cap7_1.gif" width="552" height="213"></TD>
+      </TR>
+    </TABLE>
+    <P> <FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Muestra el 
+      resultado de la compilacion y la construccion del ejecutable.</FONT></P>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">Ventana 
+      Workspace. (Visual C++)</FONT></H3>
+    <TABLE width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+      <TR>
+        <TD><IMG src="cap7_2.gif" width="289" height="360"></TD>
+      </TR>
+    </TABLE>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Muestra los 
+      ficheros de los que consta el ejemplo</FONT> </P>
+    <BLOCKQUOTE>
+      <PRE>&nbsp;
+</PRE>
+    </BLOCKQUOTE>
+    <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+      <TR>
+        <TD>
+          <DIV align="center"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"><A href="cap6.htm">Anterior</A> 
+            | <A href="intro.htm">Indice</A> | <A href="cap8.htm">Siguiente</A></FONT> 
+          </DIV>
+        </TD>
+      </TR>
+    </TABLE>
+    <P>&nbsp;</P>
+  </div>
+</DIV>
+<!-- #EndEditable --> 
+</BODY>
+<!-- #EndTemplate -->
+</HTML>
+<!-- Start SuperStats code version 3.0a. -->
+<script language="JavaScript">
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_1333267&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</script> <noscript>
+<img src="http://stats.superstats.com/b.cgi?u=hmv_1333267&z=1&fg=2" border=0 width=1 height=1>
+</noscript>
+<!-- End SuperStats tracking code. -->

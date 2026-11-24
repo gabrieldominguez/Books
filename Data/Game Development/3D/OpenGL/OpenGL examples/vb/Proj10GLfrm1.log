@@ -1,0 +1,5 @@
+Línea 10: la propiedad Icon de MainForm tenía una referencia a archivo no válida.
+Línea 42: la propiedad DragIcon de Zscrollbar tenía una referencia a archivo no válida.
+Línea 55: la propiedad DragIcon de Yscrollbar tenía una referencia a archivo no válida.
+Línea 68: la propiedad DragIcon de Xscrollbar tenía una referencia a archivo no válida.
+Línea 132: la propiedad DragIcon de Zoom tenía una referencia a archivo no válida.

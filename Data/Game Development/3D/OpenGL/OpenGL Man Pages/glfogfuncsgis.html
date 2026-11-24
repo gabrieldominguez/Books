@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glfogfuncsgis Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glfogfuncsgis</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glFogFuncSGIS(3G)	       OpenGL Reference		     glFogFuncSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glFogFuncSGIS - custom fog	blending function
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glFogFuncSGIS( GLsizei n,
+			 const GLfloat *points )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     n	     Specifies the number of control points in the custom fog blending
+	     function.	The initial value is 1.
+
+     points  Specifies an array	of control points.  Each control point
+	     consists of two floating-point values.  The first is an eye-space
+	     distance, and the second is a fog blending	factor in the range
+	     [0.0,1.0].	 Blending factor 0.0 indicates full fog, and 1.0
+	     indicates no fog.	The initial value is (0.0,1.0) (no fog).
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glFogFuncSGIS defines the control points for the custom fog blending
+     function that is applied when the fog mode	is GL_FOG_FUNC_SGIS.  See
+     glFog for a discussion of the various fog modes and the operation of the
+     custom blending function.
+
+     n is the number of	control	points in the custom fog blending function.
+     It	must not be larger than	the value returned by glGet with argument
+     GL_MAX_FOG_FUNC_POINTS_SGIS.  It must be at least 1.
+
+     points is an array	of pairs of floating-point values that define the
+     control points.  Each control point consists of an	eye-space distance
+     from the viewpoint	(always	non-negative) and the corresponding fog
+     blending factor (in the range [0.0,1.0]).	Blending factor	0.0 results in
+     full fog, and 1.0 results in no fog.  The control points must be
+     specified in order: eye space distance must not decrease from one control
+     point to the next,	and the	fog blending factor must not increase from one
+     control point to the next.
+
+     n and points completely specify the custom	fog blending function,
+     replacing any previous specification that may have	existed.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Note that since each control point	is a pair of values, there are 2*n
+     floating-point values in points.
+
+     glFogFuncSGIS is part of the SGIS_fog_func	extension, not part of the
+     core GL command set.  If GL_SGIS_fog_func is included in the string
+     returned by glGetString when called with argument GL_EXTENSIONS,
+     extension SGIS_fog_func is	supported by the connection.  See glIntro for
+     more information about using extensions.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glFogFuncSGIS(3G)	       OpenGL Reference		     glFogFuncSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if n	is less	than 1.
+
+     GL_INVALID_VALUE is generated if any eye-space distance in	points is
+     negative, or if any blend factor in points	is outside the range
+     [0.0,1.0].
+
+     GL_INVALID_VALUE is generated if the eye-space distance decreases from
+     one control point to the next, or if the blending factor increases	from
+     one control point to the next.
+
+     GL_INVALID_OPERATION is generated if glFogFuncSGIS	is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_FOG_FUNC_SGIS
+     glGet with	argument GL_FOG_FUNC_POINTS_SGIS
+     glGet with	argument GL_MAX_FOG_FUNC_POINTS_SGIS
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     Fog mode GL_FOG_FUNC_SGIS is supported only on InfiniteReality systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glFog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

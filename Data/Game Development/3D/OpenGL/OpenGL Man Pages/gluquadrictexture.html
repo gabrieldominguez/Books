@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gluquadrictexture Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gluquadrictexture</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluQuadricTexture(3G)	       OpenGL Reference		 gluQuadricTexture(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluQuadricTexture - specify if texturing is desired for quadrics
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluQuadricTexture( GLUquadric* quad,
+			     GLboolean texture )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     quad     Specifies	the quadrics object (created with gluNewQuadric).
+
+     texture  Specifies	a flag indicating if texture coordinates should	be
+	      generated.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluQuadricTexture specifies if texture coordinates	should be generated
+     for quadrics rendered with	quad.  If the value of texture is GL_TRUE,
+     then texture coordinates are generated, and if texture is GL_FALSE, they
+     are not.  The default is GL_FALSE.
+
+     The manner	in which texture coordinates are generated depends upon	the
+     specific quadric rendered.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluNewQuadric, gluQuadricDrawStyle, gluQuadricNormals,
+     gluQuadricOrientation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,292 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glblendfunc Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glblendfunc</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glBlendFunc(3G)		       OpenGL Reference		       glBlendFunc(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glBlendFunc - specify pixel arithmetic
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glBlendFunc( GLenum sfactor,
+		       GLenum dfactor )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     sfactor  Specifies	how the	red, green, blue, and alpha source blending
+	      factors are computed.  Thirteen symbolic constants are accepted:
+	      GL_ZERO, GL_ONE, GL_DST_COLOR, GL_ONE_MINUS_DST_COLOR,
+	      GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_DST_ALPHA,
+	      GL_ONE_MINUS_DST_ALPHA, GL_SRC_ALPHA_SATURATE,
+	      GL_CONSTANT_COLOR_EXT, GL_ONE_MINUS_CONSTANT_COLOR_EXT,
+	      GL_CONSTANT_ALPHA_EXT, and GL_ONE_MINUS_CONSTANT_ALPHA_EXT.
+
+     dfactor  Specifies	how the	red, green, blue, and alpha destination
+	      blending factors are computed.  Twelve symbolic constants	are
+	      accepted:	 GL_ZERO, GL_ONE, GL_SRC_COLOR,
+	      GL_ONE_MINUS_SRC_COLOR, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,
+	      GL_DST_ALPHA, GL_ONE_MINUS_DST_ALPHA, GL_CONSTANT_COLOR_EXT,
+	      GL_ONE_MINUS_CONSTANT_COLOR_EXT, GL_CONSTANT_ALPHA_EXT, and
+	      GL_ONE_MINUS_CONSTANT_ALPHA_EXT.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     In	RGB mode, pixels can be	drawn using a function that blends the
+     incoming (source) RGBA values with	the RGBA values	that are already in
+     the frame buffer (the destination values).	 By default, blending is
+     disabled.	Use glEnable and glDisable with	argument GL_BLEND to enable
+     and disable blending.
+
+     When blending is enabled, glBlendFunc, glBlendColorEXT, and
+     glBlendEquationEXT	determine the blending operation.  sfactor and dfactor
+     specify the scaling rules used for	scaling	the source and destination
+     color components, respectively.  Each rule	defines	four scale factors,
+     one each for red, green, blue, and	alpha.	The rules are described	in the
+     table below.
+
+     In	the following, source, destination, and	GL_BLEND_COLOR_EXT color
+     components	are denoted by (Rs,Gs,Bs,As), (Rd,Gd,Bd,Ad) and	(Rc,Gc,Bc,Ac),
+     respectively.  Color components are understood to have integer values
+     between 0 and (kR,kG,kB,kA), where	kc = 2mc-1 with	mc being the number of
+     bitplanes for the corresponding color component (c	is one of R, G,	B, or
+     A). All scale factors are in the range [0,1].  Source and destination
+     scale factors are denoted by (sR,sG,sB,sA)	and (dR,dG,dB,dA).  In the
+     following table, (fR,fG,fB,fA) denotes either source or destination
+     factors, and i = min(As, kA-Ad) / kA.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glBlendFunc(3G)		       OpenGL Reference		       glBlendFunc(3G)
+</FONT>
+
+
+	      parameter		   |		(fR,  fG,  fB,	fA)
+   ________________________________|____________________________________________
+	       GL_ZERO		   |		    (0,	0, 0, 0)
+	       GL_ONE		   |		    (1,	1, 1, 1)
+	    GL_SRC_COLOR	   |	    (Rs/kR, Gs/kG, Bs/kB, As/kA)
+       GL_ONE_MINUS_SRC_COLOR	   | (1, 1, 1, 1) - (Rs/kR, Gs/kG, Bs/kB, As/kA)
+	    GL_DST_COLOR	   |	    (Rd/kR, Gd/kG, Bd/kB, Ad/kA)
+       GL_ONE_MINUS_DST_COLOR	   | (1, 1, 1, 1) - (Rd/kR, Gd/kG, Bd/kB, Ad/kA)
+	    GL_SRC_ALPHA	   |	    (As/kA, As/kA, As/kA, As/kA)
+       GL_ONE_MINUS_SRC_ALPHA	   | (1, 1, 1, 1) - (As/kA, As/kA, As/kA, As/kA)
+	    GL_DST_ALPHA	   |	    (Ad/kA, Ad/kA, Ad/kA, Ad/kA)
+       GL_ONE_MINUS_DST_ALPHA	   | (1, 1, 1, 1) - (Ad/kA, Ad/kA, Ad/kA, Ad/kA)
+	GL_CONSTANT_COLOR_EXT	   |		  (Rc, Gc, Bc, Ac)
+   GL_ONE_MINUS_CONSTANT_COLOR_EXT |	   (1, 1, 1, 1)	- (Rc, Gc, Bc, Ac)
+	GL_CONSTANT_ALPHA_EXT	   |		  (Ac, Ac, Ac, Ac)
+   GL_ONE_MINUS_CONSTANT_ALPHA_EXT |	   (1, 1, 1, 1)	- (Ac, Ac, Ac, Ac)
+	GL_SRC_ALPHA_SATURATE	   |		    (i,	i, i, 1)
+
+     Blending combines corresponding source and	destination color components
+     according to the blending operation specified by GL_BLEND_EQUATION_EXT.
+     The blending operations are:
+
+		   GL_BLEND_EQUATION_EXT     |	Binary Operation
+		_____________________________|____________________
+		GL_FUNC_ADD_EXT		     | min(CsxsC+CdxdC,kC)
+		GL_FUNC_SUBTRACT_EXT	     | max(CsxsC-CdxdC,0)
+		GL_FUNC_REVERSE_SUBTRACT_EXT | max(CdxdC-CsxsC,0)
+		GL_LOGIC_OP		     | CsxsC  Lop  CdxdC
+		GL_MIN_EXT		     | min(CsxsC,CdxdC)
+		GL_MAX_EXT		     | max(CsxsC,CdxdC)
+
+     where C is	the relevant color component (R, G, B, or A), Cs and Cd	are
+     the source	and destination	color components, respectively,	sC and sD are
+     the source	and destination	scale factors, respectively, and Lop is	one of
+     16	bitwise	operators specified by glLogicOp.
+
+     Despite the apparent precision of the above equations, blending
+     arithmetic	is not exactly specified, because blending operates with
+     imprecise integer color values.  However, a blend factor that should be
+     equal to one is guaranteed	not to modify its multiplicand,	and a blend
+     factor equal to zero reduces its multiplicand to zero.  Thus, for
+     example, when sfactor is GL_SRC_ALPHA, dfactor is GL_ONE_MINUS_SRC_ALPHA,
+     GL_BLEND_EQUATION_EXT is GL_FUNC_ADD_EXT, and As is equal to kA, the
+     equations reduce to simple	replacement:
+     Rd	= Rs,  Gd = Gs,	 Bd = Bs,  Ad =	As.
+
+<FONT COLOR="#0000CC">EXAMPLES
+</FONT>     Transparency is best implemented using blend function (GL_SRC_ALPHA,
+     GL_ONE_MINUS_SRC_ALPHA) with primitives sorted from farthest to nearest.
+     Note that this transparency calculation does not require the presence of
+     alpha bitplanes in	the frame buffer.
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glBlendFunc(3G)		       OpenGL Reference		       glBlendFunc(3G)
+</FONT>
+
+
+     Blend function (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA) is also useful for
+     rendering antialiased points and lines in arbitrary order.
+
+     Polygon antialiasing is optimized using blend function
+     (GL_SRC_ALPHA_SATURATE, GL_ONE) with polygons sorted from nearest to
+     farthest.	(See the glEnable, glDisable reference page and	the
+     GL_POLYGON_SMOOTH argument	for information	on polygon antialiasing.)
+     Destination alpha bitplanes, which	must be	present	for this blend
+     function to operate correctly, store the accumulated coverage.
+
+     To	blend two RGB (no alpha	component) images as (1-p)xImageA+pxImageB,
+     one would disable blending, draw ImageA into the frame buffer, enable
+     blending, set GL_BLEND_COLOR_EXT to (0,0,0,p), the	blend function to
+     (GL_CONSTANT_ALPHA_EXT, GL_ONE_MINUS_CONSTANT_ALPHA_EXT), (and the	blend
+     equation to the default GL_FUNC_ADD_EXT), and draw	ImageB.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Incoming (source) alpha is	correctly thought of as	a material opacity,
+     ranging from 1.0 (KA), representing complete opacity, to 0.0 (0),
+     representing complete transparency.
+
+     When more than one	color buffer is	enabled	for drawing, blending is done
+     separately	for each enabled buffer, using for destination color the
+     contents of that buffer.  (See glDrawBuffer.)
+
+     Blending affects only RGB rendering.  It is ignored by color index
+     renderers.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if either sfactor or dfactor is not an
+     accepted value.
+
+     GL_INVALID_OPERATION is generated if glBlendFunc is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_BLEND_SRC, GL_BLEND_DST, GL_LOGIC_OP_MODE, or
+     GL_BLEND_EQUATION_EXT, GL_BLEND_COLOR_EXT.
+
+     glIsEnabled with argument GL_BLEND
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support the use of
+     source blend factor GL_SRC_ALPHA_SATURATE and a destination factor	based
+     on	the constant blend color (GL_.._CONSTANT_.._EXT); such combinations
+     produce incorrect results.
+
+
+
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glBlendFunc(3G)		       OpenGL Reference		       glBlendFunc(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glAlphaFunc, glClear, glDrawBuffer, glEnable, glLogicOp, glStencilFunc,
+     glBlendColorEXT, glBlendEquationEXT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 4
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

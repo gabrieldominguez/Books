@@ -1,0 +1,3 @@
+Línea 10: la propiedad Icon de frmAbout tenía una referencia a archivo no válida.
+Línea 23: la propiedad Picture de picIcon tenía una referencia a archivo no válida.
+Línea 52: la propiedad Caption de lblDescription debe ser una cadena encerrada entre comillas

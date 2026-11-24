@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxgetvideosyncsgi Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxgetvideosyncsgi</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXGetVideoSyncSGI(3G)	    OpenGL Reference - GLX	glXGetVideoSyncSGI(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXGetVideoSyncSGI	- obtain value of vertical retrace counter
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     int glXGetVideoSyncSGI( unsigned int *count )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     count  Pointer to variable	which receives the value of the	vertical
+	    retrace counter of the graphics pipeline associated	with the
+	    current context.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXGetVideoSyncSGI	is part	of the SGI_video_sync extension.  This
+     extension provides	a way to synchronize with the video frame rate of a
+     monitor (in the case of an	interlaced display, the	synchronization	is
+     actually with the field rate).
+
+     A vertical	retrace	precedes the display of	each video frame.  The kernel
+     maintains a 32-bit	unsigned integer counter for each graphics pipe	in the
+     system.  This counter is initialized via the /usr/gfx/gfxinit command,
+     and incremented upon each vertical	retrace.  Since	all the	video output
+     channels of a graphics pipe must be genlocked, one	counter	suffices for
+     all the monitors driven by	a pipe.
+
+     A process can query or sleep on the counter of the	graphics pipe
+     associated	with its current OpenGL	rendering context, provided that the
+     rendering context is direct.  (See	glXCreateContext.)
+
+     If	the current context is direct, glXGetVideoSyncSGI places the value of
+     the vertical retrace counter in the location referenced by	count, then
+     returns zero.  Otherwise, glXGetVideoSyncSGI returns GLX_BAD_CONTEXT_SGI.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXWaitVideoSyncSGI, glXCreateContext, glXQueryVersion, glGetString
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

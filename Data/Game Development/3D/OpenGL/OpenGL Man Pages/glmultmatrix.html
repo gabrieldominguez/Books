@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glmultmatrix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glmultmatrix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glMultMatrix(3G)	       OpenGL Reference		      glMultMatrix(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glMultMatrixd, glMultMatrixf - multiply the current matrix	by an
+     arbitrary matrix
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glMultMatrixd( const GLdouble	*m )
+     void glMultMatrixf( const GLfloat *m )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     m	Specifies a pointer a to 4x4 matrix stored in column-major order as
+	sixteen	consecutive values.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glMultMatrix multiplies the current matrix	with the one specified in m.
+     That is, if M is the current matrix and T is the matrix passed to
+     glMultMatrix, then	M is replaced with M o T.
+
+     The current matrix	is the projection matrix, modelview matrix, texture
+     matrix, or	color matrix (if the SGI_color_matrix extension	is supported),
+     as	determined by the current matrix mode (see glMatrixMode).
+
+     m points to a 4x4 matrix of single- or double-precision floating-point
+     values stored in column-major order.  That	is, the	matrix is stored as
+
+				(a0  a4	 a8   a12)
+				|		 |
+				|a1  a5	 a9   a13|
+				|		 |
+				|a2  a6	 a10  a14|
+				|		 |
+				|a3  a7	 a11  a15|
+				(		 )
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glMultMatrix is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_MATRIX_MODE
+     glGet with	argument GL_MODELVIEW_MATRIX
+     glGet with	argument GL_PROJECTION_MATRIX
+     glGet with	argument GL_TEXTURE_MATRIX
+     glGet with	argument GL_COLOR_MATRIX_SGI
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glMatrixMode, glLoadIdentity, glLoadMatrix, glPushMatrix
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

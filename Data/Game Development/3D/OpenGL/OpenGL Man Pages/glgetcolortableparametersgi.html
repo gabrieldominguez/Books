@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetcolortableparametersgi Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetcolortableparametersgi</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetColorTableParameterSGI(3G)				      OpenGL Reference
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetColorTableParameterfvSGI, glGetColorTableParameterivSGI - get	color
+     lookup table parameters
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetColorTableParameterfvSGI( GLenum	target,
+					 GLenum	pname,
+					 GLfloat *params )
+     void glGetColorTableParameterivSGI( GLenum	target,
+					 GLenum	pname,
+					 GLint *params )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  The target	color table.  Must be GL_TEXTURE_COLOR_TABLE_SGI,
+	     GL_COLOR_TABLE_SGI, GL_POST_CONVOLUTION_COLOR_TABLE_SGI,
+	     GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI,
+	     GL_PROXY_TEXTURE_COLOR_TABLE_SGI, GL_PROXY_COLOR_TABLE_SGI,
+	     GL_PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI,
+	     GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
+
+     pname   The symbolic name of a color lookup table parameter.  Must	be one
+	     of	GL_COLOR_TABLE_BIAS_SGI, GL_COLOR_TABLE_SCALE_SGI,
+	     GL_COLOR_TABLE_FORMAT_SGI,	GL_COLOR_TABLE_WIDTH_SGI,
+	     GL_COLOR_TABLE_RED_SIZE_SGI, GL_COLOR_TABLE_GREEN_SIZE_SGI,
+	     GL_COLOR_TABLE_BLUE_SIZE_SGI, GL_COLOR_TABLE_ALPHA_SIZE_SGI,
+	     GL_COLOR_TABLE_LUMINANCE_SIZE_SGI,	or
+	     GL_COLOR_TABLE_INTENSITY_SIZE_SGI.
+
+     params  A pointer to an array where the values of the parameter will be
+	     stored.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetColorTableParameterSGI is part of the	SGI_color_table	extension,
+     which adds	several	color lookup tables to the pixel transfer path.	 It is
+     also used by SGI_texture_color_table, which adds a	color table lookup to
+     the texturing process.
+
+     When pname	is set to GL_COLOR_TABLE_SCALE_SGI or GL_COLOR_TABLE_BIAS_SGI,
+     glGetColorTableParameterSGI returns the color table scale or bias
+     parameters	for the	table specified	by target.  For	these queries, target
+     must be set to GL_TEXTURE_COLOR_TABLE_SGI,	GL_COLOR_TABLE_SGI,
+     GL_POST_CONVOLUTION_COLOR_TABLE_SGI, or
+     GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI and _params points to	an array of
+     four elements, which receive the scale or bias factors for	red, green,
+     blue, and alpha, in that order.
+
+     The scale and bias	parameters for the texture color table are set by
+     glTexParameter; the scale and bias	parameters for the other tables	are
+     set by glColorTableParameterSGI.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetColorTableParameterSGI(3G)				      OpenGL Reference
+</FONT>
+
+
+     glGetColorTableParameterSGI can also be used to retrieve the format and
+     size parameters for a color table.	For these queries, set target to
+     either the	color table target or the proxy	color table target. (For
+     example, set target to either GL_TEXTURE_COLOR_TABLE_SGI or
+     GL_PROXY_TEXTURE_COLOR_TABLE_SGI.)	The format and size parameters are set
+     by	glColorTableSGI.
+
+     The following table lists the format and size parameters that may be
+     queried.  For each	symbolic constant listed below for pname, params must
+     point to an array of the given length, and	receive	the values indicated.
+     ________________________________________________________________________
+     |		    pname		  N		 Meaning	     |
+     |_______________________________________________________________________|
+     |GL_COLOR_TABLE_FORMAT_SGI		  1   Internal format (e.g. GL_RGBA) |
+     |GL_COLOR_TABLE_WIDTH_SGI		  1   Number of	elements in table    |
+     |GL_COLOR_TABLE_RED_SIZE_SGI	  1   Size of red component, in	bits |
+     |GL_COLOR_TABLE_GREEN_SIZE_SGI	  1   Size of green component	     |
+     |GL_COLOR_TABLE_BLUE_SIZE_SGI	  1   Size of blue component	     |
+     |GL_COLOR_TABLE_ALPHA_SIZE_SGI	  1   Size of alpha component	     |
+     |GL_COLOR_TABLE_LUMINANCE_SIZE_SGI	  1   Size of luminance	component    |
+     |GL_COLOR_TABLE_INTENSITY_SIZE_SGI	  1   Size of intensity	component    |
+     |_______________________________________________________________________|
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	target is set to GL_TEXTURE_COLOR_TABLE_SGI and	the
+     SGI_texture_color_table extension is not supported	then an
+     GL_INVALID_ENUM error is generated.
+
+     If	target is set to GL_COLOR_TABLE_SGI,
+     GL_POST_CONVOLUTION_COLOR_TABLE_SGI, or
+     GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI and the SGI_color_table extension is
+     not supported then	an GL_INVALID_ENUM error is generated.
+
+     See glIntro for more information on using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target or pname is	not an acceptable
+     value.
+
+     GL_INVALID_OPERATION is generated if glGetColorTableParameterSGI is
+     executed between the execution of glBegin and the corresponding execution
+     of	glEnd.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGI_color_table extension is not supported on RealityEngine,
+     RealityEngine2, and VTX systems.
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetColorTableParameterSGI(3G)				      OpenGL Reference
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glColorTableSGI, glTexParameter, glColorTableParameterSGI.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

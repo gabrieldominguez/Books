@@ -1,0 +1,1740 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp -->
+<HTML><HEAD><TITLE>GLUT Window Template - The Code Project - OpenGL</TITLE>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META http-equiv=Content-Type content="text/html; charset=ISO-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META 
+content="This article describes in detail how to set up your first OpenGL GLUT window and provides you with a template for your OpenGL applications" 
+name=Description>
+<META content=kbArticle name=Search.TopicType>
+<META content="Ali BaderEddin" name=Author>
+<META content="25 Jul 2007 14:00:00 GMT" name=Search.PublishDate>
+<META content="25 Jul 2007 14:00:00 GMT" name=Search.RevisedDate>
+<META content="Free source code, , Visual C++, MFC, Windows, Article" 
+name=keywords>
+<META 
+content="Article content copyright Ali BaderEddin, 2007, everthing else Copyright © CodeProject, 1999-2007, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Lounge Postings" 
+href="http://www.codeproject.com/webservices/LoungeRSS.aspx" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - VB.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6" 
+type=application/rss+xml rel=alternate><LINK title="The Code Project" 
+href="http://www.codeproject.com/info/OpenSearch.xml" 
+type=application/opensearchdescription+xml rel=search><LINK href="/favicon.ico" 
+type=image/ico rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="GLUT Window Template_archivos/global.css" type=text/css rel=stylesheet>
+<SCRIPT language=javascript 
+src="GLUT Window Template_archivos/oncopy.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+if (top != self) top.location.href = location.href;
+if (typeof(DemoUrl) != "undefined")
+	document.write('<me' + 'ta http' + '-equiv="re' + 'fresh" con' + 'tent="1;url=' + DemoUrl + '">');
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.3132" name=GENERATOR></HEAD>
+<BODY style="MARGIN: 0px" oncopy="return copyCode();" text=black vLink=navy 
+aLink=red link=blue bgColor=white>
+<SCRIPT src="GLUT Window Template_archivos/urchin.js" type=text/javascript>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+_uacct = "UA-1735123-1";
+urchinTracker();
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=HeaderLogo><A href="http://www.codeproject.com/"><IMG height=90 
+      alt=Home src="GLUT Window Template_archivos/codeproject225x90.gif" 
+      border=0></A></TD>
+    <TD class=HeaderBanner><SPAN id=AdBanner4>
+      <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3891&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FDevExpress%5FtheProblem%5Fleader%5F728x90%2Egif&C=False&id=3891&cb=4640891\" alt=\"\" border=0 width=728 height=90></a>");</SCRIPT>
+      </SPAN></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=MemberNavBar cellSpacing=0 cellPadding=5 width="100%" 
+      border=0>
+        <TBODY>
+        <TR vAlign=center>
+          <TD class=smallText style="FONT-WEIGHT: bold">4,358,696 members and 
+            growing! &nbsp; 14,605 now online. </TD>
+          <TD class=userNavText align=right><A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?id=512155">Gabriel 
+            Dominguez </A>| <A 
+            href="http://www.codeproject.com/script/profile/modify.asp?ct=/opengl/GLUT_WINDOW_TEMPLATE.asp"><B>My 
+            Settings</B></A> | <A 
+            href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+            Bookmarks</A> | <A 
+            href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+            Articles</A> | <A 
+            href="http://www.codeproject.com/script/profile/logoff.asp?ct=/opengl/GLUT_WINDOW_TEMPLATE.asp">Sign 
+            out</A> </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=SiteNavBar id=tblSiteToolbar cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD><A href="http://www.codeproject.com/">Home</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=2">MFC/C++</A></TD>
+          <TD><A href="http://www.codeproject.com/index.asp?cat=3">C#</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=4">ASP.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=6">VB.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=8">Architect</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=9">SQL</A></TD>
+          <TD class=SelCat noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=1">All Topics</A></TD>
+          <TD width="100%">&nbsp;</TD>
+          <TD>
+            <DIV id=MenuPos 
+            style="WIDTH: 300px; POSITION: relative; TOP: 1px; HEIGHT: 22px">
+            <TABLE id=MPH 
+            style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 20px; BORDER-RIGHT-WIDTH: 0px" 
+            cellSpacing=0 cellPadding=0 width=300>
+              <TBODY>
+              <TR vAlign=center>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                  Boards</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+      <SCRIPT src="GLUT Window Template_archivos/cpmenu_var.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT src="GLUT Window Template_archivos/menu10_com.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT type=text/javascript>
+var MPH = document.getElementById("MPH");
+if (MPH) MPH.style.display='none';
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=ArticleHeader cellSpacing=0 cellPadding=3 width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText style="PADDING-RIGHT: 10px"><A 
+            href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+            href="http://www.codeproject.com/?cat=2">MFC/C++</A> &gt;&gt; <A 
+            href="http://www.codeproject.com/opengl/">OpenGL</A> &gt;&gt; <A 
+            href="http://www.codeproject.com/opengl/#General">General</A><BR><BR>
+            <DIV style="FONT-WEIGHT: bold; FONT-SIZE: 16pt">GLUT Window 
+            Template</DIV><B>By <A 
+            href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=2040670">Ali 
+            BaderEddin</A></B>. <BR><BR>
+            <DIV style="FONT-SIZE: 12px">This article describes in detail how to 
+            set up your first OpenGL GLUT window and provides you with a 
+            template for your OpenGL applications</DIV></TD>
+          <TD class=smallText style="WIDTH: 200px">C++<BR>Windows<BR>Win32, 
+            VS, OpenGL<BR>Dev<BR><SPAN style="PADDING-RIGHT: 2ex">Posted</SPAN>: 
+            <B>26 Jul 2007</B><BR><SPAN style="PADDING-RIGHT: 3ex">Views</SPAN>: 
+            <B>1,455</B> </TD></TR></TD></TR></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=LHNavBar rowSpan=2><!-- Yes, there are IE hacks that will allow us to create a min-width DIV 
+	     (eg http://www.webreference.com/programming/min-width/) but I couldn't
+	     be arsed. Wait for it in v2.0 -->
+            <DIV class=FeatureBlockHeader>Announcements</DIV>
+            <DIV class="FeatureBlockContent RHFeatureBar">
+            <DIV style="PADDING-TOP: 5px"><IMG 
+            style="PADDING-RIGHT: 10px; FLOAT: left; MARGIN-LEFT: 5px; MARGIN-RIGHT: 10px" 
+            height=20 alt=Comp 
+            src="GLUT Window Template_archivos/prize_winner_sm.gif" width=10><A 
+            href="http://www.codeproject.com/script/competitions/monthly/">Monthly 
+            Competition</A></DIV></DIV>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=3898&cb=4640902\" border=0 frameborder=0 scrolling=no width=160 height=600></IFRAME>");</SCRIPT>
+            </CENTER><BR><BR><IMG height=1 
+            src="GLUT Window Template_archivos/t.gif" width=160> </TD>
+          <TD width="100%">
+            <TABLE class=SearchHeaderBar cellSpacing=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=center noWrap align=right width="60%">
+                  <FORM style="MARGIN: 0px" name=Search action=/info/search.asp 
+                  method=post><B>Search &nbsp;</B><INPUT class=smallText 
+                  style="WIDTH: 200px" name=target> <SELECT 
+                  style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" name=st> <OPTION 
+                    value=kw selected>Articles</OPTION> <OPTION 
+                    value=au>Authors</OPTION></SELECT> <INPUT style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" type=submit value=" Go! "> 
+                  &nbsp; </FORM></TD>
+                <TD class=tinyText noWrap><A 
+                  href="http://www.codeproject.com/info/search.asp">Advanced 
+                  Search</A><BR><A 
+                  href="http://www.codeproject.com/script/articles/sections.asp">Sitemap</A> 
+                </TD></TR></TBODY></TABLE>
+            <TABLE width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=SmallText noWrap>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUT Window Template_archivos/print.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?print=true" 
+                        target=_print>Print</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUT Window Template_archivos/sitebuild_icon.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=GLUT%5FWINDOW%5FTEMPLATE%2Fopengl7%2F26%2F2007">Broken 
+                        Article?</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUT Window Template_archivos/link.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fopengl%2FGLUT%5FWINDOW%5FTEMPLATE%2Easp&amp;guid=GLUT%5FWINDOW%5FTEMPLATE%2Fopengl7%2F26%2F2007">Bookmark</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUT Window Template_archivos/mail_small.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#__comments">Discuss</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUT Window Template_archivos/mail.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/script/recommend/form.asp?guid=GLUT%5FWINDOW%5FTEMPLATE%2Fopengl7%2F26%2F2007">Send 
+                        to a friend</A></TD></TR></TBODY></TABLE></TD>
+                <TD noWrap align=right><A name=__top></A>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText align=right>0 votes for this 
+                      article.</TD>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 border=2>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="GLUT Window Template_archivos/white.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUT Window Template_archivos/white.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUT Window Template_archivos/white.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUT Window Template_archivos/white.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUT Window Template_archivos/white.gif" 
+                              width=20 
+                    border=0></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=ArticlePane><SPAN id=intelliTXT>
+            <DIV id=contentdiv><!-- Article Starts -->
+            <UL class=download>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE/GLUT_Window_Template_exe.zip">Download 
+              demo project - 35.1 Kb</A> 
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE/GLUT_Window_Template_dll.zip">Download 
+              DLLs, LIBs and header files - 487.3 Kb</A> 
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE/GLUT_Window_Template_src.zip">Download 
+              source - 2.3 Kb</A> </LI></UL>
+            <P><IMG height=316 alt="Screenshot - GLUT_Window_Template.jpg" 
+            src="GLUT Window Template_archivos/GLUT_Window_Template.jpg" 
+            width=640></P>
+            <P><STRONG>Note:</STRONG> This article has been reposted at the 
+            author's request after the original was deleted at the author's 
+            request.</P>
+            <H2>Contents</H2>
+            <UL>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#Introduction0">Introduction</A> 
+
+              <UL>
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#WhatisOpenGL1">What 
+                is OpenGL?</A> 
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#WhyUseGLUT 2">Why 
+                use GLUT? </A>
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#WhyHaveaGLUTWindowTemplate3">Why 
+                have a GLUT window template?</A> </LI></UL>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#Usage4">Usage</A> 
+
+              <UL>
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#RunningtheProgram5">Running 
+                the program</A> 
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#CompilingtheCodewithVisualC++6.06">Compiling 
+                the code with Microsoft Visual C++</A> 
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#MicrosoftVisualC++69">Microsoft 
+                Visual C++ 6 </A>
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#UsingtheCode10">Using 
+                the code</A> </LI></UL>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#ExplainingtheCode11">Explaining 
+              the code </A>
+              <UL>
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#Initialization12">Initialization</A> 
+
+                <UL>
+                  <LI><A 
+                  href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#ConnectingtotheWindowSystem13">Connecting 
+                  to the window system </A>
+                  <LI><A 
+                  href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#SettingWindowSize14">Setting 
+                  window size</A> 
+                  <LI><A 
+                  href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#SettingWindowPosition15">Setting 
+                  window position</A> 
+                  <LI><A 
+                  href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#SettingDisplayMode16">Setting 
+                  display mode</A> </LI></UL>
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#CreateWindow17">Create 
+                window</A> 
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#SetProgramInitialState18">Set 
+                program initial state</A> 
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#SetCallbackFunctions19">Set 
+                callback functions</A> 
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#glutDisplayFunc20">glutDisplayFunc</A> 
+
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#glutReshapeFunc21">glutReshapeFunc</A> 
+
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#glutMouseFunc22">glutMouseFunc</A> 
+
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#glutMotionFunc23">glutMotionFunc</A> 
+
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#BeginEventProcessing24">Begin 
+                event processing</A> </LI></UL>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#Conclusion">Conclusion</A> 
+
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#References">References</A> 
+
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#History">Revision 
+              history </A></LI></UL>
+            <H2><A name=Introduction0>Introduction</A></H2>
+            <P>This program sets up a platform-independent OpenGL window using 
+            the GLUT library.</P>
+            <H3><A name=WhatisOpenGL1>What is OpenGL?</A></H3>
+            <P>OpenGL is the most widely used application programming interface 
+            (API) for developing portable 2D and 3D graphics applications. It 
+            was originally developed in 1992 by Silicon Graphics and is 
+            currently controlled and maintained by the OpenGL ARB (Architecture 
+            Review Board), which has become a part of the Khronos Group in 2006. 
+            ARB representatives include SGI, Microsoft, Apple, nVidia, ATI, 
+            Intel, id Software (famous for creating DOOM and QUAKE), and 3D 
+            Labs. </P>
+            <P>OpenGL has become an industry standard and a very popular API for 
+            its ease of use, portability, stability and rich documentation. 
+            According to OpenGL.org, OpenGL is the only truly open, 
+            vendor-neutral, multiplatform graphics standard. OpenGL 2.1 is the 
+            latest version of OpenGL and was released on August 2, 2006. OpenGL 
+            3.0 is currently under development and will run specifically on 
+            hardware born after November 8th, 2006. </P>
+            <H3><A name="WhyUseGLUT 2">Why use GLUT? </A></H3>
+            <P>OpenGL is a window system independent graphics library. This 
+            means that it doesn't handle window system operations that are 
+            specific to the Operating System. The reason for this is to make 
+            OpenGL portable on even new platforms. Creating a rendering window 
+            and handling events is left to the native window system to define. 
+            The OpenGL Utility Toolkit (GLUT) is intended to fill this gap, and 
+            thus provides developers with a window system independent API for 
+            OpenGL programs. GLUT supports the following functionality:</P>
+            <UL>
+              <LI>Window management 
+              <LI>Event handling 
+              <LI>Right click menu 
+              <LI>Rendering fonts 
+              <LI>Rendering various solid and wireframe objects 
+              <LI>Reading from sophisticated input devices </LI></UL>
+            <P>It is important to note that GLUT is not a fully-featured 
+            windowing toolkit. It is mostly used for learning OpenGL and 
+            developing simple OpenGL programs. GLUT is simple, easy and small. 
+            The GLUT library has C, C++, FORTRAN and Ada programming bindings. 
+            It is portable to nearly all OpenGL implementations for the X Window 
+            System and Windows. The latest stable GLUT version is 3.6; the 3.7 
+            version is currently in Beta phase. </P>
+            <H3><A name=WhyHaveaGLUTWindowTemplate3>Why have a GLUT window 
+            template?</A></H3>
+            <P>Knowing that OpenGL is an API intended for graphical 
+            applications, it is very clear that a window is always required to 
+            render the graphical objects. To avoid having to write the same code 
+            every time you want to create a graphical application using OpenGL, 
+            this program code can be used as a template to get you directly 
+            started with what matters to you in the program. The OpenGL GLUT 
+            window template has the following properties:</P>
+            <UL>
+              <LI>Title: "GLUT Window Template" 
+              <LI>Background Color: black (R = 0, G = 0, B = 0) 
+              <LI>Dimensions: width = 240, height = 240 
+              <LI>Position: x = (Screen Width - Window Width) / 2, y = (Screen 
+              Height - Window Height) / 2. This would mean that the window is 
+              centered on the screen 
+              <LI>Handling of keyboard, mouse and display events 
+              <LI>Showing when events occur, including their meaning, through 
+              the command prompt </LI></UL>
+            <H2><A name=Usage4>Usage</A></H2>
+            <H3><A name=RunningtheProgram5>Running the program</A></H3>
+            <P>In order to run the program, 3 dynamic link libraries (DLLs) are 
+            required: <EM>opengl32.dll</EM>, <EM>glu32.dll</EM> and 
+            <EM>glut32.dll</EM>. The <EM>opengl32.dll</EM> and 
+            <EM>glu32.dll</EM> files already come with your Windows OS and are 
+            found in the system folder. To run the executable, you have to 
+            download the <EM>glut32.dll</EM> and copy it into your 
+            <EM>system</EM> folder. You can find all of the DLL files in the 
+            attached ZIP file, <EM><A 
+            href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE/GLUT_Window_Template_dll.zip">GLUT_Window_Template_dll.zip</A></EM> 
+            under <EM>Visual C++\dll</EM>.</P>
+            <H3><A name=CompilingtheCodewithVisualC++6.06>Compiling the code 
+            with Microsoft Visual C++</A></H3>
+            <P>In order to write a C OpenGL application with GLUT using 
+            Microsoft Visual Studio on a Windows platform, you need the 
+            following files:</P>
+            <P>C header files: <EM>GL.h</EM>, <EM>GLU.h</EM> and 
+            <EM>GLUT.h</EM></P>
+            <P>C LIB files: <EM>glui32.lib</EM>, <EM>opengl32.lib</EM> and 
+            <EM>glut32.lib</EM></P>
+            <P>You can find all of the header and LIB files in the attached ZIP 
+            file <EM><A 
+            href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE/GLUT_Window_Template_dll.zip">GLUT_Window_Template_dll.zip</A></EM> 
+            under Visual C++\include\GL and Visual C++\lib, respectively.</P>
+            <H3><A name=MicrosoftVisualC++69>Microsoft Visual C++ 6 </A></H3>
+            <P>To use the code under a Visual C++ 6.0 environment, perform the 
+            following steps:</P>
+            <UL>
+              <LI>Open Microsoft Visual C++ 6.0 
+              <LI>Create a new Win32 Console Application Project<BR><BR><IMG 
+              height=400 alt="Screenshot - GLUT_Window_Template_1.jpg" 
+              src="GLUT Window Template_archivos/GLUT_Window_Template_1.jpg" 
+              width=561> </LI></UL>
+            <UL>
+              <LI>Copy the source file <EM>GLUT_Window_Template.c</EM> to your 
+              project folder. This is GLUT_Window_Template_src in our case. You 
+              may want to rename the file to fit your program's needs 
+              <LI>Add the source file to the project using the menu option 
+              Project\Add To Project\Files<BR><BR><IMG height=297 
+              alt="Screenshot - GLUT_Window_Template_2.jpg" 
+              src="GLUT Window Template_archivos/GLUT_Window_Template_2.jpg" 
+              width=428> </LI></UL>
+            <UL>
+              <LI>Make sure that the header files are in the include folder, LIB 
+              files are in the lib folder and DLLs are in the system 
+              folder<BR><BR>
+              <TABLE class=ArticleTable>
+                <THEAD>
+                <TR>
+                  <TD>Files</TD>
+                  <TD>Description</TD>
+                  <TD>Source folder (attached)</TD>
+                  <TD>Target folder</TD></TR></THEAD>
+                <TBODY>
+                <TR>
+                  <TD><EM>GL.H, GLU.H, GLUT.H </EM></TD>
+                  <TD>Header Files </TD>
+                  <TD>Visual C++/include/GL</TD>
+                  <TD>C:\Program Files\Microsoft Visual 
+                  Studio\VC98\Include\GL</TD></TR>
+                <TR>
+                  <TD><EM>OPENGL32.LIB, GLU32.LIB, GLUT32.LIB </EM></TD>
+                  <TD>Lib Files </TD>
+                  <TD>Visual C++/lib</TD>
+                  <TD>C:\Program Files\Microsoft Visual Studio\VC98\Lib</TD></TR>
+                <TR>
+                  <TD><EM>OPENGL32.DLL, GLU32.DLL, GLUT32.DLL </EM></TD>
+                  <TD>DLL Files </TD>
+                  <TD>Visual C++/dll</TD>
+                  <TD>C:\WINDOWS\system32</TD></TR></TBODY></TABLE>
+              <LI>Link the code to the libraries<BR><BR><IMG height=372 
+              alt="Screenshot - GLUT_Window_Template_3.jpg" 
+              src="GLUT Window Template_archivos/GLUT_Window_Template_3.jpg" 
+              width=577><BR><BR>To avoid having to set the link settings in 
+              every Visual C++ 6.0 project you create, you may want to include 
+              the following code segment in your code, which would basically do 
+              the same thing as above.<BR><PRE lang=c++><SPAN class=cpp-comment>// Link the lib files to the program. This is not necessary </SPAN>
+<SPAN class=cpp-comment>// if you have added the lib names using Project/Settings/Link</SPAN>
+<SPAN class=cpp-preprocessor>#pragma comment (lib, "opengl32.lib")</SPAN>
+<SPAN class=cpp-preprocessor>#pragma comment (lib, "glut32.lib")</SPAN>
+<SPAN class=cpp-preprocessor>#pragma comment (lib, "glu32.lib")</SPAN></PRE>
+              <LI>To avoid getting the console window whenever you want to run 
+              your OpenGL window, you may want to include this directive in your 
+              code <PRE lang=c++><SPAN class=cpp-preprocessor>#pragma comment(</SPAN>
+    linker,<SPAN class=cpp-string>"/subsystem:\"</SPAN>windows\<SPAN class=cpp-string>" /entry:\"</SPAN>mainCRTStartup\<SPAN class=cpp-string>""</SPAN>)</PRE></LI></UL>
+            <H3><A name=UsingtheCode10>Using the code</A></H3>
+            <P>The source code is intended to be used as a template for your 
+            OpenGL applications. To use it in your new application, you can 
+            simply rename the C file and add it to your Visual Studio project. 
+            </P>
+            <H2><A name=ExplainingtheCode11>Explaining the code </A></H2>The 
+            header files for GLUT should be included in GLUT programs with the 
+            following include directive: <PRE lang=c++><SPAN class=cpp-preprocessor>  #include &lt;GL/glut.h&gt;  </SPAN></PRE>
+            <P>There is no need to include <CODE>&lt;GL/gl.h&gt;</CODE> or 
+            <CODE>&lt;GL/glu.h&gt; </CODE>since <CODE>&lt;GL/glut.h&gt;</CODE> 
+            already includes them. </P>
+            <H3><A name=Initialization12>Initialization</A></H3>
+            <P>Functions starting with <CODE>glutInit</CODE> are used to 
+            initialize the GLUT state. The <CODE>glutInit</CODE> function is the 
+            primary initializing routine and must only be called once in a GLUT 
+            program. OpenGL or GLUT functions that are not starting with 
+            <CODE>glutInit</CODE> are not allowed to be called before the 
+            primary <CODE>glutInit</CODE> function. However, other functions 
+            starting with <CODE>glutInit</CODE> can be called before the primary 
+            <CODE>glutInit</CODE> function. The reason for this is to allow for 
+            specifying the window initialization state in command-line arguments 
+            and before the session is negotiated with the window system. </P>
+            <P>Below I show each initialization function prototype, its 
+            description and how I used it in my program. </P>
+            <H4><A name=ConnectingtotheWindowSystem13>Connecting to the window 
+            system </A></H4><PRE lang=c++>void glutInit(int *argcp, char **argv);</PRE>
+            <P><CODE>glutInit</CODE> initializes the GLUT library and negotiates 
+            a session with the window system.</P><PRE lang=c++>glutInit(&amp;argc, argv);</PRE>
+            <H4><A name=SettingWindowSize14>Setting window size</A></H4><PRE lang=c++>void glutInitWindowSize(int width, int height);  </PRE>
+            <P>Use <CODE>glutInitWindowSize</CODE> to set the initial size of 
+            the window that will be created. The value for the 
+            <CODE>width</CODE> and <CODE>height</CODE> parameters must be 
+            greater than zero. In case no value is specified, i.e. function not 
+            called, the default window size is 300 by 300. Note that the window 
+            system is not obligated with this information. Thus, GLUT programs 
+            must depend on the <CODE>glutReshapeFunc</CODE> to determine the 
+            true size of the window. </P><PRE lang=c++><SPAN class=cpp-comment>//  variables representing the window size</SPAN>
+int window_width = 240;
+int window_height = 240;
+
+<SPAN class=cpp-comment>//  Set the window size</SPAN>
+<EM>glutInitWindowSize</EM> (window_width, window_height); </PRE>
+            <H4><A name=SettingWindowPosition15>Setting window position</A></H4><PRE lang=c++>void glutInitWindowPosition(int x, int y);  </PRE>
+            <P>Use the <CODE>glutInitWindowPosition</CODE> to set the initial 
+            position of a window. The default value is -1 by -1, which tells the 
+            window system to determine the appropriate position.</P><PRE lang=c++><SPAN class=cpp-comment>//  define the window position on screen</SPAN>
+int window_x;
+int window_y;
+
+<SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+<SPAN class=cpp-comment>//  This function sets the window x and y coordinates</SPAN>
+<SPAN class=cpp-comment>//  such that the window becomes centered</SPAN>
+<SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+void centerOnScreen (void)
+{
+    window_x = (glutGet (GLUT_SCREEN_WIDTH) - window_width)/2;
+    window_y = (glutGet (GLUT_SCREEN_HEIGHT) - window_height)/2;
+}
+
+<SPAN class=cpp-comment>//  Set the window position</SPAN>
+<EM>glutInitWindowPosition</EM> (window_x, window_y);
+</PRE>
+            <P>In the code above, I am simply making the window centered on the 
+            screen. <CODE>glutGet (GLUT_SCREEN_WIDTH)</CODE> gets the width of 
+            the screen in pixels and <CODE>glutGet (GLUT_SCREEN_HEIGHT)</CODE> 
+            gets its height. </P>
+            <H4><A name=SettingDisplayMode16>Setting display mode</A></H4><PRE lang=c++>void glutInitDisplayMode(unsigned int mode);  </PRE>
+            <P>The display mode specifies what buffers are to be used in order 
+            to render the OpenGL graphics. One may choose more than one mode by 
+            using the logical <CODE>OR</CODE> operator. The following are the 
+            possible modes that can be selected; they have been copied from the 
+            <A 
+            href="http://www.opengl.org/documentation/specs/glut/spec3/spec3.html">GLUT 
+            API Version 3 Reference Manual</A>.:</P>
+            <TABLE class=ArticleTable>
+              <THEAD>
+              <TR>
+                <TD>Mode</TD>
+                <TD>Description</TD></TR></THEAD>
+              <TBODY>
+              <TR>
+                <TD><CODE>GLUT_INDEX</CODE> </TD>
+                <TD>Bit mask to select a color index mode window. This 
+                  overrides <CODE>GLUT_RGBA</CODE> if it is also specified. 
+              </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_SINGLE</CODE> </TD>
+                <TD>Bit mask to select a single buffered window. This is the 
+                  default if neither <CODE>GLUT_DOUBLE</CODE> nor 
+                  <CODE>GLUT_SINGLE</CODE> are specified.</TD></TR>
+              <TR>
+                <TD><CODE>GLUT_DOUBLE</CODE> </TD>
+                <TD>Bit mask to select a double buffered window. This 
+                  overrides <CODE>GLUT_SINGLE</CODE> if it is also 
+              specified.</TD></TR>
+              <TR>
+                <TD><CODE>GLUT_ACCUM</CODE> </TD>
+                <TD>Bit mask to select a window with an accumulation buffer. 
+                </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_ALPHA</CODE> </TD>
+                <TD>Bit mask to select a window with an alpha component to the 
+                  color buffer(s). </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_DEPTH</CODE> </TD>
+                <TD>Bit mask to select a window with a depth buffer. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_STENCIL</CODE> </TD>
+                <TD>Bit mask to select a window with a stencil buffer. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_MULTISAMPLE</CODE> </TD>
+                <TD>Bit mask to select a window with multisampling support. If 
+                  multisampling is not available, a non-multisampling window 
+                  will automatically be chosen. Note: both the OpenGL 
+                  client-side and server-side implementations must support the 
+                  <CODE>GLX_SAMPLE_SGIS</CODE> extension for multisampling to be 
+                  available. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_STEREO</CODE> </TD>
+                <TD>Bit mask to select a stereo window. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_LUMINANCE</CODE> </TD>
+                <TD>Bit mask to select a window with a "luminance'' color 
+                  model. This model provides the functionality of OpenGL's RGBA 
+                  color model, but the green and blue components are not 
+                  maintained in the frame buffer. Instead, each pixel's red 
+                  component is converted to an index between zero and 
+                  <CODE>glutGet(GLUT_WINDOW_COLORMAP_SIZE)-1</CODE> and looked 
+                  up in a per-window color map to determine the color of pixels 
+                  within the window. The initial colormap of 
+                  <CODE>GLUT_LUMINANCE</CODE> windows is initialized to be a 
+                  linear gray ramp, but can be modified with GLUT's colormap 
+                  routines.</TD></TR></TBODY></TABLE><PRE lang=c++>glutInitDisplayMode (GLUT_RGBA | GLUT_DOUBLE);</PRE>
+            <P>To display graphical content on a window, we need to tell GLUT 
+            whether to use single buffering or double buffering. In case single 
+            buffering is to be used, we need to set the <CODE>mode</CODE> to 
+            <CODE>GLUT_SINGLE</CODE> (by default). To display OpenGL contents on 
+            the window, we must call the <CODE>glFlush</CODE> OpenGL function 
+            which copies the contents of the frame buffer to the window. </P>
+            <P>However, <CODE>GLUT_DOUBLE</CODE> is usually the better option, 
+            as it allows for faster graphics rendering without flickering due to 
+            the use of two frame buffers that are continuously swapped. To swap 
+            those buffers, we call the GLUT function 
+            <CODE>glutSwapBuffers</CODE>. Note that <CODE>GLUT_DOUBLE</CODE> 
+            uses more memory than <CODE>GLUT_SINGLE</CODE> due to the use of 2 
+            frame buffers rather than 1. </P>
+            <H3><A name=CreateWindow17>Create window</A></H3><PRE lang=c++>int glutCreateWindow(char *name);  
+</PRE>
+            <P>Creates the GLUT window with <CODE>name</CODE> as its title. The 
+            value returned is a unique small integer identifier for the window. 
+            Rendering to a created window is ineffective before the 
+            <CODE>glutMainLoop</CODE> function is called because the window can 
+            not yet be displayed. </P><PRE lang=c++><SPAN class=cpp-comment>//  variable representing the window title</SPAN>
+char *window_title = <SPAN class=cpp-string>"GLUT Window Template"</SPAN>;
+
+<SPAN class=cpp-comment>//  Create Window</SPAN>
+<EM>glutCreateWindow</EM> (window_title);</PRE>
+            <P>After creating the window, you may want to display it in full 
+            screen.</P><PRE lang=c++><SPAN class=cpp-comment>//  Tells whether to display the window full screen or not</SPAN>
+<SPAN class=cpp-comment>//  Press Alt + Esc to exit a full screen.</SPAN>
+int full_screen = 0;
+
+<SPAN class=cpp-comment>//  View in full screen if the fullscreen flag is on</SPAN>
+if (full_screen)
+    <EM>glutFullScreen</EM> ();</PRE>
+            <H3><A name=SetProgramInitialState18>Set program initial 
+            state</A></H3>
+            <P>The purpose here is to set some OpenGL properties and initialize 
+            any data structures you have in your program. In our case, we need 
+            to set the frame buffer clear color to black. This would mean that 
+            whenever we want to refresh our graphics, we need to first clear the 
+            old drawing with a black canvas and then redraw our new contents. 
+            Otherwise, our graphics won't display in the correct manner.</P><PRE lang=c++><SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+<SPAN class=cpp-comment>//  Set OpenGL program initial state.</SPAN>
+<SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+void init ()
+{    
+    <SPAN class=cpp-comment>//  Set the frame buffer clear color to be black. </SPAN>
+    glClearColor (0.0, 0.0, 0.0, 0.0);
+} </PRE>
+            <P>The arguments to <CODE>glClearColor</CODE> are <CODE>R</CODE> 
+            (red), <CODE>G</CODE> (green), <CODE>B</CODE> (blue) and 
+            <CODE>A</CODE> (alpha). Alpha is used for transperancy. The values 
+            range between 0.0 and 1.0. For example, in case you want to set the 
+            clear color to gray (128, 128, 128), you need to divide each 
+            component by 255 in order to get the right parameters for 
+            <CODE>glClearColor</CODE>. </P>
+            <H3><A name=SetCallbackFunctions19>Set callback functions</A></H3><PRE lang=c++><SPAN class=cpp-comment>// Set the callback functions</SPAN>
+glutDisplayFunc (display);
+glutReshapeFunc  (reshape);
+glutMouseFunc (mouse);
+glutMotionFunc (motion);
+glutPassiveMotionFunc (pmotion);
+glutKeyboardFunc (keyboard);
+glutSpecialFunc (special);</PRE>
+            <P>These are the callback functions that are mostly used. To see the 
+            remaining callback functions that GLUT supports, please refer to the 
+            <A 
+            href="http://www.opengl.org/documentation/specs/glut/spec3/spec3.html">GLUT 
+            API Version 3 Reference Manual</A>. </P>
+            <H3><A name=glutDisplayFunc20>glutDisplayFunc</A></H3><PRE lang=c++><SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+<SPAN class=cpp-comment>//  This function is passed to glutDisplayFunc in order to display </SPAN>
+<SPAN class=cpp-comment>//    OpenGL contents on the window.</SPAN>
+<SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+void display (void)
+{
+    <SPAN class=cpp-comment>//  Clear the window or more specifically the frame buffer...</SPAN>
+    <SPAN class=cpp-comment>//  This happens by replacing all the contents of the frame</SPAN>
+    <SPAN class=cpp-comment>//  buffer by the clear color (black in our case)</SPAN>
+    glClear (GL_COLOR_BUFFER_BIT);
+    
+    <SPAN class=cpp-comment>//  Draw scene</SPAN>
+    drawObject ();
+    
+    <SPAN class=cpp-comment>//  Swap contents of backward and forward frame buffers</SPAN>
+    glutSwapBuffers ();
+}</PRE>
+            <P><CODE>glClear (GL_COLOR_BUFFER_BIT)</CODE> will clear the frame 
+            buffer so that things can be re-drawn clearly. 
+            <CODE>glutSwapBuffer</CODE> places the contents of the back buffer 
+            into the from buffer visible on the window. </P>
+            <P>The <CODE>drawObject</CODE> function simply displays an 
+            icosahedron and tells us that the <CODE>display</CODE> function is 
+            currently being called. When GLUT determines that the window needs 
+            to be redisplayed, the <CODE>display</CODE> callback for the window 
+            is called. The <CODE>display</CODE> callback function in GLUT can be 
+            either set explicitly by calling <CODE>glutPostRedisplay</CODE> or 
+            implicitly as the result of window damage reported by the window 
+            system. Multiple posted redisplays for a window are coalesced by 
+            GLUT to minimize the number of <CODE>display</CODE> callbacks 
+            called. </P><PRE lang=c++><SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+<SPAN class=cpp-comment>//  Draws our object.</SPAN>
+<SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+void drawObject ()
+{
+    <SPAN class=cpp-comment>//  Show when are displaying an object</SPAN>
+    printf (<SPAN class=cpp-string>"Displaying object...\n"</SPAN>);
+    
+    <SPAN class=cpp-comment>//  Draw Icosahedron</SPAN>
+    glutWireIcosahedron ();
+}</PRE>
+            <P>You will notice the "Displaying object..." message on the command 
+            prompt in the following cases:</P>
+            <UL>
+              <LI><CODE>glutPostRedisplay</CODE> is explicitly called in the 
+              code 
+              <LI>After the window is resized 
+              <LI>When the window loses focus and then gets it back </LI></UL>
+            <P>If you notice this happening in other cases, please let me know. 
+            </P>
+            <H3><A name=glutReshapeFunc21>glutReshapeFunc</A></H3><PRE lang=c++><SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+<SPAN class=cpp-comment>//  This function is passed to the glutReshapeFunc and is called </SPAN>
+<SPAN class=cpp-comment>//  whenever the window is resized.</SPAN>
+<SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+void reshape (int <EM>w</EM>, int <EM>h</EM>)
+{
+    <SPAN class=cpp-comment>//  Stay updated with the window width and height</SPAN>
+    window_width = w;
+    window_height = h;
+    
+    <SPAN class=cpp-comment>//  Reset viewport</SPAN>
+    glViewport(0, 0, window_width, window_height);
+    
+    <SPAN class=cpp-comment>//  Print current width and height on the screen</SPAN>
+    printf (<SPAN class=cpp-string>"Window Width: %d, Window Height: %d.\n"</SPAN>, 
+        window_width, window_height);
+}</PRE>
+            <P>The <CODE>reshape</CODE> function will be called every time a 
+            window is resized and when the window is first displayed on the 
+            screen. The <CODE>w</CODE> and <CODE>h</CODE> parameters of the 
+            callback specify the new window size in pixels.</P>
+            <P>I am using the <CODE>glViewport</CODE> function here to reset the 
+            drawing area to be equal to the window size whenever the window is 
+            resized. If you try commenting out the <CODE>glViewport</CODE> 
+            function, you will notice that the drawing remains the same no 
+            matter how you resize the window. However, calling the 
+            <CODE>glViewport</CODE> function will enlarge and shrink the drawing 
+            area based on the changes in the window size. </P>
+            <H3><A name=glutMouseFunc22>glutMouseFunc</A></H3>
+            <P>When a user presses and releases a mouse button, two events are 
+            generated: one for the press and the other for the release. The 
+            <CODE>state</CODE> parameter is either <CODE>GLUT_UP</CODE> or 
+            <CODE>GLUT_DOWN</CODE>, indicating whether the callback was due to a 
+            release or press, respectively. The <CODE>button</CODE> parameter is 
+            one of <CODE>GLUT_LEFT_BUTTON</CODE>, 
+            <CODE>GLUT_MIDDLE_BUTTON</CODE> or <CODE>GLUT_RIGHT_BUTTON</CODE> 
+            and indicates which button was clicked. The <CODE>x</CODE> and 
+            <CODE>y</CODE> parameters indicate the mouse coordinates relative to 
+            the GLUT window when the mouse button's state changed. If a menu is 
+            attached to a button for a window, mouse callbacks will not be 
+            generated for that button. Passing <CODE>NULL</CODE> to 
+            <CODE>glutMouseFunc</CODE> disables the generation of mouse 
+            callbacks. </P><PRE lang=c++><SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+<SPAN class=cpp-comment>//  This function is passed to the glutMouseFunc and is called </SPAN>
+<SPAN class=cpp-comment>//  whenever the mouse is clicked.</SPAN>
+<SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+void mouse (int <EM>button</EM>, int <EM>state</EM>, int <EM>x</EM>, int <EM>y</EM>)
+{
+    switch (<EM>button</EM>)
+    {
+        <SPAN class=cpp-comment>//  Left Button Clicked</SPAN>
+        case <EM>GLUT_LEFT_BUTTON</EM>:
+
+            switch (<EM>state</EM>)
+            {
+                <SPAN class=cpp-comment>//  Pressed </SPAN>
+                case <EM>GLUT_DOWN</EM>:
+                    printf (<SPAN class=cpp-string>"Mouse Left Button Pressed (Down)...\n"</SPAN>);
+                    break;
+                <SPAN class=cpp-comment>//  Released</SPAN>
+                case <EM>GLUT_UP</EM>:
+                    printf (<SPAN class=cpp-string>"Mouse Left Button Released (Up)...\n"</SPAN>);
+                    break;
+            }
+
+            break;
+
+        <SPAN class=cpp-comment>//  Middle Button clicked</SPAN>
+        case <EM>GLUT_MIDDLE_BUTTON</EM>:
+            
+            switch (state)
+            {
+                <SPAN class=cpp-comment>//  Pressed</SPAN>
+                case GLUT_DOWN:
+                    printf (<SPAN class=cpp-string>"Mouse Middle Button Pressed (Down)...\n"</SPAN>);
+                    break;
+                <SPAN class=cpp-comment>//  Released</SPAN>
+                case GLUT_UP:
+                    printf (<SPAN class=cpp-string>"Mouse Middle Button Released (Up)...\n"</SPAN>);
+                    break;
+            }
+
+            break;
+
+        <SPAN class=cpp-comment>//  Right Button Clicked</SPAN>
+        case <EM>GLUT_RIGHT_BUTTON</EM>:
+            
+            switch (state)
+            {
+                <SPAN class=cpp-comment>//  Pressed</SPAN>
+                case GLUT_DOWN:
+                    printf (<SPAN class=cpp-string>"Mouse Right Button Pressed (Down)...\n"</SPAN>);
+                    break;
+                <SPAN class=cpp-comment>//  Released</SPAN>
+                case GLUT_UP:
+                    printf (<SPAN class=cpp-string>"Mouse Right Button Released (Up)...\n"</SPAN>);
+                    break;
+            }
+
+            break;
+    }
+}</PRE>
+            <P>In order to check if the Shift, Ctrl or Alt key was pressed while 
+            the mouse event occured, we can use the 
+            <CODE>glutGetModifiers</CODE> function. This returns the modifier 
+            key state at the time the input event for a keyboard, special or 
+            mouse callback is generated. The modifiers are 
+            <CODE>GLUT_ACTIVE_SHIFT </CODE>(Shift or Caps Lock), 
+            <CODE>GLUT_ACTIVE_CTRL</CODE> (Ctrl) and 
+            <CODE>GLUT_ACTIVE_ALT</CODE> (Alt). </P>
+            <H3><A name=glutMotionFunc23>glutMotionFunc</A></H3>
+            <P>As long as the user is moving the mouse while a button is 
+            pressed<EM> </EM>(i.e. dragging), this event will be called 
+            continuously. </P><PRE lang=c++><SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+<SPAN class=cpp-comment>//  This function is passed to the glutMotionFunc and is called </SPAN>
+<SPAN class=cpp-comment>//  whenever the mouse is dragged.</SPAN>
+<SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+void motion (int x, int y)
+{
+    <SPAN class=cpp-comment>//  Print the mouse drag position</SPAN>
+    printf (<SPAN class=cpp-string>"Mouse Drag Position: %d, %d.\n"</SPAN>, x, y);
+}</PRE>
+            <H3>glutPassiveMotionFunc</H3>
+            <P>As long as the user is moving the mouse while no button is 
+            pressed, this event will be called continuously. </P><PRE lang=c++><SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+<SPAN class=cpp-comment>//  This function is passed to the glutPassiveMotionFunc and is called </SPAN>
+<SPAN class=cpp-comment>//  whenever the mouse is moved.</SPAN>
+<SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+void pmotion (int x, int y)
+{
+    <SPAN class=cpp-comment>//  Print mouse move positopn</SPAN>
+    printf (<SPAN class=cpp-string>"Mouse Move Position: %d, %d.\n"</SPAN>, x, y);
+}</PRE>
+            <H3>glutKeyboardFunc</H3>
+            <P>Each key press generating an ASCII character will generate a 
+            keyboard callback. The <CODE>key</CODE> callback parameter is the 
+            generated ASCII character. The <CODE>x</CODE> and <CODE>y</CODE> 
+            callback parameters indicate the mouse location in window-relative 
+            coordinates when the key was pressed. Passing <CODE>NULL</CODE> to 
+            <CODE>glutKeyboardFunc</CODE> disables the generation of keyboard 
+            callbacks. </P><PRE lang=c++><SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+<SPAN class=cpp-comment>//  This function is passed to the glutKeyboardFunc and is called </SPAN>
+<SPAN class=cpp-comment>//  whenever the user hits a key.</SPAN>
+<SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+void keyboard (unsigned char key, int x, int y)
+{
+    <SPAN class=cpp-comment>//  Print what key the user is hitting</SPAN>
+    printf (<SPAN class=cpp-string>"User is hitting the '%c' key.\n"</SPAN>, key);
+    printf (<SPAN class=cpp-string>"ASCII code is %d.\n"</SPAN>, key);
+    
+    switch (key)
+    {
+        <SPAN class=cpp-comment>//  User hits A key</SPAN>
+        case 'a':
+            
+            break;
+
+        <SPAN class=cpp-comment>//  User hits Shift + A key</SPAN>
+        case 'A':
+            
+            break;
+
+        <SPAN class=cpp-comment>//  User hits Enter</SPAN>
+        case 13:
+            printf (<SPAN class=cpp-string>"User is hitting the Return key.\n"</SPAN>); 
+            break;
+
+        <SPAN class=cpp-comment>//  User hits Space</SPAN>
+        case 32:
+            printf (<SPAN class=cpp-string>"User is hitting the Space key.\n"</SPAN>); 
+            break;
+
+        <SPAN class=cpp-comment>//  User hits back space</SPAN>
+        case 8:
+            printf (<SPAN class=cpp-string>"User is hitting the Back Space key.\n"</SPAN>); 
+            break;
+
+        <SPAN class=cpp-comment>//  User hits ESC key</SPAN>
+        case 27:
+            exit (1);
+            break;
+    }
+
+    glutPostRedisplay ();
+}</PRE>
+            <P>In order to check if the Shift, Ctrl or Alt key was pressed while 
+            the ASCII key was pressed, we can use the 
+            <CODE>glutGetModifiers</CODE> function. Also, modifiers might have 
+            an effect on the ASCII character itself. For example, if Caps Lock 
+            is off and we press Shift + A Key, the value of the <CODE>key</CODE> 
+            parameter will be set to <CODE>A</CODE>. If only the A key is 
+            pressed, then the <CODE>key</CODE> parameter is set to 
+            <CODE>a</CODE>.</P>
+            <H3>glutSpecialFunc</H3><PRE lang=c++><SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+<SPAN class=cpp-comment>//  This function is passed to the glutSpecialFunc and is called </SPAN>
+<SPAN class=cpp-comment>//  whenever the user hits a special key.</SPAN>
+<SPAN class=cpp-comment>//-------------------------------------------------------------------------</SPAN>
+void special (int key, int x, int y)
+{
+    switch (key)
+    {
+        case GLUT_KEY_F1 :
+            printf (<SPAN class=cpp-string>"F1 function key.\n"</SPAN>); 
+            break;
+        case GLUT_KEY_F2 :
+            printf (<SPAN class=cpp-string>"F2 function key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_F3 :
+            printf (<SPAN class=cpp-string>"F3 function key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_F4 :
+            printf (<SPAN class=cpp-string>"F4 function key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_F5 :
+            printf (<SPAN class=cpp-string>"F5 function key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_F6 :
+            printf (<SPAN class=cpp-string>"F6 function key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_F7 :
+            printf (<SPAN class=cpp-string>"F7 function key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_F8 :
+            printf (<SPAN class=cpp-string>"F8 function key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_F9 :
+            printf (<SPAN class=cpp-string>"F9 function key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_F10 :
+            printf (<SPAN class=cpp-string>"F10 function key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_F11 :
+            printf (<SPAN class=cpp-string>"F11 function key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_F12 :
+            printf (<SPAN class=cpp-string>"F12 function key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_LEFT :
+            printf (<SPAN class=cpp-string>"Left directional key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_UP :
+            printf (<SPAN class=cpp-string>"Up directional key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_RIGHT :
+            printf (<SPAN class=cpp-string>"Right directional key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_DOWN :
+            printf (<SPAN class=cpp-string>"Down directional key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_PAGE_UP :
+            printf (<SPAN class=cpp-string>"Page up directional key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_PAGE_DOWN :
+            printf (<SPAN class=cpp-string>"Page down directional key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_HOME :
+            printf (<SPAN class=cpp-string>"Home directional key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_END :
+            printf (<SPAN class=cpp-string>"End directional key. \n"</SPAN>);  
+            break;
+        case GLUT_KEY_INSERT :
+            printf (<SPAN class=cpp-string>"Inset directional key. \n"</SPAN>);  
+            break;
+    }
+    
+    glutPostRedisplay ();
+}</PRE>
+            <P>Each key press generating a non-ASCII character will generate a 
+            special callback. The <CODE>x</CODE> and <CODE>y</CODE> callback 
+            parameters indicate the mouse location in window relative 
+            coordinates when the key was pressed. Passing <CODE>NULL</CODE> to 
+            <CODE>glutSpecialFunc</CODE> disables the generation of special 
+            callbacks. Here is the list of special keys as specified in the <A 
+            href="http://www.opengl.org/documentation/specs/glut/spec3/spec3.html">GLUT 
+            API Version 3 Reference Manual</A>:</P>
+            <TABLE class=ArticleTable>
+              <TBODY></TBODY>
+              <THEAD>
+              <TR>
+                <TD>Key</TD>
+                <TD>Description</TD></TR></THEAD>
+              <TBODY>
+              <TR>
+                <TD><CODE>GLUT_KEY_F1</CODE> </TD>
+                <TD>F1 function key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_F2</CODE> </TD>
+                <TD>F2 function key.</TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_F3</CODE> </TD>
+                <TD>F3 function key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_F4</CODE> </TD>
+                <TD>F4 function key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_F5</CODE> </TD>
+                <TD>F5 function key.</TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_F6</CODE> </TD>
+                <TD>F6 function key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_F7</CODE> </TD>
+                <TD>F7 function key.</TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_F8</CODE> </TD>
+                <TD>F8 function key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_F9</CODE> </TD>
+                <TD>F9 function key.</TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_F10</CODE> </TD>
+                <TD>F10 function key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_F11</CODE> </TD>
+                <TD>F11 function key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_F12</CODE> </TD>
+                <TD>F12 function key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_LEFT</CODE> </TD>
+                <TD>Left directional key.</TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_UP</CODE> </TD>
+                <TD>Up directional key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_RIGHT</CODE> </TD>
+                <TD>Right directional key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_DOWN </CODE></TD>
+                <TD>Down directional key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_PAGE_UP</CODE> </TD>
+                <TD>Page up directional key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_PAGE_DOWN</CODE> </TD>
+                <TD>Page down directional key. </TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_HOME</CODE> </TD>
+                <TD>Home directional key.</TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_END</CODE> </TD>
+                <TD>End directional key.</TD></TR>
+              <TR>
+                <TD><CODE>GLUT_KEY_INSERT</CODE> </TD>
+                <TD>Insert directional key.</TD></TR></TBODY></TABLE>
+            <H3><A name=BeginEventProcessing24>Begin event processing</A></H3><PRE lang=c++>void glutMainLoop(void);</PRE>
+            <P>After a GLUT program has completed initial setup, such as 
+            creating windows and menus, GLUT programs enter the GLUT event 
+            processing loop by calling <CODE>glutMainLoop</CODE>. This function 
+            should be called at most once in an OpenGL program. </P>
+            <H2><A name=Conclusion>Conclusion</A></H2>
+            <P>I think this article can help significantly in getting you 
+            started with OpenGL. At the same time, the template can be used to 
+            save lots of copy and paste from old projects or the Internet. In 
+            case you find this template useful or have suggestions, please let 
+            me know.</P>
+            <H2><A name=#References>References</A></H2>
+            <UL>
+              <LI><A href="http://www.opengl.org/documentation/blue_book/">The 
+              OpenGL Reference Manual - The Bluebook</A> 
+              <LI><A href="http://www.opengl.org/documentation/red_book/">The 
+              OpenGL Programming Guide - The Redbook</A> 
+              <LI><A 
+              href="http://www.opengl.org/documentation/specs/glut/spec3/spec3.html">GLUT 
+              API Version 3 Reference Manual</A> </LI></UL>
+            <H2><A name=History>Revision history</A></H2>
+            <P>26/07/2007:</P>
+            <UL>
+              <LI>Article reposted at author's request </LI></UL>
+            <P>mid-July, 2007:</P>
+            <UL>
+              <LI>Article deleted at author's request </LI></UL>
+            <P>02/07/2007:</P>
+            <UL>
+              <LI>Added References section </LI></UL>
+            <P>06/06/2007:</P>
+            <UL>
+              <LI>Modified article to meet criteria specified in "<A 
+              href="http://www.codeproject.com/scrapbook/whatisagoodarticle.asp">A 
+              Guide To Writing Articles For Code Project</A>" by Marc Clifton 
+              <LI>Added frequently used callback functions to the code template 
+              </LI></UL>
+            <P>21/05/2005:</P>
+            <UL>
+              <LI>Original article posted 
+            </LI></UL><!-- Article Ends --></DIV></SPAN>
+            <SCRIPT src="GLUT Window Template_archivos/togglePre.js" 
+            type=text/javascript></SCRIPT>
+
+            <H2>About Ali BaderEddin</H2>
+            <DIV style="OVERFLOW: hidden">
+            <TABLE border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText noWrap><IMG 
+                  src="GLUT Window Template_archivos/{DEA67C58-79A5-4FC1-BD8A-456A63203F6A}.gif"><BR></TD>
+                <TD class=smallText>Ali has more than 4 years of experience in 
+                  designing and developing software applications. He started out 
+                  as a technical consultant in the supply chain industry and was 
+                  responsible of designing and developing software requirements 
+                  in addition to delivering integration designs and technical 
+                  trainings.<BR><BR>He got the 6th position and the “Extreme 
+                  Programmers” title at “The Arab and North African ACM 
+                  Programming Competition” (2004-2005). His computer interests 
+                  include Algorithms, Low Level Graphics, Game Programming and 
+                  Scientific Visualization.<BR><BR>Ali currently lives in 
+                  Lebanon. He has traveled to UAE, Kuwait, KSA, Syria, Gabon, 
+                  Afghanistan, and China. He plans to move to the U.S. where 
+                  software development can get more challenging.<BR><BR>His 
+                  hobbies are reading, gaming, science, swimming, and seeking 
+                  adventure. You may contact him at ali_badereddin at yahoo dot 
+                  com.<BR>
+                  <P class=smallText>Click <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=2040670">here</A> 
+                  to view Ali BaderEddin's online 
+            profile.</P></TD></TR></TBODY></TABLE></DIV><BR>
+            <TABLE cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%">
+                  <H2>Other popular OpenGL articles:</H2>
+                  <UL>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/wrl_viewer.asp">A 
+                    small VRML viewer using OpenGL and MFC</A>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/ntgraph3d_atl.asp">3D 
+                    Graph ActiveX Control</A>
+                    <DIV class=smallText>An ATL/STL ActiveX control based on 
+                    OpenGL library for 3D data visualization</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/glexport.asp">Achieving 
+                    PostScript and Wmf outputs for OpenGL</A>
+                    <DIV class=smallText>This article explains how to generate 
+                    resolution independent versions of 3D meshes rendered by 
+                    OpenGL/MFC programs, i.e. how to export the rendering 
+                    results to vectorial formats such as encapsulated postscript 
+                    (EPS) and Windows enhanced metafile (EMF) formats. The main 
+                    goal consists of being able to</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/dsaqua.asp">Interactive 
+                    water effect</A>
+                    <DIV class=smallText>A short OpenGL demo showing 
+                    multitexturing effects and clever math 
+                    optimizations.</DIV></LI></UL></TD>
+                <TD width=360>
+                  <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3895&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FInfragistics%5Fdotnet%5Fgeneral%5F300x250a%2Ejpg&C=False&id=3895&cb=4640909\" alt=\"\" border=0 width=300 height=250></a>");</SCRIPT>
+                </TD></TR></TBODY></TABLE>
+            <FORM action=/script/rating/code/app/insert_vote.asp 
+            method=post><INPUT type=hidden 
+            value=GLUT_WINDOW_TEMPLATE/opengl7/26/2007 name=vote_name> <INPUT 
+            type=hidden value=/opengl/GLUT_WINDOW_TEMPLATE.asp name=goal> 
+            <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=4 width="100%" 
+                  bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=smalltext vAlign=center>[<A 
+                        href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp#__top">Top</A>]</TD>
+                      <TD vAlign=center noWrap align=right><I><B>Rate this 
+                        Article for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <I>Poor</I><INPUT type=radio value=1 name=rate><INPUT 
+                        type=radio value=2 name=rate><INPUT type=radio value=3 
+                        name=rate><INPUT type=radio value=4 name=rate><INPUT 
+                        type=radio value=5 
+name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+            <CENTER>
+            <TABLE cellSpacing=0 cellPadding=0 border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                style="PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-COLOR: #eee" 
+                width=120 height=60>
+                  <DIV align=center>
+                  <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3486&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2Fcp%5Fdaily%5F120x60%2Egif&C=False&id=3486&cb=4640913\" alt=\"\" border=0 width=120 height=60></a>");</SCRIPT>
+                  </DIV></TD>
+                <TD width=100>&nbsp;</TD>
+                <TD width=468 height=60><SPAN id=AdBanner5>
+                  <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3485&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2Fcp%5Fdaily%5F468x60%2Egif&C=False&id=3485&cb=4640895\" alt=\"\" border=0 width=468 height=60></a>");</SCRIPT>
+                  </SPAN></TD></TR></TBODY></TABLE></CENTER><A name=__comments></A>
+            <SCRIPT language=JavaScript>
+
+function MsgVoteForm(MemberID, MsgID)
+{
+	document.write("<span id=\"MVF" + MsgID + "\">");
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+	{
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString());
+		document.write("' onclick='return RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ", ");
+		document.write(i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	}
+	document.write(" (out of 5)");
+	document.writeln("</span>");
+	
+	
+	document.write("<br />Report as <a href='#xx" + MsgID.toString() + "xx' title='Mark as Spam' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-1)'>Spam</a> or ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' title='Mark as Abuse' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-2)'>Abuse</a>");
+	
+}
+
+function RetypeForm(MemberID, MsgID)
+{
+	var types = [
+				 {pic:'news_general.gif',  id: 1},
+	             {pic:'news_info.gif',     id: 2},
+	             {pic:'news_question.gif', id: 4},
+	             {pic:'news_answer.gif',   id: 8},
+	             {pic:'news_game.gif',     id: 16},
+	             {pic:'news_spam.gif',     id: 32}
+	            ];
+	
+	document.write("<span id=\"RTF" + MsgID + "\">");
+	for (var i=0;i<types.length;i++)
+	{
+		document.write("<a href='/script/comments/retype?msg=" + MsgID.toString());
+		document.write("&mid=" + MemberID.toString() + "&type=" + types[i].id + "'>");
+		document.write("<img border=0 src='/script/images/" + types[i].pic + "'></a><br />");
+	}
+	document.writeln("</span>");
+}
+
+function ReportMsg(userid, msgid, score)
+{
+	if (confirm("Are you sure you want to report this message?") == true)
+		return RateMsg(userid, msgid, score);
+	else return false;
+}
+
+
+function RateMsg(userid, msgid, score)
+{
+
+   var req = new ActiveXObject("Msxml2.XMLHTTP"); 
+
+   req.onreadystatechange = function()
+   {
+      if ( req.readyState == 4 )
+      {
+         if ( req.status == 200 )
+         {
+         	var respText = req.responseText;
+         	var re = new RegExp("\<div\>([^\<]*)\</div\>", "g");
+         	var match = re.exec(respText);
+         	status.innerHTML = "<b>" + (match)?match[1]:"An error occured" + "</b>";
+         }
+         else
+         {
+            status.innerHTML = "<b style='color:red'>Failed!" + req.statusText + "</b>";
+         }
+      }
+   }
+   
+   var status = document.getElementById("MVF" + msgid);
+   if (!status) return;  // should never happen...   
+   status.innerHTML = "<b style='color:green'>Voting...</b>";
+   
+   var strAction = "/script/comments/vote.asp?js=1&user="+userid+"&msg="+msgid+"&score="+score;
+   req.open("GET", strAction, true);
+   req.send(null);
+   return false;
+}
+
+</SCRIPT>
+
+            <SCRIPT language=JavaScript>
+var Selected = "";
+
+var AdTime = new Date();
+
+
+// Ensures the expanded message appears reasonably close to where 
+// it should appear: on screen, and if possible, under the mouse cursor.
+function SwitchMessage(e)
+{
+   if ( !e ) e = window.event;
+   var target = e.target ? e.target : e.srcElement;
+
+   // is it a post?
+   while ( target && target.id != 'DynMessLink' )
+      target = target.parentNode;
+   if ( !target || target.id != 'DynMessLink' )
+      return;
+
+   if (Selected)
+   {
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+         body.style.display = 'none';
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#FEF9E7';
+   }
+
+   if (Selected == target.name) // just collapse
+      Selected="";
+   else
+   {
+      Selected = target.name;
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+      {
+         if (body.style.display=='none')
+            body.style.display='';
+         else
+            body.style.display = 'none';
+      }
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#99CCFF';
+
+      if ( body && head && body.style.display != 'none' )
+      {
+         // the bit that keeps the post on-screen and under the cursor
+         //var dif = (getRealPos(head, "Top") + head.offsetHeight/2) - (document.body.scrollTop+e.clientY);
+         //document.body.scrollTop += dif;
+         document.body.scrollTop = getRealPos(head, "Top") - document.body.clientHeight/10;
+         EnsureMessageVisible(target.name, true);
+      }
+   }
+
+   if ( e.preventDefault )
+      e.preventDefault();
+   else
+      e.returnValue = false;
+   return false;
+}
+
+// does its best to make a message visible on-screen (vs. scrolled off somewhere).
+function EnsureMessageVisible(msgID, bShowTop) {
+   var msgHeader = document.getElementById(msgID + "_h0");
+   var msgBody = document.getElementById(msgID + "_h1");
+
+   // determine scroll position of top and bottom
+   var scrollContainer = document.body;
+   var top = getRealPos(msgHeader, 'Top');
+   var bottom = getRealPos(msgBody, 'Top') + msgBody.offsetHeight;
+
+   // if not already visible, scroll to make it so
+   if ( scrollContainer.scrollTop > top && !bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+   if ( scrollContainer.scrollTop+scrollContainer.clientHeight < bottom )
+      scrollContainer.scrollTop = bottom-scrollContainer.clientHeight;
+   if ( scrollContainer.scrollTop > top && bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+}
+
+// utility
+function getRealPos(i,which)
+{
+   iPos = 0
+   while (i!=null)
+   {
+      iPos += i["offset" + which];
+      i = i.offsetParent;
+   }
+   return iPos
+}
+
+
+</SCRIPT>
+
+            <DIV id=_MessageBoard onclick=SwitchMessage(event)>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+                  bgColor=#ff9900 border=0>
+                    <FORM 
+                    action=/script/comments/app/do_filtermessages.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=442495 
+                    method=post>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=3 width="100%" 
+                        bgColor=white border=0>
+                          <TBODY>
+                          <TR bgColor=#fbedbb>
+                            <TD class=smalltext noWrap><A 
+                              href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                              height=16 
+                              src="GLUT Window Template_archivos/forum_faq.gif" 
+                              width=16 align=absMiddle border=0> 
+                            <B>FAQ</B></A>&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>Message score threshold <SELECT 
+                              class=smalltext size=1 name=noise><OPTION 
+                                value=1>1.0</OPTION> <OPTION 
+                                value=2>2.0</OPTION> <OPTION value=3 
+                                selected>3.0</OPTION> <OPTION 
+                                value=4>4.0</OPTION> <OPTION 
+                              value=5>5.0</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=center noWrap align=right 
+                            colSpan=2><A 
+                              href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=442495"><IMG 
+                              height=15 
+                              src="GLUT Window Template_archivos/forum_search.gif" 
+                              width=16 border=0> Search comments</A> &nbsp;</TD>
+                            <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+                          <TR bgColor=#ff9900>
+                            <TD width="100%">&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>View <SELECT class=smalltext size=1 
+                              name=expand><OPTION value=0>Normal 
+                                (slow)</OPTION> <OPTION value=2>Preview 
+                                (slow)</OPTION> <OPTION value=5 selected>Message 
+                                View</OPTION> <OPTION value=6>Topic 
+                                View</OPTION> <OPTION value=1>Thread 
+                                View</OPTION> <OPTION 
+                              value=3>Expanded</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap>Per page 
+                              <SELECT class=smalltext size=1 
+                                name=perpage><OPTION value=10>10</OPTION> 
+                                <OPTION value=25 selected>25</OPTION> <OPTION 
+                                value=50>50</OPTION></SELECT></TD>
+                            <TD 
+                    colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+                    <TR bgColor=#fbedbb>
+                      <TD><A name=xx0xx></A>
+                        <TABLE cellPadding=2 width="100%" bgColor=#fbedbb 
+                        border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle><IMG height=16 
+                              src="GLUT Window Template_archivos/forum_newmsg.gif" 
+                              width=16 align=top border=0><A class=HoverLink 
+                              title="Add a new message to the discussions" 
+                              href="http://www.codeproject.com/script/comments/user_new.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=442495" 
+                              target=_top name=HoverNL><B>New Message</B></A></TD>
+                            <TD class=messagetitle>Msgs 1 to 2 of 2 (Total: 2) 
+                              (<A 
+                              href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;forumid=442495">Refresh</A>)</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=white>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD class=messagetitle 
+                                width="100%">Subject&nbsp;</TD>
+                                <TD class=messagetitle noWrap 
+                                width=140>Author&nbsp;</TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT 
+                                class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="GLUT Window Template_archivos/t.gif" width=1 
+                              border=0></TD></TR>
+                          <TR id=2155454_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2155454xx></A><IMG 
+                                src="GLUT Window Template_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;forumid=442495&amp;select=2155454#xx2155454xx" 
+                                name=2155454><B>Where is your GLUI article 
+                                ?</B></A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=165806"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="GLUT Window Template_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle><B>Kochise</B>&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle><B>6:23 28 
+                                Jul 
+                            '07</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2155454_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG 
+                                src="GLUT Window Template_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>So 
+                                what, have you made a reset of your account 
+                                ?<BR><BR>Kochise <BR><BR>
+                                <DIV class=ForumSig>In Code we trust 
+                                !</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=442495&amp;select=2155454">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=442495&amp;select=2155454">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;tid=2155454&amp;forumid=442495&amp;select=2155454#xx2155454xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?msg=2155454#xx2155454xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?msg=2155454#xx2155454xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(165806,2155454);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="GLUT Window Template_archivos/t.gif" width=1 
+                              border=0></TD></TR>
+                          <TR id=2156922_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2156922xx></A><IMG 
+                                height=1 
+                                src="GLUT Window Template_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="GLUT Window Template_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;forumid=442495&amp;select=2156922#xx2156922xx" 
+                                name=2156922>Re: Where is your GLUI article 
+                                ?</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=2040670"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="GLUT Window Template_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>Ali 
+                                BaderEddin&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>2:24 30 Jul 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2156922_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="GLUT Window Template_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="GLUT Window Template_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Yup 
+                                Kochise,<BR><BR>I will repost the deleted 
+                                articles soon.<BR><BR>Thanks <IMG 
+                                src="GLUT Window Template_archivos/smiley_wink.gif" 
+                                align=absMiddle> <BR><BR>
+                                <DIV class=ForumSig>Best Regards,<BR>Ali 
+                                B,</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=442495&amp;select=2156922">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUT_WINDOW_TEMPLATE.asp&amp;df=100&amp;forumid=442495&amp;select=2156922">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?df=100&amp;tid=2155454&amp;forumid=442495&amp;select=2156922#xx2156922xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?msg=2156922#xx2156922xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp?msg=2155454#xx2155454xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(2040670,2156922);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="GLUT Window Template_archivos/t.gif" width=1 
+                              border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=#fbedbb>
+                      <TD>
+                        <TABLE cellPadding=2 width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle>Last Visit: 13:15 Monday 
+                              30th July, 2007</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+            <P class=smallText><IMG 
+            src="GLUT Window Template_archivos/news_general.gif" 
+            align=absMiddle> General comment &nbsp;&nbsp; <IMG 
+            src="GLUT Window Template_archivos/news_info.gif" align=absMiddle> 
+            News / Info &nbsp;&nbsp; <IMG 
+            src="GLUT Window Template_archivos/news_question.gif" 
+            align=absMiddle> Question &nbsp;&nbsp; <IMG 
+            src="GLUT Window Template_archivos/news_answer.gif" align=absMiddle> 
+            Answer &nbsp;&nbsp; <IMG 
+            src="GLUT Window Template_archivos/news_game.gif" align=absMiddle> 
+            Joke / Game &nbsp;&nbsp; <IMG 
+            src="GLUT Window Template_archivos/news_sticky.gif" align=absMiddle> 
+            Admin message</P><BR>
+            <TABLE cellSpacing=5 width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText>Updated: 26 Jul 2007 </TD>
+                <TD class=SmallText align=right>Article content copyright Ali 
+                  BaderEddin, 2007<BR>everything else Copyright © <A 
+                  href="mailto:webmaster@codeproject.com">CodeProject</A>, 
+                  1999-2007</A>. <BR>Web11 | <A 
+                  href="http://www.codeproject.com/info/MediaKit">Advertise on 
+                  The Code Project</A> | <A 
+                  href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <SCRIPT src="" type=text/javascript></SCRIPT>
+      <BR>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#ff9900 height=1><IMG height=1 
+            src="GLUT Window Template_archivos/space.gif"></TD></TR>
+        <TR>
+          <TD align=middle><FONT size=1><A 
+            href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A> • 
+            <A href="http://www.aspalliance.com/">ASP Alliance</A> • <A 
+            href="http://www.developerfusion.co.uk/">Developer Fusion</A> • <A 
+            href="http://www.developersdex.com/">Developersdex</A> • <A 
+            href="http://www.devguru.com/">DevGuru</A> • <A 
+            href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+            href="http://www.planet-source-code.com/">Planet Source Code</A> • 
+            <A href="http://www.tek-tips.com/">Tek-Tips Forums</A> • 
+        </FONT></TD></TR></TBODY></TABLE></CENTER></TR></TBODY></TABLE></BODY></HTML>

@@ -1,0 +1,359 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/Cabecera+Indice.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>Tutorial de Open GL. Otras funciones</TITLE>
+<!-- #EndEditable --> <!-- #BeginEditable "Meta" --> 
+<META CONTENT="ingenieros,informatica,ingenieria,ingeniero,informaticos,colegio,profesional,perito,peritos,auditoria,auditor,consultoria,consultor,informacion,universidad,estudiantes,estudiante,tecnico,diplomado,licenciado,diplomatura,licenciatura" NAME="KEYWORDS">
+<META CONTENT="En este sitio los ingenieros en informatica tienen un lugar de encuentro donde obtener toda la informacion relevante para su profesion. Da cabida a todos los titulados y estudiantes universitarios en informatica de cualquier grado, medio o superior." NAME="DESCRIPTION">
+<META name="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- #EndEditable --> 
+<STYLE TYPE="text/css">
+body         { color: black }
+td           { color: black }
+p            { color: black ; text-align: justify}
+a:link       { color: #330066; text-decoration: underline }
+a:visited    { color: #330066; text-decoration: underline }
+a:hover      { color: red; text-decoration: underline }
+a.smooth:link    {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:visited {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:hover   {  font-family: Verdana, Arial, Helvetica, sans-serif; color: red; font-size: 8pt; text-decoration: none}
+
+</STYLE>
+<script language="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+<!--
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+</HEAD>
+<BODY bgcolor="#FFFFFF" onLoad="MM_preloadImages('../../images/cabecera_r2_c2_f2.gif','../../images/botcab_r1_c02_f2.gif','../../images/botcab_r1_c04_f2.gif','../../images/botcab_r1_c06_f2.gif','../../images/botcab_r1_c08_f2.gif','../../images/botcab_r1_c10_f2.gif','../../images/botcab_r1_c12_f2.gif')" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE width="760" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD height="71"> <!-- #BeginLibraryItem "/Library/cabecera.lbi" --><!-- Fireworks 3.0  Dreamweaver 3.0 LBI target.  Created Tue Oct 03 00:01:17 GMT+0200 (Romance Daylight Time) 2000 -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="cabecera1.png" fwbase="cabecera.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="344" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="340" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td colspan="3"><img name="cabecera_r1_c1" src="../../images/cabecera_r1_c1.gif" width="760" height="50" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="50" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 2 -->
+   <td rowspan="2"><img name="cabecera_r2_c1" src="../../images/cabecera_r2_c1.gif" width="344" height="35" border="0"></td>
+   <td><a href="#" onMouseOut="MM_swapImgRestore();"  onMouseOver="MM_swapImage('cabecera_r2_c2','','../../images/cabecera_r2_c2_f2.gif',1)" ><img name="cabecera_r2_c2" src="../../images/cabecera_r2_c2.gif" width="76" height="16" border="0"></a></td>
+   <td rowspan="2"><img name="cabecera_r2_c3" src="../../images/cabecera_r2_c3.gif" width="340" height="35" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 3 -->
+   <td><img name="cabecera_r3_c2" src="../../images/cabecera_r3_c2.gif" width="76" height="19" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="19" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --></TD>
+  </TR>
+  <TR> 
+    <TD> <!-- #BeginLibraryItem "/Library/botcab.lbi" -->
+<SCRIPT language="JavaScript" type="text/javascript">
+<!--
+     NS4 = (document.layers);
+     IE4 = (document.all);
+    ver4 = (NS4 || IE4);
+	 IE5 = (IE4 && navigator.appVersion.indexOf("5.")!=-1);
+   isMac = (navigator.appVersion.indexOf("Mac") != -1);
+  isMenu = (NS4 || (IE4 && !isMac) || (IE5 && isMac));
+function popUp(){return};
+function popDown(){return};
+if (!ver4) event=null;
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+menuVersion = 3;
+menuWidth = 120;
+childOverlap = 1;
+childOffset = 0;
+perCentOver = null;
+secondsVisible = 0.10;
+clickStart = false;
+clickKill = false;
+fntCol = "#5C7BBC";
+fntSiz = "7";
+fntBold = true;
+fntItal = false;
+fntFam = "Verdana,Arial,Helvetica,sans-serif";
+backCol = "#FFFFFF";
+overCol = "#FFCC33";
+overFnt = "#000000";
+borWid = 1;
+borCol = "#5C7BBC";
+borSty = "solid";
+itemPad = 1;
+imgSrc = "menu/tri.gif";
+imgSiz = 10;
+separator = 0;
+separatorCol = "#5C7BBC";
+isFrames = false;
+keepHilite = true; 
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierArrays.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierMenus.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="botonescabecera.png" fwbase="botcab.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="292" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td><img name="botcab_r1_c01" src="../../images/botcab_r1_c01.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu1');"  onMouseOver="MM_swapImage('botcab_r1_c02','','../../images/botcab_r1_c02_f2.gif',1);popUp('elMenu1',event)" onClick="return false"><img name="botcab_r1_c02" src="../../images/botcab_r1_c02.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c03" src="../../images/botcab_r1_c03.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu2');"  onMouseOver="MM_swapImage('botcab_r1_c04','','../../images/botcab_r1_c04_f2.gif',1);popUp('elMenu2',event)" onClick="return false"><img name="botcab_r1_c04" src="../../images/botcab_r1_c04.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c05" src="../../images/botcab_r1_c05.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu3');"  onMouseOver="MM_swapImage('botcab_r1_c06','','../../images/botcab_r1_c06_f2.gif',1);popUp('elMenu3',event)" onClick="return false"><img name="botcab_r1_c06" src="../../images/botcab_r1_c06.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c07" src="../../images/botcab_r1_c07.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu4');"  onMouseOver="MM_swapImage('botcab_r1_c08','','../../images/botcab_r1_c08_f2.gif',1);popUp('elMenu4',event)" onClick="return false"><img name="botcab_r1_c08" src="../../images/botcab_r1_c08.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c09" src="../../images/botcab_r1_c09.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu5');"  onMouseOver="MM_swapImage('botcab_r1_c10','','../../images/botcab_r1_c10_f2.gif',1);popUp('elMenu5',event)" onClick="return false"><img name="botcab_r1_c10" src="../../images/botcab_r1_c10.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c11" src="../../images/botcab_r1_c11.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu6');"  onMouseOver="MM_swapImage('botcab_r1_c12','','../../images/botcab_r1_c12_f2.gif',1);popUp('elMenu6',event)" onClick="return false"><img name="botcab_r1_c12" src="../../images/botcab_r1_c12.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c13" src="../../images/botcab_r1_c13.gif" width="292" height="16" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --> </TD>
+  </TR>
+</TABLE>
+<!-- #BeginEditable "Region%20editable" --> 
+<TABLE width="761" border="0" cellspacing="0" cellpadding="0" name="Navegacion" height="20" bgcolor="#FFFFFF">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="2" height="3"></TD>
+    <TD><IMG src="../../images/1x1.gif" width="758" height="3"></TD>
+  </TR>
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="1" height="1" ></TD>
+    <TD><A href="http://www.ingenieroseninformatica.org/index.html" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Principal</A> 
+      <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="intro.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none"> 
+      Tutorial de OpenGL</A> <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="cap11.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Capítulo 
+      11</A> </TD>  
+  </TR>
+</TABLE>
+<DIV id="Body" style="position:absolute; width:760px; height:710px; z-index:3; left: 0px; top: 150px; visibility: visible"> 
+  <div id="Footer" style="position:absolute; width:200px; height:20px; z-index:4; left: 0px; top: 630px"><!-- #BeginLibraryItem "/Library/Pie de Página.lbi" -->
+<TABLE width="755" border="0" cellspacing="0" cellpadding="1">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="755" height="1"></TD>
+  </TR>
+  <TR> 
+    <TD><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1">Me interesaría 
+      informarme de cómo insertar <A href="../../publicidad.htm">publicidad</A> en 
+      esta página.</FONT></TD>
+  </TR>
+  <TR> 
+    <TD bgcolor="#330066"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">© 
+      2000 IngenierosenInformatica.org</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+      <A href="../../avisolegal.htm"><FONT color="#CCFF33">Aviso legal</FONT></A></FONT></TD>
+  </TR>
+</TABLE>
+<!-- #EndLibraryItem --></div>
+  <div id="Cuerpo" style="position:absolute; width:670px; height:285px; z-index:4; left: 75px; top: 0px; overflow: visible"> 
+    <P><!-- #BeginLibraryItem "/Library/Tabla cuerpo.lbi" --><TABLE width="610" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD><IMG alt="" border=0 height=1 width=610 src="../../images/1x1.gif"></TD>
+  </TR>
+</TABLE><!-- #EndLibraryItem --><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"></FONT> 
+    <H2><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">11.- 
+      Otras funciones</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FF9900"> 
+      </FONT></H2>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Aparte de lo 
+      que se ha visto en este tutorial, OpenGL permite hacer más cosas entre las 
+      que se encuentran las siguientes, que se van a resumir, así como nombrar 
+      algunas de las funciones relacionadas. </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> Crear 
+          sombras en los objetos, de tal forma que las escenas iluminadas parezcan 
+          más reales. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> Componer 
+          objetos, es decir crear un objeto a base de "fundir" varios objetos. 
+          Por ejemplo se puede crear un clavo con la composición de un cono (la 
+          punta), un cilindro (el cuerpo) y una esfera (la cabeza). glNewList(), 
+          glEndList(), glCallList(). </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> Creación 
+          de gráfico planos, BMP, lectura y visualización glBitmap(), glRasterPos(), 
+          glDrawPixels(), glCopyPixels(), glReadPixels(). </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> Mapear 
+          textura a los objetos. glTextImage1D(), glTextImage2D(), glTextGen(). 
+          </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> Crear 
+          curvas y superficies. Superficies de Bezier etc.. glMap(), glEvalCoord(), 
+          glMapGrid(), glEvalMesh(), ... </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> Crear 
+          efectos de niebla. GlBlendFunc(), glFog(). </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> Teselación 
+          de polígonos. Consiste en formar una superficie descrita mediante pequeños 
+          polígonos, generalmente triángulos. Se utiliza para polígonos excepcionales 
+          con agujeros, o complejos o convexos. gluBegin(), gluEnd(), gluNextContour().</FONT></P>
+      </LI>
+    </UL>
+    <H4>&nbsp;</H4>
+    <BLOCKQUOTE>
+      <H4>&nbsp;</H4>
+    </BLOCKQUOTE>
+    <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+      <TR>
+        <TD height="13"> 
+          <DIV align="center"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"><A href="cap10.htm">Anterior</A> 
+            | <A href="intro.htm">Indice</A> | <A href="cap12.htm">Siguiente</A></FONT> 
+          </DIV>
+        </TD>
+      </TR>
+    </TABLE>
+    <P>&nbsp;</P>
+  </div>
+</DIV>
+<!-- #EndEditable --> 
+</BODY>
+<!-- #EndTemplate -->
+</HTML>
+<!-- Start SuperStats code version 3.0a. -->
+<script language="JavaScript">
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_1333267&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</script> <noscript>
+<img src="http://stats.superstats.com/b.cgi?u=hmv_1333267&z=1&fg=2" border=0 width=1 height=1>
+</noscript>
+<!-- End SuperStats tracking code. -->

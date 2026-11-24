@@ -1,0 +1,292 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gltexsubimage2dext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gltexsubimage2dext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glTexSubImage2DEXT(3G)	       OpenGL Reference		glTexSubImage2DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glTexSubImage2DEXT	- specify a two-dimensional texture subimage
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glTexSubImage2DEXT( GLenum target,
+			      GLint level,
+			      GLint xoffset,
+			      GLint yoffset,
+			      GLsizei width,
+			      GLsizei height,
+			      GLenum format,
+			      GLenum type,
+			      const GLvoid *pixels )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target   Specifies	the target texture.  Must be GL_TEXTURE_2D or
+	      GL_DETAIL_TEXTURE_2D_SGIS.
+
+     level    Specifies	the level-of-detail number.  Level 0 is	the base image
+	      level.  Level n is the nth mipmap	reduction image.
+
+     xoffset  Specifies	a texel	offset in the x	direction within the texture
+	      array.
+
+     yoffset  Specifies	a texel	offset in the y	direction within the texture
+	      array.
+
+     width    Specifies	the width of the texture subimage.
+
+     height   Specifies	the height of the texture subimage.
+
+     format   Specifies	the format of the pixel	data.  The following symbolic
+	      values are accepted:  GL_COLOR_INDEX, GL_RED, GL_GREEN, GL_BLUE,
+	      GL_ALPHA,	GL_RGB,	GL_RGBA, GL_ABGR_EXT, GL_LUMINANCE,
+	      GL_LUMINANCE_ALPHA, and GL_DEPTH_COMPONENT.
+
+     type     Specifies	the data type of the pixel data.  The following
+	      symbolic values are accepted:  GL_UNSIGNED_BYTE, GL_BYTE,
+	      GL_BITMAP, GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT,
+	      GL_FLOAT,	GL_UNSIGNED_BYTE_3_3_2_EXT,
+	      GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+	      GL_UNSIGNED_INT_8_8_8_8_EXT, and GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+     pixels   Specifies	a pointer to the image data in memory.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Texturing maps a portion of a specified texture image onto	each graphical
+     primitive for which texturing is enabled.	Two-dimensional	texturing is
+     enabled and disabled using	glEnable and glDisable with argument
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexSubImage2DEXT(3G)	       OpenGL Reference		glTexSubImage2DEXT(3G)
+</FONT>
+
+
+     GL_TEXTURE_2D.
+
+     glTexSubImage2DEXT	redefines a contiguous subregion of an existing	two-
+     dimensional texture image.	 The texels referenced by pixels replace the
+     portion of	the existing texture array with	x indices xoffset and
+     xoffset+width-1, inclusive, and y indices yoffset and yoffset+height-1,
+     inclusive (But, see discussion of GL_INTERLACE_SGIX below).  This region
+     may not include any texels	outside	the range of the texture array as it
+     was originally specified.	It is not an error to specify a	subtexture
+     with zero width or	height,	but such a specification has no	effect.
+
+     When GL_INTERLACE_SGIX is disabled, then counting from zero, each Nth
+     texel from	pixels is assigned to texture array indices [i,j], where i =
+     xoffset+(N	mod width) and j = yoffset+((N div width) mod height).
+
+     If	GL_INTERLACE_SGIX is enabled, then every other row of the destination
+     texture is	skipped.  That is, the destination row for texel N is
+     yoffset+2((N div width) mod height).  A complete video frame may be
+     assembled in texture memory by invoking glTexSubImage2DEXT	on two
+     consecutive video fields, with yoffset values that	differ by one.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Texturing has no effect in	color index mode.
+
+     glPixelStore and glPixelTransfer modes affect texture images in exactly
+     the way they affect glDrawPixels.
+
+     glTexSubImage2DEXT	is part	of the EXT_subtexture extension.
+
+     If	type is	set to GL_UNSIGNED_BYTE_3_3_2_EXT,
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT and	the
+     EXT_packed_pixels extension is not	supported then a GL_INVALID_ENUM error
+     is	generated.
+
+     See glIntro for more information on using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated when target is not one of the	allowable
+     values.
+
+     GL_INVALID_OPERATION is generated when the	texture	array has not been
+     defined by	a previous glTexImage2D	operation.
+
+     GL_INVALID_VALUE is generated if level is less than zero or greater than
+     log2(max),	where max is the returned value	of GL_MAX_TEXTURE_SIZE.
+
+     GL_INVALID_VALUE is generated if width &amp;lt; -TEXTURE_BORDER or if
+     height &amp;lt; -TEXTURE_BORDER, where TEXTURE_BORDER is the border width	of the
+     texture array.
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexSubImage2DEXT(3G)	       OpenGL Reference		glTexSubImage2DEXT(3G)
+</FONT>
+
+
+     GL_INVALID_VALUE is generated if xoffset&amp;lt;-TEXTURE_BORDER,
+     (xoffset+width)&gt;(TEXTURE_WIDTH-TEXTURE_BORDER), yoffset&amp;lt;-TEXTURE_BORDER,
+     or	(yoffset+interlacexheight)&gt;(TEXTURE_HEIGHT-TEXTURE_BORDER).  Where
+     TEXTURE_WIDTH, TEXTURE_HEIGHT, and	TEXTURE_BORDER are the state values of
+     the texture image being modified, and interlace is	1 if GL_INTERLACE_SGIX
+     is	disabled and 2 otherwise.  Note	that TEXTURE_WIDTH and TEXTURE_HEIGHT
+     include twice the border width.
+
+     GL_INVALID_ENUM is	generated when format is not an	accepted format
+     constant.
+
+     GL_INVALID_ENUM is	generated when type is not a type constant.
+
+     GL_INVALID_ENUM is	generated if type is GL_BITMAP and format is not
+     GL_COLOR_INDEX.
+
+     GL_INVALID_OPERATION is generated if glTexSubImage2DEXT is	executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexImage
+     glIsEnabled with argument GL_TEXTURE_2D
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support convolving
+     images as they are	loaded into texture memory.
+
+     InfiniteReality systems have limited support for convolving images	as
+     they are loaded into texture memory.  The image resulting from
+     convolution must be a multiple of 8 in width.
+
+     On	InfiniteReality	systems, the width of the image	to be transferred to
+     texture memory must be a multiple of 8.  This constraint will be lifted
+     in	a future release, though transfers that	are a multiple of 8 in length
+     will have somewhat	higher performance than	other transfers.
+
+     Texture borders are not supported on InfiniteReality systems.  They will
+     be	supported in a future release, however,	they will require large
+     amounts of	texture	memory.	 Whenever possible, applications should	use
+     borderless	textures and GL_CLAMP_TO_EDGE_SGIS wrap	mode.
+
+     RealityEngine, RealityEngine2, and	VTX systems do not support histogram
+     or	minmax operations on images as they are	being loaded into texture
+     memory.
+
+     The SGIX_interlace	extension is supported only on InfiniteReality systems
+     and on RealityEngine, RealityEngine2, and VTX systems.
+
+
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexSubImage2DEXT(3G)	       OpenGL Reference		glTexSubImage2DEXT(3G)
+</FONT>
+
+
+     The EXT_packed_pixels extension is	not supported on RealityEngine,
+     RealityEngine2, and VTX systems; it will be supported on High Impact and
+     Maximum Impact systems in a future	release.
+
+     GL_DEPTH_COMPONENT	textures are a partial implementation of an extension
+     that will be more fully documented	in a subsequent	release.  They are
+     supported only on InfiniteReality systems.
+
+     On	RealityEngine, RealityEngine2, and VTX systems,	glTexSubImage2DEXT is
+     supported with the	following restrictions:
+
+	  1.  Performance is significantly better if the texture subimage X
+	      offset, Y	offset,	width and height are multiples of 32.
+
+	  2.  glTexSubImage2DEXT may be	used only with a texture that was
+	      created using glTexImage2D with a	NULL texture image.
+
+	  3.  glTexSubImage2DEXT may not be used with a	mipmap texture.	 Only
+	      level 0 is supported.
+
+	  4.  Only the following texel format and type combinations are
+	      supported:  GL_LUMINANCE and GL_UNSIGNED_BYTE, GL_LUMINANCE and
+	      GL_UNSIGNED_SHORT, GL_LUMINANCE_ALPHA and	GL_UNSIGNED_BYTE,
+	      GL_LUMINANCE_ALPHA and GL_UNSIGNED_SHORT,	GL_RGB and
+	      GL_UNSIGNED_BYTE and GL_RGBA and GL_UNSIGNED_BYTE.  Any other
+	      combination of format and	type will result in a GL_INVALID_ENUM
+	      error.
+
+	  5.  Using glTexSubImage2DEXT in conjunction with pixel mapping
+	      results in a GL_INVALID_OPERATION	error (see glPixelTransfer and
+	      glPixelMap).
+
+	  6.  glTexSubImage2DEXT may not be used in display lists or when
+	      rendering	remotely.
+
+	  7.  GL_INTERLACE_SGIX	is not supported (see glEnable).
+
+     On	High Impact and	Maximum	Impact systems,	if the right side of the image
+     to	be transferred to texture memory is not	the right side of the texture,
+     then its index must be a multiple of 32, where index = xoffset+width.
+     Otherwise it will generate	a GL_INVALID_VALUE error.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDrawPixels, glFog, glPixelStore,	glPixelTransfer, glTexEnv, glTexGen,
+     glTexImage2D, glTexParameter.
+
+
+
+
+
+
+
+
+
+									Page 4
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

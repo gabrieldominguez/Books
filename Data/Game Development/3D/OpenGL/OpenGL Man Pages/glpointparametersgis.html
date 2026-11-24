@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glpointparametersgis Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glpointparametersgis</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glPointParameterSGIS(3G)       OpenGL Reference	      glPointParameterSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glPointParameterfSGIS, glPointParameterfvSGIS - set point parameters
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPointParameterfSGIS( GLenum	pname,
+				 GLfloat param )
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     pname   The symbolic name of a point parameter.  One of
+	     GL_POINT_SIZE_MIN_SGIS or GL_POINT_SIZE_MAX_SGIS or
+	     GL_POINT_FADE_THRESHOLD_SIZE_SGIS.
+
+     param   The parameter value.
+
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPointParameterfvSGIS( GLenum pname,
+				  const	GLfloat	*params	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     pname
+	  The symbolic name of a point parameter.  One of
+	  GL_POINT_SIZE_MIN_SGIS or GL_POINT_SIZE_MAX_SGIS or
+	  GL_POINT_FADE_THRESHOLD_SIZE_SGIS or GL_DISTANCE_ATTENUATION.
+
+     params
+	  A pointer to an array	where the values of the	parameters are stored.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glPointParameterSGIS is part of the SGIS_point_parameters extension. It
+     supports additional geometric characteristics of points. It allows	the
+     size of a point to	decrease, as the the distance of the point from	the
+     eye increases. It provides	control	over the mapping from the point	size
+     to	the raster point area and point	transparency, in order to increase the
+     dynamic range of the raster brightness of points.
+
+     The derived point size is defined to be the size provided with
+     glPointSize modulated with	a distance attenuation factor.
+
+     The distance attenuation function coefficients, namely a, b, and c	in:
+
+	  dist_atten(d)	= 1 / (a + b x d + c x d^2)
+
+     are defined by the	GL_DISTANCE_ATTENUATION	parameters.  By	default	a = 1,
+     b = 0, and	c = 0.
+
+     Let size be the point size	provided with glPointSize, let dist be the
+     distance of the point from	the eye, and let threshold be the threshold
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPointParameterSGIS(3G)       OpenGL Reference	      glPointParameterSGIS(3G)
+</FONT>
+
+
+     size defined by the GL_POINT_FADE_THRESHOLD_SIZE parameter. The derived
+     point size	is given by:
+
+	  derived_size = size x	sqrt(dist_atten(dist))
+
+     Note that when default values are used, the above formula reduces to:
+
+	  derived_size = size
+
+     If	the derived point size is larger than the upper	bound defined by the
+     GL_POINT_SIZE_MAX_SGIS parameter, or smaller than the lower bound defined
+     by	the GL_GL_POINT_SIZE_MIN_SGIS parameter, the derived size is clamped
+     to	the upper and lower bounds respectively.
+
+     If	the derived point size is larger than the threshold size defined by
+     the GL_POINT_FADE_THRESHOLD_SIZE_SGIS parameter, the derived point	size
+     is	used as	the diameter of	the rasterized point, and the alpha component
+     is	intact.	 Otherwise, the	threshold size is set to be the	diameter of
+     the rasterized point, while the alpha component is	modulated accordingly,
+     to	compensate for the larger area.
+
+     The diameter of the rasterized point is given by:
+
+
+		     derived_size		  derived_size &gt;= threshold
+	  diameter =
+		     threshold					  Otherwise
+
+     The alpha component of the	rasterized point is given by:
+
+
+		  alpha_in			  derived_size &gt;= threshold
+	  alpha	=
+		  alpha_in x (derived_size / threshold)^2	  Otherwise
+
+     where alpha_in is point alpha possibly modified by	lighting.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The parameter GL_POINT_FADE_THRESHOLD_SIZE_SGIS has no effect on non
+     multisampled points. All other parameters affect non multisampled points
+     as	well as	multisampled points,
+
+     The threshold defined by GL_POINT_FADE_THRESHOLD_SIZE_SGIS	is not clamped
+     to	the minimum or maximum point sizes.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if pname is not one of the allowable values.
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPointParameterSGIS(3G)       OpenGL Reference	      glPointParameterSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_POINT_SIZE_MIN_SGIS
+     glGet with	argument GL_POINT_SIZE_MAX_SGIS
+     glGet with	argument GL_POINT_FADE_THRESHOLD_SIZE_SGIS
+     glGet with	argument GL_DISTANCE_ATTENUATION
+
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glPointSize.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

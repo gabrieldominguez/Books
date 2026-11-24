@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetpointervext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetpointervext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetPointervEXT(3G)	       OpenGL Reference		  glGetPointervEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetPointervEXT -	return the address of a	vertex data array
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetPointervEXT( GLenum pname,
+			    GLvoid* *params )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     pname   Specifies the array pointer to be returned.  Symbolic constants
+	     GL_VERTEX_ARRAY_POINTER_EXT, GL_NORMAL_ARRAY_POINTER_EXT,
+	     GL_COLOR_ARRAY_POINTER_EXT, GL_INDEX_ARRAY_POINTER_EXT,
+	     GL_TEXTURE_COORD_ARRAY_POINTER_EXT,
+	     GL_EDGE_FLAG_ARRAY_POINTER_EXT, are accepted.
+
+     params  returns the array pointer value specified by pname.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetPointervEXT returns array pointer information. pname is a symbolic
+     constant indicating the array pointer to be returned, and params is a
+     pointer to	a location in which to place the returned data.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The array pointers	are client side	state.
+
+     glGetPointervEXT is part of the EXT_vertex_array extension, not part of
+     the core GL command set. If GL_EXT_vertex_array is	included in the	string
+     returned by glGetString, when called with argument	GL_EXTENSIONS,
+     extension EXT_vertex_array	is supported.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if pname is not an accepted value.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glArrayElementEXT,	glColorPointerEXT, glDrawArraysEXT,
+     glEdgeFlagPointerEXT, glIndexPointerEXT, glNormalPointerEXT,
+     glTexCoordPointerEXT, glVertexPointerEXT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

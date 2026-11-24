@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glximportcontextext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glximportcontextext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXImportContextEXT(3G)	    OpenGL Reference - GLX     glXImportContextEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXImportContextEXT - import an existing GLX rendering context
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLXContext	glXImportContextEXT( Display *dpy,
+				     GLXContextID contextID )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	Specifies the connection to the	X server.
+
+     contextID	Specifies the XID of the GLX rendering context to be imported.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXImportContextEXT imports an existing GLX rendering context into	the
+     client's process and returns a handle to it. Use it in place of
+     glXCreateContext to share another process's indirect rendering context.
+
+     Only the server-side context information can be shared between GLX
+     clients; client-side state, such as pixel storage modes, cannot be
+     shared. Thus glXImportContextEXT must allocate memory to store client-
+     side information. This memory is freed by calling glXFreeContextEXT.
+
+     This call does not	create a new XID. It merely makes an existing object
+     available to the importing	client (Display	*).  Like any XID, it goes
+     away when the creating client drops its connection	or the i.d. is
+     explicitly	deleted. Note that this	is when	the XID	goes away. The object
+     goes away when the	XID goes away AND the context is not current to	any
+     thread.
+
+     If	contextID refers to a direct rendering context then no error is
+     generated but glXImportContextEXT returns NULL.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXImportContextEXT is part of the	EXT_import_context extension.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     If	contextID does not refer to a valid context a GLXBadContext error is
+     generated.
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glXGetContextIDEXT
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXImportContextEXT(3G)	    OpenGL Reference - GLX     glXImportContextEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateContext,glXFreeContextEXT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

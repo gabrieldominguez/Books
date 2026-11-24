@@ -1,0 +1,622 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gldrawpixels Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gldrawpixels</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glDrawPixels(3G)	       OpenGL Reference		      glDrawPixels(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glDrawPixels - write a block of pixels to the frame buffer
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glDrawPixels(	GLsizei	width,
+			GLsizei	height,
+			GLenum format,
+			GLenum type,
+			const GLvoid *pixels )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     width, height Specify the dimensions of the pixel rectangle that will be
+		   written into	the frame buffer.
+
+     format	   Specifies the format	of the pixel data.  Symbolic constants
+		   GL_COLOR_INDEX, GL_STENCIL_INDEX, GL_DEPTH_COMPONENT,
+		   GL_RGBA, GL_ABGR_EXT, GL_RED, GL_GREEN, GL_BLUE, GL_ALPHA,
+		   GL_RGB, GL_LUMINANCE, and GL_LUMINANCE_ALPHA	are accepted.
+
+     type	   Specifies the data type for pixels.	Symbolic constants
+		   GL_UNSIGNED_BYTE, GL_BYTE, GL_BITMAP, GL_UNSIGNED_SHORT,
+		   GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT,
+		   GL_UNSIGNED_BYTE_3_3_2_EXT, GL_UNSIGNED_SHORT_4_4_4_4_EXT,
+		   GL_UNSIGNED_SHORT_5_5_5_1_EXT, GL_UNSIGNED_INT_8_8_8_8_EXT,
+		   and GL_UNSIGNED_INT_10_10_10_2_EXT are accepted.
+
+     pixels	   Specifies a pointer to the pixel data.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glDrawPixels reads	pixel data from	memory and writes it into the frame
+     buffer relative to	the current raster position.  Use glRasterPos to set
+     the current raster	position, and use glGet	with argument
+     GL_CURRENT_RASTER_POSITION	to query the raster position.
+
+     Several parameters	define the encoding of pixel data in memory and
+     control the processing of the pixel data before it	is placed in the frame
+     buffer.  These parameters are set with the	commands glPixelStore,
+     glPixelTransfer, glPixelMap, and glPixelZoom.  The	state of
+     GL_INTERLACE_SGIX (controlled by glEnable and glDisable) and the state
+     for the EXT_convolution, SGI_color_matrix,	EXT_histogram, and
+     SGI_color_table extensions	(see the reference pages for glPixelTransfer,
+     glConvolutionFilter2DEXT, glColorTableSGI,	glHistogramEXT,	and
+     glMinmaxEXT) also affect the results of glDrawPixels.  This reference
+     page describes the	effects	on glDrawPixels	of some, but not all, of these
+     parameters.
+
+     type specifies the	data type for pixels.  The following table summarizes
+     the meaning of the	valid constants	for type:
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDrawPixels(3G)	       OpenGL Reference		      glDrawPixels(3G)
+</FONT>
+
+
+    __________________________________________________________________________
+     |_______________________________|________________________________________|
+     |	     GL_UNSIGNED_BYTE	     |	       unsigned	8-bit integer	      |
+     |		 GL_BYTE	     |		signed 8-bit integer	      |
+     |		GL_BITMAP	     | single bits in unsigned 8-bit integers |
+     |	    GL_UNSIGNED_SHORT	     |	      unsigned 16-bit integer	      |
+     |		 GL_SHORT	     |	       signed 16-bit integer	      |
+     |	     GL_UNSIGNED_INT	     |	      unsigned 32-bit integer	      |
+     |		  GL_INT	     |		   32-bit integer	      |
+     |		 GL_FLOAT	     |	  single-precision floating-point     |
+     |	GL_UNSIGNED_BYTE_3_3_2_EXT   |	       unsigned	8-bit integer	      |
+     |GL_UNSIGNED_SHORT_4_4_4_4_EXT  |	      unsigned 16-bit integer	      |
+     |GL_UNSIGNED_SHORT_5_5_5_1_EXT  |	      unsigned 16-bit integer	      |
+     | GL_UNSIGNED_INT_8_8_8_8_EXT   |	      unsigned 32-bit integer	      |
+     |GL_UNSIGNED_INT_10_10_10_2_EXT |	      unsigned 32-bit integer	      |
+     |_______________________________|________________________________________|
+
+     If	type is	GL_UNSIGNED_BYTE, GL_BYTE, GL_UNSIGNED_SHORT, GL_SHORT,
+     GL_UNSIGNED_INT, GL_INT, or GL_FLOAT, then	data is	read as	a sequence of
+     signed or unsigned	bytes, shorts, or integers, or single-precision
+     floating-point values.  Each of these bytes, shorts, integers, or
+     floating-point values is interpreted as one color component, one depth
+     component,	or one index, depending	on format.  Indices are	always treated
+     individually.  Colors are treated as groups of one, two, three, or	four
+     elements, again based on format.  Both individual indices and groups of
+     components	are referred to	as pixels.
+
+     If	type is	GL_UNSIGNED_BYTE_3_3_2,	GL_UNSIGNED_SHORT_4_4_4_4,
+     GL_UNSIGNED_SHORT_5_5_5_1,	GL_UNSIGNED_INT_8_8_8_8, or
+     GL_UNSIGNED_INT_10_10_10_2	then all the elements of each group are	read
+     from a single unsigned byte, unsigned short, or unsigned int.  The	number
+     of	elements per packed pixel is fixed by type, and	must match the number
+     of	elements per group indicated by	format.
+
+     The following table shows which values of format are valid	for each of
+     the packed	pixel types:
+     ________________________________________________________________________
+     |		   type		       number elements	       format	     |
+     |_______________________________________________________________________|
+     |	GL_UNSIGNED_BYTE_3_3_2_EXT	      3		       GL_RGB	     |
+     |GL_UNSIGNED_SHORT_4_4_4_4_EXT	      4		 GL_RGBA,GL_ABGR_EXT |
+     |GL_UNSIGNED_SHORT_5_5_5_1_EXT	      4		 GL_RGBA,GL_ABGR_EXT |
+     | GL_UNSIGNED_INT_8_8_8_8_EXT	      4		 GL_RGBA,GL_ABGR_EXT |
+     |GL_UNSIGNED_INT_10_10_10_2_EXT	      4		 GL_RGBA,GL_ABGR_EXT |
+     |_______________________________________________________________________|
+
+     The elements in a packed pixel are	ordered	such that the first element is
+     in	the most significant bits, followed by the second element, etc.	For
+     example, if type is set to	GL_UNSIGNED_SHORT_4_4_4_4_EXT then element 1
+     is	read from bits 15-12, element 2	is read	from bits 11-8,	element	3 is
+     read from bits 7-4	and element 4 is read from bits	3-0.
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDrawPixels(3G)	       OpenGL Reference		      glDrawPixels(3G)
+</FONT>
+
+
+     The assignment of elements	to fields in the packed	pixel is as described
+     in	the table below:
+
+	   _____________________________________________________________
+	   |____________________________________________________________|
+	   |  GL_RGB	     red	green	    blue		|
+	   |  GL_RGBA	     red	green	    blue	alpha	|
+	   |GL_ABGR_EXT	    alpha	blue	    green	 red	|
+	   |____________________________________________________________|
+
+     If	type is	GL_BITMAP, the data must be unsigned bytes, and	format must be
+     either GL_COLOR_INDEX or GL_STENCIL_INDEX.	 Each unsigned byte is treated
+     as	eight 1-bit pixels, with bit ordering determined by
+     GL_UNPACK_LSB_FIRST. If GL_UNPACK_LSB_FIRST is enabled then the 8
+     single-bit	elements are ordered from most significant to least
+     significant; otherwise the	ordering is from least significant to most
+     significant. (see glPixelStore).
+
+     If	GL_UNPACK_SWAP_BYTES is	enabled	(see glPixelStore), byte swapping is
+     performed as the data is read from	memory.	For pixels that	aren't packed,
+     the byte ordering for multibyte color components, depth components, color
+     indices, or stencil indices is reversed.  That is,	if a four-byte
+     component is made up of bytes b0, b1, b2, b3, it is taken from memory as
+     b3, b2, b1, b0.  In the case of the packed	pixel types, byte swapping is
+     performed before the elements are extracted from each pixel.
+
+     widthxheight pixels are read from memory, starting	at location pixels.
+     By	default, these pixels are taken	from adjacent memory locations,	except
+     that after	all width pixels are read, the read pointer is advanced	to the
+     next four-byte boundary.  The four-byte row alignment is specified	by
+     glPixelStore with argument	GL_UNPACK_ALIGNMENT, and it can	be set to one,
+     two, four,	or eight bytes.	 Other pixel store parameters specify
+     different read pointer advancements, both before the first	pixel is read,
+     and after all width pixels	are read.  Refer to the	glPixelStore reference
+     page for details on these options.
+
+     The widthxheight pixels that are read from	memory are each	operated on in
+     the same way, based on the	values of several parameters specified by
+     glPixelTransfer and glPixelMap.  The details of these operations, as well
+     as	the target buffer into which the pixels	are drawn, are specific	to the
+     format of the pixels, as specified	by format.  These operations generate
+     various fragment values as	described below	for each format.  The number
+     of	fragments generated for	each source pixel and the assignment of	x and
+     y window coordinates to these fragments are common	to all formats and are
+     as	follows.
+
+     If	the current raster position is invalid,	no fragments are generated for
+     any of the	source pixels.	Else, let (xr, yr) be the current raster
+     position, and let n and m be the column and row of	the source pixel,
+     respectively.  For	each source pixel, fragments with values computed
+     according to that pixel are generated for destination pixels whose
+     centers are in the	rectangle with corners at
+     (xr + n x zoomx, yr + m x interlace x zoomy) and
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDrawPixels(3G)	       OpenGL Reference		      glDrawPixels(3G)
+</FONT>
+
+
+     (xr + (n +	1) x zoomx,yr +	(m x interlace + 1) x zoomy).  zoomx and zoomy
+     are the values of GL_ZOOM_X and GL_ZOOM_Y,	respectively, and interlace is
+     1 or 2 depending on whether GL_INTERLACE_SGIX is GL_FALSE or GL_TRUE,
+     respectively.  GL_ZOOM_X and GL_ZOOM_Y, initially set to 1.0, are set
+     using glPixelZoom;	GL_INTERLACE_SGIX, initially disabled, is controlled
+     by	glEnable and glDisable.	 See the NOTES section for additional
+     discussion	of GL_INTERLACE_SGIX.
+
+     Except for	when format is GL_STENCIL_INDEX	the generated fragments	are
+     treated just like the fragments generated by rasterizing points, lines,
+     or	polygons.  Texture mapping, fog, and all the fragment operations are
+     applied before the	fragments are written to the frame buffer. For
+     GL_STENCIL_INDEX only the pixel ownership test, the scissor test, and the
+     stencil writemask affect the writes to the	stencil	buffer.
+
+     format can	assume the following symbolic values:
+
+     GL_COLOR_INDEX
+	  Each pixel is	a single value,	a color	index.	It is converted	to
+	  fixed-point format, with an unspecified number of bits to the	right
+	  of the binary	point, regardless of the memory	data type.  Floating-
+	  point	values convert to true fixed-point values.  Signed and
+	  unsigned integer data	is converted with all fraction bits set	to
+	  zero.	 Bitmap	data convert to	either 0.0 or 1.0.
+
+	  Each fixed-point index is then shifted left by GL_INDEX_SHIFT	bits
+	  and added to GL_INDEX_OFFSET.	 If GL_INDEX_SHIFT is negative,	the
+	  shift	is to the right.  In either case, zero bits fill otherwise
+	  unspecified bit locations in the result.
+
+	  If the GL is in RGBA mode, the resulting index is converted to an
+	  RGBA pixel using the GL_PIXEL_MAP_I_TO_R, GL_PIXEL_MAP_I_TO_G,
+	  GL_PIXEL_MAP_I_TO_B, and GL_PIXEL_MAP_I_TO_A tables.	If the GL is
+	  in color index mode, and if GL_MAP_COLOR is true, the	index is
+	  replaced with	the value that it references in	lookup table
+	  GL_PIXEL_MAP_I_TO_I.	Whether	the lookup replacement of the index is
+	  done or not, the integer part	of the index is	then ANDed with	2b-1,
+	  where	b is the number	of bits	in a color index buffer.
+
+	  The resulting	index or RGBA color components,	and the	current	raster
+	  position z and texture coordinates are assigned to each of the
+	  fragments generated for the source pixel.
+
+     GL_STENCIL_INDEX
+	  Each pixel is	a single value,	a stencil index.  It is	converted to
+	  fixed-point format, with an unspecified number of bits to the	right
+	  of the binary	point, regardless of the memory	data type.  Floating-
+	  point	values convert to true fixed-point values.  Signed and
+	  unsigned integer data	is converted with all fraction bits set	to
+	  zero.	 Bitmap	data convert to	either 0.0 or 1.0.
+
+
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDrawPixels(3G)	       OpenGL Reference		      glDrawPixels(3G)
+</FONT>
+
+
+	  Each fixed-point index is then shifted left by GL_INDEX_SHIFT	bits,
+	  and added to GL_INDEX_OFFSET.	 If GL_INDEX_SHIFT is negative,	the
+	  shift	is to the right.  In either case, zero bits fill otherwise
+	  unspecified bit locations in the result.  If GL_MAP_STENCIL is true,
+	  the index is replaced	with the value that it references in lookup
+	  table	GL_PIXEL_MAP_S_TO_S.  Whether the lookup replacement of	the
+	  index	is done	or not,	the integer part of the	index is then ANDed
+	  with 2b-1, where b is	the number of bits in the stencil buffer.
+
+	  The resulting	stencil	value is assigned to each of the fragments
+	  generated for	the source pixel.
+
+     GL_DEPTH_COMPONENT
+	  Each pixel is	a single-depth component.  Floating-point data is
+	  converted directly to	an internal floating-point format with
+	  unspecified precision.  Signed integer data is mapped	linearly to
+	  the internal floating-point format such that the most	positive
+	  representable	integer	value maps to 1.0, and the most	negative
+	  representable	value maps to -1.0.  Unsigned integer data is mapped
+	  similarly:  the largest integer value	maps to	1.0, and zero maps to
+	  0.0.	The resulting floating-point depth value is then multiplied by
+	  GL_DEPTH_SCALE and added to GL_DEPTH_BIAS.  The result is clamped to
+	  the range [0,1].
+
+	  The resulting	depth component, and the current raster	position color
+	  or color index and texture coordinates are assigned to each of the
+	  fragments generated for the source pixel.
+
+     GL_RGBA
+
+     GL_ABGR_EXT
+	  Each pixel is	a four-component group;	for GL_RGBA, the red component
+	  is first, followed by	green, followed	by blue, followed by alpha;
+	  for GL_ABGR_EXT the order is alpha, blue, green, and then red.
+	  Floating-point values	are converted directly to an internal
+	  floating-point format	with unspecified precision.  Signed integer
+	  values are mapped linearly to	the internal floating-point format
+	  such that the	most positive representable integer value maps to 1.0,
+	  and the most negative	representable value maps to -1.0.  Unsigned
+	  integer data is mapped similarly:  the largest integer value maps to
+	  1.0, and zero	maps to	0.0.  The resulting floating-point color
+	  values are then multiplied by	GL_c_SCALE and added to	GL_c_BIAS,
+	  where	c is RED, GREEN, BLUE, or ALPHA	for the	respective color
+	  components.  The results are clamped to the range [0,1].
+
+	  If GL_MAP_COLOR is true, each	color component	is scaled by the size
+	  of lookup table GL_PIXEL_MAP_c_TO_c, then replaced by	the value that
+	  it references	in that	table.	c is R,	G, B, or A, respectively.
+
+	  The resulting	RGBA color components, and the current raster position
+	  z and	texture	coordinates are	assigned to each of the	fragments
+	  generated for	the source pixel.
+
+
+
+									Page 5
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDrawPixels(3G)	       OpenGL Reference		      glDrawPixels(3G)
+</FONT>
+
+
+	  GL_RGBA may be faster	or slower than GL_ABGR_EXT on a	given platform
+	  depending on the internal representation of the colors.
+
+     GL_RED
+	  Each pixel is	a single red component.	 This component	is converted
+	  to the internal floating-point format	in the same way	as the red
+	  component of an RGBA pixel is, then it is converted to an RGBA pixel
+	  with green and blue set to 0.0, and alpha set	to 1.0.	 After this
+	  conversion, the pixel	is treated just	as if it had been read as an
+	  RGBA pixel.
+
+     GL_GREEN
+	  Each pixel is	a single green component.  This	component is converted
+	  to the internal floating-point format	in the same way	as the green
+	  component of an RGBA pixel is, then it is converted to an RGBA pixel
+	  with red and blue set	to 0.0,	and alpha set to 1.0.  After this
+	  conversion, the pixel	is treated just	as if it had been read as an
+	  RGBA pixel.
+
+     GL_BLUE
+	  Each pixel is	a single blue component.  This component is converted
+	  to the internal floating-point format	in the same way	as the blue
+	  component of an RGBA pixel is, then it is converted to an RGBA pixel
+	  with red and green set to 0.0, and alpha set to 1.0.	After this
+	  conversion, the pixel	is treated just	as if it had been read as an
+	  RGBA pixel.
+
+     GL_ALPHA
+	  Each pixel is	a single alpha component.  This	component is converted
+	  to the internal floating-point format	in the same way	as the alpha
+	  component of an RGBA pixel is, then it is converted to an RGBA pixel
+	  with red, green, and blue set	to 0.0.	 After this conversion,	the
+	  pixel	is treated just	as if it had been read as an RGBA pixel.
+
+     GL_RGB
+	  Each pixel is	a three-component group:  red first, followed by
+	  green, followed by blue.  Each component is converted	to the
+	  internal floating-point format in the	same way as the	red, green,
+	  and blue components of an RGBA pixel are.  The color triple is
+	  converted to an RGBA pixel with alpha	set to 1.0.  After this
+	  conversion, the pixel	is treated just	as if it had been read as an
+	  RGBA pixel.
+
+     GL_LUMINANCE
+	  Each pixel is	a single luminance component.  This component is
+	  converted to the internal floating-point format in the same way as
+	  the red component of an RGBA pixel is, then it is converted to an
+	  RGBA pixel with red, green, and blue set to the converted luminance
+	  value, and alpha set to 1.0.	After this conversion, the pixel is
+	  treated just as if it	had been read as an RGBA pixel.
+
+
+
+
+
+									Page 6
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDrawPixels(3G)	       OpenGL Reference		      glDrawPixels(3G)
+</FONT>
+
+
+     GL_LUMINANCE_ALPHA
+	  Each pixel is	a two-component	group:	luminance first, followed by
+	  alpha.  The two components are converted to the internal floating-
+	  point	format in the same way as the red component of an RGBA pixel
+	  is, then they	are converted to an RGBA pixel with red, green,	and
+	  blue set to the converted luminance value, and alpha set to the
+	  converted alpha value.  After	this conversion, the pixel is treated
+	  just as if it	had been read as an RGBA pixel.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Enabling GL_INTERLACE_SGIX	is equivalent to having	a source rectangle
+     with image	height equal to	2xheight where every other row contains
+     "transparent" pixels that do not affect the corresponding destination
+     pixels in the frame buffer.  For example:
+
+	  glEnable(GL_INTERLACE_SGIX);
+	  set current raster position to (xr,yr)
+	  glDrawPixels(width, height, GL_RGBA, GL_UNSIGNED_BYTE, I0);
+	  set raster position to (xr,yr+zoomy)
+	  glDrawPixels(width, height, GL_RGBA, GL_UNSIGNED_BYTE, I1);
+
+
+     is	equivalent to
+
+	  glDisable( GL_INTERLACE_SGIX);
+	  set current raster position to (xr,yr)
+	  glDrawPixels(width, 2xheight,	GL_RGBA, GL_UNSIGNED_BYTE, I2);
+
+     where pixel rows (0,2,4,...) of I2	are from image I0, and rows
+     (1,3,5,...) are from image	I1.
+
+     If	type is	set to GL_UNSIGNED_BYTE_3_3_2_EXT,
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT and	the
+     EXT_packed_pixels extension is not	supported then a GL_INVALID_ENUM error
+     is	generated.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if either width or height is	negative.
+
+     GL_INVALID_ENUM is	generated if format or type is not one of the accepted
+     values.
+
+     GL_INVALID_OPERATION is generated if type is set to
+     GL_UNSIGNED_BYTE_3_3_2_EXT, GL_UNSIGNED_SHORT_4_4_4_4_EXT,
+     GL_UNSIGNED_SHORT_5_5_5_1_EXT, GL_UNSIGNED_INT_8_8_8_8_EXT, or
+     GL_UNSIGNED_INT_10_10_10_2_EXT and	the number of elements indicated by
+     type does not match the number indicated by format.
+
+     GL_INVALID_OPERATION is generated if format is GL_RED, GL_GREEN, GL_BLUE,
+     GL_ALPHA, GL_RGB, GL_RGBA,	GL_ABGR_EXT, GL_LUMINANCE, or
+     GL_LUMINANCE_ALPHA, and the GL is in color	index mode.
+
+
+
+									Page 7
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDrawPixels(3G)	       OpenGL Reference		      glDrawPixels(3G)
+</FONT>
+
+
+     GL_INVALID_ENUM is	generated if type is GL_BITMAP and format is not
+     either GL_COLOR_INDEX or GL_STENCIL_INDEX.
+
+     GL_INVALID_OPERATION is generated if format is GL_STENCIL_INDEX and there
+     is	no stencil buffer.
+
+     GL_INVALID_OPERATION is generated if format is GL_DEPTH_COMPONENT and
+     there is no depth buffer.
+
+     GL_INVALID_OPERATION is generated if glDrawPixels is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_CURRENT_RASTER_POSITION
+     glGet with	argument GL_CURRENT_RASTER_POSITION_VALID
+     glGet with	argument GL_INTERLACE_SGIX
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems convolution may not be
+     used in the following circumstances:
+
+	  1.  When rendering to	pixmaps.
+
+	  2.  When fragment processing (texturing, depth buffering, alpha
+	      testing, multisampling, fog) is enabled.
+
+	  3.  When histogramming or minmax is enabled.
+
+	  4.  When either of the pixel zoom factors has	a value	other than 1.0
+	      or -1.0.
+
+     In	these cases, glDrawPixels and glCopyPixels report a
+     GL_INVALID_OPERATION error	and do not transfer any	pixels.
+
+     Loading a convolution filter with some combinations of pixel transfer
+     modes may be unreliable on	InfiniteReality	systems.  Straightforward
+     transfers are known to work, though.  The remaining problems will be
+     fixed in the next release.
+
+     Performance note for RealityEngine, RealityEngine2, and VTX systems:
+     Unsigned color types use the fastest pixel-drawing	path.  Smaller types
+     (e.g., GL_UNSIGNED_BYTE) require less host-to-graphics bandwidth, and are
+     therefore faster than larger types	(e.g., GL_UNSIGNED_INT).  Signed and
+     float types use the significantly slower floating-point pixel-drawing
+     path.  The	slower pixel-drawing path is also used when the	format is
+     GL_DEPTH_COMPONENT	and when fragment operations (i.e., depth or alpha
+     testing, texturing, fog, etc.) are	enabled.
+
+     For best performance on XS, XZ, Elan, and Extreme systems set type	to
+     GL_UNSIGNED_BYTE and, when	drawing	to the color buffer, set format	to
+     GL_ABGR_EXT.
+
+
+
+									Page 8
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDrawPixels(3G)	       OpenGL Reference		      glDrawPixels(3G)
+</FONT>
+
+
+     On	InfiniteReality	systems, signed	color-index pixels written to
+     drawables with dual-personality (luminance	+ color-index) visuals will be
+     sign-extended into	the high-order bits of the framebuffer.	 For example,
+     writing a signed byte value of 0x88 would yield 0xF88 in a	12-bit
+     drawable.
+
+     The SGIX_interlace	extension is supported only on InfiniteReality systems
+     and on RealityEngine, RealityEngine2, and VTX systems.
+
+     The EXT_packed_pixels extension is	not supported on RealityEngine,
+     RealityEngine2, and VTX systems; it will be supported on High Impact and
+     Maximum Impact systems in a future	release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glAlphaFunc, glBlendFunc, glColorTableSGI,	glCopyPixels,
+     glConvolutionFilter2DEXT, glDepthFunc, glEnable, glHistogramEXT,
+     glLogicOp,	glMinmaxEXT, glPixelMap, glPixelStore, glPixelTransfer,
+     glPixelZoom, glRasterPos, glReadPixels, glScissor,
+     glSeparableFilter2DEXT, glStencilFunc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 9
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

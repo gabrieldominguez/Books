@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0064)http://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html -->
+<HTML><HEAD><TITLE>The Bresenham Line-Drawing Algorithm</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR></HEAD>
+<BODY>
+<H2>The Bresenham Line-Drawing Algorithm</H2>
+<HR>
+
+<P>
+<H3><A name=basic>The basic Bresenham algorithm</A></H3>Consider drawing a line 
+on a raster grid where we restrict the allowable slopes of the line to the range 
+<IMG src="The Bresenham Line-Drawing Algorithm_archivos/slopelt1.gif">.
+<P>If we further restrict the line-drawing routine so that it always increments 
+<EM>x</EM> as it plots, it becomes clear that, having plotted a point at 
+<EM>(x,y)</EM>, the routine has a severely limited range of options as to where 
+it may put the <EM>next</EM> point on the line:
+<P>
+<UL>
+  <LI>It may plot the point <EM>(x+1,y)</EM>, or: 
+  <LI>It may plot the point <EM>(x+1,y+1)</EM>. </LI></UL>
+<P>So, working in the <EM>first positive octant</EM> of the plane, line drawing 
+becomes a matter of deciding between two possibilities at each step.
+<P>We can draw a diagram of the situation which the plotting program finds 
+itself in having plotted <EM>(x,y)</EM>.
+<P>
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/bres1.gif"></CENTER>
+<P>In plotting <EM>(x,y)</EM> the line drawing routine will, in general, be 
+making a compromise between what it would like to draw and what the resolution 
+of the screen actually allows it to draw. Usually the plotted point 
+<EM>(x,y)</EM> will be in error, the actual, mathematical point on the line will 
+not be addressable on the pixel grid. So we associate an error, <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/eps.gif">, with each 
+<EM>y</EM> ordinate, the real value of <EM>y</EM> should be <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/y_eps.gif">. This error will 
+range from -0.5 to just under +0.5.
+<P>In moving from <EM>x</EM> to <EM>x+1</EM> we increase the value of the true 
+(mathematical) y-ordinate by an amount equal to the slope of the line, 
+<EM>m</EM>. We will choose to plot <EM>(x+1,y)</EM> if the difference between 
+this new value and <EM>y</EM> is less than 0.5.
+<P>
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/yemlty5.gif"></CENTER>
+<P>Otherwise we will plot <EM>(x+1,y+1)</EM>. It should be clear that by so 
+doing we minimise the total error between the mathematical line segment and what 
+actually gets drawn on the display.
+<P>The error resulting from this new point can now be written back into <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/eps.gif">, this will allow us 
+to repeat the whole process for the next point along the line, at <EM>x+2</EM>.
+<P>The new value of error can adopt one of two possible values, depending on 
+what new point is plotted. If <EM>(x+1,y)</EM> is chosen, the new value of error 
+is given by: 
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/epsnew1.gif"></CENTER>
+<P>Otherwise it is: 
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/epsnew2.gif"></CENTER>
+<P>This gives an algorithm for a DDA which avoids rounding operations, instead 
+using the error variable <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/eps.gif"> to control 
+plotting: 
+<P>
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/pseudo1.gif"></CENTER>
+<P>This still employs floating point values. Consider, however, what happens if 
+we multiply across both sides of the plotting test by <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/dx.gif"> and then by 2: 
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/derive1.gif"></CENTER>
+<P>All quantities in this inequality are now integral.
+<P>Substitute <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/epsprime.gif"> for <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/epsdx.gif">. The test 
+becomes: 
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/test1.gif"></CENTER>
+<P>This gives an <EM>integer-only</EM> test for deciding which point to plot.
+<P>The update rules for the error on each step may also be cast into <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/epsprime.gif"> form. Consider 
+the floating-point versions of the update rules: 
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/update1.gif"></CENTER>
+<P>Multiplying through by <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/dx.gif"> yields: 
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/update2.gif"></CENTER>
+<P>which is in <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/epsprime.gif"> form.
+<P>
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/update3.gif"></CENTER>
+<P>Using this new ``error'' value, <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/epsprime.gif">, with the new 
+test and update equations gives Bresenham's integer-only line drawing algorithm:
+<P>
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/pseudo2.gif"></CENTER>
+<P>
+<UL>
+  <LI>Integer only - hence efficient (fast). 
+  <LI>Multiplication by 2 can be implemented by left-shift. 
+  <LI>This version limited to slopes in the first octant, <IMG 
+  src="The Bresenham Line-Drawing Algorithm_archivos/slopelt1.gif">. </LI></UL>
+<P>Here is a C++ implementation of the Bresenham algorithm for line segments in 
+the first octant.
+<P><PRE>    void linev6(Screen &amp;s,
+              unsigned x1, unsigned y1,
+              unsigned x2, unsigned y2,
+              unsigned char colour )
+    {
+      int dx  = x2 - x1,
+          dy  = y2 - y1,
+          y   = y1,
+          eps = 0;
+    
+      for ( int x = x1; x &lt;= x2; x++ )  {
+        s.Plot(x,y,colour);
+        eps += dy;
+        if ( (eps &lt;&lt; 1) &gt;= dx )  {
+          y++;  eps -= dx;
+        }
+      }
+    }
+</PRE>This is an all-integer function, employs left shift for multiplication and 
+eliminates redundant operations by tricky use of the <CODE>eps</CODE> variable.
+<P>This implementation of Bresenham's algorithm is incomplete, it does not check 
+the validity of its arguments. A real implementation should do this. In fact, a 
+real implementation of Bresenham's algorithm should do more than simply reject 
+lines with slopes lying outside the first octant, it should handle lines of 
+arbitrary slope.
+<P>
+<HR>
+
+<P>
+<H3><A name=slopes>Handling multiple slopes</A></H3>If we try out the C++ 
+implementation of the Bresenham algorithm, we find it has some peculiar 
+properties.
+<P>As expected, it fails to plot lines with negative slopes (try it and see what 
+happens). It also fails to plot lines of positive slope greater than 1 (this is 
+an interesting case, try it also and see if you can explain what is happening).
+<P>More unusually, we find that the order in which the endpoints are supplied to 
+this routine is significant, it will only work as long as <CODE>x1</CODE> is 
+smaller than <CODE>x2</CODE>.
+<P>In fact, if we have two line segments with the same endpoints, and the same 
+slope, this routine may draw one of them successfully but fails to draw the 
+other one.
+<P>
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/lsdlfp.gif"></CENTER>
+<P>Of course, this is not surprising really, when we consider that the function 
+works by <STRONG>incrementing</STRONG> <EM>x</EM>. It does emphasise, however, 
+that the routine is plotting <EM>vectors</EM>, direction is significant. 
+Considering all the vectors from <EM>(x1,y1)</EM> to <EM>(x2,y2)</EM> we find 
+that there are eight regions, (the ``octants'') and the basic Bresenham 
+algorithm works in only one of them.
+<P>
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/octants.gif"></CENTER>
+<P>A full implementation of the Bresenham algorithm must, of course, be able to 
+handle all combinations of slope and endpoint order.
+<P>Some of the regions in the plane, those for which <EM>x2</EM> is smaller than 
+<EM>x1</EM> can be handled by exchanging the endpoints of the line segment.
+<P>It is also clear that we will need a piece of code to handle large slopes by 
+stepping over <EM>y</EM> instead of <EM>x</EM> values.
+<P>However, careful consideration of the diagram will reveal that there is one 
+case which cannot be reduced to a version of the algorithm we have already 
+looked at. If we want to draw a line having a small <EM>negative</EM> slope, we 
+will have to consider a modification of the basic Bresenham algorithm to do 
+this. (The same point applies to lines of <EM>large</EM> negative slope as well, 
+but the code for small negative slopes may be adapted to this case by stepping 
+over <EM>y</EM> instead of <EM>x</EM>).
+<P>
+<HR>
+
+<P>
+<H3><A name=basic>Bresenham for negative slopes</A></H3>
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/bres2.gif"></CENTER>
+<P>Consider a line with negative slope between 0 and 1 (i.e., small negative 
+slope. Given that a line-drawing algorithm has plotted a point at 
+<EM>(x,y)</EM>, its choice about where to plot the next point is between 
+<EM>(x+1,y-1)</EM> and <EM>(x+1,y)</EM>.
+<P>As usual there will be an error, <IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/eps.gif">, associated with 
+<EM>y</EM>. Choice of the next point to plot will be based on an attempt to 
+minimise error, so plot <EM>(x+1,y)</EM> if:
+<P>
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/yyemlt5.gif"></CENTER>
+<P>Otherwise plot <EM>(x+1,y-1)</EM>. Notice that the error generated by the 
+above is <EM>negative</EM>. A little manipulation gives a decision inequality: 
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/emgt5.gif"></CENTER>
+<P>It is worth comparing this with the decision inequality for the case of 
+positive slope.
+<P>The error update rules are also subtly different for this case of negative 
+slope.
+<P>If plotting <EM>(x+1,y)</EM> the <EM>new</EM> value of error is given by:
+<P>
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/epsnew3.gif"></CENTER>
+<P>Otherwise, plotting <EM>(x+1,y-1)</EM> gives new error:
+<P>
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/epsnew4.gif"></CENTER>
+<P>A pseudocode algorithm for this routine may be written as: 
+<CENTER><IMG 
+src="The Bresenham Line-Drawing Algorithm_archivos/pseudo3.gif"></CENTER>
+<P>This is cast in terms of floating-point values.. It is, however, a trivial 
+matter to convert the algorithm into an integer-only form.
+<P>
+<HR>
+
+<P>
+<ADDRESS>Colin Flanagan / flanaganc@ul.ie </ADDRESS></BODY></HTML>

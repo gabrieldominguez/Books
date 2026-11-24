@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxisdirect Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxisdirect</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXIsDirect(3G)		    OpenGL Reference - GLX	       glXIsDirect(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXIsDirect - indicate whether direct rendering is	enabled
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     Bool glXIsDirect( Display *dpy,
+		       GLXContext ctx )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy  Specifies the	connection to the X server.
+
+
+     ctx  Specifies the	GLX context that is being queried.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXIsDirect returns True if ctx is	a direct rendering context, False
+     otherwise.	 Direct	rendering contexts pass	rendering commands directly
+     from the calling process's	address	space to the rendering system,
+     bypassing the X server.  Nondirect	rendering contexts pass	all rendering
+     commands to the X server.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLXBadContext is generated	if ctx is not a	valid GLX context.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateContext
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

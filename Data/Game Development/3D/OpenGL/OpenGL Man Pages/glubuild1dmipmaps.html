@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glubuild1dmipmaps Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glubuild1dmipmaps</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluBuild1DMipmaps(3G)	       OpenGL Reference		 gluBuild1DMipmaps(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluBuild1DMipmaps - builds	1-D mipmaps
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLint gluBuild1DMipmaps( GLenum target,
+			      GLint component,
+			      GLsizei width,
+			      GLenum format,
+			      GLenum type,
+			      const void *data )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target	Specifies the target texture.  Must be GL_TEXTURE_1D.
+
+     component	Specifies the number of	color components in the	texture.  Must
+		be 1, 2, 3, or 4 or one	of the following symbolic constants:
+		GL_ALPHA, GL_INTENSITY_EXT, GL_LUMINANCE, GL_LUMINANCE_ALPHA,
+		GL_RGB,	GL_RGBA.
+
+     width	Specifies the width in pixels of the texture image.
+
+     format	Specifies the format of	the pixel data.	 Must be one of:
+		GL_COLOR_INDEX,	GL_RED,	GL_GREEN, GL_BLUE, GL_ALPHA, GL_RGB,
+		GL_RGBA, GL_LUMINANCE, GL_LUMINANCE_ALPHA and GL_ABGR_EXT.
+
+     type	Specifies the data type	for data.  Must	be one of:
+		GL_UNSIGNED_BYTE, GL_BYTE, GL_BITMAP, GL_UNSIGNED_SHORT,
+		GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT,
+		GL_UNSIGNED_BYTE_3_3_2_EXT, GL_UNSIGNED_SHORT_4_4_4_4_EXT,
+		GL_UNSIGNED_SHORT_5_5_5_1_EXT, GL_UNSIGNED_INT_8_8_8_8_EXT,
+		and GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+     data	Specifies a pointer to the image data in memory.
+
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluBuild1DMipmaps builds a	series of prefiltered 1-D texture maps of
+     decreasing	resolutions called mipmaps. These are used for the
+     antialiasing of texture mapped primitives.
+
+     A return value of 0 indicates success. Otherwise a	GLU error code is
+     returned (see gluErrorString).
+
+     Initially,	the width of data is checked to	see if it is a power of	two.
+     If	not, a copy of data is scaled up or down to the	nearest	power of two.
+     This copy will be used for	subsequent mipmapping operations described
+     below. (If	width is exactly between powers	of 2, then the copy of data
+     will scale	upwards.)  For example,	if width is 57 then a copy of data
+     will scale	up to 64 before	mipmapping takes place.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">gluBuild1DMipmaps(3G)	       OpenGL Reference		 gluBuild1DMipmaps(3G)
+</FONT>
+
+
+     Then, proxy textures (see glTexImage1D) are used to determine if the
+     implementation can	fit the	requested texture. If not, width is
+     continually halved	until it fits.
+
+     Next, a series of mipmaps is built	by decimating a	copy of	data in	half
+     until size	1 is reached. At each level, each texel	in the halved mipmap
+     is	an average of the corresponding	two texels in the larger mipmap.
+
+     glTexImage1D is called to load each of these mipmaps by level.  Level 0
+     is	a copy of data.	The highest level is log2(width).  For example,	if
+     width is 64 and the implementation	can store a texture of this size, the
+     following mipmaps are built: 64x1,	32x1, 16x1, 8x1, 4x1, 2x1 and 1x1.
+     These correspond to levels	0 through 6, respectively.
+
+     Please refer to the glTexImage1D reference	page for a description of the
+     acceptable	values for the type parameter. See the glDrawPixels reference
+     page for a	description of the acceptable values for the data parameter.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Note that there is	no direct way of querying the maximum level. This can
+     be	queried	indirectly via glGetTexLevelParameter. First, query for	the
+     width actually used at level 0. (The width	may be &amp;lt;= width	since proxy
+     textures might have strunk	it to fit the implementation.)	Then the
+     maximum level can be derived from the formula log2(width).
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLU_INVALID_VALUE is returned if width is &amp;lt; 1.
+
+     GLU_INVALID_ENUM is returned if format or type are	not legal.
+
+     GLU_INVALID_ENUM is returned if type is GL_UNSIGNED_BYTE_3_3_2_EXT	and
+     format is not GL_RGB.
+
+     GLU_INVALID_ENUM is returned if type is GL_UNSIGNED_SHORT_4_4_4_4_EXT and
+     format is neither GL_RGBA nor GL_ABGR_EXT.
+
+     GLU_INVALID_ENUM is returned if type is GL_UNSIGNED_SHORT_5_5_5_1_EXT and
+     format is neither GL_RGBA nor GL_ABGR_EXT.
+
+     GLU_INVALID_ENUM is returned if type is GL_UNSIGNED_INT_8_8_8_8_EXT and
+     format is neither GL_RGBA nor GL_ABGR_EXT.
+
+     GLU_INVALID_ENUM is returned if type is GL_UNSIGNED_INT_10_10_10_2_EXT
+     and format	is neither GL_RGBA nor GL_ABGR_EXT.
+
+<FONT COLOR="#0000CC">BUGS
+</FONT>     Passing GL_STENCIL_INDEX or GL_DEPTH_COMPONENT as format will incorrectly
+     return 0 and set the error	code to	GL_INVALID_ENUM. It should return
+     GLU_INVALID_ENUM and not set an error code.
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">gluBuild1DMipmaps(3G)	       OpenGL Reference		 gluBuild1DMipmaps(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDrawPixels, glTexImage1D, glTexImage2D, gluBuild2DMipmaps,
+     gluErrorString, glGetTexImage, glGetTexLevelParameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

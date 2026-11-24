@@ -1,0 +1,709 @@
+<HTML><HEAD><TITLE>program three</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#E0E0E0 ALINK=#FFFFFF>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070>source <FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </FONT></NOBR></B></font><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">sour<br>
+
+    urce </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source&nbsp;<br>
+
+    </font></B></NOBR><font face="Helvetica, Sans-Serif" size="4"><b><nobr><font color="#204070">u
+
+    </font><FONT face="Helvetica, Sans-Serif" size=4 COLOR="#204070"><FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font size="4" color="#204070">source </font><font size="4" color="#305080">source</font><font size="4" color="#204070">
+
+    source</font><font size="4" color="#305080"> source </font><font color="#204070">source
+
+    </font><font color="#305080">sou</font></nobr></b></font></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font></font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<P align="left"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b><a href="download/program3.zip" tppabs="http://home.clara.net/paulyg/download/program3.zip">[program
+
+three]</a>&nbsp;</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">
+
+</font>Our first venture into texture mapping is made easy.&nbsp; We 'cheat' by
+
+loading an image in .raw format and using the glu sphere's automatic texture
+
+coordinate generation feature.&nbsp; The exercise is still useful though - as
+
+many concepts explored here will be expanded upon in later programs.&nbsp;&nbsp;&nbsp;<br>
+
+The program is copied from the previous example, only the texture load function,
+
+initialisation function and display functions are different.</font><P align="center"><FONT FACE="Helvetica, Sans-Serif" SIZE=2><img border="0" src="graphics/prog3.gif" tppabs="http://home.clara.net/paulyg/graphics/prog3.gif" width="258" height="277"><br>
+
+<br>
+
+
+
+</font>
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+ </B></NOBR><NOBR><B><font face="Helvetica, Sans-Serif" size="4"><font color="#305080"> 
+
+      </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">.raw format is a
+
+good choice for your first texture loader.&nbsp; It has no header information to
+
+read, no palettes, just 'raw' red, green and blue values.&nbsp;&nbsp;<br>
+
+<br>
+
+Firstly, notice the many parameters.&nbsp; The first takes the filename, the next
+
+three integers take the image width, height and depth (remember, in .raw format
+
+this data isn't stored anywhere for us).&nbsp; We can set the texture mapping
+
+type via the last two parameters.</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]<b>&nbsp;&nbsp;&nbsp;</b> <b>void</b> load_texture ( <b>char</b> *file_name, <b>int</b> width,
+
+<b>int</b> height, <b>int</b> depth, GLenum colour_type, GLenum filter_type )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {</font>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Line 3 creates a pointer to an (as yet unallocated) array of gl unsigned bytes -
+
+this will store our image until we've passed it to opengl.&nbsp; Line 4 stores
+
+the file pointer, don't worry about that.</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLubyte *raw_bitmap ;<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FILE&nbsp;&nbsp;&nbsp; *file;</font>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">The <b> if</b> statement from line 6-10 opens the file and reports an error if it
+
+doesn't exist.&nbsp;&nbsp;</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b> ((file = fopen(file_name, "rb"))==NULL)<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("File Not Found :
+
+%s\n&quot;,file_name);<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit (1);<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">Line 11 allocates the correct number of bytes for the size
+
+and depth of the image.&nbsp; Remember, our image depth will usually be 3 -- one
+
+'channel' each for red, green and blue values.&nbsp;&nbsp; </font><FONT face="Courier New" SIZE=2>
+
+
+
+
+
+<br>
+
+
+
+</font>
+
+<font face="Helvetica, Sans-Serif" size="2">
+
+Lines 13-18 check if the memory was allocated correctly and quit the program if
+
+there was a problem.</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; raw_bitmap = (GLubyte
+
+*) malloc ( width * height * depth * ( sizeof ( GLubyte )) );<br>
+
+[12]<br>
+
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b>  ( raw_bitmap == NULL )<br>
+
+[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+
+[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf (
+
+&quot;Cannot allocate memory for texture\n&quot; );<br>
+
+[16]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fclose ( file
+
+);<br>
+
+[17]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; exit&nbsp;&nbsp;
+
+( 1 );<br>
+
+[18]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</font>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">Line 19 reads the required number of bytes from the file and places them into
+
+our glubyte array.&nbsp; Line 20 closes the close as it isn't required
+
+anymore.&nbsp;&nbsp;</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[19]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fread&nbsp;
+
+( raw_bitmap , width * height * depth, 1 , file );<br>
+
+[20]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fclose ( file);</font>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">Lines 22-25 set the texture's mapping type and environment
+
+settings.&nbsp; </font><FONT face="Courier New" SIZE=2>GL_TEXTURE_MAG_FILTER</font><font face="Helvetica, Sans-Serif" size="2">
+
+and </font><FONT face="Courier New" SIZE=2>GL_TEXTURE_MIN_FILTER </font><font face="Helvetica, Sans-Serif" size="2">are
+
+enumerands that&nbsp;let us change the way in which opengl magnifies and
+
+minifies the texture.&nbsp; If we passed </font><FONT face="Courier New" SIZE=2>GL_LINEAR
+
+</font><font face="Helvetica, Sans-Serif" size="2">to the function, our texture
+
+would be interpolated using bilinear filtering (in other words, it'd appear
+
+smoothed).&nbsp; If we passed </font><FONT face="Courier New" SIZE=2>GL_NEAREST </font><font face="Helvetica, Sans-Serif" size="2">then
+
+no smoothing would occur.&nbsp; By passing </font><FONT face="Courier New" SIZE=2>
+
+
+
+
+
+ GL_MODULATE </font><font face="Helvetica, Sans-Serif" size="2">to the texture
+
+environment function, we tell opengl to blend the texture with the base colour
+
+of the object.&nbsp; Had we specified </font><FONT face="Courier New" SIZE=2>GL_DECAL
+
+</font><font face="Helvetica, Sans-Serif" size="2">or </font><FONT face="Courier New" SIZE=2>GL_REPLACE
+
+</font><font face="Helvetica, Sans-Serif" size="2">then the base colour (and
+
+therefore our lighting effect) would be replaced purely with the colours of the
+
+texture.</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[22]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/texparameter.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/texparameter.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/texparameter.html" target="_blank">glTexParameteri</a>
+
+( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, filter_type );<br>
+
+[23]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
+
+filter_type );<br>
+
+[24]<br>
+
+[25]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/texenv.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/texenv.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/texenv.html" target="_blank">glTexEnvf</a>
+
+( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );</font>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">Line 27 passes the image to opengl
+
+using the function </font><FONT face="Courier New" SIZE=2>gluBuild2DMipmaps</font><font face="Helvetica, Sans-Serif" size="2">.&nbsp;
+
+Read a graphics book for a description of mipmaps.&nbsp; This function will also
+
+resize the texture map if it doesn't conform to the opengl restriction of height
+
+and width values being a power of 2.&nbsp;&nbsp;</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[27]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/build2dmipmaps.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/build2dmipmaps.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/glu/build2dmipmaps.html" target="_blank">gluBuild2DMipmaps</a>
+
+( GL_TEXTURE_2D, colour_type,
+
+width, height, colour_type, GL_UNSIGNED_BYTE, raw_bitmap );</font>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">We don't need our texture in
+
+the temporary array anymore as it has been passed to opengl. We use the standard
+
+C library call 'free' to return the allocated memory.&nbsp;</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[29]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; free ( raw_bitmap );<br>
+
+[30]&nbsp;&nbsp; }<br>
+
+
+
+</font>
+
+<hr>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">Lines 1-11 in
+
+our intialisation function are the same as before.&nbsp; We set up the
+
+illumination model and material properties.</font>
+
+
+
+
+
+<p class="code"><font face="Courier New" size="2">[1]&nbsp;&nbsp;&nbsp; <b>void</b> init ( <b>void</b> )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable ( GL_LIGHTING );<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLightModelfv (
+
+GL_LIGHT_MODEL_AMBIENT, ambient_light );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLightfv ( GL_LIGHT0,
+
+GL_DIFFUSE,source_light );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLightfv ( GL_LIGHT0,
+
+GL_POSITION,light_pos&nbsp;&nbsp; );<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable&nbsp; ( GL_LIGHT0 );<br>
+
+[9]<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable&nbsp; ( GL_COLOR_MATERIAL );<br>
+
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glColorMaterial ( GL_FRONT,
+
+GL_AMBIENT_AND_DIFFUSE );</font>
+
+
+
+
+
+<p><FONT FACE="Helvetica, Sans-Serif" SIZE=2>Next we enable opengl texturing.&nbsp; The function on line 13 tells opengl how
+
+pixels are stored in the image array we're going to give it.&nbsp; The
+
+parameters here set it up so that each pixel is tightly packed (meaning there
+
+are no 'gaps' in the data).
+
+
+
+</font>
+
+
+
+
+
+<p class="code"><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT face="Courier New" SIZE=2>[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   glEnable ( GL_TEXTURE_2D );<br>
+
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/pixelstore.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/pixelstore.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/pixelstore.html" target="_blank">glPixelStorei</a> ( GL_UNPACK_ALIGNMENT, 1
+
+);</font>
+
+
+
+</font>
+
+
+
+
+
+<p><FONT FACE="Helvetica, Sans-Serif" SIZE=2>Line 15 calls our texture load function, notice that we specify that our texture
+
+is made up from red, green and blue values (<FONT face="Courier New" SIZE=2>GL_RGB</font>)
+
+and that we want our texture filtering to be bilinear.
+
+
+
+</font>
+
+
+
+
+
+<p class="code"><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT face="Courier New" SIZE=2>[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; load_texture ( &quot;earth_r.raw&quot;, 640, 320, 3,
+
+GL_RGB, GL_LINEAR );</font>
+
+
+
+</font>
+
+
+
+
+
+<p><FONT FACE="Helvetica, Sans-Serif" SIZE=2>The remaining lines are same as the in previous program.&nbsp;&nbsp;&nbsp;
+
+
+
+</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<hr>
+
+<p class="BodyText">The function 'draw_earth' does just that, it renders a glu
+
+sphere with texturing enabled.&nbsp; Note, that this function is identical to
+
+the function in the previous program except for line&nbsp;9.
+
+<p class="code"></font><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; <b>void</b> draw_earth ( <b>void </b>)<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPushMatrix ( );<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef ( 90.0, 1.0, 0.0, 0.0 );<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glColor4f ( 1.0, 1.0, 1.0,
+
+1.0&nbsp; );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLUquadricObj*    q = gluNewQuadric
+
+(&nbsp; );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluQuadricDrawStyle ( q, GLU_FILL&nbsp;&nbsp;
+
+);<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluQuadricNormals&nbsp;&nbsp; ( q, GLU_SMOOTH
+
+);<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluQuadricTexture&nbsp;&nbsp; ( q, GL_TRUE&nbsp;&nbsp;&nbsp;
+
+);<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluSphere (q, 1.0, 20, 20 );<br>
+
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluDeleteQuadric ( q );<br>
+
+[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPopMatrix ( );<br>
+
+[13]&nbsp;&nbsp; }<br>
+
+
+
+</font>
+
+<hr>
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>All the remaining
+
+functions are the same as before.&nbsp;&nbsp;&nbsp;<br>
+
+
+
+</font>
+
+
+
+
+
+<FONT face="Courier New" SIZE=2><br>
+
+</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+  <P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font>
+
+
+
+</font>
+
+</BODY>

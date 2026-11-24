@@ -1,0 +1,434 @@
+<HTML><HEAD>
+
+<meta name="author" content="© 2000, Paul Groves">
+
+<meta name="description" content="OpenGL avionic displays">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+
+<meta name="keywords" content="OpenGL, avionics, avionic, display, displays">
+
+<meta name="ProgId" content="FrontPage.Editor.Document">
+
+<TITLE>avionic displays</TITLE>
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#906000 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#303030 ALINK=#FFFFFF>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#784828 nowrap>
+
+      <p align="left"><nobr><b><font face="Helvetica, Sans-Serif" size="4" color="#805030">ancy</font><font face="Helvetica, Sans-Serif" color="#704020" size="4">
+
+      </font></b></nobr><font size="4"><nobr><b><font face="Helvetica, Sans-Serif" color="#704020">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+      </font><font face="Helvetica, Sans-Serif" color="#805030">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+      </font><FONT FACE="Helvetica, Sans-Serif" color="#704020">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+      </font><font face="Helvetica, Sans-Serif" color="#805030">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+      </font><font face="Helvetica, Sans-Serif" color="#704020">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+      </font><font face="Helvetica, Sans-Serif" color="#805030">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+      consult</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"><br>
+
+      </font><font face="Helvetica, Sans-Serif" color="#704020">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+      </font><font face="Helvetica, Sans-Serif" color="#FFFFFF">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+      </font><font face="Helvetica, Sans-Serif" color="#704020">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+      </font><font face="Helvetica, Sans-Serif" color="#805030">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+      </font><font face="Helvetica, Sans-Serif" color="#704020">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+      </font><font face="Helvetica, Sans-Serif" color="#805030">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#805030">
+
+      </font><font face="Helvetica, Sans-Serif" color="#704020">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#704020">&nbsp;</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"><br>
+
+      </font><font face="Helvetica, Sans-Serif" color="#704020">sultancy</font><font face="Helvetica, Sans-Serif"><FONT COLOR="#204070">
+
+      </font><FONT color="#805030">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+      </font></font><font face="Helvetica, Sans-Serif" color="#704020">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+      </font><font face="Helvetica, Sans-Serif" color="#805030">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#805030">
+
+      </font><font face="Helvetica, Sans-Serif" color="#704020">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+      </font><font face="Helvetica, Sans-Serif" color="#805030">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+      consultancy </font><font face="Helvetica, Sans-Serif" size="4" color="#805030">con</font><font face="Helvetica, Sans-Serif" color="#704020">
+
+      </font></b></nobr></font><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+      <b><nobr>
+
+      &nbsp;&nbsp;</nobr></b></font></TABLE>
+
+
+
+
+
+<div class="BodyText">
+
+  <p class="BodyText"><font face="Helvetica, Sans-Serif" size="4"><b>background</b></font><font face="Helvetica, Sans-Serif" size="2">&nbsp;
+
+  In late May 2000 I got an email from an employee of <a href="javascript:if(confirm('http://www.aircraftinstruments.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aircraftinstruments.com/'" tppabs="http://www.aircraftinstruments.com/"><b>[AITI]</b></a>.&nbsp; They were
+
+  contracted by the USAF to maintain attitude direction indicators (ADIs) in the
+
+  air force's C5 training simulators.&nbsp; AITI proposed that fully electronic
+
+  versions of the ADIs could be supplied.&nbsp; These would require little or no
+
+  maintenance as they contain no moving parts.</font></p>
+
+  <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">I was
+
+  approached by one of their software engineers to give pointers on the OpenGL
+
+  code necessary to drive the hybrid ADI's display.&nbsp; They liked what
+
+  they saw and his manager commissioned me to provide all the OpenGL source for
+
+  the project.&nbsp; Naturally they wanted clear, easy to maintain source for
+
+  their money...&nbsp;<br>
+
+  At first AITI thought I lived stateside and offered to move me to Florida for
+
+  a couple of months.&nbsp; When they realised I was in the UK we decided that
+
+  teleworking would be cheaper for all concerned.</font></p>
+
+  <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">They sent me
+
+  some old ADI parts for my inspection and wrote up a specification for me to
+
+  follow.&nbsp; It turned out that these ADI balls were much more complex than I
+
+  first thought.&nbsp; It became obvious just why they were so expensive.&nbsp;
+
+  They aren't simply self righting balls - they have an expanded pitch
+
+  scale, a special ILS landing mode with bulbs - and we were rendering all the
+
+  needles and flags with OpenGL too.</font></p>
+
+  <table border="0" width="100%">
+
+    <tr>
+
+      <td width="50%" bgcolor="#704020">
+
+        <p align="center"><a href="graphics/AITstuff/gubbins.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/gubbins.jpg" target="_blank">
+        <img border="0" src="graphics/AITstuff/tmb_gubbins.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/tmb_gubbins.jpg" width="160" height="120"></a></td>
+
+      <td width="50%" bgcolor="#704020">
+
+        <p align="center"><a href="graphics/AITstuff/real.JPG" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/real.JPG" target="_blank">
+        <img border="0" src="graphics/AITstuff/tmb_real.JPG" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/tmb_real.JPG" width="160" height="120"></a></td>
+
+    </tr>
+
+    <tr>
+
+      <td width="50%" bgcolor="#704020">
+
+        <p align="center"><font face="Helvetica, Sans-Serif" size="2">A look at
+
+        the ADI ball with the cover off.&nbsp; Note all that wiring!</font></td>
+
+      <td width="50%" bgcolor="#704020">
+
+        <p align="center"><font face="Helvetica, Sans-Serif" size="2">&nbsp;An
+
+        ADI in action.</font></td>
+
+    </tr>
+
+    <tr>
+
+      <td width="50%">
+
+        <p align="center">&nbsp;</td>
+
+      <td width="50%">
+
+        <p align="center">&nbsp;</td>
+
+    </tr>
+
+  </table>
+
+  <table WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+
+    <tr ALIGN="CENTER">
+
+      <td BGCOLOR="#784828" nowrap>
+
+        <p align="left"><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#805030">me</font><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+        consultancy</font></B></NOBR><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#805030">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#704020">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#805030">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#704020">consultancy</font></NOBR></B><nobr><b><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#805030">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+        consultan</font></b></nobr>
+
+  </table>
+
+  <p class="BodyText"><font face="Helvetica, Sans-Serif" size="4"><b>implementation</b></font><font face="Helvetica, Sans-Serif" size="2">&nbsp;
+
+  We used GLUT for the ADI program.&nbsp; In every idle 'tick' the
+
+  analogue/digital converter was polled and these values were scaled by the
+
+  appropriate amounts for our OpenGL version of the ADI ball.&nbsp; It was
+
+  decided that Linux with the X Windows server would be used as the operating system for our little
+
+  embedded computer.&nbsp; The reasons for this were clear.&nbsp; We could
+
+  tailor Linux <i>exactly</i> to our hardware, by making the distribution as
+
+  small as possible we could reduce costs by using smaller a flashdisk.&nbsp; In
+
+  addition, there would be no licensing costs.&nbsp;</font></p>
+
+  <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">The target
+
+  hardware was a PC104 motherboard, measuring 3.5&quot;x3.5&quot;.&nbsp; A PCI
+
+  riser card was plugged into this and onto this, a PCI TNT2 graphics card was
+
+  connected.&nbsp; The output of the videocard was scan converted down to a
+
+  320x235 pixel LCD screen - this would display our ADI image.&nbsp; This was far
+
+  from an ideal solution.&nbsp; We tried looking for PC104 cards with onboard
+
+  accelerated video that had an LCD out.&nbsp; We didn't find one until after
+
+  the project was well underway.</font></p>
+
+  <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Work started
+
+  at AITI in Florida on the hardware, shoehorning all that equipment into one
+
+  tiny box.</font></p>
+
+  <table border="0" width="100%">
+
+    <tr>
+
+      <td width="50%" align="center" bgcolor="#704020"><font face="Helvetica, Sans-Serif" size="2">&nbsp;<a href="graphics/AITstuff/C5ADIback.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/C5ADIback.jpg" target="_blank"><img border="0" src="graphics/AITstuff/tmb_C5ADIback.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/tmb_C5ADIback.jpg" width="160" height="120"></a></font></td>
+
+      <td width="50%" align="center" bgcolor="#704020"><font face="Helvetica, Sans-Serif" size="2">&nbsp;</font><a href="graphics/AITstuff/C5ADIfront.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/C5ADIfront.jpg" target="_blank"><img border="0" src="graphics/AITstuff/tmb_C5ADIfront.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/tmb_C5ADIfront.jpg" width="160" height="120"></a></td>
+
+    </tr>
+
+    <tr>
+
+      <td width="50%" align="center" bgcolor="#704020"><font face="Helvetica, Sans-Serif" size="2">&nbsp;The
+
+        back end of the prototype ADI hardware.&nbsp; Notice the fan and plug
+
+        socket?&nbsp; These are exactly like the 'real' part - our ADI had to be
+
+        plug-for-plug compatible with the original.</font></td>
+
+      <td width="50%" align="center" bgcolor="#704020"><font face="Helvetica, Sans-Serif" size="2">&nbsp;This
+
+        view from the front shows that the LCD screen had yet to be installed.</font></td>
+
+    </tr>
+
+  </table>
+
+  <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Work on the
+
+  software continued this side of the Atlantic.&nbsp; After many <i>many</i>
+
+  emails back and forth and numerous phone calls we'd got the look of the ADI
+
+  just right.&nbsp; The USAF were very picky, they wanted our ball to look as
+
+  much like the real part as possible.&nbsp; Right down to the way the
+
+  illumination worked.</font></p>
+
+  <table border="0" width="100%">
+
+    <tr>
+
+      <td width="50%" align="center">
+      <img border="0" src="graphics/AITstuff/Image3.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/Image3.jpg" width="301" height="230"></td>
+
+      <td width="50%" align="center">
+      <img border="0" src="graphics/AITstuff/Image4.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/Image4.jpg" width="290" height="211"></td>
+
+    </tr>
+
+  </table>
+
+  <p class="BodyText" align="left"><font face="Helvetica, Sans-Serif" size="2">The
+
+  images above show the software in action.&nbsp; In the first picture the ADI
+
+  in operating in 'normal' mode.&nbsp; In the final screengrab, the ADI is in
+
+  ILS mode.&nbsp; The runway altitude indicator is visible and the glide slope
+
+  is indicated by the needles and the bulb on the ILS ring.&nbsp; Note that
+
+  these images have been resized and the final implementation ran in fullscreen
+
+  mode under Linux.</font></p>
+
+  <table WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+
+    <tr ALIGN="CENTER">
+
+      <td BGCOLOR="#784828" nowrap>
+
+        <p align="left"><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#805030">me</font><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+        consultancy</font></B></NOBR><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#805030">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#704020">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#805030">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#704020">consultancy</font></NOBR></B><nobr><b><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#805030">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+        consultan</font></b></nobr>
+
+  </table>
+
+  <p class="BodyText" align="left"><font face="Helvetica, Sans-Serif" size="4"><b>the
+
+  product</b></font><font face="Helvetica, Sans-Serif" size="2">&nbsp; The
+
+  prototype model was extensively tested and the USAF accepted the design and
+
+  made their formal order.&nbsp; AITI are currently in 'manufacturing mode',
+
+  trying to bang out as many of these things as they can.</font></p>
+
+  <table border="0" width="100%">
+
+    <tr>
+
+      <td width="50%" bgcolor="#704020" align="center"><a href="graphics/AITstuff/adi1.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/adi1.jpg" target="_blank">
+      <img border="0" src="graphics/AITstuff/tmb_adi1.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/tmb_adi1.jpg" width="148" height="99"></a></td>
+
+      <td width="50%" bgcolor="#704020" align="center"><a href="graphics/AITstuff/adi2.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/adi2.jpg" target="_blank">
+      <img border="0" src="graphics/AITstuff/tmb_adi2.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/tmb_adi2.jpg" width="180" height="120"></a></td>
+
+    </tr>
+
+    <tr>
+
+      <td width="100%" bgcolor="#704020" align="center" colspan="2"><font face="Helvetica, Sans-Serif" size="2">Two
+
+        views of the finished article in a USAF C5 trainer.&nbsp;&nbsp;</font></td>
+
+    </tr>
+
+    <tr>
+
+      <td width="100%" bgcolor="#906000" align="center" colspan="2">&nbsp;</td>
+
+    </tr>
+
+    <tr>
+
+      <td width="100%" bgcolor="#704020" align="center" colspan="2"><a href="graphics/AITstuff/ADIDave.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/ADIDave.jpg" target="_blank">
+      <img border="0" src="graphics/AITstuff/tmb_ADIDave.jpg" tppabs="http://home.clara.net/paulyg/graphics/AITstuff/tmb_ADIDave.jpg" width="160" height="120"></a></td>
+
+    </tr>
+
+    <tr>
+
+      <td width="100%" bgcolor="#704020" align="center" colspan="2"><font face="Helvetica, Sans-Serif" size="2">Dave
+
+        from AITI takes the simulator for a spin, keeping an eye on the ADI no
+
+        doubt.</font></td>
+
+    </tr>
+
+  </table>
+
+  <p class="BodyText" align="left"><font face="Helvetica, Sans-Serif" size="4"><b>the
+
+  future</b></font><font face="Helvetica, Sans-Serif" size="2">&nbsp; AITI have
+
+  already had requests from other aircraft operators about their 'hybrid ADIs'.&nbsp;
+
+  With any luck these will come to fruition and a new division of AITIs business
+
+  will truly be airborne (sorry about the pun).&nbsp;&nbsp;<br>
+
+  <br>
+
+  If you have any queries about this project, or any other computer based
+
+  avionic displays, don't hesitate to contact me: <b><a href="mailto:paulyg@clara.net">[paulyg@clara.net]</a>&nbsp;</b>or
+  <a href="javascript:if(confirm('http://www.aircraftinstruments.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aircraftinstruments.com/'" tppabs="http://www.aircraftinstruments.com/"><b>[AITI]</b></a></font></p>
+
+  <p class="BodyText" align="left"><font face="Helvetica, Sans-Serif" size="2">
+  Back to <b><a href="ogl.htm" tppabs="http://home.clara.net/paulyg/ogl.htm">[pauls opengl page]</a></b></font></p>
+
+  <table WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+
+    <tr ALIGN="CENTER">
+
+      <td BGCOLOR="#784828" nowrap>
+
+        <p align="left"><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#805030">me</font><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+        consultancy</font></B></NOBR><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font></FONT><font face="Helvetica, Sans-Serif" size="4" color="#805030">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#704020">consultancy</font></NOBR></B><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font></FONT><font face="Helvetica, Sans-Serif" size="4" color="#805030">consultancy</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#704020">consultancy</font></NOBR></B><nobr><b><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+        </font><font face="Helvetica, Sans-Serif" size="4" color="#805030">consultancy</font><font face="Helvetica, Sans-Serif" size="4" color="#704020">
+
+        consultan</font></b></nobr>
+
+  </table>
+
+  <p class="BodyText"><font face="Helvetica, Sans-Serif" size="1"><i>Website and
+
+  content by Paul Groves.&nbsp; Best viewed at 800x600.</i></font>
+
+</div>
+
+</BODY>

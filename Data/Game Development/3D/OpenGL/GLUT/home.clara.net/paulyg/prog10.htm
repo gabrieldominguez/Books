@@ -1,0 +1,544 @@
+<HTML><HEAD><TITLE>program ten</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#E0E0E0 ALINK=#FFFFFF>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070>source <FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </FONT></NOBR></B></font><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">sour<br>
+
+    urce </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source&nbsp;<br>
+
+    </font></B></NOBR><font face="Helvetica, Sans-Serif" size="4"><b><nobr><font color="#204070">u
+
+    </font><FONT face="Helvetica, Sans-Serif" size=4 COLOR="#204070"><FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font size="4" color="#204070">source </font><font size="4" color="#305080">source</font><font size="4" color="#204070">
+
+    source</font><font size="4" color="#305080"> source </font><font color="#204070">source
+
+    </font><font color="#305080">sou</font></nobr></b></font></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;
+
+&nbsp; <a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font></font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<P align="left"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b><a href="download/program10.zip" tppabs="http://home.clara.net/paulyg/download/program10.zip">[program
+ten]</a>&nbsp;</b> </font>I'm fairly new to hardware multi-texturing.&nbsp; My old 3d card didn't
+support it so I never had the chance to play with it.&nbsp; This page takes you
+through setting up the extensions, vertex arrays and the texture units to render
+our light mapped wooded quad from <b><a href="prog7.htm" tppabs="http://home.clara.net/paulyg/prog7.htm">[program 7]</a></b> in
+one multi-textured pass.<P align="left"><font face="Helvetica, Sans-Serif" size="2">Note
+that this program <i>requires</i> your card to have the GL_ARB_multitexture
+extension, otherwise it won't work.&nbsp;&nbsp;</font><P align="center"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+<img border="0" src="graphics/prog7.gif" tppabs="http://home.clara.net/paulyg/graphics/prog7.gif" width="258" height="277"><br>
+
+
+
+<br>
+
+
+
+</font>
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+ </B></NOBR><NOBR><B><font face="Helvetica, Sans-Serif" size="4"><font color="#305080"> 
+
+      </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">We define macros to name our
+textures as per usual.</font><FONT face="Courier New" SIZE=2>
+
+
+
+
+
+<p class="code">
+
+#define		MAX_TEXTURES&nbsp;<br>
+
+<br>
+
+#define		WOOD_IMAGE&nbsp;&nbsp; 0<br>
+
+#define		LIGHTMAP&nbsp;&nbsp;&nbsp;&nbsp; 1
+
+</font>
+
+<p><font face="Helvetica, Sans-Serif" size="2">Function pointer variables are declared for the
+the multi-texture extension functions we are going to be
+using.&nbsp; If you look in program10.h, there are many more functions that we
+don't need.&nbsp; These are for sending texture coordinates to the texture units
+one at a time (or in display lists).&nbsp; We're not doing that, so we don't
+need them.&nbsp;<br>
+Line 3 is a global variable so we know whether compiled vertex arrays are
+supported or not.&nbsp;</font>
+
+</p>
+
+<p>In fact, these lines aren't really needed, you should download a file called 
+'glext.h' from your video card vendor's website (Nvidia and ATI both have these 
+on their developer websites).&nbsp; Doing this ensures you'll always have an up 
+to date set of headers for extensions that YOUR video card supports.</p>
+
+<p class="code"><font face="Courier New" size="2">[1]&nbsp;&nbsp;&nbsp; PFNGLCLIENTACTIVETEXTUREARBPROC  glClientActiveTextureARB = NULL;<br>
+[2]&nbsp;&nbsp;&nbsp; PFNGLACTIVETEXTUREARBPROC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+glActiveTextureARB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = NULL;</font>
+
+</p>
+
+<p>
+
+<font face="Helvetica, Sans-Serif" size="2">
+
+We declare our vertex, texture coordinate and index arrays as before.&nbsp; Both
+texture units will be using the same coordinates.&nbsp; Remember that there are 4 texture coordinates, one for each
+vertex of the quad.&nbsp; For an explanation of texture mapping you can go to <nobr><b><a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">[texture
+
+coordinates]</a></b></nobr></font>
+
+</p>
+
+<p class="code"><FONT face="Courier New" SIZE=2>...<br>
+
+[1]&nbsp;&nbsp;&nbsp; GLfloat tex_coords[] = { 0.0, 1.0,<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+1.0, 1.0,<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+1.0, 0.0,<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+0.0, 0.0 };<br>
+
+...<br>
+
+
+
+</font>
+
+</p>
+
+<hr>
+
+
+
+
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>There isn't any
+
+lighting again in our initialisation function.&nbsp; Lines 3 calls a function to
+grab the extensions, if they are supported - it also prints out some driver
+statistics.&nbsp; Lines 8 through 12 load our textures and bind them to the
+texture names we've generated in line 6.</font>
+
+
+
+
+
+<p class="code"><font face="Courier New"><font size="2">[1]&nbsp;&nbsp;&nbsp; </font><font size="2"><b>void</b>
+
+init ( <b> void</b> )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get_extensions ( );<br>
+
+[4]<br>
+</font></font><font size="2" face="Courier New">[5]</font>&nbsp;&nbsp;&nbsp;<font size="2" face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;
+</font>glPixelStorei ( GL_UNPACK_ALIGNMENT, 1 );<br>
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glGenTextures ( 2, tex_id );<br>
+[7]<br>
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glBindTexture      ( GL_TEXTURE_2D, tex_id[WOOD_IMAGE] );&nbsp;<br>
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tgaLoadImage       ( "board.tga", &amp;temp, TGA_FREE );&nbsp;<br>
+[10]<br>
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glBindTexture      ( GL_TEXTURE_2D, tex_id[LIGHTMAP] );&nbsp;<br>
+[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tgaLoadImage       ( "lightmap.tga", &amp;temp, TGA_FREE | TGA_LUMINANCE );&nbsp;<p><font face="Helvetica, Sans-Serif" size="2">Line
+13 enables the depth testing, 14 enables vertex arrays on the client side.&nbsp;
+Line 16 is an extension function that switches OpenGL client state to effect the
+first texture unit - </font><font face="Courier New" size="2">GL_TEXTURE0_ARB</font><font face="Helvetica, Sans-Serif" size="2">.&nbsp; Line 17 enables the texture
+coordinate arrays on this texturing unit.&nbsp; Lines 19 and 20 do the same for
+the second texture unit.</font><p class="code">[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+glEnable ( GL_DEPTH_TEST );<br>
+[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnableClientState ( GL_VERTEX_ARRAY );<br>
+[15]<br>
+[16]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glClientActiveTextureARB ( GL_TEXTURE0_ARB        );&nbsp;<br>
+[17]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnableClientState      ( GL_TEXTURE_COORD_ARRAY );<br>
+[18]<br>
+[19]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glClientActiveTextureARB ( GL_TEXTURE1_ARB        );&nbsp;<br>
+[20]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnableClientState      ( GL_TEXTURE_COORD_ARRAY );<p><font face="Helvetica, Sans-Serif" size="2">Line
+22 selects the first texture unit and 23 enables texturing on this unit.&nbsp;
+Again, lines 25 and 26 do the same on the second texture unit.&nbsp; Currently
+most hardware has only two units.&nbsp; The PowerVR3 chipset (when it ever gets
+released) will support 8-level multi-texturing - that'll be nice.</font><p class="code">[22]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+glActiveTextureARB ( GL_TEXTURE0_ARB );&nbsp;<br>
+[23]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable           ( GL_TEXTURE_2D   );&nbsp;<br>
+[24]<br>
+[25]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glActiveTextureARB ( GL_TEXTURE1_ARB );&nbsp;<br>
+[26]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable           ( GL_TEXTURE_2D   );&nbsp;<br>
+[27]&nbsp;&nbsp; }
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<hr>
+
+<p class="BodyText">The function to set the object is quite similar to the one
+in program7.&nbsp; Line 3 passes OpenGL the address of our </font>
+
+
+
+<FONT face="Courier New" SIZE=2>
+
+vertices</font>
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+ array.&nbsp; When </font>
+
+
+
+<FONT face="Courier New" SIZE=2>
+
+glDrawElements</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2> is called later
+in the function it will look here for the vertex data.<br>
+Line 5 is that extension function again.&nbsp; As before it switches OpenGL client state to effect the
+first texture unit - </font><FONT face="Courier New" SIZE=2>GL_TEXTURE0_ARB</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>.&nbsp;
+Line 6 passes the address of the text coordinates we are going to be
+using.&nbsp;&nbsp; Lines 8 and 9 do the same for the second texture unit.<p class="code">[1]<b>&nbsp;&nbsp;&nbsp;</b> <b>void</b> 
+set_and_draw ( <b> void</b> )<br>
+[2]&nbsp;&nbsp;&nbsp; {<br>
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glVertexPointer   ( 3, GL_FLOAT, 0, &amp;vertices );<br>
+[4]<br>
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glClientActiveTextureARB ( GL_TEXTURE0_ARB             );&nbsp;<br>
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTexCoordPointer        ( 2,
+GL_FLOAT, 0, &amp;tex_coords );&nbsp;<br>
+[7]<br>
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glClientActiveTextureARB ( GL_TEXTURE1_ARB             );&nbsp;<br>
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTexCoordPointer        ( 2,
+GL_FLOAT, 0, &amp;tex_coords );<p>Line 11 selects the first texture unit and 12
+binds our wood texture.&nbsp; Line 13 sets the texture environment to </font><FONT face="Courier New" SIZE=2>GL_DECAL</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>.&nbsp;
+In other words the texture will 'draw over' anything under it.&nbsp; Lines 15
+and 16 select the second texture unit and bind the lightmap to it.&nbsp; Note
+the the texture environment is set to </font><FONT face="Courier New" SIZE=2>GL_MODULATE</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+here, this gives us the desired lighting effect.<p>Multi-texturing hardware
+is usually capable of many different blending operations.&nbsp; Lines 11 - 17 could
+be replaced by something much more complex.&nbsp; GL_ARB_texture_env_combine
+supplies a new texture environment mode.&nbsp; This has <i>many</i> more
+blending operations and is not within the scope of this simple program (plus
+I've only had a few weeks to play with it).&nbsp; I'll post a program that uses
+the texture combiners at a later date.
+
+<p class="code">[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glActiveTextureARB ( GL_TEXTURE0_ARB );&nbsp;<br>
+[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glBindTexture&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+( GL_TEXTURE_2D, tex_id[ WOOD_IMAGE ] );&nbsp;<br>
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTexEnvi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL );<br>
+[14]&nbsp;<br>
+[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glActiveTextureARB ( GL_TEXTURE1_ARB );&nbsp;<br>
+[16]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glBindTexture&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+( GL_TEXTURE_2D, tex_id[ LIGHTMAP ] );&nbsp;<br>
+[17]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTexEnvi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
+
+<p>The final line renders the quad.
+
+<p class="code">[18]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glDrawElements ( GL_QUADS, 4, GL_UNSIGNED_INT, &amp;indices );&nbsp;<br>
+[19]&nbsp;&nbsp; }
+
+<hr>
+
+<p class="BodyText">The display function is fairly unremarkable.&nbsp; Notice
+how much simpler it is when compared with program7?&nbsp; We don't have to
+enable and disable blending and depth testing.&nbsp; We just set OpenGL client
+state to the arrays we want to render.&nbsp; Then specify the texture
+environments, draw the index elements and bingo!
+
+
+
+
+
+</p>
+
+
+
+
+
+</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; <b>void</b> display (
+
+<b> void</b> )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+</font>
+
+
+
+
+
+<font face="Courier New" size="2">[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glClear    ( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );<br>
+[4]<br>
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLoadIdentity ( );<br>
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTranslatef&nbsp;&nbsp; ( 0.0, 0.0, -3.0 );<br>
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+( angle, 1.0, 1.0, 0.0 );<br>
+[8]<br>
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; set_and_draw&nbsp;&nbsp; ( );<br>
+[10]<br>
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutSwapBuffers ( );&nbsp;<br>
+[12]&nbsp;&nbsp; }&nbsp;</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+  <P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font>
+
+
+
+</font>
+
+</BODY>

@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	XSGISetStereoMode Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>XSGISetStereoMode</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+     XSGISTEREO(3X11)	 X Version 11 (Release 6)     XSGISTEREO(3X11)
+
+
+
+     NAME
+	  XSGIStereoQueryExtension, XSGIStereoQueryVersion,
+	  XSGIQueryStereoMode, XSGISetStereoMode, XSGISetStereoBuffer
+	  - X SGI stereo functions
+
+     SYNTAX
+	  #include &amp;lt;X11/extensions/SGIStereo.h&gt;
+
+	  Bool XSGIStereoQueryExtension	(
+	       Display * dpy,
+	       int * first_event,
+	       int * first_error);
+
+	  Status XSGIStereoQueryVersion	(
+	       Display * dpy,
+	       int * major_version,
+	       int * minor_version);
+
+	  int XSGIQueryStereoMode(
+	       Display * dpy,
+	       Window win);
+
+	  Status XSGISetStereoMode (
+	       Display *dpy,
+	       Window win,
+	       unsigned	short height,
+	       unsigned	short offset,
+	       int mode);
+
+	  Status XSGISetStereoBuffer (
+	       Display *dpy,
+	       Window win,
+	       int buffer);
+
+     ARGUMENTS
+	  dpy	    Specifies the connection to	the X server.
+
+	  first_event
+		    Returns the	code of	the first custom event type
+		    created by the extension.
+
+	  first_error
+		    Returns the	code of	the first custom error defined
+		    by the extension.
+
+	  major_version
+		    Returns major version number for the extension.
+
+	  minor_version
+		    Returns minor version number for the extension.
+
+	  win	    Specifies the window on whose screen you want to
+
+
+
+     Page 1					      (printed 3/9/96)
+
+
+
+
+
+
+     XSGISTEREO(3X11)	 X Version 11 (Release 6)     XSGISTEREO(3X11)
+
+
+
+		    set	or inquire the stereo mode.
+
+	  height
+	  offset    Specify the	height of each stereo buffer, and the
+		    vertical offset between each stereo	buffer.
+
+	  mode	    Specifies the stereo mode to be set. Valid values
+		    are	STEREO_OFF (0) to turn off stereo,
+		    STEREO_BOTTOM (1) to turn on stereo	and use	the
+		    bottom half	of the screen as the primary buffer,
+		    STEREO_TOP (2) to turn on stereo and use the top
+		    half of the	screen as the primary buffer.
+
+	  buffer    Identifies which buffer the	GL will	render to.
+
+
+     DESCRIPTION
+	  XSGIStereoQueryExtension is used to check whether the	X
+	  server supports the SGI Stereo extension.  If	the Stereo
+	  extension is present,	this routine will return True. If the
+	  extension involves additional	event types, the base event
+	  type code is returned	in first_event.	Otherwise, zero	is
+	  returned in first_event. If the extension involves
+	  additional error codes, the base error code is returned in
+	  first_error. Otherwise, zero is returned. If the SGI Stereo
+	  extension is present,	you must still query the individual
+	  screens to find out if they support the extension, using
+	  XSGIQueryStereoMode.
+
+	  XSGIStereoQueryVersion is used to get	the version number of
+	  the Stereo extension supported by the	X server.
+
+	  XSGIQueryStereoMode is used to query the server for the
+	  current stereo mode. If the server supports the SGI Stereo
+	  extension, but win's screen does not,	this routine will
+	  return X_STEREO_UNSUPPORTED (-1). If win's screen supports
+	  the SGI Stereo extension, this routine will return one of
+	  STEREO_OFF (0), STEREO_BOTTOM	(1) or STEREO_TOP (2).
+
+	  XSGIQueryStereoMode can generate BadDrawable.
+
+	  XSGISetStereoMode is used to inform the X server that	full-
+	  screen stereo	is being turned	on or off. It does not cause
+	  the actual video timing to change. Rather, if	turning	on
+	  stereo, this procedure informs the server that all future X
+	  rendering is to be duplicated	from the primary buffer	to the
+	  secondary buffer. Calling this procedure also	causes the
+	  cursor to be restricted to the primary buffer. Non-stereo GL
+	  clients will render to the left eye, with the	right eye
+	  cleared to black.
+
+	  Conversely, if turning off stereo, this procedure informs
+
+
+
+     Page 2					      (printed 3/9/96)
+
+
+
+
+
+
+     XSGISTEREO(3X11)	 X Version 11 (Release 6)     XSGISTEREO(3X11)
+
+
+
+	  the server to	return to the normal state, with X rendering
+	  allowed to the full screen and unrestricting the cursor.
+
+	  If turning on	stereo,	height and offset describe the height
+	  of each stereo buffer	and the	vertical offset	between
+	  buffers. Typically, these values should be 492 and 532
+	  respectively.	height and offset are ignored if turning off
+	  stereo.
+
+	  Stereo is turned off by setting mode to STEREO_OFF (0), and
+	  is turned on by setting mode to STEREO_BOTTOM	or STEREO_TOP
+	  (1 or	2 respectively). Setting mode to STEREO_BOTTOM causes
+	  the bottom half of the screen	to become the primary buffer,
+	  setting it to	STEREO_TOP causes the top half of the screen
+	  to become the	primary	buffer.	 To switch from	using the top
+	  half of the screen as	the primary buffer to using the	bottom
+	  half of the screen as	the primary buffer, XSGISetStereoMode
+	  should first be called with mode set to STEREO_OFF.
+
+	  NOTE:	The application	will not normally call this procedure.
+	  Instead, it will call	setmonitor, which will update both the
+	  X server state and the actual	video format.
+
+	  XSGISetStereoMode can	generate BadDrawable and BadRequest.
+
+	  XSGISetStereoBuffer is used to inform	the X server of	which
+	  eye buffer the GL will render	to next. The first time	it's
+	  called for a window, it also informs the server that the
+	  window is a stereo window.  buffer identifies	which buffer
+	  to set up. Valid values are STEREO_BUFFER_LEFT and
+	  STEREO_BUFFER_RIGHT. If stereo mode is turned	on (by calling
+	  XSGISetStereoMode), a	call to	XSGISetStereoBuffer will cause
+	  the X	server to set the clip and window origin appropriately
+	  for the GL client.
+
+	  XSGISetStereoBuffer can generate BadDrawable and BadValue
+	  errors.
+
+	  Applications calling one of these routines should link with
+	  libXext.
+
+     SEE ALSO
+	       setmon, setmonitor, viewport, winset
+
+
+
+
+
+
+
+
+
+
+
+
+     Page 3					      (printed 3/9/96)
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,490 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	setmon Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>setmon</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">SETMON(1G)							    SETMON(1G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     setmon - set the current and default video	output format
+
+<FONT COLOR="#0000CC">SYNOPSIS
+</FONT>     /usr/gfx/setmon [ options ] format
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     setmon changes the	video output format to the one specified; it also
+     specifies the default video format	to be used at system power-up or
+     graphics initialization.  setmon should be	invoked	after you have
+     acquired root privileges.	You must also set the DISPLAY environment
+     variable to the local machine (e.g. :0.0) so that any GL calls that
+     setmon makes will occur on	the local machine, and not over	a network
+     interface.
+
+     Command line options are:
+
+	  -n		 Specifies that	format should not be saved in eeprom
+			 and used as the default, but should just be loaded
+			 temporarily. This is the opposite of the -x option.
+
+	  -x		 On RealityEngine graphics, this saves the specified
+			 format	in the eeprom on the display board.  On	IMPACT
+			 graphics, the name of the format is stored in
+			 /var/X11/Xvc/Impact&amp;lt;pipe&gt;_TimingTable,	where <pipe>
+			 is 0 or 1.  This format does not take effect
+			 immediately; it is only used the next time graphics
+			 is initialized, or the	system is powered up.  To
+			 initialize graphics, use (/usr/gfx/stopgfx;
+			 /usr/gfx/startgfx) &
+
+	  -g		 Enables genlock (external video clock).
+
+	  -t		 Specifies that	genlock	input operates at TTL levels
+			 rather	than nominal video levels (only	applicable
+			 when genlock is specified).
+
+	  -T		 Specifies that	sync output should be at TTL levels
+			 rather	than nominal video levels. Currently only
+			 supported on RealityEngine; other systems default to
+			 TTL levels.
+
+	  -G		 Specifies that	genlock	input is through the GREEN
+			 input rather than the SYNC input (only	applicable
+			 when genlock is specified).
+
+	  -ssyncselect	 Specifies the source of the sync signal.  syncselect
+			 is any	combination of "r", "g", "b", and "a" to
+			 represent the sync signal on the same combination of
+			 the red, green, blue, and alpha video cables.	If
+			 syncselect is "n", the	sync signal will be generated
+			 on the	sync cable.  If	syncselect is not specified,
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">SETMON(1G)							    SETMON(1G)
+</FONT>
+
+
+			 the sync signal will default to the green cable.
+
+	  -jgenlockdelay Specifies number of pixels to adjust display,
+			 relative to genlock input signal. Currently, only
+			 supported on Iris Elan	and Extreme for	NTSC and PAL
+			 monitors. Positive values move	display	to the left,
+			 and negative values move display to the right.	Must
+			 be used with the -g option.
+
+	  -Finput_signal Specifies if input signal used	for framelocking is
+			 interlaced or non-interlaced. input_signal is "n" for
+			 non-interlaced	and is "i" for a interlaced input
+			 signal.  If input_signal is not specified, the	input
+			 signal	setting	will default to	non-interlaced for
+			 backward compatibility. On Indy graphics systems,
+			 specifies whether the input signal used for
+			 framelocking comes from Vino (-Fv) or Galileo (-Fg)
+			 video.	 On Indigo2 XL systems,	specifies whether the
+			 input signal used for framelocking comes from the
+			 backplane (Fv)	or Galileo (-Fg) video.	 On Indigo2
+			 IMPACT	systems, specifies whether the input signal
+			 used for framelocking is an internal (-Fi) or
+			 external (-Fe)	(i.e. video) signal.
+
+	  -mwidthxheight Specifies the area that the X server should manage;
+			 this may be larger than the area output by format. If
+			 not specified,	this defaults to the area required by
+			 format. This is currently only	supported on
+			 RealityEngine.
+
+	  -S		 For use only on machines with Reality Engine
+			 graphics.  Specifies the Multi-Channel	Option should
+			 be enabled.  You must specify a format	which is
+			 appropriate for MCO; the available formats are
+			 described in the documentation	accompanying this
+			 hardware option.
+
+	  -v		 Enable	verbose	mode.  On systems supporting custom
+			 video output formats, statistics related to
+			 downloaded file size and compression are printed.
+
+	  -p pipenumber	 Specifies the pipe for	which the format is to be
+			 changed on systems with multiple graphics pipes.  If
+			 the pipenumber	is not specified with this command
+			 line option, the pipenumber is	otherwise derived from
+			 the trailing digit of the DISPLAY environment
+			 variable.  For	example, :0.0 refers to	pipe 0,	:0.1
+			 refers	to pipe	1, and :0.2 refers to pipe 2.  On
+			 Indigo2 IMPACT	systems, this option must be used with
+			 the -x	option when invoking setmon without the	X
+			 server	running.
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">SETMON(1G)							    SETMON(1G)
+</FONT>
+
+
+	  -c framelock master or slave
+			 Implemented only on Indigo2  XL-XL dual-head. Use "m"
+			 to set	the master and use "s" to set the slave	head
+			 if you	want to	change the default settings for
+			 framelocking through the backplane.  By default, the
+			 bottom	(pipe0)	graphics board will be the master and
+			 the top (pipe1) board will be the slave.  The master
+			 sends out a framelock sync signal to the backplane.
+			 The slave receives the	framelock sync signal from the
+			 backplane. Make sure the pipe number is set for the
+			 appropriate board. Read the above -p description
+			 about setting pipe numbers. Use (-Fv) to framelock
+			 the slave to the sync from the	backplane. Use (-Fg)
+			 to framelock the master to the	Galileo, assuming the
+			 video board will be attached to the master.  Refer to
+			 the galileo man page for more details on framelocking
+			 to the	video board.
+
+	  format	 Specifies the desired video output format.  There are
+			 several supported video output	formats. These formats
+			 are dependant on the graphics subsystem.
+
+	  XS, XZ, Elan,	and Extreme Graphics
+			 options support 30HZ, 50HZ, 60HZ, 72HZ, NTSC, PAL,
+			 IRIS3K, STR_RECT, STR_BOT, STR_TOP and	343.
+
+	  Personal Iris	G and TG Graphics
+			 options support 60HZ, 30HZ, NTSC, PAL,	and STR_RECT.
+			 STR_BOT and STR_TOP are supported on RE2 and RE2
+			 turbo only.
+
+	  Entry/Starter	Graphics
+			 option	only supports 60HZ.
+
+	  Indy/XL Graphics
+			 supports 50HZ,	60HZ, 70HZ, 72HZ, 76HZ,	NTSC, PAL,
+			 IRIS3K, STR_RECT, STR_BOT, and	STR_TOP. It also
+			 supports video	format files available in the
+			 /usr/gfx/ucode/NG1/vof	directory. Naming convention
+			 is the	same as	described for RealityEngine.
+
+	  GT and GTX Graphics
+			 support 30HZ, 60HZ, NTSC, PAL,	and 30HZ_SG.
+
+	  GT and GTX RV2 Graphics
+			 support 30HZ, 60HZ, NTSC, PAL,	30HZ_SG, 343 and
+			 STR_RECT.
+
+	  VGX and VGXT Graphics
+			 support 30HZ, 60HZ, NTSC, PAL,	HDTV, STR_RECT,
+			 STR_BOT, STR_TOP and 343. These graphic subsystems
+			 also support custom video formats, which are
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">SETMON(1G)							    SETMON(1G)
+</FONT>
+
+
+			 available in /usr/gfx/ucode/vof/dg1 directory.
+
+	  VTX, RealityEngine, and RealityEngine2 Graphics
+			 support a different naming convention for format.
+			 Video formats are named according to the following
+			 convention:
+
+			 widthxheight_framerate
+
+			 For example, 1280x1024_60 implies a video format that
+			 is 1280 pixels	wide, 1024 pixels high and runs	at 60
+			 Hz. Letters added at the end of a format name signify
+			 special options: i for	interlaced, s for stereo, q
+			 for field sequential, f for framelocking, and k for
+			 special alternate formats respectively.  Video	format
+			 control files are stored in the
+			 /usr/gfx/ucode/RE/dg2/vof subdirectory.  A
+			 description of	the formats shipped with a release may
+			 be found in /usr/gfx/ucode/RE/dg2/vof/README. As a
+			 convenience, setmon also understands 60HZ, 30HZ,
+			 NTSC, PAL, 343, HDTV, VGA, 72HZ, STR_RECT, STR_BOT
+			 and STR_TOP, and converts them	to the correct file
+			 name.
+
+	  IMPACT Graphics
+			 uses the same naming convention as VTX,
+			 RealityEngine,	and RealityEngine2, but	video format
+			 control files are stored in /usr/gfx/ucode/MGRAS/vof
+			 for High and Solid IMPACT, and	in
+			 /usr/gfx/ucode/MGRAS/vof/2RSS for Maximum IMPACT.
+			 Format	file names end with a '.sdb' extension that
+			 should	not be used when specifying a format to
+			 setmon.  For IMPACT Graphics, a 'p' at	the end	of a
+			 format	name indicates that the	format is for use on
+			 systems equipped with a Presenter Flat-Panel Display
+			 adapter.  An 's' at the end of	a format name
+			 indicates that	the format allows the use of stereo
+			 visuals.  Formats ending in '_32db' allow the use of
+			 deep (32-bit) double-buffered visuals.	 Format	names
+			 ending	in '_pbuf' allow programs to allocate pbuffers
+			 in the	Z bitplanes of the framebuffer.	 As a
+			 convenience, setmon also understands 50HZ, 60HZ,
+			 72HZ, 76HZ, STR_RECT, STR_BOT and STR_TOP, and
+			 converts them to the correct file name.
+
+	  Infinite Reality Graphics
+			 support not just simple video formats,	but video
+			 format	combinations.  Because Infinite	Reality	always
+			 operates as a multiple	channel	device,	a video	format
+			 describing a single channel is	insufficient to
+			 describe the operation	of the entire video subsystem.
+			 Instead, setmon uses a	combination file - a file
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">SETMON(1G)							    SETMON(1G)
+</FONT>
+
+
+			 describing frame buffer layout	and formats for	all
+			 channels - as the format parameter.  You can build
+			 combination files with	a program, ircombine(1g), that
+			 assembles an ensemble of formats.
+
+			 You will find a number	of pre-built combinations in
+			 the directory /usr/gfx/ucode/KONA/dg4/cmb.  The names
+			 of these files	is sometimes precisely descriptive of
+			 their content,	but a full analysis of the files
+			 should	be extracted via ircombine(1g).	 You must copy
+			 all user-defined combinations to this directory to
+			 load them.
+
+			 For backward compatibility, setmon supports a set of
+			 pre-built combinations	that contain only one format
+			 each.	These combinations are named similarly to that
+			 of the	corresponding formats used on Reality Engine.
+
+	  The NTSC and PAL video formats are actually the 525 and 625 line
+	  component RGB	formats, and are not the composite video formats that
+	  these	names imply.
+
+	  To get composite video output	from other systems, you	may choose to
+	  purchase an encoder option such as the CG3 or	BVO (which encodes the
+	  525 or 625 component RGB formats into	true NTSC and PAL
+	  respectively), or a video peripheral product which provides
+	  composite output from	an external frame buffer.
+
+	  The setmon command does not control the composite output of
+	  RealityEngine, which is controlled by	the vout command.  For
+	  InfiniteReality, it is controlled by the ircombine(1g) command.
+
+	  On systems that support custom video output formats, a user-defined
+	  format may be	selected by placing the	file containing	the VOF	into
+	  the appropriate /usr/gfx/ucode/vof subdirectory.  A given user-
+	  defined format may then be selected by specifying the	file name as
+	  the format argument.
+
+<FONT COLOR="#0000CC">EXAMPLES
+</FONT>     /usr/gfx/setmon -s	g 30HZ
+
+	  sets the video output	format to 30 Hz, sync-on-green.
+
+     /usr/gfx/setmon -x	1280x1024_60
+
+	  sets a RealityEngine or IMPACT to run	1280 x 1024 at 60Hz non-
+	  interlaced resolution	the next time graphics is initialized.
+
+     /usr/gfx/setmon -x	-s b 640x480_180q
+
+
+
+
+
+
+									Page 5
+
+
+
+
+
+
+<FONT COLOR="#0000CC">SETMON(1G)							    SETMON(1G)
+</FONT>
+
+
+	  sets a RealityEngine to run 640 x 480	x 180 Hz color field
+	  sequential output with sync on blue when graphics is next
+	  initialized.
+
+     /usr/gfx/setmon -g	-s rgb vof3
+
+	  sets the video output	format to the VOF contained in the file	vof3.u
+	  found	in the appropriate /usr/gfx/ucode/vof subdirectory.  The
+	  format is genlocked and with sync-on-red/green/blue.
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     setmonitor(3g), vout(1V)
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     When changing to a	different resolution than the X	server was started
+     with using	/usr/gfx/setmon	-n, X does not know of the change, and will
+     continue to manage	it's original resolution. The displayed	area is	tied
+     at	the lower left hand corner of the managed area.	This may cause some
+     confusion with the	cursor position	along the top and right	hand edges of
+     the screen.
+
+     On	IMPACT,	some formats may not be	loadable using /usr/gfx/setmon -n,
+     because those formats require its notion of the screen resolution or the
+     available visuals.	 To change to these formats, it	is necessart to	use
+     /usr/gfx/setmon -x	and restart the	X server.
+
+     In	addition, the pixel depth on RealityEngine is not changed by
+     /usr/gfx/setmon -n. To change pixel depth it is necessary to use
+     /usr/gfx/setmon -x	and restart the	X server.
+
+     The -x option is only supported on	RealityEngine and IMPACT.
+
+     The -F option is only supported on	the IMPACT, Indy, XL, and Elan and
+     Extreme family.
+
+     The -p option is only supported on	RealityEngine and IMPACT.
+
+     On	Iris Elan and Extreme, the X server must be running before using
+     setmon. On	IMPACT graphics, setmon	must be	run with the -x	and -p options
+     if	the X server is	not running.
+
+     On	Elan and Extreme systems, sync appears on the red, green, and blue
+     signals, by default. On the Extreme and Indigo2 XZ, you can use the -G
+     and -s &amp;lt;r,g,b,n&gt; options.	Sync is	always on the sync pin.
+
+     Iris Elan and Extreme also	support	adjusting the genlock delay, with the
+     -j	option.
+
+     /usr/gfx/setmon -g	-j 10 NTSC
+
+
+
+
+
+
+									Page 6
+
+
+
+
+
+
+<FONT COLOR="#0000CC">SETMON(1G)							    SETMON(1G)
+</FONT>
+
+
+	  sets the video output	format to NTSC,	and adjusts display by 10
+	  pixels to the	left, relative to the genlock input signal.
+
+     /usr/gfx/setmon -g	-j -10 NTSC
+
+	  sets the video output	format to NTSC,	and adjusts display by 10
+	  pixels to the	right, relative	to the genlock input signal.
+
+     STR_BOT is	used to	turn on	full-screen stereo, and	signals	the X server
+     that the bottom half of the screen	is to be displayed as the primary
+     buffer. STR_TOP is	used to	turn on	full-screen stereo, and	signals	the X
+     server that the top half of the screen is to be displayed as the primary
+     buffer. STR_RECT turns on full-screen stereo, but does not	inform the X
+     server of the fact, which gives the old full-screen stereo	behaviour.
+
+     /usr/gfx/setmon -cs -Fv 1280x1024_50
+
+	  With the DISPLAY environment variable	or the -p option set
+	  appropriately, the "-cs" changes the Indigo2 XL board	to a slave and
+	  the "-Fv" framelocks the slave to the	sync signal coming from	the
+	  backplane of the Indigo2. If the board is the	slave by default, you
+	  don't	need the -c option. Type "/usr/gfx/gfxinfo" to see the default
+	  settings.
+
+     /usr/gfx/setmon -cm -Fg 1280x1024_50
+
+	  The "-cm" sets the Indigo2 XL	board to a master which	sends a
+	  framelock sync signal	to the backplane of the	Indigo2. The "-Fg"
+	  framelocks the master	to the video board which is assumed to be
+	  attached to the master board.	 If the	board is the master by
+	  default, you don't need the -c option. Type "/usr/gfx/gfxinfo" to
+	  see the default settings.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 7
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

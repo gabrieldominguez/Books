@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxgetselectedeventsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxgetselectedeventsgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXGetSelectedEventSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXGetSelectedEventSGIX - returns GLX events which	are selected for a
+     window or a GLX pixel buffer
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glXGetSelectedEventSGIX( Display *dpy,
+				   GLXDrawable drawable,
+				   unsigned long *mask )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy       Specifies the connection	to the X server.
+
+     drawable  Specifies a GLX drawable. Must be a GLX pixel buffer or a
+	       window.
+
+     mask      Returns the events which	are selected for drawable.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXGetSelectedEventSGIX returns in	mask the events	selected for drawable.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXGetSelectedEventSGIX is	part of	the SGIX_pbuffer extension.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLXBadDrawable is generated if drawable is	not a valid window or a	valid
+     GLX pixel buffer.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIX_pbuffer extension	is supported only on RealityEngine,
+     RealityEngine2, and VTX systems, InfiniteReality systems and High Impact
+     and Maximum Impact	systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXSelectEventSGIX, glXCreateGLXPbufferSGIX
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

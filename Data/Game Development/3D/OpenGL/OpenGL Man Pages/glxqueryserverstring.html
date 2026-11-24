@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxqueryserverstring Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxqueryserverstring</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXQueryServerString(3G)    OpenGL Reference - GLX    glXQueryServerString(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXQueryServerString - return string describing the server
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     const char	* glXQueryServerString(	Display	*dpy,
+					int screen,
+					int name )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy     Specifies the connection to the X server.
+
+
+     screen  Specifies the screen number.
+
+
+     name    Specifies which string is returned. One of	VENDOR,	VERSION, or
+	     EXTENSIONS.
+
+
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXQueryServerString returns a pointer to a static, null-terminated
+     string describing some aspect of the server's GLX extension. The possible
+     values for	name and the format of the strings is the same as for
+     glXGetClientString. If name is not	set to a recognized value then NULL is
+     returned.
+
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	the GLX	version	is 1.1 or 1.0, then the	GL version must	be 1.0.
+
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXQueryVersion, glXGetClientString, and glXQueryExtensionsString.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

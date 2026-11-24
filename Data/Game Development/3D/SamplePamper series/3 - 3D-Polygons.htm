@@ -1,0 +1,1503 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0054)http://www.codeproject.com/useritems/SamplePamper3.asp -->
+<HTML><HEAD><TITLE>SamplePamper Series - Part 3: 3D-Polygons - The Code Project - C# Programming</TITLE>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META http-equiv=Content-Type content="text/html; charset=ISO-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META 
+content="This is the third part in the Sample Pamper series as this time will turn to those of you who want to know about creating a 3D surface for your objects. In this case we will focus on polygon surfaces. There will be 3D rotations and lightning with reflection also. It is not meant only for C#." 
+name=Description>
+<META content=kbArticle name=Search.TopicType>
+<META content=Windmiller name=Author>
+<META content="26 Sep 2007 14:00:00 GMT" name=Search.PublishDate>
+<META content="26 Sep 2007 14:00:00 GMT" name=Search.RevisedDate>
+<META content="Free source code, , Visual C++, MFC, Windows, Article" 
+name=keywords>
+<META 
+content="Article content copyright Windmiller, 2007, everthing else Copyright © CodeProject, 1999-2007, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Lounge Postings" 
+href="http://www.codeproject.com/webservices/LoungeRSS.aspx" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - VB.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6" 
+type=application/rss+xml rel=alternate><LINK title="The Code Project" 
+href="http://www.codeproject.com/info/OpenSearch.xml" 
+type=application/opensearchdescription+xml rel=search><LINK href="/favicon.ico" 
+type=image/ico rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="3 - 3D-Polygons_archivos/global.css" type=text/css rel=stylesheet>
+<SCRIPT language=javascript src="3 - 3D-Polygons_archivos/oncopy.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+if (top != self) top.location.href = location.href;
+if (typeof(DemoUrl) != "undefined")
+	document.write('<me' + 'ta http' + '-equiv="re' + 'fresh" con' + 'tent="1;url=' + DemoUrl + '">');
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR></HEAD>
+<BODY style="MARGIN: 0px" oncopy="return copyCode();" text=black vLink=navy 
+aLink=red link=blue bgColor=white>
+<SCRIPT src="3 - 3D-Polygons_archivos/urchin.js" type=text/javascript>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+_uacct = "UA-1735123-1";
+urchinTracker();
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=HeaderLogo><A href="http://www.codeproject.com/"><IMG height=90 
+      alt=Home src="3 - 3D-Polygons_archivos/codeproject225x90.gif" 
+    border=0></A></TD>
+    <TD class=HeaderBanner><SPAN id=AdBanner4>
+      <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3980&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FDevExpress%2Dribbon%2D728x90%2Egif&C=False&id=3980&cb=4598873\" alt=\"\" border=0 width=728 height=90></a>");</SCRIPT>
+      </SPAN></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=MemberNavBar cellSpacing=0 cellPadding=5 width="100%" 
+      border=0>
+        <TBODY>
+        <TR vAlign=center>
+          <TD class=smallText style="FONT-WEIGHT: bold">4,553,193 members and 
+            growing! &nbsp; 13,702 now online. </TD>
+          <TD class=userNavText align=right><A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?id=512155">Gabriel 
+            Dominguez </A>| <A 
+            href="http://www.codeproject.com/script/profile/modify.asp?ct=/useritems/SamplePamper3.asp"><B>My 
+            Settings</B></A> | <A 
+            href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+            Bookmarks</A> | <A 
+            href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+            Articles</A> | <A 
+            href="http://www.codeproject.com/script/profile/logoff.asp?ct=/useritems/SamplePamper3.asp">Sign 
+            out</A> </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=SiteNavBar id=tblSiteToolbar cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD><A href="http://www.codeproject.com/">Home</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=2">MFC/C++</A></TD>
+          <TD><A href="http://www.codeproject.com/index.asp?cat=3">C#</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=4">ASP.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=6">VB.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=8">Architect</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=9">SQL</A></TD>
+          <TD class=SelCat noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=1">All Topics</A></TD>
+          <TD width="100%">&nbsp;</TD>
+          <TD>
+            <DIV id=MenuPos 
+            style="WIDTH: 300px; POSITION: relative; TOP: 1px; HEIGHT: 22px">
+            <TABLE id=MPH 
+            style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 20px; BORDER-RIGHT-WIDTH: 0px" 
+            cellSpacing=0 cellPadding=0 width=300>
+              <TBODY>
+              <TR vAlign=center>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                  Boards</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+      <SCRIPT src="3 - 3D-Polygons_archivos/cpmenu_var.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT src="3 - 3D-Polygons_archivos/menu10_com.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT type=text/javascript>
+var MPH = document.getElementById("MPH");
+if (MPH) MPH.style.display='none';
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=ArticleUneditedHeader cellSpacing=0 cellPadding=3 
+      width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText style="PADDING-RIGHT: 10px"><A 
+            href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+            href="http://www.codeproject.com/?cat=3">C#</A>, <A 
+            href="http://www.codeproject.com/?cat=5">.NET</A> &gt;&gt; <A 
+            href="http://www.codeproject.com/csharp/">C# Programming</A> 
+            &gt;&gt; <A 
+            href="http://www.codeproject.com/csharp/#Unedited+Reader+Contributions">Unedited 
+            Reader Contributions</A> &nbsp;(<SPAN class=SmallText 
+            style="FONT-WEIGHT: bold; COLOR: green">Beginner</SPAN>)<BR><BR>
+            <DIV style="FONT-WEIGHT: bold; FONT-SIZE: 16pt">SamplePamper Series 
+            - Part 3: 3D-Polygons</DIV><B>By <A 
+            href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=3107109">Windmiller</A></B>. 
+            <BR><BR>
+            <DIV style="FONT-SIZE: 12px">This is the third part in the Sample 
+            Pamper series as this time will turn to those of you who want to 
+            know about creating a 3D surface for your objects. In this case we 
+            will focus on polygon surfaces. There will be 3D rotations and 
+            lightning with reflection also. It is not meant only for 
+C#.</DIV></TD>
+          <TD class=smallText style="WIDTH: 200px">C# (C# 1.0, C# 
+            2.0)<BR>Windows (Win2K, WinXP, Win2003, Vista), .NET (.NET 1.1, .NET 
+            2.0, .NET 3.0)<BR>Win32, VS (VS.NET2003, VS2005)<BR>Dev<BR><SPAN 
+            style="PADDING-RIGHT: 2ex">Posted</SPAN>: <B>27 Sep 
+            2007</B><BR><SPAN style="PADDING-RIGHT: 3ex">Views</SPAN>: 
+            <B>1,089</B> </TD></TR>
+        <TR class=ArticleUneditedHeader>
+          <TD colSpan=2>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD class=smallText width="100%"><B>Note: <A 
+                  title="Click here for more information" 
+                  href="http://www.codeproject.com/info/unedited.asp">This is an 
+                  unedited reader contribution</B></A> </TD>
+                <TD class=SmallText noWrap><A 
+                  href="http://www.codeproject.com/script/Submit/EditArticle1.asp?guid=SamplePamper3%2Fuseritems9%2F27%2F2007">Modify</A> 
+                  | <A 
+                  href="http://www.codeproject.com/script/Submit/DeleteArticle1.asp?guid=SamplePamper3%2Fuseritems9%2F27%2F2007">Delete</A>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=LHNavBar rowSpan=2><!-- Yes, there are IE hacks that will allow us to create a min-width DIV 
+	     (eg http://www.webreference.com/programming/min-width/) but I couldn't
+	     be arsed. Wait for it in v2.0 -->
+            <DIV class=FeatureBlockHeader>Announcements</DIV>
+            <DIV class="FeatureBlockContent RHFeatureBar">
+            <DIV style="PADDING-TOP: 3px"><IMG style="MARGIN-LEFT: 0px" 
+            height=16 alt=Jobs src="3 - 3D-Polygons_archivos/staff_sm.gif" 
+            width=12 align=absMiddle> <A 
+            href="http://www.codeproject.com/info/jobs/">http://www.codeproject.com/info/jobs/</A></DIV>
+            <DIV style="PADDING-TOP: 3px"><IMG style="MARGIN-LEFT: 0px" 
+            height=20 alt=Comp 
+            src="3 - 3D-Polygons_archivos/prize_winner_sm.gif" width=10 
+            align=absMiddle> <A 
+            href="http://www.codeproject.com/script/competitions/monthly/">Monthly 
+            Competition</A></DIV></DIV>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=2775&cb=4598905\" border=0 frameborder=0 scrolling=no width=160 height=600></IFRAME>");</SCRIPT>
+            </CENTER><BR><BR><IMG height=1 src="3 - 3D-Polygons_archivos/t.gif" 
+            width=160> </TD>
+          <TD width="100%">
+            <TABLE class=SearchHeaderBar cellSpacing=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=center noWrap align=right width="60%">
+                  <FORM style="MARGIN: 0px" name=Search action=/info/search.asp 
+                  method=post><B>Search &nbsp;</B><INPUT class=smallText 
+                  style="WIDTH: 200px" name=target> <SELECT 
+                  style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" name=st> <OPTION 
+                    value=kw selected>Articles</OPTION> <OPTION 
+                    value=au>Authors</OPTION></SELECT> <INPUT style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" type=submit value=" Go! "> 
+                  &nbsp; </FORM></TD>
+                <TD class=tinyText noWrap><A 
+                  href="http://www.codeproject.com/info/search.asp">Advanced 
+                  Search</A><BR><A 
+                  href="http://www.codeproject.com/script/articles/sections.asp">Sitemap</A> 
+                </TD></TR></TBODY></TABLE>
+            <TABLE width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=SmallText noWrap>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText noWrap><IMG 
+                        src="3 - 3D-Polygons_archivos/print.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/useritems/SamplePamper3.asp?print=true" 
+                        target=_print>Print</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="3 - 3D-Polygons_archivos/sitebuild_icon.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=SamplePamper3%2Fuseritems9%2F27%2F2007">Broken 
+                        Article?</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="3 - 3D-Polygons_archivos/link.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fuseritems%2FSamplePamper3%2Easp&amp;guid=SamplePamper3%2Fuseritems9%2F27%2F2007">Bookmark</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="3 - 3D-Polygons_archivos/mail_small.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/useritems/SamplePamper3.asp#__comments">Discuss</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="3 - 3D-Polygons_archivos/mail.gif" align=absMiddle> 
+                        <A 
+                        href="http://www.codeproject.com/script/recommend/form.asp?guid=SamplePamper3%2Fuseritems9%2F27%2F2007">Send 
+                        to a friend</A></TD></TR></TBODY></TABLE></TD>
+                <TD noWrap align=right><A name=__top></A>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText align=right>2 votes for this 
+                      article.</TD>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 border=2>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="3 - 3D-Polygons_archivos/red.gif" width=20 
+                              border=0></TD>
+                            <TD><IMG height=5 
+                              src="3 - 3D-Polygons_archivos/red.gif" width=20 
+                              border=0></TD>
+                            <TD><IMG height=5 
+                              src="3 - 3D-Polygons_archivos/red.gif" width=20 
+                              border=0></TD>
+                            <TD><IMG height=5 
+                              src="3 - 3D-Polygons_archivos/red.gif" width=20 
+                              border=0></TD>
+                            <TD><IMG height=5 
+                              src="3 - 3D-Polygons_archivos/red.gif" width=7 
+                              border=0><IMG height=5 
+                              src="3 - 3D-Polygons_archivos/white.gif" width=13 
+                              border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD class=smallText align=right colSpan=2><A 
+                        title="Calculated as rating x Log10(# votes)" 
+                        href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                        1.3</A>. Rating: <B>4.33</B> out of 
+                  5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=ArticlePane>
+            <P class=smallText 
+            style="PADDING-RIGHT: 5px; BORDER-TOP: #ff9900 1px dashed; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 5px; PADDING-TOP: 5px; BORDER-BOTTOM: #ff9900 1px dashed" 
+            ?><B>Note:</B> This is an unedited contribution. If this article is 
+            inappropriate, needs attention or copies someone else's work without 
+            reference then please <A 
+            href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=SamplePamper3%2Fuseritems9%2F27%2F2007">Report 
+            this article</A>.</P><SPAN id=intelliTXT>
+            <DIV id=contentdiv><!-- Article Starts --><A name=start>-</A> 
+            <UL class=download>
+              <LI><A 
+              href="http://www.codeproject.com/useritems/SamplePamper3/SamplePamper3.zip">Download 
+              SamplePamper3.zip - 13.4 KB</A> </LI></UL>
+            <H2>Introduction</H2>
+            <P>This is the third part in the Sample Pamper series as this time 
+            will turn to those of you who want to know about creating a surface 
+            for your 3D objects. In this case we will focus on polygon surfaces, 
+            z-buffer, light and reflection, and drawing a 3D-line. The focus 
+            will not lie on cute encapsulations within code objects.</P>
+            <P>This article will describe… </P>
+            <UL>
+              <LI><A 
+              href="http://www.codeproject.com/useritems/SamplePamper3.asp#requirement">Requirement</A> 
+
+              <LI><A 
+              href="http://www.codeproject.com/useritems/SamplePamper3.asp#theexample">The 
+              example</A> 
+              <UL>
+                <LI><A 
+                href="http://www.codeproject.com/useritems/SamplePamper3.asp#bressen">The 
+                J.E. Bresenham line algorithm</A> 
+                <LI><A 
+                href="http://www.codeproject.com/useritems/SamplePamper3.asp#zaxis">The 
+                algorithm with the z axis</A> 
+                <LI><A 
+                href="http://www.codeproject.com/useritems/SamplePamper3.asp#polygon">The 
+                3D polygon</A> 
+                <LI><A 
+                href="http://www.codeproject.com/useritems/SamplePamper3.asp#buffer">The 
+                Z buffer</A> </LI></UL>
+              <LI><A 
+              href="http://www.codeproject.com/useritems/SamplePamper3.asp#points">Point 
+              of interest</A> 
+              <LI><A 
+              href="http://www.codeproject.com/useritems/SamplePamper3.asp#history">History</A> 
+
+              <LI><A 
+              href="http://www.codeproject.com/useritems/SamplePamper3.asp#links">References 
+              - for further reading</A> 
+              <LI><A 
+              href="http://www.codeproject.com/useritems/SamplePamper3.asp#license">License</A> 
+              </LI></UL>
+            <P><A name=#requirement>-</A> </P>
+            <H2>Requirement</H2>
+            <P>You will need Visual Studio .NET installed to be able to run and 
+            try the source code for this article. </P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/SamplePamper3.asp#start">Back 
+            to top?</A></P>
+            <P><A name=theexample>-</A> </P>
+            <H3>The example</H3><IMG height=374 
+            alt="Screenshot - screenshot2.gif" 
+            src="3 - 3D-Polygons_archivos/screenshot2.gif" width=379> 
+            <P>This example will paint some polygons like the one in the picture 
+            and rotate them. It will also display the ligth and reflection with 
+            two lines, this to describe more visual for you how the light will 
+            fall and reflect against the surface (if you want to read more about 
+            light and reflections, you can read <A 
+            href="http://www.codeproject.com/csharp/LightSample.asp#lightvector">Part 
+            1: 3D-Light, Flat-shading and Rotations</A> and <A 
+            href="http://www.codeproject.com/csharp/SamplePamperPart2.asp#reflection">Part 
+            2: 3D-Light Reflections</A> of the SamplePamper series). The light 
+            vector will follow the mousepointer so that you easilly can change 
+            it and see the new effect. To paint a surface like this one in the 
+            picture you will need to know the corners points, these corners are 
+            the ones creating the surface. You should then place polygons 
+            between these points to build the surface. The polygons should also 
+            be kept as small as possible which we can do by adding points to the 
+            mesh (<A href="http://en.wikipedia.org/wiki/Polygon_mesh">Polygon 
+            mesh</A>) so that we can add several smaller polygons to it, and it 
+            would end up looking something like this. </P>
+            <P><IMG height=228 alt="Screenshot - meshpoints1.gif" 
+            src="3 - 3D-Polygons_archivos/meshpoints1.gif" width=276> </P>
+            <P>But how many points should we have then? It depends on how near 
+            the object is in the <A 
+            href="http://en.wikipedia.org/wiki/Z-order">Z-order</A>, the further 
+            away less number of points is needed and contrary. But in our case 
+            it will not be considered because it will be too much to handle in 
+            this article, so we will stick with some points for the surface in 
+            every case. But how do we draw a polygon that will know every point 
+            in the z order so that we will know if a point is behind another? 
+            The polygon we drew in article one and two was the one built in 
+            within the Graphics library and this one can only handle x and y 
+            coordinates, we need the z coordinate to make it happen also. We 
+            must consider drawing a new one handling x, y and z coordinates by 
+            our selves. </P>
+            <P><A name=bressen>-</A> </P>
+            <H3>The J.E. Bresenham line algorithm</H3>
+            <P>A polygon is based on several lines, and to draw a line we can 
+            use the line formula as this famous one. </P>
+            <P>p = pStart + t * L </P>
+            <P>Where p is the point in the line segment and the pStart is the 
+            starting point from where the segment is supposed to be drawn. The t 
+            goes from 0 to 1 and the L is the length of the segment. </P>
+            <P><IMG height=257 alt="Screenshot - cracks1.gif" 
+            src="3 - 3D-Polygons_archivos/cracks1.gif" width=179></P>
+            <P>But this line formula has its flause and will display cracks in 
+            the surface in some angles if being used for this purpose. To solve 
+            this problem, you will need something that will follow the pixels on 
+            the screen much better and I will therefore introduce the Bresenham 
+            line algorithm to you as is made for plotters (<A 
+            href="http://en.wikipedia.org/wiki/Bresenham's_line_algorithm">Bresenham</A>). 
+            This line will be rasterized so that it can't jump pixels like the 
+            line formula could. </P><PRE lang=cs>private void SpeedLine2D(int x, int y, int xx, int yy)
+{
+ int dx = (xx-x);
+ int dy = (yy-y);
+        
+ <SPAN class=cs-comment>//Direction pointer.</SPAN>
+ int step_x = 0;
+ int step_y = 0;
+
+ <SPAN class=cs-comment>//Moving right step +1 else -1</SPAN>
+ if(dx&gt;=0)
+  step_x = 1;
+ else
+ {
+  step_x = -1;
+  dx = -dx;
+ }
+ if(dy&gt;=0)
+  step_y = 1;
+ else
+ {
+  step_y = -1;
+  dy = -dy;
+ }
+            
+ <SPAN class=cs-comment>//You need this to make the err_term work.</SPAN>
+ <SPAN class=cs-comment>//Because we are using integers we must multiply with 2</SPAN>
+ int dx2 = dx*2; <SPAN class=cs-comment>//delta X * 2 instead of 0.5</SPAN>
+ int dy2 = dy*2; <SPAN class=cs-comment>//delta Y * 2 ..</SPAN>
+
+ <SPAN class=cs-comment>//Set err_term to height*2 and decrement by the segment width.</SPAN>
+ <SPAN class=cs-comment>//example. 2-10 =-8</SPAN>
+ err_termXY = dy2 - dx;
+ err_termXZ = dz2 - dx;
+
+  <SPAN class=cs-comment>//Step x direction by one until the end of width.</SPAN>
+  for(int i=0;i&lt;=dx;i++)
+  {
+   <SPAN class=cs-comment>//Paint the pixel</SPAN>
+   <SPAN class=cs-comment>//Example..</SPAN>
+   bm.SetPixel(x,y,color);
+
+   <SPAN class=cs-comment>//Adjust error_term</SPAN>
+   <SPAN class=cs-comment>//and step down or up by one in the y path.</SPAN>
+   <SPAN class=cs-comment>//This if it's time to do so.</SPAN>
+   if(err_termXY&gt;=0)
+   {
+    err_termXY -= dx2; <SPAN class=cs-comment>//err minus the width*2;</SPAN>
+    y += step_y; <SPAN class=cs-comment>//Step down or up by one.</SPAN>
+   }
+   err_termXY += dy2; <SPAN class=cs-comment>//Add err_term by the height * 2;</SPAN>
+ 
+   x += step_x; <SPAN class=cs-comment>//step right or left</SPAN>
+  }
+ }
+}
+</PRE>
+            <P>This function above is only displaying the part when x i dominate 
+            you'll need the part when it's ydominate also, but you can see what 
+            it does here. </P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/SamplePamper3.asp#start">Back 
+            to top?</A></P>
+            <P><A name=zaxis>-</A> </P>
+            <H3>The algorithm with the z axis</H3>
+            <P>But still, what about the z axis we where talking about? We must 
+            implement this to the algorithm too, and then it could look 
+            something like the following. </P><PRE lang=cs>private void SpeedLine3D(int x, int y, int z, int xx, int yy, int zz)
+{
+ int dx = (xx-x);
+ int dy = (yy-y);
+ int dz = (zz-z);
+         
+ <SPAN class=cs-comment>//Direction pointer.</SPAN>
+ int step_x = 0;
+ int step_y = 0;
+ int step_z = 0;
+
+ <SPAN class=cs-comment>//Moving right step +1 else -1</SPAN>
+ if(dx&gt;=0)
+  step_x = 1;
+ else
+ {
+  step_x = -1;
+  dx = -dx;
+ }
+ if(dy&gt;=0)
+  step_y = 1;
+ else
+ {
+  step_y = -1;
+  dy = -dy;
+ }
+ if(dz&gt;=0)
+  step_z = 1;
+ else
+ {
+  step_z = -1;
+  dz = -dz;
+ }
+            
+ <SPAN class=cs-comment>//You need this to make the err_term work.</SPAN>
+ <SPAN class=cs-comment>//Because we are using integers we must multiply with 2</SPAN>
+ int dx2 = dx*2; <SPAN class=cs-comment>//delta X * 2 instead of 0.5</SPAN>
+ int dy2 = dy*2; <SPAN class=cs-comment>//delta Y * 2 ..</SPAN>
+ int dz2 = dz*2; <SPAN class=cs-comment>//delta Z * 2 ..</SPAN>
+
+ int err_termXY = 0; <SPAN class=cs-comment>//Zero it</SPAN>
+ int err_termXZ = 0; <SPAN class=cs-comment>//Zero it</SPAN>
+            
+ <SPAN class=cs-comment>//If width is greater than height</SPAN>
+ <SPAN class=cs-comment>//we are going to adjust the height movment after the x steps.</SPAN>
+ if(dx&gt;=dy&amp;&amp;dx&gt;=dz)
+ {
+  <SPAN class=cs-comment>//Set err_term to height*2 and decrement by the segment width.</SPAN>
+  <SPAN class=cs-comment>//example. 2-10 =-8</SPAN>
+  err_termXY = dy2 - dx;
+  err_termXZ = dz2 - dx;
+
+  <SPAN class=cs-comment>//Step x direction by one until the end of width.</SPAN>
+  for(int i=0;i&lt;=dx;i++)
+  {
+   <SPAN class=cs-comment>//Paint the pixel</SPAN>
+   <SPAN class=cs-comment>//Example..</SPAN>
+   bm.SetPixel(x,y,color);
+
+   <SPAN class=cs-comment>//Adjust error_term</SPAN>
+   <SPAN class=cs-comment>//and step down or up by one in the y path.</SPAN>
+   <SPAN class=cs-comment>//This if it's time to do so.</SPAN>
+   if(err_termXY&gt;=0)
+   {
+    err_termXY -= dx2; <SPAN class=cs-comment>//err minus the width*2;</SPAN>
+    y += step_y; <SPAN class=cs-comment>//Step down or up by one.</SPAN>
+   }
+   if(err_termXZ&gt;=0)
+   {
+    err_termXZ -= dx2; <SPAN class=cs-comment>//err minus the width*2;</SPAN>
+    z += step_z; <SPAN class=cs-comment>//Step in or out by one.</SPAN>
+   }
+   err_termXY += dy2; <SPAN class=cs-comment>//Add err_term by the height * 2;</SPAN>
+   err_termXZ += dz2; <SPAN class=cs-comment>//Add err_term by the depth * 2;</SPAN>
+
+   <SPAN class=cs-comment>//This will happen all the time.</SPAN>
+   x += step_x; <SPAN class=cs-comment>//step right or left</SPAN>
+  }
+ }
+ else if(dy&gt;dx&amp;&amp;dy&gt;dz)<SPAN class=cs-comment>//Height is leading the position.</SPAN>
+ {
+  <SPAN class=cs-comment>//Set err_term to width*2 and decrement by the delta y.</SPAN>
+  err_termXY = dx2 - dy;
+  err_termXZ = dz2 - dy;
+
+  <SPAN class=cs-comment>//Step y direction by one until the end of height.</SPAN>
+  for(int i=0;i&lt;=dy;i++)
+  {            
+   <SPAN class=cs-comment>//Paint one pixel</SPAN>
+   bm.SetPixel(x,y,color);
+
+   <SPAN class=cs-comment>//Adjust error_term</SPAN>
+   <SPAN class=cs-comment>//and step left or right by one in the x path.</SPAN>
+   <SPAN class=cs-comment>//This if it's time to do so.</SPAN>
+   if(err_termXY&gt;=0)
+   {
+     err_termXY -= dy2; <SPAN class=cs-comment>//err minus the height*2;</SPAN>
+     x += step_x; <SPAN class=cs-comment>//Step right or left by one.</SPAN>
+   }
+   if(err_termXZ&gt;=0)
+   {
+    err_termXZ -= dy2; <SPAN class=cs-comment>//err minus the height*2;</SPAN>
+    z += step_z; <SPAN class=cs-comment>//Step depth in or out by one.</SPAN>
+   }
+   err_termXY += dx2; <SPAN class=cs-comment>//Add err_term by the width * 2;</SPAN>
+   err_termXZ += dz2; <SPAN class=cs-comment>//Add err_term by the depth * 2;</SPAN>
+ 
+   <SPAN class=cs-comment>//This will happen all the time.</SPAN>
+   y += step_y; <SPAN class=cs-comment>//step up or down.</SPAN>
+  }
+ }
+ else if(dz&gt;dx&amp;&amp;dz&gt;dy)<SPAN class=cs-comment>//Depth is leading the position.</SPAN>
+ {
+  <SPAN class=cs-comment>//Set err_term to width*2 and decrement by the delta z.</SPAN>
+  err_termXY = dx2 - dz;
+  err_termXZ = dy2 - dz;
+
+  <SPAN class=cs-comment>//Step z direction by one until the end of depth.</SPAN>
+  for(int i=0;i&lt;=dz;i++)
+  {
+   <SPAN class=cs-comment>//Paint one pixel</SPAN>
+   bm.SetPixel(x,y,color);
+
+   <SPAN class=cs-comment>//Adjust error_term</SPAN>
+   <SPAN class=cs-comment>//and step up or down by one in the y path.</SPAN>
+   <SPAN class=cs-comment>//This if it's time to do so.</SPAN>
+   if(err_termXY&gt;=0)
+   {
+    err_termXY -= dz2; <SPAN class=cs-comment>//err minus the depth*2;</SPAN>
+    y += step_y; <SPAN class=cs-comment>//Step up or down by one.</SPAN>
+   }
+   if(err_termXZ&gt;=0)
+   {
+    err_termXZ -= dz2; <SPAN class=cs-comment>//err minus the depth*2;</SPAN>
+    x += step_x; <SPAN class=cs-comment>//Step right or left by one.</SPAN>
+   }
+   err_termXY += dy2; <SPAN class=cs-comment>//Add err_term by the height * 2;</SPAN>
+   err_termXZ += dx2; <SPAN class=cs-comment>//Add err_term by the width * 2;</SPAN>
+
+   z += step_z; <SPAN class=cs-comment>//step in or out.</SPAN>
+  }
+ }
+}
+</PRE>
+            <P><A 
+            href="http://www.codeproject.com/useritems/SamplePamper3.asp#start">Back 
+            to top?</A></P>
+            <P><A name=polygon>-</A></P>
+            <H3>The 3D polygon</H3>
+            <P>Now that we have our new way of painting a 3D line we can go on 
+            with the polygon. The best way of filling a polygon is to draw a 
+            horizontal line from the points in the left side line segment to the 
+            right sides line segment of the polygon. What we need is to use the 
+            algorithm as we made based on the Bresenham algorithm to first 
+            calculate every single unique y point and that unique y positions x 
+            coordinate in LS1, LS2 and LS3 and then draw lines from left to 
+            right between these points. </P>
+            <P><IMG height=228 alt="Screenshot - fillingpoly1.gif" 
+            src="3 - 3D-Polygons_archivos/fillingpoly1.gif" width=239> </P>
+            <P>We are going to fill these line segment points into an array 
+            first and then paint horizontal lines from this information. To 
+            manage this I've developed the line algorithm a bit so that it 
+            handles three lines with x, y and z in one single loop. </P><PRE lang=cs>  private void CalculatePolygon(uint[][] zbuffer, Poinx3D p1,
+  Poinx3D p2, Poinx3D p3, double intencity, int red, int green, int blue)
+  {
+   ArrayList aR1 = new ArrayList();
+   ArrayList aR2 = new ArrayList();
+   ArrayList aR3 = new ArrayList();
+
+   <SPAN class=cs-comment>//Calculate the rest</SPAN>
+   <SPAN class=cs-comment>//       p1</SPAN>
+   <SPAN class=cs-comment>//       /|</SPAN>
+   <SPAN class=cs-comment>//   LS1/ |LS3</SPAN>
+   <SPAN class=cs-comment>//   p2/  |</SPAN>
+   <SPAN class=cs-comment>//      \ |</SPAN>
+   <SPAN class=cs-comment>//    LS2\|p3  </SPAN>
+
+   int LS1x = p2.X-p1.X;
+   int LS1y = p2.Y-p1.Y;
+   int LS1z = p2.Z-p1.Z;
+   int LS2x = p3.X-p2.X;
+   int LS2y = p3.Y-p2.Y;
+   int LS2z = p3.Z-p2.Z;
+   int LS3x = p3.X-p1.X;
+   int LS3y = p3.Y-p1.Y;
+   int LS3z = p3.Z-p1.Z;
+
+   <SPAN class=cs-comment>//Make directions.</SPAN>
+   if(LS1x&gt;=0)
+    step_LS1x = 1;
+   else
+   {
+    step_LS1x = -1;
+    LS1x = -LS1x;
+   }
+   if(LS1z&gt;=0)
+    step_LS1z = 1;
+   else
+   {
+    step_LS1z = -1;
+    LS1z = -LS1z;
+   }
+   if(LS2x&gt;=0)
+    step_LS2x = 1;
+   else
+   {
+    step_LS2x = -1;
+    LS2x = -LS2x;
+   }
+   if(LS2z&gt;=0)
+    step_LS2z = 1;
+   else
+   {
+    step_LS2z = -1;
+    LS2z = -LS2z;
+   }
+   if(LS3x&gt;=0)
+    step_LS3x = 1;
+   else
+   {
+    step_LS3x = -1;
+    LS3x = -LS3x;
+   }
+   if(LS3z&gt;=0)
+    step_LS3z = 1;
+   else
+   {
+    step_LS3z = -1;
+    LS3z = -LS3z;
+   }
+   <SPAN class=cs-comment>//Never divide with integers,</SPAN>
+   <SPAN class=cs-comment>//Better double it up by 2.</SPAN>
+   <SPAN class=cs-comment>//For the error term.</SPAN>
+   int L2S1x = LS1x*2;
+   int L2S1y = LS1y*2;
+   int L2S1z = LS1z*2;
+   int L2S2x = LS2x*2;
+   int L2S2y = LS2y*2;
+   int L2S2z = LS2z*2;
+   int L2S3x = LS3x*2;
+   int L2S3y = LS3y*2;
+   int L2S3z = LS3z*2;
+
+   <SPAN class=cs-comment>//Init error terms for the three lines</SPAN>
+   <SPAN class=cs-comment>//If linesegment 3 is x dominate?</SPAN>
+   if(LS3x&gt;=LS3y&amp;&amp;LS3x&gt;=LS3z)
+   {
+    <SPAN class=cs-comment>//Init err term for x,y and z.</SPAN>
+    <SPAN class=cs-comment>//From the LS3x value.</SPAN>
+    err_LS3x = L2S3x-LS3x;
+    err_LS3y = L2S3y-LS3x;
+    err_LS3z = L2S3z-LS3x;
+   }
+   else if(LS3y&gt;LS3x&amp;&amp;LS3y&gt;LS3z)
+   {
+    <SPAN class=cs-comment>//Else it's y dominate.</SPAN>
+    <SPAN class=cs-comment>//Init err term for x,y and z.</SPAN>
+    err_LS3x = L2S3x-LS3y;
+    err_LS3y = L2S3y-LS3y;
+    err_LS3z = L2S3z-LS3y;
+   }
+   else <SPAN class=cs-comment>//Z dominant movement.</SPAN>
+   {
+    err_LS3x = L2S3x-LS3z;
+    err_LS3y = L2S3y-LS3z;
+    err_LS3z = L2S3z-LS3z;
+   }
+
+   <SPAN class=cs-comment>//Same for all of the rest..</SPAN>
+   if(LS2x&gt;=LS2y&amp;&amp;LS2x&gt;=LS2z)
+   {
+    err_LS2x = L2S2x-LS2x;
+    err_LS2y = L2S2y-LS2x;
+    err_LS2z = L2S2z-LS2x;
+   }
+   else if(LS2y&gt;LS2x&amp;&amp;LS2y&gt;LS2z)
+   {
+    err_LS2x = L2S2x-LS2y;
+    err_LS2y = L2S2y-LS2y;
+    err_LS2z = L2S2z-LS2y;
+   }
+   else <SPAN class=cs-comment>//Z dominant movement.</SPAN>
+   {
+    err_LS2x = L2S2x-LS2z;
+    err_LS2y = L2S2y-LS2z;
+    err_LS2z = L2S2z-LS2z;
+   }
+
+   if(LS1x&gt;=LS1y&amp;&amp;LS1x&gt;=LS1z)
+   {
+    err_LS1x = L2S1x-LS1x;
+    err_LS1y = L2S1y-LS1x;
+    err_LS1z = L2S1z-LS1x;
+   }
+   else if(LS1y&gt;LS1x&amp;&amp;LS1y&gt;LS1z)
+   {
+    err_LS1x = L2S1x-LS1y;
+    err_LS1y = L2S1y-LS1y;
+    err_LS1z = L2S1z-LS1y;
+   }
+   else <SPAN class=cs-comment>//Z dominant movement.</SPAN>
+   {
+    err_LS1x = L2S1x-LS1z;
+    err_LS1y = L2S1y-LS1z;
+    err_LS1z = L2S1z-LS1z;
+   }
+
+   for(int i=0;i&lt;(storXY&gt;storZ?storXY:storZ);i++)
+   {
+    <SPAN class=cs-comment>//Line segment 1 --------------------</SPAN>
+
+    <SPAN class=cs-comment>//If segment 1 is x dominate,</SPAN>
+    <SPAN class=cs-comment>//and it's time to step up or down?</SPAN>
+    if(err_LS1y&gt;=0&amp;&amp;i&lt;=LS1x&amp;&amp;LS1x&gt;=LS1y
+    &amp;&amp;LS1x&gt;=LS1z)
+    {
+     <SPAN class=cs-comment>//First store the old point.</SPAN>
+     Poinx3D pp1 = new Poinx3D();
+     pp1.X = x1+p1.X;
+     pp1.Y = y1+p1.Y;
+     pp1.Z = z1+p1.Z;
+     aR1.Add(pp1);
+
+     <SPAN class=cs-comment>//Give a new row and continue.</SPAN>
+     err_LS1y -= L2S1x; <SPAN class=cs-comment>//We take away L2S1x from the err term.</SPAN>
+     y1 += step_LS1y; <SPAN class=cs-comment>//Step up or down.</SPAN>
+    }
+    <SPAN class=cs-comment>//We also need to find next x step.</SPAN>
+    <SPAN class=cs-comment>//If segment 1 is still x dominate,</SPAN>
+    <SPAN class=cs-comment>//and it's time to step left or right?</SPAN>
+    if(err_LS1x&gt;=0&amp;&amp;i&lt;=LS1x&amp;&amp;LS1x&gt;=LS1y
+    &amp;&amp;LS1x&gt;=LS1z)
+    {
+     err_LS1x -= L2S1x; <SPAN class=cs-comment>//Still the same, x dominate.</SPAN>
+     x1 += step_LS1x; <SPAN class=cs-comment>//Left or right?</SPAN>
+    }
+    <SPAN class=cs-comment>//And now we want the next z in the x dominate.</SPAN>
+    if(err_LS1z&gt;=0&amp;&amp;LS1x&gt;=LS1y&amp;&amp;LS1x
+    &gt;=LS1z&amp;&amp;(z1&gt;=0?z1:-z1)&lt;LS1z)
+    {
+     err_LS1z -= L2S1x; <SPAN class=cs-comment>//Still x dominate.</SPAN>
+     z1 += step_LS1z; <SPAN class=cs-comment>//In or out?</SPAN>
+    }
+    <SPAN class=cs-comment>//Now same thing for the y dominate.</SPAN>
+    <SPAN class=cs-comment>//If segment 1 is y dominate,</SPAN>
+    <SPAN class=cs-comment>//and it's time to step right or left?</SPAN>
+    if(err_LS1x&gt;=0&amp;&amp;i&lt;LS1y&amp;&amp;LS1y&gt;LS1x
+    &amp;&amp;LS1y&gt;LS1z)
+    {
+     err_LS1x -= L2S1y;
+     x1 += step_LS1x;
+    }
+    <SPAN class=cs-comment>//And we also need the next y step</SPAN>
+    <SPAN class=cs-comment>//in the y dominate movement (LS1y&gt;LS1x).</SPAN>
+    <SPAN class=cs-comment>//Time to move up or down?</SPAN>
+    if(err_LS1y&gt;=0&amp;&amp;i&lt;=LS1y&amp;&amp;LS1y
+    &gt;LS1x&amp;&amp;LS1y&gt;LS1z)
+    {
+     Poinx3D pp1 = new Poinx3D();
+     pp1.X = x1+p1.X;
+     pp1.Y = y1+p1.Y;
+     pp1.Z = z1+p1.Z;
+     aR1.Add(pp1);
+
+     err_LS1y -= L2S1y;
+     y1 += step_LS1y;
+    }
+    <SPAN class=cs-comment>//And in the y dominate, the z step.</SPAN>
+    if(err_LS1z&gt;=0&amp;&amp;LS1y&gt;LS1x&amp;&amp;
+    LS1y&gt;LS1z&amp;&amp;(z1&gt;=0?z1:-z1)&lt;LS1z)
+    {
+     err_LS1z -= L2S1y;
+     z1 += step_LS1z;
+    }
+    <SPAN class=cs-comment>//If segment 1 is z dominate,</SPAN>
+    <SPAN class=cs-comment>//and it's time to step up or down?</SPAN>
+    if(err_LS1y&gt;=0&amp;&amp;i&lt;=LS1z&amp;&amp;LS1z&gt;
+    LS1x&amp;&amp;LS1z&gt;=LS1y)
+    {
+     Poinx3D pp1;
+     pp1.X = x1+p1.X;
+     pp1.Y = y1+p1.Y;
+     pp1.Z = z1+p1.Z;
+     aR1.Add(pp1);
+
+     err_LS1y -= L2S1z;
+     y1 += step_LS1y;
+    }
+    <SPAN class=cs-comment>//We also need to find next x step.</SPAN>
+    <SPAN class=cs-comment>//If segment 1 is still z dominate,</SPAN>
+    <SPAN class=cs-comment>//and it's time to step left or right?</SPAN>
+    if(err_LS1x&gt;=0&amp;&amp;i&lt;=LS1z&amp;&amp;LS1z&gt;LS1x
+    &amp;&amp;LS1z&gt;=LS1y)
+    {
+     err_LS1x -= L2S1z;
+     x1 += step_LS1x;
+    }
+    <SPAN class=cs-comment>//And now we want the next z in the z dominate.</SPAN>
+    if(err_LS1z&gt;=0&amp;&amp;LS1z&gt;LS1x&amp;&amp;LS1z&gt;=
+    LS1y&amp;&amp;(z1&gt;=0?z1:-z1)&lt;LS1z)
+    {
+     err_LS1z -= L2S1z;
+     z1 += step_LS1z;
+    }
+    
+    <SPAN class=cs-comment>//Line segment 2 ----------------</SPAN>
+
+    <SPAN class=cs-comment>//Same for line 2..</SPAN>
+
+    <SPAN class=cs-comment>//Line segment 3 ---------------</SPAN>
+
+    <SPAN class=cs-comment>//And.. line 3</SPAN>
+
+    <SPAN class=cs-comment>//------------------------</SPAN>
+
+    <SPAN class=cs-comment>//Now add error terms..</SPAN>
+
+    err_LS1x += L2S1x;
+    err_LS1y += L2S1y;
+    err_LS1z += L2S1z;
+    err_LS2x += L2S2x;
+    err_LS2y += L2S2y;
+    err_LS2z += L2S2z;
+    err_LS3x += L2S3x;
+    err_LS3y += L2S3y;
+    err_LS3z += L2S3z;
+   }
+   <SPAN class=cs-comment>//Paint the polygon.</SPAN>
+   PolyPainter(zbuffer, aR1, aR2, aR3, intencity, red, green, blue);
+  }
+</PRE>
+            <P>In this algorithm you can see that we are using three arrays, and 
+            yes they are of the ArrayList type which is not the fastest way to 
+            go. We are only adding the last point from the line segment once for 
+            every new row, so that we will end up having one unique point per y 
+            row and we are doing this with LS1, LS2 and LS3. </P>
+            <P><IMG height=164 alt="Screenshot - array1.gif" 
+            src="3 - 3D-Polygons_archivos/array1.gif" width=308></P>
+            <P>Now when this is done we can start to paint horizontal lines 
+            between these stored points as you can see in the following code 
+            snippet. </P><PRE lang=cs>private void HorizontalLine3D(uint[][] zbuffer, Poinx3D p1,
+Poinx3D p2, double intencity, int red, int green, int blue)
+{
+ <SPAN class=cs-comment>//Delta lengths</SPAN>
+ int dx = (p2.X-p1.X);
+ int dz = (p2.Z-p1.Z);
+            
+ <SPAN class=cs-comment>//Direction pointers.</SPAN>
+ int step_x = 0;
+ int step_z = 0;
+
+ <SPAN class=cs-comment>//Moving right step +1 else -1</SPAN>
+ if(dx&gt;=0)
+  step_x = 1;
+ else
+ {
+  step_x = -1;
+  dx = -dx;
+ }
+ if(dz&gt;=0)
+  step_z = 1;
+ else
+ {
+  step_z = -1;
+  dz = -dz;
+ }
+            
+ int dx2 = dx*2; <SPAN class=cs-comment>//delta X * 2 instead of 0.5</SPAN>
+ int dz2 = dz*2; <SPAN class=cs-comment>//delta Z * 2 ..</SPAN>
+ int err_termXZ = 0;
+        
+ <SPAN class=cs-comment>//Unified things.</SPAN>
+ int uni1D = 0, uni2D2 = 0;
+ int inc11 = 0, inc12 = 0, inc2 = 0;
+ int step1D2 = 0, step2D = 0;
+ int loopTo = 0, direction = 0;
+
+ if(dx&gt;=dz)
+ {
+  err_termXZ = dz2 - dx;
+  direction = 0;
+  loopTo = dx;
+  uni1D = dx2;
+  inc11 = p1.Y;
+  step1D2 = step_z;
+  inc12 = p1.Z;
+  uni2D2 = dz2;
+  inc2 = p1.X;
+  step2D = step_x;
+ }
+ else if(dz&gt;dx)
+ {
+  err_termXZ = dx2 - dz;
+  direction = 2;
+  loopTo = dz;
+  uni1D = dz2;
+  inc11 = p1.Y;
+  inc12 = p1.X;
+  step1D2 = step_x;
+  uni2D2 = dx2;
+  inc2 = p1.Z;
+  step2D = step_z;
+ }
+            
+ for(int i=0;i&lt;=loopTo;i++)
+ {
+  Color cl = Color.FromArgb(red,green,blue);
+  if(direction==0)
+  {
+   if(inc12&gt;zbuffer[inc2][inc11])
+   { 
+     <SPAN class=cs-comment>//Paint pixel based on intensity</SPAN>
+     bm.SetPixel(inc2,inc11,cl);
+
+     <SPAN class=cs-comment>//Add point to the z buffer.</SPAN>
+     zbuffer[inc2][inc11] = Convert.ToUInt32(inc12);
+   }
+  }
+  if(direction==2)
+  {
+   if(inc2&gt;zbuffer[inc12][inc11])
+   {
+    bm.SetPixel(inc12,inc11,cl);
+    zbuffer[inc12][inc11]=Convert.ToUInt32(inc2);
+   }
+  }
+  <SPAN class=cs-comment>//Adjust error_term</SPAN>
+  <SPAN class=cs-comment>//This if it's time to do so.</SPAN>
+  if(err_termXZ&gt;=0)
+  {
+   err_termXZ -= uni1D;
+   inc12 += step1D2;
+  }
+  err_termXZ += uni2D2;
+  inc2 += step2D;
+ }
+}
+</PRE>
+            <P>This function will paint a horizontal line from one line segment 
+            to another, so we have released it from the y part because it's not 
+            needed here. The inparameters to this functioin will be the points 
+            as we have stored in our three line segment arrays.</P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/SamplePamper3.asp#start">Back 
+            to top?</A></P>
+            <P><A name=buffer>-</A></P>
+            <H3>The Z buffer</H3>
+            <P>In the previous code snippets you can see that we are using a <A 
+            href="http://en.wikipedia.org/wiki/Z-buffering">Z-buffer</A> to 
+            prevent pixels behind others to be painted. The z buffer is just a 
+            screen buffer that has the highest z order of a x, y point stored, 
+            to compare this with a new coordinate to see if it is in front or 
+            behind the stored one. If the new coordinate is behind the stored 
+            one, it will not be shown and if it's in front it will be painted 
+            and this new z position will be stored in the buffer instead. </P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/SamplePamper3.asp#start">Back 
+            to top?</A></P>
+            <P><A name=points>-</A></P>
+            <H2>Points of Interest</H2>
+            <P>There are one sample to play around with in C#. And this articles 
+            code is only made for learning, so don't expect to see something in 
+            a nice package. Made it this way to be simple to follow. But I've 
+            realized that it's not easy anyway because of the size of this 
+            project. Next article Part 4 in this series will apply shadows to 
+            what we have accomplished this far.</P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/SamplePamper3.asp#start">Back 
+            to top?</A></P><A name=history>-</A> 
+            <H2>History</H2>
+            <P>Version 1.0, uploaded 27 September, 2007 - One version included 
+            for the article, for C#. </P>
+            <P><A 
+            href="http://www.codeproject.com/useritems/SamplePamper3.asp#start">Back 
+            to top?</A></P>
+            <P><A name=links>-</A></P>
+            <H2>References</H2>
+            <P>
+            <H3>Links</H3>
+            <P>
+            <UL>
+              <LI><A 
+              href="http://www.codeproject.com/csharp/LightSample.asp">Sample 
+              Pamper Part 1: 3D-Light, flat-shading and rotations</A> 
+              <LI><A 
+              href="http://www.codeproject.com/csharp/SamplePamperPart2.asp">SamplePamper 
+              Part 2: 3D-Reflection Vectors</A> 
+              <LI><A href="http://en.wikipedia.org/wiki/Jack_E._Bresenham">Jack 
+              E. Bresenham</A> 
+              <LI><A 
+              href="http://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html">The 
+              Bresenham Line-Drawing Algorithm</A> 
+              <LI><A 
+              href="http://courses.ece.uiuc.edu/ece390/archive/archive-f2000/mp/mp4/anti.html">Anti-Aliased 
+              Line Drawing</A> 
+              <LI><A 
+              href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp">Simple 
+              Ray Tracing in C# Part IV (Anti-Aliasing) By: Andalmeida</A> 
+            </LI></UL>
+            <P><A 
+            href="http://www.codeproject.com/useritems/SamplePamper3.asp#start">Back 
+            to top?</A> </P>
+            <P><A name=license>-</A></P>
+            <H2>License</H2>
+            <P>This software is provided 'as-is' without any express or implied 
+            warranty. In no event will the authors be held liable for any 
+            damages arising from the use of this software. Permission is granted 
+            to anyone to use this software for learning purpose only. And never 
+            could you claim that it is yours. 
+            </P><!-- Article Ends --></DIV></SPAN>
+            <SCRIPT src="3 - 3D-Polygons_archivos/togglePre.js" 
+            type=text/javascript></SCRIPT>
+
+            <H2>About Windmiller</H2>
+            <DIV style="OVERFLOW: hidden">
+            <TABLE border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText noWrap><IMG 
+                  src="3 - 3D-Polygons_archivos/{41B1450E-9859-4613-A939-DCCE79AAB50D}.gif"><BR></TD>
+                <TD class=smallText>Professional programmer, degree in 
+                  Informatics and Applied Systems Science.
+                  <P class=smallText>Click <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=3107109">here</A> 
+                  to view Windmiller's online 
+            profile.</P></TD></TR></TBODY></TABLE></DIV><BR>
+            <TABLE cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%">
+                  <H2>Other popular C# Programming articles:</H2>
+                  <UL>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/zedgraph.asp">A 
+                    flexible charting library for .NET</A>
+                    <DIV class=smallText>Looking for a way to draw 2D line 
+                    graphs with C#? Here's yet another charting class library 
+                    with a high degree of configurability, that is also easy to 
+                    use.</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/csppleds.asp">I/O 
+                    Ports Uncensored - 1 - Controlling LEDs (Light Emiting 
+                    Diodes) with Parallel Port</A>
+                    <DIV class=smallText>Controlling LEDs (Light Emiting Diodes) 
+                    with Parallel Port</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/AsyncMethodInvocation.asp">Asynchronous 
+                    Method Invocation</A>
+                    <DIV class=smallText>How to use .NET to call methods in a 
+                    non-blocking mode.</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/cspplcds.asp">I/O 
+                    Ports Uncensored Part 2 - Controlling LCDs (Liquid Crystal 
+                    Displays) and VFDs (Vacuum Fluorescent Displays) with 
+                    Parallel Port</A>
+                    <DIV class=smallText>Controlling LCDs (Liquid Crystal 
+                    Displays) and VFDs (Vacuum Fluorescent Displays) with 
+                    Parallel Port</DIV></LI></UL></TD>
+                <TD width=360>
+                  <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=2257&cb=4598909\" border=0 frameborder=0 scrolling=no width=300 height=250></IFRAME>");</SCRIPT>
+                </TD></TR></TBODY></TABLE><BR>
+            <SCRIPT language=JavaScript src="3 - 3D-Polygons_archivos/addto.js" 
+            type=text/javascript></SCRIPT>
+
+            <SCRIPT language=JavaScript type=text/javascript>
+var addtoMethod=1;
+var AddURL = document.location.href;
+var AddTitle = escape(document.title);
+DrawLinks(100, 0, "smalltext bold", "smalltext") 
+</SCRIPT>
+            <BR><BR>
+            <FORM action=/script/rating/code/app/insert_vote.asp 
+            method=post><INPUT type=hidden 
+            value=SamplePamper3/useritems9/27/2007 name=vote_name> <INPUT 
+            type=hidden value=/useritems/SamplePamper3.asp name=goal> 
+            <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=4 width="100%" 
+                  bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=smalltext vAlign=center>[<A 
+                        href="http://www.codeproject.com/useritems/SamplePamper3.asp#__top">Top</A>]</TD>
+                      <TD vAlign=center noWrap align=right><I><B>Rate this 
+                        Article for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <I>Poor</I><INPUT type=radio value=1 name=rate><INPUT 
+                        type=radio value=2 name=rate><INPUT type=radio value=3 
+                        name=rate><INPUT type=radio value=4 name=rate><INPUT 
+                        type=radio value=5 
+name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+            <CENTER>
+            <DIV style="MARGIN: 10px"><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=4004&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FRedGate%5FANTS%5FROS%5F468x60%2Egif&C=False&id=4004&cb=4598899\" alt=\"\" border=0 width=468 height=60></a>");</SCRIPT>
+            </SPAN></DIV></CENTER><A name=__comments></A>
+            <SCRIPT language=JavaScript>
+
+function MsgVoteForm(MemberID, MsgID)
+{
+	document.write("<span id=\"MVF" + MsgID + "\">");
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+	{
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString());
+		document.write("' onclick='return RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ", ");
+		document.write(i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	}
+	document.write(" (out of 5)");
+	document.writeln("</span>");
+	
+	
+	document.write("<br />Report as <a href='#xx" + MsgID.toString() + "xx' title='Mark as Spam' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-1)'>Spam</a> or ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' title='Mark as Abuse' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-2)'>Abuse</a>");
+	
+}
+
+function RetypeForm(MemberID, MsgID)
+{
+	var types = [
+				 {pic:'news_general.gif',  id: 1},
+	             {pic:'news_info.gif',     id: 2},
+	             {pic:'news_question.gif', id: 4},
+	             {pic:'news_answer.gif',   id: 8},
+	             {pic:'news_game.gif',     id: 16},
+	             {pic:'news_spam.gif',     id: 32}
+	            ];
+	
+	document.write("<span id=\"RTF" + MsgID + "\">");
+	for (var i=0;i<types.length;i++)
+	{
+		document.write("<a href='/script/comments/retype?msg=" + MsgID.toString());
+		document.write("&mid=" + MemberID.toString() + "&type=" + types[i].id + "'>");
+		document.write("<img border=0 src='/script/images/" + types[i].pic + "'></a><br />");
+	}
+	document.writeln("</span>");
+}
+
+function ReportMsg(userid, msgid, score)
+{
+	if (confirm("Are you sure you want to report this message?") == true)
+		return RateMsg(userid, msgid, score);
+	else return false;
+}
+
+
+function RateMsg(userid, msgid, score)
+{
+
+   var req = new ActiveXObject("Msxml2.XMLHTTP"); 
+
+   req.onreadystatechange = function()
+   {
+      if ( req.readyState == 4 )
+      {
+         if ( req.status == 200 )
+         {
+         	var respText = req.responseText;
+         	var re = new RegExp("\<div\>([^\<]*)\</div\>", "g");
+         	var match = re.exec(respText);
+         	status.innerHTML = "<b>" + (match)?match[1]:"An error occured" + "</b>";
+         }
+         else
+         {
+            status.innerHTML = "<b style='color:red'>Failed!" + req.statusText + "</b>";
+         }
+      }
+   }
+   
+   var status = document.getElementById("MVF" + msgid);
+   if (!status) return;  // should never happen...   
+   status.innerHTML = "<b style='color:green'>Voting...</b>";
+   
+   var strAction = "/script/comments/vote.asp?js=1&user="+userid+"&msg="+msgid+"&score="+score;
+   req.open("GET", strAction, true);
+   req.send(null);
+   return false;
+}
+
+</SCRIPT>
+
+            <SCRIPT language=JavaScript>
+var Selected = "";
+
+var AdTime = new Date();
+
+
+// Ensures the expanded message appears reasonably close to where 
+// it should appear: on screen, and if possible, under the mouse cursor.
+function SwitchMessage(e)
+{
+   if ( !e ) e = window.event;
+   var target = e.target ? e.target : e.srcElement;
+
+   // is it a post?
+   while ( target && target.id != 'DynMessLink' )
+      target = target.parentNode;
+   if ( !target || target.id != 'DynMessLink' )
+      return;
+
+   if (Selected)
+   {
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+         body.style.display = 'none';
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#FEF9E7';
+   }
+
+   if (Selected == target.name) // just collapse
+      Selected="";
+   else
+   {
+      Selected = target.name;
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+      {
+         if (body.style.display=='none')
+            body.style.display='';
+         else
+            body.style.display = 'none';
+      }
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#99CCFF';
+
+      if ( body && head && body.style.display != 'none' )
+      {
+         // the bit that keeps the post on-screen and under the cursor
+         //var dif = (getRealPos(head, "Top") + head.offsetHeight/2) - (document.body.scrollTop+e.clientY);
+         //document.body.scrollTop += dif;
+         document.body.scrollTop = getRealPos(head, "Top") - document.body.clientHeight/10;
+         EnsureMessageVisible(target.name, true);
+      }
+   }
+
+   if ( e.preventDefault )
+      e.preventDefault();
+   else
+      e.returnValue = false;
+   return false;
+}
+
+// does its best to make a message visible on-screen (vs. scrolled off somewhere).
+function EnsureMessageVisible(msgID, bShowTop) {
+   var msgHeader = document.getElementById(msgID + "_h0");
+   var msgBody = document.getElementById(msgID + "_h1");
+
+   // determine scroll position of top and bottom
+   var scrollContainer = document.body;
+   var top = getRealPos(msgHeader, 'Top');
+   var bottom = getRealPos(msgBody, 'Top') + msgBody.offsetHeight;
+
+   // if not already visible, scroll to make it so
+   if ( scrollContainer.scrollTop > top && !bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+   if ( scrollContainer.scrollTop+scrollContainer.clientHeight < bottom )
+      scrollContainer.scrollTop = bottom-scrollContainer.clientHeight;
+   if ( scrollContainer.scrollTop > top && bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+}
+
+// utility
+function getRealPos(i,which)
+{
+   iPos = 0
+   while (i!=null)
+   {
+      iPos += i["offset" + which];
+      i = i.offsetParent;
+   }
+   return iPos
+}
+
+
+</SCRIPT>
+
+            <DIV id=_MessageBoard onclick=SwitchMessage(event)>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+                  bgColor=#ff9900 border=0>
+                    <FORM 
+                    action=/script/comments/app/do_filtermessages.asp?main=/useritems/SamplePamper3.asp&amp;df=100&amp;forumid=465328 
+                    method=post>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=3 width="100%" 
+                        bgColor=white border=0>
+                          <TBODY>
+                          <TR bgColor=#fbedbb>
+                            <TD class=smalltext noWrap><A 
+                              href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                              height=16 
+                              src="3 - 3D-Polygons_archivos/forum_faq.gif" 
+                              width=16 align=absMiddle border=0> 
+                            <B>FAQ</B></A>&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>Message score threshold <SELECT 
+                              class=smalltext size=1 name=noise><OPTION 
+                                value=1>1.0</OPTION> <OPTION 
+                                value=2>2.0</OPTION> <OPTION value=3 
+                                selected>3.0</OPTION> <OPTION 
+                                value=4>4.0</OPTION> <OPTION 
+                              value=5>5.0</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=center noWrap align=right 
+                            colSpan=2><A 
+                              href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=465328"><IMG 
+                              height=15 
+                              src="3 - 3D-Polygons_archivos/forum_search.gif" 
+                              width=16 border=0> Search comments</A> &nbsp;</TD>
+                            <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+                          <TR bgColor=#ff9900>
+                            <TD width="100%">&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>View <SELECT class=smalltext size=1 
+                              name=expand><OPTION value=0>Normal 
+                                (slow)</OPTION> <OPTION value=2>Preview 
+                                (slow)</OPTION> <OPTION value=5 selected>Message 
+                                View</OPTION> <OPTION value=6>Topic 
+                                View</OPTION> <OPTION value=1>Thread 
+                                View</OPTION> <OPTION 
+                              value=3>Expanded</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap>Per page 
+                              <SELECT class=smalltext size=1 
+                                name=perpage><OPTION value=10>10</OPTION> 
+                                <OPTION value=25 selected>25</OPTION> <OPTION 
+                                value=50>50</OPTION></SELECT></TD>
+                            <TD 
+                    colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+                    <TR bgColor=#fbedbb>
+                      <TD><A name=xx0xx></A>
+                        <TABLE cellPadding=2 width="100%" bgColor=#fbedbb 
+                        border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle><IMG height=16 
+                              src="3 - 3D-Polygons_archivos/forum_newmsg.gif" 
+                              width=16 align=top border=0><A class=HoverLink 
+                              title="Add a new message to the discussions" 
+                              href="http://www.codeproject.com/script/comments/user_new.asp?main=/useritems/SamplePamper3.asp&amp;df=100&amp;forumid=465328" 
+                              target=_top name=HoverNL><B>New Message</B></A></TD>
+                            <TD class=messagetitle>Total Messages for this 
+                              article: 0 (<A 
+                              href="http://www.codeproject.com/useritems/SamplePamper3.asp?df=100&amp;forumid=465328">Refresh</A>)</TD>
+                            <TD noWrap 
+                      align=right>&nbsp;</TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=white>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD class=messagetitle 
+                                width="100%">Subject&nbsp;</TD>
+                                <TD class=messagetitle noWrap 
+                                width=140>Author&nbsp;</TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT 
+                                class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="3 - 3D-Polygons_archivos/t.gif" width=1 
+                              border=0></TD></TR>
+                          <TR>
+                            <TD class=messagetitle align=middle>-- No entries 
+                              --</TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="3 - 3D-Polygons_archivos/t.gif" width=1 
+                              border=0></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+            <P class=smallText><IMG 
+            src="3 - 3D-Polygons_archivos/news_general.gif" align=absMiddle> 
+            General comment &nbsp;&nbsp; <IMG 
+            src="3 - 3D-Polygons_archivos/news_info.gif" align=absMiddle> News / 
+            Info &nbsp;&nbsp; <IMG 
+            src="3 - 3D-Polygons_archivos/news_question.gif" align=absMiddle> 
+            Question &nbsp;&nbsp; <IMG 
+            src="3 - 3D-Polygons_archivos/news_answer.gif" align=absMiddle> 
+            Answer &nbsp;&nbsp; <IMG 
+            src="3 - 3D-Polygons_archivos/news_game.gif" align=absMiddle> Joke / 
+            Game &nbsp;&nbsp; <IMG 
+            src="3 - 3D-Polygons_archivos/news_sticky.gif" align=absMiddle> 
+            Admin message</P><BR>
+            <TABLE cellSpacing=5 width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText>Updated: 27 Sep 2007 </TD>
+                <TD class=SmallText align=right>Article content copyright 
+                  Windmiller, 2007<BR>everything else Copyright © <A 
+                  href="mailto:webmaster@codeproject.com">CodeProject</A>, 
+                  1999-2007</A>. <BR>Web19 | <A 
+                  href="http://www.codeproject.com/info/MediaKit">Advertise on 
+                  The Code Project</A> | <A 
+                  href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <SCRIPT src="" type=text/javascript></SCRIPT>
+      <BR>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#ff9900 height=1><IMG height=1 
+            src="3 - 3D-Polygons_archivos/space.gif"></TD></TR>
+        <TR>
+          <TD align=middle><FONT size=1><A 
+            href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A> • 
+            <A href="http://aspalliance.com/">ASP Alliance</A> • <A 
+            href="http://www.developerfusion.co.uk/">Developer Fusion</A> • <A 
+            href="http://www.developersdex.com/">Developersdex</A> • <A 
+            href="http://www.devguru.com/">DevGuru</A> • <A 
+            href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+            href="http://www.planet-source-code.com/">Planet Source Code</A> • 
+            <A href="http://www.tek-tips.com/">Tek-Tips Forums</A> • 
+        </FONT></TD></TR></TBODY></TABLE></CENTER></TR></TBODY></TABLE></BODY></HTML>

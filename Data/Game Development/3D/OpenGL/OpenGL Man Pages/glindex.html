@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glindex Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glindex</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glIndex(3G)		       OpenGL Reference			   glIndex(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glIndexd, glIndexf, glIndexi, glIndexs, glIndexdv,	glIndexfv, glIndexiv,
+     glIndexsv - set the current color index
+
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glIndexd( GLdouble c )
+     void glIndexf( GLfloat c )
+     void glIndexi( GLint c )
+     void glIndexs( GLshort c )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     c	Specifies the new value	for the	current	color index.
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glIndexdv( const GLdouble *c )
+     void glIndexfv( const GLfloat *c )
+     void glIndexiv( const GLint *c )
+     void glIndexsv( const GLshort *c )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     c	  Specifies a pointer to a one-element array that contains the new
+	  value	for the	current	color index.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glIndex updates the current (single-valued) color index.  It takes	one
+     argument:	the new	value for the current color index.
+
+     The current index is stored as a floating-point value.  Integer values
+     are converted directly to floating-point values, with no special mapping.
+
+     Index values outside the representable range of the color index buffer
+     are not clamped.  However,	before an index	is dithered (if	enabled) and
+     written to	the frame buffer, it is	converted to fixed-point format.  Any
+     bits in the integer portion of the	resulting fixed-point value that do
+     not correspond to bits in the frame buffer	are masked out.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The current index can be updated at any time.  In particular, glIndex can
+     be	called between a call to glBegin and the corresponding call to glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_CURRENT_INDEX
+
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIndex(3G)		       OpenGL Reference			   glIndex(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glColor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

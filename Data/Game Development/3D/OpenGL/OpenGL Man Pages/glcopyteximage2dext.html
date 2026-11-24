@@ -1,0 +1,292 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glcopyteximage2dext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glcopyteximage2dext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glCopyTexImage2DEXT(3G)	       OpenGL Reference	       glCopyTexImage2DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glCopyTexImage2DEXT - copy	pixels into a 2D texture image
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glCopyTexImage2DEXT( GLenum target,
+			       GLint level,
+			       GLenum internalformat,
+			       GLint x,
+			       GLint y,
+			       GLsizei width,
+			       GLsizei height,
+			       GLint border )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target	     The target	texture.  Must be GL_TEXTURE_2D	or
+		     GL_DETAIL_TEXTURE_2D_SGIS.
+
+     level	     The level-of-detail number.  Level	0 is the base image
+		     level.  Level n is	the nth	mipmap reduction image.
+
+     internalformat  The internal storage format of the	texture	image.	Must
+		     be	one of the following symbolic constants:  GL_ALPHA,
+		     GL_ALPHA4_EXT, GL_ALPHA8_EXT, GL_ALPHA12_EXT,
+		     GL_ALPHA16_EXT, GL_LUMINANCE, GL_LUMINANCE4_EXT,
+		     GL_LUMINANCE8_EXT,	GL_LUMINANCE12_EXT,
+		     GL_LUMINANCE16_EXT, GL_LUMINANCE_ALPHA,
+		     GL_LUMINANCE4_ALPHA4_EXT, GL_LUMINANCE6_ALPHA2_EXT,
+		     GL_LUMINANCE8_ALPHA8_EXT, GL_LUMINANCE12_ALPHA4_EXT,
+		     GL_LUMINANCE12_ALPHA12_EXT, GL_LUMINANCE16_ALPHA16_EXT,
+		     GL_INTENSITY_EXT, GL_INTENSITY4_EXT, GL_INTENSITY8_EXT,
+		     GL_INTENSITY12_EXT, GL_INTENSITY16_EXT, GL_RGB,
+		     GL_RGB2_EXT, GL_RGB4_EXT, GL_RGB5_EXT, GL_RGB8_EXT,
+		     GL_RGB10_EXT, GL_RGB12_EXT, GL_RGB16_EXT, GL_RGBA,
+		     GL_RGBA2_EXT, GL_RGBA4_EXT, GL_RGB5_A1_EXT, GL_RGBA8_EXT,
+		     GL_RGB10_A2_EXT, GL_RGBA12_EXT, GL_RGBA16_EXT.  (Note
+		     that the values 1,	2, 3, and 4, which are accepted	by
+		     glTexImage2D, are not accepted by glCopyTexImage2DEXT.)
+
+     x		     The x coordinate of the lower-left	corner of the pixel
+		     rectangle to be transferred to the	texture	array.
+
+     y		     The y coordinate of the lower-left	corner of the pixel
+		     rectangle to be transferred to the	texture	array.
+
+     width	     The width of the texture image.
+
+     height	     The height	of the texture image.
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glCopyTexImage2DEXT(3G)	       OpenGL Reference	       glCopyTexImage2DEXT(3G)
+</FONT>
+
+
+     border	     The border	width of the texture.  Must be 0 or 1.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glCopyTexImage2DEXT defines a two-dimensional texture image with pixels
+     from the current GL_READ_BUFFER (rather than from main memory, as is the
+     case for glTexImage2D).
+
+     The screen-aligned	pixel rectangle	with lower-left	corner at (x, y)
+     having width width+2*border and height height+2*border is used to define
+     the texture array at the mipmap level specified by	level.	(But see the
+     discussion	of GL_INTERLACE_SGIX below.)  The internal format of the
+     texture array is selected by internalformat.
+
+     The pixels	in the rectangle are processed exactly as if glCopyPixels had
+     been called, but the process stops	just before final conversion.  At this
+     point all pixel component values are clamped to the range [0, 1] and then
+     converted to the texture's	internal format	for storage in the texel
+     array.
+
+     Pixel ordering is such that lower x screen	coordinates correspond to
+     lower i texture coordinates, and lower y screen coordinates correspond to
+     lower j texture coordinates.
+
+     If	any of the pixels within the specified rectangle of the	current
+     GL_READ_BUFFER are	outside	the window associated with the current
+     rendering context,	then the values	obtained for those pixels are
+     undefined.
+
+     If	GL_INTERLACE_SGIX is enabled, then successive rows of the pixel
+     rectangle define every other row of the texture image, rather than
+     successive	rows of	the texture image.  That is, row j of the source image
+     is	used to	define row 2j of the texture image, while rows (1,3,5,...) are
+     left undefined.  Note, that when GL_INTERLACE_SGIX	is enabled the total
+     height (i.e., the height of interior texture image	plus twice the border)
+     of	the defined texture is 2xheight.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glCopyTexImage2DEXT is part of the	EXT_copy_texture extension.  See
+     glIntro for more information about	using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated when target is not one of the	allowable
+     values.
+
+     GL_INVALID_VALUE is generated if level is less than zero or greater than
+     log2(max),	where max is the returned value	of GL_MAX_TEXTURE_SIZE.
+
+     GL_TEXTURE_TOO_LARGE_EXT is generated if the specified image is too
+     large.
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glCopyTexImage2DEXT(3G)	       OpenGL Reference	       glCopyTexImage2DEXT(3G)
+</FONT>
+
+
+     GL_INVALID_VALUE is generated if width or height is less than zero,
+     greater than 2+GL_MAX_TEXTURE_SIZE, when width cannot be represented as
+     2k+2border	for some integer k, or when height cannot be represented as
+     2k+Ixborder, where	I is 2 when GL_INTERLACE_SGIX is disabled and 1
+     otherwise.
+
+     GL_INVALID_VALUE is generated if border is	not 0 or 1.
+
+     GL_INVALID_VALUE is generated if internalformat is	not one	of the
+     allowable values.
+
+     GL_INVALID_OPERATION is generated if glCopyTexImage2DEXT is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexImage
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems support
+     glCopyTexImage2DEXT with the following restrictions:
+
+	  1.  Only level 0 is supported; other levels result in	a
+	      GL_INVALID_VALUE error.
+
+	  2.  glCopyTexImage2DEXT cannot be used if a GLX video	source is the
+	      current read drawable (see glXMakeCurrentReadSGI).  Executing it
+	      will generate a GL_INVALID_OPERATION error.
+
+	  3.  GL_INTERLACE_SGIX	is not supported (see glEnable).
+
+	  4.  Borders are not supported; hence the width of the	border should
+	      be 0.
+
+     On	InfiniteReality	systems, the width of the image	to be transferred to
+     texture memory must be a multiple of 8.  This constraint will be lifted
+     in	a future release, though transfers that	are a multiple of 8 in length
+     will have somewhat	higher performance than	other transfers.
+
+     Texture borders are not supported on InfiniteReality systems.  They will
+     be	supported in a future release, however,	they will require large
+     amounts of	texture	memory.	 Whenever possible, applications should	use
+     borderless	textures and GL_CLAMP_TO_EDGE_SGIS wrap	mode.
+
+     The SGIX_interlace	extension is supported only on InfiniteReality systems
+     and on RealityEngine, RealityEngine2, and VTX systems.
+
+     Note that InfiniteReality systems currently do not	support	copying
+     depth-format textures (used for shadow maps) from the framebuffer to
+     texture memory.  This will	be fixed in a subsequent release.
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glCopyTexImage2DEXT(3G)	       OpenGL Reference	       glCopyTexImage2DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glTexImage2D, glCopyTexSubImage2DEXT, glCopyPixels.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 4
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

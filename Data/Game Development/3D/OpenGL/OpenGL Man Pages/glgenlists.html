@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgenlists Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgenlists</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGenLists(3G)		       OpenGL Reference			glGenLists(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGenLists	- generate a contiguous	set of empty display lists
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLuint glGenLists(	GLsizei	range )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     range  Specifies the number of contiguous empty display lists to be
+	    generated.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGenLists	has one	argument, range.  It returns an	integer	n such that
+     range contiguous empty display lists, named n, n+1, ..., n+range -1, are
+     created.  If range	is zero, if there is no	group of range contiguous
+     names available, or if any	error is generated, no display lists are
+     generated,	and zero is returned.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if range is negative.
+
+     GL_INVALID_OPERATION is generated if glGenLists is	executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glIsList
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glCallList, glCallLists, glDeleteLists, glNewList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxinfo Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxinfo</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">GLXINFO(1G)							   GLXINFO(1G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     GLXINFO - display info about a GLX	extension and OpenGL renderer
+
+<FONT COLOR="#0000CC">SYNOPSIS
+</FONT>     glxinfo [-display &amp;lt;display&gt;] [-h] [-v]
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glxinfo lists information about the GLX extension,	OpenGL capable
+     visuals, and the OpenGL renderer of an X server.  The GLX and renderer
+     information includes the version and extension attributes.	 The visual
+     information lists the GLX visual attributes for each OpenGL capable
+     visual (e.g. whether the visual is	double buffered, the component sizes,
+     etc).
+
+     Command line options are:
+
+	  -display &amp;lt;display&gt;
+			 Specify the display to	query.
+
+	  -h		 list the options.
+
+	  -t		 By default the	visual information is presented	in a
+			 concise 80 character wide tabular format.  The	-t
+			 option	directs	glxinfo	to produce a wider, more
+			 verbose tabular format.
+
+	  -v		 Directs glxinfo to generate a verbose non tabular
+			 format	output style for the visual list.
+
+	  -m		 By default, when the output is	in tabular format
+			 glxinfo prints	a mid-table header every 30 visuals.
+			 This option prevents the printing of mid-table
+			 headers.
+
+	  -nfc		 By default, when the queried display (and the local
+			 client, when displaying information for a remote
+			 display) supports the SGIX_fbconig GLX	extension
+			 glxinfo will use this extension mechanism for
+			 retrieving the	visual attributes.  This option	forces
+			 visual	attribute retrieval using glXGetConfig().
+
+	  -fbcinfo	 Causes	output of additional visual attributes that
+			 are supported only when the SGIX_fbconig GLX
+			 extension is supported.  The additional attributes
+			 are the drawble type and the fbconfig X id.
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     xdpyinfo(1), glxgetfbconfigattribsgix(1).
+
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">GLXINFO(1G)							   GLXINFO(1G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

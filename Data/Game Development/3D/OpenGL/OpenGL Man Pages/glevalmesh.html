@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glevalmesh Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glevalmesh</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glEvalMesh(3G)		       OpenGL Reference			glEvalMesh(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glEvalMesh1, glEvalMesh2 -	compute	a one- or two-dimensional grid of
+     points or lines
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glEvalMesh1( GLenum mode,
+		       GLint i1,
+		       GLint i2	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mode  In glEvalMesh1, specifies whether to	compute	a one-dimensional mesh
+	   of points or	lines.	Symbolic constants GL_POINT and	GL_LINE	are
+	   accepted.
+
+     i1, i2
+	   Specify the first and last integer values for grid domain variable
+	   i.
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glEvalMesh2( GLenum mode,
+		       GLint i1,
+		       GLint i2,
+		       GLint j1,
+		       GLint j2	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mode In glEvalMesh2, specifies whether to compute a two-dimensional mesh
+	  of points, lines, or polygons.  Symbolic constants GL_POINT,
+	  GL_LINE, and GL_FILL are accepted.
+
+     i1, i2
+	  Specify the first and	last integer values for	grid domain variable
+	  i.
+
+     j1, j2
+	  Specify the first and	last integer values for	grid domain variable
+	  j.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glMapGrid and glEvalMesh are used in tandem to efficiently	generate and
+     evaluate a	series of evenly spaced	map domain values.  glEvalMesh steps
+     through the integer domain	of a one- or two-dimensional grid, whose range
+     is	the domain of the evaluation maps specified by glMap1 and glMap2.
+     mode determines whether the resulting vertices are	connected as points,
+     lines, or filled polygons.
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glEvalMesh(3G)		       OpenGL Reference			glEvalMesh(3G)
+</FONT>
+
+
+     In	the one-dimensional case, glEvalMesh1, the mesh	is generated as	if the
+     following code fragment were executed:
+
+	  glBegin(type);
+	  for (i = i1; i &amp;lt;= i2;	i += 1)
+	      glEvalCoord1(i.Wu	+ u )
+	  glEnd();		   1
+
+	  where
+
+	  Wu = (u -u )/n
+		 2  1
+     and n, u ,	and u  are the arguments to the	most recent glMapGrid1
+     command.1 type is GL_POINTS if mode is GL_POINT, or GL_LINES if mode is
+     GL_LINE.  The one absolute	numeric	requirement is that if i = n, then the
+     value computed from i.Wu +	u  is exactly u	.
+				 1	       2
+     In	the two-dimensional case, glEvalMesh2, let
+
+				   Wu=(u -u )/n
+					2  1
+				   Wv=(v -v )/m,
+					2  1
+     where n, u	, u , m, v , and v  are	the arguments to the most recent
+     glMapGrid21command.  Then,	if2mode	is GL_FILL, the	glEvalMesh2 command is
+     equivalent	to:
+
+	  for (j = j1;	j &amp;lt; j2;	j += 1)	{
+	      glBegin(GL_QUAD_STRIP);
+	      for (i = i1; i &amp;lt;=	i2; i += 1) {
+		  glEvalCoord2(i.Wu + u	, j.Wv + v );
+		  glEvalCoord2(i.Wu + u1, (j+1).Wv1+ v );
+	      }			       1	      1
+	      glEnd();
+	  }
+
+
+     If	mode is	GL_LINE, then a	call to	glEvalMesh2 is equivalent to:
+
+	  for (j = j1;	j &amp;lt;= j2; j += 1) {
+	      glBegin(GL_LINE_STRIP);
+	      for (i = i1; i &amp;lt;=	i2; i += 1)
+		  glEvalCoord2(i.Wu + u	, j.Wv + v );
+	      glEnd();		       1	  1
+	  }
+	  for (i = i1;	i &amp;lt;= i2; i += 1) {
+	      glBegin(GL_LINE_STRIP);
+	      for (j = j1; j &amp;lt;=	j1; j += 1)
+		  glEvalCoord2(i.Wu + u	, j.Wv + v );
+	      glEnd();		       1	  1
+	  }
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glEvalMesh(3G)		       OpenGL Reference			glEvalMesh(3G)
+</FONT>
+
+
+     And finally, if mode is GL_POINT, then a call to glEvalMesh2 is
+     equivalent	to:
+
+	  glBegin(GL_POINTS);
+	  for (j = j1;	j &amp;lt;= j2; j += 1) {
+	      for (i = i1; i &amp;lt;=	i2; i += 1) {
+		  glEvalCoord2(i.Wu + u	, j.Wv + v );
+	      }			       1	  1
+	  }
+	  glEnd();
+
+
+     In	all three cases, the only absolute numeric requirements	are that if
+     i = n, then the value computed from i.Wu +	u  is exactly u	, and if
+     j = m, then the value computed from j.Wv +	v1 is exactly v2.
+						 1	       2
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if mode is not an accepted value.
+
+     GL_INVALID_OPERATION is generated if glEvalMesh is	executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_MAP1_GRID_DOMAIN
+     glGet with	argument GL_MAP2_GRID_DOMAIN
+     glGet with	argument GL_MAP1_GRID_SEGMENTS
+     glGet with	argument GL_MAP2_GRID_SEGMENTS
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not handle 1D maps for
+     colors correctly.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBegin, glEvalCoord, glEvalPoint,	glMap1,	glMap2,	glMapGrid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

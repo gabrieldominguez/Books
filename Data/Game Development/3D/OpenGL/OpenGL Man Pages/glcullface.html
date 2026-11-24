@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glcullface Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glcullface</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glCullFace(3G)		       OpenGL Reference			glCullFace(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glCullFace	- specify whether front- or back-facing	facets can be culled
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glCullFace( GLenum mode )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mode  Specifies whether front- or back-facing facets are candidates for
+	   culling.  Symbolic constants	GL_FRONT, GL_BACK, and
+	   GL_FRONT_AND_BACK are accepted.  The	default	value is GL_BACK.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glCullFace	specifies whether front- or back-facing	facets are culled (as
+     specified by mode)	when facet culling is enabled.	Facet culling is
+     enabled and disabled using	the glEnable and glDisable commands with the
+     argument GL_CULL_FACE.  Facets include triangles, quadrilaterals,
+     polygons, and rectangles.
+
+     glFrontFace specifies which of the	clockwise and counterclockwise facets
+     are front-facing and back-facing.	See glFrontFace.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	the mode is GL_FRONT_AND_BACK then no facets are drawn,	but other
+     primitives	such as	points and lines are.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if mode is not an accepted value.
+
+     GL_INVALID_OPERATION is generated if glCullFace is	executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glIsEnabled with argument GL_CULL_FACE
+     glGet with	argument GL_CULL_FACE_MODE
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glEnable, glFrontFace
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

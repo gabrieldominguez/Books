@@ -1,0 +1,490 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxchoosevisual Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxchoosevisual</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXChooseVisual(3G)	    OpenGL Reference - GLX	   glXChooseVisual(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXChooseVisual - return a	visual that matches specified attributes
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     XVisualInfo* glXChooseVisual( Display *dpy,
+				   int screen,
+				   int *attribList )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	 Specifies the connection to the X server.
+
+
+     screen	 Specifies the screen number.
+
+
+     attribList	 Specifies a list of Boolean attributes	and enum/integer
+		 attribute/value pairs.	 The last attribute must be None.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXChooseVisual returns a pointer to an XVisualInfo structure describing
+     the visual	that best meets	a minimum specification.  The Boolean GLX
+     attributes	of the visual that is returned will match the specified
+     values, and the integer GLX attributes will meet or exceed	the specified
+     minimum values.  If all other attributes are equivalent, then TrueColor
+     and PseudoColor visuals have priority over	DirectColor and	StaticColor
+     visuals, respectively.  If	no conforming visual exists, NULL is returned.
+     To	free the data returned by this function, use XFree.
+
+     All Boolean GLX attributes	default	to False except	GLX_USE_GL, which
+     defaults to True.	All integer GLX	attributes default to zero. The
+     defaults for enumerated attributes	are specified below.
+
+     Default specifications are	superseded by attributes included in
+     attribList.  Boolean attributes included in attribList are	understood to
+     be	True.  Integer attributes are followed immediately by the desired or
+     minimum value; enumerated attributes are followed by the desired
+     enumerated	value.	The list must be terminated with None.
+
+     The interpretations of the	various	GLX visual attributes are as follows:
+
+     GLX_USE_GL		   Ignored.  Only visuals that can be rendered with
+			   GLX are considered.
+
+     GLX_BUFFER_SIZE	   Must	be followed by a nonnegative integer that
+			   indicates the desired color index buffer size.  The
+			   smallest index buffer of at least the specified
+			   size	is preferred.  Ignored if GLX_RGBA is
+			   asserted.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseVisual(3G)	    OpenGL Reference - GLX	   glXChooseVisual(3G)
+</FONT>
+
+
+     GLX_LEVEL		   Must	be followed by an integer buffer-level
+			   specification.  This	specification is honored
+			   exactly.  Buffer level zero corresponds to the
+			   default frame buffer	of the display.	 Buffer	level
+			   one is the first overlay frame buffer, level	two
+			   the second overlay frame buffer, and	so on.
+			   Negative buffer levels correspond to	underlay frame
+			   buffers.
+
+     GLX_RGBA		   If present, only TrueColor and DirectColor visuals
+			   are considered.  Otherwise, only PseudoColor	and
+			   StaticColor visuals are considered.
+
+     GLX_DOUBLEBUFFER	   If present, only double-buffered visuals are
+			   considered.	 Otherwise, only single-buffered
+			   visuals are considered.
+
+     GLX_STEREO		   If present, only stereo visuals are considered.
+			   Otherwise, only monoscopic visuals are considered.
+
+     GLX_AUX_BUFFERS	   Must	be followed by a nonnegative integer that
+			   indicates the desired number	of auxiliary buffers.
+			   Visuals with	the  smallest number of	auxiliary
+			   buffers that	meets or exceeds the specified number
+			   are preferred.
+
+     GLX_RED_SIZE	   Must	be followed by a nonnegative minimum size
+			   specification.  If this value is zero, the smallest
+			   available red buffer	is preferred.  Otherwise, the
+			   largest available red buffer	of at least the
+			   minimum size	is preferred.
+
+     GLX_GREEN_SIZE	   Must	be followed by a nonnegative minimum size
+			   specification.  If this value is zero, the smallest
+			   available green buffer is preferred.	 Otherwise,
+			   the largest available green buffer of at least the
+			   minimum size	is preferred.
+
+     GLX_BLUE_SIZE	   Must	be followed by a nonnegative minimum size
+			   specification.  If this value is zero, the smallest
+			   available blue buffer is preferred.	Otherwise, the
+			   largest available blue buffer of at least the
+			   minimum size	is preferred.
+
+     GLX_ALPHA_SIZE	   Must	be followed by a nonnegative minimum size
+			   specification.  If this value is zero, the smallest
+			   available alpha buffer is preferred.	 Otherwise,
+			   the largest available alpha buffer of at least the
+			   minimum size	is preferred.
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseVisual(3G)	    OpenGL Reference - GLX	   glXChooseVisual(3G)
+</FONT>
+
+
+     GLX_DEPTH_SIZE	   Must	be followed by a nonnegative minimum size
+			   specification.  If this value is zero, visuals with
+			   no depth buffer are preferred.  Otherwise, the
+			   largest available depth buffer of at	least the
+			   minimum size	is preferred.
+
+     GLX_STENCIL_SIZE	   Must	be followed by a nonnegative integer that
+			   indicates the desired number	of stencil bitplanes.
+			   The smallest	stencil	buffer of at least the
+			   specified size is preferred.	 If the	desired	value
+			   is zero, visuals with no stencil buffer are
+			   preferred.
+
+     GLX_ACCUM_RED_SIZE	   Must	be followed by a nonnegative minimum size
+			   specification.  If this value is zero, visuals with
+			   no red accumulation buffer are preferred.
+			   Otherwise, the largest possible red accumulation
+			   buffer of at	least the minimum size is preferred.
+
+     GLX_ACCUM_GREEN_SIZE  Must	be followed by a nonnegative minimum size
+			   specification.  If this value is zero, visuals with
+			   no green accumulation buffer	are preferred.
+			   Otherwise, the largest possible green accumulation
+			   buffer of at	least the minimum size is preferred.
+
+     GLX_ACCUM_BLUE_SIZE   Must	be followed by a nonnegative minimum size
+			   specification.  If this value is zero, visuals with
+			   no blue accumulation	buffer are preferred.
+			   Otherwise, the largest possible blue	accumulation
+			   buffer of at	least the minimum size is preferred.
+
+     GLX_ACCUM_ALPHA_SIZE  Must	be followed by a nonnegative minimum size
+			   specification.  If this value is zero, visuals with
+			   no alpha accumulation buffer	are preferred.
+			   Otherwise, the largest possible alpha accumulation
+			   buffer of at	least the minimum size is preferred.
+
+     GLX_SAMPLE_BUFFERS_SGIS
+			   Must	be followed by the minimum acceptable number
+			   of multisample buffers.  Visuals with the smallest
+			   number of multisample buffers that meet or exceed
+			   this	minimum	number are preferred.  Currently
+			   operation with more than one	multisample buffer is
+			   undefined, so the returned value will be either
+			   zero	or one.	 Note that multisampling is supported
+			   only	on RealityEngine.
+
+     GLX_SAMPLES_SGIS	   Must	be followed by the minimum number of samples
+			   required in multisample buffers.  Visuals with the
+			   smallest number of samples that meet	or exceed the
+			   specified minimum number are	preferred.  Note that
+			   it is possible for color samples in the multisample
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseVisual(3G)	    OpenGL Reference - GLX	   glXChooseVisual(3G)
+</FONT>
+
+
+			   buffer to have fewer	bits than colors in the	main
+			   color buffers.  However, multisampled colors
+			   maintain at least as	much color resolution in
+			   aggregate as	the main color buffers.
+
+     GLX_TRANSPARENT_TYPE_EXT
+			   Must	be followed by one of GLX_NONE_EXT,
+			   GLX_TRANSPARENT_RGB_EXT, GLX_TRANSPARENT_INDEX_EXT.
+			   If GLX_NONE_EXT is specified, then only opaque
+			   visuals will	be considered; if
+			   GLX_TRANSPARENT_RGB_EXT is specified, then only
+			   transparent,	RGBA visuals will be considered; if
+			   GLX_TRANSPARENT_INDEX_EXT is	specified, then	only
+			   transparent,	indexed	visuals	will be	considered.
+			   If not specified, the value GLX_NONE_EXT is used.
+
+     GLX_TRANSPARENT_INDEX_VALUE_EXT
+			   Must	be followed by an integer value	indicating the
+			   transparent index value; the	value must be between
+			   0 and the maximum framebuffer value for indices.
+			   Only	visuals	that use the specified transparent
+			   index value will be considered.
+
+			   This	attribute is ignored during visual selection
+			   unless it is	explicitly specified and
+			   GLX_TRANSPARENT_TYPE_EXT is specified as
+			   GLX_TRANSPARENT_INDEX_EXT.
+
+     GLX_TRANSPARENT_RED_VALUE_EXT
+			   Must	be followed by an integer value	indicating the
+			   transparent red value; the value must be between 0
+			   and the maximum framebuffer value for red.  Only
+			   visuals that	use the	specified transparent red
+			   value will be considered.
+
+			   This	attribute is ignored during visual selection
+			   unless it is	explicitly specified and
+			   GLX_TRANSPARENT_TYPE_EXT is specified as
+			   GLX_TRANSPARENT_RGB_EXT.
+
+     GLX_TRANSPARENT_GREEN_VALUE_EXT
+			   Must	be followed by an integer value	indicating the
+			   transparent red value; the value must be between 0
+			   and the maximum framebuffer value for red.  Only
+			   visuals that	use the	specified transparent red
+			   value will be considered.
+
+			   This	attribute is ignored during visual selection
+			   unless it is	explicitly specified and
+			   GLX_TRANSPARENT_TYPE_EXT is specified as
+			   GLX_TRANSPARENT_RGB_EXT.
+
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseVisual(3G)	    OpenGL Reference - GLX	   glXChooseVisual(3G)
+</FONT>
+
+
+     GLX_TRANSPARENT_BLUE_VALUE_EXT
+			   Must	be followed by an integer value	indicating the
+			   transparent red value; the value must be between 0
+			   and the maximum framebuffer value for red.  Only
+			   visuals that	use the	specified transparent red
+			   value will be considered.
+
+			   This	attribute is ignored during visual selection
+			   unless it is	explicitly specified and
+			   GLX_TRANSPARENT_TYPE_EXT is specified as
+			   GLX_TRANSPARENT_RGB_EXT.
+
+     GLX_TRANSPARENT_ALPHA_VALUE_EXT
+			   Must	be followed by an integer value.  This
+			   attribute is	always ignored;	it is for future use
+			   only.
+
+     GLX_VISUAL_CAVEAT_EXT Must	be followed by one of GLX_NONE_EXT,
+			   GLX_SLOW_VISUAL_EXT,	GLX_NON_CONFORMANT_EXT.	 If
+			   GLX_NONE_EXT	is specified, then only	visuals	with
+			   no caveats will be considered; if
+			   GLX_SLOW_VISUAL_EXT,	is specified then only slow
+			   visuals will	be considered; if
+			   GLX_NON_CONFORMANT_EXT is specified then only non-
+			   conformant visuals will be considered.
+
+			   This	attribute is ignored during visual selection
+			   unless it is	explicitly specified.
+
+     GLX_X_VISUAL_TYPE_EXT Must	be followed by one of GLX_TRUE_COLOR_EXT,
+			   GLX_DIRECT_COLOR_EXT, GLX_PSEUDO_COLOR_EXT,
+			   GLX_STATIC_COLOR_EXT, GLX_GRAY_SCALE_EXT,
+			   GLX_STATIC_GRAY_EXT,	indicating the desired X
+			   visual type.
+
+			   If GLX_RGBA is in attribList, then only
+			   GLX_TRUE_COLOR_EXT and GLX_DIRECT_COLOR_EXT can
+			   produce a match. If GLX_X_VISUAL_TYPE_EXT is	not in
+			   attribList, and if all other	attributes are
+			   equivalent, then a TrueColor	visual will be chosen
+			   in preference to a DirectColor visual.
+
+			   If GLX_RGBA is not in attribList, then only
+			   GLX_PSEUDO_COLOR_EXT	and GLX_STATIC_COLOR_EXT can
+			   produce a match. If GLX_X_VISUAL_TYPE_EXT is	not in
+			   attribList, and if all other	attributes are
+			   equivalent, then a PseudoColor visual will be
+			   chosen in preference	to a StaticColor visual.
+
+			   The tokens GLX_GRAY_SCALE_EXT and
+			   GLX_STATIC_GRAY_EXT will not	match current OpenGL
+			   enabled visuals, but	are included for future	use.
+
+
+
+									Page 5
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseVisual(3G)	    OpenGL Reference - GLX	   glXChooseVisual(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">EXAMPLES
+</FONT>     attribList	=
+		 {GLX_RGBA, GLX_RED_SIZE, 4, GLX_GREEN_SIZE, 4,	GLX_BLUE_SIZE,
+		 4, None};
+
+     Specifies a single-buffered RGB visual in the normal frame	buffer,	not an
+     overlay or	underlay buffer.  The returned visual supports at least	four
+     bits each of red, green, and blue,	and possibly no	bits of	alpha.	It
+     does not support color index mode,	double-buffering, or stereo display.
+     It	may or may not have one	or more	auxiliary color	buffers, a depth
+     buffer, a stencil buffer, or an accumulation buffer.
+
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     XVisualInfo is defined in Xutil.h.	 It is a structure that	includes
+     visual, visualID, screen, and depth elements.
+
+     glXChooseVisual is	implemented as a client-side utility using only
+     XGetVisualInfo and	glXGetConfig.  Calls to	these two routines can be used
+     to	implement selection algorithms other than the generic one implemented
+     by	glXChooseVisual.
+
+     GLX implementers are strongly discouraged,	but not	proscribed, from
+     changing the selection algorithm used by glXChooseVisual.	Therefore,
+     selections	may change from	release	to release of the client-side library.
+
+     There is no direct	filter for picking only	visuals	that support
+     GLXPixmaps.  GLXPixmaps are supported for visuals whose GLX_BUFFER_SIZE.
+     is	one of the Pixmap depths supported by the X server.
+
+     GLX_SAMPLE_BUFFERS_SGIS and GLX_SAMPLES_SGIS are not valid	attributes
+     unless the	SGIS_multisample extension is supported.
+
+     GLX_X_VISUAL_TYPE_EXT, GLX_TRANSPARENT_TYPE_EXT,
+     GLX_TRANSPARENT_INDEX_VALUE_EXT, GLX_TRANSPARENT_RED_VALUE_EXT,
+     GLX_TRANSPARENT_GREEN_VALUE_EXT, GLX_TRANSPARENT_BLUE_VALUE_EXT, and
+     GLX_TRANSPARENT_ALPHA_VALUE_EXT are not valid attributes unless the
+     EXT_visual_info extension is supported.
+
+     GLX_VISUAL_CAVEAT_EXT is not a valid attribute unless the
+     EXT_visual_rating extension is supported.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     NULL is returned if an undefined GLX attribute is encountered in
+     attribList.
+
+
+
+
+
+
+
+
+									Page 6
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseVisual(3G)	    OpenGL Reference - GLX	   glXChooseVisual(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIS_multisample extension is supported only on RealityEngine,
+     RealityEngine2, and VTX systems and InfiniteReality systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateContext, glXGetConfig
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 7
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

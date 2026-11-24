@@ -1,0 +1,292 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gltexenv Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gltexenv</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glTexEnv(3G)		       OpenGL Reference			  glTexEnv(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glTexEnvf,	glTexEnvi, glTexEnvfv, glTexEnviv - set	texture	environment
+     parameters
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glTexEnvf( GLenum target,
+		     GLenum pname,
+		     GLfloat param )
+     void glTexEnvi( GLenum target,
+		     GLenum pname,
+		     GLint param )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Specifies a texture environment.  Must be GL_TEXTURE_ENV.
+
+     pname   Specifies the symbolic name of a single-valued texture
+	     environment parameter.  Must be GL_TEXTURE_ENV_MODE.
+
+     param   Specifies a single	symbolic constant, one of GL_MODULATE,
+	     GL_DECAL, GL_BLEND, GL_REPLACE_EXT, or GL_ADD.
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glTexEnvfv( GLenum target,
+		      GLenum pname,
+		      const GLfloat *params )
+     void glTexEnviv( GLenum target,
+		      GLenum pname,
+		      const GLint *params )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target
+	  Specifies a texture environment.  Must be GL_TEXTURE_ENV.
+
+     pname
+	  Specifies the	symbolic name of a texture environment parameter.
+	  Accepted values are GL_TEXTURE_ENV_MODE, GL_TEXTURE_ENV_COLOR, and
+	  GL_TEXTURE_ENV_BIAS_SGIX.
+
+     params
+	  Specifies a pointer to an array of parameters:  either a single
+	  symbolic constant or an RGBA color.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     A texture environment specifies how texture values	are interpreted	when a
+     fragment is textured.  target must	be GL_TEXTURE_ENV.  pname can be
+     GL_TEXTURE_ENV_MODE, GL_TEXTURE_ENV_COLOR,	or GL_TEXTURE_ENV_BIAS_SGIX.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexEnv(3G)		       OpenGL Reference			  glTexEnv(3G)
+</FONT>
+
+
+     If	pname is GL_TEXTURE_ENV_MODE, then params is (or points	to) the
+     symbolic name of a	texture	function.  Five	texture	functions may be
+     defined:  GL_MODULATE, GL_DECAL, GL_BLEND,	GL_REPLACE_EXT,	and GL_ADD.
+
+     A texture function	acts on	the fragment to	be textured using the texture
+     image value that applies to the fragment (see glTexParameter) and
+     produces an RGBA color for	that fragment.	The following tables show how
+     the RGBA color is produced	for each of the	texture	functions.  C is a
+     triple of color values (RGB) and A	is the associated alpha	value.	RGBA
+     values extracted from a texture image are in the range [0,1].  The
+     subscript f refers	to the incoming	fragment, the subscript	t to the
+     texture image, the	subscript c to the texture environment color, the
+     subscript b to the	texture	environment bias color,	and subscript v
+     indicates a value produced	by the texture function.
+
+     A texture image can have up to four components per	texture	element	(see
+     glTexImage1D and glTexImage2D).  In an image of GL_LUMINANCE format Lt
+     indicates the single component.  In an image of GL_ALPHA format At
+     indicates the single component.  In an image of GL_INTENSITY format It
+     indicates the single component.  A	two-component image uses Lt and	At.  A
+     three-component image has only a color value, Ct.	A four-component image
+     has both a	color value Ct and an alpha value At.  If a color triple is
+     shown to be equal to a single component format, this denotes that each
+     component of the color triple is set equal	to the single component.
+     Similarly when 2 color triples are	shown as being multiplied, this
+     denotes that each component of the	first triple is	multiplied by the
+     corresponding component of	the second triple.
+
+     ________________________________________________________________________
+     |	  number of	 ||	       texture functions		     |
+     |___________________||__________________________________________________|
+     |	 GL_LUMINANCE	 ||  Cv=LtCf   |		  | Cv=(1-Lt)Cf+LtCc |
+     |	      1		 ||   Av=Af    |    undefined	  |	 Av=Af	     |
+     |___________________||____________|__________________|__________________|
+     |	   GL_ALPHA	 ||   Cv=Cf    |    undefined	  |	 Cv=Cf	     |
+     |___________________||____________|__________________|__________________|
+     |	 GL_INTENSITY	 ||  Cv=ItCf   |		  | Cv=(1-It)Cf+ItCc |
+     |			 ||  Av=ItAf   |    undefined	  | Av=(1-It)Af+ItAc |
+     |___________________||____________|__________________|__________________|
+     |GL_LUMINANCE_ALPHA ||  Cv=LtCf   |    undefined	  | Cv=(1-Lt)Cf+LtCc |
+     |___________________||____________|__________________|__________________|
+     |	    GL_RGB	 ||  Cv=CtCf   |      Cv=Ct	  | Cv=(1-Ct)Cf+CtCc |
+     |	      3		 ||   Av=Af    |      Av=Af	  |	 Av=Af	     |
+     |___________________||____________|__________________|__________________|
+     |	   GL_RGBA	 ||  Cv=CtCf   | Cv=(1-At)Cf+AtCt | Cv=(1-Ct)Cf+CtCc |
+     |___________________||____________|__________________|__________________|
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexEnv(3G)		       OpenGL Reference			  glTexEnv(3G)
+</FONT>
+
+
+	      ______________________________________________________
+	       |    number of	   ||	texture	functions	    |
+	       |___________________||_______________________________|
+	       |   GL_LUMINANCE	   ||	 Cv=Lt	    | Cv=Cf+LtCc+Cb |
+	       |	1	   ||	 Av=Af	    |	  Av=Af	    |
+	       |___________________||_______________|_______________|
+	       |     GL_ALPHA	   ||	 Cv=Cf	    |	  Cv=Cf	    |
+	       |___________________||_______________|_______________|
+	       |   GL_INTENSITY	   ||	 Cv=It	    | Cv=Cf+ItCc+Cb |
+	       |		   ||	 Av=It	    | Av=Af+ItAc+Ab |
+	       |___________________||_______________|_______________|
+	       |GL_LUMINANCE_ALPHA ||	 Cv=Lt	    | Cv=Cf+LtCc+Cb |
+	       |___________________||_______________|_______________|
+	       |      GL_RGB	   ||	 Cv=Ct	    | Cv=Cf+CtCc+Cb |
+	       |	3	   ||	 Av=Af	    |	  Av=Af	    |
+	       |___________________||_______________|_______________|
+	       |     GL_RGBA	   ||	 Cv=Ct	    | Cv=Cf+CtCc+Cb |
+	       |___________________||_______________|_______________|
+
+     If	pname is GL_TEXTURE_ENV_COLOR, params is a pointer to an array that
+     holds an RGBA color consisting of four values.  Integer color components
+     are interpreted linearly such that	the most positive integer maps to 1.0,
+     and the most negative integer maps	to -1.0.  The values are clamped to
+     the range [0,1] when they are specified.  Cc takes	these four values.
+
+     If	pname is GL_TEXTURE_ENV_BIAS_SGIX, params is a pointer to an array
+     that holds	an RGBA	color consisting of four values.  Integer color
+     components	are interpreted	linearly such that the most positive integer
+     maps to 1.0, and the most negative	integer	maps to	-1.0.  The values are
+     clamped to	the range [0,1]	when they are specified.  Cb takes these four
+     values.
+
+     GL_TEXTURE_ENV_MODE defaults to GL_MODULATE, GL_TEXTURE_ENV_COLOR
+     defaults to (0,0,0,0), and	GL_TEXTURE_ENV_BIAS_SGIX defaults to
+     (0,0,0,0).
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     GL_REPLACE_EXT is part of the EXT_texture extension.  GL_ADD and
+     GL_TEXTURE_ENV_BIAS_SGIX are part of the SGIX_texture_add_env extension.
+     See glIntro for more information concerning extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated when target or pname is not one of the
+     accepted defined values, or when params should have a defined constant
+     value (based on the value of pname) and does not.
+
+     GL_INVALID_OPERATION is generated if glTexEnv is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+
+
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexEnv(3G)		       OpenGL Reference			  glTexEnv(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexEnv
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX and	High Impact and	Maximum	Impact
+     systems do	not support GL_REPLACE_EXT.
+
+     The SGIX_texture_add_env extension	is supported only on InfiniteReality
+     systems.  There is	a significant restriction on the texture environment
+     bias color, however.  Only	two values are allowed for the bias:  zero, or
+     exactly -0.5 times	the texture environment	color.	(This makes the
+     expression	CtCc+Cb	equivalent to CtCc or (Ct-0.5)Cc, respectively.)
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glTexImage1D, glTexImage2D, glTexParameter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 4
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

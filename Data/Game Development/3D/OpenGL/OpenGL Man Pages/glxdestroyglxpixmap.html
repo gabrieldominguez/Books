@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxdestroyglxpixmap Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxdestroyglxpixmap</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXDestroyGLXPixmap(3G)	    OpenGL Reference - GLX     glXDestroyGLXPixmap(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXDestroyGLXPixmap - destroy a GLX pixmap
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glXDestroyGLXPixmap( Display *dpy,
+			       GLXPixmap pix )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy  Specifies the	connection to the X server.
+
+
+     pix  Specifies the	GLX pixmap to be destroyed.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     If	GLX pixmap pix is not current to any client, glXDestroyGLXPixmap
+     destroys it immediately.  Otherwise, pix is destroyed when	it becomes not
+     current to	any client.  In	either case, the resource ID is	freed
+     immediately.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLXBadPixmap is generated if pix is not a valid GLX pixmap.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateGLXPixmap, glXMakeCurrent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

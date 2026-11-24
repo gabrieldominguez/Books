@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glistextureext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glistextureext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glIsTextureEXT(3G)	       OpenGL Reference		    glIsTextureEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glIsTextureEXT - determine	if a name corresponds to a texture
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLboolean glIsTextureEXT( GLuint texture )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     texture  A	value which might be the name of a texture.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glIsTextureEXT returns GL_TRUE if texture is currently the	name of	a
+     texture.  If texture is zero, or is a non-zero value that is not
+     currently the name	of a texture, or if an error occurs, glIsTextureEXT
+     returns GL_FALSE.
+
+     glIsTextureEXT is not included in display lists.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glIsTextureEXT is part of the EXT_texture_object extension.  See glIntro
+     for more information about	using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glIsTextureEXT is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support texture
+     name sharing.  Texture names are always local to the rendering context
+     which was active at the time the names were created.  High	Impact and
+     Maximum Impact systems do not currently support texture name sharing, but
+     this will be fixed	in the next release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBindTextureEXT, glDeleteTexturesEXT, glGenTexturesEXT, glGet,
+     glGetTexParameter,	glTexImage1D, glTexImage2D, glTexImage3DEXT,
+     glTexParameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

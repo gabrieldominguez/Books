@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxswapintervalsgi Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxswapintervalsgi</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXSwapIntervalSGI(3G)	    OpenGL Reference - GLX	glXSwapIntervalSGI(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXSwapIntervalSGI	- set a	minimum	time between buffer swaps
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     int glXSwapIntervalSGI( int interval )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     interval  Specifies the minimum number of retraces	between	buffer swaps
+	       invoked by glXSwapBuffers.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXSwapIntervalSGI	is part	of the SGI_swap_control	extension.
+
+     glXSwapIntervalSGI	causes frames to be displayed at a steady rate,
+     provided the time required	to draw	each frame can be bounded.  It does
+     this by specifying	a minimum number of retraces between buffer swaps
+     invoked by	glXSwapBuffers.	 For example, if the interval is 5, the	color
+     buffers will be swapped at	most once every	5 retraces.  The new swap
+     interval takes effect on the first	execution of glXSwapBuffers after the
+     execution of glXSwapIntervalSGI.
+
+     glXSwapIntervalSGI	affects	only buffer swaps for the current GLX
+     drawable.	(Use glXMakeCurrent to make a GLX context and GLX drawable
+     current). Note that glXSwapBuffers	may be called with a drawable
+     parameter that is not the current GLX drawable; in	this case
+     glXSwapIntervalSGI	has no effect on that buffer swap.
+
+     glXSwapIntervalSGI	returns	an error code if it fails for any reason.
+     Otherwise,	zero is	returned.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLX_BAD_VALUE is returned if interval is less than	or equal to zero.
+
+     GLX_BAD_CONTEXT is	returned if there is no	current	GLX context.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXMakeCurrent, glXSwapBuffers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

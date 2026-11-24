@@ -1,0 +1,1030 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0061)http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp -->
+<HTML><HEAD><TITLE>GLUI Subwindow Template - The Code Project - OpenGL</TITLE>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META http-equiv=Content-Type content="text/html; charset=ISO-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META 
+content="This article describes in detail how to set up an OpenGL window with controls laid out and organized into GLUI subwindow(s), and provides you with a template for your OpenGL applications." 
+name=Description>
+<META content=kbArticle name=Search.TopicType>
+<META content="Ali BaderEddin" name=Author>
+<META content="26 Sep 2007 14:00:00 GMT" name=Search.PublishDate>
+<META content="26 Sep 2007 14:00:00 GMT" name=Search.RevisedDate>
+<META content="Free source code, , Visual C++, MFC, Windows, article" 
+name=keywords>
+<META 
+content="Article content copyright Ali BaderEddin, 2007, everthing else Copyright © CodeProject, 1999-2007, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Lounge Postings" 
+href="http://www.codeproject.com/webservices/LoungeRSS.aspx" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - VB.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6" 
+type=application/rss+xml rel=alternate><LINK title="The Code Project" 
+href="http://www.codeproject.com/info/OpenSearch.xml" 
+type=application/opensearchdescription+xml rel=search><LINK href="/favicon.ico" 
+type=image/ico rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="GLUI Subwindow Template_archivos/global.css" type=text/css rel=stylesheet>
+<SCRIPT language=javascript 
+src="GLUI Subwindow Template_archivos/oncopy.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+if (top != self) top.location.href = location.href;
+if (typeof(DemoUrl) != "undefined")
+	document.write('<me' + 'ta http' + '-equiv="re' + 'fresh" con' + 'tent="1;url=' + DemoUrl + '">');
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR></HEAD>
+<BODY style="MARGIN: 0px" oncopy="return copyCode();" text=black vLink=navy 
+aLink=red link=blue bgColor=white>
+<SCRIPT src="GLUI Subwindow Template_archivos/urchin.js" type=text/javascript>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+_uacct = "UA-1735123-1";
+urchinTracker();
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=HeaderLogo><A href="http://www.codeproject.com/"><IMG height=90 
+      alt=Home src="GLUI Subwindow Template_archivos/codeproject225x90.gif" 
+      border=0></A></TD>
+    <TD class=HeaderBanner><SPAN id=AdBanner4>
+      <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3976&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FDevExpress%5FtheProblem%5Fleader%5F728x90%2Egif&C=False&id=3976&cb=4686383\" alt=\"\" border=0 width=728 height=90></a>");</SCRIPT>
+      </SPAN></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=MemberNavBar cellSpacing=0 cellPadding=5 width="100%" 
+      border=0>
+        <TBODY>
+        <TR vAlign=center>
+          <TD class=smallText style="FONT-WEIGHT: bold">4,553,228 members and 
+            growing! &nbsp; 13,013 now online. </TD>
+          <TD class=userNavText align=right><A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?id=512155">Gabriel 
+            Dominguez </A>| <A 
+            href="http://www.codeproject.com/script/profile/modify.asp?ct=/opengl/GLUI_Subwindow_Template.asp"><B>My 
+            Settings</B></A> | <A 
+            href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+            Bookmarks</A> | <A 
+            href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+            Articles</A> | <A 
+            href="http://www.codeproject.com/script/profile/logoff.asp?ct=/opengl/GLUI_Subwindow_Template.asp">Sign 
+            out</A> </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=SiteNavBar id=tblSiteToolbar cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD><A href="http://www.codeproject.com/">Home</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=2">MFC/C++</A></TD>
+          <TD><A href="http://www.codeproject.com/index.asp?cat=3">C#</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=4">ASP.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=6">VB.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=8">Architect</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=9">SQL</A></TD>
+          <TD class=SelCat noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=1">All Topics</A></TD>
+          <TD width="100%">&nbsp;</TD>
+          <TD>
+            <DIV id=MenuPos 
+            style="WIDTH: 300px; POSITION: relative; TOP: 1px; HEIGHT: 22px">
+            <TABLE id=MPH 
+            style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 20px; BORDER-RIGHT-WIDTH: 0px" 
+            cellSpacing=0 cellPadding=0 width=300>
+              <TBODY>
+              <TR vAlign=center>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                  Boards</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+      <SCRIPT src="GLUI Subwindow Template_archivos/cpmenu_var.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT src="GLUI Subwindow Template_archivos/menu10_com.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT type=text/javascript>
+var MPH = document.getElementById("MPH");
+if (MPH) MPH.style.display='none';
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=ArticleHeader cellSpacing=0 cellPadding=3 width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText style="PADDING-RIGHT: 10px"><A 
+            href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+            href="http://www.codeproject.com/?cat=2">MFC/C++</A> &gt;&gt; <A 
+            href="http://www.codeproject.com/opengl/">OpenGL</A> &gt;&gt; <A 
+            href="http://www.codeproject.com/opengl/#General">General</A><BR><BR>
+            <DIV style="FONT-WEIGHT: bold; FONT-SIZE: 16pt">GLUI Subwindow 
+            Template</DIV><B>By <A 
+            href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=2040670">Ali 
+            BaderEddin</A></B>. <BR><BR>
+            <DIV style="FONT-SIZE: 12px">This article describes in detail how to 
+            set up an OpenGL window with controls laid out and organized into 
+            GLUI subwindow(s), and provides you with a template for your OpenGL 
+            applications.</DIV></TD>
+          <TD class=smallText style="WIDTH: 200px">C++<BR>Windows<BR>Win32, 
+            VS, OpenGL<BR>Dev<BR><SPAN style="PADDING-RIGHT: 2ex">Posted</SPAN>: 
+            <B>27 Sep 2007</B><BR><SPAN style="PADDING-RIGHT: 3ex">Views</SPAN>: 
+            <B>1,289</B> </TD></TR></TD></TR></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=LHNavBar rowSpan=2><!-- Yes, there are IE hacks that will allow us to create a min-width DIV 
+	     (eg http://www.webreference.com/programming/min-width/) but I couldn't
+	     be arsed. Wait for it in v2.0 -->
+            <DIV class=FeatureBlockHeader>Announcements</DIV>
+            <DIV class="FeatureBlockContent RHFeatureBar">
+            <DIV style="PADDING-TOP: 3px"><IMG style="MARGIN-LEFT: 0px" 
+            height=16 alt=Jobs 
+            src="GLUI Subwindow Template_archivos/staff_sm.gif" width=12 
+            align=absMiddle> <A 
+            href="http://www.codeproject.com/info/jobs/">http://www.codeproject.com/info/jobs/</A></DIV>
+            <DIV style="PADDING-TOP: 3px"><IMG style="MARGIN-LEFT: 0px" 
+            height=20 alt=Comp 
+            src="GLUI Subwindow Template_archivos/prize_winner_sm.gif" width=10 
+            align=absMiddle> <A 
+            href="http://www.codeproject.com/script/competitions/monthly/">Monthly 
+            Competition</A></DIV></DIV>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=4211&cb=4686391\" border=0 frameborder=0 scrolling=no width=160 height=600></IFRAME>");</SCRIPT>
+            </CENTER><BR><BR><IMG height=1 
+            src="GLUI Subwindow Template_archivos/t.gif" width=160> </TD>
+          <TD width="100%">
+            <TABLE class=SearchHeaderBar cellSpacing=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=center noWrap align=right width="60%">
+                  <FORM style="MARGIN: 0px" name=Search action=/info/search.asp 
+                  method=post><B>Search &nbsp;</B><INPUT class=smallText 
+                  style="WIDTH: 200px" name=target> <SELECT 
+                  style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" name=st> <OPTION 
+                    value=kw selected>Articles</OPTION> <OPTION 
+                    value=au>Authors</OPTION></SELECT> <INPUT style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" type=submit value=" Go! "> 
+                  &nbsp; </FORM></TD>
+                <TD class=tinyText noWrap><A 
+                  href="http://www.codeproject.com/info/search.asp">Advanced 
+                  Search</A><BR><A 
+                  href="http://www.codeproject.com/script/articles/sections.asp">Sitemap</A> 
+                </TD></TR></TBODY></TABLE>
+            <TABLE width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=SmallText noWrap>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUI Subwindow Template_archivos/print.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp?print=true" 
+                        target=_print>Print</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUI Subwindow Template_archivos/sitebuild_icon.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=GLUI%5FSubwindow%5FTemplate%2Fopengl9%2F27%2F2007">Broken 
+                        Article?</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUI Subwindow Template_archivos/link.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fopengl%2FGLUI%5FSubwindow%5FTemplate%2Easp&amp;guid=GLUI%5FSubwindow%5FTemplate%2Fopengl9%2F27%2F2007">Bookmark</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUI Subwindow Template_archivos/mail_small.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#__comments">Discuss</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUI Subwindow Template_archivos/mail.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/script/recommend/form.asp?guid=GLUI%5FSubwindow%5FTemplate%2Fopengl9%2F27%2F2007">Send 
+                        to a friend</A></TD></TR></TBODY></TABLE></TD>
+                <TD noWrap align=right><A name=__top></A>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText align=right>1 vote for this 
+                      article.</TD>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 border=2>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="GLUI Subwindow Template_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUI Subwindow Template_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUI Subwindow Template_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUI Subwindow Template_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUI Subwindow Template_archivos/red.gif" 
+                              width=20 border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD class=smallText align=right colSpan=2><A 
+                        title="Calculated as rating x Log10(# votes)" 
+                        href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                        0</A>. Rating: <B>5</B> out of 
+              5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=ArticlePane><SPAN id=intelliTXT>
+            <DIV id=contentdiv><!-- Article Starts -->
+            <UL class=download>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template/GLUI_Subwindow_Template_exe.zip">Download 
+              demo project - 85.0 KB</A> 
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template/GLUI_Subwindow_Template_src.zip">Download 
+              source files - 5.9 KB</A> </LI></UL><IMG height=665 
+            alt="Screenshot - GLUT_Subwindow_Template.jpg" 
+            src="GLUI Subwindow Template_archivos/GLUT_Subwindow_Template.jpg" 
+            width=636> 
+            <H2>Contents</H2>
+            <UL>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#Introduction0">Introduction</A> 
+
+              <UL>
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#WhyHaveaGLUISubwindowTemplate1">Why 
+                Have a GLUI Subwindow Template?</A> </LI></UL>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#Usage2">Usage</A> 
+
+              <UL>
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#Compiling&amp;RunningtheProgram3">Compiling 
+                &amp; Running the Program</A> 
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#Usingthecode4">Using 
+                the code</A> 
+                <UL>
+                  <LI><A 
+                  href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#Note5">Note</A> 
+                  </LI></UL></LI></UL>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#ExplainingtheCode6">Explaining 
+              the Code</A> 
+              <UL>
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#1-CreateGLUISubwindows7">1- 
+                Create GLUI Subwindows </A>
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#2-AddGUIControls8">2- 
+                Add GUI Controls</A> 
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#3-MergeGLUTandGLUI9">3- 
+                Merge GLUT and GLUI </A>
+                <LI><A 
+                href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#4-HandleMainWindowResizing10">4- 
+                Handle Main Window Resizing</A> 
+                <UL>
+                  <LI><A 
+                  href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#get_viewport_area11">get_viewport_area</A> 
+
+                  <LI><A 
+                  href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#auto_set_viewport12">auto_set_viewport</A> 
+                  </LI></UL></LI></UL>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#Note13">Note</A> 
+
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#Conclusion14">Conclusion</A> 
+
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#References15">References</A> 
+
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#RevisionHistory16">Revision 
+              History</A> </LI></UL>
+            <H2><A name=Introduction0>Introduction</A></H2>
+            <P>This program allows you to create GUI controls and organize them 
+            into <CODE>GLUI</CODE> subwindows. For information about what is 
+            OpenGL, <CODE>GLUT</CODE>, <CODE>GLUI</CODE>, and how to set up a 
+            <CODE>GLUI</CODE> Window, check the <A 
+            href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp">GLUI 
+            Window Template</A> article.</P>
+            <P>In this article, we will take the source code from the previous 
+            article <A 
+            href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp">GLUI 
+            Window Template</A>, and modify it so that our <CODE>GLUI</CODE> 
+            controls will be laid out inside two subwindows rather than in a 
+            single window. </P>
+            <H3><A name=WhyHaveaGLUISubwindowTemplate1>Why Have a GLUI Subwindow 
+            Template?</A></H3>
+            <P>Having a separate window to contain our <CODE>GLUI</CODE> 
+            controls could be sometimes annoying for the user, as she or he will 
+            have to lose the focus on the OpenGL context window every time she 
+            or he wants to do an action. A nice way to avoid this is to place 
+            the <CODE>GLUI</CODE> controls directly into the <CODE>GLUT</CODE> 
+            OpenGL window by embedding them into a <CODE>GLUI</CODE> subwindow. 
+            </P>
+            <P>To avoid having to write the same code every time you want to 
+            create an OpenGL graphical application with controls inside 
+            <CODE>GLUI</CODE> subwindows, this program code can be used as a 
+            template to get you directly started. </P>
+            <P>The OpenGL <CODE>GLUI</CODE> subwindow template has the following 
+            properties:</P>
+            <UL>
+              <LI>Window Title: "<CODE>GLUI</CODE> Subwindow Template" 
+              <LI>Two <CODE>GLUI</CODE> Subwindows containing <CODE>GLUI</CODE> 
+              controls 
+              <UL>
+                <LI>The first subwindow would contain some of the controls and 
+                will be placed on the left of the window. It will be called the 
+                vertical <CODE>GLUI</CODE> subwindow as controls will be laid 
+                out vertically inside it 
+                <LI>The second subwindow would contain the remaining controls 
+                and will be placed on the bottom of the window. It will be 
+                called the horizontal subwindow as controls will be laid out 
+                horizontally inside it </LI></UL>
+              <LI><CODE>GLUI</CODE> Window where our graphics will be drawn and 
+              our two <CODE>GLUI</CODE> subwindows will be placed 
+              <LI>Handling of events for our <CODE>GLUT</CODE> window and our 
+              <CODE>GLUI</CODE> controls 
+              <LI>Showing when and where events occur and their meaning through 
+              the command prompt </LI></UL>
+            <H2><A name=Usage2>Usage</A></H2>
+            <H3><A name=Compiling&amp;RunningtheProgram3>Compiling &amp; Running 
+            the Program</A></H3>
+            <P>For information on how to compile and run the program, please 
+            check the <A 
+            href="http://www.codeproject.com/opengl/GLUI_WINDOW_TEMPLATE.asp#Usage4">Usage</A> 
+            section in the<A 
+            href="http://www.codeproject.com/opengl/GLUI_WINDOW_TEMPLATE.asp"> 
+            GLUI Window Template</A><EM> </EM>article. </P>
+            <H3><A name=Usingthecode4>Using the Code</A></H3>
+            <P>The source code is intended to be used as a template for your 
+            OpenGL applications. To use it in your new application, you can 
+            simply rename the <EM>CPP</EM> file and add it to your Visual Studio 
+            project. </P>
+            <H4><A name=Note5>Note</A></H4>
+            <P>Please note that <CODE>GLUI</CODE> is a C++ library, and thus 
+            doesn't work with C. So if you're obtaining linkage errors while 
+            trying to build a <CODE>GLUI</CODE> program, just check that all 
+            file extensions are <EM>.cpp</EM> and not <EM>.c</EM>.</P>
+            <H2><A name=ExplainingtheCode6>Explaining the Code</A></H2>
+            <P>Since we have already gone through the details of creating a 
+            <CODE>GLUI</CODE> window with controls and event handling in the 
+            previous <A 
+            href="http://www.codeproject.com/opengl/GLUI_WINDOW_TEMPLATE.asp">GLUI 
+            Window Template</A> article, what we care for in this article is how 
+            to create subwindows and lay out the controls inside them. </P>
+            <H3><A name=1-CreateGLUISubwindows7>1- Create GLUI Subwindows 
+            </A></H3>
+            <P>We will be replacing the window in the previous article with two 
+            subwindows placed on the left and bottom of the main graphics 
+            window. </P>
+            <P>The image below shows how our controls were laid out into a 
+            single <CODE>GLUI</CODE> window in the previous article:</P><IMG 
+            height=568 alt="GLUI Window" 
+            src="GLUI Subwindow Template_archivos/GLUT_Subwindow_Template_1.jpg" 
+            width=245 border=0> <IMG height=547 alt="GLUT Window" 
+            src="GLUI Subwindow Template_archivos/GLUT_Subwindow_Template_2.jpg" 
+            width=528 border=0> 
+            <P>The image below shows how our controls will be laid out into two 
+            separate subwindows placed on the left and the bottom of our main 
+            <CODE>GLUT</CODE> window:</P><IMG height=547 alt="GLUI Subwindows" 
+            src="GLUI Subwindow Template_archivos/GLUT_Subwindow_Template_3.jpg" 
+            width=528 border=0> 
+            <P>The <CODE>GLUI</CODE> subwindows are created as follows:</P><PRE lang=C++>//  pointer to GLUI two subwindows (horizontal and vertical subwindows)
+GLUI *glui_h_subwindow, *glui_v_subwindow;
+
+//  Create GLUI horizontal subwindow (placed on bottom)
+glui_h_subwindow = GLUI_Master.create_glui_subwindow 
+        (main_window, GLUI_SUBWINDOW_BOTTOM);
+
+//  Create GLUI vertical subwindow (placed on left)
+glui_v_subwindow = GLUI_Master.create_glui_subwindow 
+        (main_window, GLUI_SUBWINDOW_LEFT);</PRE>
+            <P>Here is the <CODE>create_glui_subwindow</CODE> function 
+            definition, as described in the <A 
+            href="http://www.nigels.com/glt/glui/glui_manual_v2_beta.pdf">GLUI 
+            manual</A>:</P><PRE lang=C++>GLUI *GLUI_Master_Object::create_glui_subwindow( int window, int position );</PRE>
+            <TABLE class=articletable>
+              <THEAD>
+              <TR>
+                <TD>Attribute</TD>
+                <TD>Description</TD></TR></THEAD>
+              <TBODY>
+              <TR>
+                <TD><CODE>window</CODE></TD>
+                <TD>ID of existing <CODE>GLUT</CODE> graphics window</TD></TR>
+              <TR>
+                <TD><CODE>position</CODE></TD>
+                <TD>
+                  <P>Position of new subwindow, relative to the 
+                  <CODE>GLUT</CODE> graphics window it is embedded in. This 
+                  argument can take one of the following values:</P>
+                  <P><CODE>GLUI_SUBWINDOW_RIGHT</CODE><BR><CODE>GLUI_SUBWINDOW_LEFT</CODE><BR><CODE>GLUI_SUBWINDOW_TOP</CODE><BR><CODE>GLUI_SUBWINDOW_BOTTOM</CODE></P>
+                  <P>You can place any number of subwindows at the same relative 
+                  position; in this case, multiple subwindows will simply be 
+                  stacked on top of one another. For example, if two subwindows 
+                  are created inside the same <CODE>GLUT</CODE> window, and both 
+                  use <CODE>GLUI_SUBWINDOW_TOP</CODE>, then the two are placed 
+                  at the top of the window, although the first subwindow will be 
+                  above the second.</P></TD></TR></TBODY></TABLE>
+            <H3><A name=2-AddGUIControls8>2- Add GUI Controls</A></H3>
+            <P>Fortunately, adding controls to <CODE>GLUI</CODE> subwindows is 
+            exactly the same as adding controls to a <CODE>GLUI</CODE> window. 
+            Thus, for example, to add the Object Properties panel to the 
+            <CODE>GLUI</CODE> vertical subwindow instead of adding it to the 
+            <CODE>GLUI</CODE> window, we can simply change the following code 
+            fragment:</P>
+            <TABLE class=ArticleTableNoBorder>
+              <TBODY>
+              <TR>
+                <TD>
+                  <H4>From</H4></TD></TR>
+              <TR>
+                <TD><PRE lang=C++>//  Add the 'Object Properties' Panel to the GLUI window
+GLUI_Panel *op_panel = <EM><STRONG>glui_window</STRONG></EM>-&gt;add_panel ("Object Properties");</PRE></TD></TR>
+              <TR>
+                <TD>
+                  <H4>To</H4></TD></TR>
+              <TR>
+                <TD><PRE lang=C++>//  Add the 'Object Properties' Panel to the GLUI vertical subwindow
+GLUI_Panel *op_panel = <EM><STRONG>glui_v_subwindow</STRONG></EM>-&gt;add_panel ("Object Properties");</PRE></TD></TR></TBODY></TABLE>
+            <P>Thus, for all the controls that we need to place into the 
+            <CODE>GLUI</CODE> vertical subwindow, we can simply replace 
+            <CODE>glui_window</CODE> with <CODE>glui_v_subwindow</CODE>, and for 
+            all the controls that we want to place into the <CODE>GLUI</CODE> 
+            horizontal subwindow, we need to replace <CODE>glui_window</CODE> 
+            with <CODE>glui_h_subwindow</CODE>.</P>
+            <H3><A name=3-MergeGLUTandGLUI9>3- Merge GLUT and GLUI</A> </H3>
+            <P>After creating our two <CODE>GLUI</CODE> subwindows, we need to 
+            let each of them know where its main graphics window is:</P><PRE lang=C++>//  Let the GLUI horizontal subwindow know where its main graphics window is
+glui_h_subwindow-&gt;set_main_gfx_window( main_window );
+
+//  Let the GLUI vertical subwindow know where its main graphics window is
+glui_v_subwindow-&gt;set_main_gfx_window( main_window );</PRE>
+            <P>When a control in a <CODE>GLUI</CODE> subwindow changes value, a 
+            redisplay request will be sent to this main graphics window.</P>
+            <H3><A name=4-HandleMainWindowResizing10>4- Handle Main Window 
+            Resizing</A></H3>
+            <P>When the main window is resized, we need to change the viewport 
+            size, where our OpenGL graphics are drawn. However, this time, we 
+            can't simply set the viewport width and height to be equal to the 
+            width and height of the main window due to the <CODE>GLUI</CODE> 
+            subwindows that we have added into the main window. Thus, we need to 
+            take the following into consideration:</P>
+            <UL>
+              <LI>Viewport X Position = Width of <CODE>GLUI</CODE> subwindow 
+              placed on left 
+              <LI>Viewport Width = <CODE>GLUI</CODE> Window Width - Width of 
+              <CODE>GLUI</CODE> subwindow placed on left - Width of 
+              <CODE>GLUI</CODE> subwindow placed on right 
+              <LI>Viewport Y Position = Height of <CODE>GLUI</CODE> subwindow 
+              placed on top 
+              <LI>Viewport Height = Height of main <CODE>GLUI</CODE> window - 
+              Height of <CODE>GLUI</CODE> subwindow placed on top - Height of 
+              <CODE>GLUI</CODE> subwindow placed on bottom </LI></UL>
+            <P>Thankfully, the <CODE>GLUI</CODE> library supports us with a 
+            method to automatically determine the x, y, width, and height of the 
+            viewport drawing area. This would be done through the following code 
+            snippet that will be placed in the reshape function:</P><PRE lang=C++>//  Represents the  drawing area x, y, width, and height
+int vx, vy, vw, vh;
+
+//  Get the drawing area viewport characteristics
+GLUI_Master.get_viewport_area( &amp;vx, &amp;vy, &amp;vw, &amp;vh );
+
+//  Set the viewport
+glViewport(vx, vy, vw, vh);</PRE>
+            <P>The <CODE>GLUI</CODE> library also supports us with a function 
+            that can even make things easier. Thus, the above code snippet can 
+            be replaced with the following code:</P><PRE lang=C++>GLUI_Master.auto_set_viewport();</PRE>
+            <P>Below is the specification of each of the 
+            <CODE>get_viewport_area</CODE> and <CODE>auto_set_viewport</CODE> 
+            functions as they appear in the <A 
+            href="http://www.nigels.com/glt/glui/glui_manual_v2_beta.pdf">GLUI 
+            manual</A>:</P>
+            <H4><A name=get_viewport_area11>get_viewport_area</A></H4>
+            <P>Determines the position and dimensions of the drawable area of 
+            the current window. This function is needed when <CODE>GLUI</CODE> 
+            subwindows are used, since the subwindows will occupy some of the 
+            area of a window, which the graphics app should not overwrite. This 
+            function should be called within the <CODE>GLUT</CODE> reshape 
+            callback function. </P><PRE lang=C++>void GLUI_Master_Object::get_viewport_area(int *x, int *y, int *w, int *h );</PRE>
+            <TABLE class=ArticleTable>
+              <THEAD>
+              <TR>
+                <TD>Attribute</TD>
+                <TD>Description</TD></TR></THEAD>
+              <TBODY>
+              <TR>
+                <TD><CODE>x</CODE>, <CODE>y</CODE>, <CODE>w</CODE>, 
+                  <CODE>h</CODE></TD>
+                <TD>When the function returns, these variables will hold the 
+                  x, y, width, and height of the drawable area of the current 
+                  window. These values should then be passed into the OpenGL 
+                  viewport command, 
+            <CODE>glViewport()</CODE>.</TD></TR></TBODY></TABLE>
+            <H4><A name=auto_set_viewport12>auto_set_viewport</A></H4>
+            <P>Automatically sets the viewport for the current window. This 
+            single function is equivalent to the following series of 
+            commands:</P><PRE lang=C++>int x, y, w, h;
+GLUI_Master.get_viewport_area( &amp;x, &amp;y, &amp;w, &amp;h );
+glViewport( x, y, w, h );</PRE>
+            <P>The function prototype is as follows, and it does not take any 
+            parameters:</P><PRE lang=C++>void GLUI_Master_Object::auto_set_viewport( void );</PRE>
+            <H2><A name=Note13>Note</A></H2>
+            <P>The mouse passive motion and display events will not be logged so 
+            that we can clearly see other events on the command prompt log. </P>
+            <H2><A name=Conclusion14>Conclusion</A></H2>
+            <P>The purpose of this article is to teach you how to set up a 
+            <CODE>GLUT</CODE> window with multiple <CODE>GLUI</CODE> subwindows 
+            with controls inside them, along with event handling. At the same 
+            time, the template can be used to save lots of copy and paste from 
+            old projects or the Internet. </P>
+            <P>In case you find this template useful or have any suggestions, 
+            please let me know.</P>
+            <H2><A name=References15>References</A></H2>
+            <UL>
+              <LI><A href="http://www.opengl.org/documentation/blue_book/">The 
+              OpenGL Reference Manual - The Bluebook</A> 
+              <LI><A href="http://www.opengl.org/documentation/red_book/">The 
+              OpenGL Programming Guide - The Redbook</A> 
+              <LI><A 
+              href="http://www.opengl.org/documentation/specs/glut/spec3/spec3.html">GLUT 
+              API Version 3 Reference Manual</A> 
+              <LI><A 
+              href="http://www.nigels.com/glt/glui/glui_manual_v2_beta.pdf">GLUI 
+              Version 2.0 Manual </A></LI></UL>
+            <H2><A name=RevisionHistory16>Revision History</A></H2>
+            <UL>
+              <LI>25/09/2007: Original article posted </LI></UL><!-- Article Ends --></DIV></SPAN>
+            <SCRIPT src="GLUI Subwindow Template_archivos/togglePre.js" 
+            type=text/javascript></SCRIPT>
+
+            <H2>About Ali BaderEddin</H2>
+            <DIV style="OVERFLOW: hidden">
+            <TABLE border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText noWrap><IMG 
+                  src="GLUI Subwindow Template_archivos/{DEA67C58-79A5-4FC1-BD8A-456A63203F6A}.gif"><BR></TD>
+                <TD class=smallText>Ali has more than 4 years of experience in 
+                  designing and developing software applications. He started out 
+                  as a technical consultant in the supply chain industry and was 
+                  responsible of designing and developing software requirements 
+                  in addition to delivering integration designs and technical 
+                  trainings.<BR><BR>He got the 6th position and the “Extreme 
+                  Programmers” title at “The Arab and North African ACM 
+                  Programming Competition” (2004-2005). His computer interests 
+                  include Algorithms, Low Level Graphics, Game Programming and 
+                  Scientific Visualization.<BR><BR>Ali currently lives in 
+                  Lebanon. He has traveled to UAE, Kuwait, KSA, Syria, Gabon, 
+                  Afghanistan, and China. He plans to move to the U.S. where 
+                  software development can get more challenging.<BR><BR>His 
+                  hobbies are reading, gaming, science, swimming, and seeking 
+                  adventure. You may contact him at ali_badereddin at yahoo dot 
+                  com.<BR>
+                  <P class=smallText>Click <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=2040670">here</A> 
+                  to view Ali BaderEddin's online 
+            profile.</P></TD></TR></TBODY></TABLE></DIV><BR>
+            <TABLE cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%">
+                  <H2>Other popular OpenGL articles:</H2>
+                  <UL>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/wrl_viewer.asp">A 
+                    small VRML viewer using OpenGL and MFC</A>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/ntgraph3d_atl.asp">3D 
+                    Graph ActiveX Control</A>
+                    <DIV class=smallText>An ATL/STL ActiveX control based on 
+                    OpenGL library for 3D data visualization</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/glexport.asp">Achieving 
+                    PostScript and Wmf outputs for OpenGL</A>
+                    <DIV class=smallText>This article explains how to generate 
+                    resolution independent versions of 3D meshes rendered by 
+                    OpenGL/MFC programs, i.e. how to export the rendering 
+                    results to vectorial formats such as encapsulated postscript 
+                    (EPS) and Windows enhanced metafile (EMF) formats. The main 
+                    goal consists of being able to</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/oglwiz.asp">OpenGL 
+                    Win32 AppWizard</A>
+                    <DIV class=smallText>This Custom AppWizard for VC++ 6.0 or 
+                    VC++.NET creates an OpenGL enabled Win32 application 
+                    suitable for demos and simple games.</DIV></LI></UL></TD>
+                <TD width=360>
+                  <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3981&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FDevExpress%2D300x250%2Egif&C=False&id=3981&cb=4686394\" alt=\"\" border=0 width=300 height=250></a>");</SCRIPT>
+                </TD></TR></TBODY></TABLE><BR>
+            <SCRIPT language=JavaScript 
+            src="GLUI Subwindow Template_archivos/addto.js" 
+            type=text/javascript></SCRIPT>
+
+            <SCRIPT language=JavaScript type=text/javascript>
+var addtoMethod=1;
+var AddURL = document.location.href;
+var AddTitle = escape(document.title);
+DrawLinks(100, 0, "smalltext bold", "smalltext") 
+</SCRIPT>
+            <BR><BR>
+            <FORM action=/script/rating/code/app/insert_vote.asp 
+            method=post><INPUT type=hidden 
+            value=GLUI_Subwindow_Template/opengl9/27/2007 name=vote_name> <INPUT 
+            type=hidden value=/opengl/GLUI_Subwindow_Template.asp name=goal> 
+            <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=4 width="100%" 
+                  bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=smalltext vAlign=center>[<A 
+                        href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp#__top">Top</A>]</TD>
+                      <TD vAlign=center noWrap align=right><I><B>Rate this 
+                        Article for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <I>Poor</I><INPUT type=radio value=1 name=rate><INPUT 
+                        type=radio value=2 name=rate><INPUT type=radio value=3 
+                        name=rate><INPUT type=radio value=4 name=rate><INPUT 
+                        type=radio value=5 
+name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+            <CENTER>
+            <DIV style="MARGIN: 10px"><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3982&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FDevExpress%2D468x60%2Egif&C=False&id=3982&cb=4686386\" alt=\"\" border=0 width=468 height=60></a>");</SCRIPT>
+            </SPAN></DIV></CENTER><A name=__comments></A>
+            <SCRIPT language=JavaScript>
+
+function MsgVoteForm(MemberID, MsgID)
+{
+	document.write("<span id=\"MVF" + MsgID + "\">");
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+	{
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString());
+		document.write("' onclick='return RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ", ");
+		document.write(i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	}
+	document.write(" (out of 5)");
+	document.writeln("</span>");
+	
+	
+	document.write("<br />Report as <a href='#xx" + MsgID.toString() + "xx' title='Mark as Spam' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-1)'>Spam</a> or ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' title='Mark as Abuse' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-2)'>Abuse</a>");
+	
+}
+
+function RetypeForm(MemberID, MsgID)
+{
+	var types = [
+				 {pic:'news_general.gif',  id: 1},
+	             {pic:'news_info.gif',     id: 2},
+	             {pic:'news_question.gif', id: 4},
+	             {pic:'news_answer.gif',   id: 8},
+	             {pic:'news_game.gif',     id: 16},
+	             {pic:'news_spam.gif',     id: 32}
+	            ];
+	
+	document.write("<span id=\"RTF" + MsgID + "\">");
+	for (var i=0;i<types.length;i++)
+	{
+		document.write("<a href='/script/comments/retype?msg=" + MsgID.toString());
+		document.write("&mid=" + MemberID.toString() + "&type=" + types[i].id + "'>");
+		document.write("<img border=0 src='/script/images/" + types[i].pic + "'></a><br />");
+	}
+	document.writeln("</span>");
+}
+
+function ReportMsg(userid, msgid, score)
+{
+	if (confirm("Are you sure you want to report this message?") == true)
+		return RateMsg(userid, msgid, score);
+	else return false;
+}
+
+
+function RateMsg(userid, msgid, score)
+{
+
+   var req = new ActiveXObject("Msxml2.XMLHTTP"); 
+
+   req.onreadystatechange = function()
+   {
+      if ( req.readyState == 4 )
+      {
+         if ( req.status == 200 )
+         {
+         	var respText = req.responseText;
+         	var re = new RegExp("\<div\>([^\<]*)\</div\>", "g");
+         	var match = re.exec(respText);
+         	status.innerHTML = "<b>" + (match)?match[1]:"An error occured" + "</b>";
+         }
+         else
+         {
+            status.innerHTML = "<b style='color:red'>Failed!" + req.statusText + "</b>";
+         }
+      }
+   }
+   
+   var status = document.getElementById("MVF" + msgid);
+   if (!status) return;  // should never happen...   
+   status.innerHTML = "<b style='color:green'>Voting...</b>";
+   
+   var strAction = "/script/comments/vote.asp?js=1&user="+userid+"&msg="+msgid+"&score="+score;
+   req.open("GET", strAction, true);
+   req.send(null);
+   return false;
+}
+
+</SCRIPT>
+
+            <SCRIPT language=JavaScript>
+var Selected = "";
+
+var AdTime = new Date();
+
+
+// Ensures the expanded message appears reasonably close to where 
+// it should appear: on screen, and if possible, under the mouse cursor.
+function SwitchMessage(e)
+{
+   if ( !e ) e = window.event;
+   var target = e.target ? e.target : e.srcElement;
+
+   // is it a post?
+   while ( target && target.id != 'DynMessLink' )
+      target = target.parentNode;
+   if ( !target || target.id != 'DynMessLink' )
+      return;
+
+   if (Selected)
+   {
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+         body.style.display = 'none';
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#FEF9E7';
+   }
+
+   if (Selected == target.name) // just collapse
+      Selected="";
+   else
+   {
+      Selected = target.name;
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+      {
+         if (body.style.display=='none')
+            body.style.display='';
+         else
+            body.style.display = 'none';
+      }
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#99CCFF';
+
+      if ( body && head && body.style.display != 'none' )
+      {
+         // the bit that keeps the post on-screen and under the cursor
+         //var dif = (getRealPos(head, "Top") + head.offsetHeight/2) - (document.body.scrollTop+e.clientY);
+         //document.body.scrollTop += dif;
+         document.body.scrollTop = getRealPos(head, "Top") - document.body.clientHeight/10;
+         EnsureMessageVisible(target.name, true);
+      }
+   }
+
+   if ( e.preventDefault )
+      e.preventDefault();
+   else
+      e.returnValue = false;
+   return false;
+}
+
+// does its best to make a message visible on-screen (vs. scrolled off somewhere).
+function EnsureMessageVisible(msgID, bShowTop) {
+   var msgHeader = document.getElementById(msgID + "_h0");
+   var msgBody = document.getElementById(msgID + "_h1");
+
+   // determine scroll position of top and bottom
+   var scrollContainer = document.body;
+   var top = getRealPos(msgHeader, 'Top');
+   var bottom = getRealPos(msgBody, 'Top') + msgBody.offsetHeight;
+
+   // if not already visible, scroll to make it so
+   if ( scrollContainer.scrollTop > top && !bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+   if ( scrollContainer.scrollTop+scrollContainer.clientHeight < bottom )
+      scrollContainer.scrollTop = bottom-scrollContainer.clientHeight;
+   if ( scrollContainer.scrollTop > top && bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+}
+
+// utility
+function getRealPos(i,which)
+{
+   iPos = 0
+   while (i!=null)
+   {
+      iPos += i["offset" + which];
+      i = i.offsetParent;
+   }
+   return iPos
+}
+
+
+</SCRIPT>
+
+            <DIV id=_MessageBoard onclick=SwitchMessage(event)>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+                  bgColor=#ff9900 border=0>
+                    <FORM 
+                    action=/script/comments/app/do_filtermessages.asp?main=/opengl/GLUI_Subwindow_Template.asp&amp;df=100&amp;forumid=465689 
+                    method=post>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=3 width="100%" 
+                        bgColor=white border=0>
+                          <TBODY>
+                          <TR bgColor=#fbedbb>
+                            <TD class=smalltext noWrap><A 
+                              href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                              height=16 
+                              src="GLUI Subwindow Template_archivos/forum_faq.gif" 
+                              width=16 align=absMiddle border=0> 
+                            <B>FAQ</B></A>&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>Message score threshold <SELECT 
+                              class=smalltext size=1 name=noise><OPTION 
+                                value=1>1.0</OPTION> <OPTION 
+                                value=2>2.0</OPTION> <OPTION value=3 
+                                selected>3.0</OPTION> <OPTION 
+                                value=4>4.0</OPTION> <OPTION 
+                              value=5>5.0</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=center noWrap align=right 
+                            colSpan=2><A 
+                              href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=465689"><IMG 
+                              height=15 
+                              src="GLUI Subwindow Template_archivos/forum_search.gif" 
+                              width=16 border=0> Search comments</A> &nbsp;</TD>
+                            <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+                          <TR bgColor=#ff9900>
+                            <TD width="100%">&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>View <SELECT class=smalltext size=1 
+                              name=expand><OPTION value=0>Normal 
+                                (slow)</OPTION> <OPTION value=2>Preview 
+                                (slow)</OPTION> <OPTION value=5 selected>Message 
+                                View</OPTION> <OPTION value=6>Topic 
+                                View</OPTION> <OPTION value=1>Thread 
+                                View</OPTION> <OPTION 
+                              value=3>Expanded</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap>Per page 
+                              <SELECT class=smalltext size=1 
+                                name=perpage><OPTION value=10>10</OPTION> 
+                                <OPTION value=25 selected>25</OPTION> <OPTION 
+                                value=50>50</OPTION></SELECT></TD>
+                            <TD 
+                    colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+                    <TR bgColor=#fbedbb>
+                      <TD><A name=xx0xx></A>
+                        <TABLE cellPadding=2 width="100%" bgColor=#fbedbb 
+                        border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle><IMG height=16 
+                              src="GLUI Subwindow Template_archivos/forum_newmsg.gif" 
+                              width=16 align=top border=0><A class=HoverLink 
+                              title="Add a new message to the discussions" 
+                              href="http://www.codeproject.com/script/comments/user_new.asp?main=/opengl/GLUI_Subwindow_Template.asp&amp;df=100&amp;forumid=465689" 
+                              target=_top name=HoverNL><B>New Message</B></A></TD>
+                            <TD class=messagetitle>Total Messages for this 
+                              article: 0 (<A 
+                              href="http://www.codeproject.com/opengl/GLUI_Subwindow_Template.asp?df=100&amp;forumid=465689">Refresh</A>)</TD>
+                            <TD noWrap 
+                      align=right>&nbsp;</TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=white>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD class=messagetitle 
+                                width="100%">Subject&nbsp;</TD>
+                                <TD class=messagetitle noWrap 
+                                width=140>Author&nbsp;</TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT 
+                                class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="GLUI Subwindow Template_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR>
+                            <TD class=messagetitle align=middle>-- No entries 
+                              --</TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="GLUI Subwindow Template_archivos/t.gif" 
+                              width=1 
+                  border=0></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+            <P class=smallText><IMG 
+            src="GLUI Subwindow Template_archivos/news_general.gif" 
+            align=absMiddle> General comment &nbsp;&nbsp; <IMG 
+            src="GLUI Subwindow Template_archivos/news_info.gif" 
+            align=absMiddle> News / Info &nbsp;&nbsp; <IMG 
+            src="GLUI Subwindow Template_archivos/news_question.gif" 
+            align=absMiddle> Question &nbsp;&nbsp; <IMG 
+            src="GLUI Subwindow Template_archivos/news_answer.gif" 
+            align=absMiddle> Answer &nbsp;&nbsp; <IMG 
+            src="GLUI Subwindow Template_archivos/news_game.gif" 
+            align=absMiddle> Joke / Game &nbsp;&nbsp; <IMG 
+            src="GLUI Subwindow Template_archivos/news_sticky.gif" 
+            align=absMiddle> Admin message</P><BR>
+            <TABLE cellSpacing=5 width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText>Updated: 27 Sep 2007 </TD>
+                <TD class=SmallText align=right>Article content copyright Ali 
+                  BaderEddin, 2007<BR>everything else Copyright © <A 
+                  href="mailto:webmaster@codeproject.com">CodeProject</A>, 
+                  1999-2007</A>. <BR>Web18 | <A 
+                  href="http://www.codeproject.com/info/MediaKit">Advertise on 
+                  The Code Project</A> | <A 
+                  href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <SCRIPT src="" type=text/javascript></SCRIPT>
+      <BR>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#ff9900 height=1><IMG height=1 
+            src="GLUI Subwindow Template_archivos/space.gif"></TD></TR>
+        <TR>
+          <TD align=middle><FONT size=1><A 
+            href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A> • 
+            <A href="http://aspalliance.com/">ASP Alliance</A> • <A 
+            href="http://www.developerfusion.co.uk/">Developer Fusion</A> • <A 
+            href="http://www.developersdex.com/">Developersdex</A> • <A 
+            href="http://www.devguru.com/">DevGuru</A> • <A 
+            href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+            href="http://www.planet-source-code.com/">Planet Source Code</A> • 
+            <A href="http://www.tek-tips.com/">Tek-Tips Forums</A> • 
+        </FONT></TD></TR></TBODY></TABLE></CENTER></TR></TBODY></TABLE></BODY></HTML>

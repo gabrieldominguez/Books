@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgettexfilterfuncsgis Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgettexfilterfuncsgis</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetTexFilterFuncSGIS(3G)     OpenGL Reference	    glGetTexFilterFuncSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetTexFilterFuncSGIS - return user-defined texture filtering function
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetTexFilterFuncSGIS( GLenum target,
+				  GLenum filter,
+				  GLfloat *weights )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target   Specifies	the target texture whose filtering function weights
+	      are to be	returned.  Must	be GL_TEXTURE_1D or GL_TEXTURE_2D.
+
+     filter   Specifies	the filter function whose weights are to be returned.
+	      Must be GL_FILTER4_SGIS.
+
+     weights  Specifies	an array to receive the	floating-point weight values.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetTexFilterFuncSGIS returns in weights the user-defined	filtering
+     function specified	by glTexFilterFuncSGIS.	 weights must have Size
+     elements, where Size is determined	by calling glGetTexParameter with
+     argument GL_TEXTURE_FILTER4_SIZE_SGIS.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glGetTexFilterFuncSGIS is part of the SGIS_texture_filter4	extension, not
+     part of the core GL command set.  If GL_SGIS_texture_filter4 is included
+     in	the string returned by glGetString when	called with argument
+     GL_EXTENSIONS, extension SGIS_texture_filter4 is supported	by the
+     connection.  See glIntro for more information about using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if either target or filter is	not one	of the
+     allowable values.
+
+     GL_INVALID_OPERATION is generated if glGetTexFilterFuncSGIS is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIS_texture_filter4 extension	is supported only on InfiniteReality
+     systems.
+
+     On	InfiniteReality	systems, GL_INVALID_VALUE is generated if the value of
+     the argument n to the command glTexFilterFuncSGIS does not	equal the
+     value of the implementation dependent constant Size, which	can be
+     determined	by calling glGetTexParameter with argument
+     GL_TEXTURE_FILTER4_SIZE_SGIS.  This restriction will be removed in	a
+     future release.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetTexFilterFuncSGIS(3G)     OpenGL Reference	    glGetTexFilterFuncSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glTexFilterFuncSGIS, glTexParameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

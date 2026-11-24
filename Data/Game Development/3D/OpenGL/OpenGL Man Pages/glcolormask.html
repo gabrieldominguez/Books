@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glcolormask Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glcolormask</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glColorMask(3G)		       OpenGL Reference		       glColorMask(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glColorMask - enable and disable writing of frame buffer color components
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glColorMask( GLboolean red,
+		       GLboolean green,
+		       GLboolean blue,
+		       GLboolean alpha )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     red, green, blue, alpha
+			   Specify whether red,	green, blue, and alpha can or
+			   cannot be written into the frame buffer.  The
+			   default values are all GL_TRUE, indicating that the
+			   color components can	be written.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glColorMask specifies whether the individual color	components in the
+     frame buffer can or cannot	be written.  If	red is GL_FALSE, for example,
+     no	change is made to the red component of any pixel in any	of the color
+     buffers, regardless of the	drawing	operation attempted.
+
+     Changes to	individual bits	of components cannot be	controlled.  Rather,
+     changes are either	enabled	or disabled for	entire color components.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glColorMask is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_COLOR_WRITEMASK
+     glGet with	argument GL_RGBA_MODE
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glColor, glIndex, glIndexMask, glDepthMask, glStencilMask
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

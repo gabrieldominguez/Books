@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gltranslate Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gltranslate</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glTranslate(3G)		       OpenGL Reference		       glTranslate(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glTranslated, glTranslatef	- multiply the current matrix by a translation
+     matrix
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glTranslated(	GLdouble x,
+			GLdouble y,
+			GLdouble z )
+     void glTranslatef(	GLfloat	x,
+			GLfloat	y,
+			GLfloat	z )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     x,	y, z
+	    Specify the	x, y, and z coordinates	of a translation vector.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glTranslate moves the coordinate system origin to the point specified by
+     (x,y,z).  The translation vector is used to compute a 4x4 translation
+     matrix:
+
+			      (	1    0	  0    x   )
+			      |			   |
+			      |	0    1	  0    y   |
+			      |	0    0	  1    z   |
+			      |			   |
+			      (	0    0	  0    1   )
+     The current matrix	(see glMatrixMode) is multiplied by this translation
+     matrix, with the product replacing	the current matrix.  That is, if M is
+     the current matrix	and T is the translation matrix, then M	is replaced
+     with M o T.
+
+     If	the matrix mode	is either GL_MODELVIEW or GL_PROJECTION, all objects
+     drawn after glTranslate is	called are translated.	Use glPushMatrix and
+     glPopMatrix to save and restore the untranslated coordinate system.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glTranslate is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_MATRIX_MODE
+     glGet with	argument GL_MODELVIEW_MATRIX
+     glGet with	argument GL_PROJECTION_MATRIX
+     glGet with	argument GL_TEXTURE_MATRIX
+
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTranslate(3G)		       OpenGL Reference		       glTranslate(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glMatrixMode, glMultMatrix, glPushMatrix, glRotate, glScale
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

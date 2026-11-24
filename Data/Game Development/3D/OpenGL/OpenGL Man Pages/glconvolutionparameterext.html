@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glconvolutionparameterext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glconvolutionparameterext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glConvolutionParameterEXT(3G)  OpenGL Reference	 glConvolutionParameterEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glConvolutionParameterfEXT, glConvolutionParameteriEXT,
+     glConvolutionParameterfvEXT, glConvolutionParameterivEXT -	set
+     convolution parameters
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glConvolutionParameterfEXT( GLenum target,
+				      GLenum pname,
+				      GLfloat params )
+     void glConvolutionParameteriEXT( GLenum target,
+				      GLenum pname,
+				      GLint params )
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  The target	for the	convolution parameter.	Must be	one of
+	     GL_CONVOLUTION_1D_EXT, GL_CONVOLUTION_2D_EXT, or
+	     GL_SEPARABLE_2D_EXT.
+
+     pname   The parameter to be set.  Must be GL_CONVOLUTION_BORDER_MODE_EXT.
+
+     params  The parameter value.  Must	be GL_REDUCE_EXT.
+
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glConvolutionParameterfvEXT( GLenum target,
+				       GLenum pname,
+				       const GLfloat *params )
+     void glConvolutionParameterivEXT( GLenum target,
+				       GLenum pname,
+				       const GLint *params )
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target
+	  The target for the convolution parameter.  Must be one of
+	  GL_CONVOLUTION_1D_EXT, GL_CONVOLUTION_2D_EXT,	or
+	  GL_SEPARABLE_2D_EXT.
+
+     pname
+	  The parameter	to be set.  Must be one	of
+	  GL_CONVOLUTION_BORDER_MODE_EXT, GL_CONVOLUTION_FILTER_SCALE_EXT, or
+	  GL_CONVOLUTION_FILTER_BIAS_EXT.
+
+     params
+	  The parameter	value.	Must be	GL_REDUCE_EXT if pname is
+	  GL_CONVOLUTION_BORDER_MODE_EXT.  Otherwise, must be a	vector of four
+	  values (for red, green, blue,	and alpha, respectively) to be used
+	  for scaling (when pname is GL_CONVOLUTION_FILTER_SCALE_EXT) or for
+	  biasing (when	pname is GL_CONVOLUTION_FILTER_BIAS_EXT) a convolution
+	  filter kernel.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glConvolutionParameterEXT(3G)  OpenGL Reference	 glConvolutionParameterEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glConvolutionParameterEXT sets the	value of a convolution parameter.
+
+     target selects the	convolution filter to be affected:
+     GL_CONVOLUTION_1D_EXT, GL_CONVOLUTION_2D_EXT, or GL_SEPARABLE_2D_EXT for
+     the 1D, 2D, or separable 2D filter, respectively.
+
+     pname selects the parameter to be changed.
+     GL_CONVOLUTION_FILTER_SCALE_EXT and GL_CONVOLUTION_FILTER_BIAS_EXT	affect
+     the definition of the convolution filter kernel; see
+     glConvolutionFilter1DEXT, glConvolutionFilter2DEXT, and
+     glSeparableFilter2DEXT for	details.  In these cases, params is an array
+     of	four values to be applied to red, green, blue, and alpha values
+     respectively.
+
+     A pname value of GL_CONVOLUTION_BORDER_MODE_EXT controls the convolution
+     border mode.  Currently the only acceptable parameter value is
+     GL_REDUCE_EXT.  When this mode is in effect, the image resulting from
+     convolution is smaller than the source image.  If the filter width	is Wf
+     and height	is Hf, and the source image width is Ws	and height is Hs, then
+     the convolved image width will be Ws-Wf+1 and height will be Hs-Hf+1.
+     (If this reduction	would generate an image	with zero or negative width
+     and/or height, the	output is simply null, with no error generated.)  The
+     coordinates of the	image resulting	from convolution are zero through Ws-
+     Wf	in width and zero through Hs-Hf	in height.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     In	cases where errors can result from the specification of	invalid	image
+     dimensions, it is the dimensions after convolution	that are tested, not
+     the dimensions of the source image.  For example, glTexImage1D requires
+     power-of-two image	size.  When REDUCE_EXT border mode is in effect
+     (currently	this is	always true), the source image must be larger than the
+     final power-of-two	size by	one less than the size of the 1D filter
+     kernel.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not one of the allowable
+     values.
+
+     GL_INVALID_ENUM is	generated if pname is not one of the allowable values.
+
+     GL_INVALID_ENUM is	generated if pname is GL_CONVOLUTION_BORDER_MODE_EXT
+     and params	is not GL_REDUCE_EXT.
+
+     GL_INVALID_OPERATION is generated if glConvolutionParameterEXT is
+     executed between the execution of glBegin and the corresponding execution
+     of	glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetConvolutionParameterEXT
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glConvolutionParameterEXT(3G)  OpenGL Reference	 glConvolutionParameterEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glConvolutionFilter1DEXT, glConvolutionFilter2DEXT,
+     glSeparableFilter2DEXT, glGetConvolutionParameterEXT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

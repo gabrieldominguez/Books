@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxdestroycontext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxdestroycontext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXDestroyContext(3G)	    OpenGL Reference - GLX	 glXDestroyContext(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXDestroyContext - destroy a GLX context
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glXDestroyContext( Display *dpy,
+			     GLXContext	ctx )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy  Specifies the	connection to the X server.
+
+
+     ctx  Specifies the	GLX context to be destroyed.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     If	GLX rendering context ctx is not current to any	thread,
+     glXDestroyContext
+     destroys it immediately.  Otherwise, ctx is destroyed when	it becomes not
+     current to	any thread.  In	either case, the resource ID referenced	by ctx
+     is	freed immediately.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLXBadContext is generated	if ctx is not a	valid GLX context.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateContext, glXMakeCurrent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

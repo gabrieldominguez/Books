@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgethistogramext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgethistogramext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetHistogramEXT(3G)	       OpenGL Reference		 glGetHistogramEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetHistogramEXT - get histogram table
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetHistogramEXT( GLenum target,
+			     GLboolean reset,
+			     GLenum format,
+			     GLenum type,
+			     GLvoid *values )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Must be GL_HISTOGRAM_EXT.
+
+     reset   If	GL_TRUE, each component	counter	that is	actually returned is
+	     reset to zero.  (Other counters are unaffected.)  If GL_FALSE,
+	     none of the counters in the histogram table is modified.
+
+     format  The format	of values to be	returned in values.  Must be one of
+	     GL_RED, GL_GREEN, GL_BLUE,	GL_ALPHA, GL_RGB, GL_RGBA,
+	     GL_ABGR_EXT, GL_LUMINANCE,	or GL_LUMINANCE_ALPHA.
+
+     type    The type of values	to be returned in values.  Must	be one of
+	     GL_UNSIGNED_BYTE, GL_BYTE,	GL_UNSIGNED_SHORT, GL_SHORT,
+	     GL_UNSIGNED_INT, GL_INT, GL_FLOAT,	GL_UNSIGNED_BYTE_3_3_2_EXT,
+	     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+	     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+     values  A pointer to storage for the returned histogram table.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetHistogramEXT returns the current histogram table as a	one-
+     dimensional image with the	same width as the histogram.  No pixel
+     transfer operations are performed on this image, but pixel	storage	modes
+     that are applicable to 1D images are honored.
+
+     Color components that are requested in the	specified format, but which
+     are not included in the internal format of	the histogram, are returned as
+     zero.  The	assignments of internal	color components to the	components
+     requested by format are:
+
+		       Internal	Component   Result Component
+		       _____________________________________
+		       red		    red
+		       green		    green
+		       blue		    blue
+		       alpha		    alpha
+		       luminance	    red
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetHistogramEXT(3G)	       OpenGL Reference		 glGetHistogramEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not GL_HISTOGRAM_EXT.
+
+     GL_INVALID_ENUM is	generated if format is not one of the allowable
+     values.
+
+     GL_INVALID_ENUM is	generated if type is not one of	the allowable values.
+
+     GL_INVALID_OPERATION is generated if glGetHistogramEXT is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+     If	type is	set to GL_UNSIGNED_BYTE_3_3_2_EXT,
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT and	the
+     EXT_packed_pixels extension is not	supported then a GL_INVALID_ENUM error
+     is	generated.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems,	histogram and minmax
+     may not be	used when rendering to pixmaps.
+
+     On	InfiniteReality	systems	selection and histogramming are	unreliable if
+     interrupted by a graphics context switch.	This will be fixed in the next
+     software release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glHistogramEXT, glResetHistogramEXT, glGetHistogramParameterEXT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

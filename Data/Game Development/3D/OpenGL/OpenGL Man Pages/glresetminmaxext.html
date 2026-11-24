@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glresetminmaxext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glresetminmaxext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glResetMinmaxEXT(3G)	       OpenGL Reference		  glResetMinmaxEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glResetMinmaxEXT -	reset minmax table entries to initial values
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glResetMinmaxEXT( GLenum target )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Must be GL_MINMAX_EXT.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glResetMinmaxEXT resets the elements of the current minmax	table to their
+     initial values:  the ``maximum'' element receives the minimum possible
+     component values, and the ``minimum'' element receives the	maximum
+     possible component	values.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not GL_MINMAX_EXT.
+
+     GL_INVALID_OPERATION is generated if glResetMinmaxEXT is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems,	histogram and minmax
+     may not be	used when rendering to pixmaps.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glMinmaxEXT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

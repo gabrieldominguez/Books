@@ -1,0 +1,1110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0041)http://www.codeproject.com/opengl/EGA.asp -->
+<HTML><HEAD><TITLE>The Code Project - Part One: Euclidian Geometric Algebra and Quaternions - OpenGL</TITLE><!-- START Insight XE-->
+<SCRIPT language=JavaScript> 
+var if_Site_ID = "ipro"; 
+var if_sid="1"; 
+var if_protocol=window.location.protocol; 
+var mep1="&Site="+escape("codeproject.com"); 
+</SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/ipro_if.js"></SCRIPT>
+<!-- END Insight XE-->
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META content="Geometric Algebra applied to OpenGL" name=Description>
+<META 
+content="Free source code, OpenGL, Visual C++, MFC, Windows, Geometric Algebra OpenGL" 
+name=keywords>
+<META 
+content="Article content copyright Dan Bloomquist, 2005, everthing else Copyright © CodeProject, 1999-2005, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK href="/favicon.ico" type=image/ico 
+rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/global.css" 
+type=text/css rel=stylesheet>
+<SCRIPT language=javascript 
+src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/oncopy.js"></SCRIPT>
+
+<META content="MSHTML 6.00.2800.1505" name=GENERATOR></HEAD>
+<BODY oncopy="return copyCode();" text=black vLink=purple aLink=red link=blue 
+bgColor=white leftMargin=3 topMargin=3>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE cellSpacing=1 cellPadding=0 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD vAlign=top><A href="http://www.codeproject.com/"><IMG height=72 
+            alt="The Code Project" 
+            src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/logo225x72.gif" 
+            width=225 border=0></A></TD>
+          <TD align=right><SPAN id=AdBanner4>
+            <TABLE cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD><A class=AdLink 
+                  href="http://www.codeproject.com/script/admentor/ads.asp">View 
+                  our advertisers</A></TD>
+                <TD align=right><A class=AdLink 
+                  href="http://www.codeproject.com/info/mediakit">Advertise with 
+                  us</A></TD></TR>
+              <TR>
+                <TD colSpan=2>
+                  <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=402&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2Fvsnet468x60%5Fmfc%2Egif&C=False&id=402\" alt=\"Support Code Project and purchase Visual Studio .NET from $899\" border=0 width=468 height=60></a>");</SCRIPT>
+                </TD></TR></TBODY></TABLE></SPAN></TD></TR>
+        <TR>
+          <TD bgColor=#fbedbb colSpan=2>
+            <TABLE cellPadding=3 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%"><FONT style="FONT-SIZE: 8pt"><A 
+                  href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+                  href="http://www.codeproject.com/?cat=2">MFC / C++</A> 
+                  &gt;&gt; <A 
+                  href="http://www.codeproject.com/opengl/">OpenGL</A> &gt;&gt; 
+                  <A 
+                  href="http://www.codeproject.com/opengl/#General">General</A></FONT><BR><BR><B><FONT 
+                  style="FONT-SIZE: 16pt" size=4>Part One: Euclidian Geometric 
+                  Algebra and Quaternions</FONT></B><BR><B>By <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?id=21188">Dan 
+                  Bloomquist</A> </B><BR><BR><FONT 
+                  style="FONT-SIZE: 9pt">Geometric Algebra applied to 
+                  OpenGL&nbsp;</FONT> </TD>
+                <TD vAlign=top align=right>
+                  <TABLE cellSpacing=0 cellPadding=1 width=200 border=0>
+                    <TBODY>
+                    <TR vAlign=top>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText>C++<BR>Windows<BR>Win32, VS, 
+                        OpenGL<BR>Dev</TD></TR>
+                    <TR>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText noWrap>Posted 4 Mar 2005 13:25</TD></TR>
+                    <TR>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText>Updated 15 Mar 2005 19:00</TD></TR>
+                    <TR vAlign=top>
+                      <TD><IMG height=16 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/hlp.gif" 
+                        width=16></TD>
+                      <TD class=SmallText noWrap><A 
+                        href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=21188">Articles 
+                        by this author</A></TD></TR>
+                    <TR vAlign=top>
+                      <TD></TD>
+                      <TD class=SmallText noWrap><B>16,356</B> 
+                    views</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE id=tblSiteToolbar cellSpacing=0 cellPadding=1 width="100%" 
+            border=0>
+              <TBODY>
+              <TR>
+                <FORM name=Search action=/info/search.asp method=post>
+                <TD vAlign=top align=left width="100%">
+                  <TABLE cellSpacing=0 cellPadding=1 border=0>
+                    <TBODY>
+                    <TR vAlign=center>
+                      <TD class=smallText><B><FONT 
+                        color=white>Search:</FONT></B></TD>
+                      <TD class=navbar noWrap><INPUT class=smallText 
+                        maxLength=255 size=18 name=target></TD>
+                      <TD vAlign=top><SELECT class=smallText name=st> 
+                          <OPTION value=kw selected>Articles</OPTION> <OPTION 
+                          value=au>Authors</OPTION></SELECT></TD>
+                      <TD><INPUT class=formButton type=submit value=Go></TD></TR></TBODY></TABLE></TD></FORM>
+                <TD>
+                  <DIV id=MenuPos 
+                  style="WIDTH: 380px; POSITION: relative; HEIGHT: 20px">
+                  <TABLE height=20 cellSpacing=0 cellPadding=2 width=375>
+                    <TBODY>
+                    <TR>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                        Boards</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/store/">StoreFront</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+            <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+            <SCRIPT 
+            src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/cpmenu_var.js" 
+            type=text/javascript></SCRIPT>
+
+            <SCRIPT 
+            src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/menu10_com.js" 
+            type=text/javascript></SCRIPT>
+          </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=1 border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD vAlign=top bgColor=#fbedbb rowSpan=2>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <SCRIPT language=javascript>
+function ErrorHandle() {}
+window.onerror = ErrorHandle;
+
+function OnNLSubmit(option)
+{
+	if (option=="up")
+		document.subForm.action = "/script/profile/modify.asp?ct=%2Fopengl%2FEGA%2Easp";
+	else if (option=="in")
+		document.subForm.action = "/script/profile/process_logon.asp?ct=%2Fopengl%2FEGA%2Easp";
+	document.subForm.submit();
+	return true;
+}
+</SCRIPT>
+
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=3 cellPadding=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=InfoBarHeader>Toolbox</TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/space.gif" 
+                  width=1></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/sitebuild_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=EGA%2Fopengl3%2F4%2F2005">Broken 
+                  Article?</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>VS.NET 2003 from 
+                  $899</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>Ultimate Toolbox 
+                  $499</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/print.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/opengl/EGA.asp?print=true" 
+                  target=_print>Print version</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/link.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fopengl%2FEGA%2Easp&amp;guid=EGA%2Fopengl3%2F4%2F2005">Bookmark 
+                  this</A></TD></TR></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/mail.gif" 
+                  width=16></TD>
+                <TD class=SmallText><A 
+                  href="http://www.codeproject.com/script/recommend/form.asp?guid=EGA%2Fopengl3%2F4%2F2005">Send 
+                  to a friend</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=InfoBarHeader>My Profile</TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/space.gif" 
+                  width=1></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/profile_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/modify.asp?ct=/opengl/EGA.asp">My 
+                  Settings</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/submit_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+                  Articles</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/bookmarks.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+                  Bookmarks</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/logoff_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/logoff.asp?ct=/opengl/EGA.asp">Sign 
+                  out</A></TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/space.gif" 
+                  width=1></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=1201&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FMainsoft%5Fvertical03%2Egif&C=False&id=1201\" alt=\"Visual Studio .NET on Linux\" border=0 width=120 height=600></a>");</SCRIPT>
+            <BR></CENTER><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=5 rowSpan=2><IMG height=1 
+      src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/space.gif" 
+      width=5> </TD>
+    <TD align=right width="100%" bgColor=white>
+      <TABLE width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText vAlign=top noWrap></TD>
+          <TD noWrap align=right><A name=__top></A>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=smallText align=right>10 members have rated this 
+                  article. Result:</TD>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 border=2>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=5 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/red.gif" 
+                        width=17 border=0><IMG height=5 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/white.gif" 
+                        width=3 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=smallText align=right colSpan=2><A 
+                  title="Calculated as rating x Log10(# votes)" 
+                  href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                  4.86</A>. Rating: <B>4.86</B> out of 
+        5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD vAlign=top width="100%">
+      <DIV id=contentdiv><!-- Article Starts -->
+      <UL class=download>
+        <LI><A href="http://www.codeproject.com/opengl/EGA/eogl.zip">Download 
+        source files - 60.5 Kb</A> </LI></UL>
+      <P><IMG height=533 alt="Sample Image - ega.jpg" 
+      src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/ega.jpg" 
+      width=562></P>
+      <H2>Introduction</H2>This will be the first article on Geometric Algebra, 
+      (GA), and its applications in graphics using Gaigen. I will evolve this 
+      code as I work toward the Conformal Model of a graphics application. I am 
+      starting with the three dimensional model of GA as I think it is easier to 
+      understand. There are three parts in this article. The GAGL class, Gaigen, 
+      and an introduction to Euclidian Geometric Algebra. 
+      <H2>The GAGL Class</H2>I'll just introduce the OpenGL class as it is 
+      self-contained. For those who have not worked with OpenGL, you may find 
+      this an easy way to get started. With one line in <CODE>OnDarw</CODE> you 
+      can have an object on the screen that can be handled with the mouse. Right 
+      now you would still need to include the Gaigen headers where you implement 
+      it but I will see about hiding those headers in the future. So far this 
+      class handles OpenGL initialization, screen drawing and mouse movements. 
+      Build this and you will notice that the mouse movements are intuitive, as 
+      if quaternions were used. If you create this on the heap, you won't have 
+      to spread the headers around your application. This class can be used with 
+      a WINDOWS app, WTL, or windows and views in MFC. I have kept the necessary 
+      interface to a minimum. The generated Gaigen files are included in the 
+      project download, <I>you do not need the Gaigen generator to work with the 
+      sample project or the GAGL class</I>. You don't have to know anything 
+      about Geometric Algebra or Gaigen as that is hidden.<BR><BR>To use it in a 
+      MFC view, add a pointer in the <CODE>CMyView </CODE>declaration: <PRE>    GAGL* pGWL;
+</PRE>
+      <P>Initialize it in <CODE>OnCreate</CODE>: </P><PRE>    pGLW= <SPAN class=cpp-keyword>new</SPAN> GAGL( *<SPAN class=cpp-keyword>this</SPAN> );
+</PRE>
+      <P>In the view's <CODE>OnSize</CODE> member: </P><PRE>    pGLW-&gt;OnSize( cx, cy );
+</PRE>
+      <P>A minimum mouse implementation is to roll the screen on the x and y 
+      axis. Pass your mouse movements like this: </P><PRE><SPAN class=cpp-keyword>void</SPAN> CMyView::OnLButtonDown( UINT <SPAN class=cpp-comment>/*nFlags*/</SPAN>, CPoint point )
+{
+    SetCapture( );
+    bMouseActive= <SPAN class=cpp-keyword>true</SPAN>;
+    pGLW-&gt;InitMouse( point.x, point.y );
+}
+
+<SPAN class=cpp-keyword>void</SPAN> CMyView::OnLButtonUp( UINT <SPAN class=cpp-comment>/*nFlags*/</SPAN>, CPoint <SPAN class=cpp-comment>/*point*/</SPAN> )
+{
+    ReleaseCapture( );
+    bMouseActive= <SPAN class=cpp-keyword>false</SPAN>;
+}
+
+<SPAN class=cpp-keyword>void</SPAN> CMyView::OnMouseMove( UINT <SPAN class=cpp-comment>/*nFlags*/</SPAN>, CPoint point )
+{
+    <SPAN class=cpp-keyword>if</SPAN>( bMouseActive )
+        pGLW-&gt;MoveMouse( point.x, point.y );
+}
+</PRE>
+      <P>In <CODE>OnDraw</CODE> you would: </P><PRE><SPAN class=cpp-keyword>void</SPAN> CMyView::OnDraw( CDC* <SPAN class=cpp-comment>/*pDC*/</SPAN> )
+{
+    pGLW-&gt;PrepareDraw( );
+    <SPAN class=cpp-comment>// Do your drawing here.</SPAN>
+    pGLW-&gt;RenderDraw( );
+}
+</PRE>
+      <P>And to finish up: </P><PRE><SPAN class=cpp-keyword>void</SPAN> CMyView::OnDestroy( )
+{
+    <SPAN class=cpp-keyword>delete</SPAN> pGLW;
+    CView::OnDestroy( );
+}
+</PRE>
+      <P>Note that you will get warnings when the Gaigen files are compiled. 
+      Ignore them, they are harmless. If Gaigen comes out with a revision that 
+      fixes this I'll submit a new download. </P>
+      <H2>Gaigen</H2>
+      <P><I>This is optional. There are Gaigen generated files in the project 
+      for the Euclidian geometry.</I></P>
+      <P><IMG height=464 alt="The Gaigen Generator" 
+      src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/gaigen.jpg" 
+      width=513></P>Gaigen is a c++ file generator. It is fast and convenient 
+      for development. You can just keep it open while you are working on the 
+      development of the Gaigen classes. Generate and when you alt-tab back to 
+      Visual Studio, just let VS load the changed files and compile. You can 
+      download Gaigen at SourceForge: 
+      <UL>
+        <LI><A href="http://www.sourceforge.net/projects/gaigen">Gaigen download 
+        at SourceForge</A></LI></UL>
+      <P>The following is for the&nbsp;VS.NET solution.</P>
+      <P>You will need the fltk libraries. In the gaigenui project, do the 
+      following. Set the 'additional include directories' to your include that 
+      contains the /FL directory. Remove the gaigenui.rc from the project. It is 
+      missing but you don't need it. Set the linker's 'additional library 
+      directories' to the lib of fltk. In 'ignore specific library', add 
+      LIBCD.lib. Set the ouput of all the projects to a common directory. The 
+      executables need to be together. I've put them in a lib like this: </P>
+      <P><IMG height=168 alt="Sample Gaigen directories" 
+      src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/gaigen_files.jpg" 
+      width=173></P>gaigenui.exe is the executable you would want to start. It 
+      should run by now but will crash if you try to generate files. Here is a 
+      link for the installation manual: 
+      <UL>
+        <LI><A 
+        href="http://www.science.uva.nl/ga/gaigen/files/20031124_install.pdf">Gaigen 
+        Installation Manual</A></LI></UL>I think you could use 
+      'gaigen_local_install.cpp' in the src directory, (I haven't tried it). 
+      I've set the environment variable 'GAIGEN_CONFIG' to point to the 
+      gaigen.config file which also seems to be missing from this release. Here 
+      is a copy: 
+      <UL>
+        <LI><A 
+        href="http://lakeweb.net/downloads/gaigen.config">gaigen.config</A></LI></UL>Set 
+      your directories for the algebras and executables. But wait! That's not 
+      all! open the 'enviroment.cpp' in one of the projects. Set the 
+      initializers after the #else to something like this: <PRE><SPAN class=cpp-keyword>char</SPAN> *g_dataDir = <SPAN class=cpp-string>"C:\\cpp\\gaigen\\ui_4\\algebras"</SPAN>;
+<SPAN class=cpp-keyword>char</SPAN> *g_includeDir = <SPAN class=cpp-string>"C:\\cpp\\gaigen\\ui_4\\algebras"</SPAN>;
+<SPAN class=cpp-keyword>char</SPAN> *g_binDir = 
+  <SPAN class=cpp-string>"C:\\cpp\\gaigen\\ui_4\\lib"</SPAN>; <SPAN class=cpp-comment>//this must be set to your executables</SPAN>
+<SPAN class=cpp-keyword>char</SPAN> *g_algebrasDir = 
+  <SPAN class=cpp-string>"C:\\cpp\\gaigen\\ui_4\\temp"</SPAN>; <SPAN class=cpp-comment>//This doesn't seem to have effect</SPAN>
+</PRE>
+      <P>Here I have copied the src/gaspectemplates.txt to the algebras/ 
+      directory. Before you generate your files, go to the 'generate' tab and 
+      set the directory of the project where you would like to use the files. If 
+      you have any troubles, go immediately to the output window to see what 
+      went wrong. That should tell you, you should not have to debug. I have 
+      included the 'e3ga.gas' file in my project download. It is the GA I'm 
+      using in the example. If you are serious about using Gaigen, you will also 
+      want these two manuals:</P>
+      <UL>
+        <LI><A 
+        href="http://www.science.uva.nl/ga/gaigen/files/20031124_gum.pdf">Gaigen 
+        User Manual Version 0.99</A> 
+        <LI><A 
+        href="http://www.science.uva.nl/ga/gaigen/files/20020728_gaigen.pdf">Gaigen: 
+        a Geometric Algebra Implementation Generator</A></LI></UL>
+      <P>One more note. It seems that Gaigen has a memory leak, it's not mine. 
+      I've taken a little look but haven't found it yet. The source for the 
+      generator is in gaspectemplates.txt. <BR><BR></P>
+      <H2>Quaternions and all the rest</H2>Geometric Algebra is not just for 
+      doing graphics. In fact, the Gaigen generator was intended for scientific 
+      modeling from what I've seen. But I'll stick to the graphics in this 
+      article. 
+      <P>Points are 'grade one blades' in the Euclidian space, which are just 
+      vectors from the origin. So, just like you would, translate space and draw 
+      the point. I am also drawing lines from the origin to the points in this 
+      example. It gives it a real contraption look.</P>
+      <P>Lines or vectors are again just vectors. But they are coordinate free. 
+      To place them in space takes a second vector. It may have been more 
+      elegant to demand that the base vector were normal to the line, but after 
+      thinking about it, not at all. To be able to specify any arbitrary point 
+      for the line to go through is much more powerful. Rather than draw lines, 
+      I've elected to draw vectors. But as you will see in the project, they can 
+      as easily be treated like lines. In the <CODE>CGLView::DrawVector</CODE> 
+      member I have shown an example of turning a vector into a rotor. This, so 
+      I could line up the model matrix on the vector and draw the line with 
+      <CODE>gluCylinder</CODE>.</P>
+      <P>Planes are bivectors, or, 'grade two blades'. There is actually more 
+      information in a bivector than we need for a plane. It includes a directed 
+      magnitude. If you were going to draw a finite plane like a disk, this 
+      magnitude would be used. For an infinite plane we are interested in the 
+      directed nature of the bivector. To make simple calls to 
+      <CODE>glVertex3f</CODE>, I will just bring the model matrix to the normal 
+      from the origin 
+      <P>Rotors are also bivectors and will do the same thing as quaternions. 
+      The beauty is that you can actually visualize how it works. While 
+      quaternions seem to be some mysterious '4-dimentional' functions, think 
+      about what it actually do. You have some well defined plane that you want 
+      to rotate some given amount on. Rotations are really a two dimensional 
+      subspace in three dimensions! To use a rotor is really simple and you can 
+      use them on any GA object. You will find several examples in the project. 
+      They will usually look something like this:</P><PRE>e3ga rotatedObject= rotor * origanalObject * !rotor;
+</PRE>
+      <P>Take a look in the wingl.cpp, at <CODE>gaRotateMatrix</CODE>, for an 
+      example of rotating an OpenGL matrix. I've included tracing you can turn 
+      on to see it at work. Because you can rotate GA objects directly, you 
+      don't need to rotate the model matrix to draw them like you would with the 
+      glu and aux objects. Here are two PDFs that chart the different objects 
+      and operations in the different geometries:</P>
+      <UL>
+        <LI><A 
+        href="http://staff.science.uva.nl/~fontijne/raytracer/files/raytracer_primitives.pdf">3D 
+        LA 3D GA 4D LA 4D GA 5D GA point line plane sphere rotation ...</A> 
+        <LI><A 
+        href="http://staff.science.uva.nl/~fontijne/raytracer/files/raytracer_operations.pdf">3D 
+        LA 3D GA 4D LA 4D GA 5D GA rotation / translation line-plane ...</A> 
+        </LI></UL>
+      <P>The code just before drawing the plane shows the intersection of a line 
+      with the plane. And drawing the reflection just takes a couple of more 
+      lines of code using a rotor. The intersection code is right out of the 
+      raytracer pdf. Gaigen is rich with overloaded operators so you can see 
+      that the implementation looks much like the formula. It only took a few 
+      minutes with the Gaigen manual to code the reflection. (That, after some 
+      time invested in understanding what I could about GA and Gaigen!) Here I 
+      treat the vectors like lines. When you run the animation, you will see the 
+      vector reflect from the plane as if it were infinite. </P>
+      <P>You will notice that the GA objects live quite separately from the 
+      OpenGL interface. The action of the lines, (also see the animated rotation 
+      of the lines in <CODE>CGLView::OnTimer</CODE>, is just GA math. OpenGL is 
+      considered only at rendering time. There are graphics members in the 
+      Gaigen code but nothing is implemented. It may never happen as it would 
+      not seem it could be as flexible as just keeping it separate.</P>
+      <P>Something to note if you take this up. What is called a 'normal' in 
+      Gaigen is, to quote, 'the sum of the square of all coordinates'. It is not 
+      an orthonormal object, it is a scalar. For the conventional normal, you 
+      would use the 'dual'. You will see use of 'norm' and 'dual' in the 
+      project. You will find the dual is the same as multiplying by the 
+      pseudoscalar of the space. See <CODE>DrawVector</CODE> in example.</P>
+      <P>I have only looked to introduce Geometric Algebra in this article as an 
+      alternative to quaternions and Plucker coordinates. There is a lot of 
+      information on the web on GA. Here are a couple of good links:</P>
+      <UL>
+        <LI><A href="http://modelingnts.la.asu.edu/">Geometric Calculus 
+        R&amp;D</A> 
+        <LI><A 
+        href="http://www.mrao.cam.ac.uk/~clifford/pages/people.htm">Cambridge 
+        University GA Research Group</A> </LI></UL>
+      <P>I&nbsp;had one paper in mind that I've printed a while back, but I 
+      can't find it on the web and the PDF is on a drive that isn't in a 
+      computer now. There are lots of good papers on both those sites. So, I 
+      won't recommend 'one' paper as each reader will come from a different 
+      background and have differing tastes. Some papers I didn't like when I 
+      started look very good now. These may work for you:</P>
+      <P>Geometric algebra: a computational framework for geometrical 
+      applications</P>
+      <UL>
+        <LI><A 
+        href="http://www.science.uva.nl/~leo/clifford/dorst-mann-I.pdf">(part I: 
+        algebra)</A> 
+        <LI><A 
+        href="http://www.science.uva.nl/~leo/clifford/dorst-mann-II.pdf">(part 
+        II: applications)</A></LI></UL>
+      <P>If you download the raytracer project you won't need Gaigen. They have 
+      included all the generated files. It works with one exception. In the 
+      wood.rtm file two lines were left with absolute file references. change 
+      the lines to: </P><PRE lang=text>diffuse_texture "../files/wood.png"
+bumpmap "../files/wood2.png"
+</PRE>
+      <P>Thanks, Dan. </P><!-- Article Ends --></DIV>
+      <H2>About Dan Bloomquist</H2>
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText noWrap><BR></TD>
+          <TD class=smallText width="100%">Two years ago my wife and I started 
+            on a new business venture. Reserve Analyst Software<BR><BR><A 
+            href="http://www.reserveanalyst.com/">http://www.reserveanalyst.com/</A><BR><BR>I 
+            have been messing with computers since the 6502 was announced. A 
+            good deal on the hardware side.
+            <P><BR><A 
+            href="http://www.lakeweb.com/">http://www.lakeweb.com/</A><BR><BR><A 
+            href="http://www.lakeweb.net/">http://www.lakeweb.net/</A>
+            <P><BR>Best, Dan.<BR>
+            <P class=smallText>Click <A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=21188">here</A> 
+            to view Dan Bloomquist's online profile.</P></TD></TR></TBODY></TABLE><BR>
+      <TABLE cellPadding=4 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD width="100%">
+            <H2>Other popular articles:</H2>
+            <UL>
+              <LI><A href="http://www.codeproject.com/opengl/wrl_viewer.asp">A 
+              small VRML viewer using OpenGL and MFC</A>
+              <LI><A href="http://www.codeproject.com/opengl/oglwiz.asp">OpenGL 
+              Win32 AppWizard</A><BR><SPAN class=smalltext>This Custom AppWizard 
+              for VC++ 6.0 or VC++.NET creates an OpenGL enabled Win32 
+              application suitable for demos and simple games.</SPAN>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/glexport.asp">Achieving 
+              PostScript and Wmf outputs for OpenGL</A><BR><SPAN 
+              class=smalltext>This article explains how to generate resolution 
+              independent versions of 3D meshes rendered by OpenGL/MFC programs, 
+              i.e. how to export the rendering results to vectorial formats such 
+              as encapsulated postscript (EPS) and Windows enhanced metafile 
+              (EMF) formats. The main goal consists of being able to</SPAN>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/MotionBlur.asp">Full Scene 
+              Motion Blur</A><BR><SPAN class=smalltext>How to obtain a motion 
+              blur effect.</SPAN></LI></UL></TD>
+          <TD width=360>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/admentor/include/ServeAdHTML.aspx?C=False&id=786\" border=0 frameborder=0 scrolling=no width=300 height=250></IFRAME>");</SCRIPT>
+          </TD></TR></TBODY></TABLE>
+      <FORM action=/script/rating/code/app/insert_vote.asp method=post><INPUT 
+      type=hidden value=EGA/opengl3/4/2005 name=vote_name> <INPUT type=hidden 
+      value=/opengl/EGA.asp name=goal> 
+      <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD width="100%">
+            <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#fbedbb 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD class=smalltext vAlign=center>[<A 
+                  href="http://www.codeproject.com/opengl/EGA.asp#__top">Top</A>]</TD>
+                <TD vAlign=center noWrap align=right><I><B>Rate this Article 
+                  for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; <I>Poor</I><INPUT 
+                  type=radio value=1 name=rate><INPUT type=radio value=2 
+                  name=rate><INPUT type=radio value=3 name=rate><INPUT 
+                  type=radio value=4 name=rate><INPUT type=radio value=5 
+                  name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD vAlign=top>
+            <CENTER><BR><FONT size=1><A 
+            href="http://www.codeproject.com/info/MediaKit/">Premium 
+            Sponsor</A></FONT></CENTER><BR></TD>
+          <TD vAlign=top noWrap align=middle><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=1178&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FSoftWidgets%5FSpellCode%5F468%5F60%2Egif&C=False&id=1178\" alt=\"Spell Code is a must-have add-in for all VS.NET developers looking to check the spelling of any text inside the .NET IDE\" border=0 width=468 height=60></a>");</SCRIPT>
+            </SPAN></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><A 
+name=__comments></A>
+<SCRIPT language=JavaScript>
+function MsgVoteForm(UserID, MsgID)
+{
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString() + "' onclick='RateMsg(" + UserID.toString() + ", " + MsgID.toString() + ", " + i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	document.write(" (out of 5)");
+}
+
+function RateMsg(userid, msgid, score) 
+{ 
+	open("/script/comments/vote.asp?js=1&user="+userid.toString()+"&msg="+msgid.toString()+"&score="+score.toString() ,"helpful","toolbar=no,resizable=yes,scrollbars=yes,directories=no,menubar=no,width=300,height=200");
+	return false;
+}
+</SCRIPT>
+
+<SCRIPT language=JavaScript>
+var Selected = "";
+var AdTime = new Date();
+
+function SwitchMessage(elm)
+{
+	
+	var elmref;
+	if (Selected != "")
+	{
+		elmref = eval("document.getElementById('" + Selected + "_h1')");
+		if (elmref) elmref.style.display = 'none';
+		elmref = eval("document.getElementById('" + Selected + "_h0')");
+		if (elmref) elmref.bgColor = '#FEF9E7';
+	}
+	if (Selected != elm.name) 
+	{
+		Selected = elm.name;
+		elmref = eval("document.getElementById('" + Selected + "_h1')");
+		if (elmref) 
+		{
+			if (elmref.style.display=='none') elmref.style.display='';
+			else elmref.style.display = 'none';
+		}
+		elmref = eval("document.getElementById('" + Selected + "_h0')");
+		if (elmref) 
+			elmref.bgColor = '#99CCFF';
+	}
+	else
+		Selected="";
+		
+	window.location = "#xx" + Selected + "xx";
+
+	return false;
+}
+
+</SCRIPT>
+
+<SCRIPT language=javascript event=onclick for=DynMessLink>
+return SwitchMessage(this);
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+      bgColor=#ff9900 border=0>
+        <FORM 
+        action=/script/comments/app/do_filtermessages.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350 
+        method=post>
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=3 width="100%" bgColor=white 
+            border=0>
+              <TBODY>
+              <TR bgColor=#fbedbb>
+                <TD class=smalltext noWrap><A 
+                  href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                  height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/info.gif" 
+                  width=16 align=absMiddle border=0> <B>FAQ</B></A>&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>Noise level 
+                  <SELECT class=smalltext size=1 name=noise><OPTION 
+                    value=1>Very High</OPTION> <OPTION value=2>High</OPTION> 
+                    <OPTION value=3 selected>Medium</OPTION> <OPTION 
+                    value=4>Low</OPTION> <OPTION value=5>Very 
+                  low</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=center noWrap align=right 
+                  colSpan=2><A 
+                  href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=159350"><IMG 
+                  height=15 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/search.gif" 
+                  width=16 border=0> Search comments</A> &nbsp;</TD>
+                <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+              <TR bgColor=#ff9900>
+                <TD width="100%">&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>View <SELECT 
+                  class=smalltext size=1 name=expand><OPTION value=0>Normal 
+                    (slow)</OPTION> <OPTION value=2>Preview (slow)</OPTION> 
+                    <OPTION value=5 selected>Message View</OPTION> <OPTION 
+                    value=6>Topic View</OPTION> <OPTION value=1>Thread 
+                    View</OPTION> <OPTION value=3>Expanded (Supporters 
+                    only)</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap>Per page <SELECT 
+                  class=smalltext size=1 name=perpage><OPTION 
+                    value=10>10</OPTION> <OPTION value=25 selected>25</OPTION> 
+                    <OPTION value=50>50</OPTION></SELECT></TD>
+                <TD colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+        <TR bgColor=#fbedbb>
+          <TD><A name=xx0xx></A>
+            <TABLE cellPadding=2 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR>
+                <TD class=messagetitle><A class=HoverLink 
+                  title="Add a new message to the discussions" 
+                  href="http://www.codeproject.com/script/comments/user_new.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350" 
+                  target=_top name=HoverNL><B><IMG height=16 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/admin_modify.gif" 
+                  width=16 align=top border=0> New thread</B></A></TD>
+                <TD class=messagetitle>Msgs 1 to 4 of 4 (Total: 4) (<A 
+                  href="http://www.codeproject.com/opengl/EGA.asp?df=100&amp;forumid=159350">Refresh</A>)</TD>
+                <TD noWrap align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <SPAN class=HoverLink>Next</SPAN> <SPAN 
+                  class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+              </FONT></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=white>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=messagetitle width="100%">Subject&nbsp;</TD>
+                      <TD class=messagetitle noWrap width=140>Author&nbsp;</TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT 
+                    class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1059894_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1059894xx></A><IMG 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/EGA.asp?df=100&amp;forumid=159350&amp;select=1059894#xx1059894xx" 
+                        name=1059894><B>Compile</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=83880"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle><B>thomas_tom99</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>5:01 15 Mar 
+                        '05</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1059894_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Hello,<BR><BR>I am not able 
+                                to compile the app..Can you you compile this app 
+                                in another machine(not in the machine in which 
+                                you developed) so that you can see the 
+                                errors..<BR><BR><BR><BR>Tom 
+                                Thomas<BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1059894">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1059894">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/EGA.asp?df=100&amp;tid=1059894&amp;forumid=159350&amp;select=1059894#xx1059894xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/EGA.asp?msg=1059894#xx1059894xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1059894"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1059894"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(83880,1059894);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1060546_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1060546xx></A><IMG height=1 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/ind.gif" 
+                        width=18><IMG 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/EGA.asp?df=100&amp;forumid=159350&amp;select=1060546#xx1060546xx" 
+                        name=1060546>Re: Compile</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=21188"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Dan 
+                        Bloomquist&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>19:13 15 Mar 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1060546_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/ind.gif" 
+                        width=18><IMG 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Hi 
+                                Tom,<BR>I don't have a second computer with VS, 
+                                but I took a guess at what the trouble could be. 
+                                I left an absolute directory reference for 
+                                &lt;gaigen/...&gt;.<BR><BR>I made the fix and 
+                                have uploaded.<BR><BR>Thanks, 
+                                Dan.<BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1060546">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1060546">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/EGA.asp?df=100&amp;tid=1059894&amp;forumid=159350&amp;select=1060546#xx1060546xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/EGA.asp?msg=1060546#xx1060546xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1060546"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1060546"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(21188,1060546);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900><IMG height=1 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=1054785_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1054785xx></A><IMG 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/EGA.asp?df=100&amp;forumid=159350&amp;select=1054785#xx1054785xx" 
+                        name=1054785><B>Source ?</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=30894"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle><B>Lorenzo 
+                        H. Martín</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>1:59 8 Mar 
+                        '05</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1054785_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>The 
+                                source code is miss-linked <IMG 
+                                src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/smiley_frown.gif" 
+                                align=absMiddle> <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1054785">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1054785">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/EGA.asp?df=100&amp;tid=1054785&amp;forumid=159350&amp;select=1054785#xx1054785xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/EGA.asp?msg=1054785#xx1054785xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1054785"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1054785"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(30894,1054785);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=1055237_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1055237xx></A><IMG height=1 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/ind.gif" 
+                        width=18><IMG 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/EGA.asp?df=100&amp;forumid=159350&amp;select=1055237#xx1055237xx" 
+                        name=1055237>Re: Source ?</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=21188"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Dan 
+                        Bloomquist&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>12:53 8 Mar 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1055237_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/ind.gif" 
+                        width=18><IMG 
+                        src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Yes, 
+                                thanks. There are two places to set the file 
+                                name in the upload, I didn't know. I've checked, 
+                                it is working now.<BR><BR><BR>Best, 
+                                Dan.<BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1055237">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1055237">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/EGA.asp?df=100&amp;tid=1054785&amp;forumid=159350&amp;select=1055237#xx1055237xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/EGA.asp?msg=1055237#xx1055237xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1055237"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/EGA.asp&amp;df=100&amp;forumid=159350&amp;select=1055237"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(21188,1055237);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/t.gif" 
+                  width=1 border=0></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=#fbedbb>
+          <TD>
+            <TABLE cellPadding=2 width="100%">
+              <TBODY>
+              <TR>
+                <TD class=messagetitle>Last Visit: 17:49 Friday 22nd July, 
+                2005</TD>
+                <TD noWrap align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <SPAN class=HoverLink>Next</SPAN> <SPAN 
+                  class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+              </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=5 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD><FONT style="FONT-SIZE: 7pt" size=1><A 
+      href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+      href="http://www.codeproject.com/?cat=2">MFC / C++</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/opengl/">OpenGL</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/opengl/#General">General</A> <BR>Updated: 
+      15 Mar 2005 19:00 </FONT></TD>
+    <TD align=right><FONT style="FONT-SIZE: 7pt" size=1>Article content 
+      copyright Dan Bloomquist, 2005<BR>everything else Copyright © <A 
+      href="mailto:webmaster@codeproject.com">CodeProject</A>, 1999-2005</A>. 
+      <BR><A href="http://www.codeproject.com/info/MediaKit">Advertise on The 
+      Code Project</A> | <A 
+      href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+  </FONT></TD></TR></TBODY></TABLE><BR>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#ff9900 height=1><IMG height=1 
+      src="Part One Euclidian Geometric Algebra and Quaternions - OpenGL_files/space.gif"></TD></TR>
+  <TR>
+    <TD align=middle><FONT size=1><A 
+      href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A> • <A 
+      href="http://www.codeproject.com/redir.asp?id=235">MSDN Communities</A> | 
+      <A href="http://www.aspalliance.com/">ASP Alliance</A> • <A 
+      href="http://www.developerfusion.co.uk/">Developer Fusion</A> • <A 
+      href="http://www.developersdex.com/">Developersdex</A> • <A 
+      href="http://www.devguru.com/">DevGuru</A> • <A 
+      href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+      href="http://www.planet-source-code.com/">Planet Source Code</A> • <A 
+      href="http://www.tek-tips.com/">Tek-Tips Forums</A> • 
+</FONT></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>

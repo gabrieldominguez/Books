@@ -1,0 +1,717 @@
+<HTML><HEAD><TITLE>program four</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#E0E0E0 ALINK=#FFFFFF>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070>source <FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </FONT></NOBR></B></font><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">sour<br>
+
+    urce </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source&nbsp;<br>
+
+    </font></B></NOBR><font face="Helvetica, Sans-Serif" size="4"><b><nobr><font color="#204070">u
+
+    </font><FONT face="Helvetica, Sans-Serif" size=4 COLOR="#204070"><FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font size="4" color="#204070">source </font><font size="4" color="#305080">source</font><font size="4" color="#204070">
+
+    source</font><font size="4" color="#305080"> source </font><font color="#204070">source
+
+    </font><font color="#305080">sou</font></nobr></b></font></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font></font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<P align="left"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b><a href="download/program4.zip" tppabs="http://home.clara.net/paulyg/download/program4.zip">[program
+
+four]</a>&nbsp;</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">
+
+</font>This example uses the same 'framework' as the previous three
+
+programs.&nbsp; We discover how manage multiple textures and introduce transparency
+
+effects to give our planet a weather system.&nbsp;</font><P align="center"><img border="0" src="graphics/prog4.gif" tppabs="http://home.clara.net/paulyg/graphics/prog4.gif" width="258" height="277"><FONT FACE="Helvetica, Sans-Serif" SIZE=2><br>
+
+<br>
+
+
+
+</font>
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+ </B></NOBR><NOBR><B><font face="Helvetica, Sans-Serif" size="4"><font color="#305080"> 
+
+      </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">We declare some
+
+more global variables to help us manage the textures and clouds.&nbsp; Line 1
+
+defines a macro constant as &quot;2&quot; - this number if the maximum number of
+
+textures used by the program.&nbsp; Line 6 declares the 'texture name' array -
+
+there are 2 names.&nbsp; The values are enumerated below this in lines 3 and 4.<br>
+
+Line 8 is similar to the previous examples, but we have
+
+a new variable called '</font><font face="Courier New" size="2">cloud_rot</font><font face="Helvetica, Sans-Serif" size="2">'
+
+that will hold the value of rotation for our cloud sphere.</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; #define&nbsp;&nbsp; MAX_NO_TEXTURES 2<br>
+
+[2]<br>
+
+[3]&nbsp;&nbsp;&nbsp; #define&nbsp;&nbsp; EARTH_TEXTURE&nbsp;&nbsp; 0<br>
+
+[4]&nbsp;&nbsp;&nbsp; #define&nbsp;&nbsp; CLOUD_TEXTURE&nbsp;&nbsp; 1<br>
+
+[5]<br>
+
+[6]&nbsp;&nbsp;&nbsp; GLuint&nbsp;&nbsp;&nbsp; texture_id[MAX_NO_TEXTURES];<br>
+
+[7]<br>
+
+[8]&nbsp;&nbsp;&nbsp; <b>float</b>&nbsp;&nbsp;&nbsp;&nbsp; angle, angle2, cloud_rot;<br>
+
+
+
+</font>
+
+<hr>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Lines 1-11 in
+
+our intialisation function are the same as before.&nbsp; We set up the
+
+illumination model and material properties.</font>
+
+
+
+
+
+<p class="code"><font face="Courier New" size="2">[1]&nbsp;&nbsp;&nbsp; <b>void</b> init ( <b>void</b> )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable ( GL_LIGHTING );<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLightModelfv (
+
+GL_LIGHT_MODEL_AMBIENT, ambient_light );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLightfv ( GL_LIGHT0,
+
+GL_DIFFUSE,source_light );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLightfv ( GL_LIGHT0,
+
+GL_POSITION,light_pos&nbsp;&nbsp; );<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable&nbsp; ( GL_LIGHT0 );<br>
+
+[9]<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable&nbsp; ( GL_COLOR_MATERIAL );<br>
+
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glColorMaterial ( GL_FRONT,
+
+GL_AMBIENT_AND_DIFFUSE );</font>
+
+
+
+
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>Next we enable opengl texturing.&nbsp; The function on line 13 again tells opengl how
+
+pixels are stored in the image array we're going to give it.&nbsp; The
+
+parameters here set it up so that each pixel is tightly packed as before.&nbsp;
+
+Line 14 tells opengl to create &quot;2&quot; new texture names and place them
+
+into the '</font><FONT face="Courier New" SIZE=2>texture_id</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>'
+
+array.
+
+
+
+</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable ( GL_TEXTURE_2D );<br>
+
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPixelStorei ( GL_UNPACK_ALIGNMENT, 1
+
+);<br>
+
+
+
+</font>
+
+
+
+<font face="Courier New" size="2">[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT face="Courier New" SIZE=2><a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/gentextures.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/gentextures.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/gentextures.html">glGenTextures</a> (2,
+
+texture_id);</font></font>
+
+
+
+
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>Line 15 sets the current active texture to '</font><FONT face="Courier New" SIZE=2>texture_id[0]</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>',
+
+any succeeding call to opengl will affect the texture bound to this texture
+
+name.&nbsp;<FONT face="Courier New" SIZE=2><br>
+
+
+
+</font>
+
+Line 16 calls our texture load function, notice that we specify that our texture
+
+is made up from red, green and blue values (<FONT face="Courier New" SIZE=2>GL_RGB</font>)
+
+and that we want texture filtering to be off.</font>
+
+
+
+
+
+<p class="code"><font size="2">[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/bindtexture.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/bindtexture.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/bindtexture.html">glBindTexture</a> ( GL_TEXTURE_2D, texture_id[0] );<br>
+
+[16]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; load_texture&nbsp; ( &quot;earth_r.raw&quot;, 640, 320, 3,
+
+GL_RGB, GL_NEAREST );</font>
+
+
+
+
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>Line 17 sets the current active texture to '</font><FONT face="Courier New" SIZE=2>texture_id[1]</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>',
+
+any further calls to opengl will affect the texture bound to this texture
+
+name.&nbsp; Get the idea?<FONT face="Courier New" SIZE=2><br>
+
+
+
+</font>
+
+Line 18 makes another call to the texture load function.&nbsp; This time notice that we
+
+load the texture as a </font><FONT face="Courier New" SIZE=2>GL_LUMINANCE</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+file and that it only has one channel.&nbsp; This second image is a greyscale
+
+image and so consists entirely of brightness levels (hence the name, luminance).</font>
+
+
+
+
+
+<p class="code"><font size="2">[17]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+glBindTexture ( GL_TEXTURE_2D, texture_id[1] );<br>
+
+[18]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; load_texture&nbsp; ( "cl_lum.raw", 640, 320,
+
+1, GL_LUMINANCE, GL_NEAREST );</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>&nbsp;&nbsp;
+
+
+
+</font>
+
+
+
+
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>There isn't anything special
+
+about the next few lines, except line 23.&nbsp; Here we set opengl's blend mode
+
+to one-one.&nbsp; These parameters are fully explained in the opengl manual
+
+pages.</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[21]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable&nbsp;&nbsp;&nbsp;&nbsp; (
+
+GL_CULL_FACE );<br>
+
+[22]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable&nbsp;&nbsp;&nbsp;&nbsp; (
+
+GL_BLEND );<br>
+
+[23]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/blendfunc.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/blendfunc.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/blendfunc.html">glBlendFunc</a>&nbsp;
+
+( GL_ONE, GL_ONE );<br>
+
+[24]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glClearColor ( 0.0, 0.0, 0.0, 0.0 );<br>
+
+[25]&nbsp;&nbsp; }</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT face="Courier New" SIZE=2>
+
+
+
+<br>
+
+
+
+</font>
+
+<hr>
+
+<p class="BodyText">The function '</font><FONT face="Courier New" SIZE=2>draw_sphere</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>'
+
+takes an integer parameter and uses it to bind the correct texture.&nbsp; Notice that we use
+
+</font><FONT face="Courier New" SIZE=2> glBindTexture</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+(line
+
+6).&nbsp; Anything that is drawn after the call to </font><FONT face="Courier New" SIZE=2>
+
+glBindTexture</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2> will have the named texture as its covering.&nbsp;&nbsp;</font>
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; <b>void</b> 
+
+draw_sphere ( <b>int </b>tex_name<b> </b>)<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPushMatrix ( );<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef ( 90.0, 1.0, 0.0, 0.0 );<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glColor4f ( 1.0, 1.0, 1.0,
+
+1.0&nbsp; );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glBindTexture(GL_TEXTURE_2D,
+
+texture_id[ tex_name ]);<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLUquadricObj*    q = gluNewQuadric
+
+(&nbsp; );<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluQuadricDrawStyle ( q, GLU_FILL&nbsp;&nbsp;
+
+);<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluQuadricNormals&nbsp;&nbsp; ( q, GLU_SMOOTH
+
+);<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gluQuadricTexture&nbsp;&nbsp; ( q, GL_TRUE&nbsp;&nbsp;&nbsp;
+
+);<br>
+
+[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluSphere (q, 1.0, 20, 20 );<br>
+
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluDeleteQuadric ( q );<br>
+
+[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPopMatrix ( );<br>
+
+[15]&nbsp;&nbsp; }<br>
+
+
+
+</font>
+
+<hr>
+
+<p class="BodyText"><font FACE="Helvetica, Sans-Serif" SIZE="2">&quot;</font><font face="Courier New" SIZE="2">display</font><font FACE="Helvetica, Sans-Serif" SIZE="2">&quot;
+
+has changed somewhat.&nbsp; We </font><font face="Helvetica, Sans-Serif" size="2">incorporate
+
+drawing the cloud sphere, which is further rotated by the call to </font><font size="2" face="Courier New">glRotate</font><font face="Helvetica, Sans-Serif" size="2">
+
+in line 10.</font>
+
+<p class="code"><font face="Courier New" SIZE="2">[1]&nbsp;&nbsp;&nbsp; <b>void</b> display ( <b>void</b> )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glClear&nbsp;&nbsp; (
+
+GL_COLOR_BUFFER_BIT );<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLightfv ( GL_LIGHT0,GL_POSITION,
+
+light_pos );<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPushMatrix ( );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTranslatef ( 0.0, 0.0, -4.0 );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef&nbsp;&nbsp;&nbsp; (
+
+angle2, 1.0, 0.0, 0.0 );<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef&nbsp;&nbsp;&nbsp; (
+
+angle, 0.0, 1.0, 0.0&nbsp; );<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw_sphere&nbsp;&nbsp;(
+
+EARTH_TEXTURE );<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef&nbsp;&nbsp;&nbsp; ( cloud_rot, 0.0, 1.0,
+
+0.0 );<br>
+
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw_sphere&nbsp; ( CLOUD_TEXTURE );<br>
+
+[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPopMatrix&nbsp; ( );<br>
+
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutSwapBuffers ( );<br>
+
+[14]&nbsp;&nbsp; }<br>
+
+</font><font FACE="Helvetica, Sans-Serif" SIZE="2">
+
+<hr>
+
+<p class="BodyText">The idle function has changed to include the alteration of
+
+the cloud rotation variable.&nbsp;
+
+<p class="code"></font><font face="Courier New" size="2">[1]&nbsp;&nbsp;&nbsp; <b>void</b>
+
+idle_func ( <b>void</b> )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; angle = angle + 0.1;<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b> (angle == 360)&nbsp;<br>
+
+[5]&nbsp;&nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font face="Courier New" size="2">angle = 0;<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cloud_rot = cloud_rot + 0.2;<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b> (cloud_rot == 360)<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cloud_rot = 0;<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutPostRedisplay ( );<br>
+
+[10]&nbsp;&nbsp; }<br>
+
+</font>
+
+<hr>
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>We've altered
+
+'keyboard' so that we can quickly change the filtering mode on all textures with
+
+one keypress.&nbsp; Pressing 'l' while the program runs, will render all the
+
+textures using bilinear filtering.&nbsp; Pressing 'n' changes the mode back to
+
+nearest (no filtering).&nbsp; The for loops in the new cases cause </font><FONT face="Courier New" SIZE=2> glBindTexture</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+to be called with the loop counter as the selector for the texture name.&nbsp;
+
+Notice how useful the define '</font><FONT face="Courier New" SIZE=2>MAX_NO_TEXTURES</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>'
+
+was?</font>
+
+<p class="code"><font face="Courier New"><font size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+...&nbsp;<br>
+
+[1]</font><font size="2">&nbsp;&nbsp;&nbsp; case 'l':<br>
+
+</font></font><font face="Courier New" size="2">[2]&nbsp;&nbsp;&nbsp; for ( i =
+
+0; i &lt;= MAX_NO_TEXTURES; i++ )<br>
+
+[3]&nbsp;&nbsp;&nbsp; {<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glBindTexture&nbsp;&nbsp; (
+
+GL_TEXTURE_2D, texture_id[i] );<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,
+
+GL_LINEAR );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTexParameteri ( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
+
+GL_LINEAR );<br>
+
+[7]&nbsp;&nbsp;&nbsp; }<br>
+
+[8]&nbsp;&nbsp;&nbsp; break;</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><br>
+
+
+
+</font><font face="Courier New"><FONT SIZE=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+...
+
+</font></font>
+
+
+
+
+
+<p>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+  <P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font>
+
+
+
+</font>
+
+</BODY>

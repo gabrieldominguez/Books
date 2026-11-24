@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glprioritizetexturesext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glprioritizetexturesext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glPrioritizeTexturesEXT(3G)    OpenGL Reference	   glPrioritizeTexturesEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glPrioritizeTexturesEXT - set texture residence priority
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPrioritizeTexturesEXT( GLsizei n,
+				   const GLuint	*textures,
+				   const GLclampf *priorities )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     n		 The number of textures	to be prioritized.
+
+     textures	 An array containing the names of the textures to be
+		 prioritized.
+
+     priorities	 An array containing the texture priorities.  A	priority given
+		 in an element of priorities applies to	the texture named by
+		 the corresponding element of textures.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glPrioritizeTexturesEXT assigns the n texture priorities given in
+     priorities	to the n textures named	in textures.
+
+     On	machines with a	limited	amount of texture memory, OpenGL establishes a
+     ``working set'' of	textures that are resident in texture memory.  These
+     textures may be bound to a	texture	target much more efficiently than
+     textures that are not resident.  By specifying a priority for each
+     texture, glPrioritizeTexturesEXT allows applications to guide the OpenGL
+     implementation in determining which textures should be resident.
+
+     The priorities given in priorities	are clamped to the range [0.0, 1.0]
+     before being assigned.  Zero indicates the	lowest priority, and hence
+     textures with priority zero are least likely to be	resident.  One
+     indicates the highest priority, and hence textures	with priority one are
+     most likely to be resident.  However, textures are	not guaranteed to be
+     resident until they are bound.
+
+     glPrioritizeTexturesEXT silently ignores attempts to prioritize texture
+     zero, or any texture name that does not correspond	to an existing
+     texture.
+
+     glPrioritizeTexturesEXT does not require that any of the textures named
+     by	textures be bound to a texture target.	glTexParameter may also	be
+     used to set a texture's priority, but only	if the texture is currently
+     bound.  This is the only way to set the priority of a default texture.
+
+     glPrioritizeTexturesEXT is	included in display lists.
+
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPrioritizeTexturesEXT(3G)    OpenGL Reference	   glPrioritizeTexturesEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glPrioritizeTexturesEXT is	part of	the EXT_texture_object extension.  See
+     glIntro for more information about	using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if n	is negative.
+
+     GL_INVALID_OPERATION is generated if glPrioritizeTexturesEXT is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexParameter with parameter name GL_TEXTURE_PRIORITY_EXT retrieves
+     the priority of a currently-bound texture.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glAreTexturesResidentEXT, glBindTextureEXT, glTexImage1D, glTexImage2D,
+     glTexImage3DEXT, glTexParameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

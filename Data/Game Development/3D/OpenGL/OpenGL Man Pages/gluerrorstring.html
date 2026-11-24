@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gluerrorstring Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gluerrorstring</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluErrorString(3G)	       OpenGL Reference		    gluErrorString(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluErrorString - produce an error string from an OpenGL or	GLU error code
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     const GLubyte * gluErrorString( GLenum error )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     error  Specifies an OpenGL	or GLU error code.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluErrorString produces an	error string from an OpenGL or GLU error code.
+     The string	is in an ISO Latin 1 format. For example,
+     gluErrorString(GL_OUT_OF_MEMORY) returns the string out of	memory.
+
+     The standard GLU error codes are GLU_INVALID_ENUM,	GLU_INVALID_VALUE, and
+     GLU_OUT_OF_MEMORY.	 Certain other GLU functions can return	specialized
+     error codes through callbacks.  Refer to the glGetError reference page
+     for the list of OpenGL error codes.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glGetError, gluNurbsCallback, gluQuadricCallback, gluTessCallback
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

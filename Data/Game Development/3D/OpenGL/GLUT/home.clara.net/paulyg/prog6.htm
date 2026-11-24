@@ -1,0 +1,543 @@
+<HTML><HEAD><TITLE>program six</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#E0E0E0 ALINK=#FFFFFF>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070>source <FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </FONT></NOBR></B></font><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">sour<br>
+
+    urce </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source&nbsp;<br>
+
+    </font></B></NOBR><font face="Helvetica, Sans-Serif" size="4"><b><nobr><font color="#204070">u
+
+    </font><FONT face="Helvetica, Sans-Serif" size=4 COLOR="#204070"><FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font size="4" color="#204070">source </font><font size="4" color="#305080">source</font><font size="4" color="#204070">
+
+    source</font><font size="4" color="#305080"> source </font><font color="#204070">source
+
+    </font><font color="#305080">sou</font></nobr></b></font></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font></font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<P align="left"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b><a href="download/program6.zip" tppabs="http://home.clara.net/paulyg/download/program6.zip">[program
+
+six]</a>&nbsp;</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">
+
+</font>This example shows how to set up and use opengl vertex arrays.&nbsp;
+
+Conceptually they are very similar to direct3d vertex buffers.&nbsp; Naturally,
+
+this being opengl, they are less of a pain to use.&nbsp; We a popular extension, compiled vertex arrays.&nbsp; </font><FONT face="Courier New" SIZE=2>glLockArraysEXT</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>&nbsp; will keep the
+
+transformed vertices on the 3d card meaning that they do not need retransforming
+
+if the object is drawn more than once (light-maps and bump-mapping both require
+
+more than one rendering 'pass').&nbsp; It wouldn't mkae much difference in this simple example,
+
+but can when the number of polygons is high.</font><P align="center"><img border="0" src="graphics/prog6.gif" tppabs="http://home.clara.net/paulyg/graphics/prog6.gif" width="258" height="277"><FONT FACE="Helvetica, Sans-Serif" SIZE=2><br>
+
+
+
+<br>
+
+
+
+</font>
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+ </B></NOBR><NOBR><B><font face="Helvetica, Sans-Serif" size="4"><font color="#305080"> 
+
+      </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Function pointer
+
+variables are declared for the extensions - the definitions to these reside in
+the gl.h include file.&nbsp; A single floating point number </font><font size="2" face="Courier New">'angle</font><font face="Helvetica, Sans-Serif" size="2">'
+
+will be used to store the rotation of the object.</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; PFNGLLOCKARRAYSEXTPROC&nbsp;&nbsp; glLockArraysEXT&nbsp;&nbsp;
+
+= NULL;<br>
+
+[2]&nbsp;&nbsp;&nbsp; PFNGLUNLOCKARRAYSEXTPROC    glUnlockArraysEXT = NULL;<br>
+
+[3]<br>
+
+[4]&nbsp;&nbsp;&nbsp; <b>float</b> angle;</font>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Over the next five lines we declare
+
+and populate the arrays that will hold our object data.&nbsp; Notice that there
+
+is nothing particularly special about these arrays - we don't have to declare
+
+them as special types or anything like that.&nbsp; Line 1 holds the list of
+
+vertices, they are stored here in an 'unwound' x,y,z format.&nbsp; The data on
+
+line 3 contains the colours that each of the vertices will have - these are
+
+stored in r,g,b format.&nbsp; Finally, line 5 consists of the indices opengl
+
+requires to draw the object.&nbsp; When we render it, the value 0 will look up
+
+the first x,y,z and r,g,b triples from the other arrays.&nbsp; It's all quite
+
+simple.&nbsp;&nbsp;</font>
+
+
+
+
+
+<p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp; GLfloat   vertices[] = { -1.0,  1.0,  0.0,<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+1.0,  1.0,  0.0,<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+1.0, -1.0,  0.0,<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+-1.0, -1.0,  0.0 };<br>
+
+[2]<br>
+
+[3]&nbsp;&nbsp;&nbsp; GLubyte   colours[]&nbsp; = { 255, 255, 255,<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+0,   255, 0,<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+0,   0,   255,<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+255, 0,   0 };<br>
+
+[4]<br>
+
+[5]&nbsp;&nbsp;&nbsp; GLuint    indices[]&nbsp;&nbsp; = { 0, 1, 2, 3 };
+
+
+
+<br>
+
+
+
+</font>
+
+<hr>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">This function
+
+gets the extensions for us.&nbsp; We call </font>
+
+
+
+
+
+<FONT face="Courier New" SIZE=2>         wglGetProcAddress
+
+</font><font face="Helvetica, Sans-Serif" size="2">to fetch the pointer to the
+
+function from the opengl driver.&nbsp; From now on when we call </font><font face="Courier New" size="2">glLockArraysEXT
+</font><font face="Helvetica, Sans-Serif" size="2">it'll use the correct
+
+function.&nbsp;&nbsp;<br>
+
+If the pointer </font><font face="Courier New" size="2">glLockArraysEXT</font><font face="Helvetica, Sans-Serif" size="2">
+is still </font><font face="Courier New" size="2">NULL</font><font face="Helvetica, Sans-Serif" size="2">
+
+after this, its safe to assume that your driver doesn't support the extension.</font>
+
+
+
+
+
+<p class="code"><font face="Courier New" size="2">[1]&nbsp;&nbsp;&nbsp;<b> void</b> get_CVA_ext ( <b>void</b> )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLockArraysEXT&nbsp;&nbsp; =    ( PFNGLLOCKARRAYSEXTPROC
+
+) wglGetProcAddress ( "glLockArraysEXT" );<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glUnlockArraysEXT =  ( PFNGLUNLOCKARRAYSEXTPROC )
+
+wglGetProcAddress ( &quot;glUnlockArraysEXT&quot; );<br>
+[5]<br>
+
+[6]&nbsp;&nbsp;&nbsp; if (( glLockArraysEXT == NULL ) || ( glUnlockArraysEXT == NULL ))<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ("Error: get_CVA_ext ( )   -
+
+No Vertex Array EXT\n&quot;);<br>
+
+[8]&nbsp;&nbsp;&nbsp; }<br>
+
+</font>
+
+<hr>
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>It's nice to get
+
+away from setting lighting up isn't it?&nbsp; This init function gets the
+
+compiled vertex arrays extensions.&nbsp; Line 5 sets both front and back facing
+
+polygons to be rendered as </font><FONT face="Courier New" SIZE=2>GL_LINE</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+- effectively placing opengl in wireframe mode.&nbsp; Lines 8 and 9 enable the
+
+vertex and colour arrays on the client side (don't worry about what this means
+
+too much).</font>
+
+<p class="code"><font size="2">[1]&nbsp;&nbsp;&nbsp;<b> void</b> init (
+
+<b> void</b> )<br>
+
+</font><FONT face="Courier New" SIZE=2>[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; get_CVA_ext ( );<br>
+
+[4]<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/polygonmode.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/polygonmode.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/polygonmode.html" target="_blank">glPolygonMode</a> ( GL_FRONT_AND_BACK, GL_LINE );<br>
+
+[6]<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable ( GL_DEPTH_TEST );<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/enableclientstate.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/enableclientstate.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/enableclientstate.html" target="_blank">glEnableClientState</a> ( GL_VERTEX_ARRAY );<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnableClientState ( GL_COLOR_ARRAY );<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glClearColor ( 0.0, 0.0, 0.0, 0.0 );<br>
+
+[11]&nbsp;&nbsp; }<br>
+
+
+
+</font>
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<hr>
+
+<p class="BodyText">This function draws our object.&nbsp; Line 3 tells opengl to
+
+use the array '</font><FONT face="Courier New" SIZE=2>vertices</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>'
+
+when looking vertex data.&nbsp; The other identifiers in the parameter list tell
+
+opengl how many values to expect per coordinate (remember we could be rendering
+
+2d shapes), what type the coordinates are and how tightly packed each set of
+
+coordinates is.&nbsp; In our case there are no gaps between coordinates, so that
+
+value is 0.&nbsp; </font><FONT face="Courier New" SIZE=2>glcolorPointer </font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>is
+
+analogous to the above function, but it sets which colours are to be used
+
+(obviously).<br>
+
+Line 6 locks the arrays - see the spec. for details.&nbsp; Line 8 draws our
+
+object using the arrays we've specified above for its coordinates and colours.</font>
+
+<p class="code"><font face="Courier New"><font size="2">[1]&nbsp;&nbsp;&nbsp;<b> </b></font><b></b><font size="2"><b>void</b> draw_object (
+
+<b> void</b> )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/vertexpointer.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/vertexpointer.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/vertexpointer.html" target="_blank">glVertexPointer</a> ( 3, GL_FLOAT, 0, &amp;vertices );<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/colorpointer.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/colorpointer.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/colorpointer.html" target="_blank">glColorPointer</a>&nbsp;
+
+( 3, GL_UNSIGNED_BYTE, 0, &amp;colours );<br>
+
+[5]<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://oss.sgi.com/projects/ogl-sample/registry/EXT/compiled_vertex_array.txt  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://oss.sgi.com/projects/ogl-sample/registry/EXT/compiled_vertex_array.txt'" tppabs="http://oss.sgi.com/projects/ogl-sample/registry/EXT/compiled_vertex_array.txt" target="_blank">glLockArraysEXT</a> ( 0, (GLsizei)4 );<br>
+
+[7]<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/drawelements.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/drawelements.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/drawelements.html" target="_blank">glDrawElements</a>&nbsp;
+
+( GL_POLYGON, 4, GL_UNSIGNED_INT, indices );&nbsp;<br>
+
+[9]&nbsp;&nbsp;&nbsp; }</font></font>
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>You should be getting
+
+the hang of this by now, so I won't go into details with the other functions
+
+:)&nbsp;<br>
+
+</font><font size="2" face="Courier New"><br>
+
+</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+  <P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font>
+
+
+
+</font>
+
+</BODY>

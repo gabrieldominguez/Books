@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glmatrixmode Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glmatrixmode</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glMatrixMode(3G)	       OpenGL Reference		      glMatrixMode(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glMatrixMode - specify which matrix is the	current	matrix
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glMatrixMode(	GLenum mode )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mode  Specifies which matrix stack	is the target for subsequent matrix
+	   operations.	Four values are	accepted:  GL_MODELVIEW,
+	   GL_PROJECTION, GL_TEXTURE, and GL_COLOR (if and only	if the
+	   SGI_color_matrix extension is supported).  The default value	is
+	   GL_MODELVIEW.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glMatrixMode sets the current matrix mode.	 mode can assume one of	four
+     values:
+
+     GL_MODELVIEW	 Applies subsequent matrix operations to the modelview
+			 matrix	stack.
+
+     GL_PROJECTION	 Applies subsequent matrix operations to the
+			 projection matrix stack.
+
+     GL_TEXTURE		 Applies subsequent matrix operations to the texture
+			 matrix	stack.
+
+     GL_COLOR		 Applies subsequent matrix operations to the color
+			 matrix	stack.	This option is available only if the
+			 SGI_color_matrix extension is supported.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if mode is not an accepted value.
+
+     GL_INVALID_OPERATION is generated if glMatrixMode is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_MATRIX_MODE
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glLoadMatrix, glMatrixMode, glPixelTransfer (for information about	the
+     color matrix stack), glPushMatrix.
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

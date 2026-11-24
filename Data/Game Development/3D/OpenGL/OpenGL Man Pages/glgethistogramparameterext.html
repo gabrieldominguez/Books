@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgethistogramparameterext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgethistogramparameterext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetHistogramParameterEXT(3G)				      OpenGL Reference
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetHistogramParameterfvEXT, glGetHistogramParameterivEXT	- get
+     histogram parameters
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetHistogramParameterfvEXT(	GLenum target,
+					GLenum pname,
+					GLfloat	*params	)
+     void glGetHistogramParameterivEXT(	GLenum target,
+					GLenum pname,
+					GLint *params )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Must be one of GL_HISTOGRAM_EXT or	GL_PROXY_HISTOGRAM_EXT.
+
+     pname   The name of the parameter to be retrieved.	 Must be one of
+	     GL_HISTOGRAM_WIDTH_EXT, GL_HISTOGRAM_FORMAT_EXT,
+	     GL_HISTOGRAM_RED_SIZE_EXT,	GL_HISTOGRAM_GREEN_SIZE_EXT,
+	     GL_HISTOGRAM_BLUE_SIZE_EXT, GL_HISTOGRAM_ALPHA_SIZE_EXT,
+	     GL_HISTOGRAM_LUMINANCE_SIZE_EXT, or GL_HISTOGRAM_SINK_EXT.
+
+     params  Pointer to	storage	for the	returned values.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetHistogramParameterEXT	is used	to query parameter values for the
+     current histogram or for a	proxy.	For a detailed description of the
+     parameters, see glHistogramEXT.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not one of the allowable
+     values.
+
+     GL_INVALID_ENUM is	generated if pname is not one of the allowable values.
+
+     GL_INVALID_OPERATION is generated if glGetHistogramParameterEXT is
+     executed between the execution of glBegin and the corresponding execution
+     of	glEnd.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glHistogramEXT
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

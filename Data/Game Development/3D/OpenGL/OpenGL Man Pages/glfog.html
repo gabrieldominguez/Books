@@ -1,0 +1,358 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glfog Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glfog</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glFog(3G)		       OpenGL Reference			     glFog(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glFogf, glFogi, glFogfv, glFogiv -	specify	fog parameters
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glFogf( GLenum pname,
+		  GLfloat param	)
+     void glFogi( GLenum pname,
+		  GLint	param )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     pname   Specifies a single-valued fog parameter.  GL_FOG_MODE,
+	     GL_FOG_DENSITY, GL_FOG_START, GL_FOG_END, and GL_FOG_INDEX	are
+	     accepted.
+
+     param   Specifies the value that pname will be set	to.
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glFogfv( GLenum pname,
+		   const GLfloat *params )
+     void glFogiv( GLenum pname,
+		   const GLint *params )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     pname
+	  Specifies a fog parameter.  GL_FOG_MODE, GL_FOG_DENSITY,
+	  GL_FOG_START,	GL_FOG_END, GL_FOG_INDEX, GL_FOG_COLOR,	and
+	  GL_FOG_OFFSET_VALUE_SGIX are accepted.
+
+     params
+	  Specifies the	value or values	to be assigned to pname.  GL_FOG_COLOR
+	  requires an array of four values to specify the RGBA components of
+	  the fog color.  GL_FOG_OFFSET_VALUE_SGIX requires an array of	four
+	  values to specify a reference	point in eye-space coordinates,	and a
+	  Z offset in eye-space	coordinates.  All other	parameters accept an
+	  array	containing only	a single value.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Fog is enabled and	disabled with glEnable and glDisable using the
+     argument GL_FOG.  While enabled, fog affects rasterized geometry,
+     bitmaps, and pixel	blocks,	but not	buffer clear operations.
+
+     glFog assigns the value or	values in params to the	fog parameter
+     specified by pname.  The accepted values for pname	are as follows:
+
+     GL_FOG_MODE	 params	is a single integer or floating-point value
+			 that specifies	the equation to	be used	to compute the
+			 fog blend factor, f.  Four symbolic constants are
+			 accepted:  GL_LINEAR, GL_EXP, GL_EXP2,	and
+			 GL_FOG_FUNC_SGIS.  The	equations corresponding	to
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glFog(3G)		       OpenGL Reference			     glFog(3G)
+</FONT>
+
+
+			 these symbolic	constants are defined below.  The
+			 default fog mode is GL_EXP.
+
+     GL_FOG_DENSITY	 params	is a single integer or floating-point value
+			 that specifies	density, the fog density used in both
+			 exponential fog equations.  Only nonnegative
+			 densities are accepted.  The default fog density is
+			 1.0.
+
+     GL_FOG_START	 params	is a single integer or floating-point value
+			 that specifies	start, the near	distance used in the
+			 linear	fog equation.  The default near	distance is
+			 0.0.
+
+     GL_FOG_END		 params	is a single integer or floating-point value
+			 that specifies	end, the far distance used in the
+			 linear	fog equation.  The default far distance	is
+			 1.0.
+
+     GL_FOG_INDEX	 params	is a single integer or floating-point value
+			 that specifies	i , the	fog color index.  The default
+			 fog index is 0.0.
+
+     GL_FOG_COLOR	 params	contains four integer or floating-point	values
+			 that specify C	, the fog color.  Integer values are
+			 mapped	linearly such that the most positive
+			 representable value maps to 1.0, and the most
+			 negative representable	value maps to -1.0.
+			 Floating-point	values are mapped directly.  After
+			 conversion, all color components are clamped to the
+			 range [0,1].  The default fog color is	(0,0,0,0).
+
+     GL_FOG_OFFSET_VALUE_SGIX
+			 params	contains four integer or floating-point
+			 values.  The first three specify a reference point as
+			 X, Y, and Z eye coordinates.  The fourth specifies a
+			 Z offset in eye coordinates.  The offset is used to
+			 modify	z in the fog equations described below,	so
+			 that bright objects (such as emissive objects
+			 representing light sources) will have a more
+			 realistic appearance in heavily-fogged	environments.
+			 The significance of the reference point is discussed
+			 below.	 Integer values	are mapped linearly such that
+			 the most positive representable value maps to 1.0,
+			 and the most negative representable value maps	to
+			 -1.0.	Floating-point values are mapped directly.
+			 The default value is (0,0,0,0).
+
+     Fog blends	a fog color with each rasterized pixel fragment's
+     posttexturing color using a blending factor f.  Factor f is computed in
+     one of four ways, depending on the	fog mode.
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glFog(3G)		       OpenGL Reference			     glFog(3G)
+</FONT>
+
+
+     Let z be the distance in eye coordinates from the origin to the fragment
+     being fogged.  If GL_FOG_OFFSET_SGIX is enabled, subtract the Z offset
+     specified by GL_FOG_OFFSET_VALUE_SGIX from	z, and clamp the result	so
+     that it is	greater	than or	equal to zero.
+
+     The equation for GL_LINEAR	fog is
+
+				  f = ___________
+				      end - start
+
+     The equation for GL_EXP fog is
+
+			      f	= e**(-(density	. z))
+
+
+     The equation for GL_EXP2 fog is
+
+			    f =	e**(-(density .	z)**2)
+
+
+     The blending factor for GL_FOG_FUNC_SGIS fog is determined	by
+     interpolating a set of application-defined	control	points.	 glFogFuncSGIS
+     is	used to	specify	the control points.  Each control point	consists of a
+     pair of floating-point numbers.  The first	number of the pair specifies a
+     value of z, and the second	number of the pair specifies a value of	f.
+     The GL fits a curve through all the control points.  This curve may be
+     piecewise linear or it may	be smoothed, but it will pass through the
+     control points exactly (limited only by the resolution of the
+     implementation).  If a given z is less than or equal to the z of the
+     first control point, then the resulting value of f	is the f of the	first
+     control point.  If	z is greater than or equal to the z of the last
+     control point, then the resulting value of	f is the f of the last control
+     point.  Otherwise,	f is determined	by finding the point on	the curve that
+     corresponds to the	given z.
+
+
+     Regardless	of the fog mode, f is clamped to the range [0,1] after it is
+     computed.	Then, if the GL	is in RGBA color mode, the fragment's color C
+     is	replaced by							     r
+
+				 C ' = fC +(1-f)C
+				  r	 r	 f
+     In	color index mode, the fragment's color index i	is replaced by
+						      r
+				 i ' = i +(1-f)i
+				  r	r	f
+<FONT COLOR="#0000CC">NOTES
+</FONT>     In	perspective projections, a Z offset in eye coordinates will map	to
+     different Z offsets in window coordinates at various points in the	range
+     of	Z.  Machines that evaluate the fog blending factor by using a window Z
+     coordinate	to index a table must therefore	compute	the window-coordinate
+     Z offset relative to some reference point.	 This is the purpose of	the
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glFog(3G)		       OpenGL Reference			     glFog(3G)
+</FONT>
+
+
+     reference point specified by the first three values in params when	pname
+     is	GL_FOG_OFFSET_VALUE_SGIX.  For best fog	accuracy in perspective
+     projections, this reference point must be close to	the objects being
+     fogged.
+
+     In	parallel projections the window-coordinate Z offset does not vary with
+     position in the Z range, so the reference point is	ignored.
+
+     GL_FOG_FUNC_SGIS is part of the SGIS_fog_func extension, not part of the
+     core GL command set.  If GL_SGIS_fog_func is included in the string
+     returned by glGetString when called with argument GL_EXTENSIONS,
+     extension SGIS_fog_func is	supported by the connection.  See glIntro for
+     more information about using extensions.
+
+     GL_FOG_OFFSET_VALUE_SGIX is part of the SGIX_fog_offset extension,	and
+     similar considerations apply.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if pname is not an accepted value, or	if
+     pname is GL_FOG_MODE and params is	not an accepted	value.
+
+     GL_INVALID_VALUE is generated if pname is GL_FOG_DENSITY, GL_FOG_START,
+     or	GL_FOG_END and params is negative.
+
+     GL_INVALID_OPERATION is generated if glFog	is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glIsEnabled with argument GL_FOG
+     glIsEnabled with argument GL_FOG_OFFSET_SGIX
+     glGet with	argument GL_FOG_COLOR
+     glGet with	argument GL_FOG_FUNC_SGIS
+     glGet with	argument GL_MAX_FOG_FUNC_POINTS_SGIS
+     glGet with	argument GL_FOG_INDEX
+     glGet with	argument GL_FOG_DENSITY
+     glGet with	argument GL_FOG_START
+     glGet with	argument GL_FOG_END
+     glGet with	argument GL_FOG_MODE
+     glGet with	argument GL_FOG_OFFSET_VALUE_SGIX
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     Fog mode GL_FOG_FUNC_SGIS is supported only on InfiniteReality systems.
+
+     The fog offset capability is supported only on InfiniteReality systems.
+
+     Fog accuracy is poor in 2-	and 4-bit overlays on InfiniteReality systems.
+
+
+
+
+
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glFog(3G)		       OpenGL Reference			     glFog(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glEnable, glFogFuncSGIS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 5
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

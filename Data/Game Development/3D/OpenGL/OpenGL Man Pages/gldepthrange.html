@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gldepthrange Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gldepthrange</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glDepthRange(3G)	       OpenGL Reference		      glDepthRange(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glDepthRange - specify the	mapping	of z values from normalized device
+     coordinates to window coordinates
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glDepthRange(	GLclampd near,
+			GLclampd far )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     near  Specifies the mapping of the	near clipping plane to window
+	   coordinates.	 The default value is 0.
+
+     far   Specifies the mapping of the	far clipping plane to window
+	   coordinates.	 The default value is 1.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     After clipping and	division by w, z coordinates range from	-1.0 to	1.0,
+     corresponding to the near and far clipping	planes.	 glDepthRange
+     specifies a linear	mapping	of the normalized z coordinates	in this	range
+     to	window z coordinates.  Regardless of the actual	depth buffer
+     implementation, window coordinate depth values are	treated	as though they
+     range from	0.0 through 1.0	(like color components).  Thus,	the values
+     accepted by glDepthRange are both clamped to this range before they are
+     accepted.
+
+     The default mapping of 0,1	maps the near plane to 0 and the far plane to
+     1.	 With this mapping, the	depth buffer range is fully utilized.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     It	is not necessary that near be less than	far.  Reverse mappings such as
+     1,0 are possible.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glDepthRange is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_DEPTH_RANGE
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     Although it is possible to	reverse	the depth mapping so that near is 1
+     and far is	0, doing so may	cause severe depth-buffering artifacts on
+     InfiniteReality systems.  (This is	particularly true for 16-bit depth
+     buffers.)	Therefore this practice	is strongly discouraged.
+
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDepthRange(3G)	       OpenGL Reference		      glDepthRange(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDepthFunc, glViewport
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

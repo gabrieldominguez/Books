@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxgetfbconfigfromvisualsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxgetfbconfigfromvisualsgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXGetFBConfigFromVisualSGIX(3G)			OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXGetFBConfigFromVisualSGIX - return frame buffer	configuration that is
+     associated	with visual
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLXFBConfigSGIX glXGetFBConfigFromVisualSGIX( Display *dpy,
+						   XVisualInfo *vis )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy  Specifies the	connection to the X server.
+
+     vis  Specifies the	visual that defines the	frame buffer resources.	 It is
+	  a pointer to an XVisualInfo structure, not a visual ID or a pointer
+	  to a Visual.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     If	vis is a valid XVisualInfo and it has an associated GLX	frame buffer
+     configuration then	a handle to the	configuration is returned; otherwise
+     NULL is returned.	Use XFree to free the data returned.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXGetFBConfigFromVisualSGIX is part of the GLX_SGIX_fbconfig extension.
+
+     XVisualInfo is defined in Xutil.h.	 It is a structure that	includes
+     visual, visualID, screen, and depth elements.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     Returns NULL if vis is not	a valid	XVisualInfo.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXGetFBConfigAttribSGIX, glXChooseFBConfigSGIX, glXChooseVisual,
+     glXGetConfig
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

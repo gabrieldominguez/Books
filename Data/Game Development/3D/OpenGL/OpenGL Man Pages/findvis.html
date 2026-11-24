@@ -1,0 +1,292 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	findvis Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>findvis</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">findvis(1G)							   findvis(1G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     findvis - list OpenGL-capable Visuals meeting selection criteria
+
+<FONT COLOR="#0000CC">SYNOPSIS
+</FONT>     findvis [-1] [-id]	[-display &amp;lt;display&gt;] [-help] <specification>...
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     findvis describes OpenGL-capable X11 Visuals that meet user-specified
+     selection criteria.
+
+     The options are as	follows:
+
+	  -1	    List only the first	matching Visual, rather	than all
+		    matching Visuals.
+
+	  -id	    List only the Visual ID of matching	Visuals, rather	than a
+		    one-line description of the	Visual.	 This is particularly
+		    useful in shell scripts, for passing a Visual ID to	a
+		    program without Visual-selection ability.
+
+	  -display  X11-display-name
+		    Use	the specified X11 display, rather than the default
+		    display given by the environment variable DISPLAY.
+
+	  -help	    Print a usage summary.
+
+     The selection criteria consist of C expressions involving attributes of
+     Visuals, plus sort	keys that affect the order in which the	Visuals	will
+     be	listed.	 Several criteria may be passed	as a single argument, provided
+     they are separated	by commas.
+
+     Expressions are composed of decimal and hexadecimal constants in the
+     usual C notation, plus the	following operators with the usual C priority:
+
+	  || &&	&amp;lt; &amp;lt;= &gt; >= == !=	+ - * /	% ! ( )
+
+     and the following variables:
+
+	  a	      Number of	bits in	the color buffer alpha channel.
+
+	  accuma      Number of	bits in	the accumulation buffer	alpha channel.
+
+	  accumb      Number of	bits in	the accumulation buffer	blue channel.
+
+	  accumg      Number of	bits in	the accumulation buffer	green channel.
+
+	  accumr      Number of	bits in	the accumulation buffer	red channel.
+
+	  accumrgb    Minimum of accumr, accumg, and accumb.  (This is usually
+		      a	more useful summary of accumulation buffer depth than
+		      the total	number of bits.)
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">findvis(1G)							   findvis(1G)
+</FONT>
+
+
+	  accumrgba   Minimum of accumr, accumg, accumb, and accuma.
+
+	  aux	      Number of	auxiliary color	buffers.
+
+	  b	      Number of	bits in	the color buffer blue channel.
+
+	  ci	      Number of	bits in	the color-index	buffer.
+
+	  db	      1	if the pixel format is double-buffered,	0 if single-
+		      buffered.
+
+	  g	      Number of	bits in	the color buffer green channel.
+
+	  id	      Under X11, the Visual id of the pixel format.
+
+	  level	      Less than	zero for underlay planes, equal	to zero	for
+		      main planes, and greater than zero for overlay planes.
+
+	  main	      1	if the pixel format applies to the main	planes,	0 if
+		      to underlay or overlay planes.
+
+	  mono	      1	if the pixel format is monoscopic, 0 if	stereoscopic.
+
+	  ms	      Number of	samples	per pixel (for multisample
+		      antialiasing).
+
+	  overlay     1	if the pixel format applies to overlay planes, 0
+		      otherwise.
+
+	  r	      Number of	bits in	the color buffer red channel.
+
+	  rgb	      Minimum of r, g, and b.  (As with	accumrgb, this is
+		      usually a	better summary of color	buffer depth than the
+		      total number of color bits.)
+
+	  rgba	      Minimum of r, g, b, and a.
+
+	  s	      Number of	bits in	the stencil buffer.
+
+	  sb	      1	if the pixel format is single-buffered,	0 if double-
+		      buffered.
+
+	  slow	      1	if the pixel format has	the SLOW caveat	(usually
+		      meaning it doesn't support hardware acceleration), 0
+		      otherwise.
+
+	  stereo      1	if the pixel format is stereoscopic, 0 if monoscopic.
+
+	  underlay    1	if the pixel format applies to underlay	planes,	0
+		      otherwise.
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">findvis(1G)							   findvis(1G)
+</FONT>
+
+
+	  z	      Number of	bits in	the depth (aka ``Z'') buffer.
+
+     The operators are applied with normal C syntax and	semantics.  Take care
+     when using	operators (especially ``!'') in	expressions, since they	are
+     metacharacters for	most shells.
+
+     Sort keys consist of the word min or max followed by one of the variables
+     described above.  Visuals with the	largest	(max) or smallest (min)	values
+     of	the given variable will	be listed first.  Whenever a variable is
+     specified as a sort key, only Visuals for which the variable is nonzero
+     will be considered.  A final sort key of min id is	always applied,	no
+     matter what other sort keys may have been specified, so that Visuals will
+     be	listed in order	of their id numbers when all other keys	are equal.
+
+<FONT COLOR="#0000CC">EXAMPLES
+</FONT>     findvis rgb overlay
+	  Display all rgb overlay Visuals, if any exist.
+
+     findvis 'max ci'
+	  Display all color-index Visuals, sorted with the deepest Visuals
+	  first.
+
+     findvis -1	-id 'db, max rgb, max z'
+	  Display the Visual ID	of the double-buffered Visual with largest RGB
+	  and depth buffers.
+
+     findvis 'r	!= g ||	g != b'
+	  Display Visuals in which the color channels are not all the same
+	  size.
+
+     findvis 'max rgb, accumrgb	&gt;= 2 * rgb'
+	  Display RGB Visuals that support an accumulation buffer at least
+	  twice	as deep	as the main color buffer.
+
+     findvis 'id == 0x2c'
+	  Display the Visual with id 0x2c.
+
+     findvis 'rgb, r % 2 || g %	2 || b % 2'
+	  Display RGB Visuals with at least one	odd-sized color	channel.
+
+     findvis rgba ms s z
+	  Select multisampled RGBA pixel formats with stencil and depth
+	  buffers.  The	selected pixel formats will be sorted in the default
+	  order	(smallest Visual id first).
+
+<FONT COLOR="#0000CC">DIAGNOSTICS
+</FONT>     Exit status is 0 if any matching Visuals are found, 1 if no matching
+     Visuals are found,	and 2 if the specification string is syntactically
+     incorrect or if some other	exception condition occurs.
+
+
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">findvis(1G)							   findvis(1G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glxinfo(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 4
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

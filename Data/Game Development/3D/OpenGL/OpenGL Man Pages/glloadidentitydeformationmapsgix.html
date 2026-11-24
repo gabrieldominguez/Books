@@ -1,0 +1,95 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glloadidentitydeformationmapsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glloadidentitydeformationmapsgix</CODE><BR>
+	Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glLoadIdentityDeformationMapSGIX(3G)			      OpenGL Reference
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glLoadIdentityDeformationMapSGIX -	replace	current	deformations with the
+     identity deformation
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glLoadIdentityDeformationMapSGIX( GLbitfield mask )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mask  Specifies the set of	deformations that are to be replaced with the
+	   identity deformation.  Normally will	be the logical-OR of zero or
+	   more	of the following bits (though other bits may also be included,
+	   for upward compatibility):  GL_GEOMETRY_DEFORMATION_BIT_SGIX,
+	   GL_TEXTURE_DEFORMATION_BIT_SGIX.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glLoadIdentityDeformationMapSGIX replaces the deformations	selected by
+     mask with the identity deformation.  It is	significantly faster than
+     specifying	a sequence of identity deformations with glDeformationMapSGIX.
+
+     The identity deformation map is of	order 2	in each	of u, v, and w.	 Its
+     pre-image is bounded by u1=v1=w1=0	and u2=v2=w2=1.	 The control points
+     are (0,0,0),(0,0,1),(0,1,0),(0,1,1),(1,0,0),(1,0,1),(1,1,0), and (1,1,1).
+
+     For a detailed description	of deformation maps, see glDeformationMapSGIX.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glLoadIdentityDeformationMapSGIX is part of the SGIX_polynomial_ffd
+     extension,	not part of the	core GL	command	set.  If
+     GL_SGIX_polynomial_ffd is included	in the string returned by glGetString
+     when called with argument GL_EXTENSIONS, extension	SGIX_polynomial_ffd is
+     supported by the connection.  See glIntro for more	information about
+     using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     Note that it is not an error for mask to contain bits other than those
+     listed above.
+
+     GL_INVALID_OPERATION is generated if glLoadIdentityDeformationMapSGIX is
+     executed between the execution of glBegin and the corresponding execution
+     of	glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetMap with arguments GL_GEOMETRY_DEFORMATION_SGIX and
+     GL_TEXTURE_DEFORMATION_SGIX
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDeformationMapSGIX, glDeformSGIX
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

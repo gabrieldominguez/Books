@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glsamplepatternsgis Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glsamplepatternsgis</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glSamplePatternSGIS(3G)	       OpenGL Reference	       glSamplePatternSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glSamplePatternSGIS - set pattern for multisampling
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glSamplePatternSGIS( GLenum pattern )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     pattern  A	symbolic constant that indicates the sampling pattern to be
+	      used when	multisampling is enabled.  The allowable values	are
+	      GL_1PASS_SGIS, GL_2PASS_0_SGIS, GL_2PASS_1_SGIS,
+	      GL_4PASS_0_SGIS, GL_4PASS_1_SGIS,	GL_4PASS_2_SGIS, and
+	      GL_4PASS_3_SGIS.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glSamplePatternSGIS is part of the	SGIS_multisample extension.  This
+     extension provides	multisampling, a mechanism for antialiasing all	GL
+     primitives: points, lines,	polygons, bitmaps, and images.	Multisample
+     antialiasing is most valuable for rendering polygons, because it requires
+     no	sorting	for hidden surface elimination,	and it correctly handles
+     adjacent polygons,	object silhouettes, and	even intersecting polygons.
+     If	only points or lines are being rendered, the "smooth" antialiasing
+     mechanism provided	by the base GL may result in a higher quality image.
+     This extension is designed	to allow multisample and smooth	antialiasing
+     techniques	to be alternated during	the rendering of a single scene.
+
+     The technique is to sample	all primitives multiple	times at each pixel.
+     The color sample values are resolved to a single, displayable color each
+     time a pixel is updated, so the antialiasing appears to be	automatic at
+     the application level.  Because each sample includes depth	and stencil
+     information, the depth and	stencil	functions perform equivalently to the
+     single-sample mode.
+
+     An	additional buffer, called the multisample buffer, is required.	Pixel
+     sample values, including color, depth, and	stencil	values,	are stored in
+     this buffer.  When	the frame buffer includes a multisample	buffer,	it
+     does not also include separate depth or stencil buffers, even if the
+     multisample buffer	does not store depth or	stencil	values.	 Color buffers
+     (left/right, front/ back, and aux)	do coexist with	the multisample
+     buffer, however.
+
+     The locations of the sample points	are relatively static.	They change
+     only when glSamplePatternSGIS is called, and are a	repeatable function of
+     the parameter pattern.  The default pattern GL_1PASS_SGIS is designed to
+     produce a well antialiased	result in a single rendering pass.  Patterns
+     GL_2PASS_0_SGIS and GL_2PASS_1_SGIS together specify twice	the number of
+     sample points per pixel.  It is intended that a scene be completely
+     rendered using pattern GL_2PASS_0_SGIS, then completely rendered again
+     using GL_2PASS_1_SGIS.  When these	two images are averaged	using the
+     accumulation buffer, the result is	as if a	single pass had	been rendered
+     with a pattern of twice the number	of sample points.  Patterns
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glSamplePatternSGIS(3G)	       OpenGL Reference	       glSamplePatternSGIS(3G)
+</FONT>
+
+
+     GL_4PASS_0_SGIS, GL_4PASS_1_SGIS, GL_4PASS_2_SGIS,	and GL_4PASS_3_SGIS
+     together define a pattern of four times the number	of sample points. They
+     can be used to accumulate an image	after four complete rendering passes.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     It	is not possible	to query the actual sample locations of	a pixel.
+
+     Some sample locations may lie outside the unit square that	is considered
+     to	bound the pixel.
+
+     glSamplePatternSGIS is part of the	SGIS_multisample extension, not	part
+     of	the core GL command set.  If GL_SGIS_multisample is included in	the
+     string returned by	glGetString, when called with argument GL_EXTENSIONS,
+     extension SGIS_multisample	is supported by	the connection.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glSamplePatternSGIS is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_SAMPLE_PATTERN_SGI.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     Multisampling is supported	only on	RealityEngine, RealityEngine2, and VTX
+     and InfiniteReality systems.  Currently it	can be used with windows of
+     multisample-capable Visual	types, but not with pixmaps.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glSampleMaskSGI, glPushAttrib, glXGetConfig, glXChooseVisual, glEnable
+     with argument GL_MULTISAMPLE_SGIS.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

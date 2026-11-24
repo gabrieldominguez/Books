@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxgetcontextidext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxgetcontextidext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXGetContextIDEXT(3G)	    OpenGL Reference - GLX	glXGetContextIDEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXGetContextIDEXT	- returns the XID for a	GLX rendering context
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLXContextID glXGetContextIDEXT( const GLXContext gc )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     gc	 Specifies the GLX rendering context.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXGetContextIDEXT	returns	the XID	for gc.	No round trip is forced	to the
+     server. Unlike most X calls that return a value, glXGetContextIDEXT does
+     not flush any pending events.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXGetContextIDEXT	is part	of the EXT_import_context extension.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     NULL is returned if gc is not a valid GLX rendering context.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateContext,glXImportContextEXT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

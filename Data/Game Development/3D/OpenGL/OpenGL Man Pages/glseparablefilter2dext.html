@@ -1,0 +1,292 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glseparablefilter2dext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glseparablefilter2dext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glSeparableFilter2DEXT(3G)     OpenGL Reference	    glSeparableFilter2DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glSeparableFilter2DEXT - define a separable two-dimensional convolution
+     filter
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glSeparableFilter2DEXT( GLenum target,
+				  GLenum internalformat,
+				  GLsizei width,
+				  GLsizei height,
+				  GLenum format,
+				  GLenum type,
+				  const	GLvoid *row,
+				  const	GLvoid *column )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target	     Must be GL_SEPARABLE_2D_EXT.
+
+     internalformat  The internal format of the	convolution filter kernel.
+		     The allowable values are GL_LUMINANCE,
+		     GL_LUMINANCE_ALPHA, GL_INTENSITY_EXT, GL_RGB, and
+		     GL_RGBA.
+
+     width	     The number	of elements in the pixel array referenced by
+		     row.  (This is the	width of the separable filter kernel.)
+
+     height	     The number	of elements in the pixel array referenced by
+		     column.  (This is the height of the separable filter
+		     kernel.)
+
+     format	     The format	of the pixel data in row and column.  The
+		     allowable values are GL_LUMINANCE,	GL_LUMINANCE_ALPHA,
+		     GL_RGB, GL_RGBA, and GL_ABGR_EXT.
+
+     type	     The type of the pixel data	in row and column.  The
+		     allowable values are GL_UNSIGNED_BYTE, GL_BYTE,
+		     GL_UNSIGNED_SHORT,	GL_SHORT, GL_UNSIGNED_INT, GL_INT,
+		     GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2_EXT,
+		     GL_UNSIGNED_SHORT_4_4_4_4_EXT,
+		     GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+		     GL_UNSIGNED_INT_8_8_8_8_EXT, and
+		     GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+     row	     Pointer to	a one-dimensional array	of pixel data that is
+		     processed to build	the row	filter kernel.
+
+     column	     Pointer to	a one-dimensional array	of pixel data that is
+		     processed to build	the column filter kernel.
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glSeparableFilter2DEXT(3G)     OpenGL Reference	    glSeparableFilter2DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glSeparableFilter2DEXT builds a two-dimensional separable convolution
+     filter kernel from	two arrays of pixels.
+
+     The pixel arrays specified	by (width, format, type, row) and (height,
+     format, type, column) are processed just as if they had been passed to
+     glDrawPixels, but processing stops	after the final	expansion to RGBA is
+     completed.
+
+     Next, the R, G, B,	and A components of all	pixels in both arrays are
+     scaled by the four	separable 2D GL_CONVOLUTION_FILTER_SCALE_EXT
+     parameters	and biased by the four separable 2D
+     GL_CONVOLUTION_FILTER_BIAS_EXT parameters.	 (The scale and	bias
+     parameters	are set	by glConvolutionParameterEXT using the
+     GL_SEPARABLE_2D_EXT target	and the	names GL_CONVOLUTION_FILTER_SCALE_EXT
+     and GL_CONVOLUTION_FILTER_BIAS_EXT.  The parameters themselves are
+     vectors of	four values that are applied to	red, green, blue, and alpha,
+     in	that order.)  The R, G,	B, and A values	are not	clamped	to [0,1] at
+     any time during this process.
+
+     Each pixel	is then	converted to the internal format specified by
+     internalformat.  This conversion simply maps the component	values of the
+     pixel (R, G, B, and A) to the values included in the internal format
+     (red, green, blue,	alpha, luminance, and intensity).  The mapping is as
+     follows:
+
+      Internal Format	   Red	 Green	 Blue	Alpha	Luminance   Intensity
+      _______________________________________________________________________
+      GL_LUMINANCE					    R
+      GL_LUMINANCE_ALPHA			  A	    R
+      GL_INTENSITY_EXT							R
+      GL_RGB		    R	   G	  B
+      GL_RGBA		    R	   G	  B	  A
+
+     The red, green, blue, alpha, luminance, and/or intensity components of
+     the resulting pixels are stored in	floating-point rather than integer
+     format.  They form	two one-dimensional filter kernel images.  The row
+     image is indexed by coordinate i starting at zero and increasing from
+     left to right.  Each location in the row image is derived from element i
+     of	row.  The column image is indexed by coordinate	j starting at zero and
+     increasing	from bottom to top.  Each location in the column image is
+     derived from element j of column.
+
+     Note that after a convolution is performed, the resulting color
+     components	are also scaled	by their corresponding
+     GL_POST_CONVOLUTION_c_SCALE_EXT parameters	and biased by their
+     corresponding GL_POST_CONVOLUTION_c_BIAS_EXT parameters (where c takes on
+     the values	RED, GREEN, BLUE, and ALPHA).  These parameters	are set	by
+     glPixelTransfer.
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glSeparableFilter2DEXT(3G)     OpenGL Reference	    glSeparableFilter2DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not GL_SEPARABLE_2D_EXT.
+
+     GL_INVALID_ENUM is	generated if internalformat is not one of the
+     allowable values.
+
+     GL_INVALID_VALUE is generated if width is less than zero or greater than
+     the maximum supported value.  This	value may be queried with
+     glGetConvolutionParameterEXT using	target GL_SEPARABLE_2D_EXT and name
+     GL_MAX_CONVOLUTION_WIDTH_EXT.
+
+     GL_INVALID_VALUE is generated if height is	less than zero or greater than
+     the maximum supported value.  This	value may be queried with
+     glGetConvolutionParameterEXT using	target GL_SEPARABLE_2D_EXT and name
+     GL_MAX_CONVOLUTION_HEIGHT_EXT.
+
+     GL_INVALID_ENUM is	generated if format is not one of the allowable
+     values.
+
+     GL_INVALID_ENUM is	generated if type is not one of	the allowable values.
+
+     GL_INVALID_OPERATION is generated if glSeparableFilter2DEXT is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+     If	type is	set to GL_UNSIGNED_BYTE_3_3_2_EXT,
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT and	the
+     EXT_packed_pixels extension is not	supported then a GL_INVALID_ENUM error
+     is	generated.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetConvolutionParameterEXT, glGetSeparableFilter2DEXT
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems convolution may not be
+     used in the following circumstances:
+
+	  1.  When rendering to	pixmaps.
+
+	  2.  When fragment processing (texturing, depth buffering, alpha
+	      testing, multisampling, fog) is enabled.
+
+	  3.  When histogramming or minmax is enabled.
+
+	  4.  When either of the pixel zoom factors has	a value	other than 1.0
+	      or -1.0.
+
+     In	these cases, glDrawPixels and glCopyPixels report a
+     GL_INVALID_OPERATION error	and do not transfer any	pixels.
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glSeparableFilter2DEXT(3G)     OpenGL Reference	    glSeparableFilter2DEXT(3G)
+</FONT>
+
+
+     Loading a convolution filter with some combinations of pixel transfer
+     modes may be unreliable on	InfiniteReality	systems.  Straightforward
+     transfers are known to work, though.  The remaining problems will be
+     fixed in the next release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glConvolutionFilter1DEXT, glConvolutionFilter2DEXT,
+     glConvolutionParameterEXT,	glEnable with parameter	GL_SEPARABLE_2D_EXT,
+     glPixelTransfer.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 4
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

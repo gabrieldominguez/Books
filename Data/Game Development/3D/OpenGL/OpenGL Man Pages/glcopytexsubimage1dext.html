@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glcopytexsubimage1dext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glcopytexsubimage1dext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glCopyTexSubImage1DEXT(3G)     OpenGL Reference	    glCopyTexSubImage1DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glCopyTexSubImage1DEXT - copy pixels into a 1D texture subimage
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glCopyTexSubImage1DEXT( GLenum target,
+				  GLint	level,
+				  GLint	xoffset,
+				  GLint	x,
+				  GLint	y,
+				  GLsizei width	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target   The target texture.  Must	be GL_TEXTURE_1D
+
+     level    The level-of-detail number.  Level 0 is the base image level.
+	      Level n is the nth mipmap	reduction image.
+
+     xoffset  A	texel offset in	the x direction	within the texture array.
+
+     x	      The x coordinate of the lower-left corner	of the pixel rectangle
+	      to be transferred	to the texture array.
+
+     y	      The y coordinate of the lower-left corner	of the pixel rectangle
+	      to be transferred	to the texture array.
+
+     width    The width	of the pixel rectangle to be transferred to the
+	      texture array.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glCopyTexSubImage1DEXT replaces a rectangular portion of a	two-
+     dimensional texture image with pixels from	the current GL_READ_BUFFER
+     (rather than from main memory, as is the case for glTexSubImage1DEXT).
+
+     The screen-aligned	pixel rectangle	with lower-left	corner at (x, y),
+     width width and height 1 replaces the portion of the texture array	with x
+     indices xoffset through xoffset+width-1, inclusive. The destination
+     rectangle in the texture array may	not include any	texels outside the
+     texture array as it was originally	specified.
+
+     The pixels	in the rectangle are processed exactly as if glCopyPixels had
+     been called, but the process stops	just before final conversion.  At this
+     point all pixel component values are clamped to the range [0, 1] and then
+     converted to the texture's	internal format	for storage in the texel
+     array.
+
+     It	is not an error	to specify a subtexture	with zero width, but such a
+     specification has no effect.  If any of the pixels	within the specified
+     rectangle of the current GL_READ_BUFFER are outside the read window
+     associated	with the current rendering context, then the values obtained
+     for those pixels are undefined.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glCopyTexSubImage1DEXT(3G)     OpenGL Reference	    glCopyTexSubImage1DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glCopyTexSubImage1DEXT is part of the EXT_copy_texture extension.	See
+     glIntro for more information about	using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated when target is not one of the	allowable
+     values.
+
+     GL_INVALID_VALUE is generated if level is less than zero or greater than
+     log2(max),	where max is the returned value	of GL_MAX_TEXTURE_SIZE.
+
+     GL_INVALID_VALUE is generated if xoffset&amp;lt;-TEXTURE_BORDER, or
+     (xoffset+width)&gt;(TEXTURE_WIDTH-TEXTURE_BORDER), where TEXTURE_WIDTH and
+     TEXTURE_BORDER are	the state values of the	texture	image being modified.
+     Note that TEXTURE_WIDTH includes twice the	border width.
+
+     GL_INVALID_VALUE is generated if width is negative.
+
+     GL_INVALID_OPERATION is generated when the	texture	array has not been
+     defined by	a previous glTexImage1D	(or equivalent)	operation.
+
+     GL_INVALID_OPERATION is generated if glCopyTexSubImage1DEXT is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexImage
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     glCopyTexSubImage1DEXT is not supported on	RealityEngine, RealityEngine2,
+     and VTX systems.
+
+     On	InfiniteReality	systems, the width of the image	to be transferred to
+     texture memory must be a multiple of 8.  This constraint will be lifted
+     in	a future release, though transfers that	are a multiple of 8 in length
+     will have somewhat	higher performance than	other transfers.
+
+     Texture borders are not supported on InfiniteReality systems.  They will
+     be	supported in a future release, however,	they will require large
+     amounts of	texture	memory.	 Whenever possible, applications should	use
+     borderless	textures and GL_CLAMP_TO_EDGE_SGIS wrap	mode.
+
+     On	High Impact and	Maximum	Impact systems,	if the right side of the image
+     to	be transferred to texture memory is not	the right side of the texture,
+     then its index must be a multiple of 32, where index = xoffset+width.
+     Otherwise it will generate	a GL_INVALID_VALUE error.
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glCopyTexSubImage1DEXT(3G)     OpenGL Reference	    glCopyTexSubImage1DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glTexImage1D, glTexSubImage1DEXT, glCopyPixels.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

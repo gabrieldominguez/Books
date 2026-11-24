@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxcreateglxvideosourcesgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxcreateglxvideosourcesgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXCreateGLXVideoSourceSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXCreateGLXVideoSourceSGIX - create a GLX	handle for a video input
+     stream
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLXVideoSourceSGIX	glXCreateGLXVideoSourceSGIX( Display *dpy,
+						     int screen,
+						     VLServer svr,
+						     VLPath path,
+						     int nodeClass,
+						     VLNode node )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	A connection to	an X server.
+
+     screen	The X screen number of the screen on which the GLX video
+		source should be created.
+
+     svr	A connection to	a Video	Library	video server.
+
+     path	A Video	Library	video transfer path.
+
+     nodeClass	The class of the VLNode	specified by node.
+
+     node	A VLNode which must be a VL_DRAIN node on the video transfer
+		path path.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXCreateGLXVideoSourceSGIX creates a GLX video source.  Once created, it
+     may be used as the	read parameter on a call to glXMakeCurrentReadSGI.
+     Thereafter	the GL can transfer video data to the framebuffer using
+     glCopyPixels or to	texture	memory using glCopyTexSubImage2DEXT.
+
+     The configuration of a GLX	video source is	static,	and is fixed at	the
+     time that it is created.  If any of the controls which affect the
+     transfer of video data are	changed	on the video transfer path for which a
+     particular	GLX video source was created, the GLX video source should be
+     destroyed and a new one created.  Otherwise the date read from the	source
+     will be undefined.
+
+     To	destroy	a GLX video source when	it is no longer	needed,	call
+     glXDestroyGLXVideoSourceSGIX.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXCreateGLXVideoSourceSGIX is part of the	SGIX_video_source extension.
+     See glXintro for more information about using GLX extensions.
+
+     See glXCopyPixels,	glXCopyTexImage2DEXT, and glXCopyTexSubImage2DEXT for
+     information about using GL_INTERLACE_SGIX to assemble textures or frame
+     buffer images from	the fields of an interlaced video format.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXCreateGLXVideoSourceSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+     See VLintro(3dm) for an introduction to the Video Library (VL).
+
+     A GLX video source	may be used only with GLX rendering contexts created
+     on	the same screen.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     BadAlloc is generated if glXCreateGLXVideoSourceSGIX is unable to
+     allocate the resources needed to create a GLX video source.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems,	when a video source is
+     the read drawable (see glXMakeCurrentReadSGI), then:
+
+	  1.  glCopyPixels cannot be used when any of the RGBA scale factors
+	      is not 1,	when any of the	RGBA bias terms	is not 0, or when any
+	      of texturing, alpha or depth testing, pixel mapping,
+	      multisampling, convolution, histogram, or	minmax is enabled.  A
+	      GL_INVALID_OPERATION error will result if	any of these
+	      conditions is true when glCopyPixels is executed.
+
+	  2.  glCopyTexSubImage2DEXT can only be executed when the X offset
+	      and Y offset are 0 and the subimage width	is 768.	 A
+	      GL_INVALID_VALUE error is	generated otherwise.
+
+	  3.  glCopyTexImage2DEXT cannot be used.  A GL_INVALID_OPERATION
+	      error is generated when it is executed.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXDestroyGLXVideoSourceSGIX, glXMakeCurrentReadSGI, VLintro(3dm)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

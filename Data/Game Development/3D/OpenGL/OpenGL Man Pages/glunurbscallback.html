@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glunurbscallback Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glunurbscallback</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluNurbsCallback(3G)	       OpenGL Reference		  gluNurbsCallback(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluNurbsCallback -	define a callback for a	NURBS object
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluNurbsCallback( GLUnurbs* nurb,
+			    GLenum which,
+			    GLvoid (*CallBackFunc)( )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     nurb	   Specifies the NURBS object (created with
+		   gluNewNurbsRenderer).
+
+     which	   Specifies the callback being	defined.  The only valid value
+		   is GLU_ERROR.
+
+     CallBackFunc  Specifies the function that the callback calls.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluNurbsCallback is used to define	a callback to be used by a NURBS
+     object.  If the specified callback	is already defined, then it is
+     replaced.	If CallBackFunc	is NULL, then any existing callback is erased.
+
+     The one legal callback is GLU_ERROR:
+
+     GLU_ERROR	    The	error function is called when an error is encountered.
+		    Its	single argument	is of type GLenum, and it indicates
+		    the	specific error that occurred.  There are 37 errors
+		    unique to NURBS named GLU_NURBS_ERROR1 through
+		    GLU_NURBS_ERROR37. Character strings describing these
+		    errors can be retrieved with gluErrorString.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluErrorString, gluNewNurbsRenderer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

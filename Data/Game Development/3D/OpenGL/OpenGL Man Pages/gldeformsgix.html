@@ -1,0 +1,95 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gldeformsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gldeformsgix</CODE><BR>
+	Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glDeformSGIX(3G)	       OpenGL Reference		      glDeformSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glDeformSGIX - enable and/or disable deformations
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glDeformSGIX(	GLbitfield mask	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mask  Specifies the logical-OR of zero or more of the following bits:
+	   GL_GEOMETRY_DEFORMATION_BIT_SGIX, GL_TEXTURE_DEFORMATION_BIT_SGIX.
+	   The deformations associated with the	bits that are nonzero in mask
+	   are enabled;	the deformations associated with zero bits in mask are
+	   disabled.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     After the execution of glDeformSGIX, all the deformations whose bits are
+     nonzero in	mask are enabled, and all the deformations whose bits are zero
+     in	mask are disabled.
+
+     For a detailed description	of deformations, see glDeformationMapSGIX.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glDeformSGIX is one of the	few GL commands	that may be executed between
+     the execution of glBegin and the corresponding execution of glEnd.	 This
+     allows deformations to be enabled and disabled for	subsets	of the
+     vertices that make	up a strip or fan.
+
+     glDeformSGIX is part of the SGIX_polynomial_ffd extension,	not part of
+     the core GL command set.  If GL_SGIX_polynomial_ffd is included in	the
+     string returned by	glGetString when called	with argument GL_EXTENSIONS,
+     extension SGIX_polynomial_ffd is supported	by the connection.  See
+     glIntro for more information about	using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if mask contains nonzero bits other than
+     those listed above.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_DEFORMATIONS_MASK_SGIX
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDeformationMapSGIX, glLoadIdentityDeformationMapSGIX
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

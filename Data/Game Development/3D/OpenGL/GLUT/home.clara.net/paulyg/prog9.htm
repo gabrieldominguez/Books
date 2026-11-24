@@ -1,0 +1,1189 @@
+<HTML><HEAD><TITLE>program nine</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#E0E0E0 ALINK=#FFFFFF>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070>source <FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </FONT></NOBR></B></font><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">sour<br>
+
+    urce </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source&nbsp;<br>
+
+    </font></B></NOBR><font face="Helvetica, Sans-Serif" size="4"><b><nobr><font color="#204070">u
+
+    </font><FONT face="Helvetica, Sans-Serif" size=4 COLOR="#204070"><FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font size="4" color="#204070">source </font><font size="4" color="#305080">source</font><font size="4" color="#204070">
+
+    source</font><font size="4" color="#305080"> source </font><font color="#204070">source
+
+    </font><font color="#305080">sou</font></nobr></b></font></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font></font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<P align="left"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b><a href="download/program9.zip" tppabs="http://home.clara.net/paulyg/download/program9.zip">[program
+
+nine]</a>&nbsp;</b></font><font FACE="Helvetica, Sans-Serif" SIZE="2"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">
+
+</font>This example will show you how to setup and use the selection
+
+buffer.&nbsp; There are many example programs already on the internet for
+
+this.&nbsp; Most of them don't handle overlapping objects too well - some are
+
+just plain wrong.&nbsp; It's all in the parsing of the results, see?<br>
+
+<br>
+
+Left click on the Earth and Moon to report 'hits'.&nbsp; Try clicking on them
+
+when they are partly obscured or completely hidden.&nbsp; The program will
+
+always return the closest 'hit' to the viewer.&nbsp;&nbsp;<br>
+
+<br>
+
+Right click and drag the mouse to change the angle of view of the planets.&nbsp;
+
+The screengrab on the right shows a typical hit record from the program.&nbsp;
+
+The first line tells us how many hits were recorded (IE how objects were under
+
+the mouse pointer).&nbsp; The next three lines tell us the statistics of each
+
+one hit, the number of names (it'll always be one - don't worry about that), the
+
+near and far Z values and the </font><font face="Courier New" SIZE="2"> GLuint</font><font FACE="Helvetica, Sans-Serif" SIZE="2"> 'name' of the object.&nbsp; Object '1' is
+
+the Earth.&nbsp; The next record if for the moon, notice it has been named
+
+&quot;2&quot;..&nbsp;</font><P align="left">&nbsp;
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+
+  <tr>
+
+    <td width="50%">
+
+      <p align="center"><img border="0" src="graphics/prog9a.gif" tppabs="http://home.clara.net/paulyg/graphics/prog9a.gif" width="258" height="277"></td>
+
+    <td width="50%">
+
+      <p align="center"><img border="0" src="graphics/prog9b.gif" tppabs="http://home.clara.net/paulyg/graphics/prog9b.gif" width="370" height="118"></td>
+
+  </tr>
+
+</table>
+
+<P align="center">&nbsp;
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+ </B></NOBR><NOBR><B><font face="Helvetica, Sans-Serif" size="4"><font color="#305080"> 
+
+      </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>We name our
+
+textures with lines 1-3 as always.&nbsp; Line 4 declares the array where we'll
+
+store the texture names.&nbsp; Lines 6 and 7 define two names for our
+
+planets.&nbsp; Note that 1 corresponds to the Earth and 2 to the moon</font><p class="code"><font face="Courier New"><font size="2">[1]&nbsp;&nbsp;&nbsp;
+
+</font></font>#define  MAX_NUM_TEXTURES    2<br>
+
+[2]&nbsp;&nbsp;&nbsp; #define  EARTH_TEXTURE       0<br>
+
+[3]&nbsp;&nbsp;&nbsp; #define  MOON_TEXTURE        1<br>
+
+[4]&nbsp;&nbsp;&nbsp; GLuint   texture_names [MAX_NUM_TEXTURES];<br>
+
+[5]<br>
+
+[6]&nbsp;&nbsp;&nbsp; #define  EARTH    1<br>
+
+[7]&nbsp;&nbsp;&nbsp; #define  MOON&nbsp; 2<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>We
+
+also need to store the aspect ratio of the viewport, so a float will do the
+
+job...</font><p class="code"><font size="2">[1]&nbsp;&nbsp; </font><font size="2"><b>float</b>
+
+ aspect_ratio;</font>
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">Next we create a string that will
+
+hold our nice, parsed hit report message so we can display this with glut.</font><p class="code"><FONT face="Courier New" SIZE=2>[1]&nbsp;&nbsp;&nbsp;
+
+char str[256];</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<hr>
+
+</font><p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">The
+
+function &quot;</font><font face="Courier New" size="2">OutputString</font><font face="Helvetica, Sans-Serif" size="2">&quot; does just that.&nbsp; It uses
+
+</font><font face="Courier New"><font size="2">glutBitmapCharacters</font></font><font face="Helvetica, Sans-Serif" size="2">
+
+to draw text to a specific location on the screen.&nbsp; Note that the mapping
+
+of coordinates for your text could vary.&nbsp; It's up to you how you setup up
+
+your 2 dimensional projection...&nbsp;&nbsp;</font><p class="code">[1]&nbsp;&nbsp;&nbsp;
+
+<b>void</b> OutputString ( <b> float</b> x, <b> float</b> y, <b> char</b> *string )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>int</b> length;<br>
+
+[4]<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; length = strlen ( string );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRasterPos2f ( x, y );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int  i = 0; i &lt; length; i++ )<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glutBitmapCharacter ( GLUT_BITMAP_9_BY_15, string[i] );<br>
+
+[9]&nbsp;&nbsp;&nbsp; }
+
+<hr>
+
+<p class="BodyText"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>The next
+
+function - &quot;</font><b><FONT face="Courier New" SIZE=2>void</font></b><FONT face="Courier New" SIZE=2>
+
+init ( <b>void</b> )</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>&quot; does
+
+our standard opengl initialisation.&nbsp; We've set up the lighting and loaded
+
+textures hundred of times before.&nbsp;&nbsp;<br>
+
+<br>
+
+The function &quot;</font><b><FONT face="Courier New" SIZE=2>void</font></b><FONT face="Courier New" SIZE=2>
+
+draw_orbit_line ( <b>float</b> radius )</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>&quot;
+
+draws a circle with its circumference in the path of the moons orbit.&nbsp; It's
+
+pretty self explanatory.&nbsp; We start a GL_LINE_LOOP and use a for loop to
+
+define a bunch of points around a circle.&nbsp; Notice how we disable, then
+
+re-enable lighting and texturing.</font><p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Ideally
+
+we'd compile this orbit line to display list so it doesn't need recalculating
+
+every frame.&nbsp; The <b><a href="objects.htm#SOURCE" tppabs="http://home.clara.net/paulyg/objects.htm#SOURCE">[milkshape object loader]</a></b>
+
+code shows you how to this easily.&nbsp;</font><p class="code">[1]&nbsp;&nbsp;&nbsp; <b>void</b> draw_orbit_line (
+
+<b> float</b> radius )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>float</b> angle;<br>
+
+[4]<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glDisable ( GL_LIGHTING );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glDisable ( GL_TEXTURE_2D );<br>
+
+[7]<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPushMatrix ( );<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef ( 90.0, 1.0, 0.0, 0.0 );<br>
+
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glBegin   ( GL_LINE_LOOP );<br>
+
+[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glColor3f ( 0.0, 0.6, 0.0 );<br>
+
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>for</b> ( <b> int</b> i = 0; i &lt;= 24; i++ )<br>
+
+[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+
+[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; angle = 3.14159 / 12.0 * i;<br>
+
+[16]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glVertex2f ( ( radius*cos ( angle )), ( radius*sin ( angle )) );<br>
+
+[17]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+
+[18]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnd ( );<br>
+
+[19]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPopMatrix ( );<br>
+
+[20]<br>
+
+[21]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable ( GL_LIGHTING );<br>
+
+[22]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable ( GL_TEXTURE_2D );<br>
+
+[23]&nbsp;&nbsp;&nbsp; }
+
+<hr>
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">&quot;</font><b><font size="2" face="Courier New">void
+
+</font></b><font size="2" face="Courier New"> draw_sphere ( <b> int</b> tex_id, <b> float</b> size )</font><font face="Helvetica, Sans-Serif" size="2">&quot;
+
+draws a sphere with a given size and texture_id, you've seen this before, so I
+
+won't detail it here.&nbsp;<br>
+
+&quot;</font><b><font face="Courier New" size="2">void </font></b><font face="Courier New" size="2"> draw_planets ( GLenum mode )</font><font face="Helvetica, Sans-Serif" size="2">&quot; positions and draws our
+
+planets.&nbsp; Loading names onto the selection name stack if required.&nbsp;
+
+The first 7 lines setup the viewing transformation.&nbsp;&nbsp;</font><p class="code">[1]&nbsp;&nbsp;&nbsp;
+
+<b>void</b> draw_planets ( GLenum mode )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPushMatrix ( );<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLightfv    ( GL_LIGHT0,GL_POSITION,light_pos );<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTranslatef ( 0.0, 0.0, -4.0 );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef ( view_angle1, 0.0, 1.0, 0.0 );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef ( view_angle2, 1.0, 0.0, 0.0 );<p><font face="Helvetica, Sans-Serif" size="2">Line
+
+8 checks to see if we should be loading the names onto the name stack.&nbsp;
+
+Line 9 actually loads the name and line 10 draws the sphere.&nbsp;&nbsp;</font><p class="code">[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b> (
+
+mode == GL_SELECT )<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:if(confirm('http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/loadname.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/loadname.html'" tppabs="http://trant.sgi.com/opengl/docs/man_pages/hardcopy/GL/html/gl/loadname.html">glLoadName</a>( EARTH );<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw_sphere ( EARTH_TEXTURE, 1.0 );<p><font face="Helvetica, Sans-Serif" size="2">Line
+
+11 draws the orbit lines.&nbsp; Notice that we don't load a name directly
+
+before, so the drawing of the orbit lines won't be included on the name stack.</font><p class="code">[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw_orbit_line ( 2.0 );<p><font face="Helvetica, Sans-Serif" size="2">Lines
+
+12 and 13 transform the current matrix, so when we draw the moon it'll appear as
+
+though it is orbiting the Earth.</font><p class="code">[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRotatef   ( angle, 0.0, 1.0, 0.0 );<br>
+
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glTranslatef ( 0.0, 0.0, 2.0 );<p><font face="Helvetica, Sans-Serif" size="2">14
+
+to 16 do the same as above.&nbsp; We load the name of the planet only if we
+
+specify </font><font size="2" face="Courier New">GL_SELECT</font><font face="Helvetica, Sans-Serif" size="2">
+
+mode.&nbsp;&nbsp;</font><p class="code">[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if</b> ( mode == GL_SELECT )<br>
+
+[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLoadName( MOON );<br>
+
+[16]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw_sphere ( MOON_TEXTURE, 0.5 );<br>
+
+[17] ...
+
+<hr>
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">&quot;</font><font size="2" face="Courier New">draw_2d_stuff</font><font face="Helvetica, Sans-Serif" size="2">&quot;
+
+changes the projection mode so we can render things squarely to the
+
+screen.&nbsp; If we draw our '2d stuff' after the 3d and disable depth buffering
+
+it'll act as an a overlay.&nbsp; So we disable the lighting and texturing.&nbsp;</font><p class="code">[1]&nbsp;&nbsp;&nbsp;
+
+void draw_2d_stuff ( void )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glDisable ( GL_LIGHTING );<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glDisable ( GL_TEXTURE_2D );<p><font face="Helvetica, Sans-Serif" size="2">We
+
+switch to the </font><font face="Courier New" size="2">GL_PROJECTION</font><font face="Helvetica, Sans-Serif" size="2">
+
+matrix.&nbsp; We push a new matrix and create a blank one (by calling </font><font face="Courier New" size="2">glLoadIdentity</font><font face="Helvetica, Sans-Serif" size="2">).&nbsp;
+
+The call to </font><font face="Courier New" size="2">glOrtho</font><font face="Helvetica, Sans-Serif" size="2">
+
+creates a projection matrix that has no perspective.&nbsp; Notice how this
+
+projection has no depth.&nbsp; Read the manual specs. for full details.</font><p class="code">[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+glMatrixMode   ( GL_PROJECTION );<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPushMatrix   ( );<br>
+
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLoadIdentity ( );<br>
+
+[8]
+
+<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glOrtho ( 0.0, ( (double)ScreenWidth ), 0.0,<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+( (double)ScreenHeight ), -0.0, 0.0 );<p><font face="Helvetica, Sans-Serif" size="2">Next
+
+we change back the the modelview matrix set the colour for the font drawing and
+
+call </font><font size="2" face="Courier New">OutputString</font><font face="Helvetica, Sans-Serif" size="2">,
+
+the coordinates put the text in the top left corner of the viewport.</font><p class="code">[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+glMatrixMode   ( GL_MODELVIEW );<br>
+
+[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLoadIdentity ( );<br>
+
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glColor3ub&nbsp;&nbsp; ( 200, 200, 200&nbsp;&nbsp;&nbsp;
+
+);<br>
+
+[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OutputString   ( -0.95, 0.90, str );<p><font face="Helvetica, Sans-Serif" size="2">The
+
+remaining lines put back everything we've been messing around with.&nbsp; Our
+
+'normal' perspective projection matrix is returned and we re-enable the lights
+
+and texturing.</font><p class="code">[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+glMatrixMode ( GL_PROJECTION );<br>
+
+[16]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPopMatrix  ( );<br>
+
+[17]<br>
+
+[18]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glMatrixMode ( GL_MODELVIEW );<br>
+
+[19]
+
+<br>
+
+[20]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable ( GL_LIGHTING );<br>
+
+[21]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEnable ( GL_TEXTURE_2D );<br>
+
+[22]&nbsp;&nbsp; }
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<hr>
+
+</font>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">The function
+
+&quot;</font><font size="2" face="Courier New">process_hits</font><font face="Helvetica, Sans-Serif" size="2">&quot;
+
+parses the results from the selection buffer.&nbsp; Parsing can be messy, but
+
+the following isn't too hard to follow.</font><p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">The
+
+struct from lines 3 to 6 called </font><font size="2" face="Courier New">log_me</font><font face="Helvetica, Sans-Serif" size="2">
+
+(sorry about the name) will hold the closest depth value of a hit and the object
+
+name that the hit was related to.</font><p class="code">[1]&nbsp;&nbsp;&nbsp; <b>void</b> process_hits ( GLint hits, GLuint buffer[] )<br>
+
+[2]&nbsp;&nbsp;&nbsp; {<br>
+
+[3]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>struct</b> {<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLuint z1;<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLuint current_name;<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } log_me;<br>
+
+<p><font face="Helvetica, Sans-Serif" size="2">Line 7 declares two looping
+
+variables for later on.&nbsp; Line 8 declares two pointers with which we'll be traversing
+
+the buffer later on.&nbsp; Line 10 initialises the closest depth value in log_me
+
+to a huge number - this is so we can test against it later.</font><p class="code">[7]&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;</b>
+
+<b>unsigned int</b> i, j;<br>
+
+[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLuint names, *ptr, *tptr;<br>
+
+[9]
+
+<br>
+
+[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; log_me.z1 =
+
+99999999999999999999999999999999999;<p><font face="Helvetica, Sans-Serif" size="2">Line
+
+11 prints the number of hits that occurred to the console.&nbsp; Lines 13 and 14
+
+assign the pointers as indices the to buffer.&nbsp; We'll use these later to get
+
+at data in the buffer more easily.</font><p class="code">[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+printf ( "hits = %d\n", hits );<br>
+
+[12]
+
+<br>
+
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptr  = (GLuint *) buffer;<br>
+
+[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tptr = (GLuint *) buffer;<p><font face="Helvetica, Sans-Serif" size="2">For
+
+every hit recorded we print the number of names returned with line 18 (it'll
+
+always be one for general purposes).&nbsp; Then we increment the pointer to the
+
+next position in the buffer&nbsp;</font><p class="code">[15]&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;</b>
+
+<b>for</b> ( i = 0; i &lt; hits; i++ )<br>
+
+[16]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+
+[17]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; names = *ptr;<br>
+
+[18]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ( "Number of names for this hit = %d\n", names );<br>
+
+[19]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptr++;<p><font face="Helvetica, Sans-Serif" size="2">The
+
+next buffer position holds the closest depth value for the hit.&nbsp; We display
+
+this with line 20.&nbsp; Line 21 checks in this value is lowest than our
+
+recorded lowest in log_me.&nbsp; If it is, we update log_me with the new lowest
+
+and use the temporary pointer to look ahead two positions in the buffer and
+
+retrieve the name of the object.</font><p class="code">[20]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+printf ( "Closest Z: %u", *ptr );<br>
+
+[21]
+
+<br>
+
+[22]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;</b> <b>if</b> (*ptr &lt; log_me.z1 )<br>
+
+[23]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+
+[24]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+log_me.z1 = *ptr;<br>
+
+[25]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+tptr = ptr + 2;<br>
+
+[26]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+log_me.current_name =
+
+*tptr;<br>
+
+[27]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<p><font face="Helvetica, Sans-Serif" size="2">Next
+
+we inc the pointer and print the next value, the furthest depth value.&nbsp; 
+(Remember that just because one object has a greater depth value than another 
+that doesn't necessarily mean it's further from the viewer.)&nbsp; After this we
+
+increment the pointer again and loop through all the names for this hit - again,
+
+in this example there will always be one name per hit, but it's better to check.</font><p class="code">[28]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ptr++;<br>
+
+[29]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ( &quot;&nbsp;&nbsp; Furthest Z: %u\n", *ptr );<br>
+
+[30]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptr++;<br>
+
+[31]
+
+<br>
+
+[32]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ( &quot;   the name is &quot; );<br>
+
+[33]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;</b> <b>for</b> ( j = 0; j &lt; names; j++ )<br>
+
+[34]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+
+[35]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+printf (
+
+&quot;%d ", *ptr );<br>
+
+[36]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+ptr++;<br>
+
+[37]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+
+[38]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ( &quot;\n&quot; );<br>
+
+[39]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<p><font face="Helvetica, Sans-Serif" size="2">Line 40 checks
+
+if we had one or more hits and changes our global 'report' string.&nbsp; Line 41
+
+copies the nice message into the string variable.&nbsp; Line 43 handles the
+
+string when we have no hits.&nbsp; Remember that the code to output these
+
+strings is called every redraw in the </font><font size="2" face="Courier New">&quot;draw_2d_stuff
+
+( )&quot;</font><font face="Helvetica, Sans-Serif" size="2"> function</font><p class="code">[40]&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;</b>
+
+<b>if</b> ( hits >= 1 )<br>
+
+[41]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sprintf ( str, "Object %u was selected.", log_me.current_name );<br>
+
+[42]&nbsp;&nbsp;&nbsp;&nbsp;<br>
+
+[43]&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;&nbsp;</b> <b>if</b> ( hits == 0 )<br>
+
+[44]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sprintf ( str, "No object was selected." );<br>
+
+[45]&nbsp;&nbsp;&nbsp;&nbsp;<br>
+
+[46]&nbsp;&nbsp;&nbsp; }<br>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Phew!&nbsp; That
+
+was pretty deep.
+
+
+
+</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<hr>
+
+<p><font face="Helvetica, Sans-Serif" size="2">When the left mouse
+
+button is clicked we call </font>
+
+
+
+
+
+<font face="Courier New" size="2"> &quot;pick_planets&quot;</font>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="2"> the coordinates of the click
+
+are passed into here.</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<p class="code">[1]&nbsp;&nbsp;&nbsp; #define BUFSIZE 512<br>
+
+[2]&nbsp;&nbsp;&nbsp; void pick_planets ( int x, int y )<br>
+
+[3]&nbsp;&nbsp;&nbsp; {<br>
+
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLuint selectBuf[BUFSIZE];<br>
+
+[5]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLint hits;<br>
+
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLint viewport[4];
+
+
+
+
+
+</p>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">We get the dimensions of the
+
+viewport...</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<p class="code">[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glGetIntegerv ( GL_VIEWPORT, viewport );
+
+
+
+
+
+</p>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">Then we tell OpenGL where to find
+
+the selection buffer and enter </font><font size="2" face="Courier New">GL_SELECT</font><font face="Helvetica, Sans-Serif" size="2">
+
+rendering mode.&nbsp;</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<p class="code">[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glSelectBuffer ( BUFSIZE, selectBuf );<br>
+
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glRenderMode&nbsp;&nbsp; ( GL_SELECT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+);
+
+
+
+
+
+</p>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">We clear all the names on the
+
+namestack and push on a 'blank' name.</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<p class="code">[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glInitNames (&nbsp;&nbsp;
+
+);<br>
+
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPushName&nbsp; ( 0 );
+
+
+
+
+
+</p>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">Next we switch to the projection
+
+matrix, save a copy of it and clear it.</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<p class="code">[12]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glMatrixMode ( GL_PROJECTION );<br>
+
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPushMatrix   ( );<br>
+
+[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glLoadIdentity ( );
+
+
+
+
+
+</p>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">We use a call to gluPickMatrix to
+
+create a projection matrix based on the window coordinates (Note that GLUT has
+
+oposite vertical scaling - hence we subtract 'y' from the height of the viewport.<br>
+
+Imagine that we have created a little cube where you clicked your mouse and its
+
+2 by 2 by 2 pixels in size.</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<p class="code">[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluPickMatrix ( (GLdouble)x, (GLdouble)( viewport[3] - y ),<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+2.0, 2.0, viewport );
+
+
+
+
+
+</p>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">We apply the same perspective
+
+projection to our 'selection cube' to ensure that we pick what we click.</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<p class="code">[16]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluPerspective ( 80.0, aspect_ratio, 1.0, 200.0 );
+
+
+
+
+
+</p>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">We switch back to the modelview
+
+matrix and draw our planets again, this time specifying that we wish to load
+
+names for our objects onto the name stack.</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<p class="code">[17]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glMatrixMode ( GL_MODELVIEW );<br>
+
+[18]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; draw_planets ( GL_SELECT );
+
+
+
+
+
+</p>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">Drawing these planets off screen
+
+isn't double buffered so we call </font><font size="2" face="Courier New">glFlush</font><font face="Helvetica, Sans-Serif" size="2">
+
+to ensure OpenGL has finished before we move on.</font></p>
+
+
+
+
+
+<p class="code">[19]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glFlush     ( );
+
+
+
+
+
+</p>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">Next we collect the number of
+
+hits that occurred.&nbsp; OpenGL has finished rendering the scene again, this
+
+time the portion of the scene your pick cube has selected is what has been
+
+rendered.&nbsp; If you comment out
+
+line 9 selection won't work, but you'll see what OpenGL draws to determine which
+
+object has been selected.</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<p class="code">[20]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hits = glRenderMode ( GL_RENDER );<br>
+
+[21]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; process_hits&nbsp; ( hits, selectBuf );
+
+
+
+
+
+</p>
+
+
+
+
+
+<p><font face="Helvetica, Sans-Serif" size="2">The remaining lines restore the
+
+proper modelview and projection matrices.</font>
+
+
+
+
+
+</p>
+
+
+
+
+
+<p class="code">[22]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glMatrixMode ( GL_PROJECTION );<br>
+
+[23]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glPopMatrix  ( );<br>
+
+[24]
+
+<br>
+
+[25]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glMatrixMode ( GL_MODELVIEW );<br>
+
+[26]&nbsp;&nbsp; }<br>
+
+
+
+
+
+</p>
+
+
+
+
+
+<hr>
+
+
+
+
+
+<p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">
+
+
+
+
+
+The remaining functions deal with mouse clicking and dragging, as well as
+
+setting up the GLUT callbacks.&nbsp; We've seen these before...
+
+
+
+
+
+</p>
+
+
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+  <P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font>
+
+
+
+</font>
+
+</BODY>

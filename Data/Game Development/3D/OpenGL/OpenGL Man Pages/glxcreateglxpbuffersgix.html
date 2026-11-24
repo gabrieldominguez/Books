@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxcreateglxpbuffersgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxcreateglxpbuffersgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXCreateGLXPbufferSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXCreateGLXPbufferSGIX - create a	GLX pixel buffer
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLXPbufferSGIX glXCreateGLXPbufferSGIX( Display *dpy,
+					     GLXFBConfigSGIX config,
+					     unsigned int width,
+					     unsigned int height,
+					     int *attrib_list )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	  Specifies the	connection to the X server.
+
+     config	  Specifies the	GLXFBConfig that defines the configuration of
+		  the pixel buffer.
+
+     width	  Specifies the	width of the pixel buffer.
+
+     height	  Specifies the	height of the pixel buffer.
+
+     attrib_list  Specifies the	attributes for the pixel buffer.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXCreateGLXPbufferSGIX creates a single GLX pixel	buffer and returns its
+     handle. The resulting GLX pixel buffer will contain color buffers and
+     ancillary as specified by config. If glXCreateGLXPbufferSGIX fails	to
+     create a GLX pixel	buffer,	then None is returned.
+
+     A GLX pixel buffer	is a non-visible rendering buffer for an OpenGL
+     renderer.	GLX pixel buffers are equivalent to GLX	pixmaps	with the
+     following exceptions:
+
+	  There	is no associated X pixmap. Also, since GLX pixel buffers are a
+	  GLX resource,	it may not be possible to render to them using X or an
+	  X extension other than GLX.
+
+	  The format of	the color buffers and the type and size	of any
+	  associated ancillary buffers for a GLX pixel buffer can only be
+	  described with a GLXFBConfig -- an X Visual cannot be	used.
+
+	  It is	possible to create a GLX pixel buffer whose contents may be
+	  arbitrarily and asynchronously lost at any time.
+
+	  GLX pixel buffers must work with both	direct and indirect rendering
+	  contexts.
+
+     attrib_list specifies a list of attributes	for the	GLX pixel buffer. Each
+     attribute in attrib_list is followed by the the corresponding desired
+     value and the list	is terminated with None. If attrib_list	is NULL, then
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXCreateGLXPbufferSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+     all the attributes	assume their default values as described below.
+
+     Currently only two	attributes can be specified:  GLX_LARGEST_PBUFFER_SGIX
+     and GLX_PRESERVED_CONTENTS_SGIX.  Use GLX_LARGEST_PBUFFER_SGIX to get the
+     largest available GLX pixel buffer	when the allocation of the buffer
+     would otherwise fail. The width and height	of the pixel buffer (if	one
+     was allocated) is returned	in width and height. Note that these values
+     can never exceed the width	and height that	were initially specified. By
+     default, GLX_LARGEST_PBUFFER_SGIX is False.
+
+     If	the GLX_PRESERVED_CONTENTS_SGIX	attribute is set to False, then	an
+     unpreserved GLX pixel buffer is created and the contents of the pixel
+     buffer may	be lost	at any time. If	this attribute is not specified, or if
+     it	is specified as	True, then the contents	of the GLX pixel buffer	will
+     be	preserved, most	likely by swapping out the entire buffer, or a portion
+     of	the buffer, to main memory when	a resource conflict occurs. In either
+     case, the client can register to receive a	buffer clobber event and be
+     notified when the GLX pixel buffer	contents have been swapped out or have
+     been damaged. (See	glXSelectEventSGIX.)
+
+     As	mentioned above, the contents, or a portion of the contents, for an
+     unpreserved GLX pixel buffer may be lost. It is not an error to render to
+     a GLX pixel buffer	that is	in this	state but the effect of	rendering to
+     it	is undefined. It is also not an	error to query the pixel contents of
+     such a buffer, but	the values of the returned pixels are undefined.
+
+     It	is possible to create a	GLX pixel buffer with back buffers and to swap
+     the front and back	buffers	by calling glXSwapBuffers. Note	that GLX pixel
+     buffers use framebuffer resources so applications should consider
+     deallocating them when they are not in use.
+
+     Any GLX rendering context created with a GLXFBConfig or X Visual that is
+     compatible	with config may	be used	to render into the GLX pixel buffer. A
+     GLX context and a GLX pixel buffer	are compatible if:
+
+	  The context's	render_type attribute (either GLX_RGBA_TYPE_SGIX or
+	  GLX_COLOR_INDEX_TYPE_SGIX) is	supported by the GLXFBConfigSGIX that
+	  the pixel buffer was created with. For example, if the context's
+	  render_type attribute	is GLX_RGBA_TYPE_SGIX, then the
+	  GLX_RENDER_TYPE_SGIX attribute of the	pixel buffer's GLXFBConfigSGIX
+	  must have the	GLX_RGBA_BIT_SGIX bit set.
+
+	  All color buffers and	ancillary buffers that exist in	both
+	  GLXFBConfigSGIXs have	the same depth.	For example, a GLXFBConfigSGIX
+	  that has a front left	buffer and a back left buffer with red,	green
+	  and blue sizes of 4 is not compatible	with a GLXFBConfigSGIX that
+	  has only a front left	buffer with red, green and blue	sizes of 8.
+	  However, it is compatible with a GLXFBConfigSGIX that	has only a
+	  front	left buffer if the red,	green and blue sizes are 4.
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXCreateGLXPbufferSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXCreateGLXPbufferSGIX is	part of	the SGIX_pbuffer extension.
+
+     Since the contents	of a unpreserved GLX pixel buffer can be lost at
+     anytime with only asynchronous notification (via the buffer clobber
+     event), the only way a client can guarantee that valid pixels are read
+     back with glReadPixels is by grabbing the X server. (Note that this
+     operation is potentially expensive	and should not be done frequently.
+     Also, since this locks out	other X	clients, it should only	be done	for
+     short periods of time.) Clients that don't	wish to	do this	can check if
+     the data returned by glReadPixels is valid	by calling XSync and then
+     checking the event	queue for buffer clobber events	(assuming that these
+     events had	been pulled off	of the queue prior to the glReadPixels call).
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     If	there are insufficient resources to create the pbuffer,	a BadAlloc
+     error is generated	and None is returned.
+
+     A GLXBadFBConfigSGIX error	is generated if	config is not a	valid
+     GLXFBConfig.
+
+     A BadMatch	error is generated if config does not support GLX pixel
+     buffers.
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glXQueryGLXPbufferSGIX
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIX_pbuffer extension	is supported only on RealityEngine,
+     RealityEngine2, and VTX systems, InfiniteReality systems and High Impact
+     and Maximum Impact	systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXMakeCurrent, glXCreateContextWithConfigSGIX, glXChooseFBConfigSGIX,
+     glXGetFBConfigAttribSGIX, glXDestroyGLXPbufferSGIX, glXSelectEventSGIX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glutessbegincontour Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glutessbegincontour</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluTessBeginContour(3G)	       OpenGL Reference	       gluTessBeginContour(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluTessBeginContour, gluTessEndContour - delimit a	contour	description
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluTessBeginContour( GLUtesselator* tess )
+
+     void gluTessEndContour( GLUtesselator* tess )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     tess  Specifies the tessellation object (created with gluNewTess).
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluTessBeginContour and gluTessEndContour delimit the definition of a
+     polygon contour. Within each gluTessBeginContour/gluTessEndContour	pair,
+     there can be zero or more calls to	gluTessVertex. The vertices specify a
+     closed contour (the last vertex of	each contour is	automatically linked
+     to	the first).  See the gluTessVertex reference page for more details.
+     gluTessBeginContour can only be called between gluTessBeginPolygon	and
+     gluTessEndPolygon.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluNewTess, gluTessBeginPolygon, gluTessVertex, gluTessCallback,
+     gluTessProperty, gluTessNormal, gluTessEndPolygon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

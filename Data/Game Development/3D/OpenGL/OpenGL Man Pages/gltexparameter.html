@@ -1,0 +1,952 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gltexparameter Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gltexparameter</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glTexParameterf, glTexParameteri, glTexParameterfv, glTexParameteriv -
+     set texture parameters
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glTexParameterf( GLenum target,
+			   GLenum pname,
+			   GLfloat param )
+     void glTexParameteri( GLenum target,
+			   GLenum pname,
+			   GLint param )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Specifies the target texture, which must be either	GL_TEXTURE_1D,
+	     GL_TEXTURE_2D, GL_DETAIL_TEXTURE_2D_SGIS, or GL_TEXTURE_3D_EXT.
+	     GL_TEXTURE_4D_SGIS.
+
+     pname   Specifies the symbolic name of a single-valued texture parameter.
+	     pname can be one of the following:	 GL_TEXTURE_MIN_FILTER,
+	     GL_TEXTURE_MAG_FILTER, GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T,
+	     GL_TEXTURE_WRAP_R_EXT, GL_TEXTURE_WRAP_Q_SGIS,
+	     GL_DETAIL_TEXTURE_LEVEL_SGIS, GL_DETAIL_TEXTURE_MODE_SGIS,
+	     GL_TEXTURE_PRIORITY_EXT, GL_TEXTURE_BASE_LEVEL_SGIS,
+	     GL_TEXTURE_MAX_LEVEL_SGIS,	GL_TEXTURE_MIN_LOD_SGIS,
+	     GL_TEXTURE_MAX_LOD_SGIS, GL_DUAL_TEXTURE_SELECT_SGIS,
+	     GL_QUAD_TEXTURE_SELECT_SGIS, GL_TEXTURE_CLIPMAP_FRAME_SGIX,
+	     GL_TEXTURE_COMPARE_SGIX, GL_TEXTURE_COMPARE_OPERATOR_SGIX,	or
+	     GL_SHADOW_AMBIENT_SGIX.
+
+     param   Specifies the value of pname.
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glTexParameterfv( GLenum target,
+			    GLenum pname,
+			    const GLfloat *params )
+     void glTexParameteriv( GLenum target,
+			    GLenum pname,
+			    const GLint	*params	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target
+	  Specifies the	target texture,	which must be either GL_TEXTURE_1D,
+	  GL_TEXTURE_2D, GL_DETAIL_TEXTURE_2D_SGIS, or GL_TEXTURE_3D_EXT.
+	  GL_TEXTURE_4D_SGIS.
+
+     pname
+	  Specifies the	symbolic name of a texture parameter.  pname can be
+	  one of the following:	 GL_TEXTURE_MIN_FILTER,	GL_TEXTURE_MAG_FILTER,
+	  GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T,	GL_TEXTURE_WRAP_R_EXT,
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+	  GL_TEXTURE_WRAP_Q_SGIS, GL_DETAIL_TEXTURE_LEVEL_SGIS,
+	  GL_DETAIL_TEXTURE_MODE_SGIS, GL_POST_TEXTURE_FILTER_BIAS_SGIX,
+	  GL_POST_TEXTURE_FILTER_SCALE_SGIX, GL_TEXTURE_BORDER_COLOR,
+	  GL_TEXTURE_PRIORITY_EXT, GL_TEXTURE_BASE_LEVEL_SGIS,
+	  GL_TEXTURE_MAX_LEVEL_SGIS, GL_TEXTURE_MIN_LOD_SGIS,
+	  GL_TEXTURE_MAX_LOD_SGIS, GL_DUAL_TEXTURE_SELECT_SGIS,
+	  GL_QUAD_TEXTURE_SELECT_SGIS, GL_TEXTURE_CLIPMAP_FRAME_SGIX,
+	  GL_TEXTURE_CLIPMAP_CENTER_SGIX, GL_TEXTURE_CLIPMAP_OFFSET_SGIX,
+	  GL_TEXTURE_COMPARE_SGIX, GL_TEXTURE_COMPARE_OPERATOR_SGIX, or
+	  GL_SHADOW_AMBIENT_SGIX.
+
+     params
+	  Specifies a pointer to an array where	the value or values of pname
+	  are stored.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Texture mapping is	a technique that applies an image onto an object's
+     surface as	if the image were a decal or cellophane	shrink-wrap. The image
+     is	created	in texture space, with an (s, t, r) coordinate system. A
+     texture is	a one-,	two-, or three-dimensional image and a set of
+     parameters	that determine how samples are derived from the	image.
+
+     glTexParameter assigns the	value in param (or values in params) to	the
+     texture parameter specified by pname. target defines the target texture:
+     GL_TEXTURE_1D, GL_TEXTURE_2D, GL_DETAIL_TEXTURE_2D_SGIS, or
+     GL_TEXTURE_3D_EXT.	 The following symbols are accepted in pname:
+
+     GL_TEXTURE_MIN_FILTER
+	       The texture minifying function is used whenever the pixel being
+	       textured	maps to	an area	greater	than one texture element.
+	       There are eight defined minifying functions.  Two of them use
+	       the nearest one or nearest four texture elements	to compute the
+	       texture value. Four use mipmaps,	and one	uses a mipmap variant
+	       called a	clipmap.  One uses an application-specified filter
+	       that combines four adjacent texture elements (in	the 1D case)
+	       or sixteen adjacent texture elements (in	the 2D case).
+
+	       A mipmap	is an ordered set of arrays representing the same
+	       image at	progressively lower resolutions. If the	texture	has
+	       dimensions 2**n x 2**m there are	max(n,m)+1 mipmaps. The	first
+	       mipmap is the original texture, with dimensions 2**n x 2**m.
+	       Each subsequent mipmap has dimensions 2**(k-1) x	2**(l-1) where
+	       2**k x 2**l are the dimensions of the previous mipmap, until
+	       either k=0 or l=0.  At that point, subsequent mipmaps have
+	       dimension 1 x 2**(l-1) or 2**(k-1) x 1 until the	final mipmap,
+	       which has dimension 1 x 1. Mipmaps are defined using
+	       glTexImage1D, glTexImage2D or glTexImage3DEXT with the level-
+	       of-detail argument indicating the order of the mipmaps.	Level
+	       0 is the	original texture; level	max(n,m) is the	final 1	x 1
+	       mipmap.
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+	       A clipmap virtualizes a 2D mipmap by storing and	using only a
+	       portion of a full mipmap	``pyramid'' at any given time.	In a
+	       clipmap with N+1	levels numbered	0 (the base) through N (the
+	       tip), each image	level from B through N contains	the full image
+	       from the	corresponding level of the complete mipmap.  Each
+	       image level from	0 through B-1 contains a subimage of the
+	       corresponding level of the complete mipmap, called the region
+	       of interest.  The region	of interest must be the	same size in
+	       all the levels 0	through	B-1 - that is, precisely the same size
+	       as the texture image at mipmap level B.	For the	clipmap	to be
+	       usable, only the	region of interest need	reside in texture
+	       memory.	When texture filtering requires	texels (texture
+	       elements) that are inside the region of interest	for a level,
+	       they are	fetched	in just	the way	they would be accessed for a
+	       mipmap.	When the required texels fall outside the region of
+	       interest, then successively higher clipmap levels are queried
+	       until one is found that contains	texels at the appropriate
+	       coordinates.
+
+	       Since each 2D mipmap level usually contains four	times as many
+	       texels as the subsequent	level, using a clipmap for a few of
+	       the highest-resolution levels can reduce	texture	memory
+	       requirements tremendously.  In addition to reducing memory
+	       requirements, clipmaps also have	features that support paging
+	       texture images into and out of texture memory.  (See below for
+	       more information.)  Note	that clipmaps may be used only with
+	       borderless 2D textures.
+
+	       param supplies a	function for minifying the texture as one of
+	       the following:
+
+	       GL_NEAREST
+			 Returns the value of the texture element that is
+			 nearest (in Manhattan distance) to the	center of the
+			 pixel being textured.
+
+	       GL_LINEAR Returns the weighted average of the two, four,	or
+			 eight texture elements	that are closest to the	center
+			 of the	pixel being textured.  These can include
+			 border	texture	elements, depending on the values of
+			 GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and
+			 GL_TEXTURE_WRAP_R_EXT,	and on the exact mapping.
+
+	       GL_NEAREST_MIPMAP_NEAREST
+			 Chooses the mipmap that most closely matches the size
+			 of the	pixel being textured and uses the GL_NEAREST
+			 criterion (the	texture	element	nearest	to the center
+			 of the	pixel) to produce a texture value.
+
+	       GL_LINEAR_MIPMAP_NEAREST
+			 Chooses the mipmap that most closely matches the size
+			 of the	pixel being textured and uses the GL_LINEAR
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+			 criterion (a weighted average of the four texture
+			 elements that are closest to the center of the	pixel)
+			 to produce a texture value.
+
+	       GL_NEAREST_MIPMAP_LINEAR
+			 Chooses the two mipmaps that most closely match the
+			 size of the pixel being textured and uses the
+			 GL_NEAREST criterion (the texture element nearest to
+			 the center of the pixel) to produce a texture value
+			 from each mipmap. The final texture value is a
+			 weighted average of those two values.
+
+	       GL_LINEAR_MIPMAP_LINEAR
+			 Chooses the two mipmaps that most closely match the
+			 size of the pixel being textured and uses the
+			 GL_LINEAR criterion (a	weighted average of the	four
+			 texture elements that are closest to the center of
+			 the pixel) to produce a texture value from each
+			 mipmap.  The final texture value is a weighted
+			 average of those two values.
+
+	       GL_PIXEL_TEX_GEN_Q_CEILING_SGIX
+
+	       GL_PIXEL_TEX_GEN_Q_FLOOR_SGIX
+
+	       GL_PIXEL_TEX_GEN_Q_ROUND_SGIX
+			 The SGIX_impact_pixel_texture extension allows	the
+			 glPixelTexGenSGIX command to utilize a	4D texture
+			 when there is no hardware support for linear
+			 interpolation in the q	coordinate. In this case the
+			 application may get the desired result	from a two-
+			 pass operation; on the	first pass the filter function
+			 is set	to ceiling with	alpha-blending disabled,
+			 followed by a second pass set to floor	with the
+			 appropriate blendfunction set.	If a nearest-neighbor
+			 mode is acceptable, a one-pass	method can be used
+			 with the filter set to	round (the default).
+
+			 Additional information	about 4D pixel-texturing can
+			 be found man pages for	glPixelTexGenSGIX.
+
+
+	       GL_FILTER4_SGIS
+			 Returns a weighted average of the four	texture
+			 elements (in the 1D case) or the sixteen texture
+			 elements (in the 2D case) that	are closest to the
+			 center	of the pixel being textured.  These can
+			 include border	texture	elements, although the
+			 behavior in such cases	is rarely useful.  The weights
+			 are derived from a filter kernel specified by the
+			 user; see glTexFilterFuncSGIS for details.  Note that
+			 this mode is not supported for	3D textures.
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+	       GL_LINEAR_CLIPMAP_LINEAR_SGIX
+			 Similar to GL_LINEAR_MIPMAP_LINEAR, but used only
+			 with clipmaps.	 This method may be used with any
+			 magnification filter except GL_FILTER4_SGIS; however,
+			 detail	and sharpen filtering are performed only when
+			 texels	are supplied by	the level 0 image of the
+			 clipmap.
+
+	       As more texture elements	are sampled in the minification
+	       process,	fewer aliasing artifacts will be apparent. While the
+	       GL_NEAREST and GL_LINEAR	minification functions can be faster
+	       than the	four mipmap filtering modes, they sample only one,
+	       four, or	eight texture elements to determine the	texture	value
+	       of the pixel being rendered and can produce moire patterns or
+	       ragged transitions. The default value of	GL_TEXTURE_MIN_FILTER
+	       is GL_NEAREST_MIPMAP_LINEAR.
+
+     GL_TEXTURE_MAG_FILTER
+	       The texture magnification function is used when the pixel being
+	       textured	maps to	an area	less than or equal to one texture
+	       element.	 It sets the texture magnification function to any of
+	       the following:
+
+	       GL_NEAREST
+			 Returns the value of the texture element that is
+			 nearest (in Manhattan distance) to the	center of the
+			 pixel being textured.
+
+	       GL_LINEAR Returns the weighted average of the two, four,	or
+			 eight texture elements	that are closest to the	center
+			 of the	pixel being textured.  These can include
+			 border	texture	elements, depending on the values of
+			 GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T, and
+			 GL_TEXTURE_WRAP_R_EXT,	and on the exact mapping.
+
+	       GL_LINEAR_DETAIL_SGIS
+			 Returns a weighted average of samples from the
+			 current 2D texture and	from the current 2D detail
+			 texture, for all four color components.
+
+	       GL_LINEAR_DETAIL_ALPHA_SGIS
+			 Returns a weighted average of samples from the
+			 current 2D texture and	from the current 2D detail
+			 texture for the alpha color component;	the other
+			 three color components	are returned as	for GL_LINEAR.
+
+	       GL_LINEAR_DETAIL_COLOR_SGIS
+			 Returns a weighted average of samples from the
+			 current 2D texture and	from the current 2D detail
+			 texture for the red, green, and blue color
+			 components; the alpha color component is returned as
+			 for GL_LINEAR.
+
+
+
+									Page 5
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+	       GL_LINEAR_SHARPEN_SGIS
+			 Returns an extrapolation derived from level zero and
+			 level one texture image samples.  This	is similar to
+			 GL_LINEAR filtering, but with less blurring.
+
+	       GL_LINEAR_SHARPEN_ALPHA_SGIS
+			 Returns a sharpened extrapolated value	for the	alpha
+			 color component.  All other color components are
+			 returned as for GL_LINEAR.
+
+	       GL_LINEAR_SHARPEN_COLOR_SGIS
+			 Returns sharpened extrapolated	values for the red,
+			 green,	and blue color components.  The	alpha
+			 component is returned as for GL_LINEAR.
+
+	       GL_PIXEL_TEX_GEN_Q_CEILING_SGIX
+
+	       GL_PIXEL_TEX_GEN_Q_FLOOR_SGIX
+
+	       GL_PIXEL_TEX_GEN_Q_ROUND_SGIX
+			 The SGIX_impact_pixel_texture extension allows	the
+			 glPixelTexGenSGIX command to utilize a	4D texture
+			 when there is no hardware support for linear
+			 interpolation in the q	coordinate. In this case the
+			 application may get the desired result	from a two-
+			 pass operation; on the	first pass the filter function
+			 is set	to ceiling with	alpha-blending disabled,
+			 followed by a second pass set to floor	with the
+			 appropriate blendfunction set.	If a nearest-neighbor
+			 mode is acceptable, a one-pass	method can be used
+			 with the filter set to	round (the default).
+
+			 Additional information	about 4D pixel-texturing can
+			 be found man pages for	glPixelTexGenSGIX.
+
+
+	       GL_FILTER4_SGIS
+			 As with minification, returns a weighted average of
+			 the four texture elements (in the 1D case) or the
+			 sixteen texture elements (in the 2D case) that	are
+			 closest to the	center of the pixel being textured.
+			 These can include border texture elements, although
+			 the behavior in such cases is rarely useful.  The
+			 weights are derived from a filter kernel specified by
+			 the user; see glTexFilterFuncSGIS.  Note that this
+			 mode is not supported for 3D textures.
+
+
+	       GL_NEAREST is generally faster than GL_LINEAR, but it can
+	       produce textured	images with sharper edges because the
+	       transition between texture elements is not as smooth. The
+	       default value of	GL_TEXTURE_MAG_FILTER is GL_LINEAR.
+
+
+
+									Page 6
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+	       See glDetailTexFuncSGIS for more	explanation of the detail
+	       texture magnification filters, and glSharpenTexFuncSGIS for
+	       more explanation	of the sharpen texture magnification filters.
+
+
+     GL_TEXTURE_WRAP_S
+	       Sets the	wrap parameter for texture coordinate s	to GL_CLAMP,
+	       GL_REPEAT, GL_CLAMP_TO_BORDER_SGIS, or GL_CLAMP_TO_EDGE_SGIS.
+	       GL_CLAMP	causes s coordinates to	be clamped to the range	[0,1]
+	       and is useful for preventing wrapping artifacts when mapping a
+	       single image onto an object. GL_REPEAT causes the integer part
+	       of the s	coordinate to be ignored; the GL uses only the
+	       fractional part,	thereby	creating a repeating pattern.
+	       GL_CLAMP_TO_BORDER_SGIS is similar to GL_CLAMP, but the s
+	       coordinate range	is adjusted slightly to	ensure that the
+	       texture border is fully accessed.  GL_CLAMP_TO_EDGE_SGIS	is
+	       also similar to GL_CLAMP, but the s coordinate range is
+	       adjusted	slightly to ensure that	the texture border is never
+	       accessed.  Border texture elements are accessed only if
+	       wrapping	is set to GL_CLAMP.  Initially,	GL_TEXTURE_WRAP_S is
+	       set to GL_REPEAT.
+
+
+     GL_TEXTURE_WRAP_T
+	       Sets the	wrap parameter for texture coordinate t	to GL_CLAMP,
+	       GL_REPEAT, GL_CLAMP_TO_BORDER_SGIS, or GL_CLAMP_TO_EDGE_SGIS.
+	       See the discussion under	GL_TEXTURE_WRAP_S. Initially,
+	       GL_TEXTURE_WRAP_T is set	to GL_REPEAT.
+
+     GL_TEXTURE_WRAP_R_EXT
+	       Sets the	wrap parameter for texture coordinate r	to GL_CLAMP,
+	       GL_REPEAT, or GL_CLAMP_TO_EDGE_SGIS.  See the discussion	under
+	       GL_TEXTURE_WRAP_S. Initially, GL_TEXTURE_WRAP_R_EXT is set to
+	       GL_REPEAT.
+
+     GL_TEXTURE_BORDER_COLOR
+	       Sets a border color.  params contains four values that comprise
+	       the RGBA	color of the texture border. Integer color components
+	       are interpreted linearly	such that the most positive integer
+	       maps to 1.0, and	the most negative integer maps to -1.0.	 The
+	       values are clamped to the range [0,1] when they are specified.
+	       Initially, the border color is (0, 0, 0,	0).
+
+     GL_DETAIL_TEXTURE_LEVEL_SGIS
+	       Specifies the level of the detail texture image.	 Must be
+	       negative.  See glDetailTexFuncSGIS for more information.
+
+     GL_DETAIL_TEXTURE_MODE_SGIS
+	       Specifies the detail texture mode.  The permissible values are
+	       GL_ADD and GL_MODULATE.	See glDetailTexFuncSGIS	for more
+	       information.
+
+
+
+
+									Page 7
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+     GL_POST_TEXTURE_FILTER_BIAS_SGIX
+	       Specifies the bias values for the texture. params contains four
+	       values that comprise the	R, G, B, and A bias factors.
+
+	       The scale, bias,	and clamp to [0, 1] operations are applied, in
+	       that order, directly before the texture environment equations,
+	       or, if the SGI_texture_color_table extension exists, directly
+	       before the texture color	lookup table.  See glColorTableSGI for
+	       more information.
+
+     GL_POST_TEXTURE_FILTER_SCALE_SGIX
+	       Specifies the scale values for the texture. params contains
+	       four values that	comprise the R,	G, B, and A scale factors.
+
+	       The scale, bias,	and clamp to [0, 1] operations are applied, in
+	       that order, directly before the texture environment equations,
+	       or, if the SGI_texture_color_table extension exists, directly
+	       before the texture color	lookup table.  See glColorTableSGI for
+	       more information.
+
+     GL_TEXTURE_PRIORITY_EXT
+	       Specifies the texture residence priority.  Permissible values
+	       are in the range	[0.0, 1.0].  See glPrioritizeTexturesEXT for
+	       more information.
+
+     GL_TEXTURE_BASE_LEVEL_SGIS
+
+     GL_TEXTURE_MAX_LEVEL_SGIS
+	       The GL specification describes a	``complete'' set of mipmap
+	       image arrays as array levels 0 through p, where p is a well-
+	       defined function	of the dimensions of the level 0 image
+	       discussed under GL_TEXTURE_MIN_FILTER above.  The level 0 image
+	       is the base level (the highest-resolution image,	with the
+	       largest dimensions), and	the level p image is the maximum level
+	       (the lowest-resolution image, with the smallest dimensions, 1
+	       by 1).  To be used for texturing, all the levels	of the
+	       complete	mipmap set must	be loaded.
+
+	       The SGIS_texture_lod extension allows the base and maximum
+	       levels to be redefined -	the base level may be set to a value
+	       greater than zero, and the maximum level	may be set to a	value
+	       less than p.  This permits a large texture to be	loaded and
+	       used initially at low resolution, and then at higher
+	       resolutions as more data	or texture loading time	becomes
+	       available.  To be used for texturing, only the levels between
+	       the base	and maximum (inclusive)	must be	loaded.	 (Other	levels
+	       may be loaded, but only the levels from base through maximum
+	       will be used.)
+
+	       When pname is GL_TEXTURE_BASE_LEVEL_SGIS, param specifies the
+	       base level of the mipmap	set for	the texture designated by
+	       target.	The default value is zero.
+
+
+
+									Page 8
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+	       When pname is GL_TEXTURE_MAX_LEVEL_SGIS,	param specifies	the
+	       maximum level of	the mipmap set for the texture designated by
+	       target.	The default value is 1000.
+
+     GL_TEXTURE_MIN_LOD_SGIS
+
+     GL_TEXTURE_MAX_LOD_SGIS
+	       When pixel fragments are	being generated	for a textured
+	       primitive, a level-of-detail (LOD) is computed for each
+	       fragment.  The LOD is related to	the number of texels that
+	       contribute to the color of the fragment,	and is used to select
+	       the mipmap levels (see above) that participate in the fragment
+	       color computation.
+
+	       Normally	the LOD	is clamped to a	range determined by the
+	       filtering method	and the	base and maximum mipmap	levels.	 When
+	       the application changes the base	or maximum mipmap levels, the
+	       LOD range changes discontinuously, and the texture resolution
+	       in rendered scenes appears to ``pop'' to	a new value rather
+	       than making a smooth transition.	 The SGIS_texture_lod
+	       extension allows	the LOD	to be clamped to an arbitrary user-
+	       defined range instead of	the range implied by the base and
+	       maximum mipmap levels.  Because this clamping can be varied
+	       continuously, the transition to a higher- or lower-resolution
+	       texture can be accomplished smoothly.
+
+	       When pname is GL_TEXTURE_MIN_LOD_SGIS, param specifies the new
+	       minimum LOD value for the texture designated by target.	The
+	       default is -1000.
+
+	       When pname is GL_TEXTURE_MAX_LOD_SGIS, param specifies the new
+	       maximum LOD value for the texture designated by target.	The
+	       default is 1000.
+
+     GL_DUAL_TEXTURE_SELECT_SGIS
+
+     GL_QUAD_TEXTURE_SELECT_SGIS
+	       On some Silicon Graphics	machines with hardware texturing,
+	       texel sizes must	be a multiple of 16 bits.  Most	texture
+	       internal	formats	simply occupy a	multiple of 16 bits that is at
+	       least as	large as the format requested by the application,
+	       leaving the remaining bits of each texel	unused.	 The GL_DUAL_
+	       and GL_QUAD_ texture internal formats allow multiple textures
+	       with small texels to be packed into the space of	a single 16-
+	       bit texture, thus making	full use of texture memory.  For
+	       example,	an 8-bit luminance texture would normally use a	full
+	       16 bits of texture memory for each texel, but if	the
+	       application chooses the GL_DUAL_LUMINANCE8_SGIS internal
+	       format, then two	8-bit luminance	textures can be	packed into
+	       the same	space.
+
+
+
+
+
+									Page 9
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+	       Some Silicon Graphics machines with hardware texturing do not
+	       have the	above texel size restriction, but may benefit from
+	       this extension by loading textures at a faster rate.
+
+	       When such a texture is active, the application must select
+	       which of	the two	packed textures	will be	used for drawing.
+	       param specifies which is	selected.  For GL_DUAL_	texture
+	       storage formats,	param assumes the value	0 or 1.	 For GL_QUAD_
+	       texture storage formats,	param assumes the value	0, 1, 2, or 3.
+	       See glTexImage1D, glTexImage2D or glTexImage3DEXT for
+	       information about loading dual and quad textures.
+
+     GL_TEXTURE_CLIPMAP_CENTER_SGIX
+	       A clipmap's region of interest is determined by some aspect of
+	       the application;	for example, it	may be derived from an
+	       observer's position in a	terrain	map.  The application defines
+	       the center of the region	of interest by executing
+	       glTexParameter with pname set to	GL_TEXTURE_CLIPMAP_CENTER_SGIX
+	       and params pointing to an array with two	elements.  The first
+	       element is the s	coordinate of the center of the	region of
+	       interest	in the level 0 texture image, and the second element
+	       is the t	coordinate of the center.  (Note that the position
+	       (s_center,t_center) at level 0 corresponds to the position
+	       (s_center/2,t_center/2) at level	1, and so on as	the level
+	       number increases.)  The coordinates of the center may be
+	       changed at any time; for	example, as an observer	moves over a
+	       terrain map.
+
+     GL_TEXTURE_CLIPMAP_FRAME_SGIX
+	       As the center of	a clipmap's region of interest changes,	it may
+	       become necessary	to load	new texture image data into levels 0
+	       through B-1 of the clipmap.  This can be	accomplished by
+	       executing glTexSubImage2DEXT for	each of	the levels.  However,
+	       texture memory in addition to that used for the region of
+	       interest	is needed to store the new image data in each level.
+	       This memory can be reserved by executing	glTexParameter with
+	       pname set to GL_TEXTURE_CLIPMAP_FRAME_SGIX and param set	to a
+	       floating-point value in the range [0,1].	 This reserves
+	       param*D_s/2 texels on either side of the	region of interest
+	       along the s coordinate, and param*D_t/2 texels on either	side
+	       of the region of	interest along the t coordinate, where D_s and
+	       D_t are the dimensions of the region of interest	in the s and t
+	       directions, respectively.  This additional memory is best
+	       considered as a ``frame'' around	the region of interest,	where
+	       param specifies the size	of the frame as	a fraction of the size
+	       of the region of	interest.  The frame width may be changed at
+	       any time.
+
+     GL_TEXTURE_CLIPMAP_OFFSET_SGIX
+	       After new texture image data has	been loaded into the frame
+	       around a	clipmap's region of interest, the region of interest
+	       must be offset to incorporate the new data (and release the
+
+
+
+								       Page 10
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+	       memory occupied by old data that's no longer needed).  This is
+	       accomplished by adding offsets to all s and t coordinates used
+	       to access the clipmap.  These offsets may force coordinates to
+	       wrap around, so they have the effect of mapping the texture
+	       image and frame onto a torus.  This behavior is useful for
+	       continuous roaming through very large texture images.  The
+	       offsets are specified by	executing glTexParameter with pname
+	       set to GL_TEXTURE_CLIPMAP_OFFSET_SGIX and params	pointing to an
+	       array with two elements.	 The first element is the offset to be
+	       applied to s coordinates	for the	level 0	image, and the second
+	       element is the offset to	be applied to t	coordinates for	the
+	       level 0 image.  The coordinate offsets may be changed at	any
+	       time.
+
+     GL_TEXTURE_COMPARE_SGIX
+
+     GL_TEXTURE_COMPARE_OPERATOR_SGIX
+	       The SGIX_shadow extension adds a	new stage to the texturing
+	       process.	 Once a	texture	value has been fetched from texture
+	       memory, it may be compared with the iterated texture r
+	       coordinate to determine if an object is in shadow.  The result
+	       of the comparison, rather than the texture value	itself,	is
+	       sent to the filtering stage.  If	the test passes, the object is
+	       considered to be	in shadow; the result of the comparison	is 0.
+	       If the test fails, the result is	1.  When used with textures
+	       that consist of depth values (internal format
+	       GL_DEPTH_COMPONENT, for example)	and a properly-chosen texture
+	       matrix, this can	be used	to implement shadows.  The comparison
+	       operation is enabled by executing glTexParameter	with pname set
+	       to GL_TEXTURE_COMPARE_SGIX and param set	to the value GL_TRUE.
+	       (It is disabled by using	the value GL_FALSE.)  The comparison
+	       operation is selected by	executing glTexParameter with pname
+	       set to GL_TEXTURE_COMPARE_OPERATOR_SGIX and param set to	the
+	       value GL_TEXTURE_LEQUAL_R_SGIX or GL_TEXTURE_GEQUAL_R_SGIX.
+	       Note that the texture values are	treated	as though they range
+	       from 0.0	through	1.0, just like depth values, so	the r
+	       coordinates chosen by the application must also fall in that
+	       range.
+
+     GL_SHADOW_AMBIENT_SGIX
+	       The SGIX_shadow_ambient extension modifies the behavior of the
+	       SGIX_shadow extension slightly.	When a texture comparison
+	       implemented by SGIX_shadow passes, SGIX_shadow_ambient causes
+	       the result to be	the shadow ambient value rather	than zero.
+	       Larger shadow ambient values result in lighter shadows.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Linear filtering accesses the four	nearest	texture	elements only in 2D
+     textures.	In 1D textures,	linear filtering accesses the two nearest
+     texture elements.	In 3D textures,	linear filtering accesses the eight
+     nearest texture elements.
+
+
+
+
+								       Page 11
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+     Suppose texturing is enabled (by calling glEnable with argument
+     GL_TEXTURE_1D, GL_TEXTURE_2D, or GL_TEXTURE_3D_EXT) and
+     GL_TEXTURE_MIN_FILTER is set to one of the	functions that requires	a
+     mipmap.  If either	the dimensions of the texture images currently defined
+     (with previous calls to glTexImage1D, glTexImage2D, or glTexImage3DEXT)
+     do	not follow the proper sequence for mipmaps (described above), or there
+     are fewer texture images defined between the base and maximum levels than
+     are needed, or the	set of texture images have differing numbers of
+     texture components, then it is as if texture mapping were disabled.
+
+     A similar consideration applies for clipmaps.  The	only difference	is
+     that levels 0 through B of	the clipmap must have the same dimensions,
+     rather than varying by a factor of	two for	each successive	level.	Note
+     that the parameter	B is never specified explicitly	by the application; it
+     is	inferred from the level	at which the texture image dimensions stop
+     changing.	(Recall	that the dimensions for	each level are provided	as
+     arguments to the glTexImage command.)
+
+     The maximum number	of levels in a clipmap is limited; the limit can be
+     determined	by calling glGet with argument GL_MAX_CLIPMAP_DEPTH_SGIX.
+
+     GL_TEXTURE_MIN_LOD_SGIS, GL_TEXTURE_MAX_LOD_SGIS,
+     GL_TEXTURE_BASE_LEVEL_SGIS, and GL_TEXTURE_MAX_LEVEL_SGIS are part	of the
+     SGIS_texture_lod extension.  GL_FILTER4_SGIS is part of the
+     SGIS_texture_filter4 extension.  GL_TEXTURE_PRIORITY_EXT is part of the
+     EXT_texture_object	extension.  GL_POST_TEXTURE_FILTER_BIAS_SGIX and
+     GL_POST_TEXTURE_FILTER_SCALE_SGIX are part	of the SGIX_texture_scale_bias
+     extension.	GL_DUAL_TEXTURE_SELECT_SGIS and	GL_QUAD_TEXTURE_SELECT_SGIS
+     are part of the SGIS_texture_select extension.
+     GL_TEXTURE_CLIPMAP_FRAME_SGIX, GL_TEXTURE_CLIPMAP_CENTER_SGIX, and
+     GL_TEXTURE_CLIPMAP_OFFSET_SGIX are	part of	the SGIX_clipmap extension.
+     GL_CLAMP_TO_EDGE_SGIS is part of the SGIS_texture_edge_clamp extension.
+     GL_CLAMP_TO_BORDER_SGIS is	part of	the SGIS_texture_border_clamp
+     extension.	 GL_TEXTURE_COMPARE_SGIX and GL_TEXTURE_COMPARE_OPERATOR_SGIX
+     are part of the SGIX_shadow extension.  GL_SHADOW_AMBIENT_SGIX is part of
+     the SGIX_shadow_ambient extension.	 GL_PIXEL_TEX_GEN_Q_CEILING_SGIX,
+     GL_PIXEL_TEX_GEN_Q_FLOOR_SGIX, and	GL_PIXEL_TEX_GEN_Q_ROUND_SGIX are part
+     of	the SGIX_impact_pixel_texture extension.  See glIntro for more
+     information about using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated when target or pname is not one of the
+     accepted defined values, or when param should have	a defined constant
+     value (based on the value of pname) and does not.
+
+     GL_INVALID_VALUE is generated if an attempt is made to set
+     GL_TEXTURE_BASE_LEVEL_SGIS	or GL_TEXTURE_MAX_LEVEL_SGIS to	a negative
+     value.
+
+     GL_INVALID_VALUE is generated if pname is GL_TEXTURE_CLIPMAP_CENTER_SGIX
+     and either	of the two values specified by params is negative.
+
+
+
+
+								       Page 12
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+     GL_INVALID_VALUE is generated if pname is GL_TEXTURE_CLIPMAP_OFFSET_SGIX
+     and either	of the two values specified by params is negative.
+
+     GL_INVALID_OPERATION is generated if glTexParameter is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetIntegerv with	argument GL_MAX_CLIPMAP_DEPTH_SGIX
+     glGetTexParameter
+     glGetTexLevelParameter
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIX_clipmap extension	is supported only on InfiniteReality systems.
+     The following restrictions	apply:
+
+	  1.  For best performance, the	``breakpoint'' clipmap level (B) must
+	      be loaded	before any other level.	 The implementation derives
+	      the size of the clipmap from the size of this level, so loading
+	      this level first permits efficient allocation of texture memory.
+
+	  2.  Clipmaps must be square.
+
+	  3.  GL_TEXTURE_WRAP_S	and GL_TEXTURE_WRAP_T must be set to
+	      GL_CLAMP_TO_EDGE_SGIS.
+
+	  4.  It is more efficient to set clipmap attributes that affect
+	      texture memory allocation	(such as
+	      GL_TEXTURE_CLIPMAP_FRAME_SGIX) before loading the	first level of
+	      the clipmap, rather than after loading it.
+
+     On	RealityEngine, RealityEngine2, and VTX systems
+     GL_DETAIL_TEXTURE_LEVEL_SGIS must be less than or equal to	4.
+
+     On	High Impact and	Maximum	Impact systems,	the following restrictions
+     apply to detail texturing:
+
+	  1.  When specifying GL_TEXTURE_MAG_FILTER, the only mode supported
+	      is GL_LINEAR_DETAIL_SGIS.
+
+	  2.  When specifying GL_DETAIL_TEXTURE_MODE_SGIS, the only mode
+	      supported	is GL_ADD.
+
+	  3.  When specifying GL_DETAIL_TEXTURE_LEVEL_SGIS, any	values outside
+	      of the range [-2..-6] will be clamped to the limits of that
+	      range.
+
+     The SGIX_shadow extension is supported only on InfiniteReality systems.
+
+     The SGIX_shadow_ambient extension is supported only on InfiniteReality
+     systems.
+
+
+
+
+								       Page 13
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexParameter(3G)	       OpenGL Reference		    glTexParameter(3G)
+</FONT>
+
+
+     The SGIS_texture_lod extension is supported High Impact and Maximum
+     Impact systems; however, setting the GL_TEXTURE_MAX_LOD_SGIS will have no
+     effect.
+
+     GL_CLAMP_TO_BORDER_SGIS is	supported only on High Impact and Maximum
+     Impact systems.
+
+     GL_CLAMP_TO_EDGE_SGIS is supported	only on	InfiniteReality	systems.
+
+     Texture borders are not supported on InfiniteReality systems, so the
+     border width should always	be zero.  Borders will be supported in future
+     releases.	However, borders use texture memory very inefficiently;	up to
+     four times	the memory required by the base	texture	may be needed to
+     support borders properly.	Whenever possible, applications	should use the
+     texture wrap mode GL_CLAMP_TO_EDGE_SGIS and borderless textures.  This
+     might be essential	for large textures, which otherwise won't fit in
+     texture memory because of the border overhead.
+
+     On	InfiniteReality	systems, if the	post-texture filter scale and bias
+     values are	set to values other than the defaults, they are	limited	to the
+     range [0.0, 1.0).	(note: this range excludes 1.0.)  The
+     SGIX_texture_scale_bias extension is not supported	on RealityEngine,
+     RealityEngine2, and VTX systems or	on High	Impact and Maximum Impact
+     systems.
+
+     The SGIS_texture_select extension is supported only on InfiniteReality
+     systems and on High Impact	and Maximum Impact systems with	the TRAM
+     option card.
+
+     The SGIS_texture_filter4 extension	is supported only on InfiniteReality
+     systems.
+
+     On	InfiniteReality	systems, GL_INVALID_VALUE is generated if the value of
+     the argument n to the command glTexFilterFuncSGIS does not	equal the
+     value of the implementation dependent constant Size, which	can be
+     determined	by calling glGetTexParameter with argument
+     GL_TEXTURE_FILTER4_SIZE_SGIS.  This restriction will be removed in	a
+     future release.
+
+     There is a	known problem with shadow textures and texture binding on
+     InfiniteReality systems.  After using a shadow texture, applications
+     should disable shadowing (by calling glTexParameter with argument
+     GL_TEXTURE_COMPARE_SGIX and value GL_FALSE) before	binding	any other
+     texture.  This will be fixed in the next release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDetailTexFuncSGIS, glIntro, glSharpenTexFuncSGIS,
+     glPrioritizeTexturesEXT, glTexEnv,	glTexFilterFuncSGIS, glTexImage1D,
+     glTexImage2D, glTexImage3DEXT, glTexGen.  glPixelTexGen.
+
+
+
+
+
+								       Page 14
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glscale Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glscale</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glScale(3G)		       OpenGL Reference			   glScale(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glScaled, glScalef	- multiply the current matrix by a general scaling
+     matrix
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glScaled( GLdouble x,
+		    GLdouble y,
+		    GLdouble z )
+     void glScalef( GLfloat x,
+		    GLfloat y,
+		    GLfloat z )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     x,	y, z
+	    Specify scale factors along	the x, y, and z	axes, respectively.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glScale produces a	general	scaling	along the x, y,	and z axes.  The three
+     arguments indicate	the desired scale factors along	each of	the three
+     axes.  The	resulting matrix is
+
+				( x    0   0   0  )
+				|		  |
+				|  0  y	   0   0  |
+				|  0   0  z    0  |
+				|		  |
+				(  0   0   0   1  )
+
+     The current matrix	(see glMatrixMode) is multiplied by this scale matrix,
+     with the product replacing	the current matrix.  That is, if M is the
+     current matrix and	S is the scale matrix, then M is replaced with M o S.
+
+     If	the matrix mode	is either GL_MODELVIEW or GL_PROJECTION, all objects
+     drawn after glScale is called are scaled.	Use glPushMatrix and
+     glPopMatrix to save and restore the unscaled coordinate system.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	scale factors other than 1.0 are applied to the	modelview matrix and
+     lighting is enabled, automatic normalization of normals should probably
+     also be enabled (glEnable and glDisable with argument GL_NORMALIZE).
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glScale is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_MATRIX_MODE
+     glGet with	argument GL_MODELVIEW_MATRIX
+     glGet with	argument GL_PROJECTION_MATRIX
+     glGet with	argument GL_TEXTURE_MATRIX
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glScale(3G)		       OpenGL Reference			   glScale(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glMatrixMode, glMultMatrix, glPushMatrix, glRotate, glTranslate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

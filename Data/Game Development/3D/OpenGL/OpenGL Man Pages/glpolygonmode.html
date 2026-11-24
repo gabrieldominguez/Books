@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glpolygonmode Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glpolygonmode</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glPolygonMode(3G)	       OpenGL Reference		     glPolygonMode(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glPolygonMode - select a polygon rasterization mode
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPolygonMode( GLenum	face,
+			 GLenum	mode )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     face  Specifies the polygons that mode applies to.	 Must be GL_FRONT for
+	   front-facing	polygons, GL_BACK for back-facing polygons, or
+	   GL_FRONT_AND_BACK for front-	and back-facing	polygons.
+
+     mode  Specifies the way polygons will be rasterized.  Accepted values are
+	   GL_POINT, GL_LINE, and GL_FILL.  The	default	is GL_FILL for both
+	   front- and back-facing polygons.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glPolygonMode controls the	interpretation of polygons for rasterization.
+     face describes which polygons mode	applies	to:  front-facing polygons
+     (GL_FRONT), back-facing polygons (GL_BACK), or both (GL_FRONT_AND_BACK).
+     The polygon mode affects only the final rasterization of polygons.	 In
+     particular, a polygon's vertices are lit and the polygon is clipped and
+     possibly culled before these modes	are applied.
+
+     Three modes are defined and can be	specified in mode:
+
+     GL_POINT	   Polygon vertices that are marked as the start of a boundary
+		   edge	are drawn as points.  Point attributes such as
+		   GL_POINT_SIZE and GL_POINT_SMOOTH control the rasterization
+		   of the points.  Polygon rasterization attributes other than
+		   GL_POLYGON_MODE have	no effect.
+
+     GL_LINE	   Boundary edges of the polygon are drawn as line segments.
+		   They	are treated as connected line segments for line
+		   stippling; the line stipple counter and pattern are not
+		   reset between segments (see glLineStipple).	Line
+		   attributes such as GL_LINE_WIDTH and	GL_LINE_SMOOTH control
+		   the rasterization of	the lines.  Polygon rasterization
+		   attributes other than GL_POLYGON_MODE have no effect.
+
+     GL_FILL	   The interior	of the polygon is filled.  Polygon attributes
+		   such	as GL_POLYGON_STIPPLE and GL_POLYGON_SMOOTH control
+		   the rasterization of	the polygon.
+
+<FONT COLOR="#0000CC">EXAMPLES
+</FONT>     To	draw a surface with filled back-facing polygons	and outlined front-
+     facing polygons, call
+
+	  glPolygonMode(GL_FRONT, GL_LINE);
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPolygonMode(3G)	       OpenGL Reference		     glPolygonMode(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Vertices are marked as boundary or	nonboundary with an edge flag.	Edge
+     flags are generated internally by the GL when it decomposes polygons, and
+     they can be set explicitly	using glEdgeFlag.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if either face or mode is not	an accepted
+     value.
+
+     GL_INVALID_OPERATION is generated if glPolygonMode	is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_POLYGON_MODE
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBegin, glEdgeFlag, glLineStipple, glLineWidth, glPointSize,
+     glPolygonStipple
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

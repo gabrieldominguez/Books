@@ -1,0 +1,2176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0063)http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp -->
+<HTML><HEAD><TITLE>Simple Ray Tracing in C# Part II (Triangles intersection) - The Code Project - C# Programming</TITLE>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META http-equiv=Content-Type content="text/html; charset=ISO-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META content="Simple Ray Tracing in C# Part II (Triangles intersection)" 
+name=Description>
+<META content=kbArticle name=Search.TopicType>
+<META content=andalmeida name=Author>
+<META content="28 Jul 2007 14:00:00 GMT" name=Search.PublishDate>
+<META content="04 Aug 2007 14:00:00 GMT" name=Search.RevisedDate>
+<META content="Free source code, , Visual C++, MFC, Windows, Article" 
+name=keywords>
+<META 
+content="Article content copyright andalmeida, 2007, everthing else Copyright © CodeProject, 1999-2007, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Lounge Postings" 
+href="http://www.codeproject.com/webservices/LoungeRSS.aspx" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - VB.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6" 
+type=application/rss+xml rel=alternate><LINK title="The Code Project" 
+href="http://www.codeproject.com/info/OpenSearch.xml" 
+type=application/opensearchdescription+xml rel=search><LINK href="/favicon.ico" 
+type=image/ico rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="2 - Triangles intersection_archivos/global.css" type=text/css 
+rel=stylesheet>
+<SCRIPT language=javascript 
+src="2 - Triangles intersection_archivos/oncopy.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+if (top != self) top.location.href = location.href;
+if (typeof(DemoUrl) != "undefined")
+	document.write('<me' + 'ta http' + '-equiv="re' + 'fresh" con' + 'tent="1;url=' + DemoUrl + '">');
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR></HEAD>
+<BODY style="MARGIN: 0px" oncopy="return copyCode();" text=black vLink=navy 
+aLink=red link=blue bgColor=white>
+<SCRIPT src="2 - Triangles intersection_archivos/urchin.js" 
+type=text/javascript>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+_uacct = "UA-1735123-1";
+urchinTracker();
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=HeaderLogo><A href="http://www.codeproject.com/"><IMG height=90 
+      alt=Home src="2 - Triangles intersection_archivos/codeproject225x90.gif" 
+      border=0></A></TD>
+    <TD class=HeaderBanner><SPAN id=AdBanner4>
+      <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3760&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FWholeTomato%5FAutoSuggest%5F728x90%2Egif&C=False&id=3760&cb=4828130\" alt=\"The intellisense upgrade for Visual Studio .NET - make your IDE as smart as you.\" border=0 width=728 height=90></a>");</SCRIPT>
+      </SPAN></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=MemberNavBar cellSpacing=0 cellPadding=5 width="100%" 
+      border=0>
+        <TBODY>
+        <TR vAlign=center>
+          <TD class=smallText style="FONT-WEIGHT: bold">4,477,041 members and 
+            growing! &nbsp; 9,754 now online. </TD>
+          <TD class=userNavText align=right><A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?id=512155">Gabriel 
+            Dominguez </A>| <A 
+            href="http://www.codeproject.com/script/profile/modify.asp?ct=/csharp/Simple_Ray_Tracing_in_C_2.asp"><B>My 
+            Settings</B></A> | <A 
+            href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+            Bookmarks</A> | <A 
+            href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+            Articles</A> | <A 
+            href="http://www.codeproject.com/script/profile/logoff.asp?ct=/csharp/Simple_Ray_Tracing_in_C_2.asp">Sign 
+            out</A> </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=SiteNavBar id=tblSiteToolbar cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD><A href="http://www.codeproject.com/">Home</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=2">MFC/C++</A></TD>
+          <TD><A href="http://www.codeproject.com/index.asp?cat=3">C#</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=4">ASP.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=6">VB.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=8">Architect</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=9">SQL</A></TD>
+          <TD class=SelCat noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=1">All Topics</A></TD>
+          <TD width="100%">&nbsp;</TD>
+          <TD>
+            <DIV id=MenuPos 
+            style="WIDTH: 300px; POSITION: relative; TOP: 1px; HEIGHT: 22px">
+            <TABLE id=MPH 
+            style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 20px; BORDER-RIGHT-WIDTH: 0px" 
+            cellSpacing=0 cellPadding=0 width=300>
+              <TBODY>
+              <TR vAlign=center>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                  Boards</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+      <SCRIPT src="2 - Triangles intersection_archivos/cpmenu_var.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT src="2 - Triangles intersection_archivos/menu10_com.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT type=text/javascript>
+var MPH = document.getElementById("MPH");
+if (MPH) MPH.style.display='none';
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=ArticleHeader cellSpacing=0 cellPadding=3 width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText style="PADDING-RIGHT: 10px"><A 
+            href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+            href="http://www.codeproject.com/?cat=3">C#</A>, <A 
+            href="http://www.codeproject.com/?cat=5">.NET</A> &gt;&gt; <A 
+            href="http://www.codeproject.com/csharp/">C# Programming</A> 
+            &gt;&gt; <A 
+            href="http://www.codeproject.com/csharp/#Graphics">Graphics</A><BR><BR>
+            <DIV style="FONT-WEIGHT: bold; FONT-SIZE: 16pt">Simple Ray Tracing 
+            in C# Part II (Triangles intersection)</DIV><B>By <A 
+            href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=3589667">andalmeida</A></B>. 
+            <BR><BR>
+            <DIV style="FONT-SIZE: 12px">Simple Ray Tracing in C# Part II 
+            (Triangles intersection)</DIV></TD>
+          <TD class=smallText style="WIDTH: 200px">C# (C# 2.0)<BR>Windows, 
+            .NET (.NET 2.0)<BR>Win32, VS (VS2005)<BR>Dev<BR><SPAN 
+            style="PADDING-RIGHT: 2ex">Posted</SPAN>: <B>29 Jul 
+            2007</B><BR><SPAN style="PADDING-RIGHT: 0.3ex">Updated</SPAN>: <B>5 
+            Aug 2007 </B><BR><SPAN style="PADDING-RIGHT: 3ex">Views</SPAN>: 
+            <B>7,267</B> </TD></TR></TD></TR></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=LHNavBar rowSpan=2><!-- Yes, there are IE hacks that will allow us to create a min-width DIV 
+	     (eg http://www.webreference.com/programming/min-width/) but I couldn't
+	     be arsed. Wait for it in v2.0 -->
+            <DIV class=FeatureBlockHeader>Announcements</DIV>
+            <DIV class="FeatureBlockContent RHFeatureBar">
+            <DIV style="PADDING-TOP: 5px"><IMG 
+            style="PADDING-RIGHT: 10px; FLOAT: left; MARGIN-LEFT: 5px; MARGIN-RIGHT: 10px" 
+            height=20 alt=Comp 
+            src="2 - Triangles intersection_archivos/prize_winner_sm.gif" 
+            width=10><A 
+            href="http://www.codeproject.com/script/competitions/monthly/">Monthly 
+            Competition</A></DIV></DIV>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=4034&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2Finnerworkings%5F160x600%2Egif&C=False&id=4034&cb=4828138\" alt=\"\" border=0 width=160 height=600></a>");</SCRIPT>
+            </CENTER><BR><BR><IMG height=1 
+            src="2 - Triangles intersection_archivos/t.gif" width=160> </TD>
+          <TD width="100%">
+            <TABLE class=SearchHeaderBar cellSpacing=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=center noWrap align=right width="60%">
+                  <FORM style="MARGIN: 0px" name=Search action=/info/search.asp 
+                  method=post><B>Search &nbsp;</B><INPUT class=smallText 
+                  style="WIDTH: 200px" name=target> <SELECT 
+                  style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" name=st> <OPTION 
+                    value=kw selected>Articles</OPTION> <OPTION 
+                    value=au>Authors</OPTION></SELECT> <INPUT style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" type=submit value=" Go! "> 
+                  &nbsp; </FORM></TD>
+                <TD class=tinyText noWrap><A 
+                  href="http://www.codeproject.com/info/search.asp">Advanced 
+                  Search</A><BR><A 
+                  href="http://www.codeproject.com/script/articles/sections.asp">Sitemap</A> 
+                </TD></TR></TBODY></TABLE>
+            <TABLE width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=SmallText noWrap>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText noWrap><IMG 
+                        src="2 - Triangles intersection_archivos/print.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?print=true" 
+                        target=_print>Print</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="2 - Triangles intersection_archivos/sitebuild_icon.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=Simple%5FRay%5FTracing%5Fin%5FC%5F%2Fuseritems7%2F30%2F2007">Broken 
+                        Article?</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="2 - Triangles intersection_archivos/link.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fcsharp%2FSimple%5FRay%5FTracing%5Fin%5FC%5F2%2Easp&amp;guid=Simple%5FRay%5FTracing%5Fin%5FC%5F%2Fuseritems7%2F30%2F2007">Bookmark</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="2 - Triangles intersection_archivos/mail_small.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp#__comments">Discuss</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="2 - Triangles intersection_archivos/mail.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/script/recommend/form.asp?guid=Simple%5FRay%5FTracing%5Fin%5FC%5F%2Fuseritems7%2F30%2F2007">Send 
+                        to a friend</A></TD></TR></TBODY></TABLE></TD>
+                <TD noWrap align=right><A name=__top></A>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText align=right>13 votes for this 
+                        article.</TD>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 border=2>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="2 - Triangles intersection_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="2 - Triangles intersection_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="2 - Triangles intersection_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="2 - Triangles intersection_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="2 - Triangles intersection_archivos/red.gif" 
+                              width=10 border=0><IMG height=5 
+                              src="2 - Triangles intersection_archivos/white.gif" 
+                              width=10 border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD class=smallText align=right colSpan=2><A 
+                        title="Calculated as rating x Log10(# votes)" 
+                        href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                        5.03</A>. Rating: <B>4.52</B> out of 
+                  5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=ArticlePane><SPAN id=intelliTXT>
+            <DIV id=contentdiv><!-- Article Starts -->
+            <UL class=download>
+              <LI><A 
+              href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2/raytracingappIII.zip">Download 
+              source - 4.8 KB</A> 
+              <LI><A 
+              href="http://www.simsysbr.com/articles/raytracing/raytracingappIII.zip">Download 
+              Latest Version</A> </LI></UL>
+            <P><A title="Basic ray tracing" 
+            href="http://www.simsysbr.com/articles/raytracing/raytracingappIII.aspx">See 
+            sample</A></P>
+            <TABLE class=articletable border=1>
+              <TBODY>
+              <TR>
+                <TD style="WIDTH: 50%">
+                  <P align=center><IMG height=200 
+                  alt="Screenshot - raytracingXIIIa.png" 
+                  src="2 - Triangles intersection_archivos/raytracingXIIIa.png" 
+                  width=200><BR>Cube (8 vertices, 12 triangles)</P></TD>
+                <TD style="WIDTH: 50%">
+                  <P align=center><IMG height=200 
+                  alt="Screenshot - raytracingXIVa.png" 
+                  src="2 - Triangles intersection_archivos/raytracingXIVa.png" 
+                  width=200><BR>Ambient, diffuse and specular 
+              lights</P></TD></TR></TBODY></TABLE>
+            <H2>Introduction</H2>
+            <P>Previously we have seen ray tracing and mapping in spheres. Now I 
+            am extending the algorithm to perform ray x triangles intersection 
+            calculation. This first approach is very basic, where the face 
+            normals are not interpolated and there is no texture mapping which 
+            will be shown in next articles.</P>
+            <H2>Background</H2>
+            <P>The ray tracing technique consists in calculating each ray 
+            (r<SUB>n</SUB>) from the observer to the projection plane (screen) 
+            and from the light to the nearest intersection (if found) of 
+            r<SUB>n</SUB> to the objects within the viewer.</P>
+            <P>After finding the intersection point, the ray can be reflected 
+            and/or refracted by the object depending on its material, generating 
+            another path to be computated. </P>
+            <P>Assuming the projection plane as the screen we have a rectangular 
+            area in integer bounding coordinates (x0, y0,x1,y1). A point (x,y) 
+            inside this area must be mapped to a real virtual screen with global 
+            bounding coordinates in floating point (rx0,rx1,ry0,ry1) obtaining 
+            (rx, ry) the point which will be used to define the ray in 
+            R<SUP>3</SUP> assuming the screen iz Z=0 we have (rx, ry, 0). </P>
+            <H3>The Mapping Function</H3><PRE lang=cs>public static double GetCoord(double i1, double i2, double w1, double w2, 
+    double p)
+{
+    return ((p - i1) / (i2 - i1)) * (w2 - w1) + w1;
+}</PRE>
+            <P>Since now we have two R<SUP>3</SUP> points (Eye position and 
+            Screen pixel represented in virtual coordinates) we can obtain the 
+            ray representation:</P>
+            <P>3D lines equations can be represented in the form: </P>
+            <UL>
+              <LI>x = px + t*vx 
+              <LI>y = py + t*vy 
+              <LI>z = pz + t*vz </LI></UL>
+            <P>Where (px,py,pz) are all the points lying in the 3D line, t is a 
+            scalar parameter, and (vx,vy,vz) is a direction vector. </P>
+            <P>The above equation can be obtained by the definition where a line 
+            can be defined by 2 points, so given P1(x1,y1,z1) and P2(x2,y2,z2) 
+            we have: </P>
+            <UL>
+              <LI>v = (x2-x1,y2-y1,z2-z1) </LI></UL>
+            <P>replacing the found v and p we have: </P>
+            <UL>
+              <LI>x = x1 + t*(x2-x1) 
+              <LI>y = y1 + t*(y2-y1) 
+              <LI>z = z1 + t*(z2-z1) </LI></UL>
+            <P>So we can be sure that all (x,y,z) which satisfies the above 
+            equation belongs to the line defined by P1P2. </P>
+            <H2>Line x Sphere Intersection</H2>
+            <P>Spheres can be represented in the form: </P>
+            <UL>
+              <LI>r<SUP>2</SUP> = 
+              (x-cx)<SUP>2</SUP>+(y-cy)<SUP>2</SUP>+(z-cz)<SUP>2 </SUP></LI></UL>
+            <P>where </P>
+            <UL>
+              <LI>r is the sphere radius 
+              <LI>(cx,cy,cz) is the center of the sphere </LI></UL>
+            <P>So we can be sure that all x,y,x points lies on the sphere 
+            surface.</P>
+            <P>Our objective now is to determine the intersection equation 
+            between a given line and a sphere it must be a set of (x,y,z) points 
+            which satisfies both equations. It is simple to imagine that a line 
+            intersecting a sphere can result 0 intersections, 1 intersection (if 
+            tangent) or at most 2 intersections. </P>
+            <H3>The Equations</H3>
+            <UL>
+              <LI>r<SUP>2</SUP> = 
+              (x-cx)<SUP>2</SUP>+(y-cy)<SUP>2</SUP>+(z-cz)<SUP>2</SUP> 
+              <LI>x = x1 + t*(x2-x1) 
+              <LI>y = y1 + t*(y2-y1) 
+              <LI>z = z1 + t*(z2-z1) </LI></UL>
+            <P>replacing x, y and z we have: </P>
+            <UL>
+              <LI>r<SUP>2</SUP> = (x1 + t*(x2-x1)-cx)<SUP>2</SUP> + (y1 + 
+              t*(y2-y1) -cy)<SUP>2</SUP> + (z1+ t*(z2-z1)-cz)<SUP>2 
+            </SUP></LI></UL>
+            <P>lets create a variable for the vector: </P>
+            <UL>
+              <LI>vx = x2 - x1 
+              <LI>vy = y2 - y1 
+              <LI>vz = z2 - z1 </LI></UL>
+            <P>so now we have: </P>
+            <UL>
+              <LI>r<SUP>2</SUP> = (x1-cx+t*vx)<SUP>2</SUP> + 
+              (y1-cy+t*vy)<SUP>2</SUP> + (z1-cz+t*vz)<SUP>2</SUP> 
+              <LI>(x1-cx+t*vx)<SUP>2 </SUP>+ (y1-cy+t*vy)<SUP>2</SUP> + 
+              (z1-cz+t*vz)<SUP>2</SUP> - r<SUP>2</SUP> = 0 </LI></UL>
+            <P>Let's replace (x1,y1,z1) with (px,py,pz) just to simplify... </P>
+            <P>Now we have a perfect 2nd degree equation which can give us 0, 1 
+            or 2 different solutions for 't' :</P><PRE lang=cs>double A = (vx * vx + vy * vy + vz * vz);
+double B = 2.0 * (px * vx + py * vy + pz * vz - vx * cx - vy * cy - vz * cz);
+double C = px * px - 2 * px * cx + cx * cx + py * py - 2 * py * cy + cy * cy +
+           pz * pz - 2 * pz * cz    + cz * cz - radius * radius;
+double D = B * B - 4 * A * C;
+double t = -1.0;
+if (D &gt;= 0)
+{
+    double t1 = (-B - System.Math.Sqrt(D)) / (2.0 * A);
+    double t2 = (-B + System.Math.Sqrt(D)) / (2.0 * A);
+    if (t1 &gt; t2) 
+         t = t1; 
+    else 
+         t = t2;  <SPAN class=cs-comment>// we choose the nearest t from the first point</SPAN>
+}</PRE>
+            <H2>Line x Triangle Intersection</H2>
+            <H3>Plane Equation</H3>
+            <UL>
+              <LI>N dot (P - P3) = 0 (Eq1) 
+              <DIV></DIV></LI></UL>
+            <P>Where Line (P1-P2) Equation:</P>
+            <UL>
+              <LI>P and P3 are on the plane 
+              <LI>N is the plane Normal vector </LI></UL>
+            <UL>
+              <LI>P = P1 + v (P2 - P1) (Eq2) </LI></UL>
+            <P>So the intersecion is given by:</P>
+            <UL>
+              <LI>Eq1 = Eq2 or 
+              <P></P>
+              <LI>N dot (P1 + v (P2 - P1)) = N dot P3 
+              <P></P></LI></UL>
+            <P>Now the intersection between line and plane is found, so we need 
+            to verify if the given intersection lies inside the triangle:</P><PRE lang=cs>public bool InternalSide(double p1x, double p1y, double p1z,
+                         double p2x, double p2y, double p2z,
+                         double ax, double ay, double az,
+                         double bx, double by, double bz)
+{
+    double cp1x = 0, cp1y = 0, cp1z = 0, cp2x = 0, cp2y = 0, 
+        cp2z = 0;
+    tAlgebra.Cross3(bx - ax, by - ay, bz - az, p1x - ax, 
+        p1y - ay, p1z - az, ref cp1x, 
+        ref cp1y, ref cp1z);
+    tAlgebra.Cross3(bx - ax, by - ay, bz - az, p2x - ax, p2y - ay, 
+        p2z - az, ref cp2x, ref cp2y, ref cp2z);
+
+    if (tAlgebra.Dot3(cp1x, cp1y, cp1z, cp2x, cp2y, cp2z) &gt;= 0)
+        return true;
+    else
+        return false;
+}
+
+public bool PointInTriangle(double px, double py, double pz)
+{
+    if (InternalSide(px, py, pz, 
+        tp1x, tp1y, tp1z, 
+        tp2x, tp2y, tp2z, 
+        tp3x, tp3y, tp3z) &amp;&amp;
+    InternalSide(px, py, pz, 
+        tp2x, tp2y, tp2z, 
+        tp1x, tp1y, tp1z, 
+        tp3x, tp3y, tp3z) &amp;&amp;
+    InternalSide(px, py, pz, 
+        tp3x, tp3y, tp3z, 
+        tp1x, tp1y, tp1z, 
+        tp2x, tp2y, tp2z))
+        return true;
+    else
+        return false;
+}</PRE>
+            <H2>The Code</H2>
+            <H3>Cube.obj file</H3>
+            <UL>
+              <LI>v = vertex 
+              <LI>f = face </LI></UL><PRE lang=cs><SPAN class=cs-preprocessor>#</SPAN>
+<SPAN class=cs-preprocessor># cube.obj</SPAN>
+<SPAN class=cs-preprocessor>#</SPAN>
+  
+v -1.000000 -1.000000  1.000000
+v -1.000000  1.000000  1.000000
+v  1.000000  1.000000  1.000000
+v  1.000000 -1.000000  1.000000
+v -1.000000 -1.000000 -1.000000
+v -1.000000  1.000000 -1.000000
+v  1.000000  1.000000 -1.000000
+v  1.000000 -1.000000 -1.000000
+ 
+f 5 8 7
+f 7 6 5
+f 1 4 3
+f 3 2 1
+f 5 1 2
+f 2 6 5
+f 8 4 3
+f 3 7 8
+f 8 4 1
+f 1 5 8
+f 7 3 2
+f 2 6 7</PRE>
+            <H3>Algebra Class</H3><PRE lang=cs>public class tAlgebra
+{
+    public tAlgebra()
+    {
+    }
+
+    <SPAN class=cs-comment>//i' = i - (2 * n * dot(i, n))</SPAN>
+    public static void Reflect(double ix, double iy, double iz, 
+        double nx, double ny, double nz,
+        ref double iix, ref double iiy, ref double iiz)
+    {
+        iix = ix - (2.0 * nx * Dot3(nx, ny, nz, ix, iy, iz));
+        iiy = iy - (2.0 * ny * Dot3(nx, ny, nz, ix, iy, iz));
+        iiz = iz - (2.0 * nz * Dot3(nx, ny, nz, ix, iy, iz));
+        Normalize(ref iix, ref iiy, ref iiz);
+    }
+    public static void Cross3(double ux, double uy, double uz, 
+        double wx, 
+        double wy, double wz,
+        ref double vx, ref double vy, 
+        ref double vz)
+    {
+        <SPAN class=cs-comment>// u x w</SPAN>
+        vx = wz * uy - wy * uz;
+        vy = wx * uz - wz * ux;
+        vz = wy * ux - wx * uy;
+    }
+    public static double Dot3(double x1, double y1, double z1, 
+        double x2, double y2, double z2)
+    {
+        return (x1 * x2) + (y1 * y2) + (z1 * z2);
+    }
+    public static double GetCosAngleV1V2(double v1x, double v1y, 
+        double v1z, double v2x, double v2y, double v2z)
+    {
+        <SPAN class=cs-comment>/* incident angle
+        // inters pt (i)
+        double ix, iy, iz;
+        ix = px+t*vx;
+        iy = py+t*vy;
+        iz = pz+t*vz;
+
+        // normal at i
+        double nx, ny, nz;
+        nx = ix - cx;
+        ny = iy - cy;
+        nz = iz - cz;
+        */</SPAN>
+        double x, y, z;
+        x = v1x; y = v1y; z = v1z;
+        Normalize(ref x, ref y, ref z);
+        v1x = x; v1y = y; v1z = z;
+
+        x = v2x; y = v2y; z = v2z;
+        Normalize(ref x, ref y, ref z);
+        v2x = x; v2y = y; v2z = z;
+
+        <SPAN class=cs-comment>// cos(t) = (v.w) / (|v|.|w|)</SPAN>
+        double n = (v1x * v2x + v1y * v2y + v1z * v2z) ;
+        double d = (modv(v1x, v1y, v1z) * modv(v2x, v2y, v2z));
+
+        if(Math.Abs(d)&lt;1.0E-10) return 0;
+        return n/d ;
+    }
+    public static double modv(double vx, double vy, double vz)
+    {
+        return System.Math.Sqrt(vx * vx + vy * vy + vz * vz);
+    }
+    public static double GetCoord(double i1, double i2, double w1, 
+        double w2, double p)
+    {
+        return ((p - i1) / (i2 - i1)) * (w2 - w1) + w1;
+    }
+
+    public static void Normalize(ref double vx, ref double vy, 
+        ref double vz)
+    {
+        double mod_v = tAlgebra.modv(vx, vy, vz);
+        if (Math.Abs(mod_v) &lt; 1.0E-10) return;
+        vx = vx / mod_v;
+        vy = vy / mod_v;
+        vz = vz / mod_v;
+    }
+}</PRE>
+            <H3>Object Classes</H3><PRE lang=cs>public class tObject
+{
+    public tObject()
+    {
+    }
+    public double ambientR, ambientG, ambientB;
+    public double diffuseR, diffuseG, diffuseB;
+    public double specularR, specularG, specularB;
+    public double shininess;
+}
+    public class tTriangle : tObject
+    {
+        public tTriangle()
+        {
+        }
+
+        public void Init()
+        {
+            getNormal(ref tnormalX, ref tnormalY, ref tnormalZ);
+        }
+        public bool SameSide(double p1x, double p1y, double p1z,
+            double p2x, double p2y, double p2z,
+            double ax, double ay, double az,
+            double bx, double by, double bz)
+        {
+            double cp1x = 0, cp1y = 0, cp1z = 0, cp2x = 0, cp2y = 0, 
+                cp2z = 0;
+            tAlgebra.Cross3(bx - ax, by - ay, bz - az, p1x - ax, 
+                p1y - ay, p1z - az, ref cp1x, ref cp1y, ref cp1z);
+            tAlgebra.Cross3(bx - ax, by - ay, bz - az, p2x - ax, 
+                p2y - ay, p2z - az, ref cp2x, ref cp2y, ref cp2z);
+            if (tAlgebra.Dot3(cp1x, cp1y, cp1z, cp2x, cp2y, cp2z) &gt;= 0)
+                return true;
+            else
+                return false;
+        }
+        public bool PointInTriangle(double px, double py, double pz)
+        {
+            if (SameSide(px, py, pz, tp1x, tp1y, tp1z, 
+                tp2x, tp2y, tp2z, tp3x, tp3y, tp3z) &amp;&amp;
+            SameSide(px, py, pz, tp2x, tp2y, tp2z, 
+                tp1x, tp1y, tp1z, tp3x, tp3y, tp3z) &amp;&amp;
+            SameSide(px, py, pz, tp3x, tp3y, tp3z, 
+                tp1x, tp1y, tp1z, tp2x, tp2y, tp2z))
+                return true;
+            else
+                return false;
+        }
+
+        <SPAN class=cs-comment>// ray p1, ray p2</SPAN>
+        public double GetInterSect(double p1x, double p1y, double p1z, 
+            double p2x, double p2y, double p2z)
+        {
+            double v1x = tp3x - p1x; double v1y = tp3y - p1y; 
+            double v1z = tp3z - p1z;
+            double v2x = p2x - p1x;  double v2y = p2y - p1y;  
+            double v2z = p2z - p1z;
+            double dot1 = tAlgebra.Dot3(tnormalX, tnormalY, tnormalZ, 
+                v1x, v1y, v1z);
+            double dot2 = tAlgebra.Dot3(tnormalX, tnormalY, tnormalZ, 
+                v2x, v2y, v2z);
+            if (Math.Abs(dot2) &lt; 1.0E-6) 
+                return -1; <SPAN class=cs-comment>// division by 0 means parallel</SPAN>
+            double u = dot1 / dot2;
+            <SPAN class=cs-comment>// point in triangle?</SPAN>
+            if(!PointInTriangle(p1x+u*(p2x-p1x), 
+                p1y+u*(p2y-p1y), p1z+u*(p2z-p1z)))
+                return -1;
+            return u;
+        }
+        public void getNormal(ref double vx, ref double vy, ref double vz)
+        {
+            double ux = tp3x - tp1x, uy = tp3y - tp1y, uz = tp3z - tp1z;
+            double wx = tp2x - tp1x, wy = tp2y - tp1y, wz = tp2z - tp1z;
+
+            <SPAN class=cs-comment>// u x w</SPAN>
+            vx = wz * uy - wy * uz;
+            vy = wx * uz - wz * ux;
+            vz = wy * ux - wx * uy;
+        }
+
+
+        public double tp1x, tp1y, tp1z;
+        public double tp2x, tp2y, tp2z;
+        public double tp3x, tp3y, tp3z;
+        public double tnormalX, tnormalY, tnormalZ;
+    }</PRE>
+            <H3>The Program</H3><PRE lang=cs>int scz = 200;
+
+System.IO.FileStream file = new System.IO.FileStream(
+    Server.MapPath(<SPAN class=cpp-string>"./data/cube.obj"</SPAN>), 
+    System.IO.FileMode.Open, 
+    System.IO.FileAccess.Read);
+System.IO.StreamReader reader = new System.IO.StreamReader(file);
+string filebody = reader.ReadToEnd();
+file.Close();
+
+string[] lines = filebody.Split('\n');
+ArrayList pointArrayX = new ArrayList();
+ArrayList pointArrayY = new ArrayList();
+ArrayList pointArrayZ = new ArrayList();
+
+System.Collections.ArrayList obj3dArrayList;
+obj3dArrayList = new System.Collections.ArrayList();
+
+double rx = 0.5000;
+double ry = 0.5000;
+double rz = 0.0000;
+
+foreach (string line in lines)
+{
+    if (line.Length &lt; 1) continue;
+    string auxline = line;
+    if (auxline.IndexOf(<SPAN class=cpp-string>"mtllib"</SPAN>) &gt;= 0)
+    {
+        auxline = auxline.Replace(<SPAN class=cpp-string>"mtllib"</SPAN>, <SPAN class=cpp-string>""</SPAN>);
+        GetMaterial(auxline);
+    }
+    else
+        if (auxline[0] == 'v')
+        {
+            auxline = auxline.Replace(<SPAN class=cpp-string>"v "</SPAN>, <SPAN class=cpp-string>""</SPAN>);
+            string[] points = auxline.Split(' ');
+            double x = double.Parse(points[0]);
+            double y = double.Parse(points[1]);
+            double z = double.Parse(points[2]);
+            pointArrayX.Add(x);
+            pointArrayY.Add(y);
+            pointArrayZ.Add(z);
+        }
+        else
+            if (auxline[0] == 'f')
+            {
+                auxline = auxline.Replace(<SPAN class=cpp-string>"f "</SPAN>, <SPAN class=cpp-string>""</SPAN>);
+                string[] vertices = auxline.Split(' ');
+                int a = int.Parse(vertices[0])-1;
+                int b = int.Parse(vertices[1])-1;
+                int c = int.Parse(vertices[2])-1;
+
+                tTriangle tri1 = new tTriangle();
+                tri1.tp1x = (double) pointArrayX[a]; 
+                tri1.tp1y = (double) pointArrayY[a]; 
+                tri1.tp1z = (double) pointArrayZ[a];
+
+                tri1.tp2x = (double) pointArrayX[b]; 
+                tri1.tp2y = (double) pointArrayY[b]; 
+                tri1.tp2z = (double) pointArrayZ[b];
+                tri1.tp3x = (double) pointArrayX[c]; 
+                tri1.tp3y = (double) pointArrayY[c]; 
+                tri1.tp3z = (double) pointArrayZ[c];
+
+                Algebra.RotX(rx, ref tri1.tp1y, ref tri1.tp1z);
+                Algebra.RotX(rx, ref tri1.tp2y, ref tri1.tp2z);
+                Algebra.RotX(rx, ref tri1.tp3y, ref tri1.tp3z);
+                Algebra.RotY(ry, ref tri1.tp1x, ref tri1.tp1z);
+                Algebra.RotY(ry, ref tri1.tp2x, ref tri1.tp2z);
+                Algebra.RotY(ry, ref tri1.tp3x, ref tri1.tp3z);
+                Algebra.RotZ(rz, ref tri1.tp1x, ref tri1.tp1y);
+                Algebra.RotZ(rz, ref tri1.tp2x, ref tri1.tp2y);
+                Algebra.RotZ(rz, ref tri1.tp3x, ref tri1.tp3y);
+
+                <SPAN class=cs-comment>// ambient properties for the material   </SPAN>
+                tri1.ambientR = 0.3;
+                tri1.ambientG = 0.4;
+                tri1.ambientB = 0.5;
+                <SPAN class=cs-comment>// specular properties for the material   </SPAN>
+                tri1.specularR = 0.911;
+                tri1.specularG = 0.911;
+                tri1.specularB = 0.911;
+                tri1.shininess = 10.6;
+                tri1.diffuseR = 0.3775;
+                tri1.diffuseG = 0.3775;
+                tri1.diffuseB = 0.5775;
+                obj3dArrayList.Add(tri1);
+                tri1.Init();
+            }
+
+}
+
+Bitmap newBitmap = new Bitmap(scz, scz, 
+                              PixelFormat.Format32bppArgb);
+Graphics g = Graphics.FromImage(newBitmap);
+
+Color clrBackground = Color.Black;
+
+Rectangle rect = new Rectangle(0, 0, scz, scz);
+g.FillRectangle(new SolidBrush(clrBackground), 
+                rect);
+
+Graphics graphics = g;
+
+double px = 0.0;
+double py = 0.0;
+double pz = 600.0;
+
+double lpx = 1.5;
+double lpy = 1.7;
+double lpz = 500.0;
+
+double lp2x = lpx;
+double lp2y = lpy;
+double lp2z = lpz-0.1;
+
+double lvx = lp2x - lpx;
+double lvy = lp2y - lpy;
+double lvz = lp2z - lpz;
+
+tAlgebra.Normalize(ref lvx, ref lvy, ref lvz);
+
+<SPAN class=cs-comment>// virtual mapping size</SPAN>
+double fMax = 2.5;
+
+for (int i = rect.Left; i &lt;= rect.Right; i++)
+{
+    double x = tAlgebra.GetCoord(rect.Left, 
+        rect.Right, -fMax, fMax, i);
+
+    for (int j = rect.Top; j &lt;= rect.Bottom; j++)
+    {
+        double y = tAlgebra.GetCoord(rect.Top, 
+            rect.Bottom, fMax, -fMax, j);
+
+        double t = 1.0E10;
+
+        double vx = x - px, vy = y - py, vz = -pz;
+
+        double mod_v = tAlgebra.modv(vx, vy, vz);
+        vx = vx / mod_v;
+        vy = vy / mod_v;
+        vz = vz / mod_v;
+
+        bool bShadow = false;
+
+        tTriangle triangleHit = null;
+
+        for (int k = 0; k &lt; (int)obj3dArrayList.Count; k++)
+        {
+            tTriangle triN = (tTriangle)obj3dArrayList[k];
+            double taux = triN.GetInterSect(px, py, pz, x, y, 0.0);
+            if (taux &lt; 0) continue;
+
+            if (taux &gt; 0 &amp;&amp; taux &lt; t)
+            {
+                t = taux;
+                triangleHit = triN;
+            }
+        }
+
+        Color color = Color.FromArgb(10, 20, 10);
+
+        if (triangleHit != null)
+        {
+            double intersx = px + t * vx, 
+                intersy = py + t * vy, intersz = pz + t * vz;
+            double l2px = intersx - lpx, 
+                l2py = intersy - lpy, l2pz = intersz - lpz;
+            tAlgebra.Normalize(ref l2px, ref l2py, ref l2pz);
+
+            double vNormalX = triangleHit.tnormalX, 
+                vNormalY = triangleHit.tnormalY, 
+                vNormalZ = triangleHit.tnormalZ;
+            tAlgebra.Normalize(ref vNormalX, ref vNormalY, 
+                ref vNormalZ);
+
+            double cost = tAlgebra.GetCosAngleV1V2(l2px, l2py, l2pz, 
+                vNormalX, vNormalY, vNormalZ);
+            if (cost &lt; 0) cost = 0;
+
+            double vReflX = 0, vReflY = 0, vReflZ = 0;
+            double vEye2IntersX = intersx - px, 
+                vEye2IntersY = intersy - py, 
+                vEye2IntersZ = intersz - pz;
+            tAlgebra.Reflect(l2px, l2py, l2pz, vNormalX, vNormalY, 
+                vNormalZ, ref vReflX, ref vReflY, ref vReflZ);
+
+            tAlgebra.Normalize(ref vReflX, ref  vReflY, ref vReflZ);
+            tAlgebra.Normalize(ref vEye2IntersX, ref vEye2IntersY, 
+                ref vEye2IntersZ);
+            double cosf = tAlgebra.GetCosAngleV1V2(vReflX, vReflY, 
+                vReflZ, vEye2IntersX, vEye2IntersY, 
+                vEye2IntersZ);
+
+            if (cosf &lt; 0) 
+                cosf = 0;
+
+            double result1 = cost * 255.0;
+            double result2 = Math.Pow(cosf, triangleHit.shininess) *
+                255.0;
+
+            double rgbR = (triangleHit.ambientR * 255.0) + 
+                (triangleHit.diffuseR * result1) +
+                (triangleHit.specularR * result2);
+            double rgbG = (triangleHit.ambientG * 255.0) + 
+                (triangleHit.diffuseG * result1) +
+                (triangleHit.specularG * result2);
+            double rgbB = (triangleHit.ambientB * 255.0) + 
+                (triangleHit.diffuseB * result1) +
+                (triangleHit.specularB * result2);
+
+            rgbR = Math.Min(rgbR, 255);
+            rgbG = Math.Min(rgbG, 255);
+            rgbB = Math.Min(rgbB, 255);
+            rgbR = Math.Max(rgbR, 0);
+            rgbG = Math.Max(rgbG, 0);
+            rgbB = Math.Max(rgbB, 0);
+
+            color = Color.FromArgb((int)rgbR, (int)rgbG, (int)rgbB);
+        }
+
+        Brush brs = new SolidBrush(color);
+        graphics.FillRectangle(brs, i, j, 1, 1);
+        brs.Dispose();
+
+    }<SPAN class=cs-comment>// for pixels lines</SPAN>
+}<SPAN class=cs-comment>// for pixels columns</SPAN>
+<SPAN class=cs-comment>///////////////////////////////////////</SPAN>
+
+MemoryStream tempStream = new MemoryStream();
+newBitmap.Save(tempStream, ImageFormat.Png);
+Response.ClearContent();
+Response.ContentType = <SPAN class=cpp-string>"image/png"</SPAN>;
+Response.BinaryWrite(tempStream.ToArray());
+Response.Flush();</PRE><!-- Article Ends --></DIV></SPAN>
+            <SCRIPT src="2 - Triangles intersection_archivos/togglePre.js" 
+            type=text/javascript></SCRIPT>
+
+            <H2>About andalmeida</H2>
+            <DIV style="OVERFLOW: hidden">
+            <TABLE border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText noWrap><IMG 
+                  src="2 - Triangles intersection_archivos/{9D04B36A-6D61-4974-91CC-7F40F06C777F}.jpg"><BR></TD>
+                <TD class=smallText>I have started programming in 1990 at 
+                  College with GWBASIC, Fortran and Pascal.<BR>In 1992 started 
+                  programming in C and them didn't stop, passing through C++, 
+                  C#.NET, Java, ASP, COM, DCOM, VRML, OPENGL and other. <BR>
+                  <P class=smallText>Click <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=3589667">here</A> 
+                  to view andalmeida's online 
+            profile.</P></TD></TR></TBODY></TABLE></DIV><BR>
+            <TABLE cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%">
+                  <H2>Other popular C# Programming articles:</H2>
+                  <UL>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/zedgraph.asp">A 
+                    flexible charting library for .NET</A>
+                    <DIV class=smallText>Looking for a way to draw 2D line 
+                    graphs with C#? Here's yet another charting class library 
+                    with a high degree of configurability, that is also easy to 
+                    use.</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/csppleds.asp">I/O 
+                    Ports Uncensored - 1 - Controlling LEDs (Light Emiting 
+                    Diodes) with Parallel Port</A>
+                    <DIV class=smallText>Controlling LEDs (Light Emiting Diodes) 
+                    with Parallel Port</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/AsyncMethodInvocation.asp">Asynchronous 
+                    Method Invocation</A>
+                    <DIV class=smallText>How to use .NET to call methods in a 
+                    non-blocking mode.</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/cspplcds.asp">I/O 
+                    Ports Uncensored Part 2 - Controlling LCDs (Liquid Crystal 
+                    Displays) and VFDs (Vacuum Fluorescent Displays) with 
+                    Parallel Port</A>
+                    <DIV class=smallText>Controlling LCDs (Liquid Crystal 
+                    Displays) and VFDs (Vacuum Fluorescent Displays) with 
+                    Parallel Port</DIV></LI></UL></TD>
+                <TD width=360>
+                  <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=4135&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FInstallShield%5Fdice%5F300x250%5Fcb%2Ejpg&C=False&id=4135&cb=4828144\" alt=\"\" border=0 width=300 height=250></a>");</SCRIPT>
+                </TD></TR></TBODY></TABLE>
+            <FORM action=/script/rating/code/app/insert_vote.asp 
+            method=post><INPUT type=hidden 
+            value=Simple_Ray_Tracing_in_C_/useritems7/30/2007 name=vote_name> 
+            <INPUT type=hidden value=/csharp/Simple_Ray_Tracing_in_C_2.asp 
+            name=goal> 
+            <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=4 width="100%" 
+                  bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=smalltext vAlign=center>[<A 
+                        href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp#__top">Top</A>]</TD>
+                      <TD vAlign=center noWrap align=right><I><B>Rate this 
+                        Article for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <I>Poor</I><INPUT type=radio value=1 name=rate><INPUT 
+                        type=radio value=2 name=rate><INPUT type=radio value=3 
+                        name=rate><INPUT type=radio value=4 name=rate><INPUT 
+                        type=radio value=5 
+name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+            <CENTER>
+            <DIV style="MARGIN: 10px"><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=2913&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FSoftwareVerify%5F468x60%5Fv8%2Egif&C=False&id=2913&cb=4828132\" alt=\"\" border=0 width=468 height=60></a>");</SCRIPT>
+            </SPAN></DIV></CENTER><A name=__comments></A>
+            <SCRIPT language=JavaScript>
+
+function MsgVoteForm(MemberID, MsgID)
+{
+	document.write("<span id=\"MVF" + MsgID + "\">");
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+	{
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString());
+		document.write("' onclick='return RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ", ");
+		document.write(i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	}
+	document.write(" (out of 5)");
+	document.writeln("</span>");
+	
+	
+	document.write("<br />Report as <a href='#xx" + MsgID.toString() + "xx' title='Mark as Spam' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-1)'>Spam</a> or ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' title='Mark as Abuse' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-2)'>Abuse</a>");
+	
+}
+
+function RetypeForm(MemberID, MsgID)
+{
+	var types = [
+				 {pic:'news_general.gif',  id: 1},
+	             {pic:'news_info.gif',     id: 2},
+	             {pic:'news_question.gif', id: 4},
+	             {pic:'news_answer.gif',   id: 8},
+	             {pic:'news_game.gif',     id: 16},
+	             {pic:'news_spam.gif',     id: 32}
+	            ];
+	
+	document.write("<span id=\"RTF" + MsgID + "\">");
+	for (var i=0;i<types.length;i++)
+	{
+		document.write("<a href='/script/comments/retype?msg=" + MsgID.toString());
+		document.write("&mid=" + MemberID.toString() + "&type=" + types[i].id + "'>");
+		document.write("<img border=0 src='/script/images/" + types[i].pic + "'></a><br />");
+	}
+	document.writeln("</span>");
+}
+
+function ReportMsg(userid, msgid, score)
+{
+	if (confirm("Are you sure you want to report this message?") == true)
+		return RateMsg(userid, msgid, score);
+	else return false;
+}
+
+
+function RateMsg(userid, msgid, score)
+{
+
+   var req = new ActiveXObject("Msxml2.XMLHTTP"); 
+
+   req.onreadystatechange = function()
+   {
+      if ( req.readyState == 4 )
+      {
+         if ( req.status == 200 )
+         {
+         	var respText = req.responseText;
+         	var re = new RegExp("\<div\>([^\<]*)\</div\>", "g");
+         	var match = re.exec(respText);
+         	status.innerHTML = "<b>" + (match)?match[1]:"An error occured" + "</b>";
+         }
+         else
+         {
+            status.innerHTML = "<b style='color:red'>Failed!" + req.statusText + "</b>";
+         }
+      }
+   }
+   
+   var status = document.getElementById("MVF" + msgid);
+   if (!status) return;  // should never happen...   
+   status.innerHTML = "<b style='color:green'>Voting...</b>";
+   
+   var strAction = "/script/comments/vote.asp?js=1&user="+userid+"&msg="+msgid+"&score="+score;
+   req.open("GET", strAction, true);
+   req.send(null);
+   return false;
+}
+
+</SCRIPT>
+
+            <SCRIPT language=JavaScript>
+var Selected = "";
+
+var AdTime = new Date();
+
+
+// Ensures the expanded message appears reasonably close to where 
+// it should appear: on screen, and if possible, under the mouse cursor.
+function SwitchMessage(e)
+{
+   if ( !e ) e = window.event;
+   var target = e.target ? e.target : e.srcElement;
+
+   // is it a post?
+   while ( target && target.id != 'DynMessLink' )
+      target = target.parentNode;
+   if ( !target || target.id != 'DynMessLink' )
+      return;
+
+   if (Selected)
+   {
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+         body.style.display = 'none';
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#FEF9E7';
+   }
+
+   if (Selected == target.name) // just collapse
+      Selected="";
+   else
+   {
+      Selected = target.name;
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+      {
+         if (body.style.display=='none')
+            body.style.display='';
+         else
+            body.style.display = 'none';
+      }
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#99CCFF';
+
+      if ( body && head && body.style.display != 'none' )
+      {
+         // the bit that keeps the post on-screen and under the cursor
+         //var dif = (getRealPos(head, "Top") + head.offsetHeight/2) - (document.body.scrollTop+e.clientY);
+         //document.body.scrollTop += dif;
+         document.body.scrollTop = getRealPos(head, "Top") - document.body.clientHeight/10;
+         EnsureMessageVisible(target.name, true);
+      }
+   }
+
+   if ( e.preventDefault )
+      e.preventDefault();
+   else
+      e.returnValue = false;
+   return false;
+}
+
+// does its best to make a message visible on-screen (vs. scrolled off somewhere).
+function EnsureMessageVisible(msgID, bShowTop) {
+   var msgHeader = document.getElementById(msgID + "_h0");
+   var msgBody = document.getElementById(msgID + "_h1");
+
+   // determine scroll position of top and bottom
+   var scrollContainer = document.body;
+   var top = getRealPos(msgHeader, 'Top');
+   var bottom = getRealPos(msgBody, 'Top') + msgBody.offsetHeight;
+
+   // if not already visible, scroll to make it so
+   if ( scrollContainer.scrollTop > top && !bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+   if ( scrollContainer.scrollTop+scrollContainer.clientHeight < bottom )
+      scrollContainer.scrollTop = bottom-scrollContainer.clientHeight;
+   if ( scrollContainer.scrollTop > top && bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+}
+
+// utility
+function getRealPos(i,which)
+{
+   iPos = 0
+   while (i!=null)
+   {
+      iPos += i["offset" + which];
+      i = i.offsetParent;
+   }
+   return iPos
+}
+
+
+</SCRIPT>
+
+            <DIV id=_MessageBoard onclick=SwitchMessage(event)>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+                  bgColor=#ff9900 border=0>
+                    <FORM 
+                    action=/script/comments/app/do_filtermessages.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504 
+                    method=post>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=3 width="100%" 
+                        bgColor=white border=0>
+                          <TBODY>
+                          <TR bgColor=#fbedbb>
+                            <TD class=smalltext noWrap><A 
+                              href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                              height=16 
+                              src="2 - Triangles intersection_archivos/forum_faq.gif" 
+                              width=16 align=absMiddle border=0> 
+                            <B>FAQ</B></A>&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>Message score threshold <SELECT 
+                              class=smalltext size=1 name=noise><OPTION 
+                                value=1>1.0</OPTION> <OPTION 
+                                value=2>2.0</OPTION> <OPTION value=3 
+                                selected>3.0</OPTION> <OPTION 
+                                value=4>4.0</OPTION> <OPTION 
+                              value=5>5.0</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=center noWrap align=right 
+                            colSpan=2><A 
+                              href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=443504"><IMG 
+                              height=15 
+                              src="2 - Triangles intersection_archivos/forum_search.gif" 
+                              width=16 border=0> Search comments</A> &nbsp;</TD>
+                            <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+                          <TR bgColor=#ff9900>
+                            <TD width="100%">&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>View <SELECT class=smalltext size=1 
+                              name=expand><OPTION value=0>Normal 
+                                (slow)</OPTION> <OPTION value=2>Preview 
+                                (slow)</OPTION> <OPTION value=5 selected>Message 
+                                View</OPTION> <OPTION value=6>Topic 
+                                View</OPTION> <OPTION value=1>Thread 
+                                View</OPTION> <OPTION 
+                              value=3>Expanded</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap>Per page 
+                              <SELECT class=smalltext size=1 
+                                name=perpage><OPTION value=10>10</OPTION> 
+                                <OPTION value=25 selected>25</OPTION> <OPTION 
+                                value=50>50</OPTION></SELECT></TD>
+                            <TD 
+                    colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+                    <TR bgColor=#fbedbb>
+                      <TD><A name=xx0xx></A>
+                        <TABLE cellPadding=2 width="100%" bgColor=#fbedbb 
+                        border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle><IMG height=16 
+                              src="2 - Triangles intersection_archivos/forum_newmsg.gif" 
+                              width=16 align=top border=0><A class=HoverLink 
+                              title="Add a new message to the discussions" 
+                              href="http://www.codeproject.com/script/comments/user_new.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504" 
+                              target=_top name=HoverNL><B>New Message</B></A></TD>
+                            <TD class=messagetitle>Msgs 1 to 9 of 9 (Total: 9) 
+                              (<A 
+                              href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;forumid=443504">Refresh</A>)</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=white>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD class=messagetitle 
+                                width="100%">Subject&nbsp;</TD>
+                                <TD class=messagetitle noWrap 
+                                width=140>Author&nbsp;</TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT 
+                                class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="2 - Triangles intersection_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2177126_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2177126xx></A><IMG 
+                                src="2 - Triangles intersection_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle style="COLOR: #aa0000" 
+                                width="100%"><A class=messagetitle 
+                                id=DynMessLink style="COLOR: #aa0000" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;forumid=443504&amp;select=2177126#xx2177126xx" 
+                                name=2177126><B>One Question</B></A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=4393338"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="2 - Triangles intersection_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT class=messagetitle 
+                                style="COLOR: #aa0000"><B>pipocadr</B>&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle 
+                                style="COLOR: #aa0000"><B>8:42 10 Aug 
+                                '07</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2177126_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG 
+                                src="2 - Triangles intersection_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I just 
+                                creat a New WebSite and past the file into the 
+                                project and Build.<BR><BR>This error 
+                                appear:<BR>The name 'Algebra' does not exist in 
+                                the current context<BR><BR>Can you help 
+                                me?<BR>Best Regards. 
+                                <BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2177126">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2177126">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;tid=2177126&amp;forumid=443504&amp;select=2177126#xx2177126xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2177126#xx2177126xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2177126#xx2177126xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 5.0 (1 
+                                vote).
+                                <SCRIPT language=Javascript>MsgVoteForm(4393338,2177126);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="2 - Triangles intersection_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2177151_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2177151xx></A><IMG 
+                                height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="2 - Triangles intersection_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;forumid=443504&amp;select=2177151#xx2177151xx" 
+                                name=2177151>Re: One Question</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3589667"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="2 - Triangles intersection_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>andalmeida&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>8:51 10 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2177151_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="2 - Triangles intersection_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Hi,<BR><BR>I am updating 
+                                the article to use tAlgebra instead of 
+                                Algebra,<BR>this is already updated in the next 
+                                article: <A 
+                                href="http://www.codeproject.com/useritems/Simple_Ray_Tracing_in_C_.asp">http://www.codeproject.com/useritems/Simple_Ray_Tracing_in_C_.asp</A>[<A 
+                                title="New Window" 
+                                href="http://www.codeproject.com/useritems/Simple_Ray_Tracing_in_C_.asp" 
+                                target=_blank>^</A>] Please let me 
+                                know.<BR><BR>Anyway complete tAlgebra follows 
+                                here:<BR><BR>public class 
+                                tAlgebra<BR>{<BR>public 
+                                tAlgebra()<BR>{<BR>}<BR><BR>public static double 
+                                GetCoord(double i1, double i2, double w1, double 
+                                w2, double p)<BR>{<BR>return ((p - i1) / (i2 - 
+                                i1)) * (w2 - w1) + w1;<BR>}<BR><BR><BR>public 
+                                static void Cross3(double ax, double ay, double 
+                                az,<BR>double bx, double by, double bz,<BR>ref 
+                                double outx, ref double outy, ref double 
+                                outz)<BR>{<BR>outx = ay * bz - az * by;<BR>outy 
+                                = az * bx - ax * bz;<BR>outz = ax * by - ay * 
+                                bx;<BR>}<BR><BR>public static void 
+                                Refract(double n1, double n2, double inx, double 
+                                iny, double inz,<BR>double mirrorx, double 
+                                mirrory, double mirrorz,<BR>ref double outx, ref 
+                                double outy, ref double outz)<BR>{<BR>double c1 
+                                = -Dot3(mirrorx, mirrory, mirrorz, inx, iny, 
+                                inz);<BR>double n = n1 / n2;<BR>double c2 = 
+                                Math.Sqrt(1.0 - n * n * (1.0 - c1 * 
+                                c1));<BR>outx = (n * inx) + (n * c1 - c2) * 
+                                mirrorx;<BR>outy = (n * iny) + (n * c1 - c2) * 
+                                mirrory;<BR>outz = (n * inz) + (n * c1 - c2) * 
+                                mirrorz;<BR>}<BR><BR>public static void 
+                                Reflect(double inx, double iny, double 
+                                inz,<BR>double mirrorx, double mirrory, double 
+                                mirrorz,<BR>ref double outx, ref double outy, 
+                                ref double outz)<BR>{<BR>double c1 = 
+                                -Dot3(mirrorx, mirrory, mirrorz, inx, iny, 
+                                inz);<BR>//Rl = V + (2 * N * c1 )<BR>outx = 
+                                -(inx + (2 * mirrorx * c1));<BR>outy = -(iny + 
+                                (2 * mirrory * c1));<BR>outz = -(inz + (2 * 
+                                mirrorz * c1));<BR><BR>}<BR><BR>public static 
+                                void Reflect2(double inx, double iny, double 
+                                inz,<BR>double mirrorx, double mirrory, double 
+                                mirrorz,<BR>ref double outx, ref double outy, 
+                                ref double outz)<BR>{<BR>double perp1x = 0.0, 
+                                perp1y = 0.0, perp1z = 0.0;<BR>double perp2x = 
+                                0.0, perp2y = 0.0, perp2z = 
+                                0.0;<BR><BR>Cross3(inx, iny, inz, mirrorx, 
+                                mirrory, mirrorz,<BR>ref perp1x, ref perp1y, ref 
+                                perp1z);<BR>Normalize(ref perp1x, ref perp1y, 
+                                ref perp1z);<BR><BR>Cross3(perp1x, perp1y, 
+                                perp1z, mirrorx, mirrory, mirrorz,<BR>ref 
+                                perp2x, ref perp2y, ref 
+                                perp2z);<BR>Normalize(ref perp2x, ref perp2y, 
+                                ref perp2z);<BR><BR>double a = 
+                                mirrorx;<BR>double b = perp2x;<BR>double c = 
+                                inx;<BR><BR>double x = mirrory;<BR>double y = 
+                                perp2y;<BR>double z = iny;<BR><BR>double i = 
+                                mirrorz;<BR>double j = perp2z;<BR>double k = 
+                                inz;<BR><BR><BR>double n = 0.0, m = 
+                                0.0;<BR><BR>double eps = 1.0E-5;<BR><BR>if 
+                                (Math.Abs(a) &lt; eps)<BR>{<BR>if (Math.Abs(i) 
+                                &lt; eps)<BR>{<BR>outx = -inx;<BR>outy = 
+                                iny;<BR>outz = 
+                                -inz;<BR>return;<BR>}<BR>else<BR>{<BR>double dn 
+                                = (y - (x * j) / i);<BR><BR>if (Math.Abs(dn) 
+                                &lt; eps)<BR>{<BR>outx = -inx;<BR>outy = 
+                                iny;<BR>outz = -inz;<BR>return;<BR>}<BR><BR>n = 
+                                (z - (x * k) / i) / dn;<BR>m = (k - (j * n)) / 
+                                i;<BR>}<BR>}<BR>else<BR>{<BR>double dn = (y - (x 
+                                * b) / a);<BR><BR>if (Math.Abs(dn) &lt; 
+                                eps)<BR>{<BR>outx = -inx;<BR>outy = iny;<BR>outz 
+                                = -inz;<BR>return;<BR>}<BR><BR>n = (z - (x * c) 
+                                / a) / dn;<BR>m = (c - (b * n)) / 
+                                a;<BR>}<BR><BR>double v1x = mirrorx;<BR>double 
+                                v1y = mirrory;<BR>double v1z = 
+                                mirrorz;<BR><BR>double v2x = perp2x;<BR>double 
+                                v2y = perp2y;<BR>double v2z = perp2z;<BR><BR>v1x 
+                                *= m;<BR>v1y *= m;<BR>v1z *= m;<BR><BR>v2x *= 
+                                n;<BR>v2y *= n;<BR>v2z *= n;<BR><BR>outx = v1x - 
+                                v2x;<BR>outy = v1y - v2y;<BR>outz = v1z - 
+                                v2z;<BR><BR>return;<BR>}<BR><BR>public static 
+                                double Dot3(double x1, double y1, double z1, 
+                                double x2, double y2, double z2)<BR>{<BR>return 
+                                ((x1 * x2) + (y1 * y2) + (z1 * 
+                                z2));<BR>}<BR><BR>public static double 
+                                GetCosAngleV1V2(double v1x, double v1y, double 
+                                v1z, double v2x, double v2y, double 
+                                v2z)<BR>{<BR>// cos(t) = (v.w) / (|v|.|w|) = 
+                                (v.w) / 1<BR>return Dot3(v1x, v1y, v1z, v2x, 
+                                v2y, v2z);<BR>}<BR><BR>public static double 
+                                modv(double vx, double vy, double 
+                                vz)<BR>{<BR>return System.Math.Sqrt(vx * vx + vy 
+                                * vy + vz * vz);<BR>}<BR><BR>public static bool 
+                                Normalize(ref double vx, ref double vy, ref 
+                                double vz)<BR>{<BR>double mod_v = 
+                                tAlgebra.modv(vx, vy, vz);<BR>double eps = 
+                                1.0E-20;<BR><BR>if (Math.Abs(mod_v) &lt; 
+                                eps)<BR>return true;<BR><BR>vx = vx / 
+                                mod_v;<BR>vy = vy / mod_v;<BR>vz = vz / 
+                                mod_v;<BR>return false;<BR>}<BR>public static 
+                                void RotX(double angle, ref double y, ref double 
+                                z)<BR>{<BR>double y1 = y * 
+                                System.Math.Cos(angle) - z * 
+                                System.Math.Sin(angle);<BR>double z1 = y * 
+                                System.Math.Sin(angle) + z * 
+                                System.Math.Cos(angle);<BR>y = y1;<BR>z = 
+                                z1;<BR>}<BR>public static void RotY(double 
+                                angle, ref double x, ref double 
+                                z)<BR>{<BR>double x1 = x * 
+                                System.Math.Cos(angle) - z * 
+                                System.Math.Sin(angle);<BR>double z1 = x * 
+                                System.Math.Sin(angle) + z * 
+                                System.Math.Cos(angle);<BR>x = x1;<BR>z = 
+                                z1;<BR>}<BR>public static void RotZ(double 
+                                angle, ref double x, ref double 
+                                y)<BR>{<BR>double x1 = x * 
+                                System.Math.Cos(angle) - y * 
+                                System.Math.Sin(angle);<BR>double y1 = x * 
+                                System.Math.Sin(angle) + y * 
+                                System.Math.Cos(angle);<BR>x = x1;<BR>y = 
+                                y1;<BR>}<BR><BR><IMG 
+                                src="2 - Triangles intersection_archivos/smiley_smile.gif" 
+                                align=absMiddle> <BR><BR>
+                                <DIV class=ForumSig>Anderson J. 
+                                Almeida<BR>Systems 
+                                Analyst<BR>SimSysBr</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2177151">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2177151">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;tid=2177126&amp;forumid=443504&amp;select=2177151#xx2177151xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2177151#xx2177151xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2177126#xx2177126xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(3589667,2177151);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="2 - Triangles intersection_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR height=1>
+                            <TD bgColor=#ff9900><IMG height=1 
+                              src="2 - Triangles intersection_archivos/t.gif" 
+                              width=1></TD></TR>
+                          <TR id=2167335_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2167335xx></A><IMG 
+                                src="2 - Triangles intersection_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle style="COLOR: #aa0000" 
+                                width="100%"><A class=messagetitle 
+                                id=DynMessLink style="COLOR: #aa0000" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;forumid=443504&amp;select=2167335#xx2167335xx" 
+                                name=2167335><B>Great series, 
+                                but....</B></A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=6556"><IMG 
+                                title="CodeProject Staff" height=16 
+                                src="2 - Triangles intersection_archivos/staff_sm.gif" 
+                                width=12 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT class=messagetitle 
+                                style="COLOR: #aa0000"><B>Christian 
+                                Graus</B>&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle 
+                                style="COLOR: #aa0000"><B>19:17 3 Aug 
+                                '07</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2167335_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG 
+                                src="2 - Triangles intersection_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I am 
+                                really looking forward to reading these, this is 
+                                stuff I've always wanted to get into. But, I 
+                                notice that in some articles you use SetPixel, 
+                                when it would be faster to access them directly 
+                                ? Also, more importantly, I notice you never 
+                                call dispose on your graphics objects, which is 
+                                a really bad habit to get into, especially in 
+                                articles where people will assume best practise 
+                                because of the advanced nature of the core 
+                                topics covered. <BR><BR>
+                                <DIV class=ForumSig>Christian Graus - Microsoft 
+                                MVP - C++<BR><BR>"I am working on a project that 
+                                will convert a FORTRAN code to corresponding C++ 
+                                code.I am not aware of FORTRAN syntax" ( spotted 
+                                in the C++/CLI forum 
+                                )</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2167335">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2167335">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;tid=2167335&amp;forumid=443504&amp;select=2167335#xx2167335xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2167335#xx2167335xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2167335#xx2167335xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 5.0 (1 
+                                vote).
+                                <SCRIPT language=Javascript>MsgVoteForm(6556,2167335);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="2 - Triangles intersection_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2167957_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2167957xx></A><IMG 
+                                height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="2 - Triangles intersection_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;forumid=443504&amp;select=2167957#xx2167957xx" 
+                                name=2167957>Re: Great series, but.... 
+                                [modified]</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3589667"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="2 - Triangles intersection_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>andalmeida&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>17:18 4 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2167957_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="2 - Triangles intersection_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Yep i 
+                                was advised in the other article about this, 
+                                will fix all them, thanks a lot <IMG 
+                                src="2 - Triangles intersection_archivos/smiley_smile.gif" 
+                                align=absMiddle> <BR><BR>
+                                <DIV class=ForumSig>Anderson J. 
+                                Almeida<BR>Systems 
+                                Analyst<BR>SimSysBr</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2167957">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2167957">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;tid=2167335&amp;forumid=443504&amp;select=2167957#xx2167957xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2167957#xx2167957xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2167335#xx2167335xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(3589667,2167957);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="2 - Triangles intersection_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2168579_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2168579xx></A><IMG 
+                                height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="2 - Triangles intersection_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;forumid=443504&amp;select=2168579#xx2168579xx" 
+                                name=2168579>Re: Great series, but....</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3589667"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="2 - Triangles intersection_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>andalmeida&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>20:45 5 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2168579_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="2 - Triangles intersection_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Fixed. 
+                                Added the Dispose call to the Brush object. 
+                                <BR><BR>Is there a similar to SetPixel in .NET ? 
+                                How could we improve velocity?<BR><BR>Thanks 
+                                again <IMG 
+                                src="2 - Triangles intersection_archivos/smiley_smile.gif" 
+                                align=absMiddle> <BR><BR>
+                                <DIV class=ForumSig>Anderson J. 
+                                Almeida<BR>Systems 
+                                Analyst<BR>SimSysBr</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2168579">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2168579">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;tid=2167335&amp;forumid=443504&amp;select=2168579#xx2168579xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2168579#xx2168579xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2167335#xx2167335xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(3589667,2168579);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="2 - Triangles intersection_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2170273_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2170273xx></A><IMG 
+                                height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=36><IMG 
+                                src="2 - Triangles intersection_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle style="COLOR: #aa0000" 
+                                width="100%"><A class=messagetitle 
+                                id=DynMessLink style="COLOR: #aa0000" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;forumid=443504&amp;select=2170273#xx2170273xx" 
+                                name=2170273>Re: Great series, but....</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=362570"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="2 - Triangles intersection_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT class=messagetitle 
+                                style="COLOR: #aa0000">Sander van 
+                                Driel&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle 
+                                style="COLOR: #aa0000">19:48 6 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2170273_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=36><IMG 
+                                src="2 - Triangles intersection_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>By 
+                                calling <CODE>Bitmap.LockBits</CODE> you'll 
+                                obtain a <CODE>BitmapData</CODE> structure that 
+                                contains a pointer to the bitmap data. Then you 
+                                can write your pixel information there. When 
+                                done, call 
+                                <CODE>Bitmap.UnlockBits</CODE>.<BR><BR>This 
+                                method is approximately 15x faster than 
+                                <CODE>Bitmap.SetPixel</CODE>. The disadvantage 
+                                is that this requires unmanaged 
+                                code.<BR><BR>More info: <A 
+                                href="http://msdn2.microsoft.com/en-us/library/5ey6h79d.aspx" 
+                                rel=nofollow>Bitmap.LockBits on MSDN</A> 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2170273">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2170273">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;tid=2167335&amp;forumid=443504&amp;select=2170273#xx2170273xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2170273#xx2170273xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2167335#xx2167335xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 5.0 (1 
+                                vote).
+                                <SCRIPT language=Javascript>MsgVoteForm(362570,2170273);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="2 - Triangles intersection_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2174050_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2174050xx></A><IMG 
+                                height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=54><IMG 
+                                src="2 - Triangles intersection_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;forumid=443504&amp;select=2174050#xx2174050xx" 
+                                name=2174050>Re: Great series, but....</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=1146852"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="2 - Triangles intersection_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>Lukasz 
+                                Swiatkowski&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>17:10 8 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2174050_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=54><IMG 
+                                src="2 - Triangles intersection_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Unmanaged or unsafe? (Or is 
+                                it the same?) <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2174050">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2174050">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;tid=2167335&amp;forumid=443504&amp;select=2174050#xx2174050xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2174050#xx2174050xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2167335#xx2167335xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 4.0 (2 
+                                votes).
+                                <SCRIPT language=Javascript>MsgVoteForm(1146852,2174050);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="2 - Triangles intersection_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2177682_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2177682xx></A><IMG 
+                                height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=72><IMG 
+                                src="2 - Triangles intersection_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle style="COLOR: #aa0000" 
+                                width="100%"><A class=messagetitle 
+                                id=DynMessLink style="COLOR: #aa0000" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;forumid=443504&amp;select=2177682#xx2177682xx" 
+                                name=2177682>Re: Great series, but....</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=362570"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="2 - Triangles intersection_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT class=messagetitle 
+                                style="COLOR: #aa0000">Sander van 
+                                Driel&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle 
+                                style="COLOR: #aa0000">12:31 10 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2177682_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=72><IMG 
+                                src="2 - Triangles intersection_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Both; 
+                                in this context it is the same. 
+                                <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2177682">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2177682">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;tid=2167335&amp;forumid=443504&amp;select=2177682#xx2177682xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2177682#xx2177682xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2167335#xx2167335xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 5.0 (1 
+                                vote).
+                                <SCRIPT language=Javascript>MsgVoteForm(362570,2177682);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="2 - Triangles intersection_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2178302_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2178302xx></A><IMG 
+                                height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=90><IMG 
+                                src="2 - Triangles intersection_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle style="COLOR: #aa0000" 
+                                width="100%"><A class=messagetitle 
+                                id=DynMessLink style="COLOR: #aa0000" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;forumid=443504&amp;select=2178302#xx2178302xx" 
+                                name=2178302>Re: Great series, but....</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=203333"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="2 - Triangles intersection_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT class=messagetitle 
+                                style="COLOR: #aa0000">Drew 
+                                Noakes&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle 
+                                style="COLOR: #aa0000">6:29 11 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2178302_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="2 - Triangles intersection_archivos/ind.gif" 
+                                width=90><IMG 
+                                src="2 - Triangles intersection_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>All 
+                                GDI+ operations eventually result in the 
+                                execution of unmanaged code (hence needing to 
+                                dispose objects to ensure the deterministic 
+                                release of unmanaged resources). The only real 
+                                decision to make when deciding about LockBits is 
+                                whether you want to compile unsafe code. In 
+                                certain security contexts, unsafe code will not 
+                                be allowed. For most desktop applications this 
+                                is not a problem.<BR><BR>Nice article <IMG 
+                                src="2 - Triangles intersection_archivos/smiley_smile.gif" 
+                                align=absMiddle> <BR><BR>
+                                <DIV class=ForumSig>Drew Noakes<BR><A 
+                                href="http://drewnoakes.com/" 
+                                target=_blank>drewnoakes.com</A></DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2178302">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_2.asp&amp;df=100&amp;forumid=443504&amp;select=2178302">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?df=100&amp;tid=2167335&amp;forumid=443504&amp;select=2178302#xx2178302xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2178302#xx2178302xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp?msg=2167335#xx2167335xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 5.0 (1 
+                                vote).
+                                <SCRIPT language=Javascript>MsgVoteForm(203333,2178302);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="2 - Triangles intersection_archivos/t.gif" 
+                              width=1 border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=#fbedbb>
+                      <TD>
+                        <TABLE cellPadding=2 width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle>Last Visit: 13:57 Thursday 
+                              6th September, 2007</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+            <P class=smallText><IMG 
+            src="2 - Triangles intersection_archivos/news_general.gif" 
+            align=absMiddle> General comment &nbsp;&nbsp; <IMG 
+            src="2 - Triangles intersection_archivos/news_info.gif" 
+            align=absMiddle> News / Info &nbsp;&nbsp; <IMG 
+            src="2 - Triangles intersection_archivos/news_question.gif" 
+            align=absMiddle> Question &nbsp;&nbsp; <IMG 
+            src="2 - Triangles intersection_archivos/news_answer.gif" 
+            align=absMiddle> Answer &nbsp;&nbsp; <IMG 
+            src="2 - Triangles intersection_archivos/news_game.gif" 
+            align=absMiddle> Joke / Game &nbsp;&nbsp; <IMG 
+            src="2 - Triangles intersection_archivos/news_sticky.gif" 
+            align=absMiddle> Admin message</P><BR>
+            <TABLE cellSpacing=5 width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText>Updated: 5 Aug 2007 </TD>
+                <TD class=SmallText align=right>Article content copyright 
+                  andalmeida, 2007<BR>everything else Copyright © <A 
+                  href="mailto:webmaster@codeproject.com">CodeProject</A>, 
+                  1999-2007</A>. <BR>Web16 | <A 
+                  href="http://www.codeproject.com/info/MediaKit">Advertise on 
+                  The Code Project</A> | <A 
+                  href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <SCRIPT src="2 - Triangles intersection_archivos/front.asp" 
+      type=text/javascript></SCRIPT>
+      <BR>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#ff9900 height=1><IMG height=1 
+            src="2 - Triangles intersection_archivos/space.gif"></TD></TR>
+        <TR>
+          <TD align=middle><FONT size=1><A 
+            href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A> • 
+            <A href="http://aspalliance.com/">ASP Alliance</A> • <A 
+            href="http://www.developerfusion.co.uk/">Developer Fusion</A> • <A 
+            href="http://www.developersdex.com/">Developersdex</A> • <A 
+            href="http://www.devguru.com/">DevGuru</A> • <A 
+            href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+            href="http://www.planet-source-code.com/">Planet Source Code</A> • 
+            <A href="http://www.tek-tips.com/">Tek-Tips Forums</A> • 
+        </FONT></TD></TR></TBODY></TABLE></CENTER></TR></TBODY></TABLE></BODY></HTML>

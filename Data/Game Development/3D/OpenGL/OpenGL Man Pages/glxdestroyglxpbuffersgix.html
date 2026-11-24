@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxdestroyglxpbuffersgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxdestroyglxpbuffersgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXDestroyGLXPbufferSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXDestroyGLXPbufferSGIX -	destroy	a GLX pixel buffer
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glXDestroyGLXPbufferSGIX( Display *dpy,
+				    GLXPbufferSGIX pbuf	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy   Specifies the connection to the X server.
+
+     pbuf  Specifies the GLX pixel buffer to be	destroyed.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     If	pbuf is	not current to any client, glXDestroyGLXPbufferSGIX destroys
+     it	immediately.  Otherwise, pbuf is destroyed when	it becomes not current
+     to	any client.  In	either case, the resource ID is	freed immediately.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXDestroyGLXPbufferSGIX is part of the SGIX_pbuffer extension.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     A GLXBadPbufferSGIX error is generated if pbuf is not a valid GLX pixel
+     buffer.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIX_pbuffer extension	is supported only on RealityEngine,
+     RealityEngine2, and VTX systems, InfiniteReality systems and High Impact
+     and Maximum Impact	systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateGLXPbufferSGIX, glXMakeCurrent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

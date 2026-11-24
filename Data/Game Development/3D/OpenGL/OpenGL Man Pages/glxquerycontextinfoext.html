@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxquerycontextinfoext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxquerycontextinfoext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXQueryContextInfoEXT(3G)  OpenGL Reference - GLX  glXQueryContextInfoEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXQueryContextInfoEXT - returns information about	a GLX rendering
+     context
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     int glXQueryContextInfoEXT( Display *dpy,
+				 GLXContext ctx,
+				 int attribute,
+				 int *value )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	Specifies the connection to the	X server.
+
+     ctx	Specifies a GLX	rendering context.
+
+     attribute	Specifies the context attribute	to be returned.
+
+     value	Returns	the requested value.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXQueryContextInfoEXT returns in value the value of attribute for	ctx;
+     it	may cause a round trip to the server.
+
+     attribute is one of the following:
+
+     GLX_SHARE_CONTEXT	   XID of the share list context that was specified
+			   when	ctx was	created	by calling glXCreateContext or
+			   NULL	if ctx is not part of a	share list.
+
+     GLX_VISUAL_ID	   Visual i.d. for XVisualInfo structure that is
+			   associated with ctx.
+
+     GLX_SCREEN		   Screen number for ctx.
+
+     glXQueryContextInfoEXT returns an error code if it	fails for any reason;
+     otherwise,	zero is	returned.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXQueryContextInfoEXT is part of the EXT_import_context extension.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     glXQueryContextInfoEXT returns GLX_BAD_ATTRIBUTE if attribute is invalid.
+
+     A GLXBadContext error is generated	if ctx is not a	valid rendering
+     context.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXQueryContextInfoEXT(3G)  OpenGL Reference - GLX  glXQueryContextInfoEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateContext
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

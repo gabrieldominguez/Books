@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glpushname Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glpushname</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glPushName(3G)		       OpenGL Reference			glPushName(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glPushName, glPopName - push and pop the name stack
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPushName( GLuint name )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     name  Specifies a name that will be pushed	onto the name stack.
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPopName( void )
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     The name stack is used during selection mode to allow sets	of rendering
+     commands to be uniquely identified.  It consists of an ordered set	of
+     unsigned integers.	 glPushName causes name	to be pushed onto the name
+     stack, which is initially empty.  glPopName pops one name off the top of
+     the stack.
+
+     It	is an error to push a name onto	a full stack, or to pop	a name off an
+     empty stack.  It is also an error to manipulate the name stack between a
+     call to glBegin and the corresponding call	to glEnd.  In any of these
+     cases, the	error flag is set and no other change is made to GL state.
+
+     The name stack is always empty while the render mode is not GL_SELECT.
+     Calls to glPushName or glPopName while the	render mode is not GL_SELECT
+     are ignored.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_STACK_OVERFLOW is generated if glPushName is called while the name
+     stack is full.
+
+     GL_STACK_UNDERFLOW	is generated if	glPopName is called while the name
+     stack is empty.
+
+     GL_INVALID_OPERATION is generated if glPushName or	glPopName is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_NAME_STACK_DEPTH
+     glGet with	argument GL_MAX_NAME_STACK_DEPTH
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glInitNames, glLoadName, glRenderMode, glSelectBuffer
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

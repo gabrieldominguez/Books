@@ -1,0 +1,292 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gltexsubimage3dext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gltexsubimage3dext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glTexSubImage3DEXT(3G)	       OpenGL Reference		glTexSubImage3DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glTexSubImage3DEXT	- specify a three-dimensional texture subimage
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glTexSubImage3DEXT( GLenum target,
+			      GLint level,
+			      GLint xoffset,
+			      GLint yoffset,
+			      GLint zoffset,
+			      GLsizei width,
+			      GLsizei height,
+			      GLsizei depth,
+			      GLenum format,
+			      GLenum type,
+			      const GLvoid *pixels )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target   Specifies	the target texture.  Must be GL_TEXTURE_3D_EXT.
+
+     level    Specifies	the level-of-detail number.  Level 0 is	the base image
+	      level.  Level n is the nth mipmap	reduction image.
+
+     xoffset  Specifies	a texel	offset in the x	direction within the texture
+	      array.
+
+     yoffset  Specifies	a texel	offset in the y	direction within the texture
+	      array.
+
+     zoffset  Specifies	a texel	offset in the z	direction within the texture
+	      array.
+
+     width    Specifies	the width of the texture subimage.
+
+     height   Specifies	the height of the texture subimage.
+
+     depth    Specifies	the depth of the texture subimage.
+
+     format   Specifies	the format of the pixel	data.  The following symbolic
+	      values are accepted:  GL_COLOR_INDEX, GL_RED, GL_GREEN, GL_BLUE,
+	      GL_ALPHA,	GL_RGB,	GL_RGBA, GL_ABGR_EXT, GL_LUMINANCE, and
+	      GL_LUMINANCE_ALPHA.
+
+     type     Specifies	the data type of the pixel data.  The following
+	      symbolic values are accepted:  GL_UNSIGNED_BYTE, GL_BYTE,
+	      GL_BITMAP, GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT,
+	      GL_FLOAT,	GL_UNSIGNED_BYTE_3_3_2_EXT,
+	      GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+	      GL_UNSIGNED_INT_8_8_8_8_EXT, and GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexSubImage3DEXT(3G)	       OpenGL Reference		glTexSubImage3DEXT(3G)
+</FONT>
+
+
+     pixels   Specifies	a pointer to the image data in memory.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Texturing maps a portion of a specified texture image onto	each graphical
+     primitive for which texturing is enabled.	Three-dimensional texturing is
+     enabled and disabled using	glEnable and glDisable with argument
+     GL_TEXTURE_3D_EXT.
+
+     glTexSubImage3DEXT	redefines a contiguous subregion of an existing
+     three-dimensional texture image.  The texels referenced by	pixels replace
+     the portion of the	existing texture array with x indices xoffset and
+     xoffset+width-1, inclusive, y indices yoffset and yoffset+height-1,
+     inclusive (But, see discussion of GL_INTERLACE_SGIX below), and z indices
+     zoffset and zoffset+depth-1, inclusive.  This region may not include any
+     texels outside the	range of the texture array as it was originally
+     specified.	 It is not an error to specify a subtexture with zero width,
+     height or depth, but such a specification has no effect.
+
+     If	GL_INTERLACE_SGIX is enabled, then every other row of the destination
+     texture is	skipped. That is, only rows (0,2,4,...)	of each	S-T slice
+     (where the	border is considered part of the slice)	are defined. A
+     complete video frame may be assembled in a	slice of the texture array by
+     invoking glTexSubImage3DEXT on two	consecutive video fields, with yoffset
+     values that differ	by one.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Texturing has no effect in	color index mode.
+
+     glPixelStore and glPixelTransfer modes affect texture images in exactly
+     the way they affect glDrawPixels.
+
+     glTexSubImage3DEXT	is only	available if both the EXT_subtexture and
+     EXT_texture3d extensions are supported.
+
+     If	type is	set to GL_UNSIGNED_BYTE_3_3_2_EXT,
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT and	the
+     EXT_packed_pixels extension is not	supported then a GL_INVALID_ENUM error
+     is	generated.
+
+     See glIntro for more information on using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated when target is not GL_TEXTURE_3D_EXT.
+
+     GL_INVALID_OPERATION is generated when the	texture	array has not been
+     defined by	a previous glTexImage3D	operation.
+
+     GL_INVALID_VALUE is generated if level is less than zero or greater than
+     log2(max),	where max is the returned value	of GL_MAX_3D_TEXTURE_SIZE_EXT.
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexSubImage3DEXT(3G)	       OpenGL Reference		glTexSubImage3DEXT(3G)
+</FONT>
+
+
+     GL_INVALID_VALUE is generated if xoffset&amp;lt;-TEXTURE_BORDER,
+     (xoffset+width)&gt;(TEXTURE_WIDTH-TEXTURE_BORDER), yoffset&amp;lt;-TEXTURE_BORDER,
+     (yoffset+interlacexheight)&gt;(TEXTURE_HEIGHT-TEXTURE_BORDER),
+     zoffset&amp;lt;-TEXTURE_BORDER, or (zoffset+depth)&gt;(TEXTURE_DEPTH_EXT-
+     TEXTURE_BORDER), where TEXTURE_WIDTH, TEXTURE_HEIGHT, TEXTURE_DEPTH_EXT
+     and TEXTURE_BORDER	are the	state values of	the texture image being
+     modified, and interlace is	1 if GL_INTERLACE_SGIX is disabled and 2
+     otherwise.	 Note that TEXTURE_WIDTH, TEXTURE_HEIGHT and TEXTURE_DEPTH_EXT
+     include twice the border width.
+
+     GL_INVALID_ENUM is	generated when format is not an	accepted format
+     constant.
+
+     GL_INVALID_ENUM is	generated when type is not a type constant.
+
+     GL_INVALID_ENUM is	generated if type is GL_BITMAP and format is not
+     GL_COLOR_INDEX.
+
+     GL_INVALID_OPERATION is generated if glTexSubImage3DEXT is	executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexImage
+     glIsEnabled with argument GL_TEXTURE_3D_EXT
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	InfiniteReality	systems, the width of the image	to be transferred to
+     texture memory must be a multiple of 8.  This constraint will be lifted
+     in	a future release, though transfers that	are a multiple of 8 in length
+     will have somewhat	higher performance than	other transfers.
+
+     Texture borders are not supported on InfiniteReality systems.  They will
+     be	supported in a future release, however,	they will require large
+     amounts of	texture	memory.	 Whenever possible, applications should	use
+     borderless	textures and GL_CLAMP_TO_EDGE_SGIS wrap	mode.
+
+     The SGIX_interlace	extension is supported only on InfiniteReality systems
+     and on RealityEngine, RealityEngine2, and VTX systems.
+
+     The EXT_packed_pixels extension is	not supported on RealityEngine,
+     RealityEngine2, and VTX systems; it will be supported on High Impact and
+     Maximum Impact systems in a future	release.
+
+     glTexSubImage3DEXT	is not supported on RealityEngine, RealityEngine2, and
+     VTX systems.
+
+     On	High Impact and	Maximum	Impact systems,	if the right side of the image
+     to	be transferred to texture memory is not	the right side of the texture,
+     then its index must be a multiple of 32, where index = xoffset+width.
+     Otherwise it will generate	a GL_INVALID_VALUE error.
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexSubImage3DEXT(3G)	       OpenGL Reference		glTexSubImage3DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDrawPixels, glFog, glPixelStore,	glPixelTransfer, glTexEnv, glTexGen,
+     glTexImage3D, glTexParameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 4
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

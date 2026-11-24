@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxwaitgl Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxwaitgl</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXWaitGL(3G)		    OpenGL Reference - GLX		 glXWaitGL(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXWaitGL - complete GL execution prior to	subsequent X calls
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glXWaitGL( void )
+
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     OpenGL rendering calls made prior to glXWaitGL are	guaranteed to be
+     executed before X rendering calls made after glXWaitGL.  Although this
+     same result can be	achieved using glFinish, glXWaitGL does	not require a
+     round trip	to the server, and it is therefore more	efficient in cases
+     where client and server are on separate machines.
+
+     glXWaitGL is ignored if there is no current GLX context.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXWaitGL may or may not flush the	X stream.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLXBadCurrentWindow is generated if the drawable associated with the
+     current context of	the calling thread is a	window,	and that window	is no
+     longer valid.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glFinish, glFlush,	glXWaitX, XSync
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

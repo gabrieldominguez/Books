@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetteximage Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetteximage</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetTexImage(3G)	       OpenGL Reference		     glGetTexImage(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetTexImage - return a texture image
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetTexImage( GLenum	target,
+			 GLint level,
+			 GLenum	format,
+			 GLenum	type,
+			 GLvoid	*pixels	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Specifies which texture is	to be obtained.	 GL_TEXTURE_1D,
+	     GL_TEXTURE_2D, GL_DETAIL_TEXTURE_2D_SGIS, and GL_TEXTURE_3D_EXT
+	     are accepted.
+
+     level   Specifies the level-of-detail number of the desired image.	 Level
+	     0 is the base image level.	 Level n is the	nth mipmap reduction
+	     image.
+
+     format  Specifies a pixel format for the returned data.  The supported
+	     formats are GL_RED, GL_GREEN, GL_BLUE, GL_ALPHA, GL_RGB, GL_RGBA,
+	     GL_ABGR_EXT, GL_LUMINANCE,	and GL_LUMINANCE_ALPHA.
+
+     type    Specifies a pixel type for	the returned data.  The	supported
+	     types are GL_UNSIGNED_BYTE, GL_BYTE, GL_UNSIGNED_SHORT, GL_SHORT,
+	     GL_UNSIGNED_INT, GL_INT, GL_FLOAT,	GL_UNSIGNED_BYTE_3_3_2_EXT,
+	     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+	     GL_UNSIGNED_INT_8_8_8_8_EXT, and GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+     pixels  Returns the texture image.	 Should	be a pointer to	an array of
+	     the type specified	by type.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetTexImage returns a texture image into	pixels.	 target	specifies
+     whether the desired texture image is one specified	by glTexImage1D
+     (GL_TEXTURE_1D), glTexImage2D (GL_TEXTURE_2D or
+     GL_DETAIL_TEXTURE_2D_SGIS), or by glTexImage3DEXT (GL_TEXTURE_3D_EXT).
+     level specifies the level-of-detail number	of the desired image.  format
+     and type specify the format and type of the desired image array.  Please
+     see the reference pages glTexImage1D and glDrawPixels for a description
+     of	the acceptable values for the format and type parameters,
+     respectively.
+
+     Operation of glGetTexImage	is best	understood by considering the selected
+     internal four-component texture image to be an RGBA color buffer the size
+     of	the image.  The	semantics of glGetTexImage are then identical to those
+     of	glReadPixels called with the same format and type, with	x and y	set to
+     zero, width set to	the width of the texture image (including border if
+     one was specified), and height set	to one for 1-D images, or to the
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetTexImage(3G)	       OpenGL Reference		     glGetTexImage(3G)
+</FONT>
+
+
+     height of the texture image (including border if one was specified) for
+     2-D images.  (Similar considerations apply	to 3D images, though there is
+     no	direct analogy with glReadPixels.)  Because the	internal texture image
+     is	an RGBA	image, pixel formats GL_COLOR_INDEX, GL_STENCIL_INDEX, and
+     GL_DEPTH_COMPONENT	are not	accepted, and pixel type GL_BITMAP is not
+     accepted.
+
+     If	the selected texture image does	not contain four components, the
+     following mappings	are applied.  Single-component textures	are treated as
+     RGBA buffers with red set to the single-component value, and green, blue,
+     and alpha set to zero.  Two-component textures are	treated	as RGBA
+     buffers with red set to the value of component zero, alpha	set to the
+     value of component	one, and green and blue	set to zero.  Finally, three-
+     component textures	are treated as RGBA buffers with red set to component
+     zero, green set to	component one, blue set	to component two, and alpha
+     set to zero.
+
+     To	determine the required size of pixels, use glGetTexLevelParameter to
+     ascertain the dimensions of the internal texture image, then scale	the
+     required number of	pixels by the storage required for each	pixel, based
+     on	format and type.  Be sure to take the pixel storage parameters into
+     account, especially GL_PACK_ALIGNMENT.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	an error is generated, no change is made to the	contents of pixels.
+
+     If	type is	set to GL_UNSIGNED_BYTE_3_3_2_EXT,
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT and	the
+     EXT_packed_pixels extension is not	supported then a GL_INVALID_ENUM error
+     is	generated.
+
+     GL_ABGR_EXT is part of the	EXT_abgr extension and
+     GL_DETAIL_TEXTURE_2D_SGIS is part of the SGIS_detail_texture extension.
+
+     See glIntro for more information on using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target, format, or	type is	not an
+     accepted value.
+
+     GL_INVALID_VALUE is generated if level is less than zero or greater than
+     log max, where max	is the returned	value of GL_MAX_TEXTURE_SIZE.
+	2
+     GL_INVALID_OPERATION is generated if glGetTexImage	is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexLevelParameter with argument GL_TEXTURE_WIDTH
+     glGetTexLevelParameter with argument GL_TEXTURE_HEIGHT
+     glGetTexLevelParameter with argument GL_TEXTURE_DEPTH_EXT
+     glGetTexLevelParameter with argument GL_TEXTURE_BORDER
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetTexImage(3G)	       OpenGL Reference		     glGetTexImage(3G)
+</FONT>
+
+
+     glGetTexLevelParameter with argument GL_TEXTURE_COMPONENTS
+     glGet with	arguments GL_PACK_ALIGNMENT and	others
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support convolving
+     texture images as they are	retrieved from texture memory.
+
+     On	InfiniteReality	systems, readback of texture images into signed
+     integer data types	does not work.	Also, readback of tall,	very thin
+     texture maps may not work in all cases.  These problems will be corrected
+     in	a future release.
+
+     The EXT_packed_pixels extension is	not supported on RealityEngine,
+     RealityEngine2, and VTX systems; it will be supported on High Impact and
+     Maximum Impact systems in a future	release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDrawPixels, glReadPixels, glTexImage1D, glTexImage2D, glTexImage3DEXT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

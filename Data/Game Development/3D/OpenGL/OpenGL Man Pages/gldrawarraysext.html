@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gldrawarraysext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gldrawarraysext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glDrawArraysEXT(3G)	       OpenGL Reference		   glDrawArraysEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glDrawArraysEXT - render primitives from array data
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glDrawArraysEXT( GLenum mode,
+			   GLint first,
+			   GLsizei count )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mode   Specifies what kind	of primitives to render.  Symbolic constants
+	    GL_POINTS, GL_LINE_STRIP, GL_LINE_LOOP, GL_LINES,
+	    GL_TRIANGLE_STRIP, GL_TRIANGLE_FAN,	GL_TRIANGLES, GL_QUAD_STRIP,
+	    GL_QUADS, and GL_POLYGON are accepted.
+
+     first  Specifies the starting index in the	enabled	arrays.
+
+     count  Specifies the number of indices which should be rendered.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glDrawArraysEXT makes it possible to specify multiple geometric
+     primitives	with very few subroutine calls.	Instead	of calling an OpenGL
+     procedure to pass each individual vertex, normal, or color, separate
+     arrays of vertexes, normals, and colors can be prespecified, and used to
+     define a sequence of primitives (all of the same type) with a single call
+     to	glDrawArraysEXT.
+
+     When glDrawArraysEXT is called, count sequential elements from each
+     enabled array are used to construct a sequence of geometric primitives,
+     beginning with element first. mode	specifies what kind of primitives are
+     constructed, and how the array elements are used to construct these
+     primitives. If GL_VERTEX_ARRAY_EXT	is not enabled,	no geometric
+     primitives	are generated.
+
+     Vertex attributes that are	modified by glDrawArraysEXT have an
+     unspecified value after glDrawArraysEXT returns.  For example, if
+     GL_COLOR_ARRAY_EXT	is enabled, the	value of the current color is
+     undefined after glDrawArraysEXT executes.	Attributes that	aren't
+     modified remain well defined.
+
+     Operation of glDrawArraysEXT is atomic with respect to error generation.
+     If	an error is generated, no other	operations take	place.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glDrawArraysEXT may be included in	display	lists. If glDrawArraysEXT is
+     entered into a display list, the necessary	array data (determined by the
+     array pointers and	enables) is also entered into the display list.
+     Because the array pointers	and enables are	client side state, their
+     values affect display lists when the lists	are created, not when the
+     lists are executed.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDrawArraysEXT(3G)	       OpenGL Reference		   glDrawArraysEXT(3G)
+</FONT>
+
+
+     Static array data may be read and cached by the implementation at any
+     time.  If static array elements are modified and the arrays are not
+     respecified, the results of any subsequent	calls to glDrawArraysEXT are
+     undefined.
+
+     Although it is not	an error to respecify an array between the execution
+     of	glBegin	and the	corresponding execution	of glEnd, the result of	such
+     respecification is	undefined.
+
+     glDrawArraysEXT is	part of	the EXT_vertex_array extension,	not part of
+     the core GL command set. If GL_EXT_vertex_array is	included in the	string
+     returned by glGetString, when called with argument	GL_EXTENSIONS,
+     extension EXT_vertex_array	is supported.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if mode is not an accepted value.
+
+     GL_INVALID_VALUE is generated if count is negative.
+
+     GL_INVALID_OPERATION is generated if glDrawArraysEXT is called between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glArrayElementEXT,	glColorPointerEXT, glEdgeFlagPointerEXT,
+     glGetPointervEXT, glIndexPointerEXT, glNormalPointerEXT,
+     glTexCoordPointerEXT, glVertexPointerEXT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

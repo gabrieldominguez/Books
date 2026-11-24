@@ -1,0 +1,622 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxchoosefbconfigsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxchoosefbconfigsgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXChooseFBConfigSGIX(3G)   OpenGL Reference - GLX   glXChooseFBConfigSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXChooseFBConfigSGIX - return a list of GLX frame	buffer configurations
+     that match	the specified attributes
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLXFBConfigSGIX * glXChooseFBConfigSGIX( Display *dpy,
+					      int screen,
+					      int *attrib_list,
+					      int *nitems )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	  Specifies the	connection to the X server.
+
+
+     screen	  Specifies the	screen number.
+
+
+     attrib_list  Specifies a list of attribute/value pairs.  The last
+		  attribute must be None.
+
+
+     nitems	  Returns the number of	elements in the	list returned by
+		  glXChooseFBConfigSGIX.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     If	attrib_list is NULL then glXChooseFBConfigSGIX returns an array	of GLX
+     frame buffer configurations that are available on the specified screen;
+     otherwise glXChooseFBConfigSGIX returns an	array of GLX frame buffer
+     configurations that match the specified attributes. If an error occurs,
+     no	frame buffer configurations exist on the specified screen, or if no
+     frame buffer configurations match the specified attributes, then NULL is
+     returned.	Use XFree to free the memory returned by
+     glXChooseFBConfigSGIX.
+
+     All attributes in attrib_list, including boolean attributes, are
+     immediately followed by the corresponding desired value. The list is
+     terminated	with None. If an attribute is not specified in attrib_list
+     then the default value (see below)	is used	(and the attribute is said to
+     be	specified implicitly). For example, if GLX_STEREO is not specified
+     then it is	assumed	to be False. For some attributes, the default is
+     "don't care" meaning that any value is OK for this	attribute, so the
+     attribute will not	be checked.
+
+     Attributes	are matched in an attribute-specific manner.  Some of the
+     attributes, such as GLX_LEVEL, must match the specified value exactly;
+     others, such as, GLX_RED_SIZE must	meet or	exceed the specified minimum
+     values. If	more than one GLX frame	buffer configuration is	found, then a
+     list of configurations, sorted according to the "best" match criteria, is
+     returned. The match criteria for each attribute and the exact sorting
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseFBConfigSGIX(3G)   OpenGL Reference - GLX   glXChooseFBConfigSGIX(3G)
+</FONT>
+
+
+     order is defined below.
+
+     The interpretations of the	various	GLX visual attributes are as follows:
+
+     GLX_BUFFER_SIZE	      Must be followed by a nonnegative	integer	that
+			      indicates	the desired color index	buffer size.
+			      The smallest index buffer	of at least the
+			      specified	size is	preferred.  Ignored if
+			      GLX_COLOR_INDEX_BIT_SGIX is not set in
+			      GLX_RENDER_TYPE_SGIX. The	default	value is 0.
+
+     GLX_LEVEL		      Must be followed by an integer buffer-level
+			      specification.  This specification is honored
+			      exactly.	Buffer level zero corresponds to the
+			      default frame buffer of the display.  Buffer
+			      level one	is the first overlay frame buffer,
+			      level two	the second overlay frame buffer, and
+			      so on.  Negative buffer levels correspond	to
+			      underlay frame buffers.  The default value is 0.
+
+     GLX_DOUBLEBUFFER	      Must be followed by True or False. If True is
+			      specified	then only double-buffered frame	buffer
+			      configurations are considered; if	False is
+			      specified	then only single-buffered frame	buffer
+			      configurations are considered.  The default
+			      value is "don't care".
+
+     GLX_STEREO		      Must be followed by True or False. If True is
+			      specified	then only stereo frame buffer
+			      configurations are considered; if	False is
+			      specified	then only monoscopic frame buffer
+			      configurations are considered.  The default
+			      value is False.
+
+     GLX_AUX_BUFFERS	      Must be followed by a nonnegative	integer	that
+			      indicates	the desired number of auxiliary
+			      buffers.	Configurations with the	smallest
+			      number of	auxiliary buffers that meet or exceed
+			      the specified number are preferred.  The default
+			      value is 0.
+
+     GLX_RED_SIZE	      Must be followed by a nonnegative	minimum	size
+			      specification.  If this value is zero, the
+			      smallest available red buffer is preferred.
+			      Otherwise, the largest available red buffer of
+			      at least the minimum size	is preferred.  The
+			      default value is 0.
+
+     GLX_GREEN_SIZE	      Must be followed by a nonnegative	minimum	size
+			      specification.  If this value is zero, the
+			      smallest available green buffer is preferred.
+			      Otherwise, the largest available green buffer of
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseFBConfigSGIX(3G)   OpenGL Reference - GLX   glXChooseFBConfigSGIX(3G)
+</FONT>
+
+
+			      at least the minimum size	is preferred.  The
+			      default value is 0.
+
+     GLX_BLUE_SIZE	      Must be followed by a nonnegative	minimum	size
+			      specification.  If this value is zero, the
+			      smallest available blue buffer is	preferred.
+			      Otherwise, the largest available blue buffer of
+			      at least the minimum size	is preferred.  The
+			      default value is 0.
+
+     GLX_ALPHA_SIZE	      Must be followed by a nonnegative	minimum	size
+			      specification.  If this value is zero, the
+			      smallest available alpha buffer is preferred.
+			      Otherwise, the largest available alpha buffer of
+			      at least the minimum size	is preferred.  The
+			      default value is 0.
+
+     GLX_DEPTH_SIZE	      Must be followed by a nonnegative	minimum	size
+			      specification.  If this value is zero, frame
+			      buffer configurations with no depth buffer are
+			      preferred.  Otherwise, the largest available
+			      depth buffer of at least the minimum size	is
+			      preferred.  The default value is 0.
+
+     GLX_STENCIL_SIZE	      Must be followed by a nonnegative	integer	that
+			      indicates	the desired number of stencil
+			      bitplanes.  The smallest stencil buffer of at
+			      least the	specified size is preferred.  If the
+			      desired value is zero, frame buffer
+			      configurations with no stencil buffer are
+			      preferred.  The default value is 0.
+
+     GLX_ACCUM_RED_SIZE	      Must be followed by a nonnegative	minimum	size
+			      specification.  If this value is zero, frame
+			      buffer configurations with no red	accumulation
+			      buffer are preferred.  Otherwise,	the largest
+			      possible red accumulation	buffer of at least the
+			      minimum size is preferred.  The default value is
+			      0.
+
+     GLX_ACCUM_GREEN_SIZE     Must be followed by a nonnegative	minimum	size
+			      specification.  If this value is zero, frame
+			      buffer configurations with no green accumulation
+			      buffer are preferred.  Otherwise,	the largest
+			      possible green accumulation buffer of at least
+			      the minimum size is preferred.  The default
+			      value is 0.
+
+     GLX_ACCUM_BLUE_SIZE      Must be followed by a nonnegative	minimum	size
+			      specification.  If this value is zero, frame
+			      buffer configurations with no blue accumulation
+			      buffer are preferred.  Otherwise,	the largest
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseFBConfigSGIX(3G)   OpenGL Reference - GLX   glXChooseFBConfigSGIX(3G)
+</FONT>
+
+
+			      possible blue accumulation buffer	of at least
+			      the minimum size is preferred.  The default
+			      value is 0.
+
+     GLX_ACCUM_ALPHA_SIZE     Must be followed by a nonnegative	minimum	size
+			      specification.  If this value is zero, frame
+			      buffer configurations with no alpha accumulation
+			      buffer are preferred.  Otherwise,	the largest
+			      possible alpha accumulation buffer of at least
+			      the minimum size is preferred.  The default
+			      value is 0.
+
+     GLX_SAMPLE_BUFFERS_SGIS  Must be followed by the minimum acceptable
+			      number of	multisample buffers.  Configurations
+			      with the smallest	number of multisample buffers
+			      that meet	or exceed this minimum number are
+			      preferred.  Currently operation with more	than
+			      one multisample buffer is	undefined, so only
+			      values of	zero or	one will produce a match.  The
+			      default value is 0.
+
+     GLX_SAMPLES_SGIS	      Must be followed by the minimum number of
+			      samples required in multisample buffers.
+			      Configurations with the smallest number of
+			      samples that meet	or exceed the specified
+			      minimum number are preferred.  Note that it is
+			      possible for color samples in the	multisample
+			      buffer to	have fewer bits	than colors in the
+			      main color buffers.  However, multisampled
+			      colors maintain at least as much color
+			      resolution in aggregate as the main color
+			      buffers.
+
+			      The default value	is 0.
+
+     GLX_TRANSPARENT_TYPE_EXT Must be followed by one of GLX_NONE_EXT,
+			      GLX_TRANSPARENT_RGB_EXT,
+			      GLX_TRANSPARENT_INDEX_EXT.  If GLX_NONE_EXT is
+			      specified, then only opaque frame	buffer
+			      configurations will be considered; if
+			      GLX_TRANSPARENT_RGB_EXT is specified, then only
+			      transparent frame	buffer configurations that
+			      support RGBA rendering will be considered; if
+			      GLX_TRANSPARENT_INDEX_EXT	is specified, then
+			      only transparent frame buffer configurations
+			      that support color index rendering will be
+			      considered.  The default value is	GLX_NONE_EXT.
+
+     GLX_TRANSPARENT_INDEX_VALUE_EXT
+			      Must be followed by an integer value indicating
+			      the transparent index value; the value must be
+			      between 0	and the	maximum	framebuffer value for
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseFBConfigSGIX(3G)   OpenGL Reference - GLX   glXChooseFBConfigSGIX(3G)
+</FONT>
+
+
+			      indices.	Only frame buffer configurations that
+			      use the specified	transparent index value	will
+			      be considered.  The default value	is "don't
+			      care".
+
+			      This attribute is	ignored	unless
+			      GLX_TRANSPARENT_TYPE_EXT is included in
+			      attrib_list and specified	as
+			      GLX_TRANSPARENT_INDEX_EXT.
+
+     GLX_TRANSPARENT_RED_VALUE_EXT
+			      Must be followed by an integer value indicating
+			      the transparent red value; the value must	be
+			      between 0	and the	maximum	framebuffer value for
+			      red.  Only frame buffer configurations that use
+			      the specified transparent	red value will be
+			      considered.  The default value is	"don't care".
+
+			      This attribute is	ignored	unless
+			      GLX_TRANSPARENT_TYPE_EXT is included in
+			      attrib_list and specified	as
+			      GLX_TRANSPARENT_RGB_EXT.
+
+     GLX_TRANSPARENT_GREEN_VALUE_EXT
+			      Must be followed by an integer value indicating
+			      the transparent green value; the value must be
+			      between 0	and the	maximum	framebuffer value for
+			      green.  Only frame buffer	configurations that
+			      use the specified	transparent green value	will
+			      be considered.  The default value	is "don't
+			      care".
+
+			      This attribute is	ignored	unless
+			      GLX_TRANSPARENT_TYPE_EXT is included in
+			      attrib_list and specified	as
+			      GLX_TRANSPARENT_RGB_EXT.
+
+     GLX_TRANSPARENT_BLUE_VALUE_EXT
+			      Must be followed by an integer value indicating
+			      the transparent blue value; the value must be
+			      between 0	and the	maximum	framebuffer value for
+			      blue.  Only frame	buffer configurations that use
+			      the specified transparent	blue value will	be
+			      considered.  The default value is	"don't care".
+
+			      This attribute is	ignored	unless
+			      GLX_TRANSPARENT_TYPE_EXT is included in
+			      attrib_list and specified	as
+			      GLX_TRANSPARENT_RGB_EXT.
+
+
+
+
+
+
+									Page 5
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseFBConfigSGIX(3G)   OpenGL Reference - GLX   glXChooseFBConfigSGIX(3G)
+</FONT>
+
+
+     GLX_TRANSPARENT_ALPHA_VALUE_EXT
+			      Must be followed by an integer value.  This
+			      attribute	is always ignored; it is for future
+			      use only.
+
+     GLX_VISUAL_CAVEAT_EXT    Must be followed by one of GLX_NONE_EXT,
+			      GLX_SLOW_VISUAL_EXT, GLX_NON_CONFORMANT_EXT.  If
+			      GLX_NONE_EXT is specified, then only frame
+			      buffer configurations with no caveats will be
+			      considered; if GLX_SLOW_VISUAL_EXT, is specified
+			      then only	slow frame buffer configurations will
+			      be considered; if	GLX_NON_CONFORMANT_EXT is
+			      specified	then only non-conformant frame buffer
+			      configurations will be considered.  The default
+			      value is "don't care".
+
+     GLX_DRAWABLE_TYPE_SGIX   Must be followed by a mask indicating which GLX
+			      drawable types the frame buffer configuration
+			      must support. Valid bits are
+			      GLX_WINDOW_BIT_SGIX, GLX_PIXMAP_BIT_SGIX and
+			      GLX_PBUFFER_BIT_SGIX.  For example, if mask is
+			      set to GLX_WINDOW_BIT_SGIX |
+			      GLX_PIXMAP_BIT_SGIX, only	frame buffer
+			      configurations that support both windows and GLX
+			      pixmaps will be considered.  The default value
+			      is GLX_WINDOW_BIT_SGIX.
+
+     GLX_RENDER_TYPE_SGIX     Must be followed by a mask indicating which
+			      OpenGL rendering modes the frame buffer
+			      configuration must support.  Valid bits are
+			      GLX_RGBA_BIT_SGIX	and GLX_COLOR_INDEX_SGIX. If
+			      the mask is set to GLX_RGBA_BIT_SGIX |
+			      GLX_COLOR_INDEX_SGIX then	only frame buffer
+			      configurations that can be bound to both RGBA
+			      contexts and color index contexts	will be
+			      considered.  The default value is
+			      GLX_RGBA_BIT_SGIX.
+
+     GLX_X_VISUAL_TYPE_EXT    Must be followed by one of GLX_TRUE_COLOR_EXT,
+			      GLX_DIRECT_COLOR_EXT, GLX_PSEUDO_COLOR_EXT,
+			      GLX_STATIC_COLOR_EXT, GLX_GRAY_SCALE_EXT,
+			      GLX_STATIC_GRAY_EXT, indicating the desired X
+			      visual type.  Not	all frame buffer
+			      configurations have an associated	X visual. If
+			      GLX_DRAWABLE_TYPE_SGIX is	specified in
+			      attrib_list and the mask that follows does not
+			      have GLX_WINDOW_BIT_SGIX set, then this value is
+			      ignored. It is also ignored if
+			      GLX_X_RENDERABLE_SGIX is specified as False.
+
+			      RGBA rendering may be supported for visuals of
+			      type GLX_TRUE_COLOR_EXT, GLX_DIRECT_COLOR_EXT,
+
+
+
+									Page 6
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseFBConfigSGIX(3G)   OpenGL Reference - GLX   glXChooseFBConfigSGIX(3G)
+</FONT>
+
+
+			      GLX_PSEUDO_COLOR_EXT, or GLX_STATIC_COLOR_EXT,
+			      but color	index rendering	is only	supported for
+			      visuals of type GLX_PSEUDO_COLOR_EXT or
+			      GLX_STATIC_COLOR_EXT (i.e., single-channel
+			      visuals).
+
+			      The tokens GLX_GRAY_SCALE_EXT and
+			      GLX_STATIC_GRAY_EXT will not match current
+			      OpenGL enabled visuals, but are included for
+			      future use.
+
+			      The default value	for GLX_X_VISUAL_TYPE_EXT is
+			      "don't care".
+
+     GLX_X_RENDERABLE_SGIX    Must be followed by True or False.  If True is
+			      specified, then only frame buffer	configurations
+			      that have	associated X visuals (and can be used
+			      to render	to Windows and/or GLX pixmaps) will be
+			      considered.  The default value is	"don't care".
+
+     GLX_FBCONFIG_ID_SGIX     Must be followed by an XID for a GLXFBConfig.
+			      When GLX_FBCONFIG_ID_SGIX	is specified in
+			      attrib_list, all other attributes	are ignored,
+			      and only the frame buffer	configuration with the
+			      given XID	is returned. NULL is returned if the
+			      frame buffer configuration does not exist.  The
+			      default value for	GLX_FBCONFIG_ID_SGIX is	"don't
+			      care".
+
+     When more than one	GLX frame buffer configuration matches the specified
+     attributes, a list	of matching configurations is returned.	The list is
+     sorted according to the following precedence rules	that are applied in
+     ascending order (i.e., configurations that	are considered equal by	lower
+     numbered rule are sorted by the higher numbered rule):
+     1.	 by GLX_VISUAL_RATING_EXT where	the precedence is GLX_NONE_EXT,
+	 GLX_NON_CONFORMANT, GLX_SLOW_VISUAL.
+     2.	 larger	total number of	RGBA color components (GLX_RED_BITS,
+	 GLX_GREEN_BITS, GLX_BLUE_BITS,	and GLX_ALPHA_BITS) that have higher
+	 number	of bits,
+     3.	 smaller GLX_INDEX_BITS,
+     4.	 single	buffered configuration (GLX_DOUBLE_BUFFER being	False)
+	 precedes a double buffered one,
+     5.	 smaller GLX_AUX_BUFFERS,
+     6.	 smaller GLX_SAMPLE_BUFFERS_SGIS,
+     7.	 smaller GLX_SAMPLES_SGIS,
+     8.	 larger	GLX_DEPTH_BITS,
+     9.	 smaller GLX_STENCIL_BITS,
+     10. larger	total number of	accumulation buffer color components
+	 (GLX_ACCUM_RED_BITS, GLX_ACCUM_GREEN_BITS, GLX_ACCUM_BLUE_BITS, and
+	 GLX_ACCUM_ALPHA_BITS) that have higher	number of bits;
+     11. sort by GLX_VISUAL_TYPE_EXT where the precedence order	is
+	 GLX_TRUE_COLOR_EXT, GLX_DIRECT_COLOR_EXT, GLX_PSEUDO_COLOR_EXT,
+
+
+
+									Page 7
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseFBConfigSGIX(3G)   OpenGL Reference - GLX   glXChooseFBConfigSGIX(3G)
+</FONT>
+
+
+	 GLX_STATIC_COLOR_EXT, GLX_GRAY_SCALE_EXT, GLX_STATIC_GRAY_EXT,
+
+
+<FONT COLOR="#0000CC">EXAMPLES
+</FONT>     attrib_list =
+		 {GLX_RENDER_TYPE_SGIX,	GLX_RGBA_BIT_SGIX, GLX_RED_SIZE, 4,
+		 GLX_GREEN_SIZE, 4, GLX_BLUE_SIZE, 4, None};
+
+     Specifies a frame buffer configuration that supports RGBA rendering and
+     exists in the normal frame	buffer,	not an overlay or underlay buffer.
+     The returned visual supports at least four	bits each of red, green, and
+     blue, and possibly	no bits	of alpha.  It does not support stereo display.
+     It	may or may not have one	or more	auxiliary color	buffers, a back
+     buffer, a depth buffer, a stencil buffer, or an accumulation buffer.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXChooseFBConfigSGIX is part of the GLX_SGIX_fbconfig extension.
+
+     glXChooseFBConfigSGIX is implemented as a client-side utility; it does
+     not require a round-trip to the X server.
+
+     glXChooseFBConfigSGIX and glXGetFBConfigAttribSGIX	can be used to
+     implement selection algorithms other than the generic one implemented by
+     glXChooseFBConfigSGIX. Call glXChooseFBConfigSGIX to retrieve all the
+     frame buffer configurations on a particular screen	or, alternatively, all
+     the frame buffer configurations with a particular set of attributes. Next
+     call glXGetFBConfigAttribSGIX to retrieve additional attributes for the
+     frame buffer configurations and then select between them.
+
+     GLX implementers are strongly discouraged,	but not	proscribed, from
+     changing the selection algorithm used by glXChooseFBConfigSGIX.
+     Therefore,	selections may change from release to release of the client-
+     side library.
+
+     GLX_SAMPLE_BUFFERS_SGIS and GLX_SAMPLES_SGIS are not valid	attributes
+     unless the	SGIS_multisample extension is supported.
+
+     GLX_X_VISUAL_TYPE_EXT, GLX_TRANSPARENT_TYPE_EXT,
+     GLX_TRANSPARENT_INDEX_VALUE_EXT, GLX_TRANSPARENT_RED_VALUE_EXT,
+     GLX_TRANSPARENT_GREEN_VALUE_EXT, GLX_TRANSPARENT_BLUE_VALUE_EXT, and
+     GLX_TRANSPARENT_ALPHA_VALUE_EXT are not valid attributes unless the
+     EXT_visual_info extension is supported.
+
+     GLX_VISUAL_CAVEAT_EXT is not a valid attribute unless the
+     EXT_visual_rating extension is supported.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     NULL is returned if an undefined GLX attribute is encountered in
+     attrib_list, if screen is invalid or if dpy does not support the GLX
+     extension.
+
+
+
+									Page 8
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChooseFBConfigSGIX(3G)   OpenGL Reference - GLX   glXChooseFBConfigSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIS_multisample extension is supported only on RealityEngine,
+     RealityEngine2, and VTX systems and InfiniteReality systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXGetFBConfigAttribSGIX, glXCreateContextWithConfigSGIX,
+     glXCreateGLXPixmapWithConfigSGIX, glXGetVisualFromFBConfigSGIX.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 9
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

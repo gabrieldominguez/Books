@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetconvolutionfilterext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetconvolutionfilterext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetConvolutionFilterEXT(3G)  OpenGL Reference	 glGetConvolutionFilterEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetConvolutionFilterEXT - get current 1D	or 2D convolution filter
+     kernel
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetConvolutionFilterEXT( GLenum target,
+				     GLenum format,
+				     GLenum type,
+				     GLvoid *image )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  The filter	to be retrieved.  Must be one of GL_CONVOLUTION_1D_EXT
+	     or	GL_CONVOLUTION_2D_EXT.
+
+     format  Format of the output image.  Must be one of GL_RED, GL_GREEN,
+	     GL_BLUE, GL_ALPHA,	GL_RGB,	GL_RGBA, GL_ABGR_EXT, GL_LUMINANCE, or
+	     GL_LUMINANCE_ALPHA.
+
+     type    Data type of components in	the output image.  Must	be one of
+	     GL_UNSIGNED_BYTE, GL_BYTE,	GL_UNSIGNED_SHORT, GL_SHORT,
+	     GL_UNSIGNED_INT, GL_INT, GL_FLOAT,	GL_UNSIGNED_BYTE_3_3_2_EXT,
+	     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+	     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+     image   Pointer to	storage	for the	output image.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetConvolutionFilterEXT returns the current 1D or 2D convolution	filter
+     kernel as an image.  The one- or two-dimensional image is placed in image
+     according to the specifications in	format and type.  No pixel transfer
+     operations	are performed on this image, but the relevant pixel storage
+     modes are applied.
+
+     Color components that are present in format but not included in the
+     internal format of	the filter are returned	as zero.  The assignments of
+     internal color components to the components of format are as follows:
+
+		     Internal Component	  Resulting Component
+		     ________________________________________
+		     red		  red
+		     green		  green
+		     blue		  blue
+		     alpha		  alpha
+		     luminance		  red
+		     intensity		  red
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The current separable 2D filter must be retrieved with
+     glGetSeparableFilterEXT rather than glGetConvolutionFilterEXT.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetConvolutionFilterEXT(3G)  OpenGL Reference	 glGetConvolutionFilterEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not one of the allowable
+     values.
+
+     GL_INVALID_ENUM is	generated if format is not one of the allowable
+     values.
+
+     GL_INVALID_ENUM is	generated if type is not one of	the allowable values.
+
+     GL_INVALID_OPERATION is generated if glGetConvolutionFilterEXT is
+     executed between the execution of glBegin and the corresponding execution
+     of	glEnd.
+
+     If	type is	set to GL_UNSIGNED_BYTE_3_3_2_EXT,
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT and	the
+     EXT_packed_pixels extension is not	supported then a GL_INVALID_ENUM error
+     is	generated.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetConvolutionParameterEXT
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems convolution may not be
+     used in the following circumstances:
+
+	  1.  When rendering to	pixmaps.
+
+	  2.  When fragment processing (texturing, depth buffering, alpha
+	      testing, multisampling, fog) is enabled.
+
+	  3.  When histogramming or minmax is enabled.
+
+	  4.  When either of the pixel zoom factors has	a value	other than 1.0
+	      or -1.0.
+
+     In	these cases, glDrawPixels and glCopyPixels report a
+     GL_INVALID_OPERATION error	and do not transfer any	pixels.
+
+     Loading a convolution filter with some combinations of pixel transfer
+     modes may be unreliable on	InfiniteReality	systems.  Straightforward
+     transfers are known to work, though.  The remaining problems will be
+     fixed in the next release.
+
+     On	InfiniteReality	systems, kernel	values are clamped to the range
+     [0.0,1.0] when they are retrieved.	 This will be fixed in a future
+     release.
+
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetConvolutionFilterEXT(3G)  OpenGL Reference	 glGetConvolutionFilterEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glGetSeparableFilterEXT, glConvolutionParameterEXT,
+     glConvolutionFilter1DEXT, glConvolutionFilter2DEXT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

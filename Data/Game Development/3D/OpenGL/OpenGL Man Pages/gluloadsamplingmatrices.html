@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gluloadsamplingmatrices Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gluloadsamplingmatrices</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluLoadSamplingMatrices(3G)    OpenGL Reference	   gluLoadSamplingMatrices(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluLoadSamplingMatrices - load NURBS sampling and culling matrices
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluLoadSamplingMatrices( GLUnurbs* nurb,
+				   const GLfloat *model,
+				   const GLfloat *perspective,
+				   const GLint *view )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     nurb	  Specifies the	NURBS object (created with
+		  gluNewNurbsRenderer).
+
+     model	  Specifies a modelview	matrix (as from	a glGetFloatv call).
+
+     perspective  Specifies a projection matrix	(as from a glGetFloatv call).
+
+     view	  Specifies a viewport (as from	a glGetIntegerv	call).
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluLoadSamplingMatrices uses model, perspective, and view to recompute
+     the sampling and culling matrices stored in nurb.	The sampling matrix
+     determines	how finely a NURBS curve or surface must be tessellated	to
+     satisfy the sampling tolerance (as	determined by the
+     GLU_SAMPLING_TOLERANCE property).	The  culling matrix is used in
+     deciding if a NURBS curve or surface should be culled before rendering
+     (when the GLU_CULLING property is turned on).
+
+     gluLoadSamplingMatrices is	necessary only if the GLU_AUTO_LOAD_MATRIX
+     property is turned	off (see gluNurbsProperty).  Although it can be
+     convenient	to leave the GLU_AUTO_LOAD_MATRIX property turned on, there
+     can be a performance penalty for doing so.	 (A round trip to the OpenGL
+     server is needed to fetch the current values of the modelview matrix,
+     projection	matrix,	and viewport.)
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluGetNurbsProperty, gluNewNurbsRenderer, gluNurbsProperty
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

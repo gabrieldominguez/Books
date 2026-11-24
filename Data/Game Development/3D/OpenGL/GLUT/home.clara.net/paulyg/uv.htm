@@ -1,0 +1,733 @@
+<HTML><HEAD><TITLE>texture coordinates</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#303030 ALINK=#FFFFFF>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878>
+
+      <p align="center"><font size="4"><b><nobr><FONT FACE="Helvetica, Sans-Serif" COLOR=#204070>coordinates <FONT COLOR=#305080>texture coordinates</FONT> texture coordinates <FONT COLOR=#305080>texture coordinates</FONT> 
+
+      texture co</FONT><font face="Helvetica, Sans-Serif" size="4" color="#305080"><br>
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif">una</font></font><font face="Helvetica, Sans-Serif" size="4" color="#204070">tes</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">texture coordinates</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> texture coordinates
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">texture coordinates</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    texture coordina&nbsp;<br>
+
+ </font><FONT face="Helvetica, Sans-Serif" color="#305080">text</font><FONT face="Helvetica, Sans-Serif" COLOR="#204070"><FONT COLOR=#305080>ure coordinates</FONT> texture coordinates <FONT COLOR=#305080>texture coordinates</FONT> 
+
+    texture coordinates </font><font face="Helvetica, Sans-Serif" color="#305080">te</font></nobr></b></font></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">tes</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">texture coordinates
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">texture coordinates</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> texture coordinates
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">texture
+
+      c</font></B></NOBR></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<P><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>introduction</b>
+
+ </font>This page aims to explain how opengl can be used to place texture maps
+
+onto polygons.&nbsp; Opengl uses the concept of 'texture coordinates' to achieve texture
+
+mapping.&nbsp; These are stored per-vertex and are interpolated in areas where
+
+there are no vertices.&nbsp; Below, we go into detail, firstly on texturing your
+
+objects in a modeling package and then calculating texture
+
+coordinates step by step.<P>This is only the simplest case.&nbsp; We have one
+
+image per texture map and only do planar texture mapping.&nbsp; For more elaborate and efficient texture mapping see <a href="tte.htm" tppabs="http://home.clara.net/paulyg/tte.htm"><b>[texture tools
+
+extortion]</b></a><br>
+
+<br>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2><TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">tes</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">texture coordinates
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">texture coordinates</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> texture coordinates
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">texture
+
+      c</font></B></NOBR></TABLE>
+
+
+
+  </font>
+
+
+
+</font>
+
+    <table border="0" width="100%">
+
+      <tr>
+
+        <td width="50%">
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">The image to the right shows
+
+          4 vertices, arranged
+
+          in a plane.&nbsp; Notice how zero-zero is in the bottom left corner
+
+          with one-one at the top right.<br>
+
+          The 'imaginary' vertex in the middle (the darker blue blob) would have texture
+
+          coordinates of 0.5, 0.5.</font></p>
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Repeating textures have no upper bound, IE the
+
+          top-right value could be anything above 1.0</font></td>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+        <td width="50%"><img border="0" src="graphics/uvexp.gif" tppabs="http://home.clara.net/paulyg/graphics/uvexp.gif" width="327" height="258"></td>
+
+      </tr>
+
+    </table>
+
+    <p>Many 3D modeling packages can export UV texture coordinates along with
+
+    the model.&nbsp; (opengl calls these coordinates S and T).&nbsp; We're going to generate our
+
+    own.&nbsp; Besides, Lightwave doesn't export UV coords anyway, so we're going to
+
+    do it ourselves.</p>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">tes</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">texture coordinates
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">texture coordinates</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> texture coordinates
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">texture
+
+      c</font></B></NOBR></TABLE>
+
+
+
+  </font>
+
+
+
+</font>
+
+    <p><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>example</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">
+
+ </font>We'll start by thinking about how we use our modeler to texture the
+
+    object.&nbsp; In the example below we setup a model and texture in Lightwave.&nbsp;
+
+    Don't worry if you don't have this package - most 3d modelers work in a
+
+    similar way.</p>
+
+
+
+    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+
+      <tr>
+
+        <td width="50%">
+
+          <p align="center"><img border="0" src="graphics/uvstep1.jpg" tppabs="http://home.clara.net/paulyg/graphics/uvstep1.jpg" width="300" height="225"></p>
+
+        </td>
+
+  </font>
+
+
+
+        <td width="50%">
+
+          <ul>
+
+            <li>
+
+              <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">This (rather nice) spaceship has been loaded
+
+              into Lightwave's modeler.&nbsp; Notice how I have stretched the
+
+              window containing the top view bigger than all the rest.</font></li>
+
+            <li>
+
+              <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Notice how the top of the ship is
+
+              purple.&nbsp; This is because all the polygons on the top belong
+
+              to the same surface (more on this later).&nbsp; Read a lightwave
+
+              tutorial if you don't know how to do stuff like this.</font></li>
+
+            <li>
+
+              <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">We need to
+
+              take a screen shot of
+
+              this window.&nbsp; Use the package you are most familiar with to
+
+              do this (e.g. paint shop pro)</font></li>
+
+          </ul>
+
+        </td>
+
+      </tr>
+
+    </table>
+
+    <table border="0" width="100%" cellpadding="0">
+
+      <tr>
+
+        <td width="60%">
+
+          <ul>
+
+            <li>
+
+              <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Use your paint package's tools to crop the
+
+              image as close to the wireframe mesh as possible. Note that this
+
+              is very important.</font></li>
+
+          </ul>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+          <p class="BodyText">&nbsp;</p>
+
+
+
+</font>
+
+          <ul>
+
+            <li>
+
+              <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">You'll hopefully end up with a picture of your
+
+              object not unlike the one to the right.</font></li>
+
+          </ul>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+          <p class="BodyText">&nbsp;</p>
+
+
+
+</font>
+
+          <ul>
+
+            <li>
+
+              <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Next,
+
+              using your paint package draw a texture over
+
+              the top of it.</font></li>
+
+          </ul>
+
+        </td>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+        <td width="40%">
+
+          <p align="center"><img border="0" src="graphics/cropped.gif" tppabs="http://home.clara.net/paulyg/graphics/cropped.gif" width="256" height="256"></p>
+
+</td>
+
+      </tr>
+
+    </table>
+
+      <table border="0" width="100%" cellpadding="0">
+
+        <tr>
+
+          <td width="37%">
+
+            <p align="center"><img border="0" src="graphics/uvDestop.jpg" tppabs="http://home.clara.net/paulyg/graphics/uvDestop.jpg" width="256" height="256"></p>
+
+          </td>
+
+
+
+</font>
+
+        <td width="63%">
+
+          <p class="BodyText">&nbsp;</p>
+
+          <ul>
+
+            <li>
+
+              <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Firstly
+
+              notice how I stole this object and texture map from the cool game <a href="javascript:if(confirm('http://www.independencewar.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.independencewar.com/'" tppabs="http://www.independencewar.com/"><b>[independence
+
+              war]</b></a></font></li>
+
+          </ul>
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">&nbsp;</font></p>
+
+          <ul>
+
+            <li>
+
+              <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">More
+
+              importantly you should notice how the two images fit perfectly
+
+              over each other.&nbsp; I can't stress how important this is for
+
+              the process to work properly.&nbsp;</font></li>
+
+          </ul>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<p class="BodyText">&nbsp;</p>
+
+
+
+</font>
+
+          <ul>
+
+            <li>
+
+              <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">We
+
+              assign this texture map to the purple surface in lightwave's scene
+
+              editor.&nbsp; Again, if you don't know how to do this there are
+
+              some great LW tutorials out there.</font></li>
+
+          </ul>
+
+        </td>
+
+      </tr>
+
+</table>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">tes</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">texture coordinates
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">texture coordinates</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> texture coordinates
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">texture
+
+      c</font></B></NOBR></TABLE>
+
+
+
+</font>
+
+<P><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>science
+
+bit&nbsp;</b></font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">
+
+</font>We've got our model all textured up - now we need to generate texture
+
+coordinates from the vertex data.&nbsp; Planar coordinates are actually very
+
+easy to generate if you think about it.&nbsp; Read on to see the way I do it...<br>
+
+<br>
+
+<p>As I mentioned above, non repeating texture coordinates start at 0.0 (in the
+
+bottom left hand corner) and finish at 1.0 (in the top right hand corner).</p>
+
+<p>So each vertex belonging to 'top surface' needs a S and a T coordinate that
+
+map directly to the image.&nbsp; For example:<br>
+
+<br>
+
+<i>A vertex somewhere on the left wing would have a S coord of about 0.15 and a
+
+T coord of about 0.20.&nbsp; These numbers dictate whereabouts opengl looks for
+
+a texel in the image.&nbsp; That is why its very important to get everything
+
+lined properly when you draw your texture.</i></p>
+
+<p>We need to use some simple maths to figure out what the S and T value of each
+
+vertex in 'top surface' should be.</p>
+
+<p>Our purple 'top surface' is being texture mapped in the Y plane.&nbsp; IE we
+
+are looking down on the ship from above, along the Y axis.&nbsp; To generate the
+
+coordinates we need look at the values of vertices in the X and Z planes.</p>
+
+<p>In this example, consider the X plane - the vertices in this plane will form
+
+our S coords.</p>
+
+<ul>
+
+  <li>We go through all the vertices in 'top surface' and find the lowest X
+
+    value and the highest X value.<br>
+
+  </li>
+
+  <li>
+
+    <p class="BodyText">Next we take the absolute range of the highest and
+
+    lowest (note: multiplying a number by -1 changes its sign)</li>
+
+</ul>
+
+
+
+</font>
+
+<blockquote>
+
+  <blockquote>
+
+    <p class="Code"><FONT face="Courier New" SIZE=2>range = (lowest - highest) *
+
+    -1
+
+
+
+</font>
+
+    </p>
+
+  </blockquote>
+
+</blockquote>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<ul>
+
+  <li>The next step is to find to lowest number's 'offset' from 0.&nbsp; So if
+
+    our lowest X coordinate was -1, its offset would be 1.<br>
+
+    If our lowest X coordinate was 12, its offset would be -12.</li>
+
+</ul>
+
+
+
+</font>
+
+<blockquote>
+
+  <blockquote>
+
+    <p class="Code"><FONT face="Courier New" SIZE=2>offset = 0 - lowest
+
+
+
+</font>
+
+    </p>
+
+  </blockquote>
+
+</blockquote>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<ul>
+
+  <li>
+
+    <p class="BodyText">Now for each X coord in 'top surface' we add its value
+
+    to the offset, and divide by the range.</li>
+
+</ul>
+
+<p class="SideHeading"><b>Lets have a proper example of the maths...</b></p>
+
+<p class="BodyText">For this example of generating S coordinates (from X coords) we'll say that:</p>
+
+
+
+</font>
+
+<blockquote>
+
+  <p class="Code"><FONT face="Courier New" SIZE=2>&nbsp; lowest&nbsp; X: -12.00<br>
+
+  &nbsp; highest X: 134.56
+
+
+
+</font>
+
+  </p>
+
+</blockquote>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<p class="BodyText">So first we find the range and the offset:</p>
+
+
+
+</font>
+
+<blockquote>
+
+  <p class="Code"><FONT face="Courier New" SIZE=2>&nbsp;&nbsp; range&nbsp; =
+
+  (lowest&nbsp; -&nbsp; highest) * -1<br>
+
+  &nbsp; 146.56&nbsp; = (-12.00&nbsp; -&nbsp; 134.56)&nbsp; * -1&nbsp;
+
+
+
+</font>
+
+  <FONT FACE="Helvetica, Sans-Serif" SIZE=2><br>
+
+  <br>
+
+
+
+</font>
+
+  <FONT face="Courier New" SIZE=2>&nbsp;&nbsp; offset = 0 - lowest<br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp; 12&nbsp;&nbsp; = 0 -&nbsp;&nbsp; -12
+
+
+
+</font>
+
+  </p>
+
+</blockquote>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<p class="BodyText">Now we go through all the vertices in the X plane.&nbsp; As
+
+an example, for a vertex that has an X value of 87.45 we do this:</p>
+
+<blockquote>
+
+  <p class="Code">
+
+
+
+</font>
+
+  <FONT face="Courier New" SIZE=2>&nbsp;&nbsp; 87.45 + offset = absolute
+
+  position<br>
+
+  &nbsp;&nbsp; 87.45 +&nbsp;&nbsp; 12&nbsp;&nbsp; = 99.45
+
+
+
+</font>
+
+  <FONT FACE="Helvetica, Sans-Serif" SIZE=2><br>
+
+  <br>
+
+
+
+</font>
+
+  <FONT face="Courier New" SIZE=2>99.45 / range&nbsp;&nbsp; = S coord for vertex
+
+  at X: 87.45<br>
+
+  99.45 / 146.56&nbsp; = S : 0.679
+
+
+
+</font>
+
+</p>
+
+</blockquote>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    <p>So there you have it!&nbsp; You do this for all the vertices in the X and
+
+    Z planes and store the results with their corresponding 'parent' XYZ
+
+    coordinates.</p>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">tes</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">texture coordinates
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">texture coordinates</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> texture coordinates
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">texture
+
+      c</font></B></NOBR></TABLE>
+
+
+
+  <P><font size="1"><i><font FACE="Helvetica, Sans-Serif">Website and content,
+
+  Paul Groves</font></i></font></font><i><font face="Helvetica, Sans-Serif" size="1">.&nbsp;
+
+    <br>
+
+    Destroyer model taken from <a href="javascript:if(confirm('http://www.independencewar.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.independencewar.com/'" tppabs="http://www.independencewar.com/">[Independence
+
+    War]</a> Copyright (c) 1999, 2000 <a href="javascript:if(confirm('http://www.particle-systems.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.particle-systems.com/'" tppabs="http://www.particle-systems.com/">[Particle
+
+    Systems]</a> and Infogrames.&nbsp; Used with permission.</font></i>
+
+</BODY>

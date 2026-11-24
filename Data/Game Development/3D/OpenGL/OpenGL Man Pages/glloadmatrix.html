@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glloadmatrix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glloadmatrix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glLoadMatrix(3G)	       OpenGL Reference		      glLoadMatrix(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glLoadMatrixd, glLoadMatrixf - replace the	current	matrix with an
+     arbitrary matrix
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glLoadMatrixd( const GLdouble	*m )
+     void glLoadMatrixf( const GLfloat *m )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     m	Specifies a pointer to a 4x4 matrix stored in column-major order as
+	sixteen	consecutive values.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glLoadMatrix replaces the current matrix with the one specified in	m.
+     The current matrix	is the projection matrix, modelview matrix, texture
+     matrix, or	color matrix (if the SGI_color_matrix extension	is supported),
+     as	determined by the current matrix mode (see glMatrixMode).
+
+     m points to a 4x4 matrix of single- or double-precision floating-point
+     values stored in column-major order.  That	is, the	matrix is stored as
+     follows:
+
+				(a0  a4	 a8   a12)
+				|		 |
+				|a1  a5	 a9   a13|
+				|		 |
+				|a2  a6	 a10  a14|
+				|		 |
+				|a3  a7	 a11  a15|
+				(		 )
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glLoadMatrix is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_MATRIX_MODE
+     glGet with	argument GL_MODELVIEW_MATRIX
+     glGet with	argument GL_PROJECTION_MATRIX
+     glGet with	argument GL_TEXTURE_MATRIX
+     glGet with	argument GL_COLOR_MATRIX_SGI
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glLoadIdentity, glMatrixMode, glMultMatrix, glPushMatrix
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

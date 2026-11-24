@@ -1,0 +1,358 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	mmap Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>mmap</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">mmap(2)								       mmap(2)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     mmap, mmap64 - map	pages of memory
+
+<FONT COLOR="#0000CC">SYNOPSIS
+</FONT>     #include &amp;lt;sys/types.h&gt;
+     #include &amp;lt;sys/mman.h&gt;
+
+     void *mmap(void *addr, size_t len,	int prot, int flags, int fd, off_t
+	  off);
+
+     void *mmap64(void *addr, size_t len, int prot, int	flags, int fd, off64_t
+	  off);
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     The functions mmap	and mmap64 establish a mapping between a process's
+     address space and a virtual memory	object.	 The format of the call	is as
+     follows:
+
+	  pa = mmap(addr, len, prot, flags, fd,	off);
+
+     mmap establishes a	mapping	between	the process's address space at an
+     address pa	for len	bytes to the memory object represented by the file
+     descriptor	fd at offset off for len bytes.	 The value of pa is an
+     implementation-dependent function of the parameter	addr and values	of
+     flags, further described below.  A	successful mmap	call returns pa	as its
+     result.  The address ranges covered by [pa, pa + len) and [off, off +
+     len) must be legitimate for the possible (not necessarily current)
+     address space of a	process	and the	object in question, respectively.
+
+     The only difference between mmap and mmap64 is that in mmap64 the off
+     parameter is 64 bits long,	so that	the file offset	can be greater than 2
+     gigabytes.	 This is useful	for certain filesystem types that support such
+     file offsets.
+
+     The mapping established by	mmap replaces any previous mappings for	the
+     process's pages in	the range [pa, pa + len).
+
+     The parameter prot	determines whether read	(load),	write (store),
+     execute, or some combination of accesses are permitted to the pages being
+     mapped.  The protection options are defined in &amp;lt;sys/mman.h&gt; as:
+
+	  PROT_READ		   Page	can be read.
+	  PROT_WRITE		   Page	can be written.
+	  PROT_EXEC		   Page	can be executed.
+	  PROT_NONE		   Page	can not	be accessed.
+
+     Not all implementations literally provide all possible combinations.
+     PROT_WRITE	is often implemented as	PROT_READ|PROT_WRITE and PROT_EXEC as
+     PROT_READ|PROT_EXEC.  This	is true	for all	SGI implementations.  However,
+     no	implementation will permit a store to succeed where PROT_WRITE has not
+     been set.	The behavior of	PROT_WRITE can be influenced by	setting
+     MAP_PRIVATE in the	flags parameter, described below.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">mmap(2)								       mmap(2)
+</FONT>
+
+
+     The parameter flags provides other	information about the handling of the
+     mapped pages.  The	options	are defined in &amp;lt;sys/mman.h&gt; as:
+
+	  MAP_SHARED		   Share changes
+	  MAP_PRIVATE		   Changes are private
+	  MAP_FIXED		   Interpret addr exactly
+	  MAP_AUTOGROW		   Implicitly grow object
+	  MAP_LOCAL		   Do not share	with share group
+	  MAP_AUTORESRV		   Reserve logical swap	on demand
+
+     MAP_SHARED	and MAP_PRIVATE	describe the disposition of store references
+     to	the memory object.  If MAP_SHARED is specified,	store references will
+     change the	memory object.	If MAP_PRIVATE is specified, the initial store
+     reference will create a private copy of the memory	object page and
+     redirect the mapping to the copy.	Either MAP_SHARED or MAP_PRIVATE must
+     be	specified, but not both.  The mapping type is retained across a
+     fork(2).
+
+     When MAP_SHARED is	specified, and initially in all	pages when MAP_PRIVATE
+     is	specified, the contents	of the mapped segment change to	reflect
+     changes in	the underlying memory object. Changes can be caused by other
+     processes that map	the same object	with MAP_SHARED, or by processes using
+     write(2) or ftruncate(2). If the file is shortened, an attempt to access
+     a page of memory that is mapped to	a part of the file that	no longer
+     exists will cause a Bus Error (SIGBUS) signal.
+
+     When MAP_PRIVATE is used, a private copy of a page	is created only	when
+     the process stores	into the page. This prevents changes from being	seen
+     by	other processes	that map the same object, and prevents further changes
+     made by other processes from being	visible. However, changes that occur
+     before the	page is	stored into are	visible.
+
+     To	protect	the contents of	a mapped file from changes or truncation you
+     can either	use chmod(2) and lockf(3) to enforce a mandatory file lock, or
+     you can specify MAP_PRIVATE and store into	every page of the segment in
+     order to create a complete	private	copy of	the data.
+
+     MAP_FIXED informs the system that the value of pa must be addr, exactly.
+     The use of	MAP_FIXED is discouraged, as it	may prevent an implementation
+     from making the most effective use	of system resources.
+
+     When MAP_FIXED is not set,	the system uses	addr in	an implementation-
+     defined manner to arrive at pa.  The pa so	chosen will be an area of the
+     address space which the system deems suitable for a mapping of len	bytes
+     to	the specified object.  All implementations interpret an	addr value of
+     zero as granting the system complete freedom in selecting pa, subject to
+     constraints described below.  A non-zero value of addr is taken to	be a
+     suggestion	of a process address near which	the mapping should be placed.
+     When the system selects a value for pa, it	will never place a mapping at
+     address 0,	nor will it replace any	extant mapping,	nor map	into areas
+     considered	part of	the potential data or stack segments.
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">mmap(2)								       mmap(2)
+</FONT>
+
+
+     When MAP_FIXED is set, any	mappings (including text, heap,	data, and
+     stack) in the range [addr,	addr + len) will be replaced with the new
+     mapping.
+
+     If	MAP_AUTOGROW is	specified with MAP_SHARED, the mapped object will be
+     implicitly	grown when referenced by a store operation to a	page which
+     maps beyond the current end of the	object;	the object will	be grown and
+     zero-filled to fulfill the	mapping	up to the next page boundary or	to the
+     end of the	mapping, whichever is less.  If	used with MAP_PRIVATE,
+     MAP_AUTOGROW allocates private zero-filled	pages for references beyond
+     the end of	the object, but	does not grow the object.
+
+     MAP_AUTOGROW requires that	the object is mapped with PROT_WRITE
+     permission.  Load references to mapped pages following the	end of a
+     object will result	in the delivery	of a SIGSEGV signal, as	will various
+     filesystem	conditions on stores.  Whenever	a SIGSEGV signal is delivered,
+     the second	argument to the	signal handler contains	a value	that indicates
+     the reason	for the	delivery of the	signal;	these values are defined in
+     /usr/include/sys/errno.h.
+
+     If	MAP_LOCAL is used and the process does an sproc(2) each	process	will
+     receive a private copy of the object's mapping.  All subsequent load
+     reference of objects mapped MAP_PRIVATE will cause	private	copies of the
+     object to be created.  In addition, the share group processes will	be
+     able to independently unmap the object from their address spaces.
+
+     The system	reserves len bytes of logical swap space when MAP_PRIVATE
+     mappings of regular files are created, as well as for all mappings	of
+     /dev/zero.	 (See swap(1m) for a discussion	of logical swap	space.)	 If
+     insufficient logical swap space is	available, mmap	fails with EAGAIN.
+     The MAP_AUTORESRV flag causes logical swap	space to be automatically
+     reserved as each page is first referenced with a store operation instead
+     of	when the mapping is created.  When this	flag is	used, no logical swap
+     space is reserved when the	mapping	is created.  Therefore,	the system
+     cannot guarantee that space will be available when	needed.	 If all	the
+     logical swap space	has been taken by other	processes when a page in a
+     MAP_AUTORESRV mapping is first stored to, then the	process	will be	sent
+     SIGBUS.
+
+     The parameter off is constrained to be aligned and	sized according	to the
+     value returned by getpagesize(2) or sysconf.  When	MAP_FIXED is
+     specified,	the parameter addr must	also meet these	constraints.  The
+     system performs mapping operations	over whole pages.  Thus, while the
+     parameter len need	not meet a size	or alignment constraint, the system
+     will include, in any mapping operation, any partial page specified	by the
+     range [pa,	pa + len).
+
+     The system	will always zero-fill any partial page at the end of an
+     object.  Further, the system will never write out any modified portions
+     of	the last page of an object which are beyond its	end.  References to
+     whole pages following the end of an object	will result in the delivery of
+     a SIGBUS signal.  SIGBUS signals may also be delivered on various file
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">mmap(2)								       mmap(2)
+</FONT>
+
+
+     system conditions,	including quota	exceeded errors, and for physical
+     device errors (such as unreadable disk blocks).  The signal handler may
+     examine the si_code and si_errno fields of	the siginfo structure for
+     information about the nature of the error.
+
+<FONT COLOR="#0000CC">RETURN VALUE
+</FONT>     On	success, mmap returns the address at which the mapping was placed
+     (pa).  On failure it returns MAP_FAILED and sets errno to indicate	an
+     error.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     Under the following conditions, mmap fails	and sets errno to:
+
+     EAGAIN The	mapping	could not be locked in memory.
+
+     EAGAIN The	amount of logical swap space required is temporarily
+	    unavailable.
+
+     EBADF  fd is not open.
+
+     EACCES fd is not open for read, regardless	of the protection specified,
+	    or fd is not open for write	and PROT_WRITE was specified for a
+	    MAP_SHARED type mapping.
+
+     EACCES prot has extraneous	bits set.
+
+     ENXIO  Addresses in the range [off, off + len) are	invalid	for fd.
+
+     EINVAL The	arguments addr (if MAP_FIXED was specified) or off are not
+	    multiples of the page size as returned by sysconf.
+
+     EINVAL The	field in flags is invalid (neither MAP_PRIVATE or MAP_SHARED).
+
+     ENXIO  The	argument len has a value less than or equal to 0.
+
+     EINVAL The	argument addr specifies	an unmappable address.
+
+     ENODEV fd refers to an object for which mmap is meaningless, such as a
+	    terminal.
+
+     ENOSYS fd refers to an object for which mmap is not permitted.
+
+     ENOMEM MAP_FIXED was specified and	the range [addr, addr +	len) is
+	    invalid or exceeds that allowed for	the address space of a
+	    process, or	MAP_FIXED was not specified and	there is insufficient
+	    room in the	address	space to effect	the mapping.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     mmap allows access	to resources via address space manipulations instead
+     of	the read/write interface.  Once	a file is mapped, all a	process	has to
+     do	to access it is	use the	data at	the address to which the object	was
+     mapped.  Consider the following pseudo-code:
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">mmap(2)								       mmap(2)
+</FONT>
+
+
+	  fd = open(...)
+	  lseek(fd, offset)
+	  read(fd, buf,	len)
+	  /* use data in buf */
+
+     Here is a rewrite using mmap:
+
+	  fd = open(...)
+	  address = mmap(NULL, len, (PROT_READ | PROT_WRITE),
+			 MAP_PRIVATE, fd, offset)
+	  /* use data at address */
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     fcntl(2), fork(2),	lockf(3C), madvise(2), mprotect(2), msync(2),
+     munmap(2),	plock(2), sproc(2), sysconf(2).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 5
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

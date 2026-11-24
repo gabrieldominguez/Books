@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gluscaleimage Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gluscaleimage</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluScaleImage(3G)	       OpenGL Reference		     gluScaleImage(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluScaleImage - scale an image to an arbitrary size
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLint gluScaleImage( GLenum format,
+			  GLsizei wIn,
+			  GLsizei hIn,
+			  GLenum typeIn,
+			  const	void *dataIn,
+			  GLsizei wOut,
+			  GLsizei hOut,
+			  GLenum typeOut,
+			  GLvoid* dataOut )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     format   Specifies	the format of the pixel	data.  The following symbolic
+	      values are valid:	 GL_COLOR_INDEX, GL_STENCIL_INDEX,
+	      GL_DEPTH_COMPONENT, GL_RED, GL_GREEN, GL_BLUE, GL_ALPHA, GL_RGB,
+	      GL_RGBA, GL_LUMINANCE, GL_LUMINANCE_ALPHA, and GL_ABGR_EXT.
+
+     wIn, hIn Specify the width	and height, respectively, in pixels of the
+	      source image that	is scaled.
+
+     typeIn   Specifies	the data type for dataIn. Must be one of
+	      GL_UNSIGNED_BYTE,	GL_BYTE, GL_BITMAP, GL_UNSIGNED_SHORT,
+	      GL_SHORT,	GL_UNSIGNED_INT, GL_INT, GL_FLOAT,
+	      GL_UNSIGNED_BYTE_3_3_2_EXT, GL_UNSIGNED_SHORT_4_4_4_4_EXT,
+	      GL_UNSIGNED_SHORT_5_5_5_1_EXT, GL_UNSIGNED_INT_8_8_8_8_EXT, or
+	      GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+     dataIn   Specifies	a pointer to the source	image.
+
+     wOut, hOut
+	      Specify the width	and height, respectively, in pixels of the
+	      destination image.
+
+     typeOut  Specifies	the data type for dataOut. Must	be one of
+	      GL_UNSIGNED_BYTE,	GL_BYTE, GL_BITMAP, GL_UNSIGNED_SHORT,
+	      GL_SHORT,	GL_UNSIGNED_INT, GL_INT, GL_FLOAT,
+	      GL_UNSIGNED_BYTE_3_3_2_EXT, GL_UNSIGNED_SHORT_4_4_4_4_EXT,
+	      GL_UNSIGNED_SHORT_5_5_5_1_EXT, GL_UNSIGNED_INT_8_8_8_8_EXT, or
+	      GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+     dataOut  Specifies	a pointer to the destination image.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluScaleImage scales a pixel image	using the appropriate pixel store
+     modes to unpack data from the source image	and pack data into the
+     destination image.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">gluScaleImage(3G)	       OpenGL Reference		     gluScaleImage(3G)
+</FONT>
+
+
+     When shrinking an image, gluScaleImage uses a box filter to sample	the
+     source image and create pixels for	the destination	image.	When
+     magnifying	an image, the pixels from the source image are linearly
+     interpolated to create the	destination image.
+
+     A return value of zero indicates success, otherwise a GLU error code is
+     returned indicating what the problem was (see gluErrorString).
+
+     Please refer to the glReadPixels reference	page for a description of the
+     acceptable	values for the format, typeIn, and typeOut parameters.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLU_INVALID_VALUE is returned if wIn, hIn,	wOut or	hOut are &amp;lt; 0.
+
+     GLU_INVALID_ENUM is returned if format, typeIn or typeOut are not legal.
+
+     GLU_INVALID_ENUM is returned if typeIn or typeOut is
+     GL_UNSIGNED_BYTE_3_3_2_EXT	and format is not GL_RGB.
+
+     GLU_INVALID_ENUM is returned if typeIn or typeOut is
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT and format is neither GL_RGBA nor
+     GL_ABGR_EXT.
+
+     GLU_INVALID_ENUM is returned if typeIn or typeOut is
+     GL_UNSIGNED_SHORT_5_5_5_1_EXT and format is neither GL_RGBA nor
+     GL_ABGR_EXT.
+
+     GLU_INVALID_ENUM is returned if typeIn or typeOut is
+     GL_UNSIGNED_INT_8_8_8_8_EXT and format is neither GL_RGBA nor
+     GL_ABGR_EXT.
+
+     GLU_INVALID_ENUM is returned if typeIn or typeOut is
+     GL_UNSIGNED_INT_10_10_10_2_EXT and	format is neither GL_RGBA nor
+     GL_ABGR_EXT.
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDrawPixels, glReadPixels, gluBuild1DMipmaps, gluBuild2DMipmaps,
+     gluErrorString
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

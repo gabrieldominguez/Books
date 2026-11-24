@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxfreecontextext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxfreecontextext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXFreeContextEXT(3G)	    OpenGL Reference - GLX	 glXFreeContextEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXFreeContextEXT - frees the client-side portion of a context
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glXFreeContextEXT( Display *dpy,
+			     GLXContext	gc )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy  Specifies the	connection to the X server.
+
+     gc	  Specifies the	GLX rendering context.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXFreeContextEXT frees the client-side portion of	gc. It does not	free
+     the server-side context information or the	XID associated with the
+     server-side context.
+
+     Use glXFreeContextEXT to free client-side storage created by
+     glXImportContext. Use glXDestroyContext to	free a context that was
+     created by	calling	glXCreateContext.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXFreeContextEXT is part of the EXT_import_context extension.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateContext,glXImportContextEXT,glXDestroyContext
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

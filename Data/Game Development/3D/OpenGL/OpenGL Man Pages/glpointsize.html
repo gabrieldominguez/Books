@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glpointsize Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glpointsize</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glPointSize(3G)		       OpenGL Reference		       glPointSize(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glPointSize - specify the diameter	of rasterized points
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPointSize( GLfloat size )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     size  Specifies the diameter of rasterized	points.	 The default is	1.0.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glPointSize specifies the rasterized diameter of both aliased and
+     antialiased points.  Using	a point	size other than	1.0 has	different
+     effects, depending	on whether point antialiasing is enabled.  Point
+     antialiasing is controlled	by calling glEnable and	glDisable with
+     argument GL_POINT_SMOOTH.
+
+     If	point antialiasing is disabled,	the actual size	is determined by
+     rounding the supplied size	to the nearest integer.	 (If the rounding
+     results in	the value 0, it	is as if the point size	were 1.)  If the
+     rounded size is odd, then the center point	(x, y) of the pixel fragment
+     that represents the point is computed as
+
+			      (	| x  |+.5, | y	|+.5)
+				   w	      w
+     where w subscripts	indicate window	coordinates.  All pixels that lie
+     within the	square grid of the rounded size	centered at (x,	y) make	up the
+     fragment.	If the size is even, the center	point is
+
+			      (	| x +.5	|, | y +.5 |)
+				   w	      w
+     and the rasterized	fragment's centers are the half-integer	window
+     coordinates within	the square of the rounded size centered	at (x, y).
+     All pixel fragments produced in rasterizing a nonantialiased point	are
+     assigned the same associated data,	that of	the vertex corresponding to
+     the point.
+
+     If	antialiasing is	enabled, then point rasterization produces a fragment
+     for each pixel square that	intersects the region lying within the circle
+     having diameter equal to the current point	size and centered at the
+     point's (x	, y ).	The coverage value for each fragment is	the window
+     coordinatewarea of	the intersection of the	circular region	with the
+     corresponding pixel square.  This value is	saved and used in the final
+     rasterization step. The data associated with each fragment	is the data
+     associated	with the point being rasterized.
+
+     Not all sizes are supported when point antialiasing is enabled. If	an
+     unsupported size is requested, the	nearest	supported size is used.	 Only
+     size 1.0 is guaranteed to be supported; others depend on the
+     implementation.  The range	of supported sizes and the size	difference
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPointSize(3G)		       OpenGL Reference		       glPointSize(3G)
+</FONT>
+
+
+     between supported sizes within the	range can be queried by	 calling glGet
+     with arguments GL_POINT_SIZE_RANGE	and GL_POINT_SIZE_GRANULARITY.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The point size specified by glPointSize is	always returned	when
+     GL_POINT_SIZE is queried.	Clamping and rounding for aliased and
+     antialiased points	have no	effect on the specified	value.
+
+     Non-antialiased point size	may be clamped to an implementation-dependent
+     maximum.  Although	this maximum cannot be queried,	it must	be no less
+     than the maximum value for	antialiased points, rounded to the nearest
+     integer value.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if size is less than	or equal to zero.
+
+     GL_INVALID_OPERATION is generated if glPointSize is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_POINT_SIZE
+     glGet with	argument GL_POINT_SIZE_RANGE
+     glGet with	argument GL_POINT_SIZE_GRANULARITY
+     glIsEnabled with argument GL_POINT_SMOOTH
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glEnable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glreferenceplanesgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glreferenceplanesgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glReferencePlaneSGIX(3G)       OpenGL Reference	      glReferencePlaneSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glReferencePlaneSGIX - define a reference plane for coplanar geometry
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glReferencePlaneSGIX(	const GLdouble *equation )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     equation  Specifies a four-element	array containing the plane equation
+	       coefficients of a reference plane which will be used to
+	       generate	depth values for pixel fragments.  The coefficients of
+	       x, y, and z are the first three elements	of the array,
+	       respectively, and the constant term is the fourth.  The plane
+	       equation	is specified in	object coordinates.  The default is
+	       equivalent to (0,0,1,0) in window coordinates.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     The SGIX_reference_plane extension	allows a group of coplanar primitives
+     to	be rendered without depth-buffering artifacts.	This is	accomplished
+     by	generating depth values	for all	pixel fragments	from a single
+     ``reference plane'' rather	than from the primitives themselves.  This
+     ensures that all the primitives in	the group will have exactly the	same
+     depth value at any	given sample point, no matter what imprecision may
+     exist in the original specification of the	primitives or in the GL's
+     coordinate	transformation process.	 As a result, depth tests for equality
+     (GL_EQUAL,	GL_LEQUAL, GL_GEQUAL) may be used with impunity.
+
+     The process of generating depth values from the reference plane is
+     enabled by	executing glEnable with	argument GL_REFERENCE_PLANE_SGIX.  The
+     plane equation of the reference plane is specified	with
+     glReferencePlaneSGIX.
+
+     equation must be an array with four elements:  the	x coefficient, y
+     coefficient, z coefficient, and constant term of the reference plane's
+     equation, in that order.  The plane equation is specified in object
+     coordinates, and transformed by the transpose-adjoint of the object-to-
+     clip transformation in order to derive a plane equation in	clip
+     coordinates.  The clip coordinates	are transformed	to window coordinates
+     when the reference	plane is enabled.  Let the window-coordinate version
+     of	the reference plane equation be	ax+by+cz+d=0.  If the reference	plane
+     is	enabled, and a pixel fragment has window coordinates (x,y), then its z
+     coordinate	will become -(d+ax+by)/c.
+
+     If	the generated z	coordinate is outside the valid	depth buffer range,
+     then the resulting	depth value is undefined.  If the reference plane does
+     not intersect the viewing frustum,	it is as if the	default	coefficients
+     (0,0,1,0) (in window coordinates) are used.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The reference plane coefficients specified	by glReferencePlaneSGIX	are in
+     object coordinates, while the coefficients	returned by glGetDoublev with
+     argument GL_REFERENCE_PLANE_EQUATION_SGIX are in clip coordinates.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glReferencePlaneSGIX(3G)       OpenGL Reference	      glReferencePlaneSGIX(3G)
+</FONT>
+
+
+     glReferencePlaneSGIX is part of the SGIX_reference_plane extension, not
+     part of the core GL command set.  If GL_SGIX_reference_plane is included
+     in	the string returned by glGetString when	called with argument
+     GL_EXTENSIONS, extension SGIX_reference_plane is supported	by the
+     connection.  See glIntro for more information about using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glReferencePlaneSGIX is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetDoublev with argument	GL_REFERENCE_PLANE_EQUATION_SGIX
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     SGIX_reference_plane is supported only on InfiniteReality systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glEnable, glPolygonOffsetEXT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

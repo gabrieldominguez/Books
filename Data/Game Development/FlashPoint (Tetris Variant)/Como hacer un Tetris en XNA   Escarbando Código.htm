@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comments -->
+<html dir="ltr" lang="es"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Como hacer un Tetris en XNA   Escarbando Código_files/cb=gapi.loaded0" async=""></script><script async="" src="https://graph.facebook.com/http%3A%2F%2Fescarbandocodigo.wordpress.com%2F2010%2F10%2F24%2Fcomo-hacer-un-tetris-en-xna%2F?callback=WPCOMSharing.update_facebook_count&_=1336408969677"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Como hacer un Tetris en XNA | Escarbando Código</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./Como hacer un Tetris en XNA   Escarbando Código_files/style.css">
+<link rel="pingback" href="http://escarbandocodigo.wordpress.com/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="http://s0.wp.com/wp-content/themes/pub/splendio/js/html5.js?m=1326922520g" type="text/javascript"></script>
+<![endif]-->
+
+<meta name="google-site-verification" content="K82Y7bkLhF4VPzw3paJsYrr64hVTzJKQqvgphJEAXNc">
+<meta name="msvalidate.01" content="FDAF3F82E9A5BCEB73E802FAD0E63294">
+<link rel="alternate" type="application/rss+xml" title="Escarbando Código » Feed" href="http://escarbandocodigo.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Escarbando Código » RSS de los comentarios" href="http://escarbandocodigo.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Escarbando Código » Como hacer un Tetris en XNA RSS de los comentarios" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/feed/">
+<script src="./Como hacer un Tetris en XNA   Escarbando Código_files/quant.js" async="" type="text/javascript"></script><script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel="stylesheet" href="./Como hacer un Tetris en XNA   Escarbando Código_files/global.css" type="text/css">
+<link rel="stylesheet" id="loggedout-subscribe-css" href="./Como hacer un Tetris en XNA   Escarbando Código_files/widget.css" type="text/css" media="all">
+<link rel="stylesheet" id="droid sans-css" href="./Como hacer un Tetris en XNA   Escarbando Código_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="post-reactions-css" href="./Como hacer un Tetris en XNA   Escarbando Código_files/style(1).css" type="text/css" media="all">
+<link rel="stylesheet" id="a8c-global-print-css" href="./Como hacer un Tetris en XNA   Escarbando Código_files/global-print.css" type="text/css" media="print">
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/jquery.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"No se ha completado su suscripcion, por favor intentelo de nuevo con una direcci\u00f3n de correo valida."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/widget.js"></script>
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/comment-reply.js"></script>
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/functions.js"></script>
+<link rel="stylesheet" id="highlander-comments-css" href="./Como hacer un Tetris en XNA   Escarbando Código_files/style(2).css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='http://s0.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1307172283g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://escarbandocodigo.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://escarbandocodigo.wordpress.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Curiosidades en la red del Tetris" href="http://escarbandocodigo.wordpress.com/2010/10/21/curiosidades-en-la-red-del-tetris/">
+<link rel="next" title="Tomar Screenshots o Pantallazos de los Juegos en XNA" href="http://escarbandocodigo.wordpress.com/2010/10/27/tomar-screenshots-o-pantallazos-de-los-juegos-en-xna/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/">
+<link rel="shortlink" href="http://wp.me/pEokj-dO">
+<link rel="alternate" type="application/json+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=json&url=http%3A%2F%2Fescarbandocodigo.wordpress.com%2F2010%2F10%2F24%2Fcomo-hacer-un-tetris-en-xna%2F&for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=xml&url=http%3A%2F%2Fescarbandocodigo.wordpress.com%2F2010%2F10%2F24%2Fcomo-hacer-un-tetris-en-xna%2F&for=wpcom-auto-discovery"><meta property="og:type" content="article">
+<meta property="og:title" content="Como hacer un Tetris en XNA">
+<meta property="og:url" content="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/">
+<meta property="og:description" content="El tetris es de los mejores juegos clásicos que cualquiera haya jugado, existen versiones para todas las consolas y para todos los equipos, este juego debería ser el Hola Mundo de la programació...">
+<meta property="og:site_name" content="Escarbando Código">
+<meta property="og:image" content="http://escarbandocodigo.files.wordpress.com/2010/10/tetris.png?w=300&amp;h=300">
+<meta property="og:image" content="http://escarbandocodigo.files.wordpress.com/2010/10/figurass.png?w=300&amp;h=300">
+<meta property="og:image" content="http://escarbandocodigo.files.wordpress.com/2010/10/figurat.png?w=300&amp;h=300">
+<meta property="og:image" content="http://escarbandocodigo.files.wordpress.com/2010/10/factorizarfiguras.png?w=300&amp;h=300">
+<link rel="shortcut icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1311976024g" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1311976024g" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="http://s0.wp.com/i/webclip.png?m=1311618091g">
+<link rel="openid.server" href="http://escarbandocodigo.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://escarbandocodigo.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="http://escarbandocodigo.wordpress.com/osd.xml" title="Escarbando Código">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com">
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/xki8fao.js"></script><style type="text/css">.tk-cody{font-family:"cody-1","cody-2",cursive;}</style><link rel="stylesheet" type="text/css" href="./Como hacer un Tetris en XNA   Escarbando Código_files/xki8fao-b.css"><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<style type="text/css">.recentcomments a{display:inline !important;padding: 0 !important;margin: 0 !important;}</style>
+
+<meta name="geo.position" content="4.609866;-74.082050">
+<meta name="ICBM" content="4.609866, -74.082050">
+<meta name="application-name" content="Escarbando Código"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Para ver que encontramos!"><meta name="msapplication-task" content="name=Subscribir;action-uri=http://escarbandocodigo.wordpress.com/feed/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Registrar un blog gratuito;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Soporte de WordPress.com;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Foros de WordPress.com;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><style type="text/css" media="screen">
+.widget_author_grid ul { overflow: hidden; }
+.widget_author_grid ul li { background: none !important; clear: none !important; float: left !important; margin: 0 -5px -3px 0 !important; padding: 0 8px 6px 0 !important; border: none !important; list-style: none !important; }
+.widget_author_grid ul li a { background: none !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
+.widget_author_grid .avatar { vertical-align: middle; }
+</style>
+
+<style type="text/css">
+table.recentcommentsavatar img.avatar {border: 0px; margin:0;}
+table.recentcommentsavatar a {border: 0px !important;background-color: transparent !important}
+td.recentcommentsavatartop {padding:0px 0px 1px 0px;margin:0px; }
+td.recentcommentsavatarend {padding:0px 0px 1px 0px;margin:0px; }
+td.recentcommentstexttop { border: none !important;padding:0px 0px 0px 10px;}
+td.recentcommentstextend { border: none !important;padding:0px 0px 2px 10px;}
+</style>
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/google_service.js">
+</script>
+<script type="text/javascript">
+GS_googleAddAdSenseService("ca-pub-3443918307802676");
+GS_googleEnableAllServices();
+</script>
+<script type="text/javascript">
+GA_googleAddSlot("ca-pub-3443918307802676", "wpcom_sharethrough");
+</script>
+<script type="text/javascript">
+GA_googleFetchAds();
+</script>
+<script type="text/javascript"> 
+	window.google_analytics_uacct = "UA-52447-2"; 
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/ga.js"></script>
+<script charset="utf-8" src="./Como hacer un Tetris en XNA   Escarbando Código_files/rating-top.php"></script><script charset="utf-8" src="./Como hacer un Tetris en XNA   Escarbando Código_files/rate.php"></script><link rel="stylesheet" type="text/css" href="./Como hacer un Tetris en XNA   Escarbando Código_files/shThemeDefault.css"><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Como hacer un Tetris en XNA   Escarbando Código_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Como hacer un Tetris en XNA   Escarbando Código_files/services.css"><style type="text/css" id="pd_popup_holder_style_483601_post_856">#pd_popup_holder_483601_post_856 { position:absolute; display:none; width:350px; height:auto; top:0px; left:0px; z-index:10000; border:solid 1px #CCC; background-color:white; padding:0px 15px;font-family:Arial,Sans;box-shadow: -10px 10px 20px rgba(0, 0, 0, .5);-webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, .25);-moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, .25); }</style></head>
+
+<body class="single single-post postid-856 single-format-standard typekit-enabled highlander-enabled highlander-light tk-active" data-twttr-rendered="true">
+	<div id="wrapper" class="hfeed">
+				<div id="header">
+			<div id="branding">
+				<header id="masthead" role="banner">
+					<hgroup>
+						<h1 class="site-title"><a href="http://escarbandocodigo.wordpress.com/" title="Escarbando Código" rel="home">Escarbando Código</a></h1>
+						<h2 class="site-description">Para ver que encontramos!</h2>
+					</hgroup>
+
+					<nav role="navigation" class="site-navigation">
+						<h1 class="assistive-text">Menú principal</h1>
+						<div class="assistive-text skip-link"><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#content" title="Saltar al contenido">Saltar al contenido</a></div>
+
+						<div class="menu-header"><ul id="menu-blog" class="menu"><li id="menu-item-847" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-847"><a href="http://escarbandocodigo.wordpress.com/">Home</a></li>
+<li id="menu-item-852" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-852"><a href="http://escarbandocodigo.wordpress.com/category/xna/">XNA</a></li>
+<li id="menu-item-851" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-851"><a href="http://escarbandocodigo.wordpress.com/category/wpf/">WPF</a></li>
+<li id="menu-item-1003" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1003"><a href="http://escarbandocodigo.wordpress.com/archivos/">Archivos</a></li>
+<li id="menu-item-1002" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1002"><a href="http://escarbandocodigo.wordpress.com/contactarme/">Contactarme</a></li>
+<li id="menu-item-1004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1004"><a href="http://escarbandocodigo.wordpress.com/about/">¿Quién soy yo?</a></li>
+</ul></div>					</nav>
+				</header>
+			</div><!-- #branding -->
+
+			<div id="header-auxiliary">
+				<div class="header-search">
+					<form method="get" action="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#">
+						<fieldset>
+							<p class="search-title">Buscar</p>
+							<input type="text" value="" name="s"><button type="submit">Ir</button>
+						 </fieldset>
+					 </form>
+				 </div><!-- .header-search -->
+
+									 <div class="syndicate">
+						  <ul class="fade">
+															<li><a class="rss-link" href="http://escarbandocodigo.wordpress.com/feed/" title="RSS"><span>Canal RSS</span></a></li>
+							
+															<li><a class="twitter-link" href="http://martinreina/" title="Twitter"><span>Twitter</span></a></li>
+							
+															<li><a class="facebook-link" href="http://es-la.facebook.com/kamashi" title="Facebook"><span>Facebook</span></a></li>
+													</ul>
+					 </div><!-- .syndicate -->
+							</div><!-- #header-auxiliary -->
+
+			<div id="header-image" role="banner">
+								<a href="http://escarbandocodigo.wordpress.com/">
+											<img src="./Como hacer un Tetris en XNA   Escarbando Código_files/geometric-4.jpg" width="980" height="174" alt="">
+									</a>
+							</div><!-- #header-image -->
+		</div><!-- #header -->
+
+		<div id="container">
+		<div id="primary">
+			<div id="content" role="main">
+
+			
+				
+<article id="post-856" class="post-856 post type-post status-publish format-standard hentry category-c category-xna tag-juego tag-source-code tag-tetris tag-videojuegos">
+	<header class="entry-header">
+					<div class="entry-date">
+				<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/" title="7:09 pm" rel="bookmark"><time class="entry-date" datetime="2010-10-24T19:09:15+00:00" pubdate="">octubre 24, 2010</time></a>			</div><!-- .entry-date -->
+				<h1 class="entry-title">Como hacer un Tetris en&nbsp;XNA</h1>
+	</header><!-- .entry-header -->
+
+	<ul class="entry-meta fade">
+			<li class="comments-link"><a href="./Como hacer un Tetris en XNA   Escarbando Código_files/Como hacer un Tetris en XNA   Escarbando Código.htm" title="Comentarios en Como hacer un Tetris en XNA">9 comentarios</a></li>
+		</ul><!-- .entry-meta -->
+
+	<div class="entry-content">
+		
+<div class="pd-rating sd-content" id="pd_rating_holder_483601_post_856" style="display: inline-block; "><div id="pd_rate_483601_post_856" style="float:left;"><div onmouseout="PDRTJS_483601_post_856.rebuild();" onclick="PDRTJS_483601_post_856.rate(1);" onmouseover="PDRTJS_483601_post_856.hover(1);" id="PDRTJS_483601_post_856_stars_1" style="cursor: pointer; width: 20px; height: 20px; line-height: 20px; background: url(http://i0.poll.fm/ratings/images/star-green-med.png) top left; float: left; padding: 0px; marging: 0px; margin-right: 1px;">&nbsp;</div><div onmouseout="PDRTJS_483601_post_856.rebuild();" onclick="PDRTJS_483601_post_856.rate(2);" onmouseover="PDRTJS_483601_post_856.hover(2);" id="PDRTJS_483601_post_856_stars_2" style="cursor: pointer; width: 20px; height: 20px; line-height: 20px; background: url(http://i0.poll.fm/ratings/images/star-green-med.png) top left; float: left; padding: 0px; marging: 0px; margin-right: 1px;">&nbsp;</div><div onmouseout="PDRTJS_483601_post_856.rebuild();" onclick="PDRTJS_483601_post_856.rate(3);" onmouseover="PDRTJS_483601_post_856.hover(3);" id="PDRTJS_483601_post_856_stars_3" style="cursor: pointer; width: 20px; height: 20px; line-height: 20px; background: url(http://i0.poll.fm/ratings/images/star-green-med.png) top left; float: left; padding: 0px; marging: 0px; margin-right: 1px;">&nbsp;</div><div onmouseout="PDRTJS_483601_post_856.rebuild();" onclick="PDRTJS_483601_post_856.rate(4);" onmouseover="PDRTJS_483601_post_856.hover(4);" id="PDRTJS_483601_post_856_stars_4" style="cursor: pointer; width: 20px; height: 20px; line-height: 20px; background: url(http://i0.poll.fm/ratings/images/star-green-med.png) top left; float: left; padding: 0px; marging: 0px; margin-right: 1px;">&nbsp;</div><div onmouseout="PDRTJS_483601_post_856.rebuild();" onclick="PDRTJS_483601_post_856.rate(5);" onmouseover="PDRTJS_483601_post_856.hover(5);" id="PDRTJS_483601_post_856_stars_5" style="cursor: pointer; width: 20px; height: 20px; line-height: 20px; background: url(http://i0.poll.fm/ratings/images/star-green-med.png) top left; float: left; padding: 0px; marging: 0px; margin-right: 1px;">&nbsp;</div></div><span style="float:left;">&nbsp;</span><div id="rating_info_483601_post_856" style="display:block;float:left;background:url(http://i0.poll.fm/images/ratings/info.png) no-repeat 3px 2px;width:16px;height:16px;cursor:pointer;" onclick="javascript:PDRTJS_483601_post_856.togglePopup();return false;"><span style="display:none;">i</span></div><div class="pd_popup_holder" id="pd_popup_holder_483601_post_856">&nbsp;</div><div id="PDRTJS_483601_post_856_msg" style="float:left; padding-left: 5px; text-align: left; font:normal normal /16px ; color: #000000;">2 Votos</div><p style="padding: 0px; margin: 0px; clear: both;"></p><img src="./Como hacer un Tetris en XNA   Escarbando Código_files/p-ab3gTb8xb3dLg.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"></div>
+<script type="text/javascript" charset="UTF-8"><!--//--><![CDATA[//><!--
+PDRTJS_settings_483601_post_856={"id":483601,"unique_id":"wp-post-856","title":"Como%20hacer%20un%20Tetris%20en%20XNA","permalink":"http:\/\/escarbandocodigo.wordpress.com\/2010\/10\/24\/como-hacer-un-tetris-en-xna\/","item_id":"_post_856"};
+//--><!]]&gt;</script><p>El tetris es de los mejores juegos clásicos que cualquiera haya jugado, existen versiones para todas las consolas y para todos los equipos, este juego debería ser el Hola Mundo de la programación de Juegos, y por eso en este Post voy a mostrarles como crear un tetris fácilmente.</p>
+<p><a href="http://escarbandocodigo.files.wordpress.com/2010/10/tetris.png"><img class="aligncenter size-full wp-image-864" title="tetris" src="./Como hacer un Tetris en XNA   Escarbando Código_files/tetris.png" alt=""></a></p>
+<h2><strong>Algo de Historia:</strong></h2>
+<p>La verdad no voy a escribir lo que pueden encontrar en otro lado y mucho mejor, en resumen el Tetris lo escribió un ruso, cada figura tiene 4 bloques y por eso el nombre inicia con el prefijo tetra, hubo una pelea de las grandes compañías Atari y Nintendo para hacerse con el juego, la pelea la gano Nintendo, pero luego el ruso funda Tetris company y vuelve a obtener los derechos del juego, es uno de los juegos más conocidos de la historia.</p>
+<p>Para profundizar más sobre la historia, dirigirse a <a href="http://es.wikipedia.org/wiki/Tetris" target="_blank">Wikipedia </a>jejejeje y si quieren ver cosas curiosas dirigirse a mi <a href="http://escarbandocodigo.wordpress.com/2010/10/21/curiosidades-en-la-red-del-tetris/" target="_blank">post anterior</a>.</p>
+<p><span id="more-856"></span></p>
+<p><!--Continuar Leyendo--></p>
+<h2><strong>Arquitectura del Juego (Por fin!!)</strong></h2>
+<p>El juego consta de 7 figuras, cada figura tiene un parecido con una letra, por lo que vamos a llamarlas por esa letra:</p>
+<p>Cada figura como lo comenté tiene 4 bloques, para poder simularlo podríamos crear matrices de 4X4 para guardar los bloques, son 4 debido a que la figura I, que es la más larga ocupa 4 bloques en sus rotaciones.</p>
+<p>En las matrices podemos guardar 1s y 0s, el 1 representaría un bloque y el 0 un espacio vacío, y para poder dibujarlo recorremos cada bloque y si es 1, dibujamos ese bloque.</p>
+<p>Para resumir voy a mostrar un ejemplo de la figura S, con cada rotación:</p>
+<p><a href="http://escarbandocodigo.files.wordpress.com/2010/10/figurass.png"><img class="aligncenter size-full wp-image-861" title="figurasS" src="./Como hacer un Tetris en XNA   Escarbando Código_files/figurass.png" alt=""></a></p>
+<p>Para dibujar cada bloque, primero se debe saber si el cuadro es un 1 o un 0, si es un 1, entonces obtenemos sus coordenadas y calculamos el tamaño y la posición del bloque, todas figuras tienen el origen en la esquina superior izquierda.</p>
+<p>Un ejemplo visual:</p>
+<p><a href="http://escarbandocodigo.files.wordpress.com/2010/10/figurat.png"><img class="aligncenter size-full wp-image-862" title="figuraT" src="./Como hacer un Tetris en XNA   Escarbando Código_files/figurat.png" alt=""></a></p>
+<p>Si recorremos la figura con dos for (uno para la X y otro para la Y) y cuando encontremos un 1, entonces podemos aplicar las siguientes formulas, para encontrar la posición donde vamos a dibujar el bloque:</p>
+<p>(POSXOrigen + (CoordenadasX * TamanoBloque)</p>
+<p>(POSYOrigen + (CoordenadasY * TamanoBloque)</p>
+<p>Donde PosXorigen es la posición actual de la figura, y CoordenadasX y Y, son los índices donde se encuentra el 1, en una tabla podemos ver los resultados:</p>
+<table border="0" cellspacing="0" cellpadding="0" width="532">
+<tbody>
+<tr>
+<td width="96" valign="bottom">CoordenadasX</td>
+<td width="95" valign="bottom">CoordenadasY</td>
+<td width="49" valign="bottom">POSX Origen</td>
+<td width="49" valign="bottom">POSY Origen</td>
+<td width="59" valign="bottom">rotacion</td>
+<td width="51" valign="bottom">bloque</td>
+<td width="67" valign="bottom">PosicionX Bloque</td>
+<td width="67" valign="bottom">PosicionY Bloque</td>
+</tr>
+<tr>
+<td width="96" valign="bottom">1</td>
+<td width="95" valign="bottom">0</td>
+<td width="49" valign="bottom">490</td>
+<td width="49" valign="bottom">10</td>
+<td width="59" valign="bottom">0</td>
+<td width="51" valign="bottom">0</td>
+<td width="67" valign="bottom">518</td>
+<td width="67" valign="bottom">10</td>
+</tr>
+<tr>
+<td width="96" valign="bottom">0</td>
+<td width="95" valign="bottom">1</td>
+<td width="49" valign="bottom">490</td>
+<td width="49" valign="bottom">10</td>
+<td width="59" valign="bottom">0</td>
+<td width="51" valign="bottom">1</td>
+<td width="67" valign="bottom">490</td>
+<td width="67" valign="bottom">38</td>
+</tr>
+<tr>
+<td width="96" valign="bottom">1</td>
+<td width="95" valign="bottom">1</td>
+<td width="49" valign="bottom">490</td>
+<td width="49" valign="bottom">10</td>
+<td width="59" valign="bottom">0</td>
+<td width="51" valign="bottom">2</td>
+<td width="67" valign="bottom">518</td>
+<td width="67" valign="bottom">38</td>
+</tr>
+<tr>
+<td width="96" valign="bottom">2</td>
+<td width="95" valign="bottom">1</td>
+<td width="49" valign="bottom">490</td>
+<td width="49" valign="bottom">10</td>
+<td width="59" valign="bottom">0</td>
+<td width="51" valign="bottom">3</td>
+<td width="67" valign="bottom">546</td>
+<td width="67" valign="bottom">38</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Lo que nos importa son los campos PosicionX Bloque y PosicionY Bloque, si miramos la imagen de la figura, el primer bloque se encuentra ubicado en la posición [1,0], al hacer los cálculos de arriba nos da como resultado que el bloque se dibujará en la posición[518,10], y así sucesivamente con los demás bloques y figuras.</p>
+<p>Lo anterior descrito lo podemos resumir o factorizar, ya que no es necesario tener una matriz de 4X4 para cada figura y con sus 4 rotaciones, si no que podemos tener una matriz de 4X2 donde no vamos a guardar 1s y 0s si no la posición X y Y de los bloques que vamos a dibujar <img src="./Como hacer un Tetris en XNA   Escarbando Código_files/icon_smile.gif" alt=":)" class="wp-smiley"> .</p>
+<p>Por ejemplo, la figura L la podemos resumir así:</p>
+<p><a href="http://escarbandocodigo.files.wordpress.com/2010/10/factorizarfiguras.png"><img class="aligncenter size-full wp-image-860" title="factorizarfiguras" src="./Como hacer un Tetris en XNA   Escarbando Código_files/factorizarfiguras.png" alt=""></a>&nbsp;</p>
+<p>Ahora para no crear 28 tablas, creamos una matriz de 3 dimensiones, una de 4X4X2, si no recuerdan matrices, lo que se va a dibujar son 4 Tablas, cada tabla tendrá otra tabla de 4X2, esto es solo una figura con sus 4 rotaciones.</p>
+<p>La fórmula para obtener la posición de los bloques no cambia mucho con la anterior, lo único que va a cambiar es que vamos a tener una variable que guardará la posición, está posición será el índice de la tabla que tiene los índices de los bloques ocupados.</p>
+<p>Para los que aún están confundidos, los voy a mostrar la matriz de la figura L, si ven son solo 4 tablas, y cada tabla es de 4X2:</p>
+<p><a href="http://escarbandocodigo.files.wordpress.com/2010/10/matrizrotacion.png"><img class="aligncenter size-full wp-image-863" title="matrizrotacion" src="./Como hacer un Tetris en XNA   Escarbando Código_files/matrizrotacion.png" alt=""></a>&nbsp;</p>
+<p>El T1, son los bloques de la rotación 1, y así sucesivamente.</p>
+<p>Las formulas quedan ahora así:</p>
+<p>Int32 XPosicion = (Int32)(PosicionOrigenX + (Figura[Rotacion, Bloque, 0] * TamanoBloque));</p>
+<p>Int32 YPosicion = (Int32)(PosicionOrigenY + (Figura[Rotacion, Bloque, 1] * TamanoBloque));</p>
+<p>Donde Figura es la matriz [4,4,2], Rotación es el índice de la tabla, y 0 y 1 es el índice de x o de la y respectivamente.</p>
+<p>Para &nbsp;el juego he creado una clase Figura, que tendrá como propiedades la posición, el Color, la rotación actual y el Tipo de la figura.</p>
+<p>El tipo de la figura será una enumeración, y cuando se asigne un valor, vamos a asignarle a la matriz de la figura, la matriz que corresponde al tipo de figura seleccionado.</p>
+<p></p><div id="highlighter_293155" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#viewSource" title="ver fuente" style="width: 16px; height: 16px; " class="item viewSource">ver fuente</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_293155_clipboard" type="application/x-shockwave-flash" title="copiar al portapapeles" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_293155" menu="false" src="http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1304052809g"></div><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#printSource" title="imprimir" style="width: 16px; height: 16px; " class="item printSource">imprimir</a><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">public</code> <code class="keyword">enum</code> <code class="plain">TipoFigura</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">Ninguna = -1,</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">FiguraT = 0,</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">FiguraI = 1,</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">FiguraJ = 2,</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">FiguraL = 3,</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">FiguraS = 4,</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">FiguraZ = 5,</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">FiguraO = 6,</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div><p></p>
+<p>&nbsp;</p>
+<h2><strong>Cómo Funciona el Tablero:</strong></h2>
+<p>El tablero, es otra matriz, pero de dos dimensiones, cuando una figura a caído al final del tablero, adicionamos la figura al tablero, pero como?, muy sencillo, cada figura tiene una posición X y Y, el tablero también, cuando una figura es adicionada al tablero, debemos dibujar en el tablero la misma figura de la figura adicionada, para ello usamos una fórmula parecida a la descrita anteriormente:</p>
+<p></p><div id="highlighter_493065" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#viewSource" title="ver fuente" style="width: 16px; height: 16px; " class="item viewSource">ver fuente</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_493065_clipboard" type="application/x-shockwave-flash" title="copiar al portapapeles" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_493065" menu="false" src="http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1304052809g"></div><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#printSource" title="imprimir" style="width: 16px; height: 16px; " class="item printSource">imprimir</a><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="keyword">for</code> <code class="plain">(</code><code class="keyword">int</code> <code class="plain">aBloque = 0; aBloque &lt; mNumeroDeBloques; aBloque++)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">mTablero[</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">(Int32)_figura.Posicion.X + _figura.FiguraActual[_figura.Rotacion, aBloque, 0],</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>5</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">(Int32)_figura.Posicion.Y + _figura.FiguraActual[_figura.Rotacion, aBloque, 1] - 1] = _figura.Color;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>6</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div><p></p>
+<p>Tomemos de un ejemplo un tablero de 6X10, si la figura J cae en la esquina inferior izquierda, entonces adicionamos los bloques al tablero:</p>
+<p><a href="http://escarbandocodigo.files.wordpress.com/2010/10/adicionarfigura.png"><img class="aligncenter size-full wp-image-858" title="adicionarfigura" src="./Como hacer un Tetris en XNA   Escarbando Código_files/adicionarfigura.png" alt=""></a>&nbsp;</p>
+<p>El resultado de la operación es el siguiente:</p>
+<table border="0" cellspacing="0" cellpadding="0" width="540">
+<tbody>
+<tr>
+<td width="96" valign="bottom">CoordenadasX</td>
+<td width="95" valign="bottom">CoordenadasY</td>
+<td width="49" valign="bottom">POSX Origen</td>
+<td width="49" valign="bottom">POSY Origen</td>
+<td width="59" valign="bottom">rotacion</td>
+<td width="59" valign="bottom">abloque</td>
+<td width="67" valign="bottom">PosicionX Bloque</td>
+<td width="67" valign="bottom">PosicionY Bloque-1</td>
+</tr>
+<tr>
+<td width="96" valign="bottom">0</td>
+<td width="95" valign="bottom">0</td>
+<td width="49" valign="bottom">0</td>
+<td width="49" valign="bottom">9</td>
+<td width="59" valign="bottom">0</td>
+<td width="59" valign="bottom">0</td>
+<td width="67" valign="bottom">0</td>
+<td width="67" valign="bottom">8</td>
+</tr>
+<tr>
+<td width="96" valign="bottom">0</td>
+<td width="95" valign="bottom">1</td>
+<td width="49" valign="bottom">0</td>
+<td width="49" valign="bottom">9</td>
+<td width="59" valign="bottom">0</td>
+<td width="59" valign="bottom">1</td>
+<td width="67" valign="bottom">0</td>
+<td width="67" valign="bottom">9</td>
+</tr>
+<tr>
+<td width="96" valign="bottom">1</td>
+<td width="95" valign="bottom">1</td>
+<td width="49" valign="bottom">0</td>
+<td width="49" valign="bottom">9</td>
+<td width="59" valign="bottom">0</td>
+<td width="59" valign="bottom">2</td>
+<td width="67" valign="bottom">1</td>
+<td width="67" valign="bottom">9</td>
+</tr>
+<tr>
+<td width="96" valign="bottom">2</td>
+<td width="95" valign="bottom">1</td>
+<td width="49" valign="bottom">0</td>
+<td width="49" valign="bottom">9</td>
+<td width="59" valign="bottom">0</td>
+<td width="59" valign="bottom">3</td>
+<td width="67" valign="bottom">2</td>
+<td width="67" valign="bottom">9</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Dando como resultado que los bloques que se van a pintar son [0,8],[0,9],[1,9],[2,9].</p>
+<p>El valor de los campos que adicionamos va a ser un número mayor a 0, en este caso va a ser el color de cada figura.</p>
+<p>Para dibujar el tablero, recorremos cada bloque y si el valor es mayor a 0, entonces pintamos dicho bloque de un color, y si no lo podemos dejar así transparente o pintarlo de otro color para representar bloques que no están llenos:</p>
+<p></p><div id="highlighter_560742" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#viewSource" title="ver fuente" style="width: 16px; height: 16px; " class="item viewSource">ver fuente</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_560742_clipboard" type="application/x-shockwave-flash" title="copiar al portapapeles" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_560742" menu="false" src="http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1304052809g"></div><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#printSource" title="imprimir" style="width: 16px; height: 16px; " class="item printSource">imprimir</a><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="plain">Int32 aXInicial = 100;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="plain">Int32 aYInicial = 0;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="keyword">for</code> <code class="plain">(Int32 aXPosicion = 0; aXPosicion &lt; ANCHO; aXPosicion++)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="keyword">for</code> <code class="plain">(Int32 aYPosicion = 0; aYPosicion &lt; ALTO; aYPosicion++) &nbsp;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="plain">{ &nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">Int32 aPositionX = (Int32)(aXInicial + (aXPosicion * mTamanoBloque)); &nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">Int32 aPositionY = (Int32)(aYInicial + (aYPosicion * mTamanoBloque)); &nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">((mTablero[aXPosicion, aYPosicion] &gt;= 0))</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">spriteBatch.Draw(bloque, </code><code class="keyword">new</code> <code class="plain">Rectangle(aPositionX, aPositionY, mTamanoBloque, mTamanoBloque),</code><code class="keyword">null</code><code class="plain">, Color.Gray);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="keyword">else</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>14</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">spriteBatch.Draw(bloque, </code><code class="keyword">new</code> <code class="plain">Rectangle(aPositionX, aPositionY, mTamanoBloque, mTamanoBloque),</code><code class="keyword">null</code><code class="plain">, Color.White);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>16</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>17</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>18</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div><p></p>
+<p>Cada bloque del tablero inicialmente se llena con un valor menor a 0:</p>
+<p></p><div id="highlighter_298793" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#viewSource" title="ver fuente" style="width: 16px; height: 16px; " class="item viewSource">ver fuente</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_298793_clipboard" type="application/x-shockwave-flash" title="copiar al portapapeles" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_298793" menu="false" src="http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1304052809g"></div><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#printSource" title="imprimir" style="width: 16px; height: 16px; " class="item printSource">imprimir</a><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">public</code> <code class="keyword">void</code> <code class="plain">limpiarTablero()</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="keyword">for</code> <code class="plain">(</code><code class="keyword">int</code> <code class="plain">aYPosition = 0; aYPosition &lt; ALTO; aYPosition++)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword">for</code> <code class="plain">(</code><code class="keyword">int</code> <code class="plain">aXPosition = 0; aXPosition &lt; ANCHO; aXPosition++)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mTablero[aXPosition, aYPosition] = -1;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div><p></p>
+<p>La clase Tablero, tendrá de constantes el ancho y alto del tablero.</p>
+<h2><strong>Verificar Colisiones:</strong></h2>
+<p>&nbsp;</p>
+<p>Para el juego van a existir 3 colisiones, la primera verificará que la figura no se salga de los límites del tablero, la segunda&nbsp; es para verificar que la posición Y de la figura no sea menor de 0, si es menor significa que la figura a alcanzado el tope y el juego ha terminado y la última para verificar que la figura a caído o chocado con una pieza ya existente:</p>
+<p></p><div id="highlighter_789463" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#viewSource" title="ver fuente" style="width: 16px; height: 16px; " class="item viewSource">ver fuente</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_789463_clipboard" type="application/x-shockwave-flash" title="copiar al portapapeles" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_789463" menu="false" src="http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1304052809g"></div><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#printSource" title="imprimir" style="width: 16px; height: 16px; " class="item printSource">imprimir</a><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">for</code> <code class="plain">(</code><code class="keyword">int</code> <code class="plain">aBloque = 0; aBloque &lt; mNumeroDeBloques; aBloque++)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="comments">// verificar que la figura no se salga de los límites del área del juego ( a la izquierda)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="keyword">if</code> <code class="plain">(_figura.Posicion.X &lt; 0) &nbsp;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="plain">{ &nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="keyword">return</code> <code class="keyword">true</code><code class="plain">; &nbsp;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="plain">} &nbsp;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="comments">//Verificar que la figura no se salga de los límites del área de juego ( a la derecha y abajo) &nbsp;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="keyword">if</code> <code class="plain">(((_figura.Posicion.X + _figura.FiguraActual[_figura.Rotacion, aBloque, 0] &gt; ANCHO - 1)| (_figura.Posicion.Y + _figura.FiguraActual[_figura.Rotacion, aBloque, 1] &gt; ALTO - 1)))</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="keyword">return</code> <code class="keyword">true</code><code class="plain">;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="comments">//si la posicón Y de la figura es mayor de 0, significa que el juego ha terminado</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>14</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="keyword">if</code> <code class="plain">(_figura.Posicion.Y &lt; 0) &nbsp;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="plain">{ &nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>16</code></td><td class="content"><code class="keyword">return</code> <code class="keyword">true</code><code class="plain">; &nbsp;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>17</code></td><td class="content"><code class="plain">} </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>18</code></td><td class="content"><code class="comments">// el bloque de la fila siguiente se encuentra ocupado </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>19</code></td><td class="content"><code class="keyword">if</code> <code class="plain">((mTablero[ &nbsp;&nbsp; (Int32)_figura.Posicion.X + _figura.FiguraActual[_figura.Rotacion, aBloque, 0], &nbsp;&nbsp; (Int32)_figura.Posicion.Y + _figura.FiguraActual[_figura.Rotacion, aBloque, 1]] &gt;= 0))</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>20</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>21</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword">return</code> <code class="keyword">true</code><code class="plain">;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>22</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>23</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>24</code></td><td class="content"><code class="keyword">return</code> <code class="keyword">false</code><code class="plain">;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>25</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div><p></p>
+<p>Para explicar la colisión con las figuras, vamos a suponer que en el tablero ya hay bloques ocupados (con valores mayores&nbsp; o igual a 0), ahora una figura I va a chocar con una figura del tablero (como en la imagen), &nbsp;la colisión verifica que el bloque de la siguiente columna no sea mayor o igual a 0, si lo es entonces hay colisión, en la imagen se ve que la posición [1,17] se encuentra ocupada, al calcular la colisión nos da verdadero la siguiente fórmula:</p>
+<p></p><div id="highlighter_494475" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#viewSource" title="ver fuente" style="width: 16px; height: 16px; " class="item viewSource">ver fuente</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_494475_clipboard" type="application/x-shockwave-flash" title="copiar al portapapeles" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_494475" menu="false" src="http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1304052809g"></div><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#printSource" title="imprimir" style="width: 16px; height: 16px; " class="item printSource">imprimir</a><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="keyword">if</code> <code class="plain">((mTablero[</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">(Int32)_figura.Posicion.X + _figura.FiguraActual[_figura.Rotacion, aBloque, 0],</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">(Int32)_figura.Posicion.Y + _figura.FiguraActual[_figura.Rotacion, aBloque, 1]] &gt;= 0))</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>5</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword">return</code> <code class="keyword">true</code><code class="plain">;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>6</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div></div></div><p></p>
+<p><a href="http://escarbandocodigo.files.wordpress.com/2010/10/colisionfigura.png"><img class="aligncenter size-full wp-image-859" title="colisionfigura" src="./Como hacer un Tetris en XNA   Escarbando Código_files/colisionfigura.png" alt=""></a></p>
+<h2><strong>Verificar Filas Llenas</strong></h2>
+<p>&nbsp;</p>
+<p>Ya vimos como dibujar y verificar las colisiones en el tablero, ahora vamos a ver cuando hay filas llenas y cómo hacer para eliminarlas, aumentando la puntuación del juego.</p>
+<p>El algoritmo para verificar las filas llenas es sencillo:</p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Empezamos a recorrer las filas, de abajo hacia arriba</p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Por cada fila, verificamos que uno de los bloques se encuentre vacio</p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Si se encuentra vacio terminamos de recorrer dicha fila y continuamos con otra</p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Si se alcanza el total de columnas recorridas y no hay ningún bloque vacio, entonces significa que la fila se encuentra llena</p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Después de obtener la fila llena, subimos todas las filas anteriores a ella, aunque visualmente las filas se bajan</p>
+<p>-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Cuando todas las filas se hayan subido, se limpia toda la fila 0.</p>
+<p>La función es llamada una vez cada que se llena una fila:</p>
+<p></p><div id="highlighter_420591" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#viewSource" title="ver fuente" style="width: 16px; height: 16px; " class="item viewSource">ver fuente</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_420591_clipboard" type="application/x-shockwave-flash" title="copiar al portapapeles" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_420591" menu="false" src="http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1304052809g"></div><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#printSource" title="imprimir" style="width: 16px; height: 16px; " class="item printSource">imprimir</a><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">public</code> <code class="keyword">int</code> <code class="plain">verificarFilas()</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">Int32 aNumeroDeLineasLimpiadas = 0;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="keyword">for</code> <code class="plain">(Int32 aPosicionY = ALTO - 1; aPosicionY &gt; 0; aPosicionY--)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="comments">// Verificar si la fila esta llena en la Posición Y actual</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">Boolean lineacompleta = </code><code class="keyword">true</code><code class="plain">;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="keyword">for</code> <code class="plain">(Int32 aXPosition = 0; aXPosition &lt; ANCHO; aXPosition++) &nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">{ &nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Si una Posicion.X no se encuentra vacia (menor a 0) entonces la fila se encuentra llena &nbsp;&nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(mTablero[aXPosition, aPosicionY] == -1) &nbsp;&nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">lineacompleta = </code><code class="keyword">false</code><code class="plain">; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>14</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">break</code><code class="plain">; &nbsp;&nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} &nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>16</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">} &nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>17</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Si la fila esta llena, entonces se elimina la fila &nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>18</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(lineacompleta == </code><code class="keyword">true</code><code class="plain">) &nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>19</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{ &nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>20</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">for</code> <code class="plain">(Int32 aY = aPosicionY; aY &gt; 1; aY--)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>21</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>22</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">for</code> <code class="plain">(Int32 aX = 0; aX &lt; ANCHO; aX++)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>23</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>24</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Mueven todas las filas hacia arriba</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>25</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mTablero[aX, aY] = mTablero[aX, aY - 1];</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>26</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>27</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>28</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Se resetea la fila de tope</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>29</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">for</code> <code class="plain">(Int32 aX = 0; aX &lt; ANCHO; aX++)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>30</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>31</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mTablero[aX, 0] = -1;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>32</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>33</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">aNumeroDeLineasLimpiadas += 1;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>34</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>35</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>36</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="keyword">return</code> <code class="plain">aNumeroDeLineasLimpiadas;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>37</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div><p></p>
+<h2><strong>Caída Libre</strong></h2>
+<p>&nbsp;</p>
+<p>Ahora que tenemos toda la lógica, vamos a crear una función que sea la encargada de hacer caer automáticamente las fichas, algo así como la gravedad, y se verificará la colisión con alguno de los bloques, se adiciona la figura al tablero y se crea una nueva figura:</p>
+<p></p><div id="highlighter_39998" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#viewSource" title="ver fuente" style="width: 16px; height: 16px; " class="item viewSource">ver fuente</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_39998_clipboard" type="application/x-shockwave-flash" title="copiar al portapapeles" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_39998" menu="false" src="http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1304052809g"></div><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#printSource" title="imprimir" style="width: 16px; height: 16px; " class="item printSource">imprimir</a><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">public</code> <code class="keyword">void</code> <code class="plain">Caer(GameTime gameTime)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">relojcaida += (</code><code class="keyword">float</code><code class="plain">)gameTime.ElapsedGameTime.TotalSeconds;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(relojcaida &lt; VelocidadCaida)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">return</code><code class="plain">;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">relojcaida = 0f;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Posicion.Y += 1;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(VerificarColision(mFiguraActual) == </code><code class="keyword">true</code><code class="plain">)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="keyword">if</code> <code class="plain">(mFiguraActual.Posicion.Y &lt;= 0)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>14</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="keyword">return</code><code class="plain">;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>16</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">adicionarFigura(mFiguraActual);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>17</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">CrearNuevaFigura();</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>18</code></td><td class="content"><code class="spaces">&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>19</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div><p></p>
+<p>Para el control del tiempo, utilizo la misma técnica explicada en el juego de la culebrita.</p>
+<p>La función crearNuevaFigura, invoca la función nueva Figura de la clase Figura, la función aleatoriamente asigna una figura a la figura actual de juego.</p>
+<p></p><div id="highlighter_914624" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#viewSource" title="ver fuente" style="width: 16px; height: 16px; " class="item viewSource">ver fuente</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_914624_clipboard" type="application/x-shockwave-flash" title="copiar al portapapeles" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_914624" menu="false" src="http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1304052809g"></div><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#printSource" title="imprimir" style="width: 16px; height: 16px; " class="item printSource">imprimir</a><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="keyword">private</code> <code class="keyword">void</code> <code class="plain">CrearNuevaFigura()</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Tipo = mFiguraActual.SeleccionarFigura();</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Posicion.X = 5;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>5</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Posicion.Y = 0;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>6</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Rotacion = 0;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>7</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div><p></p>
+<h2><strong>Mover Fichas y Rotarlas</strong></h2>
+<p><strong>&nbsp;</strong></p>
+<p>Para el movimiento de las fichas, vamos a usar el teclado,&nbsp; las teclas izquierda y derecha servirán para mover la figura hacia la derecha o izquierda, la tecla de arriba arriba rotará la figura.</p>
+<p>La rotación solo cambia la propiedad Rotación para que cuando se dibuje la figura, se dibuje dependiendo de la rotación, seleccionando la tabla correspondiente, cuando se termina el total de las rotaciones, se vuelve a empezar el contador para hacer circular las rotaciones.</p>
+<p>Para los movimientos, se verifica que la ficha no haya colisionado o con el tablero o con un&nbsp; bloque, si ha colisionado se reversa el movimiento:</p>
+<p></p><div id="highlighter_474962" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#viewSource" title="ver fuente" style="width: 16px; height: 16px; " class="item viewSource">ver fuente</a><div class="item copyToClipboard"><embed width="16" height="16" id="highlighter_474962_clipboard" type="application/x-shockwave-flash" title="copiar al portapapeles" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_474962" menu="false" src="http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1304052809g"></div><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#printSource" title="imprimir" style="width: 16px; height: 16px; " class="item printSource">imprimir</a><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#about" title="?" style="width: 16px; height: 16px; " class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">public</code> <code class="keyword">void</code> <code class="plain">Mover(KeyboardState teclado, GameTime gameTime)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">reloj += (</code><code class="keyword">float</code><code class="plain">)gameTime.ElapsedGameTime.TotalSeconds;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(reloj &lt; VelocidadMovimiento) &nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">{ &nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword">return</code><code class="plain">; &nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">} &nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">reloj = 0f; &nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(teclado.IsKeyDown(Keys.Left) == </code><code class="keyword">true</code><code class="plain">) &nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">{ &nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Posicion.X -= 1; &nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(VerificarColision(mFiguraActual) == </code><code class="keyword">true</code><code class="plain">) &nbsp;&nbsp;&nbsp;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>14</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Posicion.X += 1; &nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} &nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>16</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>17</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(teclado.IsKeyDown(Keys.Right) == </code><code class="keyword">true</code><code class="plain">) </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>18</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">{ &nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>19</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Posicion.X += 1; &nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>20</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(VerificarColision(mFiguraActual) == </code><code class="keyword">true</code><code class="plain">) &nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>21</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{ &nbsp;&nbsp;&nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>22</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Posicion.X -= 1; &nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>23</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>24</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>25</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(teclado.IsKeyDown(Keys.Up) == </code><code class="keyword">true</code><code class="plain">) </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>26</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{ &nbsp; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>27</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Rotacion += 1; &nbsp; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>28</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">((mFiguraActual.Rotacion &gt; 3))</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>29</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>30</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Rotacion = 0;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>31</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>32</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(VerificarColision(mFiguraActual) == </code><code class="keyword">true</code><code class="plain">)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>33</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>34</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Rotacion -= 1;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>35</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">((mFiguraActual.Rotacion &lt; 0))</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>36</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>37</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Rotacion = 3;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>38</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>39</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>40</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>41</code></td><td class="content"><code class="keyword">if</code> <code class="plain">(teclado.IsKeyDown(Keys.Down) == </code><code class="keyword">true</code><code class="plain">)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>42</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>43</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Posicion.Y += 1;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>44</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(VerificarColision(mFiguraActual) == </code><code class="keyword">true</code><code class="plain">)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>45</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>46</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">mFiguraActual.Posicion.Y -= 1;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>47</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;</code><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>48</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>49</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div><p></p>
+<p>Ahora, lo que queda por hacer es manejar la puntuación, el nivel, aumento de la velocidad, mostrar la figura siguiente, todo esto viene en el código fuente que pueden descargar.</p>
+<p>El video de como queda es así:</p>
+<p><code><span class="embed-youtube" style="text-align:center; display: block;"><iframe class="youtube-player" type="text/html" width="600" height="368" src="./Como hacer un Tetris en XNA   Escarbando Código_files/p2WCeTkTEWs.htm" frameborder="0"></iframe></span></code></p>
+<p><a href="http://cid-bcf2b4912b193ad2.office.live.com/self.aspx/Escarbando%20C%c3%b3digo/C%c3%b3digoFuenteTetris.zip" target="_blank">Código Fuente del Tetris.</a></p>
+<p><a href="http://cid-bcf2b4912b193ad2.office.live.com/self.aspx/Escarbando%20C%c3%b3digo/C%c3%b3digoFuenteTetris.zip#resId/BCF2B4912B193AD2!880" target="_blank">Ejecutable</a> para probar la aplicación.</p>
+		<div id="geo-post-856" class="geo geo-post" style="display: none">
+			<span class="latitude">4.609866</span>
+			<span class="longitude">-74.082050</span>
+		</div>
+<div class="wpadvert" style="text-align: center; padding: 5px; background: #; padding: 5px; margin: 10px auto; width: 410px;">
+<script type="text/javascript">
+GA_googleAddAttr("AdOpt", "1");
+GA_googleAddAttr("Origin", "other");
+GA_googleAddAttr("theme_bg", "e9e9dc"); 
+GA_googleAddAttr("theme_border", "ccccc"); 
+GA_googleAddAttr("theme_text", "333333"); 
+GA_googleAddAttr("theme_link", "ec8500"); 
+GA_googleAddAttr("theme_url", "ec8500"); 
+GA_googleAddAttr("LangId", "19");
+GA_googleAddAttr("GrList", "brown");
+GA_googleAddAttr("Tag", "c");
+GA_googleAddAttr("Tag", "xna");
+GA_googleAddAttr("Tag", "juego");
+GA_googleAddAttr("Tag", "source-code");
+GA_googleAddAttr("Tag", "tetris");
+GA_googleAddAttr("Tag", "videojuegos");
+
+GA_googleFillSlot("wpcom_sharethrough");
+</script>
+</div><div class="sharedaddy sd-rating-enabled sd-like-enabled sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Comparte esto:</h3><div class="sd-content"><ul><li class="share-facebook"><a rel="nofollow" class="share-facebook sd-button share-icon" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?share=facebook&nb=1" target="_blank" title="Compartir en Facebook" id="sharing-facebook-856"><span>Facebook</span></a></li><li class="share-twitter"><a rel="nofollow" class="share-twitter sd-button share-icon" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?share=twitter&nb=1" target="_blank" title="Haz clic para compartir en Twitter" id="sharing-twitter-856"><span>Twitter<span class="share-count">1</span></span></a></li><li class="share-print"><a rel="nofollow" class="share-print sd-button share-icon" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#print" target="_blank" title="Haz clic para imprimir"><span>Imprimir</span></a></li><li class="share-digg"><a rel="nofollow" class="share-digg sd-button share-icon" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?share=digg&nb=1" target="_blank" title="Haz clic para enviar a Digg"><span>Digg</span></a></li><li class="share-email share-service-visible"><a rel="nofollow" class="share-email sd-button share-icon" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?share=email&nb=1" target="_blank" title="Hac clic para enviar por correo electrónico a un amigo"><span>Correo electrónico</span></a></li><li class="share-google-plus-1"><div class="googleplus1_button"><div id="___plusone_0" style="height: 20px; width: 90px; display: inline-block; text-indent: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-image: initial; background-attachment: initial; background-origin: initial; background-clip: initial; background-color: transparent; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial; "><iframe allowtransparency="true" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="width: 90px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; height: 20px; position: static; left: 0px; top: 0px; visibility: visible; " tabindex="0" vspace="0" width="100%" id="I1_1336408969905" name="I1_1336408969905" src="./Como hacer un Tetris en XNA   Escarbando Código_files/fastbutton.htm" title="+1"></iframe></div></div></li><li class="share-linkedin"><a rel="nofollow" class="share-linkedin sd-button share-icon" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?share=linkedin&nb=1" target="_blank" title="Haz clic aquí para compartir en LinkedIn" id="sharing-linkedin-856"><span>LinkedIn</span></a></li><li class="share-end"></li></ul><div class="sharing-clear"></div></div></div><div class="wpl-likebox sd-block sd-like"><h3 class="sd-title">Me gusta:</h3><div class="sd-content"><div id="like-856" class="wpl-button "><a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?like=1&_wpnonce=254a955943" title="Me gusta post" class="like needs-login sd-button" rel="nofollow"><span>Me gusta</span></a></div><div class="wpl-count sd-like-count"><span class="wpl-count-number">2</span> bloggers like this post.</div><ul class="wpl-avatars sd-like-gravatars"><li><a href="http://gravatar.com/pablordz29" class="wpl-liker"><img src="./Como hacer un Tetris en XNA   Escarbando Código_files/cc41bd1f02ac654068400100ffae24f8" class="avatar avatar-30 grav-hashed" alt="pablordz29" width="30" height="30" id="grav-cc41bd1f02ac654068400100ffae24f8-0"></a></li><li><a href="http://gravatar.com/martinreina" class="wpl-liker"><img src="./Como hacer un Tetris en XNA   Escarbando Código_files/76cb25b1428c92fe15238fd070139b8d" class="avatar avatar-30 grav-hashed" alt="Martin Reina" width="30" height="30" id="grav-76cb25b1428c92fe15238fd070139b8d-0"></a></li></ul></div></div></div>			</div><!-- .entry-content -->
+
+	<ul class="entry-meta fade">
+		<li class="cat-links">Posted by <span class="author-link"><a href="http://escarbandocodigo.wordpress.com/author/martinreina/" title="Ver todas las entradas de Martin Reina" rel="author">Martin Reina</a></span> in <a href="http://escarbandocodigo.wordpress.com/category/c/" title="Ver todas las entradas en c#" rel="category tag">c#</a>, <a href="http://escarbandocodigo.wordpress.com/category/xna/" title="Ver todas las entradas en XNA" rel="category tag">XNA</a></li> <li class="tag-links">Tagged: <a href="http://escarbandocodigo.wordpress.com/tag/juego/" rel="tag">Juego</a>, <a href="http://escarbandocodigo.wordpress.com/tag/source-code/" rel="tag">source code</a>, <a href="http://escarbandocodigo.wordpress.com/tag/tetris/" rel="tag">Tetris</a>, <a href="http://escarbandocodigo.wordpress.com/tag/videojuegos/" rel="tag">videojuegos</a></li>
+
+
+
+			</ul><!-- #entry-meta -->
+</article><!-- #post-856 -->
+
+
+					<nav id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegador de artículos</h1>
+
+	
+		<div class="nav-previous"><a href="http://escarbandocodigo.wordpress.com/2010/10/21/curiosidades-en-la-red-del-tetris/" rel="prev"><span class="meta-nav">←</span> Curiosidades en la red del&nbsp;Tetris</a></div>		<div class="nav-next"><a href="http://escarbandocodigo.wordpress.com/2010/10/27/tomar-screenshots-o-pantallazos-de-los-juegos-en-xna/" rel="next">Tomar Screenshots o Pantallazos de los Juegos en&nbsp;XNA <span class="meta-nav">→</span></a></div>
+	
+	</nav><!-- #nav-below -->
+	
+					<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			9 pensamientos en “<span>Como hacer un Tetris en&nbsp;XNA</span>”		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-145">
+		<article id="comment-145" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/b44e5c1be82f3943babd45ab0cd9e519" class="avatar avatar-60 grav-hashed grav-hijack" height="60" width="60" id="grav-b44e5c1be82f3943babd45ab0cd9e519-0">					<cite class="fn">Anselmo</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-145"><time pubdate="" datetime="2010-11-02T12:36:29+00:00">
+					noviembre 2, 2010 a las 12:36 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Muchas gracias por tal excelente explicación acerca de la lógica de este jueguito!!!</p>
+<p>Ahora me será más fácil desarrollarlo en Java!!!</p>
+<p>Gracias…</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?replytocom=145#respond" onclick="return addComment.moveForm(&quot;comment-145&quot;, &quot;145&quot;, &quot;respond&quot;, &quot;856&quot;)">Responder</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-martinreina bypostauthor odd alt depth-2 highlander-comment" id="li-comment-146">
+		<article id="comment-146" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/76cb25b1428c92fe15238fd070139b8d(1)" class="avatar avatar-60 grav-hashed grav-hijack" height="60" width="60" id="grav-76cb25b1428c92fe15238fd070139b8d-1">					<cite class="fn"><a href="http://escarbandocodigo.wordpress.com/" rel="external nofollow" class="url">Martin Reina</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-146"><time pubdate="" datetime="2010-11-02T22:23:57+00:00">
+					noviembre 2, 2010 a las 10:23 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Que bien, la verdad la hice con esa intención, de que pudiera servir no solo para desarrollar en XNA sino en otras aplicaciones <img src="./Como hacer un Tetris en XNA   Escarbando Código_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?replytocom=146#respond" onclick="return addComment.moveForm(&quot;comment-146&quot;, &quot;146&quot;, &quot;respond&quot;, &quot;856&quot;)">Responder</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+</ul>
+</li>
+	<li class="comment even thread-odd thread-alt depth-1 highlander-comment" id="li-comment-148">
+		<article id="comment-148" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/b44e5c1be82f3943babd45ab0cd9e519" class="avatar avatar-60 grav-hashed grav-hijack" height="60" width="60" id="grav-b44e5c1be82f3943babd45ab0cd9e519-1">					<cite class="fn">Anselmo</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-148"><time pubdate="" datetime="2010-11-07T01:28:09+00:00">
+					noviembre 7, 2010 a las 1:28 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hola amigo!!!</p>
+<p>Pues aquí molestando. Sabes, no me queda muy claro de porque definir 4 matrices de 4×2, tampoco de que representan los números 2, 1, 0 etc. No les hayo forma.</p>
+<p>¿Me podrías ayudar con eso?</p>
+<p>Gracias</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?replytocom=148#respond" onclick="return addComment.moveForm(&quot;comment-148&quot;, &quot;148&quot;, &quot;respond&quot;, &quot;856&quot;)">Responder</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-martinreina bypostauthor odd alt depth-2 highlander-comment" id="li-comment-149">
+		<article id="comment-149" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/76cb25b1428c92fe15238fd070139b8d(1)" class="avatar avatar-60 grav-hashed grav-hijack" height="60" width="60" id="grav-76cb25b1428c92fe15238fd070139b8d-2">					<cite class="fn"><a href="http://escarbandocodigo.wordpress.com/" rel="external nofollow" class="url">Martin Reina</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-149"><time pubdate="" datetime="2010-11-07T08:36:47+00:00">
+					noviembre 7, 2010 a las 8:36 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hola,<br>
+La matriz de 4X4x2 es hecha para resumir, y no hacer matrices de 4X4, si hicieramos matrices de 4X4, tendríamos que llenar los espacios donde va el cuadro de la figura con 1 y con 0 los espacios con blanco, pero al hacerlas de 4X2, vamos a llenar en los cuadros las posiciones donde va quedar el cuadro dibujado, por ejemplo la figura L, va a tener los cuadros en las Posiciones: {0,0}, {0,1},{0,2} y {0,3}, el primer valor represta el eje de las X y el segundo el de las Y.<br>
+Lo de arriba quiere decir que la figura va a tener el siguiente modelo:<br>
+   0 1 2 3<br>
+0 1 0 0 0<br>
+1 1 0 0 0<br>
+2 1 0 0 0<br>
+3 1 0 0 0<br>
+Si te fijas, los 1 van en las posiciones que guardamos en la matriz 4X2. Espero sirva la explicación</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?replytocom=149#respond" onclick="return addComment.moveForm(&quot;comment-149&quot;, &quot;149&quot;, &quot;respond&quot;, &quot;856&quot;)">Responder</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+</ul>
+</li>
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-154">
+		<article id="comment-154" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/b44e5c1be82f3943babd45ab0cd9e519" class="avatar avatar-60 grav-hashed grav-hijack" height="60" width="60" id="grav-b44e5c1be82f3943babd45ab0cd9e519-2">					<cite class="fn">Anselmo</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-154"><time pubdate="" datetime="2010-11-13T00:36:33+00:00">
+					noviembre 13, 2010 a las 12:36 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Ok muchas gracias, ahora si me quedo mucho mas claro. Voy a seguir practicando en Java. Gracias</p>
+<p>PD: Espero que no se moleste si me surge alguna nueva duda. <img src="./Como hacer un Tetris en XNA   Escarbando Código_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?replytocom=154#respond" onclick="return addComment.moveForm(&quot;comment-154&quot;, &quot;154&quot;, &quot;respond&quot;, &quot;856&quot;)">Responder</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-martinreina bypostauthor odd alt depth-2 highlander-comment" id="li-comment-155">
+		<article id="comment-155" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/76cb25b1428c92fe15238fd070139b8d(1)" class="avatar avatar-60 grav-hashed grav-hijack" height="60" width="60" id="grav-76cb25b1428c92fe15238fd070139b8d-3">					<cite class="fn"><a href="http://escarbandocodigo.wordpress.com/" rel="external nofollow" class="url">Martin Reina</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-155"><time pubdate="" datetime="2010-11-13T16:50:08+00:00">
+					noviembre 13, 2010 a las 4:50 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Claro, desde que pueda ayudarte con gusto</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?replytocom=155#respond" onclick="return addComment.moveForm(&quot;comment-155&quot;, &quot;155&quot;, &quot;respond&quot;, &quot;856&quot;)">Responder</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+</ul>
+</li>
+	<li class="comment even thread-odd thread-alt depth-1 highlander-comment" id="li-comment-278">
+		<article id="comment-278" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/fa2f9551cc7cdb91bd3defaab5db7bc9" class="avatar avatar-60 grav-hashed grav-hijack" height="60" width="60" id="grav-fa2f9551cc7cdb91bd3defaab5db7bc9-0">					<cite class="fn">Osbaldo</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-278"><time pubdate="" datetime="2011-09-27T21:13:35+00:00">
+					septiembre 27, 2011 a las 9:13 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hola, ya hise el juego pero me sale un error : el valor no puede ser nulo, nombre del parametro spriteFont, si desearia q me ayudara  pv</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?replytocom=278#respond" onclick="return addComment.moveForm(&quot;comment-278&quot;, &quot;278&quot;, &quot;respond&quot;, &quot;856&quot;)">Responder</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-martinreina bypostauthor odd alt depth-2 highlander-comment" id="li-comment-279">
+		<article id="comment-279" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/76cb25b1428c92fe15238fd070139b8d(1)" class="avatar avatar-60 grav-hashed grav-hijack" height="60" width="60" id="grav-76cb25b1428c92fe15238fd070139b8d-4">					<cite class="fn"><a href="http://escarbandocodigo.wordpress.com/" rel="external nofollow" class="url">Martin Reina</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-279"><time pubdate="" datetime="2011-09-28T10:33:56+00:00">
+					septiembre 28, 2011 a las 10:33 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hola, debe ser que creaste un SpriteFont y no lo has inicializado, puedes ver el manejo de SpriteFonts y textos en la siguiente entrada: <a href="http://escarbandocodigo.wordpress.com/2010/04/02/desplegar-texto-en-pantalla-%E2%80%93-xna/" rel="nofollow">http://escarbandocodigo.wordpress.com/2010/04/02/desplegar-texto-en-pantalla-%E2%80%93-xna/</a>, sino aún no das con el chiste puedes copiar o enviarme el error exacto para ayudarte</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?replytocom=279#respond" onclick="return addComment.moveForm(&quot;comment-279&quot;, &quot;279&quot;, &quot;respond&quot;, &quot;856&quot;)">Responder</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+</ul>
+</li>
+	<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-299">
+		<article id="comment-299" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/b16c1b7c4109c1735d956243231b841e" class="avatar avatar-60 grav-hashed grav-hijack" height="60" width="60" id="grav-b16c1b7c4109c1735d956243231b841e-0">					<cite class="fn">Juan Carlos Vega García</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-299"><time pubdate="" datetime="2011-11-06T15:04:54+00:00">
+					noviembre 6, 2011 a las 3:04 pm					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>No pues muy chido el post, muchas Gracias</p>
+</div>
+
+			<div class="reply">
+				<a class="comment-reply-link" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?replytocom=299#respond" onclick="return addComment.moveForm(&quot;comment-299&quot;, &quot;299&quot;, &quot;respond&quot;, &quot;856&quot;)">Responder</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li>
+		</ol>
+
+		
+	
+	
+									<div id="respond" class="js">
+				<h3 id="reply-title">Deseas comentar o sugerir algo? <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#respond" style="display:none;">Cancelar respuesta</a></small></h3>
+									<form action="http://escarbandocodigo.wordpress.com/wp-comments-post.php" method="post" id="commentform">
+																										
+
+
+												
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest">
+
+<div class="comment-form-field comment-textarea">
+	<label for="comment">Añade tu comentario aquí...</label>
+	<div id="comment-form-comment"><textarea style="resize: none; overflow-y: hidden; position: absolute; top: 0px; left: -9999px; width: 578px; line-height: 17px; text-decoration: none; letter-spacing: normal; height: 37px; " tabindex="-1"></textarea><textarea id="comment" name="comment" style="resize: none; overflow-y: hidden; height: 37px; "></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none; ">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-form-guest" id="postas-guest" title="Invitado">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="./Como hacer un Tetris en XNA   Escarbando Código_files/ad516503a11cd5ca435acc9bb6523536" alt="Gravatar" width="25" class="no-grav">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Correo electrónico <span class="required">(requerido)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="text" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Nombre <span class="required">(requerido)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Sitio Web</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text" value=""></div>
+				</div> 
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Como hacer un Tetris en XNA   Escarbando Código_files/wplogo.png" alt="Logo de WordPress.com" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your WordPress.com account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'wordpress' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Cambiar</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Como hacer un Tetris en XNA   Escarbando Código_files/ad516503a11cd5ca435acc9bb6523536(1)" alt="Twitter picture" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'twitter' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Cambiar</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Como hacer un Tetris en XNA   Escarbando Código_files/ad516503a11cd5ca435acc9bb6523536(1)" alt="Facebook photo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'facebook' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Cambiar</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancelar</a></div>
+		<p>Connecting to %s</p>
+	</div>
+	
+	
+</div>
+
+
+<div id="comment-form-subscribe" style="display: none; "> 
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6" checked="checked"> <label class="subscribe-label" id="subscribe-label" for="subscribe">Recibir siguientes comentarios por correo.</label></p><script type="text/javascript" charset="utf-8">if ( document.cookie.indexOf( 'opt-out-comm-sub-9626635=1' ) > -1 ) document.getElementById( 'subscribe' ).checked = false; </script><p class="post-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto;" tabindex="7"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Recibir nuevas entradas por email.</label></p></div>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+	jQuery( '#comment' ).css( { 'height':'10px' } ).one( 'focus', function() {
+		jQuery( this ).animate( { 'height':'70px' } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+});
+</script>
+												<p class="form-submit" style="display: none; ">
+							<input name="submit" type="submit" id="comment-submit" value="Publicar comentario">
+							<input type="hidden" name="comment_post_ID" value="856" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						
+<input type="hidden" name="genseq" value="1336408966">
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="d52737a152"></p><script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/form.js"></script>
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="1336408969748"></p>					</form>
+							</div><!-- #respond -->
+			<div style="clear: both"></div>			
+</div><!-- #comments -->
+
+			
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+		<div id="secondary" class="widget-area" role="complementary">
+						<aside id="pages-4" class="widget widget_pages"><h1 class="widget-title">Páginas</h1>		<ul>
+			<li class="page_item page-item-577"><a href="http://escarbandocodigo.wordpress.com/archivos/">Archivos</a></li>
+<li class="page_item page-item-2"><a href="http://escarbandocodigo.wordpress.com/about/">¿Quién soy&nbsp;yo?</a></li>
+<li class="page_item page-item-580"><a href="http://escarbandocodigo.wordpress.com/contactarme/">Contactarme</a></li>
+		</ul>
+		</aside><aside id="twitter-2" class="widget widget_twitter"><h1 class="widget-title"><a href="http://twitter.com/MartinReina">¿Que estoy haciendo?</a></h1><ul class="tweets">
+<li>Me ha gustado un vídeo de @<a href="http://twitter.com/YouTube">YouTube</a>. <a href="http://t.co/caleZ5jG" rel="nofollow">http://t.co/caleZ5jG</a> Nicki Minaj - Starships (Explicit) <a href="http://twitter.com/MartinReina/statuses/197869337858678784" class="timesince">4&nbsp;days&nbsp;ago</a></li>
+<li>Me ha gustado un vídeo de @<a href="http://twitter.com/YouTube">YouTube</a>. <a href="http://t.co/w11WF0Sn" rel="nofollow">http://t.co/w11WF0Sn</a> The Cure - Close To Me (1990 Version) <a href="http://twitter.com/MartinReina/statuses/192419825505673217" class="timesince">2&nbsp;weeks&nbsp;ago</a></li>
+<li>El vestido de baño de una mujer muestra el 90% del cuerpo, pero los hombres quieren ver es el otro 10% <a href="http://twitter.com/search?q=%23verdad">#verdad</a> ! <a href="http://twitter.com/MartinReina/statuses/190637839598370816" class="timesince">3&nbsp;weeks&nbsp;ago</a></li>
+<li>RT @<a href="http://twitter.com/Anonymous_Co">Anonymous_Co</a>: Desde hoy el nuevo delito en Colombia se llama porte ilegal de USB <a href="http://twitter.com/MartinReina/statuses/190112840340877313" class="timesince">3&nbsp;weeks&nbsp;ago</a></li>
+<li>En cumaralcito terminando las vacaciones :D <a href="http://twitter.com/MartinReina/statuses/187693783691960322" class="timesince">1&nbsp;month&nbsp;ago</a></li>
+</ul>
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="./Como hacer un Tetris en XNA   Escarbando Código_files/follow_button.1335513764.htm" class="twitter-follow-button" style="width: 148px; height: 20px; " title="Twitter Follow Button"></iframe></aside><aside id="text-3" class="widget widget_text">			<div class="textwidget"><p><!-- Facebook Badge START --><a href="http://www.facebook.com/kamashi" target="_TOP" style="font-family:&quot;font-size:11px;font-variant:normal;font-style:normal;font-weight:normal;color:#3B5998;text-decoration:none;" title="Martin Reina">Martin Reina</a><br><a href="http://www.facebook.com/kamashi" target="_TOP" title="Martin Reina"><img src="./Como hacer un Tetris en XNA   Escarbando Código_files/709696374.675.140851472.png" width="120" height="260" style="border:0;"></a><br><a href="http://www.facebook.com/badges/" target="_TOP" style="font-family:&quot;font-size:11px;font-variant:normal;font-style:normal;font-weight:normal;color:#3B5998;text-decoration:none;" title="Make your own badge!">Crea tu insignia</a><!-- Facebook Badge END --></p>
+<p><a href="http://www2.clustrmaps.com/counter/maps.php?url=http://escarbandocodigo.wordpress.com/" id="clustrMapsLink"><img src="./Como hacer un Tetris en XNA   Escarbando Código_files/index2.php" style="border:0;" alt="Locations of visitors to this page" title="Locations of visitors to this page"><br>
+</a></p>
+<p><a href="http://s01.flagcounter.com/more/RJxm"><img src="./Como hacer un Tetris en XNA   Escarbando Código_files/saved_resource" alt="free counters" border="0"></a></p>
+<p>&nbsp;</p>
+</div>
+		</aside>	<aside id="recent-comments" class="widget widget_recent_comments">		<h1 class="widget-title">Comentarios recientes</h1>		<table class="recentcommentsavatar" cellspacing="0" cellpadding="0" border="0"><tbody><tr><td title="santiago" class="recentcommentsavatartop" style="height:48px; width:48px"><img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/349d37374b2d7c05e1a510f285f494b3" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48" id="grav-349d37374b2d7c05e1a510f285f494b3-0"></td><td class="recentcommentstexttop">santiago on <a href="http://escarbandocodigo.wordpress.com/2010/02/19/animaciones-de-sprites-xna/#comment-414">Animaciones de Sprites –…</a></td></tr><tr><td title="Luis" class="recentcommentsavatarend" style="height:48px; width:48px"><img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/e68e80fdb5ec2fb50825a5d7d5d50c42" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48" id="grav-e68e80fdb5ec2fb50825a5d7d5d50c42-0"></td><td class="recentcommentstextend">Luis on <a href="http://escarbandocodigo.wordpress.com/2010/09/10/minimizar-aplicacion-notify-icon-wpf/#comment-412">Minimizar Aplicación Notify Ic…</a></td></tr><tr><td title="Santy" class="recentcommentsavatarend" style="height:48px; width:48px"><img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/349d37374b2d7c05e1a510f285f494b3" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48" id="grav-349d37374b2d7c05e1a510f285f494b3-1"></td><td class="recentcommentstextend">Santy on <a href="http://escarbandocodigo.wordpress.com/2010/04/06/de-colores-a-texturas-%e2%80%93-xna/#comment-411">De Colores a Texturas –&nbsp;X…</a></td></tr><tr><td title="skalero01" class="recentcommentsavatarend" style="height:48px; width:48px"><a href="http://gravatar.com/skalero01" rel="nofollow"><img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/5c4e0b2871c74c39c849776c299e7650" class="avatar avatar-48 grav-hashed" height="48" width="48" id="grav-5c4e0b2871c74c39c849776c299e7650-0"></a></td><td class="recentcommentstextend"><a href="http://gravatar.com/skalero01" rel="nofollow">skalero01</a> on <a href="http://escarbandocodigo.wordpress.com/2012/03/12/desinstalar-windows-8-y-recuperar-la-instalacion-de-windows-7/#comment-410">Desinstalar Windows 8 y Recupe…</a></td></tr><tr><td title="Martin Reina" class="recentcommentsavatarend" style="height:48px; width:48px"><a href="http://escarbandocodigo.wordpress.com/" rel="nofollow"><img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/76cb25b1428c92fe15238fd070139b8d(2)" class="avatar avatar-48 grav-hashed" height="48" width="48" id="grav-76cb25b1428c92fe15238fd070139b8d-5"></a></td><td class="recentcommentstextend"><a href="http://escarbandocodigo.wordpress.com/" rel="nofollow">Martin Reina</a> on <a href="http://escarbandocodigo.wordpress.com/2010/03/25/plano-cartesiano-y-rotacion-de-objetos-xna/#comment-409">Plano cartesiano y Rotación de…</a></td></tr></tbody></table>
+	</aside>		<aside id="top-posts" class="widget widget_stats_topposts">			<h1 class="widget-title">Posts Más Vistos</h1>			<ul><li><a href="http://escarbandocodigo.wordpress.com/2009/10/20/crear-tareas-programadas-windows-vista-schedule-task/">Crear Tareas Programadas Windows Vista (Schedule Task)</a></li><li><a href="http://escarbandocodigo.wordpress.com/2011/02/03/error-xna-4-could-not-find-a-direct3d-device-that-supports-the-xna-framework-hidef-profile/">Error XNA 4: Could not find a Direct3D device that supports the XNA Framework HiDef profile</a></li><li><a href="http://escarbandocodigo.wordpress.com/2011/11/09/fuentes-con-bitmaps-y-tipos-led-xna/">Fuentes con Bitmaps y estilo display LED - XNA</a></li><li><a href="http://escarbandocodigo.wordpress.com/2010/04/06/de-colores-a-texturas-%e2%80%93-xna/">De Colores a Texturas – XNA</a></li><li><a href="http://escarbandocodigo.wordpress.com/2009/12/18/integrar-outlook-y-c/">Integrar Outlook y C#</a></li></ul>		</aside><aside id="categories-3" class="widget widget_categories"><h1 class="widget-title">Categorías</h1><select name="cat" id="cat" class="postform">
+	<option value="-1">Elegir categoría</option>
+	<option class="level-0" value="2426">c#&nbsp;&nbsp;(60)</option>
+	<option class="level-0" value="5718">Curiosidades&nbsp;&nbsp;(21)</option>
+	<option class="level-0" value="81819">Facebook&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="6715">IE&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="610">Linux&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="637">Microsoft&nbsp;&nbsp;(5)</option>
+	<option class="level-0" value="984139">Silverlight&nbsp;&nbsp;(7)</option>
+	<option class="level-0" value="599182">Twitter&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="1">Uncategorized&nbsp;&nbsp;(3)</option>
+	<option class="level-0" value="800">Windows&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="46652">WPF&nbsp;&nbsp;(14)</option>
+	<option class="level-0" value="299868">XNA&nbsp;&nbsp;(34)</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	var dropdown = document.getElementById("cat");
+	function onCatChange() {
+		if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
+			location.href = "http://escarbandocodigo.wordpress.com/?cat="+dropdown.options[dropdown.selectedIndex].value;
+		}
+	}
+	dropdown.onchange = onCatChange;
+/* ]]> */
+</script>
+
+</aside>		<aside id="blog-stats" class="widget widget_statscounter">			<h1 class="widget-title">Estadisticas del Blog</h1>			<ul>
+			<li>127,683 hits</li>
+			</ul>
+		</aside><aside id="blog_subscription-3" class="widget widget_blog_subscription"><h1 class="widget-title"><label for="subscribe-field">Inscribirse al Blog</label></h1>
+			<form action="https://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="subscribe-blog">
+									<p>Ingresa tu Email para inscribirse al blog y recibir notificaciones de los Post y Acutalizaciones por mail.</p>
+<p>Únete a otros 88 seguidores</p>
+					<p><input type="text" name="email" style="width: 95%; padding: 1px 2px" value="" id="subscribe-field"></p>
+				
+				<p>
+					<input type="hidden" name="action" value="subscribe">
+					<input type="hidden" name="blog_id" value="9626635">
+					<input type="hidden" name="source" value="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/">
+					<input type="hidden" name="sub-type" value="widget">
+					<input type="hidden" name="redirect_fragment" value="blog_subscription-3">
+					<input type="hidden" id="_wpnonce" name="_wpnonce" value="a07e5ee8cc">					<input type="submit" value="Inscribete!!!">
+				</p>
+			</form>
+			
+</aside>		</div><!-- #secondary .widget-area -->
+		<div class="container-bottom"></div>
+	</div><!-- #container -->
+
+	<footer id="colophon" role="contentinfo">
+
+		
+
+
+<div id="footer-widget-area" role="complementary">
+
+	<div id="first" class="widget-area">
+		<ul class="fade">
+			<aside id="search-4" class="widget-container"><form role="search" method="get" id="searchform" action="http://escarbandocodigo.wordpress.com/">
+	<div><label class="screen-reader-text" for="s">Buscar por:</label>
+	<input type="text" value="" name="s" id="s">
+	<input type="submit" id="searchsubmit" value="Buscar">
+	</div>
+	</form></aside><aside id="author_grid" class="widget-container">	<h1 class="widget-title">Autores</h1>	<ul>
+		<li>
+			<a href="http://escarbandocodigo.wordpress.com/author/martinreina/"> <img alt="" src="./Como hacer un Tetris en XNA   Escarbando Código_files/76cb25b1428c92fe15238fd070139b8d(3)" class="avatar avatar-32 grav-hashed" height="32" width="32" id="grav-76cb25b1428c92fe15238fd070139b8d-6"></a>
+		</li>
+	</ul>
+</aside><aside id="rss_links-3" class="widget-container"><ul><li><a href="http://escarbandocodigo.wordpress.com/feed/" title="Subscribe to Posts">RSS - Posts</a></li><li><a href="http://escarbandocodigo.wordpress.com/comments/feed/" title="Subscribe to Comments">RSS - Comments</a></li></ul>
+</aside>		</ul>
+	</div><!-- #first .widget-area -->
+
+	<div id="second" class="widget-area">
+		<ul class="fade">
+			<aside id="tag_cloud" class="widget-container"><h1 class="widget-title">Nube de categorías</h1><div style="overflow: hidden"><a href="http://escarbandocodigo.wordpress.com/category/c/" style="font-size: 275%; padding: 1px; margin: 1px;" title="c# (60)">c#</a> <a href="http://escarbandocodigo.wordpress.com/category/curiosidades/" style="font-size: 159.32203389831%; padding: 1px; margin: 1px;" title="Curiosidades (21)">Curiosidades</a> <a href="http://escarbandocodigo.wordpress.com/category/facebook/" style="font-size: 102.96610169492%; padding: 1px; margin: 1px;" title="Facebook (2)">Facebook</a> <a href="http://escarbandocodigo.wordpress.com/category/ie/" style="font-size: 100%; padding: 1px; margin: 1px;" title="IE (1)">IE</a> <a href="http://escarbandocodigo.wordpress.com/category/linux/" style="font-size: 102.96610169492%; padding: 1px; margin: 1px;" title="Linux (2)">Linux</a> <a href="http://escarbandocodigo.wordpress.com/category/microsoft/" style="font-size: 111.86440677966%; padding: 1px; margin: 1px;" title="Microsoft (5)">Microsoft</a> <a href="http://escarbandocodigo.wordpress.com/category/silverlight/" style="font-size: 117.79661016949%; padding: 1px; margin: 1px;" title="Silverlight (7)">Silverlight</a> <a href="http://escarbandocodigo.wordpress.com/category/twitter/" style="font-size: 100%; padding: 1px; margin: 1px;" title="Twitter (1)">Twitter</a> <a href="http://escarbandocodigo.wordpress.com/category/uncategorized/" style="font-size: 105.93220338983%; padding: 1px; margin: 1px;" title="Uncategorized (3)">Uncategorized</a> <a href="http://escarbandocodigo.wordpress.com/category/windows/" style="font-size: 102.96610169492%; padding: 1px; margin: 1px;" title="Windows (2)">Windows</a> <a href="http://escarbandocodigo.wordpress.com/category/wpf/" style="font-size: 138.5593220339%; padding: 1px; margin: 1px;" title="WPF (14)">WPF</a> <a href="http://escarbandocodigo.wordpress.com/category/xna/" style="font-size: 197.8813559322%; padding: 1px; margin: 1px;" title="XNA (34)">XNA</a> </div></aside>		</ul>
+	</div><!-- #second .widget-area -->
+
+	<div id="third" class="widget-area">
+		<ul class="fade">
+			<aside id="pd_top_rated-3" class="widget-container"><h1 class="widget-title">Top Rated</h1><div id="pd_top_rated_holder"><p><strong>Posts</strong> | <a href="javascript:" onclick="PDRTJS_TOP.get_top( &#39;pages&#39;, &#39;0&#39; );">Pages</a> | <a href="javascript:" onclick="PDRTJS_TOP.get_top( &#39;comments&#39;, &#39;0&#39; );">Comments</a></p><p><strong><small>All</small></strong> | <a href="javascript:" title="Posts created today" onclick="PDRTJS_TOP.get_top( &#39;posts&#39;, &#39;1&#39; );"><small>Today</small></a> | <a href="javascript:" title="Posts created this week" onclick="PDRTJS_TOP.get_top( &#39;posts&#39;, &#39;7&#39; );"><small>This Week</small></a> | <a href="javascript:" title="Posts created this month" onclick="PDRTJS_TOP.get_top( &#39;posts&#39;, &#39;31&#39; );"><small>This Month</small></a></p> <ul id="top_posts"><li><a href="http://escarbandocodigo.wordpress.com/2010/02/18/hacking-o-descuido/">Hacking o descuido?</a><br><strong> 5/5</strong> (6 votes)</li><li><a href="http://escarbandocodigo.wordpress.com/2010/10/11/juego-de-la-culebra-snake-%E2%80%93-xna/">Juego de la Culebra (Snake) – XNA</a><br><strong> 5/5</strong> (5 votes)</li><li><a href="http://escarbandocodigo.wordpress.com/2010/02/01/el-mejor-firewall-natural/">El mejor Firewall natural</a><br><strong> 5/5</strong> (3 votes)</li><li><a href="http://escarbandocodigo.wordpress.com/2011/01/25/colision-sobre-plataformas-2d-%E2%80%93-xna/">Colisión sobre Plataformas 2D – XNA</a><br><strong> 5/5</strong> (3 votes)</li><li><a href="http://escarbandocodigo.wordpress.com/2011/02/20/como-hacer-un-motor-de-tiles-parte-1/">Como hacer un motor de Tiles – Parte 1</a><br><strong> 5/5</strong> (3 votes)</li></ul><img src="./Como hacer un Tetris en XNA   Escarbando Código_files/pixel" style="display: none;" border="0" height="1" width="1" alt="Quantcast"></div><script language="javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/top-rated.js"></script><script language="javascript" type="text/javascript">PDRTJS_TOP = new PDRTJS_RATING_TOP( 483601, 577903, 1621797, '111', 5 );PDRTJS_TOP.get_top( 'posts', '0' );</script></aside>		</ul>
+	</div><!-- #third .widget-area -->
+
+	<div id="fourth" class="widget-area">
+		<ul class="fade">
+					<aside id="top-clicks" class="widget-container">			<h1 class="widget-title">Top de Clicks</h1>			<ul><li><a href="http://cid-bcf2b4912b193ad2.skydrive.live.com/self.aspx/Escarbando%20C%c3%b3digo/BackgroundWorker.zip" target="_blank" rel="nofollow">cid-bcf2b4912b193ad2.skyd…</a></li><li><a href="http://escarbandocodigo.files.wordpress.com/2009/11/avionxna4.png" target="_blank" rel="nofollow">escarbandocodigo.files.wo…</a></li><li><a href="http://escarbandocodigo.files.wordpress.com/2009/10/2scheduledtask.png" target="_blank" rel="nofollow">escarbandocodigo.files.wo…</a></li><li><a href="http://www.twitterbackgrounds.com/" target="_blank" rel="nofollow">twitterbackgrounds.com</a></li><li><a href="http://fatbat.co.uk/site/post/HiDef-and-Reach-profiles-Reverse-Engineering-and-Reflection.aspx" target="_blank" rel="nofollow">fatbat.co.uk/site/post/Hi…</a></li><li><a href="http://cid-bcf2b4912b193ad2.skydrive.live.com/self.aspx/Escarbando%20C%c3%b3digo/Animacion.zip" target="_blank" rel="nofollow">cid-bcf2b4912b193ad2.skyd…</a></li><li><a href="https://skydrive.live.com/embed?cid=BCF2B4912B193AD2&resid=BCF2B4912B193AD2%21945&authkey=AHUCdNQuplzoQzo" target="_blank" rel="nofollow">skydrive.live.com/embed?c…</a></li><li><a href="http://escarbandocodigo.files.wordpress.com/2009/10/1administrativetools.png" target="_blank" rel="nofollow">escarbandocodigo.files.wo…</a></li><li><a href="http://blogs.msdn.com/b/shawnhar/archive/2010/03/12/reach-vs-hidef.aspx" target="_blank" rel="nofollow">blogs.msdn.com/b/shawnhar…</a></li><li><a href="http://escarbandocodigo.files.wordpress.com/2009/11/avion.png" target="_blank" rel="nofollow">escarbandocodigo.files.wo…</a></li></ul>		</aside>		</ul>
+	</div><!-- #fourth .widget-area -->
+
+	<div id="fifth" class="widget-area">
+		<ul class="fade">
+			<aside id="meta-2" class="widget-container"><h1 class="widget-title">Meta</h1>			<ul>
+			<li><a href="http://escarbandocodigo.wordpress.com/wp-login.php?action=register">Registrarse</a></li>			<li><a href="http://escarbandocodigo.wordpress.com/wp-login.php">Acceder</a></li>
+			<li><a href="http://escarbandocodigo.wordpress.com/feed/" title="Suscribirse a este sitio usando RSS 2.0"><abbr title="Really Simple Syndication">RSS</abbr> de las entradas</a></li>
+			<li><a href="http://escarbandocodigo.wordpress.com/comments/feed/" title="Últimos comentarios a todas las entradas en RSS"><abbr title="Really Simple Syndication">RSS</abbr> de los comentarios</a></li>
+			<li><a href="http://wordpress.com/" title="Gestionado con WordPress, una avanzada plataforma semántica de publicación personal.">WordPress.com</a></li>
+						</ul>
+</aside>		</ul>
+	</div><!-- #fifth .widget-area -->
+
+</div><!-- #footer-widget-area -->
+<div id="footer-widget-area-bot"></div>		<div class="site-info">
+						<a href="http://es.wordpress.org/" title="A Semantic Personal Publishing Platform" rel="generator">Funciona con WordPress</a>
+			<span class="sep"> | </span>
+			Tema <a href="http://theme.wordpress.com/themes/splendio/">Splendio</a> by <a href="http://designdisease.com/" rel="designer">DesignDisease</a>. <a href="http://en.support.wordpress.com/custom-design/#custom-fonts" rel="external" title="Learn more about the fonts on this blog and the Custom Design upgrade">Fonts on this blog</a>.		</div><!-- .site-info -->
+
+	</footer><!-- #colophon -->
+</div><!-- #wrapper -->
+
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/wpgroho.js"></script>
+
+<script type="text/javascript">
+var _qevents = _qevents || [], wpcomQuantcastData = {"qacct":"p-18-mFEk4J448M","labels":",language.es,type.wpcom,posttag.juego,posttag.source-code,posttag.tetris,posttag.videojuegos,as"};
+function wpcomQuantcastPixel( labels, options ) {
+	var i, defaults = wpcomQuantcastData, data = { event: 'ajax' };
+
+	labels  = labels  || '';
+	options = options || {};
+
+	if ( typeof labels != 'string' )
+		options = labels;
+
+	for ( i in defaults ) {
+		data[i] = defaults[i];
+	}
+
+	for ( i in options ) {
+		data[i] = options[i];
+	}
+
+	if ( data.labels ) {
+		data.labels += ',' + labels;
+	} else {
+		data.labels = labels;
+	}
+
+	_qevents.push( data );
+};
+(function() {var elem = document.createElement('script');elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";elem.async = true;elem.type = "text/javascript";var scpt = document.getElementsByTagName('script')[0];scpt.parentNode.insertBefore(elem, scpt);  })();
+_qevents.push( wpcomQuantcastData );
+</script>
+<noscript>&lt;div style="display: none;"&gt;&lt;img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif?labels=%2Clanguage.es%2Ctype.wpcom%2Cposttag.juego%2Cposttag.source-code%2Cposttag.tetris%2Cposttag.videojuegos%2Cas" height="1" width="1" alt="" /&gt;&lt;/div&gt;</noscript>
+
+
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	(function($){
+		$(document).on( 'ready post-load', function() {
+
+			// Remove the login box when clicking the page
+			$( document ).mousedown( function( e ) {
+				if ( null == $( e.target ).closest( '#wpl-mustlogin' ).get( 0 ) ) {
+					$( '#wpl-mustlogin' ).remove();
+				}
+			});
+
+			// Handle clicking the like button itself
+			$('.wpl-button > a.like').click( function(e) {
+				e.preventDefault();
+
+				var postid = $(this).parent().attr('id').split('like-')[1];
+				$.post( 'http://escarbandocodigo.wordpress.com/wp-admin/admin-ajax.php', {
+					'action': 'wpl_record_stat',
+					'stat_name': 'loggedout_like_click'
+				} );
+
+				var tenMins = new Date();
+				tenMins.setTime( tenMins.getTime() + 600000 );
+				document.cookie = 'wpl_rand=a7f4f23347; expires=' + tenMins.toGMTString() + '; domain=wordpress.com; path=/;';
+
+				$(this).parent().siblings('.wpl-count').after( '\
+					<div id="wpl-mustlogin"> \
+						<form action="https://escarbandocodigo.wordpress.com/wp-login.php" method="post"> \
+							<p>Just one more step to like this:</p> \
+							<label><span>Nombre de usuario</span> <input type="text" name="log" id="user_login" class="input" value="" size="20" tabindex="80" /></label> \
+							<label><span>Contraseña</span> <input type="password" name="pwd" id="user_pass" class="input" value="" size="20" tabindex="81" /></label> \
+							<input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="Acceder" tabindex="82" /> \
+							<input type="hidden" name="postid" value="' + postid + '" /> \
+							<input type="hidden" name="redirect_to" value="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna?year=2010&monthnum=10&day=24&name=como-hacer-un-tetris-en-xna&like=1" /> \
+							<input type="hidden" name="wpl_rand" value="a7f4f23347" /> \
+							<p>Not a member yet? <a href="http://wordpress.com/signup/?ref=likebox" id="wpl-signup-link">Sign up with WordPress.com</a></p> \
+						</form> \
+					</div> \
+				');
+
+				$('#wpl-mustlogin').hide().slideDown('fast');
+			} );
+
+			$('#wpl-mustlogin input.input').live( 'focus', function() {
+				$(this).prev().hide();
+			}).live( 'blur', function() {
+				if ( $(this).val() == '' ) {
+					$(this).prev().show();
+				}
+			});
+
+			$('#wpl-mustlogin input#wp-submit').live( 'click', function(e) {
+				e.preventDefault();
+
+				$.post( 'http://escarbandocodigo.wordpress.com/wp-admin/admin-ajax.php', {
+					'action': 'wpl_record_stat',
+					'stat_name': 'loggedout_login_submit'
+				}, function() {
+					$('#wpl-mustlogin form').submit();
+				} );
+			});
+
+			$('#wpl-mustlogin a#wpl-signup-link').live( 'click', function(e) {
+				e.preventDefault();
+
+				var link = $(this).attr('href');
+
+				$.post( 'http://escarbandocodigo.wordpress.com/wp-admin/admin-ajax.php', {
+					'action': 'wpl_record_stat',
+					'stat_name': 'loggedout_signup_click'
+				}, function() {
+					location.href = link;
+				} );
+			});
+		})
+	})(jQuery);
+	/* ]]> */
+	</script>
+
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {'http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/':'856'};
+	</script>
+	
+<script>jQuery(document).ready(function($){ Gravatar.profile_cb = function( h, d ) { WPGroHo.syncProfileData( h, d );	}; Gravatar.my_hash = WPGroHo.my_hash; Gravatar.init( 'body', '#wp-admin-bar-my-account' ); });</script>	<div style="display:none">
+	<div class="grofile-hash-map-b44e5c1be82f3943babd45ab0cd9e519">
+	</div>
+	<div class="grofile-hash-map-76cb25b1428c92fe15238fd070139b8d">
+	</div>
+	<div class="grofile-hash-map-fa2f9551cc7cdb91bd3defaab5db7bc9">
+	</div>
+	<div class="grofile-hash-map-b16c1b7c4109c1735d956243231b841e">
+	</div>
+	<div class="grofile-hash-map-349d37374b2d7c05e1a510f285f494b3">
+	</div>
+	<div class="grofile-hash-map-e68e80fdb5ec2fb50825a5d7d5d50c42">
+	</div>
+	<div class="grofile-hash-map-5c4e0b2871c74c39c849776c299e7650">
+	</div>
+	</div>
+		<style type="text/css">
+			
+				.reblog-from img                   { margin: 0 10px 0 0; vertical-align: middle; padding: 0; border: 0; }
+				.reblogger-note img.avatar         { float: left; padding: 0; border: 0; }
+				.reblogger-note-content            { margin: 0 0 20px 35px; }
+				.reblog-post                       { border-left: 3px solid #eee; padding-left: 15px; }
+				.reblog-post ul.thumb-list         { display: block; list-style: none; margin: 2px 0; padding: 0; clear: both; }
+				.reblog-post ul.thumb-list li      { display: inline; margin: 0; padding: 0 1px; border: 0; }
+				.reblog-post ul.thumb-list li a    { margin: 0; padding: 0; border: 0; }
+				.reblog-post ul.thumb-list li img  { margin: 0; padding: 0; border: 0; }
+				.reblog-post                       { border-left: 3px solid #eee; padding-left: 15px; }
+
+				.reblog-post .wpcom-enhanced-excerpt { clear: both; }
+
+				.reblog-post .wpcom-enhanced-excerpt address,
+				.reblog-post .wpcom-enhanced-excerpt li,
+				.reblog-post .wpcom-enhanced-excerpt h1,
+				.reblog-post .wpcom-enhanced-excerpt h2,
+				.reblog-post .wpcom-enhanced-excerpt h3,
+				.reblog-post .wpcom-enhanced-excerpt h4,
+				.reblog-post .wpcom-enhanced-excerpt h5,
+				.reblog-post .wpcom-enhanced-excerpt h6,
+				.reblog-post .wpcom-enhanced-excerpt p { font-size: 100% !important; }
+
+				.reblog-post .wpcom-enhanced-excerpt blockquote,
+				.reblog-post .wpcom-enhanced-excerpt pre,
+				.reblog-post .wpcom-enhanced-excerpt code,
+				.reblog-post .wpcom-enhanced-excerpt q { font-size: 98% !important; }
+					</style><script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Publicar comentario","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Cerrar sesi\u00f3n","loginText":"Acceder","connectURL":"http:\/\/escarbandocodigo.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"http:\/\/escarbandocodigo.wordpress.com\/wp-login.php?action=logout&_wpnonce=74e5afba91","homeURL":"http:\/\/escarbandocodigo.wordpress.com\/","postID":"856","gravDefault":"mystery","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Direcci\u00f3n de correo electr\u00f3nico inv\u00e1lida","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Cambiar","changeAccount":"Change Account","comment_registration":"","userIsLoggedIn":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/script.js"></script>
+	
+	<div id="bit" class="loggedout-follow-typekit" style="bottom: -269px; ">
+		<a class="bsub" href="javascript:void(0)"><span id="bsub-text">Seguir</span></a>
+		<div id="bitsubscribe">
+			
+					<h3><label for="loggedout-follow-field">Follow “Escarbando Código”</label></h3>
+		
+			<form action="https://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+			
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+						<p class="bit-follow-count">Únete a otros 88 seguidores</p>		
+			
+			<p><input type="text" name="email" style="width: 95%; padding: 1px 2px" value="Enter your email address" onfocus="this.value=(this.value==&quot;Enter your email address&quot;) ? &quot;&quot; : this.value;" onblur="this.value=(this.value==&quot;&quot;) ? &quot;Enter email address&quot; : this.value;" id="loggedout-follow-field"></p>
+
+			<input type="hidden" name="action" value="subscribe">
+			<input type="hidden" name="blog_id" value="9626635">
+			<input type="hidden" name="source" value="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/">
+			<input type="hidden" name="sub-type" value="loggedout-follow">
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="a07e5ee8cc"><input type="hidden" name="_wp_http_referer" value="/2010/10/24/como-hacer-un-tetris-en-xna/">
+			<p id="bsub-subscribe-button"><input type="submit" value="Sign me up"></p>
+			</form>
+					<div id="bsub-credit"><a href="http://wordpress.com/signup/?ref=lof">Powered by WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/rating.js"></script>
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/sharing.js"></script>
+		<script type="text/javascript" charset="utf-8">
+		jQuery(document).ready(function(){
+			jQuery( '.share-facebook' ).click(function(){
+				window.open( jQuery(this).attr( 'href' ), 'wpcom-facebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript" charset="utf-8">
+		jQuery(document).ready(function(){
+			jQuery( '.share-twitter' ).click(function(){
+				window.open( jQuery(this).attr( 'href' ), 'wpcom-twitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="" method="post">
+			<label for="target_email">Enviar a dirección de correo electrónico</label>
+			<input type="text" name="target_email" id="target_email" value="">
+			
+			
+				<label for="source_name">Su Nombre</label>
+				<input type="text" name="source_name" id="source_name" value="">
+				
+				<label for="source_email">Tu dirección de correo electrónico</label>
+				<input type="text" name="source_email" id="source_email" value="">
+
+						
+			<div class="recaptcha" id="sharing_recaptcha"></div>
+			<img style="float: right; display: none" class="loading" src="./Como hacer un Tetris en XNA   Escarbando Código_files/loading.gif" alt="loading" width="16" height="16">
+			<input type="submit" value="Enviar correo electrónico" class="sharing_send">
+			<a href="http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/#cancel" class="sharing_cancel">Cancelar</a>
+			
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Error en la comprobación de email. Por favor, vuelve a intentarlo			</div>
+			
+			<div class="errors errors-3" style="display: none;">
+				Lo sentimos, tu blog no puede compartir entradas por correo electrónico.			</div>
+		</form>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+	function sharing_plusone( obj ) { 
+		jQuery.ajax( {
+			url: 'http://escarbandocodigo.wordpress.com/2010/10/24/como-hacer-un-tetris-en-xna/?share=google-plus-1',
+			type: 'POST',
+			data: obj
+		} );
+	}
+	</script>
+	<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/plusone.js" gapi_processed="true"></script>
+		<script type="text/javascript" charset="utf-8">
+		jQuery(document).ready(function(){
+			jQuery( '.share-linkedin' ).click(function(){
+				window.open( jQuery(this).attr( 'href' ), 'wpcom-linkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+		<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/widgets.js"></script>
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/beacon.js"></script><script type="text/javascript">try{COMSCORE.beacon({c1:2,c2:7518284});}catch(e){}</script><noscript>&lt;p class="robots-nocontent"&gt;&lt;img src="http://b.scorecardresearch.com/p?cj=1c1=2&amp;#038;c2=7518284" alt="" style="display:none" width="1" height="1" /&gt;&lt;/p&gt;</noscript><script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/shCore.js"></script>
+<script type="text/javascript" src="./Como hacer un Tetris en XNA   Escarbando Código_files/shBrushCSharp.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var themecssurl = "http://s0.wp.com/wp-content/plugins/syntaxhighlighter-wpcom/shThemeDefault.css?m=1267535107g&amp;ver=2.1.364b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(themecss);
+	})();
+	SyntaxHighlighter.config.clipboardSwf = 'http://s2.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf?m=1304052809g';
+	SyntaxHighlighter.config.strings.expandSource = 'Mostrar código.';
+	SyntaxHighlighter.config.strings.viewSource = 'ver fuente';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copiar al portapapeles';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'imprimir';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="./Como hacer un Tetris en XNA   Escarbando Código_files/w.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'9626635','v':'wpcom','user_id':'0','post':'856','subd':'escarbandocodigo'});
+ex_go({'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWpYP2xZaVBVeHZiOUhkaixZNmEyQl1ZeTE5ZSxINXZGWi5uZC1vc05fTVNiQXw4Nl9ZOUNiOHNDLTMyYVVLeEZ1ZS5nej8rMmMveC0rLWttVyxjckdFZGNWOEMwMC9NaGFlSk5Caz8wK1F4MzY5MSY2a3RrTW9bMEJQbW4sNCVXdTRuLlh8ZTElSXFSW3VQNWtjXSswSnx1eS8ueixYTHYmXUVfTTE2TC1bOE5kaF1pPzRDSSwmcHZXYjQ9REZLbzF2VjVOS3ZoLj9kMWFDQUNDd1BjMSVuYl1dQnJSfjhQV0xxT0JKZHo4Tm10c1ElZ28reG5yJXZYTVA2TnE1aTBBYltpdTBLNVgwaW0wTWpbX3x4RVk4MFp5TFtUaS9RTSxKenI9Mms4VjBBcDVOVXNrenxkQSU='});
+addLoadEvent(function(){linktracker_init('9626635',856);});
+	</script><img id="wpstats" src="./Como hacer un Tetris en XNA   Escarbando Código_files/g.gif" alt=""><img id="wpstats2" src="./Como hacer un Tetris en XNA   Escarbando Código_files/g(1).gif" alt="" style="display:none">
+<noscript>&lt;img src="http://stats.wordpress.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /&gt;</noscript><img width="62" height="25" src="./Como hacer un Tetris en XNA   Escarbando Código_files/default.gif" class="typekit-badge" alt="Fonts by Typekit" title="Information about the fonts used on this site" style="position: fixed; z-index: 2000000000; right: 0px; bottom: 0px; cursor: pointer; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; border-image: initial; content: normal; display: inline; float: none; height: 25px; left: auto; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; max-height: 25px; max-width: 62px; min-height: 25px; min-width: 62px; orphans: 2; outline-style: none; outline-width: initial; outline-color: initial; overflow-x: visible; overflow-y: visible; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; page-break-after: auto; page-break-before: auto; page-break-inside: auto; table-layout: auto; text-indent: 0px; top: auto; unicode-bidi: normal; vertical-align: baseline; visibility: visible; widows: 2; width: 65px; " id="typekit-badge-xki8fao"><div id="tkloadxki8fao" style="display:none"></div>
+
+
+</body></html>

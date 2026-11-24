@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glindexmask Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glindexmask</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glIndexMask(3G)		       OpenGL Reference		       glIndexMask(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glIndexMask - control the writing of individual bits in the color index
+     buffers
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glIndexMask( GLuint mask )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mask  Specifies a bit mask	to enable and disable the writing of
+	   individual bits in the color	index buffers.	Initially, the mask is
+	   all ones.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glIndexMask controls the writing of individual bits in the	color index
+     buffers.  The least significant n bits of mask, where n is	the number of
+     bits in a color index buffer, specify a mask.  Wherever a one appears in
+     the mask, the corresponding bit in	the color index	buffer (or buffers) is
+     made writable.  Where a zero appears, the bit is write-protected.
+
+     This mask is used only in color index mode, and it	affects	only the
+     buffers currently selected	for writing (see glDrawBuffer).	 Initially,
+     all bits are enabled for writing.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glIndexMask is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_INDEX_WRITEMASK
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glColorMask, glDepthMask, glDrawBuffer, glIndex, glStencilMask
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxqueryextensionsstring Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxqueryextensionsstring</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXQueryExtensionsString(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXQueryExtensionsString -	return list of supported extensions
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     const char	* glXQueryExtensionsString( Display *dpy,
+					    int	screen )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy     Specifies the connection to the X server.
+
+
+     screen  Specifies the screen.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXQueryExtensionsString  returns a pointer to a string describing	which
+     GLX extensions are	supported on the connection. The string	is null-
+     terminated	and contains a space-separated list of extension names.	 (The
+     extension names themselves	never contain spaces.) If there	are no
+     extensions	to GLX,	then the empty string is returned.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     This routine only returns information about GLX extensions. Call
+     glGetString to get	a list of GL extensions.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXQueryVersion, glGetString, and glXGetClientString.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

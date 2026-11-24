@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glpolygonoffsetext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glpolygonoffsetext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glPolygonOffsetEXT(3G)	       OpenGL Reference		glPolygonOffsetEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glPolygonOffsetEXT	- set parameters used to offset	polygon	depth
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPolygonOffsetEXT( GLfloat factor,
+			      GLfloat bias )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     factor  specifies a slope scale factor.
+
+     bias    specifies a constant bias.
+	     The depth values for each subsequent polygon rendered in GL_FILL
+	     mode will be offset by the	the slope scale	factor times the
+	     maximum absolute depth slope of the polygon, plus the bias.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     When GL_POLYGON_OFFSET_EXT	is enabled, the	depth value of each pixel
+     fragment generated	for a polygon rendered in GL_FILL mode is offset by an
+     amount that depends on the	maximum	absolute depth slope of	the polygon.
+     This is useful for	rendering hidden line images, for applying decals to
+     surfaces, and for rendering solids	with highlighted edges.
+
+     For example, an application might attempt to highlight the	edges of a
+     polygon by	drawing	the polygon with mode GL_FILL and then drawing the
+     polygon again in a	different color	with mode GL_LINE.  However, because
+     of	differences in the way lines and polygons are rasterized, the depth
+     values generated for pixels on a line between two vertices	are usually
+     not the same as the depth values generated	for a polygon edge between the
+     same two vertices.	 The result is ``stitching'' or	other objectionable
+     rendering artifacts along the edges.  This	can be eliminated by adding an
+     appropriate offset	to the depth values so that the	filled part of the
+     polygon is	cleanly	separated from the highlighted edges.
+
+     At	first glance it	might appear sufficient	to adjust the polygon depth by
+     a constant	amount.	 However, it turns out that there is no	single
+     constant offset that works	for all	the polygons in	a scene.  The reason
+     is	that the depth value at	a given	pixel may be derived from a polygon
+     sample point nearly one full pixel	away from the mathematically-precise
+     edge of the polygon.  Therefore, the correct offset must be at least as
+     large as the maximum absolute change in depth for any one-pixel step on
+     the face of the polygon. In the following discussion, let dz represent
+     this change in depth.
+
+     In	the example above, the width of	the lines used to highlight the
+     polygon edges was not specified.  If the width was	one, then the analysis
+     in	the previous paragraph shows that an offset equal to dz	is sufficient
+     to	keep the line and the polygon edge separated.  However,	if the width
+     was two, then it would be necessary to offset at least twice as much as
+     dz.  Therefore, the correct offset	must be	a multiple of dz, where	the
+     scale factor is a function	of the width of	the highlight line.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPolygonOffsetEXT(3G)	       OpenGL Reference		glPolygonOffsetEXT(3G)
+</FONT>
+
+
+     However, even this	is not sufficient.  If a polygon is at a constant
+     depth, then dz is zero, so	an additional bias is required to ensure that
+     the highlight lines and the underlying polygon remain separated in	that
+     case.
+
+     glPolygonOffsetEXT	allows the application to define the proper scale
+     factor (factor) and additional bias (bias).  The value of the offset
+     derived from these	parameters is factor * dz + bias, where	the GL
+     computes dz automatically for each	polygon.
+
+     Initially GL_POLYGON_OFFSET_FACTOR_EXT (the value specified by factor)
+     and GL_POLYGON_OFFSET_BIAS_EXT (the value specified by bias) are both set
+     to	0.0.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Since factor is always used to scale dz, it can be	chosen without regard
+     for the precision with which depth	values are represented in the graphics
+     system.  However, if the value chosen for bias is smaller than the
+     minimum representable difference in depth values, it will have no effect.
+     This minimum representable	difference varies not only with	the size of
+     the depth buffer, but also	with other implementation-dependent
+     parameters, such as the number of guard bits that are used	to prevent
+     overflow during rasterization.  0.00002 (somewhat larger than 1 / 2**16)
+     should be adequate	for most systems, but may be so	large that it causes
+     depth buffering artifacts on others.  0.000001 (somewhat larger than
+     1 / 2**20)	might be a reasonable choice on	systems	with 24-bit depth
+     buffers.
+
+     glPolygonOffsetEXT	is part	of the EXT_polygon_offset extension, not part
+     of	the core GL command set.  If GL_EXT_polygon_offset is included in the
+     string returned by	glGetString, when called with argument GL_EXTENSIONS,
+     extension EXT_polygon_offset is supported by the connection.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glPolygonOffsetEXT is	executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glIsEnabled with argument GL_POLYGON_OFFSET_EXT
+     glGet with	argument GL_POLYGON_OFFSET_FACTOR_EXT or
+     GL_POLYGON_OFFSET_BIAS_EXT.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDepthFunc, glDisable, glEnable, glGet, glIsEnabled, glLineWidth,
+     glReferencePlaneSGIX, glStencilOp,	glTexEnv.
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

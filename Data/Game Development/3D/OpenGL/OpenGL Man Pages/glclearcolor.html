@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glclearcolor Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glclearcolor</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glClearColor(3G)	       OpenGL Reference		      glClearColor(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glClearColor - specify clear values for the color buffers
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glClearColor(	GLclampf red,
+			GLclampf green,
+			GLclampf blue,
+			GLclampf alpha )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     red, green, blue, alpha
+			   Specify the red, green, blue, and alpha values used
+			   when	the color buffers are cleared.	The default
+			   values are all zero.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glClearColor specifies the	red, green, blue, and alpha values used	by
+     glClear to	clear the color	buffers.  Values specified by glClearColor are
+     clamped to	the range [0,1].
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glClearColor is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_COLOR_CLEAR_VALUE
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glClear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

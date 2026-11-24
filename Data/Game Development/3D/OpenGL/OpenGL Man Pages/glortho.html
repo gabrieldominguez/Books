@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glortho Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glortho</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glOrtho(3G)		       OpenGL Reference			   glOrtho(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glOrtho - multiply	the current matrix by an orthographic matrix
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glOrtho( GLdouble left,
+		   GLdouble right,
+		   GLdouble bottom,
+		   GLdouble top,
+		   GLdouble near,
+		   GLdouble far	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     left, right Specify the coordinates for the left and right	vertical
+		 clipping planes.
+
+     bottom, top Specify the coordinates for the bottom	and top	horizontal
+		 clipping planes.
+
+     near, far	 Specify the distances to the nearer and farther depth
+		 clipping planes.  These distances are negative	if the plane
+		 is to be behind the viewer.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glOrtho describes a matrix	that produces a	parallel projection.  (left,
+     bottom,  -near) and (right, top,  -near) specify the points on the	near
+     clipping plane that are mapped to the lower left and upper	right corners
+     of	the window, respectively, assuming that	the eye	is located at (0, 0,
+     0).  -far specifies the location of the far clipping plane.  Both near
+     and far can be either positive or negative.  The corresponding matrix is
+		      (					   )
+		      |__________      0	  0	 t |
+		      |right-left			  x|
+		      |		   __________		   |
+		      |	   0	   top-bottom	  0	 ty|
+		      |					   |
+		      |	   0	       0       ________	 t |
+		      |			       far-near	  z|
+		      |	   0	       0	  0	 1 |
+		      (					   )
+
+     where
+				 t  = -__________
+				  x    right-left
+				 t  = -__________
+				  y    top-bottom
+				  t  = -________
+				   z	far-near
+     The current matrix	is multiplied by this matrix with the result replacing
+     the current matrix.  That is, if M	is the current matrix and O is the
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glOrtho(3G)		       OpenGL Reference			   glOrtho(3G)
+</FONT>
+
+
+     ortho matrix, then	M is replaced with M o O.
+
+     Use glPushMatrix and glPopMatrix to save and restore the current matrix
+     stack.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glOrtho is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_MATRIX_MODE
+     glGet with	argument GL_MODELVIEW_MATRIX
+     glGet with	argument GL_PROJECTION_MATRIX
+     glGet with	argument GL_TEXTURE_MATRIX
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glFrustum,	glMatrixMode, glMultMatrix, glPushMatrix, glViewport
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

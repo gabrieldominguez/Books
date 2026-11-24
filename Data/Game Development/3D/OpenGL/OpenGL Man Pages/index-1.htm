@@ -1,0 +1,1394 @@
+<html>
+<!-- #BeginTemplate "/Templates/materias.dwt" --> 
+<head>
+<!-- #BeginEditable "doctitle" --> 
+<title>A.U.S. - OpenGL Man Pages</title>
+<meta name="description" content="">
+<style>.OpenGL {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt; text-decoration: none}
+</style>
+<!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../../../../estilos.css" tppabs="http://www.aus.ips.edu.ar/estilos.css" src="../../../../estilos.css" tppabs="http://www.aus.ips.edu.ar/estilos.css">
+</head>
+<body bgcolor="#FFFFFF" link="#993333" vlink="#E63939" text="#000000" alink="#E63939">
+<img src="../../../../images/nav_mater.gif" tppabs="http://www.aus.ips.edu.ar/images/nav_mater.gif" width="280" height="110" align="right" usemap="#nav_map" border="0"> 
+<map name="nav_map"> 
+<area shape="rect" coords="213,31,309,47" href="javascript:if(confirm('http://www.aus.ips.edu.ar/acerca/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/acerca/index.htm'" tppabs="http://www.aus.ips.edu.ar/acerca/index.htm" alt="Acerca de" title="Acerca de">
+<area shape="rect" coords="193,61,282,77" href="javascript:if(confirm('http://www.aus.ips.edu.ar/investigacion/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/investigacion/index.htm'" tppabs="http://www.aus.ips.edu.ar/investigacion/index.htm" alt="Investigaci&oacute;n" title="Investigaci&oacute;n">
+<area shape="rect" coords="203,76,284,91" href="javascript:if(confirm('http://www.aus.ips.edu.ar/actividades/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/actividades/index.htm'" tppabs="http://www.aus.ips.edu.ar/actividades/index.htm" alt="Actividades" title="Actividades">
+<area shape="rect" coords="7,78,186,109" href="javascript:if(confirm('http://www.aus.ips.edu.ar/materias/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/materias/index.htm'" tppabs="http://www.aus.ips.edu.ar/materias/index.htm" alt="Materias" title="Materias">
+<area shape="rect" coords="238,9,254,29" href="javascript:if(confirm('http://www.aus.ips.edu.ar/buscar.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/buscar.htm'" tppabs="http://www.aus.ips.edu.ar/buscar.htm" alt="Buscar" title="Buscar">
+<area shape="rect" coords="255,9,274,29" href="javascript:if(confirm('http://www.aus.ips.edu.ar/cgi-bin/map/map.cgi  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/cgi-bin/map/map.cgi'" tppabs="http://www.aus.ips.edu.ar/cgi-bin/map/map.cgi" alt="Mapa" title="Mapa">
+<area shape="rect" coords="212,9,237,28" href="javascript:if(confirm('http://mail.aus.ips.edu.ar/imp/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://mail.aus.ips.edu.ar/imp/'" tppabs="http://mail.aus.ips.edu.ar/imp/" alt="WebMail" title="WebMail">
+<area shape="rect" coords="192,9,210,28" href="javascript:if(confirm('http://phorum.aus.ips.edu.ar/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://phorum.aus.ips.edu.ar/'" tppabs="http://phorum.aus.ips.edu.ar/" alt="Foros" title="Foros">
+<area shape="rect" coords="210,46,309,62" href="javascript:if(confirm('http://www.aus.ips.edu.ar/alumnado/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/alumnado/index.htm'" tppabs="http://www.aus.ips.edu.ar/alumnado/index.htm" alt="Alumnado" title="Alumnado">
+<area shape="poly" coords="0,1,1,72,186,72,186,55,203,55,203,36,185,36,185,1" href="javascript:if(confirm('http://www.aus.ips.edu.ar/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/index.htm'" tppabs="http://www.aus.ips.edu.ar/index.htm" alt="Home" title="Home">
+</map>
+<img src="../../../../php/auth/session.php" tppabs="http://www.aus.ips.edu.ar/php/auth/session.php" width="1" height="1" align="right"><!-- #BeginEditable "Content" --> 
+<p><B><font size="5" face="Arial, Helvetica, sans-serif">OpenGL Man Pages</font></B></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<TABLE BORDER CELLPADDING=4 width="100%" cellspacing="0" >
+<TR> 
+<TD><B><TT><A HREF="XSGISetStereoMode.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/XSGISetStereoMode.html">XSGISetStereoMode (3X11)</A></TT></B></TD>
+<TD WIDTH="1000">X SGI stereo functions&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="findvis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/findvis.html">findvis (1G)</A></TT></B></TD>
+<TD>list OpenGL-capable Visuals meeting selection criteria&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glaccum.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glaccum.html">glAccum (3G)</A></TT></B></TD>
+<TD>operate on the accumulation buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glalphafunc.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glalphafunc.html">glAlphaFunc (3G)</A></TT></B></TD>
+<TD>specify the alpha test function&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glaretexturesresidentext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glaretexturesresidentext.html">glAreTexturesResidentEXT (3G)</A></TT></B></TD>
+<TD>determine if textures are loaded in texture memory&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glarrayelementext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glarrayelementext.html">glArrayElementEXT (3G)</A></TT></B></TD>
+<TD>specify the array elements used to render a vertex&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glbegin.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glbegin.html">glBegin, glEnd (3G)</A></TT></B></TD>
+<TD>delimit the vertices of a primitive or a group of like primitives&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glbindtextureext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glbindtextureext.html">glBindTextureEXT (3G)</A></TT></B></TD>
+<TD>bind a named texture to a texturing target&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glbitmap.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glbitmap.html">glBitmap (3G)</A></TT></B></TD>
+<TD>draw a bitmap&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glblendcolorext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glblendcolorext.html">glBlendColorEXT (3G)</A></TT></B></TD>
+<TD>set the blend color&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glblendequationext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glblendequationext.html">glBlendEquationEXT (3G)</A></TT></B></TD>
+<TD>set the blend equation&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glblendfunc.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glblendfunc.html">glBlendFunc (3G)</A></TT></B></TD>
+<TD>specify pixel arithmetic&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcalllist.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcalllist.html">glCallList (3G)</A></TT></B></TD>
+<TD>execute a display list&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcalllists.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcalllists.html">glCallLists (3G)</A></TT></B></TD>
+<TD>execute a list of display lists&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glclear.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glclear.html">glClear (3G)</A></TT></B></TD>
+<TD>clear buffers to preset values&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glclearaccum.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glclearaccum.html">glClearAccum (3G)</A></TT></B></TD>
+<TD>specify clear values for the accumulation buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glclearcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glclearcolor.html">glClearColor (3G)</A></TT></B></TD>
+<TD>specify clear values for the color buffers&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcleardepth.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcleardepth.html">glClearDepth (3G)</A></TT></B></TD>
+<TD>specify the clear value for the depth buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glclearindex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glclearindex.html">glClearIndex (3G)</A></TT></B></TD>
+<TD>specify the clear value for the color index buffers&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glclearstencil.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glclearstencil.html">glClearStencil (3G)</A></TT></B></TD>
+<TD>specify the clear value for the stencil buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glclipplane.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glclipplane.html">glClipPlane (3G)</A></TT></B></TD>
+<TD>specify a plane against which all geometry is clipped&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolor.html">glColor3b, glColor3d, glColor3f,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolor.html">glColor3i, glColor3s, glColor3ub,</A></TT></B> <BR>
+<B><TT><A HREF="glcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolor.html">glColor3ui, glColor3us, glColor4b,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolor.html">glColor4d, glColor4f, glColor4i,</A></TT></B> <BR>
+<B><TT><A HREF="glcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolor.html">glColor4s, glColor4ub, glColor4ui,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolor.html">glColor4us, glColor3bv, glColor3dv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolor.html">glColor3fv, glColor3iv, glColor3sv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolor.html">glColor3ubv, glColor3uiv, glColor3usv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolor.html">glColor4bv, glColor4dv, glColor4fv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolor.html">glColor4iv, glColor4sv, glColor4ubv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glcolor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolor.html">glColor4uiv, glColor4usv (3G)</A></TT></B></TD>
+<TD>set the current color&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcolormask.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolormask.html">glColorMask (3G)</A></TT></B></TD>
+<TD>enable and disable writing of frame buffer color components&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcolormaterial.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolormaterial.html">glColorMaterial (3G)</A></TT></B></TD>
+<TD>cause a material color to track the current color&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcolorpointerext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolorpointerext.html">glColorPointerEXT (3G)</A></TT></B></TD>
+<TD>define a array of colors&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcolortableparametersgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolortableparametersgi.html">glColorTableParameterSGI,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glcolortableparametersgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolortableparametersgi.html">glColorTableParameterfvSGI,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glcolortableparametersgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolortableparametersgi.html">glColorTableParameterivSGI (3G)</A></TT></B></TD>
+<TD>set color lookup table parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcolortablesgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcolortablesgi.html">glColorTableSGI (3G)</A></TT></B></TD>
+<TD>define a color lookup table&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glconvolutionfilter1dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glconvolutionfilter1dext.html">glConvolutionFilter1DEXT (3G)</A></TT></B></TD>
+<TD>define a one-dimensional convolution filter&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glconvolutionfilter2dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glconvolutionfilter2dext.html">glConvolutionFilter2DEXT (3G)</A></TT></B></TD>
+<TD>define a two-dimensional convolution filter&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glconvolutionparameterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glconvolutionparameterext.html">glConvolutionParameterEXT,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glconvolutionparameterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glconvolutionparameterext.html">glConvolutionParameterfEXT,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glconvolutionparameterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glconvolutionparameterext.html">glConvolutionParameteriEXT,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glconvolutionparameterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glconvolutionparameterext.html">glConvolutionParameterfvEXT,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glconvolutionparameterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glconvolutionparameterext.html">glConvolutionParameterivEXT (3G)</A></TT></B></TD>
+<TD>set convolution parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcopycolortablesgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcopycolortablesgi.html">glCopyColorTableSGI (3G)</A></TT></B></TD>
+<TD>copy pixels into a color table&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcopyconvolutionfilter1dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcopyconvolutionfilter1dext.html">glCopyConvolutionFilter1DEXT 
+(3G)</A></TT></B></TD>
+<TD>copy pixels into a one-dimensional convolution filter&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcopyconvolutionfilter2dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcopyconvolutionfilter2dext.html">glCopyConvolutionFilter2DEXT 
+(3G)</A></TT></B></TD>
+<TD>copy pixels into a two-dimensional convolution filter&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcopypixels.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcopypixels.html">glCopyPixels (3G)</A></TT></B></TD>
+<TD>copy pixels in the frame buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcopyteximage1dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcopyteximage1dext.html">glCopyTexImage1DEXT (3G)</A></TT></B></TD>
+<TD>copy pixels into a 1D texture image&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcopyteximage2dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcopyteximage2dext.html">glCopyTexImage2DEXT (3G)</A></TT></B></TD>
+<TD>copy pixels into a 2D texture image&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcopytexsubimage1dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcopytexsubimage1dext.html">glCopyTexSubImage1DEXT (3G)</A></TT></B></TD>
+<TD>copy pixels into a 1D texture subimage&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcopytexsubimage2dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcopytexsubimage2dext.html">glCopyTexSubImage2DEXT (3G)</A></TT></B></TD>
+<TD>copy pixels into a 2D texture subimage&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcopytexsubimage3dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcopytexsubimage3dext.html">glCopyTexSubImage3DEXT (3G)</A></TT></B></TD>
+<TD>copy pixels into a 3D texture subimage&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glcullface.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glcullface.html">glCullFace (3G)</A></TT></B></TD>
+<TD>specify whether front- or back-facing facets can be culled&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gldeformationmapsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldeformationmapsgix.html">glDeformationMapSGIX,</A></TT></B> 
+<BR>
+<B><TT><A HREF="gldeformationmapsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldeformationmapsgix.html">glDeformationMap3dSGIX,</A></TT></B> 
+<BR>
+<B><TT><A HREF="gldeformationmapsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldeformationmapsgix.html">glDeformationMap3fSGIX (3G)</A></TT></B></TD>
+<TD>specify a vertex or texture coordinate deformation&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gldeformsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldeformsgix.html">glDeformSGIX (3G)</A></TT></B></TD>
+<TD>enable and/or disable deformations&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gldeletelists.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldeletelists.html">glDeleteLists (3G)</A></TT></B></TD>
+<TD>delete a contiguous group of display lists&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gldeletetexturesext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldeletetexturesext.html">glDeleteTexturesEXT (3G)</A></TT></B></TD>
+<TD>delete named textures&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gldepthfunc.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldepthfunc.html">glDepthFunc (3G)</A></TT></B></TD>
+<TD>specify the value used for depth buffer comparisons&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gldepthmask.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldepthmask.html">glDepthMask (3G)</A></TT></B></TD>
+<TD>enable or disable writing into the depth buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gldepthrange.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldepthrange.html">glDepthRange (3G)</A></TT></B></TD>
+<TD>specify the mapping of z values from normalized device coordinates to window 
+coordinates&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gldetailtexfuncsgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldetailtexfuncsgis.html">glDetailTexFuncSGIS (3G)</A></TT></B></TD>
+<TD>specify detail texture scaling function&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glenable.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glenable.html">glEnable, glDisable (3G)</A></TT></B></TD>
+<TD>enable or disable GL capabilities&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gldrawarraysext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldrawarraysext.html">glDrawArraysEXT (3G)</A></TT></B></TD>
+<TD>render primitives from array data&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gldrawbuffer.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldrawbuffer.html">glDrawBuffer (3G)</A></TT></B></TD>
+<TD>specify which color buffers are to be drawn into&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gldrawpixels.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gldrawpixels.html">glDrawPixels (3G)</A></TT></B></TD>
+<TD>write a block of pixels to the frame buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gledgeflag.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gledgeflag.html">glEdgeFlag, glEdgeFlagv (3G)</A></TT></B></TD>
+<TD>flag edges as either boundary or nonboundary&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gledgeflagpointerext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gledgeflagpointerext.html">glEdgeFlagPointerEXT (3G)</A></TT></B></TD>
+<TD>define an array of edge flags&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glenable.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glenable.html">glEnable, glDisable (3G)</A></TT></B></TD>
+<TD>enable or disable GL capabilities&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glbegin.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glbegin.html">glBegin, glEnd (3G)</A></TT></B></TD>
+<TD>delimit the vertices of a primitive or a group of like primitives&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glnewlist.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glnewlist.html">glNewList, glEndList (3G)</A></TT></B></TD>
+<TD>create or replace a display list&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glevalcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glevalcoord.html">glEvalCoord</A></TT></B> <BR>
+<B><TT><A HREF="glevalcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glevalcoord.html">glEvalCoord1d, glEvalCoord1f,</A></TT></B> <BR>
+<B><TT><A HREF="glevalcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glevalcoord.html">glEvalCoord2d, glEvalCoord2f,</A></TT></B> <BR>
+<B><TT><A HREF="glevalcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glevalcoord.html">glEvalCoord1dv, glEvalCoord1fv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glevalcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glevalcoord.html">glEvalCoord2dv, glEvalCoord2fv (3G)</A></TT></B></TD>
+<TD>evaluate enabled one- and two-dimensional maps&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glevalmesh.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glevalmesh.html">glEvalMesh</A></TT></B> <BR>
+<B><TT><A HREF="glevalmesh.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glevalmesh.html">glEvalMesh1, glEvalMesh2 (3G)</A></TT></B></TD>
+<TD>compute a one- or two-dimensional grid of points or lines&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glevalpoint.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glevalpoint.html">glEvalPoint1, glEvalPoint2 (3G)</A></TT></B></TD>
+<TD>generate and evaluate a single point in a mesh&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glfeedbackbuffer.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glfeedbackbuffer.html">glFeedbackBuffer (3G)</A></TT></B></TD>
+<TD>controls feedback mode&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glfinish.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glfinish.html">glFinish (3G)</A></TT></B></TD>
+<TD>block until all GL execution is complete&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glflush.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glflush.html">glFlush (3G)</A></TT></B></TD>
+<TD>force execution of GL commands in finite time&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glfog.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glfog.html">glFogf, glFogi, glFogfv, glFogiv (3G)</A></TT></B></TD>
+<TD>specify fog parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glfogfuncsgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glfogfuncsgis.html">glFogFuncSGIS (3G)</A></TT></B></TD>
+<TD>custom fog blending function&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glfrontface.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glfrontface.html">glFrontFace (3G)</A></TT></B></TD>
+<TD>define front- and back-facing polygons&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glfrustum.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glfrustum.html">glFrustum (3G)</A></TT></B></TD>
+<TD>multiply the current matrix by a perspective matrix&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgenlists.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgenlists.html">glGenLists (3G)</A></TT></B></TD>
+<TD>generate a contiguous set of empty display lists&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgentexturesext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgentexturesext.html">glGenTexturesEXT (3G)</A></TT></B></TD>
+<TD>generate texture names&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glget.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glget.html">glGetBooleanv, glGetDoublev,</A></TT></B> <BR>
+<B><TT><A HREF="glget.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glget.html">glGetFloatv, glGetIntegerv (3G)</A></TT></B></TD>
+<TD>return the value or values of a selected parameter&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glget.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glget.html">glGetBooleanv, glGetDoublev,</A></TT></B> <BR>
+<B><TT><A HREF="glget.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glget.html">glGetFloatv, glGetIntegerv (3G)</A></TT></B></TD>
+<TD>return the value or values of a selected parameter&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetclipplane.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetclipplane.html">glGetClipPlane (3G)</A></TT></B></TD>
+<TD>return the coefficients of the specified clipping plane&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetcolortableparametersgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetcolortableparametersgi.html">glGetColorTableParameterfvSGI,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glgetcolortableparametersgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetcolortableparametersgi.html">glGetColorTableParameterivSGI 
+(3G)</A></TT></B></TD>
+<TD>get color lookup table parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetcolortablesgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetcolortablesgi.html">glGetColorTableSGI (3G)</A></TT></B></TD>
+<TD>retrieve contents of a color lookup table&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetconvolutionfilterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetconvolutionfilterext.html">glGetConvolutionFilterEXT 
+(3G)</A></TT></B></TD>
+<TD>get current 1D or 2D convolution filter kernel&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetconvolutionparameterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetconvolutionparameterext.html">glGetConvolutionParameterfvEXT, 
+glGetConvolutionParameterivEXT (3G)</A></TT></B></TD>
+<TD>get convolution parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetdetailtexfuncsgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetdetailtexfuncsgis.html">glGetDetailTexFuncSGIS (3G)</A></TT></B></TD>
+<TD>get detail texture scaling function&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glget.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glget.html">glGetBooleanv, glGetDoublev,</A></TT></B> <BR>
+<B><TT><A HREF="glget.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glget.html">glGetFloatv, glGetIntegerv (3G)</A></TT></B></TD>
+<TD>return the value or values of a selected parameter&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgeterror.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgeterror.html">glGetError (3G)</A></TT></B></TD>
+<TD>return error information&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glget.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glget.html">glGetBooleanv, glGetDoublev,</A></TT></B> <BR>
+<B><TT><A HREF="glget.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glget.html">glGetFloatv, glGetIntegerv (3G)</A></TT></B></TD>
+<TD>return the value or values of a selected parameter&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgethistogramext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgethistogramext.html">glGetHistogramEXT (3G)</A></TT></B></TD>
+<TD>get histogram table&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgethistogramparameterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgethistogramparameterext.html">glGetHistogramParameterfvEXT,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glgethistogramparameterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgethistogramparameterext.html">glGetHistogramParameterivEXT 
+(3G)</A></TT></B></TD>
+<TD>get histogram parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glget.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glget.html">glGetBooleanv, glGetDoublev,</A></TT></B> <BR>
+<B><TT><A HREF="glget.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glget.html">glGetFloatv, glGetIntegerv (3G)</A></TT></B></TD>
+<TD>return the value or values of a selected parameter&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetlight.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetlight.html">glGetLightfv, glGetLightiv (3G)</A></TT></B></TD>
+<TD>return light source parameter values&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetmap.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetmap.html">glGetMapdv, glGetMapfv, glGetMapiv (3G)</A></TT></B></TD>
+<TD>return evaluator and deformation parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetmaterial.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetmaterial.html">glGetMaterialfv, glGetMaterialiv (3G)</A></TT></B></TD>
+<TD>return material parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetminmaxext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetminmaxext.html">glGetMinmaxEXT (3G)</A></TT></B></TD>
+<TD>get minimum and maximum pixel values&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetminmaxparameterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetminmaxparameterext.html">glGetMinmaxParameterfvEXT,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glgetminmaxparameterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetminmaxparameterext.html">glGetMinmaxParameterivEXT (3G)</A></TT></B></TD>
+<TD>get minmax parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetpixelmap.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetpixelmap.html">glGetPixelMapfv, glGetPixelMapuiv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glgetpixelmap.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetpixelmap.html">glGetPixelMapusv (3G)</A></TT></B></TD>
+<TD>return the specified pixel map&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetpointervext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetpointervext.html">glGetPointervEXT (3G)</A></TT></B></TD>
+<TD>return the address of a vertex data array&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetpolygonstipple.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetpolygonstipple.html">glGetPolygonStipple (3G)</A></TT></B></TD>
+<TD>return the polygon stipple pattern&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetseparablefilterext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetseparablefilterext.html">glGetSeparableFilterEXT (3G)</A></TT></B></TD>
+<TD>get separable convolution filter kernel images&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetsharpentexfuncsgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetsharpentexfuncsgis.html">glGetSharpenTexFuncSGIS (3G)</A></TT></B></TD>
+<TD>get sharpen texture scaling function&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetstring.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetstring.html">glGetString (3G)</A></TT></B></TD>
+<TD>returns a string describing the current GL connection&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgettexenv.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgettexenv.html">glGetTexEnvfv, glGetTexEnviv (3G)</A></TT></B></TD>
+<TD>return texture environment parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgettexfilterfuncsgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgettexfilterfuncsgis.html">glGetTexFilterFuncSGIS (3G)</A></TT></B></TD>
+<TD>return user-defined texture filtering function&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgettexgen.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgettexgen.html">glGetTexGendv, glGetTexGenfv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glgettexgen.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgettexgen.html">glGetTexGeniv (3G)</A></TT></B></TD>
+<TD>return texture coordinate generation parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgetteximage.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgetteximage.html">glGetTexImage (3G)</A></TT></B></TD>
+<TD>return a texture image&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgettexlevelparameter.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgettexlevelparameter.html">glGetTexLevelParameterfv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glgettexlevelparameter.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgettexlevelparameter.html">glGetTexLevelParameteriv (3G)</A></TT></B></TD>
+<TD>return texture parameter values for a specific level of detail&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glgettexparameter.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgettexparameter.html">glGetTexParameterfv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glgettexparameter.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glgettexparameter.html">glGetTexParameteriv (3G)</A></TT></B></TD>
+<TD>return texture parameter values&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glhint.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glhint.html">glHint (3G)</A></TT></B></TD>
+<TD>specify implementation-specific hints&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glhistogramext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glhistogramext.html">glHistogramEXT (3G)</A></TT></B></TD>
+<TD>define histogram table&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glindex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glindex.html">glIndexd, glIndexf, glIndexi,</A></TT></B> <BR>
+<B><TT><A HREF="glindex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glindex.html">glIndexs, glIndexdv, glIndexfv,</A></TT></B> <BR>
+<B><TT><A HREF="glindex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glindex.html">glIndexiv, glIndexsv (3G)</A></TT></B></TD>
+<TD>set the current color index&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glindexmask.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glindexmask.html">glIndexMask (3G)</A></TT></B></TD>
+<TD>control the writing of individual bits in the color index buffers&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glindexpointerext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glindexpointerext.html">glIndexPointerEXT (3G)</A></TT></B></TD>
+<TD>define an array of color indexes&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glinitnames.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glinitnames.html">glInitNames (3G)</A></TT></B></TD>
+<TD>initialize the name stack&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glintro.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glintro.html">glIntro (3G)</A></TT></B></TD>
+<TD>Introduction to OpenGL&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glisenabled.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glisenabled.html">glIsEnabled (3G)</A></TT></B></TD>
+<TD>test whether a capability is enabled&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glislist.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glislist.html">glIsList (3G)</A></TT></B></TD>
+<TD>test for display-list existence&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glistextureext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glistextureext.html">glIsTextureEXT (3G)</A></TT></B></TD>
+<TD>determine if a name corresponds to a texture&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gllight.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gllight.html">glLightf, glLighti,</A></TT></B> <BR>
+<B><TT><A HREF="gllight.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gllight.html">glLightfv, glLightiv (3G)</A></TT></B></TD>
+<TD>set light source parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gllightmodel.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gllightmodel.html">glLightModelf, glLightModeli,</A></TT></B> 
+<BR>
+<B><TT><A HREF="gllightmodel.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gllightmodel.html">glLightModelfv, glLightModeliv (3G)</A></TT></B></TD>
+<TD>set the lighting model parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gllinestipple.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gllinestipple.html">glLineStipple (3G)</A></TT></B></TD>
+<TD>specify the line stipple pattern&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gllinewidth.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gllinewidth.html">glLineWidth (3G)</A></TT></B></TD>
+<TD>specify the width of rasterized lines&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gllistbase.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gllistbase.html">glListBase (3G)</A></TT></B></TD>
+<TD>set the display-list base for glCallLists&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glloadidentity.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glloadidentity.html">glLoadIdentity (3G)</A></TT></B></TD>
+<TD>replace the current matrix with the identity matrix&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glloadidentitydeformationmapsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glloadidentitydeformationmapsgix.html">glLoadIdentityDeformationMapSGIX 
+(3G)</A></TT></B></TD>
+<TD>replace current deformations with the identity deformation&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glloadmatrix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glloadmatrix.html">glLoadMatrixd, glLoadMatrixf (3G)</A></TT></B></TD>
+<TD>replace the current matrix with an arbitrary matrix&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glloadname.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glloadname.html">glLoadName (3G)</A></TT></B></TD>
+<TD>load a name onto the name stack&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gllogicop.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gllogicop.html">glLogicOp (3G)</A></TT></B></TD>
+<TD>specify a logical pixel operation for rendering&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glmap1.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glmap1.html">glMap1d, glMap1f (3G)</A></TT></B></TD>
+<TD>define a one-dimensional evaluator&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glmap2.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glmap2.html">glMap2d, glMap2f (3G)</A></TT></B></TD>
+<TD>define a two-dimensional evaluator&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glmapgrid.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glmapgrid.html">glMapGrid1d, glMapGrid1f,</A></TT></B> <BR>
+<B><TT><A HREF="glmapgrid.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glmapgrid.html">glMapGrid2d, glMapGrid2f (3G)</A></TT></B></TD>
+<TD>define a one- or two-dimensional mesh&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glmaterial.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glmaterial.html">glMaterialf, glMateriali,</A></TT></B> <BR>
+<B><TT><A HREF="glmaterial.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glmaterial.html">glMaterialfv, glMaterialiv (3G)</A></TT></B></TD>
+<TD>specify material parameters for the lighting model&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glmatrixmode.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glmatrixmode.html">glMatrixMode (3G)</A></TT></B></TD>
+<TD>specify which matrix is the current matrix&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glminmaxext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glminmaxext.html">glMinmaxEXT (3G)</A></TT></B></TD>
+<TD>define minmax table&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glmultmatrix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glmultmatrix.html">glMultMatrixd, glMultMatrixf (3G)</A></TT></B></TD>
+<TD>multiply the current matrix by an arbitrary matrix&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glnewlist.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glnewlist.html">glNewList, glEndList (3G)</A></TT></B></TD>
+<TD>create or replace a display list&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glnormal.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glnormal.html">glNormal3b, glNormal3d, glNormal3f,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glnormal.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glnormal.html">glNormal3i, glNormal3s, glNormal3bv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glnormal.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glnormal.html">glNormal3dv, glNormal3fv, glNormal3iv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glnormal.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glnormal.html">glNormal3sv (3G)</A></TT></B></TD>
+<TD>set the current normal vector&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glnormalpointerext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glnormalpointerext.html">glNormalPointerEXT (3G)</A></TT></B></TD>
+<TD>define a array of normals&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glortho.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glortho.html">glOrtho (3G)</A></TT></B></TD>
+<TD>multiply the current matrix by an orthographic matrix&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpassthrough.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpassthrough.html">glPassThrough (3G)</A></TT></B></TD>
+<TD>place a marker in the feedback buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpixelmap.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpixelmap.html">glPixelMapfv, glPixelMapuiv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glpixelmap.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpixelmap.html">glPixelMapusv (3G)</A></TT></B></TD>
+<TD>set up pixel transfer maps&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpixelstore.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpixelstore.html">glPixelStoref, glPixelStorei (3G)</A></TT></B></TD>
+<TD>set pixel storage modes&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpixeltexgen.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpixeltexgen.html">glPixelTexGenSGIX (3G)</A></TT></B></TD>
+<TD>control the generation of texture coordinates from pixel groups&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpixeltransfer.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpixeltransfer.html">glPixelTransferf, glPixelTransferi (3G)</A></TT></B></TD>
+<TD>set pixel transfer modes&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpixelzoom.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpixelzoom.html">glPixelZoom (3G)</A></TT></B></TD>
+<TD>specify the pixel zoom factors&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpointparametersgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpointparametersgis.html">glPointParameterSGIS,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glpointparametersgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpointparametersgis.html">glPointParameterfSGIS, glPointParameterfvSGIS 
+(3G)</A></TT></B></TD>
+<TD>set point parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpointsize.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpointsize.html">glPointSize (3G)</A></TT></B></TD>
+<TD>specify the diameter of rasterized points&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpolygonmode.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpolygonmode.html">glPolygonMode (3G)</A></TT></B></TD>
+<TD>select a polygon rasterization mode&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpolygonoffsetext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpolygonoffsetext.html">glPolygonOffsetEXT (3G)</A></TT></B></TD>
+<TD>set parameters used to offset polygon depth&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpolygonstipple.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpolygonstipple.html">glPolygonStipple (3G)</A></TT></B></TD>
+<TD>set the polygon stippling pattern&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpushattrib.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpushattrib.html">glPushAttrib, glPopAttrib (3G)</A></TT></B></TD>
+<TD>push and pop the attribute stack&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpushmatrix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpushmatrix.html">glPushMatrix, glPopMatrix (3G)</A></TT></B></TD>
+<TD>push and pop the current matrix stack&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpushname.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpushname.html">glPushName, glPopName (3G)</A></TT></B></TD>
+<TD>push and pop the name stack&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glprioritizetexturesext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glprioritizetexturesext.html">glPrioritizeTexturesEXT (3G)</A></TT></B></TD>
+<TD>set texture residence priority&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpushattrib.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpushattrib.html">glPushAttrib, glPopAttrib (3G)</A></TT></B></TD>
+<TD>push and pop the attribute stack&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpushmatrix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpushmatrix.html">glPushMatrix, glPopMatrix (3G)</A></TT></B></TD>
+<TD>push and pop the current matrix stack&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glpushname.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glpushname.html">glPushName, glPopName (3G)</A></TT></B></TD>
+<TD>push and pop the name stack&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos2d, glRasterPos2f,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos2i, glRasterPos2s,</A></TT></B> <BR>
+<B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos3d, glRasterPos3f,</A></TT></B> <BR>
+<B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos3i, glRasterPos3s,</A></TT></B> <BR>
+<B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos4d, glRasterPos4f,</A></TT></B> <BR>
+<B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos4i, glRasterPos4s,</A></TT></B> <BR>
+<B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos2dv, glRasterPos2fv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos2iv, glRasterPos2sv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos3dv, glRasterPos3fv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos3iv, glRasterPos3sv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos4dv, glRasterPos4fv,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glrasterpos.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrasterpos.html">glRasterPos4iv, glRasterPos4sv (3G)</A></TT></B></TD>
+<TD>specify the raster position for pixel operations&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glreadbuffer.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glreadbuffer.html">glReadBuffer (3G)</A></TT></B></TD>
+<TD>select a color buffer source for pixels&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glreadpixels.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glreadpixels.html">glReadPixels (3G)</A></TT></B></TD>
+<TD>read a block of pixels from the frame buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glrect.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrect.html">glRectd, glRectf, glRecti,</A></TT></B> <BR>
+<B><TT><A HREF="glrect.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrect.html">glRects, glRectdv, glRectfv,</A></TT></B> <BR>
+<B><TT><A HREF="glrect.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrect.html">glRectiv, glRectsv (3G)</A></TT></B></TD>
+<TD>draw a rectangle&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glreferenceplanesgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glreferenceplanesgix.html">glReferencePlaneSGIX (3G)</A></TT></B></TD>
+<TD>define a reference plane for coplanar geometry&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glrendermode.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrendermode.html">glRenderMode (3G)</A></TT></B></TD>
+<TD>set rasterization mode&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glresethistogramext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glresethistogramext.html">glResetHistogramEXT (3G)</A></TT></B></TD>
+<TD>reset histogram table entries to zero&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glresetminmaxext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glresetminmaxext.html">glResetMinmaxEXT (3G)</A></TT></B></TD>
+<TD>reset minmax table entries to initial values&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glrotate.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glrotate.html">glRotated, glRotatef (3G)</A></TT></B></TD>
+<TD>multiply the current matrix by a rotation matrix&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glsamplemasksgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glsamplemasksgis.html">glSampleMaskSGIS (3G)</A></TT></B></TD>
+<TD>define mask to modify multisampled pixel fragments&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glsamplepatternsgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glsamplepatternsgis.html">glSamplePatternSGIS (3G)</A></TT></B></TD>
+<TD>set pattern for multisampling&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glscale.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glscale.html">glScaled, glScalef (3G)</A></TT></B></TD>
+<TD>multiply the current matrix by a general scaling matrix&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glscissor.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glscissor.html">glScissor (3G)</A></TT></B></TD>
+<TD>define the scissor box&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glselectbuffer.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glselectbuffer.html">glSelectBuffer (3G)</A></TT></B></TD>
+<TD>establish a buffer for selection mode values&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glseparablefilter2dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glseparablefilter2dext.html">glSeparableFilter2DEXT (3G)</A></TT></B></TD>
+<TD>define a separable two-dimensional convolution filter&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glshademodel.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glshademodel.html">glShadeModel (3G)</A></TT></B></TD>
+<TD>select flat or smooth shading&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glsharpentexfuncsgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glsharpentexfuncsgis.html">glSharpenTexFuncSGIS (3G)</A></TT></B></TD>
+<TD>specify sharpen texture scaling function&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glspriteparametersgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glspriteparametersgix.html">glSpriteParameterSGIX,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glspriteparametersgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glspriteparametersgix.html">glSpriteParameterfSGIX, glSpriteParameteriSGIX,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glspriteparametersgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glspriteparametersgix.html">glSpriteParameterfvSGIX, glSpriteParameterivSGIX 
+(3G)</A></TT></B></TD>
+<TD>set sprite parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glstencilfunc.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glstencilfunc.html">glStencilFunc (3G)</A></TT></B></TD>
+<TD>set function and reference value for stencil testing&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glstencilmask.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glstencilmask.html">glStencilMask (3G)</A></TT></B></TD>
+<TD>control the writing of individual bits in the stencil planes&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glstencilop.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glstencilop.html">glStencilOp (3G)</A></TT></B></TD>
+<TD>set stencil test actions&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltagsamplebuffersgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltagsamplebuffersgix.html">glTagSampleBufferSGIX (3G)</A></TT></B></TD>
+<TD>mark all samples of a multisample buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord1d, glTexCoord1f,</A></TT></B> 
+<BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord1i, glTexCoord1s,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord2d, glTexCoord2f,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord2i, glTexCoord2s,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord3d, glTexCoord3f,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord3i, glTexCoord3s,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord4d, glTexCoord4f,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord4i, glTexCoord4s,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord1dv, glTexCoord1fv,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord1iv, glTexCoord1sv,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord2dv, glTexCoord2fv,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord2iv, glTexCoord2sv,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord3dv, glTexCoord3fv,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord3iv, glTexCoord3sv,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord4dv, glTexCoord4fv,</A></TT></B> <BR>
+<B><TT><A HREF="gltexcoord.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoord.html">glTexCoord4iv, glTexCoord4sv (3G)</A></TT></B></TD>
+<TD>set the current texture coordinates&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltexcoordpointerext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexcoordpointerext.html">glTexCoordPointerEXT (3G)</A></TT></B></TD>
+<TD>define an array of texture coordinates&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltexenv.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexenv.html">glTexEnvf, glTexEnvi,</A></TT></B> <BR>
+<B><TT><A HREF="gltexenv.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexenv.html">glTexEnvfv, glTexEnviv (3G)</A></TT></B></TD>
+<TD>set texture environment parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltexfilterfuncsgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexfilterfuncsgis.html">glTexFilterFuncSGIS (3G)</A></TT></B></TD>
+<TD>specify user-defined texture filtering function&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltexgen.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexgen.html">glTexGend, glTexGenf, glTexGeni,</A></TT></B> 
+<BR>
+<B><TT><A HREF="gltexgen.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexgen.html">glTexGendv, glTexGenfv, glTexGeniv (3G)</A></TT></B></TD>
+<TD>control the generation of texture coordinates&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glteximage1d.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glteximage1d.html">glTexImage1D (3G)</A></TT></B></TD>
+<TD>specify a one-dimensional texture image&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glteximage2d.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glteximage2d.html">glTexImage2D (3G)</A></TT></B></TD>
+<TD>specify a two-dimensional texture image&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glteximage3dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glteximage3dext.html">glTexImage3DEXT (3G)</A></TT></B></TD>
+<TD>specify a three-dimensional texture image&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glteximage4dsgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glteximage4dsgis.html">glTexImage4DSGIS (3G)</A></TT></B></TD>
+<TD>specify a four-dimensional texture image&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltexparameter.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexparameter.html">glTexParameterf, glTexParameteri,</A></TT></B> 
+<BR>
+<B><TT><A HREF="gltexparameter.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexparameter.html">glTexParameterfv, glTexParameteriv (3G)</A></TT></B></TD>
+<TD>set texture parameters&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltexsubimage1dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexsubimage1dext.html">glTexSubImage1DEXT (3G)</A></TT></B></TD>
+<TD>specify a one-dimensional texture subimage&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltexsubimage2dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexsubimage2dext.html">glTexSubImage2DEXT (3G)</A></TT></B></TD>
+<TD>specify a two-dimensional texture subimage&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltexsubimage3dext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexsubimage3dext.html">glTexSubImage3DEXT (3G)</A></TT></B></TD>
+<TD>specify a three-dimensional texture subimage&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltexsubimage4dsgis.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltexsubimage4dsgis.html">glTexSubImage4DSGIS (3G)</A></TT></B></TD>
+<TD>specify a four-dimensional texture subimage&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gltranslate.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gltranslate.html">glTranslated, glTranslatef (3G)</A></TT></B></TD>
+<TD>multiply the current matrix by a translation matrix&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glubegincurve.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glubegincurve.html">gluBeginCurve, gluEndCurve (3G)</A></TT></B></TD>
+<TD>delimit a NURBS curve definition&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glubeginpolygon.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glubeginpolygon.html">gluBeginPolygon, gluEndPolygon (3G)</A></TT></B></TD>
+<TD>delimit a polygon description&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glubeginsurface.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glubeginsurface.html">gluBeginSurface, gluEndSurface (3G)</A></TT></B></TD>
+<TD>delimit a NURBS surface definition&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glubegintrim.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glubegintrim.html">gluBeginTrim, gluEndTrim (3G)</A></TT></B></TD>
+<TD>delimit a NURBS trimming loop definition&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glubuild1dmipmaps.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glubuild1dmipmaps.html">gluBuild1DMipmaps (3G)</A></TT></B></TD>
+<TD>builds 1-D mipmaps&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glubuild2dmipmaps.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glubuild2dmipmaps.html">gluBuild2DMipmaps (3G)</A></TT></B></TD>
+<TD>builds 2-D mipmaps&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glucylinder.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glucylinder.html">gluCylinder (3G)</A></TT></B></TD>
+<TD>draw a cylinder&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gludeletenurbsrenderer.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gludeletenurbsrenderer.html">gluDeleteNurbsRenderer (3G)</A></TT></B></TD>
+<TD>destroy a NURBS object&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gludeletequadric.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gludeletequadric.html">gluDeleteQuadric (3G)</A></TT></B></TD>
+<TD>destroy a quadrics object&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gludeletetess.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gludeletetess.html">gluDeleteTess (3G)</A></TT></B></TD>
+<TD>destroy a tessellation object&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gludisk.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gludisk.html">gluDisk (3G)</A></TT></B></TD>
+<TD>draw a disk&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glubegincurve.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glubegincurve.html">gluBeginCurve, gluEndCurve (3G)</A></TT></B></TD>
+<TD>delimit a NURBS curve definition&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glubeginpolygon.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glubeginpolygon.html">gluBeginPolygon, gluEndPolygon (3G)</A></TT></B></TD>
+<TD>delimit a polygon description&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glubeginsurface.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glubeginsurface.html">gluBeginSurface, gluEndSurface (3G)</A></TT></B></TD>
+<TD>delimit a NURBS surface definition&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glubegintrim.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glubegintrim.html">gluBeginTrim, gluEndTrim (3G)</A></TT></B></TD>
+<TD>delimit a NURBS trimming loop definition&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluerrorstring.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluerrorstring.html">gluErrorString (3G)</A></TT></B></TD>
+<TD>produce an error string from an OpenGL or GLU error code&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glugetnurbsproperty.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glugetnurbsproperty.html">gluGetNurbsProperty (3G)</A></TT></B></TD>
+<TD>get a NURBS property&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glugetstring.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glugetstring.html">gluGetString (3G)</A></TT></B></TD>
+<TD>returns a string describing the GLU version or GLU extensions&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glugettessproperty.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glugettessproperty.html">gluGetTessProperty (3G)</A></TT></B></TD>
+<TD>get a tessellation object property&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluloadsamplingmatrices.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluloadsamplingmatrices.html">gluLoadSamplingMatrices (3G)</A></TT></B></TD>
+<TD>load NURBS sampling and culling matrices&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glulookat.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glulookat.html">gluLookAt (3G)</A></TT></B></TD>
+<TD>define a viewing transformation&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glunewnurbsrenderer.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glunewnurbsrenderer.html">gluNewNurbsRenderer (3G)</A></TT></B></TD>
+<TD>create a NURBS object&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glunewquadric.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glunewquadric.html">gluNewQuadric (3G)</A></TT></B></TD>
+<TD>create a quadrics object&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glunewtess.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glunewtess.html">gluNewTess (3G)</A></TT></B></TD>
+<TD>create a tessellation object&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glunextcontour.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glunextcontour.html">gluNextContour (3G)</A></TT></B></TD>
+<TD>mark the beginning of another contour&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glunurbscallback.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glunurbscallback.html">gluNurbsCallback (3G)</A></TT></B></TD>
+<TD>define a callback for a NURBS object&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glunurbscurve.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glunurbscurve.html">gluNurbsCurve (3G)</A></TT></B></TD>
+<TD>define the shape of a NURBS curve&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glunurbsproperty.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glunurbsproperty.html">gluNurbsProperty (3G)</A></TT></B></TD>
+<TD>set a NURBS property&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glunurbssurface.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glunurbssurface.html">gluNurbsSurface (3G)</A></TT></B></TD>
+<TD>define the shape of a NURBS surface&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluortho2d.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluortho2d.html">gluOrtho2D (3G)</A></TT></B></TD>
+<TD>define a 2-D orthographic projection matrix&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glupartialdisk.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glupartialdisk.html">gluPartialDisk (3G)</A></TT></B></TD>
+<TD>draw an arc of a disk&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluperspective.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluperspective.html">gluPerspective (3G)</A></TT></B></TD>
+<TD>set up a perspective projection matrix&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glupickmatrix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glupickmatrix.html">gluPickMatrix (3G)</A></TT></B></TD>
+<TD>define a picking region&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluproject.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluproject.html">gluProject (3G)</A></TT></B></TD>
+<TD>map object coordinates to window coordinates&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glupwlcurve.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glupwlcurve.html">gluPwlCurve (3G)</A></TT></B></TD>
+<TD>describe a piecewise linear NURBS trimming curve&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluquadriccallback.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluquadriccallback.html">gluQuadricCallback (3G)</A></TT></B></TD>
+<TD>define a callback for a quadrics object&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluquadricdrawstyle.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluquadricdrawstyle.html">gluQuadricDrawStyle (3G)</A></TT></B></TD>
+<TD>specify the draw style desired for quadrics&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluquadricnormals.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluquadricnormals.html">gluQuadricNormals (3G)</A></TT></B></TD>
+<TD>specify what kind of normals are desired for quadrics&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluquadricorientation.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluquadricorientation.html">gluQuadricOrientation (3G)</A></TT></B></TD>
+<TD>specify inside/outside orientation for quadrics&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluquadrictexture.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluquadrictexture.html">gluQuadricTexture (3G)</A></TT></B></TD>
+<TD>specify if texturing is desired for quadrics&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluscaleimage.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluscaleimage.html">gluScaleImage (3G)</A></TT></B></TD>
+<TD>scale an image to an arbitrary size&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glusphere.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glusphere.html">gluSphere (3G)</A></TT></B></TD>
+<TD>draw a sphere&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glutessbegincontour.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glutessbegincontour.html">gluTessBeginContour,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glutessbegincontour.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glutessbegincontour.html">gluTessEndContour (3G)</A></TT></B></TD>
+<TD>delimit a contour description&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glutessbeginpolygon.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glutessbeginpolygon.html">gluTessBeginPolygon (3G)</A></TT></B></TD>
+<TD>delimit a polygon description&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glutesscallback.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glutesscallback.html">gluTessCallback (3G)</A></TT></B></TD>
+<TD>define a callback for a tessellation object&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glutessbegincontour.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glutessbegincontour.html">gluTessBeginContour,</A></TT></B> 
+<BR>
+<B><TT><A HREF="glutessbegincontour.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glutessbegincontour.html">gluTessEndContour (3G)</A></TT></B></TD>
+<TD>delimit a contour description&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glutessbeginpolygon.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glutessbeginpolygon.html">gluTessEndPolygon (3G)</A></TT></B></TD>
+<TD>delimit a polygon description&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glutessnormal.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glutessnormal.html">gluTessNormal (3G)</A></TT></B></TD>
+<TD>specify a normal for a polygon&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glutessproperty.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glutessproperty.html">gluTessProperty (3G)</A></TT></B></TD>
+<TD>set a tessellation object property&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glutessvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glutessvertex.html">gluTessVertex (3G)</A></TT></B></TD>
+<TD>specify a vertex on a polygon&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="gluunproject.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/gluunproject.html">gluUnProject (3G)</A></TT></B></TD>
+<TD>map window coordinates to object coordinates&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex2d, glVertex2f,</A></TT></B> <BR>
+<B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex2i, glVertex2s,</A></TT></B> <BR>
+<B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex3d, glVertex3f,</A></TT></B> <BR>
+<B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex3i, glVertex3s,</A></TT></B> <BR>
+<B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex4d, glVertex4f,</A></TT></B> <BR>
+<B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex4i, glVertex4s,</A></TT></B> <BR>
+<B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex2dv, glVertex2fv,</A></TT></B> <BR>
+<B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex2iv, glVertex2sv,</A></TT></B> <BR>
+<B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex3dv, glVertex3fv,</A></TT></B> <BR>
+<B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex3iv, glVertex3sv,</A></TT></B> <BR>
+<B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex4dv, glVertex4fv,</A></TT></B> <BR>
+<B><TT><A HREF="glvertex.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertex.html">glVertex4iv, glVertex4sv (3G)</A></TT></B></TD>
+<TD>specify a vertex&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glvertexpointerext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glvertexpointerext.html">glVertexPointerEXT (3G)</A></TT></B></TD>
+<TD>define an array of vertex data&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glviewport.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glviewport.html">glViewport (3G)</A></TT></B></TD>
+<TD>set the viewport&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glwcreatemdrawingarea.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glwcreatemdrawingarea.html">GLwCreateMDrawingArea (3X)</A></TT></B></TD>
+<TD>Create a Motif/GL Drawing Widget.&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glwdrawingarea.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glwdrawingarea.html">GLwDrawingArea, GLwMDrawingArea (3X)</A></TT></B></TD>
+<TD>OpenGL drawing widgets.&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glwdrawingareamakecurrent.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glwdrawingareamakecurrent.html">GLwDrawingAreaMakeCurrent 
+(3X)</A></TT></B></TD>
+<TD>Make the current GLwDrawingArea current.&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glwdrawingareaswapbuffers.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glwdrawingareaswapbuffers.html">GLwDrawingAreaSwapBuffers 
+(3X)</A></TT></B></TD>
+<TD>swap buffers in a GLwDrawingArea.&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glwdrawingarea.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glwdrawingarea.html">GLwDrawingArea, GLwMDrawingArea (3X)</A></TT></B></TD>
+<TD>OpenGL drawing widgets.&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxbindchanneltowindowsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxbindchanneltowindowsgix.html">glXBindChannelToWindowSGIX 
+(3G)</A></TT></B></TD>
+<TD>bind or unbind a window and a channel&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxchannelrectsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxchannelrectsgix.html">glXChannelRectSGIX (3G)</A></TT></B></TD>
+<TD>specify area of frame buffer to resize to video resolution&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxchoosefbconfigsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxchoosefbconfigsgix.html">glXChooseFBConfigSGIX (3G)</A></TT></B></TD>
+<TD>return a list of GLX frame buffer configurations that match the specified 
+attributes&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxchoosevisual.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxchoosevisual.html">glXChooseVisual (3G)</A></TT></B></TD>
+<TD>return a visual that matches specified attributes&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxcopycontext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxcopycontext.html">glXCopyContext (3G)</A></TT></B></TD>
+<TD>copy state from one rendering context to another&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxcreatecontext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxcreatecontext.html">glXCreateContext (3G)</A></TT></B></TD>
+<TD>create a new GLX rendering context&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxcreatecontextwithconfigsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxcreatecontextwithconfigsgix.html">glXCreateContextWithConfigSGIX 
+(3G)</A></TT></B></TD>
+<TD>create a new GLX rendering context with specified frame buffer configuration&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxcreateglxpbuffersgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxcreateglxpbuffersgix.html">glXCreateGLXPbufferSGIX (3G)</A></TT></B></TD>
+<TD>create a GLX pixel buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxcreateglxpixmap.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxcreateglxpixmap.html">glXCreateGLXPixmap (3G)</A></TT></B></TD>
+<TD>create an off-screen GLX rendering area&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxcreateglxpixmapwithconfigsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxcreateglxpixmapwithconfigsgix.html">glXCreateGLXPixmapWithConfigSGIX 
+(3G)</A></TT></B></TD>
+<TD>create an off-screen GLX rendering area with specified frame buffer configuration&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxcreateglxvideosourcesgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxcreateglxvideosourcesgix.html">glXCreateGLXVideoSourceSGIX 
+(3G)</A></TT></B></TD>
+<TD>create a GLX handle for a video input stream&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxdestroycontext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxdestroycontext.html">glXDestroyContext (3G)</A></TT></B></TD>
+<TD>destroy a GLX context&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxdestroyglxpbuffersgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxdestroyglxpbuffersgix.html">glXDestroyGLXPbufferSGIX (3G)</A></TT></B></TD>
+<TD>destroy a GLX pixel buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxdestroyglxpixmap.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxdestroyglxpixmap.html">glXDestroyGLXPixmap (3G)</A></TT></B></TD>
+<TD>destroy a GLX pixmap&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxdestroyglxvideosourcesgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxdestroyglxvideosourcesgix.html">glXDestroyGLXVideoSourceSGIX 
+(3G)</A></TT></B></TD>
+<TD>destroy a GLX video source&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxfreecontextext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxfreecontextext.html">glXFreeContextEXT (3G)</A></TT></B></TD>
+<TD>frees the client-side portion of a context&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxgetclientstring.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxgetclientstring.html">glXGetClientString (3G)</A></TT></B></TD>
+<TD>returns a string describing the client&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxgetconfig.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxgetconfig.html">glXGetConfig (3G)</A></TT></B></TD>
+<TD>return information about GLX visuals&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxgetcontextidext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxgetcontextidext.html">glXGetContextIDEXT (3G)</A></TT></B></TD>
+<TD>returns the XID for a GLX rendering context&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxgetcurrentcontext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxgetcurrentcontext.html">glXGetCurrentContext (3G)</A></TT></B></TD>
+<TD>return the current context&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxgetcurrentdisplayext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxgetcurrentdisplayext.html">glXGetCurrentDisplayEXT (3G)</A></TT></B></TD>
+<TD>returns the display for the current context&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxgetcurrentdrawable.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxgetcurrentdrawable.html">glXGetCurrentDrawable (3G)</A></TT></B></TD>
+<TD>return the current drawable&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxgetfbconfigattribsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxgetfbconfigattribsgix.html">glXGetFBConfigAttribSGIX (3G)</A></TT></B></TD>
+<TD>return information about a GLX frame buffer configuraton&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxgetfbconfigfromvisualsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxgetfbconfigfromvisualsgix.html">glXGetFBConfigFromVisualSGIX 
+(3G)</A></TT></B></TD>
+<TD>return frame buffer configuration that is associated with visual&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxgetselectedeventsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxgetselectedeventsgix.html">glXGetSelectedEventSGIX (3G)</A></TT></B></TD>
+<TD>returns GLX events which are selected for a window or a GLX pixel buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxgetvideosyncsgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxgetvideosyncsgi.html">glXGetVideoSyncSGI (3G)</A></TT></B></TD>
+<TD>obtain value of vertical retrace counter&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxgetvisualfromfbconfigsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxgetvisualfromfbconfigsgix.html">glXGetVisualFromFBConfigSGIX 
+(3G)</A></TT></B></TD>
+<TD>return visual that is associated with the frame buffer configuration&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glximportcontextext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glximportcontextext.html">glXImportContextEXT (3G)</A></TT></B></TD>
+<TD>import an existing GLX rendering context&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxinfo.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxinfo.html">GLXINFO (1G)</A></TT></B></TD>
+<TD>display info about a GLX extension and OpenGL renderer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxintro.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxintro.html">glXIntro (3G)</A></TT></B></TD>
+<TD>Introduction to OpenGL in the X window system&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxisdirect.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxisdirect.html">glXIsDirect (3G)</A></TT></B></TD>
+<TD>indicate whether direct rendering is enabled&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxmakecurrent.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxmakecurrent.html">glXMakeCurrent (3G)</A></TT></B></TD>
+<TD>attach a GLX context to a window or a GLX pixmap&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxmakecurrentreadsgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxmakecurrentreadsgi.html">glXMakeCurrentReadSGI (3G)</A></TT></B></TD>
+<TD>attach a GLX context to separate read and write drawables&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxquerychanneldeltassgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxquerychanneldeltassgix.html">glXQueryChannelDeltasSGIX 
+(3G)</A></TT></B></TD>
+<TD>returns the precision constraints for any frame buffer area that is to be 
+resized to match the video resolution&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxquerychannelrectsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxquerychannelrectsgix.html">glXQueryChannelRectSGIX (3G)</A></TT></B></TD>
+<TD>returns area of frame buffer that is to be resized to match video resolution&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxquerycontextinfoext.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxquerycontextinfoext.html">glXQueryContextInfoEXT (3G)</A></TT></B></TD>
+<TD>returns information about a GLX rendering context&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxqueryextension.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxqueryextension.html">glXQueryExtension (3G)</A></TT></B></TD>
+<TD>indicate whether the GLX extension is supported&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxqueryextensionsstring.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxqueryextensionsstring.html">glXQueryExtensionsString (3G)</A></TT></B></TD>
+<TD>return list of supported extensions&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxqueryglxpbuffersgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxqueryglxpbuffersgix.html">glXQueryGLXPbufferSGIX (3G)</A></TT></B></TD>
+<TD>returns information about a GLX pixel buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxqueryserverstring.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxqueryserverstring.html">glXQueryServerString (3G)</A></TT></B></TD>
+<TD>return string describing the server&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxqueryversion.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxqueryversion.html">glXQueryVersion (3G)</A></TT></B></TD>
+<TD>return the version numbers of the GLX extension&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxselecteventsgix.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxselecteventsgix.html">glXSelectEventSGIX (3G)</A></TT></B></TD>
+<TD>select GLX events for a window or a GLX pixel buffer&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxswapbuffers.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxswapbuffers.html">glXSwapBuffers (3G)</A></TT></B></TD>
+<TD>exchange front and back buffers&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxswapintervalsgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxswapintervalsgi.html">glXSwapIntervalSGI (3G)</A></TT></B></TD>
+<TD>set a minimum time between buffer swaps&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxusexfont.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxusexfont.html">glXUseXFont (3G)</A></TT></B></TD>
+<TD>create bitmap display lists from an X font&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxwaitgl.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxwaitgl.html">glXWaitGL (3G)</A></TT></B></TD>
+<TD>complete GL execution prior to subsequent X calls&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxwaitvideosyncsgi.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxwaitvideosyncsgi.html">glXWaitVideoSyncSGI (3G)</A></TT></B></TD>
+<TD>wait for vertical retrace&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="glxwaitx.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/glxwaitx.html">glXWaitX (3G)</A></TT></B></TD>
+<TD>complete X execution prior to subsequent OpenGL calls&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="mmap.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/mmap.html">mmap (2)</A></TT></B></TD>
+<TD>map pages of memory&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="setmon.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/setmon.html">setmon (1G)</A></TT></B></TD>
+<TD>set the current and default video output format&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="startgfx.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/startgfx.html">startgfx, stopgfx (1G)</A></TT></B></TD>
+<TD>start/stop the window system&nbsp;</TD>
+</TR>
+<TR> 
+<TD><B><TT><A HREF="xdpyinfo.html" tppabs="http://www.aus.ips.edu.ar/materias/cg/lab/OpenGL/xdpyinfo.html">xdpyinfo (1)</A></TT></B></TD>
+<TD>display information utility for X&nbsp;</TD>
+</TR>
+</TABLE>
+<p class="link_std"><a href="javascript:if(confirm('http://www.sgi.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sgi.com/'" tppabs="http://www.sgi.com/">Copyright &copy; 1996, Silicon 
+Graphics, Inc.</a></p>
+<!-- #EndEditable --><!-- #BeginLibraryItem "/Library/Pie.lbi" --><p class="basic_text"><a href="javascript:if(confirm('http://www.aus.ips.edu.ar/acerca/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/acerca/index.htm'" tppabs="http://www.aus.ips.edu.ar/acerca/index.htm">Acerca de</a> | <a href="javascript:if(confirm('http://www.aus.ips.edu.ar/alumnado/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/alumnado/index.htm'" tppabs="http://www.aus.ips.edu.ar/alumnado/index.htm">Alumnado</a> 
+| <a href="javascript:if(confirm('http://www.aus.ips.edu.ar/investigacion/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/investigacion/index.htm'" tppabs="http://www.aus.ips.edu.ar/investigacion/index.htm">Investigaci&oacute;n</a> | <a href="javascript:if(confirm('http://www.aus.ips.edu.ar/actividades/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/actividades/index.htm'" tppabs="http://www.aus.ips.edu.ar/actividades/index.htm">Actividades</a> 
+| <a href="javascript:if(confirm('http://www.aus.ips.edu.ar/materias/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/materias/index.htm'" tppabs="http://www.aus.ips.edu.ar/materias/index.htm">Materias</a> |<br>
+<a href="javascript:if(confirm('http://www.aus.ips.edu.ar/biblioteca/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/biblioteca/index.htm'" tppabs="http://www.aus.ips.edu.ar/biblioteca/index.htm">Biblioteca</a> | <a href="javascript:if(confirm('http://phorum.aus.ips.edu.ar/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://phorum.aus.ips.edu.ar/'" tppabs="http://phorum.aus.ips.edu.ar/">Foros</a> 
+| <a href="javascript:if(confirm('http://www.aus.ips.edu.ar/buscar.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/buscar.htm'" tppabs="http://www.aus.ips.edu.ar/buscar.htm">Buscar</a> | <a href="javascript:if(confirm('http://www.aus.ips.edu.ar/acerca/links.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/acerca/links.htm'" tppabs="http://www.aus.ips.edu.ar/acerca/links.htm">Links</a> 
+| <a href="javascript:if(confirm('http://www.ausilio.aus.ips.edu.ar/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ausilio.aus.ips.edu.ar/'" tppabs="http://www.ausilio.aus.ips.edu.ar/">AUSilio</a> | <a href="javascript:if(confirm('http://www.aus.ips.edu.ar/cgi-bin/map/map.cgi  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/cgi-bin/map/map.cgi'" tppabs="http://www.aus.ips.edu.ar/cgi-bin/map/map.cgi">Mapa</a> 
+| </p><p><hr size="1">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td width="60"><a href="javascript:if(confirm('http://www.aus.ips.edu.ar/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.aus.ips.edu.ar/index.htm'" tppabs="http://www.aus.ips.edu.ar/index.htm"><img src="../../../../images/logo_aus.gif" tppabs="http://www.aus.ips.edu.ar/images/logo_aus.gif" width="51" height="20" border="0" alt="Home"></a></td><td nowrap><i><span class="basic_text_s">Comentarios a: <a href="mailto:webmaster@aus.ips.edu.ar">webmaster@aus.ips.edu.ar</a><br>
+Fecha: <!-- #BeginDate format:IS1 -->2001-07-02<!-- #EndDate --></span></i></td></tr>
+</table><!-- #EndLibraryItem --> 
+</body>
+<!-- #EndTemplate --> 
+</html>

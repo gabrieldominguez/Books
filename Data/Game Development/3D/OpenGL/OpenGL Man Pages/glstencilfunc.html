@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glstencilfunc Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glstencilfunc</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glStencilFunc(3G)	       OpenGL Reference		     glStencilFunc(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glStencilFunc - set function and reference	value for stencil testing
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glStencilFunc( GLenum	func,
+			 GLint ref,
+			 GLuint	mask )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     func  Specifies the test function.	 Eight tokens are valid:  GL_NEVER,
+	   GL_LESS, GL_LEQUAL, GL_GREATER, GL_GEQUAL, GL_EQUAL,	GL_NOTEQUAL,
+	   and GL_ALWAYS.
+
+     ref   Specifies the reference value for the stencil test.	ref is clamped
+	   to the range	[0,2n-1], where	n is the number	of bitplanes in	the
+	   stencil buffer.
+
+     mask  Specifies a mask that is ANDed with both the	reference value	and
+	   the stored stencil value when the test is done.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Stenciling, like z-buffering, enables and disables	drawing	on a per-pixel
+     basis.  You draw into the stencil planes using GL drawing primitives,
+     then render geometry and images, using the	stencil	planes to mask out
+     portions of the screen.  Stenciling is typically used in multipass
+     rendering algorithms to achieve special effects, such as decals,
+     outlining,	and constructive solid geometry	rendering.
+
+     The stencil test conditionally eliminates a pixel based on	the outcome of
+     a comparison between the reference	value and the value in the stencil
+     buffer.  The test is enabled by glEnable and glDisable with argument
+     GL_STENCIL_TEST.  Actions taken based on the outcome of the stencil test
+     are specified with	glStencilOp.
+
+     func is a symbolic	constant that determines the stencil comparison
+     function.	It accepts one of eight	values,	shown below.  ref is an
+     integer reference value that is used in the stencil comparison.  It is
+     clamped to	the range [0,2n-1], where n is the number of bitplanes in the
+     stencil buffer.  mask is bitwise ANDed with both the reference value and
+     the stored	stencil	value, with the	ANDed values participating in the
+     comparison.
+
+     If	stencil	represents the value stored in the corresponding stencil
+     buffer location, the following list shows the effect of each comparison
+     function that can be specified by func.  Only if the comparison succeeds
+     is	the pixel passed through to the	next stage in the rasterization
+     process (see glStencilOp).	 All tests treat stencil values	as unsigned
+     integers in the range [0,2n-1], where n is	the number of bitplanes	in the
+     stencil buffer.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glStencilFunc(3G)	       OpenGL Reference		     glStencilFunc(3G)
+</FONT>
+
+
+     Here are the values accepted by func:
+
+     GL_NEVER	       Always fails.
+
+     GL_LESS	       Passes if ( ref & mask )	&amp;lt; ( stencil & mask ).
+
+     GL_LEQUAL	       Passes if ( ref & mask )	&amp;lt; ( stencil & mask ).
+
+     GL_GREATER	       Passes if ( ref & mask )	&gt; ( stencil & mask ).
+
+     GL_GEQUAL	       Passes if ( ref & mask )	&gt; ( stencil & mask ).
+
+     GL_EQUAL	       Passes if ( ref & mask )	= ( stencil & mask ).
+
+     GL_NOTEQUAL       Passes if ( ref & mask )	/  ( stencil & mask ).
+
+     GL_ALWAYS	       Always passes.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Initially,	the stencil test is disabled.  If there	is no stencil buffer,
+     no	stencil	modification can occur and it is as if the stencil test	always
+     passes.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if func is not one of	the eight accepted
+     values.
+
+     GL_INVALID_OPERATION is generated if glStencilFunc	is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_STENCIL_FUNC
+     glGet with	argument GL_STENCIL_VALUE_MASK
+     glGet with	argument GL_STENCIL_REF
+     glGet with	argument GL_STENCIL_BITS
+     glIsEnabled with argument GL_STENCIL_TEST
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glAlphaFunc, glBlendFunc, glDepthFunc, glEnable, glIsEnabled, glLogicOp,
+     glStencilOp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

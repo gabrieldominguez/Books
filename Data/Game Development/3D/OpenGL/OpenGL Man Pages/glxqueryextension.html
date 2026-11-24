@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxqueryextension Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxqueryextension</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXQueryExtension(3G)	    OpenGL Reference - GLX	 glXQueryExtension(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXQueryExtension - indicate whether the GLX extension is supported
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     Bool glXQueryExtension( Display *dpy,
+			     int *errorBase,
+			     int *eventBase )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	Specifies the connection to the	X server.
+
+
+     errorBase	Returns	the base error code of the GLX server extension.
+
+
+     eventBase	Returns	the base event code of the GLX server extension.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXQueryExtension returns True if the X server of connection dpy supports
+     the GLX extension,	False otherwise.  If True is returned, then errorBase
+     and eventBase return the error base and event base	of the GLX extension.
+     Otherwise,	errorBase and eventBase	are unchanged.
+
+     errorBase and eventBase do	not return values if they are specified	as
+     NULL.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     eventBase is included for future extensions.  GLX does not	currently
+     define any	events.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXQueryVersion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

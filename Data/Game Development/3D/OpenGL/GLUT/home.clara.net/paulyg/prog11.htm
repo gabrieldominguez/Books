@@ -1,0 +1,522 @@
+<HTML><HEAD><TITLE>program eleven</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#E0E0E0 ALINK=#FFFFFF>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070>source <FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </FONT></NOBR></B></font><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">sour<br>
+
+    urce </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080">
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source&nbsp;<br>
+
+    </font></B></NOBR><font face="Helvetica, Sans-Serif" size="4"><b><nobr><font color="#204070">u
+
+    </font><FONT face="Helvetica, Sans-Serif" size=4 COLOR="#204070"><FONT COLOR=#305080>source</FONT> source <FONT COLOR=#305080>source</FONT> 
+
+      source </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+    </font><font size="4" color="#204070">source </font><font size="4" color="#305080">source</font><font size="4" color="#204070">
+
+    source</font><font size="4" color="#305080"> source </font><font color="#204070">source
+
+    </font><font color="#305080">sou</font></nobr></b></font></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;
+
+&nbsp; <a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font></font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<P align="left"><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>
+<a href="download/program11.zip" tppabs="http://home.clara.net/paulyg/download/program11.zip">[program eleven]</a>&nbsp;</b> </font>All opengl implementations are distributed 
+with the gl utility library, or glu as its more commonly known.&nbsp; We've used 
+some glu functions before - namely glu spheres, there are however many more 
+functions in the glu library.&nbsp; This program shows you how to set up glu's 
+tessellator for creating non planar and convex polygons.&nbsp; The screenshot 
+below shows such a polygon.&nbsp; <P align="center"><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+<img border="0" src="graphics/prog11.gif" tppabs="http://home.clara.net/paulyg/graphics/prog11.gif" width="258" height="277"><br>
+
+
+
+<br>
+
+
+
+</font>
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+ </B></NOBR><NOBR><B><font face="Helvetica, Sans-Serif" size="4"><font color="#305080"> 
+
+      </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+
+
+<p class="BodyText">Firstly we declare an unsigned integer - this will hold 
+display list that draws our shape, once the tessellator has generated it.</p>
+
+
+
+
+
+<p class="code">
+
+GLuint list[1];<p>The 'make_shape' function will setup the tessellator, the 
+display lists and generate the triangle data ready for use.&nbsp; Line 4 creates 
+a local pointer to a </font>
+
+<FONT FACE="Courier New" SIZE=2>
+
+
+
+GLUtriangulatorObj </font>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+(don't worry too much about that).&nbsp; &nbsp; Line 6 declares a 2 dimensional array 
+that holds the outside contour of shape we want to render, as you can probably 
+tell this is a square.&nbsp; Line 7 is the inside contour of our shape, a 
+triangle.</p>
+
+<p class="code">[1]&nbsp;&nbsp;&nbsp; void make_shape ( void )<br>
+[2]&nbsp;&nbsp;&nbsp; {<br>
+[3]<br>
+[4]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLUtriangulatorObj *tess;<br>
+[5]<br>
+[6]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLdouble outside [4][3] = { { 
+-0.9, -0.9, 0.0 },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+{&nbsp; 0.9, -0.9, 0.0 },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+{&nbsp; 0.9,&nbsp; 0.9, 0.0 },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+{ -0.9,&nbsp; 0.9, 0.0 } };<br>
+<br>
+[7]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GLdouble inside [3][3] =&nbsp; { { 
+0.0,&nbsp;&nbsp; 0.3, 0.0 },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+{ 0.3,&nbsp; -0.3, 0.0 },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+{ -0.3, -0.3, 0.0 } };<br>
+&nbsp;</p>
+
+<p>Lines 8 and 9 generate new display lists and new tessellator objects in our 
+</font>
+
+<FONT FACE="Courier New" SIZE=2>
+
+
+
+list</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+and </font>
+
+<FONT FACE="Courier New" SIZE=2>
+
+
+
+tess</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+pointer variables.</p>
+
+<p class="code">[8]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; list[0] = glGenLists ( 1 );<br>
+[9]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tess&nbsp;&nbsp;&nbsp; = gluNewTess ( );</p>
+
+<p>Don't Panic!&nbsp; The following three lines look pretty hellish (in actual 
+fact, they <i>are </i>pretty hellish).&nbsp; They are assigning the opengl 
+functions that we need to use to tessellate our object.&nbsp; Naming them in 
+this way means the tessellator knows what format the vertices are stored in when 
+you pass them to it.&nbsp; In our case, line 11 tells the tessellator that all 
+vertex data we pass to it should be processed by the </font>
+
+<FONT FACE="Courier New" SIZE=2>
+
+
+
+glVertex3dv</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+function.&nbsp; </font>
+
+</p>
+
+<p><FONT FACE="Helvetica, Sans-Serif" SIZE=2>The dodgy looking casting is required because both </font>
+
+<FONT FACE="Courier New" SIZE=2>
+
+
+
+glBegin</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+and </font>
+
+<FONT FACE="Courier New" SIZE=2>
+
+
+
+glVertex3dv</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2> normally
+
+
+
+require arguments, we don't want to pass any to them here - so the casting is 
+necessary.&nbsp; 
+Please don't ask me to explain the need for doubly voiding them - I freely admit 
+I don't fully understand what's happening here.&nbsp; Gotta love C, eh?</p>
+
+<p>Line 13 doesn't need the fancy (and probably 'dangerous') casting because
+</font>
+
+<FONT FACE="Courier New" SIZE=2>
+
+
+
+glEnd </font>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+doesn't take any arguments.&nbsp;
+
+</p>
+
+<p>A final word on this casting;&nbsp; I have only tested this source on 
+Borland's compiler.&nbsp; Your compiler might need to cast these functions in a 
+different way.&nbsp; If you give me feedback I'll update the article to reflect 
+changes for different compilers.</p>
+
+<p class="code">[10]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluTessCallback ( tess, 
+GLU_BEGIN, ( void ( __stdcall *) ( void ))glBegin );<br>
+[11]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluTessCallback ( tess, GLU_VERTEX, ( 
+void ( __stdcall *) ( void ))glVertex3dv );<br>
+[12]<br>
+[13]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluTessCallback ( tess, GLU_END, glEnd 
+);</p>
+
+</font>
+
+<p><font face="Helvetica, Sans-Serif" size="2">Line 14 tells opengl that 
+everything we do from hereon in will be compiled into a display list, pointed to 
+by the identifier </font><font size="2" face="Courier New">list[0]</font><font face="Helvetica, Sans-Serif" size="2">.
+</font>
+
+</p>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<p class="code">[14]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glNewList ( list[0], 
+GL_COMPILE );</p>
+
+<p>Line 15 tells the tessellator to begin a new 'complex' polygon.&nbsp; We've 
+passed out pointer 'tess' to it.&nbsp; Line 16 controls the for loop that will 
+iterate through the vertices of our 'outside' array.&nbsp; Line 17 gives the 
+appropriate coordinates as vertices for the tessellator.&nbsp; Note that we use
+</font>
+
+<FONT FACE="Courier New" SIZE=2>
+
+
+
+gluTessVertex</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+much like we would use </font>
+
+<FONT FACE="Courier New" SIZE=2>
+
+
+
+glVertex<i>nn</i></p>
+
+</font>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<p>Line 19 sets the tessellator to draw 'inside' our polygon.</p>
+
+<p class="code">[15]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluBeginPolygon ( tess 
+);<br>
+[16]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for ( int i = 0; i &lt; 4; i++ )<br>
+[17]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluTessVertex ( 
+tess, outside[i], outside[i] );<br>
+[18]<br>
+[19]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluNextContour ( tess, GLU_INTERIOR );</p>
+
+<p>In line 20, as before we use a for loop to iterate through our arrays of 
+vertex data.&nbsp; This time we are sending the data for the inside of our shape 
+(a triangle if you recall).&nbsp; As above, </font>
+
+<FONT FACE="Courier New" SIZE=2>
+
+
+
+gluTessVertex</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+is called to pass the data to the tessellator.</font></p>
+
+<p>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+Line 23 informs the tessellator that we've finished drawing our special polygon, 
+line 25 ends the display list and finally in line 27 we delete the tessellator 
+object.</p>
+
+<p class="code">[20]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for ( int i = 0; i &lt; 3; i++ )<br>
+[21]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluTessVertex ( tess, inside[i], 
+inside[i] );<br>
+[22]<br>
+[23]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluEndPolygon ( tess );<br>
+[24]<br>
+[25]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; glEndList ( );<br>
+[26]<br>
+[27]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gluDeleteTess ( tess );<br>
+[28]&nbsp;&nbsp;
+}</p>
+
+<hr>
+
+
+
+
+
+<p>If you've read the previous examples, you'll be able to figure out the rest 
+of the source.&nbsp; To see how glu has tessellated the&nbsp; polygon try 
+switching the view to wireframe.</p>
+
+
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">urce</font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">source
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> source</font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="4"><font color="#305080">  </font>
+
+<FONT color="#204070">source</font></font>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<font face="Helvetica, Sans-Serif" size="+1"> </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">source</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      source </font>
+
+
+
+</font>
+
+      <font face="Helvetica, Sans-Serif" size="+1" color="#305080">source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      source </font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">source&nbsp;</font> </B></NOBR></TABLE>
+
+
+
+  <P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font>
+
+</BODY>

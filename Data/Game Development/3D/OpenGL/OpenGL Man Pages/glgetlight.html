@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetlight Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetlight</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetLight(3G)		       OpenGL Reference			glGetLight(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetLightfv, glGetLightiv	- return light source parameter	values
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetLightfv(	GLenum light,
+			GLenum pname,
+			GLfloat	*params	)
+     void glGetLightiv(	GLenum light,
+			GLenum pname,
+			GLint *params )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     light   Specifies a light source.	The number of possible lights depends
+	     on	the implementation, but	at least eight lights are supported.
+	     They are identified by symbolic names of the form GL_LIGHTi where
+	     0 &amp;lt; i &amp;lt; GL_MAX_LIGHTS.
+
+     pname   Specifies a light source parameter	for light.  Accepted symbolic
+	     names are GL_AMBIENT, GL_DIFFUSE, GL_SPECULAR, GL_POSITION,
+	     GL_SPOT_DIRECTION,	GL_SPOT_EXPONENT, GL_SPOT_CUTOFF,
+	     GL_CONSTANT_ATTENUATION, GL_LINEAR_ATTENUATION , and
+	     GL_QUADRATIC_ATTENUATION.
+
+     params  Returns the requested data.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetLight	returns	in params the value or values of a light source
+     parameter.	 light names the light and is a	symbolic name of the form
+     GL_LIGHTi for 0&amp;lt;i<GL_MAX_LIGHTS, where GL_MAX_LIGHTS is an	implementation
+     dependent constant	that is	greater	than or	equal to eight.	 pname
+     specifies one of ten light	source parameters, again by symbolic name.
+
+     The parameters are	as follows:
+
+     GL_AMBIENT		 params	returns	four integer or	floating-point values
+			 representing the ambient intensity of the light
+			 source.  Integer values, when requested, are linearly
+			 mapped	from the internal floating-point
+			 representation	such that 1.0 maps to the most
+			 positive representable	integer	value, and -1.0	maps
+			 to the	most negative representable integer value.  If
+			 the internal value is outside the range [-1,1], the
+			 corresponding integer return value is undefined.
+
+     GL_DIFFUSE		 params	returns	four integer or	floating-point values
+			 representing the diffuse intensity of the light
+			 source.  Integer values, when requested, are linearly
+			 mapped	from the internal floating-point
+			 representation	such that 1.0 maps to the most
+
+
+
+									Page 1
+
+
+
+
+
+
+>FONT COLOR="#ffffff">glGetLight(3G)		       OpenGL Reference			glGetLight(3G)
+</FONT>
+
+
+			 positive representable	integer	value, and -1.0	maps
+			 to the	most negative representable integer value.  If
+			 the internal value is outside the range [-1,1], the
+			 corresponding integer return value is undefined.
+
+     GL_SPECULAR	 params	returns	four integer or	floating-point values
+			 representing the specular intensity of	the light
+			 source.  Integer values, when requested, are linearly
+			 mapped	from the internal floating-point
+			 representation	such that 1.0 maps to the most
+			 positive representable	integer	value, and -1.0	maps
+			 to the	most negative representable integer value.  If
+			 the internal value is outside the range [-1,1], the
+			 corresponding integer return value is undefined.
+
+     GL_POSITION	 params	returns	four integer or	floating-point values
+			 representing the position of the light	source.
+			 Integer values, when requested, are computed by
+			 rounding the internal floating-point values to	the
+			 nearest integer value.	 The returned values are those
+			 maintained in eye coordinates.	 They will not be
+			 equal to the values specified using glLight, unless
+			 the modelview matrix was identity at the time glLight
+			 was called.
+
+     GL_SPOT_DIRECTION	 params	returns	three integer or floating-point	values
+			 representing the direction of the light source.
+			 Integer values, when requested, are computed by
+			 rounding the internal floating-point values to	the
+			 nearest integer value.	 The returned values are those
+			 maintained in eye coordinates.	 They will not be
+			 equal to the values specified using glLight, unless
+			 the modelview matrix was identity at the time glLight
+			 was called.  Although spot direction is normalized
+			 before	being used in the lighting equation, the
+			 returned values are the transformed versions of the
+			 specified values prior	to normalization.
+
+     GL_SPOT_EXPONENT	 params	returns	a single integer or floating-point
+			 value representing the	spot exponent of the light.
+			 An integer value, when	requested, is computed by
+			 rounding the internal floating-point representation
+			 to the	nearest	integer.
+
+     GL_SPOT_CUTOFF	 params	returns	a single integer or floating-point
+			 value representing the	spot cutoff angle of the
+			 light.	 An integer value, when	requested, is computed
+			 by rounding the internal floating-point
+			 representation	to the nearest integer.
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetLight(3G)		       OpenGL Reference			glGetLight(3G)
+</FONT>
+
+
+     GL_CONSTANT_ATTENUATION
+			 params	returns	a single integer or floating-point
+			 value representing the	constant (not distance
+			 related) attenuation of the light.  An	integer	value,
+			 when requested, is computed by	rounding the internal
+			 floating-point	representation to the nearest integer.
+
+     GL_LINEAR_ATTENUATION
+			 params	returns	a single integer or floating-point
+			 value representing the	linear attenuation of the
+			 light.	 An integer value, when	requested, is computed
+			 by rounding the internal floating-point
+			 representation	to the nearest integer.
+
+     GL_QUADRATIC_ATTENUATION
+			 params	returns	a single integer or floating-point
+			 value representing the	quadratic attenuation of the
+			 light.	 An integer value, when	requested, is computed
+			 by rounding the internal floating-point
+			 representation	to the nearest integer.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     It	is always the case that	GL_LIGHTi = GL_LIGHT0 +	i.
+
+     If	an error is generated, no change is made to the	contents of params.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if light or pname is not an accepted value.
+
+     GL_INVALID_OPERATION is generated if glGetLight is	executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glLight
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

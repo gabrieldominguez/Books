@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gluunproject Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gluunproject</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluUnProject(3G)	       OpenGL Reference		      gluUnProject(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluUnProject - map	window coordinates to object coordinates
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLint gluUnProject( GLdouble winX,
+			 GLdouble winY,
+			 GLdouble winZ,
+			 const GLdouble	*model,
+			 const GLdouble	*proj,
+			 const GLint *view,
+			 GLdouble* objX,
+			 GLdouble* objY,
+			 GLdouble* objZ	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     winX, winY, winZ
+		     Specify the window	coordinates to be mapped.
+
+     model	     Specifies the modelview matrix (as	from a glGetDoublev
+		     call).
+
+     proj	     Specifies the projection matrix (as from a	glGetDoublev
+		     call).
+
+     view	     Specifies the viewport (as	from a glGetIntegerv call).
+
+     objX, objY, objZ
+		     Returns the computed object coordinates.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluUnProject maps the specified window coordinates	into object
+     coordinates using model, proj, and	view.  The result is stored in objX,
+     objY, and objZ.  A	return value of	GL_TRUE	indicates success, and
+     GL_FALSE indicates	failure.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glGet, gluProject
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

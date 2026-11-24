@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glugetnurbsproperty Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glugetnurbsproperty</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluGetNurbsProperty(3G)	       OpenGL Reference	       gluGetNurbsProperty(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluGetNurbsProperty - get a NURBS property
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluGetNurbsProperty( GLUnurbs* nurb,
+			       GLenum property,
+			       GLfloat*	data )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     nurb      Specifies the NURBS object (created with	gluNewNurbsRenderer).
+
+     property  Specifies the property whose value is to	be fetched.  Valid
+	       values are GLU_CULLING, GLU_SAMPLING_TOLERANCE,
+	       GLU_DISPLAY_MODE, GLU_PARAMETRIC_TOLERANCE,
+	       GLU_SAMPLING_METHOD, GLU_U_STEP,	and GLU_V_STEP.
+
+     data      Specifies a pointer to the location into	which the value	of the
+	       named  property is written.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluGetNurbsProperty is used to retrieve properties	stored in a NURBS
+     object.  These properties affect the way that NURBS curves	and surfaces
+     are rendered.  Please refer to the	gluNurbsProperty reference page	for
+     information about what the	properties are and what	they do.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluNewNurbsRenderer, gluNurbsProperty
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

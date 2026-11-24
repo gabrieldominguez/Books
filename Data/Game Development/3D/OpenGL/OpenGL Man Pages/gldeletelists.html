@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gldeletelists Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gldeletelists</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glDeleteLists(3G)	       OpenGL Reference		     glDeleteLists(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glDeleteLists - delete a contiguous group of display lists
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glDeleteLists( GLuint	list,
+			 GLsizei range )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     list   Specifies the integer name of the first display list to delete.
+
+     range  Specifies the number of display lists to delete.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glDeleteLists causes a contiguous group of	display	lists to be deleted.
+     list is the name of the first display list	to be deleted, and range is
+     the number	of display lists to delete.  All display lists d with list &amp;lt; d
+     &amp;lt; list + range - 1	are deleted.
+
+     All storage locations allocated to	the specified display lists are	freed,
+     and the names are available for reuse at a	later time.  Names within the
+     range that	do not have an associated display list are ignored.  If	range
+     is	zero, nothing happens.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if range is negative.
+
+     GL_INVALID_OPERATION is generated if glDeleteLists	is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glCallList, glCallLists, glGenList, glIsList, glNewList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

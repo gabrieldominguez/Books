@@ -1,0 +1,358 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgettexparameter Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgettexparameter</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetTexParameter(3G)	       OpenGL Reference		 glGetTexParameter(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetTexParameterfv, glGetTexParameteriv -	return texture parameter
+     values
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetTexParameterfv( GLenum target,
+			       GLenum pname,
+			       GLfloat *params )
+     void glGetTexParameteriv( GLenum target,
+			       GLenum pname,
+			       GLint *params )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Specifies the symbolic name of the	target texture.
+	     GL_TEXTURE_1D, GL_TEXTURE_2D, GL_DETAIL_TEXTURE_2D_SGIS, and
+	     GL_TEXTURE_3D_EXT are accepted.
+
+     pname   Specifies the symbolic name of a texture parameter.
+	     GL_TEXTURE_BORDER_COLOR, GL_TEXTURE_MAG_FILTER,
+	     GL_TEXTURE_MIN_FILTER, GL_TEXTURE_WRAP_S, GL_TEXTURE_WRAP_T,
+	     GL_TEXTURE_WRAP_R_EXT, GL_DETAIL_TEXTURE_LEVEL_SGIS,
+	     GL_DETAIL_TEXTURE_MODE_SGIS, GL_DETAIL_TEXTURE_FUNC_POINTS_SGIS,
+	     GL_SHARPEN_TEXTURE_FUNC_POINTS_SGIS,
+	     GL_POST_TEXTURE_FILTER_BIAS_SGIX,
+	     GL_POST_TEXTURE_FILTER_SCALE_SGIX,	GL_TEXTURE_PRIORITY_EXT,
+	     GL_TEXTURE_RESIDENT_EXT, GL_TEXTURE_MIN_LOD_SGIS,
+	     GL_TEXTURE_MAX_LOD_SGIS, GL_TEXTURE_BASE_LEVEL_SGIS,
+	     GL_TEXTURE_MAX_LEVEL_SGIS,	GL_DUAL_TEXTURE_SELECT_SGIS,
+	     GL_QUAD_TEXTURE_SELECT_SGIS, GL_TEXTURE_FILTER4_SIZE_SGIS,
+	     GL_TEXTURE_CLIPMAP_FRAME_SGIX, GL_TEXTURE_CLIPMAP_CENTER_SGIX,
+	     GL_TEXTURE_CLIPMAP_OFFSET_SGIX, GL_TEXTURE_COMPARE_SGIX,
+	     GL_TEXTURE_COMPARE_OPERATOR_SGIX, and GL_SHADOW_AMBIENT_SGIX are
+	     accepted.
+
+     params  Returns the texture parameters.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetTexParameter returns in params the value or values of	the texture
+     parameter specified as pname.  target defines the target texture
+     (GL_TEXTURE_1D, GL_TEXTURE_2D, GL_DETAIL_TEXTURE_2D_SGIS, or
+     GL_TEXTURE_3D_EXT).  pname	accepts	the same symbols as glTexParameter,
+     with the same interpretations, plus a few additional symbols.
+
+     GL_TEXTURE_MAG_FILTER    Returns the single-valued	texture	magnification
+			      filter, a	symbolic constant.
+
+     GL_TEXTURE_MIN_FILTER    Returns the single-valued	texture	minification
+			      filter, a	symbolic constant.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetTexParameter(3G)	       OpenGL Reference		 glGetTexParameter(3G)
+</FONT>
+
+
+     GL_TEXTURE_WRAP_S	      Returns the single-valued	wrapping function for
+			      texture coordinate s, a symbolic constant.
+
+     GL_TEXTURE_WRAP_T	      Returns the single-valued	wrapping function for
+			      texture coordinate t, a symbolic constant.
+
+     GL_TEXTURE_WRAP_R_EXT    Returns the single-valued	wrapping function for
+			      texture coordinate r, a symbolic constant.
+
+     GL_TEXTURE_BORDER_COLOR  Returns four integer or floating-point numbers
+			      that comprise the	RGBA color of the texture
+			      border.  Floating-point values are returned in
+			      the range	[0,1].	Integer	values are returned as
+			      a	linear mapping of the internal floating-point
+			      representation such that 1.0 maps	to the most
+			      positive representable integer and -1.0 maps to
+			      the most negative	representable integer.
+
+     GL_DETAIL_TEXTURE_LEVEL_SGIS
+			      Returns an integer specifying the	number of
+			      levels that separate the level zero image	of
+			      GL_TEXTURE_2D and	the image of
+			      GL_DETAIL_TEXTURE_2D_SGIS.  See
+			      glDetailTexFuncSGIS for more information.
+
+     GL_DETAIL_TEXTURE_MODE_SGIS
+			      Returns a	single enumerated value	describing the
+			      detail texture mode.  See	glDetailTexFuncSGIS.
+
+     GL_DETAIL_TEXTURE_FUNC_POINTS_SGIS
+			      Returns the number of points in the
+			      specification of the detail texture scaling
+			      function.	 See glGetDetailTexFuncSGIS.
+
+     GL_SHARPEN_TEXTURE_FUNC_POINTS_SGIS
+			      Returns the number of points in the
+			      specification of the sharpen texture scaling
+			      function.	 See glGetSharpenTexFuncSGIS.
+
+     GL_POST_TEXTURE_FILTER_BIAS_SGIX
+			      Returns four floating-point numbers that
+			      comprise the R, G, B and A bias factors for the
+			      texture.	See glTexParameterfv and
+			      glTexParameteriv.
+
+     GL_POST_TEXTURE_FILTER_SCALE_SGIX
+			      Returns four floating-point numbers that
+			      comprise the R, G, B and A scale factors for the
+			      texture.	See glTexParameterfv and
+			      glTexParameteriv.
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetTexParameter(3G)	       OpenGL Reference		 glGetTexParameter(3G)
+</FONT>
+
+
+     GL_TEXTURE_PRIORITY_EXT  Returns the residence priority of	the target
+			      texture (or the named texture bound to it).  See
+			      glPrioritizeTexturesEXT.
+
+     GL_TEXTURE_RESIDENT_EXT  Returns the residence status of the target
+			      texture.	If the value returned in params	is
+			      GL_TRUE, the texture is resident in texture
+			      memory.  See glAreTexturesResidentEXT.
+
+     GL_TEXTURE_MIN_LOD_SGIS  Returns the low end of the LOD clamping range.
+
+     GL_TEXTURE_MAX_LOD_SGIS  Returns the high end of the LOD clamping range.
+
+     GL_TEXTURE_BASE_LEVEL_SGIS
+			      Returns the base level of	the mipmap set
+			      associated with target.
+
+     GL_TEXTURE_MAX_LEVEL_SGIS
+			      Returns the maximum level	of the mipmap set
+			      associated with target.
+
+     GL_DUAL_TEXTURE_SELECT_SGIS
+			      Returns the currently selected component group
+			      for GL_DUAL_ textures.  Its value	is 0 or	1.
+			      See glTexParameter, glTexImage1D,	glTexImage2D
+			      and glTexImage3DEXT.
+
+     GL_QUAD_TEXTURE_SELECT_SGIS,
+			      Returns the currently selected component group
+			      for GL_QUAD_ textures.  Its value	is 0, 1, 2 or
+			      3.  See glTexParameter, glTexImage1D,
+			      glTexImage2D and glTexImage3DEXT.
+
+     GL_TEXTURE_FILTER4_SIZE_SGIS
+			      Returns the implementation-dependent texture
+			      filtering	constant Size used by the
+			      SGIS_texture_filter4 extension.  For an
+			      explanation of this constant, see
+			      glTexFilterFuncSGIS.
+
+     GL_TEXTURE_CLIPMAP_FRAME_SGIX
+			      Returns the size of the texture memory area
+			      reserved for paging new texels into a clipmap.
+			      The size is expressed as a (floating-point)
+			      fraction of half the width of a clipped level.
+			      See glTexParameter for more information.
+
+     GL_TEXTURE_CLIPMAP_CENTER_SGIX
+			      Returns the s and	t coordinates of the center of
+			      a	clipmap's region of interest.  See
+			      glTexParameter for more information.
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetTexParameter(3G)	       OpenGL Reference		 glGetTexParameter(3G)
+</FONT>
+
+
+     GL_TEXTURE_CLIPMAP_OFFSET_SGIX
+			      Returns the s and	t toroidal offsets for a
+			      clipmap.	See glTexParameter for more
+			      information.
+
+     GL_TEXTURE_COMPARE_SGIX  Returns a	single Boolean value indicating
+			      whether the texture comparison operation is
+			      enabled.	See glTexParameter for more
+			      information.
+
+     GL_TEXTURE_COMPARE_OPERATOR_SGIX
+			      Returns the current texture comparison operator.
+			      See glTexParameter for more information.
+
+     GL_SHADOW_AMBIENT_SGIX   Returns the current ambient lighting coefficient
+			      for shadows.  See	glTexParameter for more
+			      information.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	an error is generated, no change is made to the	contents of params.
+
+     GL_TEXTURE_WRAP_R_EXT is part of the EXT_texture3D	extension.
+     GL_DETAIL_TEXTURE_LEVEL_SGIS, GL_DETAIL_TEXTURE_MODE_SGIS,	and
+     GL_DETAIL_TEXTURE_FUNC_POINTS_SGIS	are part of the	SGIS_detail_texture
+     extension.	 GL_SHARPEN_TEXTURE_FUNC_POINTS_SGIS is	part of	the
+     SGIS_sharpen_texture extension.  GL_POST_TEXTURE_FILTER_BIAS_SGIX and
+     GL_POST_TEXTURE_FILTER_SCALE_SGIX are part	of the SGIX_texture_scale_bias
+     extension.	 GL_TEXTURE_PRIORITY_EXT and GL_TEXTURE_RESIDENT_EXT are part
+     of	the EXT_texture_object extension.  GL_TEXTURE_MIN_LOD_SGIS
+     GL_TEXTURE_MAX_LOD_SGIS, GL_TEXTURE_BASE_LEVEL_SGIS, and
+     GL_TEXTURE_MAX_LEVEL_SGIS are part	of the SGIS_texture_lod	extension.
+     GL_DUAL_TEXTURE_SELECT_SGIS and GL_QUAD_TEXTURE_SELECT_SGIS are part of
+     the SGIS_texture_select extension.	 GL_TEXTURE_FILTER4_SIZE_SGIS is part
+     of	the SGIS_texture_filter4 extension.  GL_TEXTURE_CLIPMAP_FRAME_SGIX,
+     GL_TEXTURE_CLIPMAP_CENTER_SGIX, and GL_TEXTURE_CLIPMAP_OFFSET_SGIX	are
+     part of the SGIX_clipmap extension.  GL_TEXTURE_COMPARE_SGIX and
+     GL_TEXTURE_COMPARE_OPERATOR_SGIX are part of the SGIX_shadow extension.
+     GL_SHADOW_AMBIENT_SGIX is part of the SGIX_shadow_ambient extension.  See
+     glIntro for more information on using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target or pname is	not an accepted	value.
+
+     GL_INVALID_ENUM is	generated if pname is GL_TEXTURE_FILTER4_SIZE_SGIS and
+     target is not GL_TEXTURE_1D or GL_TEXTURE_2D.
+
+     GL_INVALID_OPERATION is generated if glGetTexParameter is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetTexParameter(3G)	       OpenGL Reference		 glGetTexParameter(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIX_clipmap extension	is supported only on InfiniteReality systems.
+     The following restrictions	apply:
+
+	  1.  For best performance, the	``breakpoint'' clipmap level (B) must
+	      be loaded	before any other level.	 The implementation derives
+	      the size of the clipmap from the size of this level, so loading
+	      this level first permits efficient allocation of texture memory.
+
+	  2.  Clipmaps must be square.
+
+	  3.  GL_TEXTURE_WRAP_S	and GL_TEXTURE_WRAP_T must be set to
+	      GL_CLAMP_TO_EDGE_SGIS.
+
+	  4.  It is more efficient to set clipmap attributes that affect
+	      texture memory allocation	(such as
+	      GL_TEXTURE_CLIPMAP_FRAME_SGIX) before loading the	first level of
+	      the clipmap, rather than after loading it.
+
+     RealityEngine, RealityEngine2, and	VTX systems do not support
+     GL_DETAIL_TEXTURE_LEVEL_SGIS correctly.
+
+     On	InfiniteReality	systems, if the	post-texture filter scale and bias
+     values are	set to values other than the defaults, they are	limited	to the
+     range [0.0, 1.0).	(note: this range excludes 1.0.)  The
+     SGIX_texture_scale_bias extension is not supported	on RealityEngine,
+     RealityEngine2, and VTX systems or	on High	Impact and Maximum Impact
+     systems.
+
+     The SGIS_texture_select extension is supported only on InfiniteReality
+     systems and on High Impact	and Maximum Impact systems with	the TRAM
+     option card.
+
+     The SGIS_texture_filter4 extension	is supported only on InfiniteReality
+     systems.
+
+     On	InfiniteReality	systems, GL_INVALID_VALUE is generated if the value of
+     the argument n to the command glTexFilterFuncSGIS does not	equal the
+     value of the implementation dependent constant Size, which	can be
+     determined	by calling glGetTexParameter with argument
+     GL_TEXTURE_FILTER4_SIZE_SGIS.  This restriction will be removed in	a
+     future release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glTexParameter
+
+
+
+
+
+
+
+
+
+									Page 5
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

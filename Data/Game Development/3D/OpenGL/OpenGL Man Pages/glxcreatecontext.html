@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxcreatecontext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxcreatecontext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXCreateContext(3G)	    OpenGL Reference - GLX	  glXCreateContext(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXCreateContext -	create a new GLX rendering context
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLXContext	glXCreateContext( Display *dpy,
+				  XVisualInfo *vis,
+				  GLXContext shareList,
+				  Bool direct )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	Specifies the connection to the	X server.
+
+
+     vis	Specifies the visual that defines the frame buffer resources
+		available to the rendering context.  It	is a pointer to	an
+		XVisualInfo structure, not a visual ID or a pointer to a
+		Visual.
+
+
+     shareList	Specifies the context with which to share display lists	and
+		texture	objects.  NULL indicates that no sharing is to take
+		place.
+
+
+     direct	Specifies whether rendering is to be done with a direct
+		connection to the graphics system if possible (True) or
+		through	the X server (False).
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXCreateContext creates a	GLX rendering context and returns its handle.
+     This context can be used to render	into both windows and GLX pixmaps.  If
+     glXCreateContext fails to create a	rendering context, NULL	is returned.
+
+     If	direct is True,	then a direct rendering	context	is created if the
+     implementation supports direct rendering and the connection is to an X
+     server that is local.  If direct is False,	then a rendering context that
+     renders through the X server is always created.  Direct rendering
+     provides a	performance advantage in some implementations.	However,
+     direct rendering contexts cannot be shared	outside	a single process, and
+     they cannot be used to render to GLX pixmaps.
+
+     If	shareList is not NULL, then all	display-list and texture object
+     indexes and definitions are shared	by context shareList and by the	newly
+     created context.  An arbitrary number of contexts can share a single
+     display-list and texture object space as long as they exist in the	same
+     address space.  Two rendering contexts share an address space if both are
+     nondirect using the same server, or if both are direct and	owned by a
+     single process.  Note that	in the nondirect case, it is not necessary for
+     the calling threads to share an address space, only for their related
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXCreateContext(3G)	    OpenGL Reference - GLX	  glXCreateContext(3G)
+</FONT>
+
+
+     rendering contexts	to share an address space.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     XVisualInfo is defined in Xutil.h.	 It is a structure that	includes
+     visual, visualID, screen, and depth elements.
+
+     A process is a single execution environment, implemented in a single
+     address space, consisting of one or more threads.
+
+     A thread is one of	a set of subprocesses that share a single address
+     space, but	maintain separate program counters, stack spaces, and other
+     related global data.  A thread that is the	only member of its subprocess
+     group is equivalent to a process.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     NULL is returned if execution fails on the	client side.
+
+     BadMatch is generated if the context to be	created	would not share	the
+     address space or the screen of the	context	specified by shareList.
+
+     BadValue is generated if vis is not a valid visual	(e.g., if the GLX
+     implementation does not support it).
+
+     GLXBadContext is generated	if shareList is	not a GLX context and is not
+     NULL.
+
+     BadAlloc is generated if the server does not have enough resources	to
+     allocate the new context.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXDestroyContext,	glXGetConfig, glXIsDirect, glXMakeCurrent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

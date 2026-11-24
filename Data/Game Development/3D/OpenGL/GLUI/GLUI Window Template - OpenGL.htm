@@ -1,0 +1,2163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0058)http://www.codeproject.com/opengl/GLUI_Window_Template.asp -->
+<HTML><HEAD><TITLE>GLUI Window Template - The Code Project - OpenGL</TITLE>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META http-equiv=Content-Type content="text/html; charset=ISO-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META 
+content="This article describes in detail how to create your first GLUI window with some basic controls inside it, and provides you with a template for your OpenGL applications." 
+name=Description>
+<META content=kbArticle name=Search.TopicType>
+<META content="Ali BaderEddin" name=Author>
+<META content="29 Aug 2007 14:00:00 GMT" name=Search.PublishDate>
+<META content="29 Aug 2007 14:00:00 GMT" name=Search.RevisedDate>
+<META content="Free source code, , Visual C++, MFC, Windows, Article" 
+name=keywords>
+<META 
+content="Article content copyright Ali BaderEddin, 2007, everthing else Copyright © CodeProject, 1999-2007, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Lounge Postings" 
+href="http://www.codeproject.com/webservices/LoungeRSS.aspx" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - VB.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6" 
+type=application/rss+xml rel=alternate><LINK title="The Code Project" 
+href="http://www.codeproject.com/info/OpenSearch.xml" 
+type=application/opensearchdescription+xml rel=search><LINK href="/favicon.ico" 
+type=image/ico rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="GLUI Window Template - OpenGL_archivos/global.css" type=text/css 
+rel=stylesheet>
+<SCRIPT language=javascript 
+src="GLUI Window Template - OpenGL_archivos/oncopy.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+if (top != self) top.location.href = location.href;
+if (typeof(DemoUrl) != "undefined")
+	document.write('<me' + 'ta http' + '-equiv="re' + 'fresh" con' + 'tent="1;url=' + DemoUrl + '">');
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR></HEAD>
+<BODY style="MARGIN: 0px" oncopy="return copyCode();" text=black vLink=navy 
+aLink=red link=blue bgColor=white>
+<SCRIPT src="GLUI Window Template - OpenGL_archivos/urchin.js" 
+type=text/javascript>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+_uacct = "UA-1735123-1";
+urchinTracker();
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=HeaderLogo><A href="http://www.codeproject.com/"><IMG height=90 
+      alt=Home 
+      src="GLUI Window Template - OpenGL_archivos/codeproject225x90.gif" 
+      border=0></A></TD>
+    <TD class=HeaderBanner><SPAN id=AdBanner4>
+      <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=2874&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FFOSS%5FProf%2DUIS%5F728x90%2Ejpg&C=False&id=2874&cb=4842982\" alt=\"Prof-UIS.com – Ribbons, Docking Windows, Grids and Other GUI Components for MFC/Visual C++ Developers!\" border=0 width=728 height=90></a>");</SCRIPT>
+      </SPAN></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=MemberNavBar cellSpacing=0 cellPadding=5 width="100%" 
+      border=0>
+        <TBODY>
+        <TR vAlign=center>
+          <TD class=smallText style="FONT-WEIGHT: bold">4,465,511 members and 
+            growing! &nbsp; 13,621 now online. </TD>
+          <TD class=userNavText align=right><A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?id=512155">Gabriel 
+            Dominguez </A>| <A 
+            href="http://www.codeproject.com/script/profile/modify.asp?ct=/opengl/GLUI_Window_Template.asp"><B>My 
+            Settings</B></A> | <A 
+            href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+            Bookmarks</A> | <A 
+            href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+            Articles</A> | <A 
+            href="http://www.codeproject.com/script/profile/logoff.asp?ct=/opengl/GLUI_Window_Template.asp">Sign 
+            out</A> </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=SiteNavBar id=tblSiteToolbar cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD><A href="http://www.codeproject.com/">Home</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=2">MFC/C++</A></TD>
+          <TD><A href="http://www.codeproject.com/index.asp?cat=3">C#</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=4">ASP.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=6">VB.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=8">Architect</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=9">SQL</A></TD>
+          <TD class=SelCat noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=1">All Topics</A></TD>
+          <TD width="100%">&nbsp;</TD>
+          <TD>
+            <DIV id=MenuPos 
+            style="WIDTH: 300px; POSITION: relative; TOP: 1px; HEIGHT: 22px">
+            <TABLE id=MPH 
+            style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 20px; BORDER-RIGHT-WIDTH: 0px" 
+            cellSpacing=0 cellPadding=0 width=300>
+              <TBODY>
+              <TR vAlign=center>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                  Boards</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+      <SCRIPT src="GLUI Window Template - OpenGL_archivos/cpmenu_var.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT src="GLUI Window Template - OpenGL_archivos/menu10_com.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT type=text/javascript>
+var MPH = document.getElementById("MPH");
+if (MPH) MPH.style.display='none';
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=ArticleHeader cellSpacing=0 cellPadding=3 width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText style="PADDING-RIGHT: 10px"><A 
+            href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+            href="http://www.codeproject.com/?cat=2">MFC/C++</A> &gt;&gt; <A 
+            href="http://www.codeproject.com/opengl/">OpenGL</A> &gt;&gt; <A 
+            href="http://www.codeproject.com/opengl/#General">General</A><BR><BR>
+            <DIV style="FONT-WEIGHT: bold; FONT-SIZE: 16pt">GLUI Window 
+            Template</DIV><B>By <A 
+            href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=2040670">Ali 
+            BaderEddin</A></B>. <BR><BR>
+            <DIV style="FONT-SIZE: 12px">This article describes in detail how to 
+            create your first GLUI window with some basic controls inside it, 
+            and provides you with a template for your OpenGL 
+          applications.</DIV></TD>
+          <TD class=smallText style="WIDTH: 200px">C++<BR>Windows<BR>Win32, 
+            VS, OpenGL<BR>Dev<BR><SPAN style="PADDING-RIGHT: 2ex">Posted</SPAN>: 
+            <B>30 Aug 2007</B><BR><SPAN style="PADDING-RIGHT: 3ex">Views</SPAN>: 
+            <B>2,021</B> </TD></TR></TD></TR></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=LHNavBar rowSpan=2><!-- Yes, there are IE hacks that will allow us to create a min-width DIV 
+	     (eg http://www.webreference.com/programming/min-width/) but I couldn't
+	     be arsed. Wait for it in v2.0 -->
+            <DIV class=FeatureBlockHeader>Announcements</DIV>
+            <DIV class="FeatureBlockContent RHFeatureBar">
+            <DIV style="PADDING-TOP: 5px"><IMG 
+            style="PADDING-RIGHT: 10px; FLOAT: left; MARGIN-LEFT: 5px; MARGIN-RIGHT: 10px" 
+            height=20 alt=Comp 
+            src="GLUI Window Template - OpenGL_archivos/prize_winner_sm.gif" 
+            width=10><A 
+            href="http://www.codeproject.com/script/competitions/monthly/">Monthly 
+            Competition</A></DIV></DIV>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=3940&cb=4842988\" border=0 frameborder=0 scrolling=no width=160 height=600></IFRAME>");</SCRIPT>
+            </CENTER><BR><BR><IMG height=1 
+            src="GLUI Window Template - OpenGL_archivos/t.gif" width=160> </TD>
+          <TD width="100%">
+            <TABLE class=SearchHeaderBar cellSpacing=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=center noWrap align=right width="60%">
+                  <FORM style="MARGIN: 0px" name=Search action=/info/search.asp 
+                  method=post><B>Search &nbsp;</B><INPUT class=smallText 
+                  style="WIDTH: 200px" name=target> <SELECT 
+                  style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" name=st> <OPTION 
+                    value=kw selected>Articles</OPTION> <OPTION 
+                    value=au>Authors</OPTION></SELECT> <INPUT style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" type=submit value=" Go! "> 
+                  &nbsp; </FORM></TD>
+                <TD class=tinyText noWrap><A 
+                  href="http://www.codeproject.com/info/search.asp">Advanced 
+                  Search</A><BR><A 
+                  href="http://www.codeproject.com/script/articles/sections.asp">Sitemap</A> 
+                </TD></TR></TBODY></TABLE>
+            <TABLE width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=SmallText noWrap>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUI Window Template - OpenGL_archivos/print.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?print=true" 
+                        target=_print>Print</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUI Window Template - OpenGL_archivos/sitebuild_icon.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=GLUI%5FWindow%5FTemplate%2Fopengl8%2F30%2F2007">Broken 
+                        Article?</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUI Window Template - OpenGL_archivos/link.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fopengl%2FGLUI%5FWindow%5FTemplate%2Easp&amp;guid=GLUI%5FWindow%5FTemplate%2Fopengl8%2F30%2F2007">Bookmark</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUI Window Template - OpenGL_archivos/mail_small.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp#__comments">Discuss</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="GLUI Window Template - OpenGL_archivos/mail.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/script/recommend/form.asp?guid=GLUI%5FWindow%5FTemplate%2Fopengl8%2F30%2F2007">Send 
+                        to a friend</A></TD></TR></TBODY></TABLE></TD>
+                <TD noWrap align=right><A name=__top></A>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText align=right>7 votes for this 
+                      article.</TD>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 border=2>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="GLUI Window Template - OpenGL_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUI Window Template - OpenGL_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUI Window Template - OpenGL_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUI Window Template - OpenGL_archivos/red.gif" 
+                              width=20 border=0></TD>
+                            <TD><IMG height=5 
+                              src="GLUI Window Template - OpenGL_archivos/red.gif" 
+                              width=9 border=0><IMG height=5 
+                              src="GLUI Window Template - OpenGL_archivos/white.gif" 
+                              width=11 border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD class=smallText align=right colSpan=2><A 
+                        title="Calculated as rating x Log10(# votes)" 
+                        href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                        3.74</A>. Rating: <B>4.43</B> out of 
+                  5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=ArticlePane><SPAN id=intelliTXT>
+            <DIV id=contentdiv><!-- Article Starts -->
+            <UL class=download>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Window_Template/GLUI_Window_Template_exe.zip">Download 
+              demo project - 85.0 KB</A> 
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Window_Template/GLUI_Window_Template_src.zip">Download 
+              source - 5.6 KB</A> 
+              <LI><A 
+              href="http://www.codeproject.com/opengl/GLUI_Window_Template/GLUI_Window_Template_dll.zip">Download 
+              DLL - 831.2 KB</A> </LI></UL><A 
+            href="http://www.codeproject.com/opengl/GLUI_Window_Template/GLUI_Window_Template_lg.jpg"><IMG 
+            height=596 alt="Screenshot - GLUI_Window_Template.jpg" 
+            src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template.jpg" 
+            width=640></A> 
+            <H2>Introduction</H2>
+            <P>This program allows us to create a GLUI window with some basic 
+            controls inside it, which will allow us to interact with objects 
+            inside our OpenGL GLUT window. For information about OpenGL, GLUT, 
+            and how to set up a GLUT Window, check the <A 
+            href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp">GLUT 
+            Window Template</A> article. </P>
+            <H3>What is GLUI?</H3>
+            <P>GLUI is a C++ GUI library, built entirely on top of GLUT, to 
+            provide GUI controls such as buttons, checkboxes, radio buttons, 
+            labels, panels, text fields and spinners to OpenGL applications. It 
+            is window-system independent, relying on GLUT to handle all 
+            system-dependent issues, such as window, keyboard, joystick and 
+            mouse management. The GLUI API is very simple, allowing us to create 
+            new GLUI windows and add controls inside them with a single line of 
+            code. To add to its simplicity, GLUI automatically positions and 
+            sizes controls when placed on their window. </P>
+            <H3>How Does GLUI Look Like?</H3>
+            <P>Here's an example GLUI window taken from the <A 
+            href="http://www.nigels.com/glt/glui/glui_manual_v2_beta.pdf">GLUI 
+            Manual</A>, showing the different controls. This window is rendered 
+            entirely in OpenGL. It therefore looks the same on PCs, Macs, SGIs, 
+            and other UNIXes, using either SGI's implementation of OpenGL, 
+            Microsoft's, or Mesa's.</P><IMG height=311 alt="GLUI Controls" 
+            src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_1.jpg" 
+            width=542> 
+            <P>In addition to the above controls, GLUI has seen some additional 
+            controls after its new 2.35 version release in July 2006. You can 
+            see below the new scroll bar, text area, file browser, tree, tree 
+            panel and list.</P><IMG height=506 alt="GLUI 3.2 new controls" 
+            src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_2.jpg" 
+            width=648> 
+            <H3>Why Have a GLUI Window Template?</H3>
+            <P>When OpenGL applications get more complex, we need something more 
+            than GLUT mouse, keyboard, and\or popup menus to interact with our 
+            OpenGL objects drawn on the window. GLUI gives us more flexibility 
+            by allowing us to add GUI components to interact with our OpenGL 
+            objects, such as buttons, check boxes, radio buttons, spinners, list 
+            boxes, lists, trees, file browsers, text fields, text areas, and the 
+            special controls: rotation and translation. </P>
+            <P>To avoid having to write the same code every time you want to 
+            create an OpenGL graphical application with GUI components, this 
+            program code can be used as a template to get you directly started. 
+            </P>
+            <H2>Usage</H2>
+            <H3>Running the Program</H3>
+            <P>In order to run the program, three dynamic link libraries (DLLs) 
+            are required: <EM>opengl32.dll</EM>, <EM>glu32.dll</EM>, 
+            <EM>glut32.dll</EM>. The <EM>opengl32.dll</EM> and 
+            <EM>glu32.dll</EM> already come with your Windows OS and are found 
+            in the <EM>system</EM> folder. To run the executable, you have to 
+            download the <EM>glut32.dll</EM> and copy it into your 
+            <EM>system</EM> folder. You can find all the DLL files in the 
+            attached zip file <EM><A 
+            href="http://www.codeproject.com/opengl/GLUI_WINDOW_TEMPLATE/GLUI_Window_Template_dll.zip">GLUI_Window_Template_dll.zip</A></EM> 
+            under <EM>Visual C++\dll</EM>.</P>
+            <H3>Compiling the Code with Microsoft Visual C++</H3>
+            <P>In order to write a C++ OpenGL application with GLUI using 
+            Microsoft Visual Studio on a Windows platform, you need the 
+            following files:</P>
+            <P>Header Files: <EM>GL.h</EM>, <EM>GLU.h</EM>, <EM>GLUT.h</EM> and 
+            <EM>GLUI.h</EM>.</P>
+            <P>LIB Files: <EM>opengl32.lib</EM>, <EM>glu32.lib, glut32.lib</EM> 
+            and <EM>glui32.lib</EM>.</P>
+            <P>You can find all the header files and lib files in the attached 
+            zip file <EM><A 
+            href="http://www.codeproject.com/opengl/GLUI_WINDOW_TEMPLATE/GLUI_Window_Template_dll.zip">GLUI_Window_Template_dll.zip</A></EM> 
+            under <EM>Visual C++\include\GL </EM>and <EM>Visual C++\lib</EM> 
+            respectively.</P>
+            <H3>Microsoft Visual C++ 6</H3>
+            <P>To use the code under a Visual C++ 6.0 environment, perform the 
+            following steps:</P>
+            <UL>
+              <LI>Open Microsoft Visual C++ 6.0 
+              <LI>Create a new Win32 Console Application Project<BR><BR><IMG 
+              height=408 alt="New GLUI Window Template Project" 
+              src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_3.jpg" 
+              width=569> </LI></UL>
+            <UL>
+              <LI>Copy the source file <EM>GLUI_Window_Template.cpp</EM> to your 
+              project folder (<EM>GLUI_Window_Template_src</EM> in our case). 
+              You may want to rename the file name to fit your program's needs. 
+              <LI>Add the source File to the project using the menu option 
+              <EM>Project\Add To Project\Files</EM>.<BR><BR><IMG height=305 
+              alt="Add GLUI Source Code" 
+              src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_4.jpg" 
+              width=436> </LI></UL>
+            <UL>
+              <LI>Make sure that the header files are in the <EM>include</EM> 
+              folder, lib files are in the <EM>lib</EM> folder and DLLs are in 
+              the <EM>system</EM> folder. <BR><BR>
+              <TABLE class=articletable width="100%">
+                <TBODY>
+                <TR>
+                  <TD><STRONG>Files </STRONG></TD>
+                  <TD><STRONG>Description </STRONG></TD>
+                  <TD><STRONG>Source Folder (Attached)</STRONG></TD>
+                  <TD><STRONG>Target Folder </STRONG></TD></TR>
+                <TR>
+                  <TD><EM>GL.H</EM>, <EM>GLU.H</EM>, <EM>GLUT.H</EM>, 
+                    <EM>GLUI.H</EM> </TD>
+                  <TD>Header Files </TD>
+                  <TD>Visual C++/include/GL</TD>
+                  <TD><EM>C:\Program Files\Microsoft Visual 
+                    Studio\VC98\Include\GL</EM></TD></TR>
+                <TR>
+                  <TD><EM>OPENGL32.LIB</EM>, <EM>GLU32.LIB</EM>, 
+                    <EM>GLUT32.LIB</EM>, <EM>GLUI32.LIB</EM> </TD>
+                  <TD>Lib Files </TD>
+                  <TD>Visual C++/lib</TD>
+                  <TD><EM>C:\Program Files\Microsoft Visual 
+                    Studio\VC98\Lib</EM></TD></TR>
+                <TR>
+                  <TD><EM>OPENGL32.DLL</EM>, <EM>GLU32.DLL</EM>, 
+                    <EM>GLUT32.DLL</EM> </TD>
+                  <TD>DLL Files </TD>
+                  <TD>Visual C++/dll</TD>
+                  <TD>C:\WINDOWS\system32</TD></TR></TBODY></TABLE>
+              <LI>Link the code to the libraries. The proper order in which to 
+              add libraries is: GLUI, GLUT, GLU, OpenGL.<BR><BR><IMG height=380 
+              alt="Link to GLUI LIB" 
+              src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_5.jpg" 
+              width=585> 
+              <P>To avoid having to set the link settings in every Visual C++ 
+              6.0 project you create, you may want to include the following code 
+              segment in your code, which would basically do the same thing as 
+              above. </P><PRE lang=c++><SPAN class=cpp-comment>// Link the lib files to the program. This is not necessary </SPAN>
+<SPAN class=cpp-comment>// if you have added the lib names using Project/Settings/Link</SPAN>
+<SPAN class=cpp-preprocessor>#pragma comment (lib, "glui32.lib")</SPAN>
+<SPAN class=cpp-preprocessor>#pragma comment (lib, "glut32.lib")</SPAN>
+<SPAN class=cpp-preprocessor>#pragma comment (lib, "glu32.lib")  </SPAN>
+<SPAN class=cpp-preprocessor>#pragma comment (lib, "opengl32.lib")</SPAN></PRE>
+              <LI>To avoid getting the console window whenever you want to run 
+              your OpenGL window, you may want to include this directive in your 
+              code. <PRE lang=c++><SPAN class=cpp-preprocessor>#pragma comment( linker, </SPAN>
+    <SPAN class=cpp-string>"/subsystem:\"</SPAN>windows\<SPAN class=cpp-string>" /entry:\"</SPAN>mainCRTStartup\<SPAN class=cpp-string>""</SPAN> )</PRE></LI></UL>
+            <H3>Using the Code</H3>
+            <P>The source code is intended to be used as a template for your 
+            OpenGL applications. To use it in your new application, you can 
+            simply rename the CPP file and add it to your Visual Studio 
+            project.</P>
+            <H4>Note</H4>
+            <P>Please note that GLUI is a C++ library, and thus doesn't work 
+            with C. So if you're obtaining linkage errors while trying to build 
+            a GLUI program, just check that all file extensions are .cpp and not 
+            .c.</P>
+            <H2>Explaining the Code</H2>
+            <P>Knowing that GLUI is built on top of GLUT, it requires very 
+            little change to integrate GLUI components with an exisiting GLUT 
+            application. Thus, we will start with the <A 
+            href="http://www.codeproject.com/opengl/GLUT_WINDOW_TEMPLATE.asp">GLUT 
+            Window Template</A> and apply changes on it until we create our GLUI 
+            Window Template. </P>
+            <H3>1- Include </H3>
+            <P>First, we start by including the header file for GLUI using the 
+            following include directive:</P><PRE lang=c++><SPAN class=cpp-preprocessor>#include &lt;GL/glui.h&gt;</SPAN></PRE>
+            <P>There is no need to include <EM>&lt;GL/gl.h&gt;</EM>, 
+            <EM>&lt;GL/glu.h&gt;</EM>, or <EM>&lt;GL/glut.h&gt;</EM> since 
+            <EM>&lt;GL/glui.h&gt;</EM> already includes them. </P>
+            <H3>2- GLUT Window </H3>
+            <P>After creating our GLUT window, we need to make sure that we keep 
+            track of the window id so that GLUI can interact with it and send it 
+            redisplay events. </P><PRE lang=c++>main_window = glutCreateWindow (window_title);</PRE>
+            <H3>3- Callback Functions </H3>
+            <P>GLUT <EM>callback</EM> functions are registered as usual, except 
+            for the <EM>Idle</EM> function. </P><PRE lang=c++><SPAN class=cpp-comment>// Set the callback functions</SPAN>
+glutDisplayFunc (display);
+glutReshapeFunc  (reshape);
+glutMouseFunc (mouse);
+glutMotionFunc (motion);
+glutPassiveMotionFunc (pmotion);
+glutKeyboardFunc (keyboard);
+glutSpecialFunc (special);
+glutEntryFunc (entry);</PRE>
+            <H3>4- Idle Callback Function </H3>
+            <P>An idle callback function is called whenever an idle state is 
+            reached. An idle state is a state where no system events are 
+            received for processing as callbacks. The <CODE>glutIdleFunc</CODE> 
+            sets the idle callback function, which is continuously called as 
+            long as there are no events received. This means that we should 
+            minimize the amount of computation and rendering in the idle 
+            function to have a more interactive application. Passing 
+            <CODE>NULL</CODE> to <CODE>glutIdleFunc</CODE> disables the 
+            generation of the idle callback.</P>
+            <P>In a normal GLUT application, the idle function is registered as 
+            follows:</P><PRE lang=c++>glutIdleFunc (idle);</PRE>
+            <P>However, when GLUI is used, the idle callback function is 
+            registered through the GLUI global object, <CODE>GLUI_Master</CODE>. 
+            The reason for this is that GLUI makes extensive use of idle events. 
+            Logically, it does so in order to keep refreshing the GLUI controls 
+            and to listen to user's interactions with them. </P><PRE lang=c++>GLUI_Master.set_glutIdleFunc (idle);</PRE>
+            <P>If there is not Idle callback to be used, <CODE>NULL</CODE> is 
+            passed:</P><PRE lang=c++>GLUI_Master.set_glutIdleFunc (NULL);</PRE>
+            <H4>Notes</H4>
+            <UL>
+              <LI>In our GLUT idle function, we need to explicitly set the 
+              current window before posting a redisplay event. Otherwise, the 
+              redisplay may be accidently sent to the GLUI window rather than 
+              the GLUT window. <BR><PRE lang=c++>void idle ( ) 
+{
+    glutSetWindow(main_window);
+    glutPostRedisplay();
+}</PRE>
+              <LI>It is well known that GLUI takes an inordinate amount of the 
+              CPU time even when the application is idle. The reason for this is 
+              that the GLUI window with all the controls inside it are being 
+              refreshed continuously. In order to avoid having a 100% CPU usage 
+              whenever we run a GLUI window, we need to call the windows system 
+              function, <CODE>Sleep</CODE>, which would help us avoid 
+              continuously calling the idle function. 
+              <P>Even if no idle function is specified, the GLUI application 
+              would consume most of the CPU time and causes your system to run 
+              slowly.</P><IMG height=38 alt="Task Manager CPU - GLUI Idle" 
+              src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_6.jpg" 
+              width=301> 
+              <P>When we call the <CODE>Sleep</CODE> function as shown below, 
+              the CPU usage by the GLUI application reduces to almost 
+              0%.</P><IMG height=40 
+              alt="Task Manager CPU Utilization - GLUI App with Sleep" 
+              src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_7.jpg" 
+              width=300> <BR><PRE lang=c++><SPAN class=cpp-preprocessor>#include &lt;windows.h&gt;</SPAN>
+
+void idle ()
+{
+    glutSetWindow (main_window);
+    glutPostRedisplay ();
+    Sleep (100);
+}</PRE></LI></UL>
+            <H3>5- GLUI Window</H3>
+            <P>The GLUI window is created as follows:</P><PRE lang=c++><SPAN class=cpp-comment>//  pointer to a GLUI window</SPAN>
+GLUI * glui_window;
+    
+<SPAN class=cpp-comment>//  Create GLUI window</SPAN>
+glui_window = GLUI_Master.create_glui (<SPAN class=cpp-string>"Options"</SPAN>);</PRE>
+            <P>Here is the <CODE>create_glui</CODE> function definition, as 
+            described in the <A 
+            href="http://www.nigels.com/glt/glui/glui_manual_v2_beta.pdf">GLUI 
+            manual</A>:</P><PRE lang=c++>GLUI *GLUI_Master_Object::create_glui(char *name, int flags=0, int x=-1, 
+    int y=-1);</PRE>
+            <TABLE class=articletable width=554>
+              <TBODY>
+              <TR>
+                <TD width=91><STRONG>Attribute</STRONG></TD>
+                <TD width=447><STRONG>Description</STRONG></TD></TR>
+              <TR>
+                <TD>name</TD>
+                <TD>Name of new GLUI window</TD></TR>
+              <TR>
+                <TD>flags</TD>
+                <TD>Initialization flags. No flags are defined in the current 
+                  version.</TD></TR>
+              <TR>
+                <TD>x,y</TD>
+                <TD>Initial location of window. Note that no initial size can 
+                  be specified, because GLUI automatically resizes windows to 
+                  fit all controls.</TD></TR></TBODY></TABLE>
+            <P>Note that flags, x, and y are optional arguments. If they are not 
+            specified, default values will be used. GLUI provides default values 
+            for arguments whenever possible. The function returns a pointer to a 
+            new GLUI window.</P>
+            <P>In addition to the function that creates the window, GLUI also 
+            supports functions to enable, disable, hide, show, or close a 
+            window. Below is the prototype and description of each of these 
+            functions, as shown in the <A 
+            href="http://www.nigels.com/glt/glui/glui_manual_v2_beta.pdf">GLUI 
+            manual</A>:</P>
+            <TABLE class=articletable width="100%">
+              <TBODY>
+              <TR>
+                <TD><STRONG>Name</STRONG></TD>
+                <TD><STRONG>Prototype</STRONG></TD>
+                <TD><STRONG>Description</STRONG></TD></TR>
+              <TR>
+                <TD><CODE>get_glut_window_id</CODE></TD>
+                <TD><CODE>int GLUI::get_glut_window_id( void );</CODE></TD>
+                <TD>Returns the standard GLUT window ID of a GLUI 
+window.</TD></TR>
+              <TR>
+                <TD><CODE>enable</CODE>,<STRONG> 
+                </STRONG><CODE>disable</CODE></TD>
+                <TD><CODE>void GLUI::enable( void );</CODE><CODE>void 
+                  GLUI::disable( void );</CODE></TD>
+                <TD>Enables or disables (grays out) a GLUI window. No controls 
+                  are active when a GLUI window is disabled.</TD></TR>
+              <TR>
+                <TD><CODE>hide</CODE></TD>
+                <TD><CODE>void GLUI::hide( void );</CODE></TD>
+                <TD>Hides a GLUI window or subwindow. A hidden window or 
+                  subwindow cannot receive any user input.</TD></TR>
+              <TR>
+                <TD><CODE>show</CODE></TD>
+                <TD><CODE>void GLUI::show( void );</CODE></TD>
+                <TD>Unhides a previously-hidden GLUI window or 
+subwindow.</TD></TR>
+              <TR>
+                <TD><CODE>close</CODE></TD>
+                <TD><CODE>void GLUI::close( void );</CODE></TD>
+                <TD>Cleanly destroys a GLUI window or subwindow.</TD></TR>
+              <TR>
+                <TD><CODE>close_all</CODE></TD>
+                <TD><CODE>void GLUI_Master_Object::close_all( void 
+);</CODE></TD>
+                <TD>Cleanly destroys all GLUI windows and subwindows. This 
+                  function is called by the following example code: 
+                  <CODE>GLUI_Master.close_all();</CODE></TD></TR></TBODY></TABLE>
+            <H3>6- Add GUI Controls</H3>
+            <H4>Live Variables</H4>
+            <P>GLUI can associate live variables with most types of controls. 
+            Live variables are simply C variables that are automatically updated 
+            when the user interacts with a GLUI control. If the user directly 
+            updates a live variables from the code without using the set method 
+            of the control, then we need to call the <CODE>sync_live ()</CODE> 
+            function in order to synchronize the control with the value of the 
+            live variable. </P>
+            <P>For example, let's say we have a check box associated with a live 
+            variable as follows:</P><PRE lang=c++>int draw = 0;
+    
+glui_window-&gt;add_checkbox ( <SPAN class=cpp-string>"Draw"</SPAN>, &amp;draw );</PRE>
+            <P>When the program starts, the Draw check box will be un-checked 
+            since the value of the <CODE>draw</CODE> live variable is 0. If the 
+            value of <CODE>draw</CODE> was 1, then the Draw checkbox would have 
+            appeared as checked. Let's say that after the program loads, the 
+            user clicks on the check box to make it checked as follows:</P><IMG 
+            height=25 alt="GLUI Check Box" 
+            src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_8.jpg" 
+            width=102> 
+            <P>When that happens, GLUI automatically updates the value of the 
+            <CODE>draw</CODE> Live variable to 1.</P>
+            <P>Also, let's assume that somwhere in the code, the programmer 
+            updates the value of the <CODE>draw</CODE> value back to 0. Doing 
+            this will not affect the control, and thus the control and the live 
+            variable will become un-synchronized. </P><PRE lang=c++>draw = 0;</PRE>
+            <P>In order to avoid this, we can call the <CODE>sync_live()</CODE> 
+            method of the current window to update the user interface:</P><PRE lang=c++>glui_window-&gt;sync_live(); </PRE>
+            <P>In case there are multiple windows, we can use the 
+            <CODE>sync_live_all()</CODE> function of the GLUI Master Object to 
+            synchronize live variables and controls in all GLUI windows:</P><PRE lang=c++>GLUI_Master.sync_live_all();</PRE>
+            <P>Otherwise, we should not apply any direct changes to live 
+            variables. We can avoid that by directly using the <CODE>set</CODE> 
+            method(s) of the control:</P><PRE lang=c++>draw_checkbox.set_int_val ( 0 );</PRE>
+            <H4>Callbacks</H4>
+            <P>In addition to having live variables to track the values of 
+            controls, GLUI can also generate callbacks whenever the value of a 
+            control changes. When a control is first created, the user may 
+            optionally specify the callback function that will be called 
+            whenever the control's value changes, along with an integer ID to 
+            identify the calling control. This would mean that multiple controls 
+            may call the same callback function, and still be identified through 
+            their different IDs passed to the function.</P><PRE lang=c++>glui_window-&gt;add_checkbox ( <SPAN class=cpp-string>"Draw"</SPAN>, &amp;draw, ID, 
+    callback_func );</PRE>
+            <H4>List of Controls</H4>
+            <P>Here is the list of supported control types, their GLUI name, 
+            description, accessor functions, live variables and callbacks, as 
+            copied from the <A 
+            href="http://www.nigels.com/glt/glui/glui_manual_v2_beta.pdf">GLUI 
+            Manual</A>: </P>
+            <TABLE class=articletable width=732>
+              <TBODY>
+              <TR>
+                <TD><STRONG>Control Type</STRONG></TD>
+                <TD><STRONG>Class Name</STRONG></TD>
+                <TD><STRONG>Used for...</STRONG></TD>
+                <TD><STRONG>Set/Get values</STRONG></TD>
+                <TD><STRONG>Live var?</STRONG></TD>
+                <TD><STRONG>Callback?</STRONG></TD></TR>
+              <TR>
+                <TD><STRONG>Panel</STRONG></TD>
+                <TD><CODE>GLUI_Panel</CODE></TD>
+                <TD>grouping controls into boxes</TD>
+                <TD>
+                  <DIV align=center>-</DIV></TD>
+                <TD>
+                  <DIV align=center>-</DIV></TD>
+                <TD>
+                  <DIV align=center>N</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Column</STRONG></TD>
+                <TD><CODE>GLUI_Column</CODE></TD>
+                <TD>grouping controls into columns</TD>
+                <TD>
+                  <DIV align=center>-</DIV></TD>
+                <TD>
+                  <DIV align=center>-</DIV></TD>
+                <TD>
+                  <DIV align=center>N</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Rollout</STRONG></TD>
+                <TD><CODE>GLUI_Rollout</CODE></TD>
+                <TD>grouping controls into collapsible boxes</TD>
+                <TD>
+                  <DIV align=center>-</DIV></TD>
+                <TD>
+                  <DIV align=center>-</DIV></TD>
+                <TD>
+                  <DIV align=center>N</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Button</STRONG></TD>
+                <TD><CODE>GLUI_Button</CODE></TD>
+                <TD>invoking user actions</TD>
+                <TD>
+                  <DIV align=center>-</DIV></TD>
+                <TD>
+                  <DIV align=center>-</DIV></TD>
+                <TD>
+                  <DIV align=center>Y</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Checkbox</STRONG></TD>
+                <TD><CODE>GLUI_Checkbox</CODE></TD>
+                <TD>handling booleans</TD>
+                <TD>
+                  <DIV align=center>get_int_val<BR>set_int_val</DIV></TD>
+                <TD>
+                  <DIV align=center>int</DIV></TD>
+                <TD>
+                  <DIV align=center>Y</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Radio Group,<BR>Radio Button</STRONG></TD>
+                <TD><CODE>GLUI_RadioGroup</CODE><EM>,</EM><CODE>GLUI_RadioButton</CODE></TD>
+                <TD>handling mutually-exclusive options</TD>
+                <TD>
+                  <DIV align=center>get_int_val<BR>set_int_val</DIV></TD>
+                <TD>
+                  <DIV align=center>int</DIV></TD>
+                <TD>
+                  <DIV align=center>Y</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Static Text</STRONG></TD>
+                <TD><CODE>GLUI_StaticText</CODE></TD>
+                <TD>plain text labels</TD>
+                <TD>
+                  <DIV align=center>set_text</DIV></TD>
+                <TD>
+                  <DIV align=center>-</DIV></TD>
+                <TD>
+                  <DIV align=center>N</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Editable Text</STRONG></TD>
+                <TD><CODE>GLUI_EditText</CODE></TD>
+                <TD>text that can be edited – and optionally interpreted as 
+                  integers or floats. Upper and lower bounds can be placed on 
+                  integers and floats</TD>
+                <TD>
+                  <P align=center>get_int_val<BR>set_int_val 
+                  <BR>get_float_val<BR>set_float_val<BR>get_text set_text</P></TD>
+                <TD>
+                  <DIV align=center>int<BR>float<BR>text</DIV></TD>
+                <TD>
+                  <DIV align=center>Y</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Rotation</STRONG></TD>
+                <TD><CODE>GLUI_Rotation</CODE></TD>
+                <TD>Inputting rotation values via an arcball</TD>
+                <TD>
+                  <DIV align=center>get_float_array_val</DIV></TD>
+                <TD>
+                  <DIV align=center>float [16]</DIV></TD>
+                <TD>
+                  <DIV align=center>Y</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Translation</STRONG></TD>
+                <TD><CODE>GLUI_Translation</CODE></TD>
+                <TD>Inputting X, Y, and Z values</TD>
+                <TD>
+                  <DIV align=center>get_x<BR>get_y<BR>get_z</DIV></TD>
+                <TD>
+                  <DIV align=center>float [1] OR [2]</DIV></TD>
+                <TD>
+                  <DIV align=center>Y</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Listbox</STRONG></TD>
+                <TD><CODE>GLUI_Listbox</CODE></TD>
+                <TD>Choosing from a list of items</TD>
+                <TD>
+                  <DIV align=center>get_int_val</DIV></TD>
+                <TD>
+                  <DIV align=center>int</DIV></TD>
+                <TD>
+                  <DIV align=center>Y</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Spinner</STRONG></TD>
+                <TD><CODE>GLUI_Spinner</CODE></TD>
+                <TD>interactively manipulating numeric values. Supports single 
+                  clicks, click-hold, and click-drag. Upper and lower bounds can 
+                  be specified</TD>
+                <TD>
+                  <DIV 
+                  align=center>get_int_val<BR>set_int_val<BR>get_float_val<BR>set_float_val</DIV></TD>
+                <TD>
+                  <DIV align=center>int<BR>float</DIV></TD>
+                <TD>
+                  <DIV align=center>Y</DIV></TD></TR>
+              <TR>
+                <TD><STRONG>Separator</STRONG></TD>
+                <TD><CODE>GLUI_Separator</CODE></TD>
+                <TD>separating controls with simple horizontal lines</TD>
+                <TD>
+                  <DIV align=center>-</DIV></TD>
+                <TD>
+                  <DIV align=center>-</DIV></TD>
+                <TD>
+                  <DIV align=center>N</DIV></TD></TR></TBODY></TABLE>
+            <H4>Common Functions</H4>
+            <P>Knowing that GLUI is implemented through Object Oriented C++, all 
+            the GLUI controls inherit from the base class 
+            <CODE>GLUI_Control</CODE>. There are two functions to create a 
+            control: <CODE>add_control ()</CODE> and <CODE>add_control_to_panel 
+            ()</CODE>, where <CODE>control</CODE> is replaced by the type of the 
+            control. For example, we can create a checkbox using any of the 
+            following two functions: </P>
+            <P>This function adds a check box at the top level of the 
+window.</P><PRE lang=c++>GLUI_Checkbox *GLUI::add_checkbox( char *name, int *live_var=NULL, int id=-1, 
+    GLUI_Update_CB callback=NULL);</PRE>
+            <P>This function nests the check box within a panel.</P><PRE lang=c++>GLUI_Checkbox *GLUI::add_checkbox_to_panel( GLUI_Panel *panel, char *name, 
+    int *live_var=NULL, int id=-1, GLUI_Update_CB callback=NULL);</PRE>
+            <P>In addition to the common method for creating controls, there are 
+            common functions that can be used on most of the controls and are 
+            all inhertied from the <CODE>GLUI_Control</CODE> base class. Here is 
+            the list of those methods, copied from the <A 
+            href="http://www.nigels.com/glt/glui/glui_manual_v2_beta.pdf">GLUI 
+            manual</A>: </P>
+            <TABLE class=articletable width="100%">
+              <TBODY>
+              <TR>
+                <TD><STRONG>Name</STRONG></TD>
+                <TD><STRONG>Prototype</STRONG></TD>
+                <TD><STRONG>Description</STRONG></TD></TR>
+              <TR>
+                <TD><STRONG>set_name</STRONG></TD>
+                <TD>
+                  <P><CODE>void GLUI_Control::set_name( char *name );</CODE></P>
+                  <P><EM>name</EM> - New label for control</P></TD>
+                <TD>Sets the label on a button, checkbox, etc.</TD></TR>
+              <TR>
+                <TD><STRONG>set_w, set_h</STRONG></TD>
+                <TD>
+                  <P><CODE>void GLUI_Control::set_w( int new_size );<BR>void 
+                  GLUI_Control::set_h( int new_size );</CODE></P>
+                  <P><CODE>new_size</CODE> - New minimum width or height for 
+                  control</P></TD>
+                <TD>Sets new minimum width/height for a control. 
+                  <CODE>set_w()</CODE> is especially useful to increase the size 
+                  of the editable text area in an editable text control or 
+                  spinner.</TD></TR>
+              <TR>
+                <TD><STRONG>get, set</STRONG></TD>
+                <TD><CODE>int GLUI_Control::get_int_val( void );<BR>float 
+                  GLUI_Control::get_float_val( void );<BR>void 
+                  GLUI_Control::get_float_array_val( float float_array_ptr 
+                  );<BR>char *GLUI_Control::get_text( void );<BR>void 
+                  GLUI_Control::set_int_val( int int_val );<BR>void 
+                  GLUI_Control::set_float_val( float float_val );<BR>void 
+                  GLUI_Control::set_float_array_val( float *float_array_val 
+                  );<BR>void GLUI_Control::set_text( char *text); </CODE></TD>
+                <TD>Gets or sets the value of a control. Refer to the 
+                  individual control descriptions below to see which values can 
+                  be read and set for each control.</TD></TR>
+              <TR>
+                <TD><STRONG>disable, enable</STRONG></TD>
+                <TD><CODE>void GLUI_Control::enable( void );<BR>void 
+                  GLUI_Control::disable( void );</CODE></TD>
+                <TD>Disables (grays out) or enables an individual control. A 
+                  disabled control cannot be activated or used. Disabling a 
+                  radio group disables all radio buttons within it, and 
+                  disabling a panel disables all controls within it (including 
+                  other panels). Enabling behaves similarly.</TD></TR>
+              <TR>
+                <TD><STRONG>set_alignment</STRONG></TD>
+                <TD>
+                  <P><CODE>void GLUI_Control::set_alignment( int align 
+                  );</CODE></P>
+                  <P><CODE>align</CODE> - New alignment. May be one of 
+                  <CODE>GLUI_ALIGN_CENTER</CODE>, <CODE>GLUI_ALIGN_RIGHT</CODE>, 
+                  or <CODE>GLUI_ALIGN_LEFT</CODE>.</P></TD>
+                <TD>Sets the alignment of a control to left-aligned, 
+                  right-aligned, or centered.</TD></TR></TBODY></TABLE>
+            <H4>Adding Controls</H4>
+            <P>After describing live variables, callbacks, list of controls, and 
+            common functions, now it's time to see how controls are added and 
+            how they would interact with our OpenGL application. Below is the 
+            list of GLUI function prototypes for every control. For more details 
+            about each of the following functions, please check the <A 
+            href="http://www.nigels.com/glt/glui/glui_manual_v2_beta.pdf">GLUI 
+            manual</A>. </P>
+            <TABLE class=articletable width="100%">
+              <TBODY>
+              <TR>
+                <TD><STRONG>Control</STRONG></TD>
+                <TD><STRONG>add_control \ add_control_to_panel \ Other 
+                  </STRONG></TD></TR>
+              <TR>
+                <TD>Panels</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>GLUI_Panel *GLUI::add_panel( char *name, int type 
+                    = GLUI_PANEL_EMBOSSED );</CODE> 
+                    <LI>GLUI_Panel *GLUI::add_panel_to_panel( GLUI_Panel *panel, 
+                    char *name, int type = GLUI_PANEL_EMBOSSED ); </LI></UL></TD></TR>
+              <TR>
+                <TD>Rollouts</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>GLUI_Rollout *GLUI::add_rollout( char *name, int 
+                    open = true );</CODE> 
+                    <LI><CODE>GLUI_Rollout *GLUI::add_rollout_to_panel( 
+                    GLUI_Panel *panel, char *name, int open = true );</CODE> 
+                    </LI></UL></TD></TR>
+              <TR>
+                <TD>Columns</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>void GLUI::add_column( int draw_bar = true 
+                    );</CODE> 
+                    <LI><CODE>void GLUI::add_column_to_panel( GLUI_Panel *panel, 
+                    int draw_bar = true ); </CODE></LI></UL></TD></TR>
+              <TR>
+                <TD>Buttons</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>GLUI_Button *GLUI::add_button( char *name, int 
+                    id=-1, GLUI_Update_CB callback=NULL);</CODE> 
+                    <LI><CODE>GLUI_Button *GLUI::add_button_to_panel( GLUI_Panel 
+                    *panel, char *name, int id=-1, GLUI_Update_CB 
+                    callback=NULL);</CODE> </LI></UL></TD></TR>
+              <TR>
+                <TD>Checkboxes</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>GLUI_Checkbox *GLUI::add_checkbox( char *name, int 
+                    *live_var=NULL, int id=-1, GLUI_Update_CB 
+                    callback=NULL);</CODE> 
+                    <LI><CODE>GLUI_Checkbox *GLUI::add_checkbox( char *name, int 
+                    *live_var=NULL, int id=-1, GLUI_Update_CB 
+                    callback=NULL);</CODE> </LI></UL></TD></TR>
+              <TR>
+                <TD>Radio Buttons</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>GLUI_RadioGroup *GLUI::add_radiogroup( int 
+                    *live_var=NULL, int user_id=-1, GLUI_Update_CB 
+                    callback=NULL);</CODE> 
+                    <LI><CODE>GLUI_RadioGroup *GLUI::add_radiogroup_to_panel( 
+                    GLUI_Panel *panel, int *live_var=NULL, int user_id=-1, 
+                    GLUI_Update_CB callback = NULL );</CODE> 
+                    <LI><CODE>GLUI_RadioButton *GLUI::add_radiobutton_to_group( 
+                    GLUI_RadioGroup *group, char* name );</CODE> </LI></UL></TD></TR>
+              <TR>
+                <TD>Static Text</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>GLUI_StaticText *GLUI::add_statictext( char *name 
+                    );</CODE> 
+                    <LI><CODE>GLUI_StaticText *GLUI::add_statictext_to_panel( 
+                    GLUI_Panel *panel, char* name );</CODE> </LI></UL></TD></TR>
+              <TR>
+                <TD>Editable Text Boxes</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>GLUI_EditText *GLUI::add_edittext( char *name, int 
+                    data_type=GLUI_EDITTEXT_TEXT, void *live_var=NULL, int 
+                    id=-1, GLUI_Update_CB callback = NULL );</CODE> 
+                    <LI><CODE>GLUI_EditText *GLUI::add_edittext_to_panel( 
+                    GLUI_Panel *panel, char *name, int 
+                    data_type=GLUI_EDITTEXT_TEXT, void *live_var=NULL, int 
+                    id=-1, GLUI_Update_CB callback = NULL );</CODE> 
+                    <LI><CODE>void GLUI_EditText::set_int_limits( int low, int 
+                    high, int limit_type = GLUI_LIMIT_CLAMP );</CODE> 
+                    <LI><CODE>void GLUI_EditText::set_float_limits( float low, 
+                    float high, int limit_type = GLUI_LIMIT_CLAMP );</CODE> 
+                  </LI></UL></TD></TR>
+              <TR>
+                <TD>Spinners</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>GLUI_Spinner *GLUI::add_spinner( char *name, int 
+                    data_type=GLUI_SPINNER_INT, void *live_var=NULL, int id=-1, 
+                    GLUI_Update_CB callback = NULL );</CODE> 
+                    <LI><CODE>GLUI_Spinner *GLUI::add_spinner_to_panel( 
+                    GLUI_Panel *panel, char *name, int 
+                    data_type=GLUI_SPINNER_INT, void *live_var=NULL, int id=-1, 
+                    GLUI_Update_CB callback = NULL );</CODE> 
+                    <LI><CODE>void GLUI_Spinner::set_int_limits( int low, int 
+                    high, int limit_type = GLUI_LIMIT_CLAMP );</CODE> 
+                    <LI><CODE>void GLUI_Spinner::set_float_limits( float low, 
+                    float high, int limit_type = GLUI_LIMIT_CLAMP );</CODE> 
+                    <LI><CODE>void GLUI_Spinner::set_speed( float speed 
+                    );</CODE> </LI></UL></TD></TR>
+              <TR>
+                <TD>Separators</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>void GLUI::add_separator( void );</CODE> 
+                    <LI><CODE>void GLUI::add_separator_to_panel( GLUI_Panel 
+                    *panel );</CODE> </LI></UL></TD></TR>
+              <TR>
+                <TD>Rotation Controls</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>GLUI_Rotation *GLUI::add_rotation( char *name, 
+                    float *live_var=NULL, int id=-1, GLUI_Update_CB callback = 
+                    NULL );</CODE> 
+                    <LI><CODE>GLUI_Rotation *GLUI::add_rotation_to_panel( 
+                    GLUI_Panel *panel, char *name, float *live_var=NULL, int 
+                    id=-1, GLUI_Update_CB callback = NULL );</CODE> 
+                    <LI><CODE>void GLUI_Rotation::get_float_array_val( float 
+                    *array_ptr );</CODE> 
+                    <LI><CODE>void GLUI_Rotation::set_float_array_val( float 
+                    *array_ptr );</CODE> 
+                    <LI><CODE>void GLUI_Rotation::set_spin( float damping_factor 
+                    );</CODE> 
+                    <LI><CODE>void GLUI_Rotation::reset( void );</CODE> 
+                </LI></UL></TD></TR>
+              <TR>
+                <TD>Translation Controls</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>GLUI_Translation *GLUI::add_translation( char 
+                    *name, int trans_type, float *live_var=NULL, int id=-1, 
+                    GLUI_Update_CB callback = NULL );</CODE> 
+                    <LI><CODE>GLUI_Translation *GLUI::add_translation_to_panel( 
+                    GLUI_Panel *panel, char *name, int trans_type, float 
+                    *live_var=NULL, int id=-1, GLUI_Update_CB callback = NULL 
+                    );</CODE> 
+                    <LI><CODE>float GLUI_Translation::get_x( void ); </CODE>
+                    <LI><CODE>float GLUI_Translation::get_y( void );</CODE> 
+                    <LI><CODE>float GLUI_Translation::get_z( void );</CODE> 
+                    <LI><CODE>void GLUI_Translation::set_x( float x );</CODE> 
+                    <LI><CODE>void GLUI_Translation::set_y( float y );</CODE> 
+                    <LI><CODE>void GLUI_Translation::set_z( float z );</CODE> 
+                    <LI><CODE>void GLUI_Translation::set_speed( float 
+                    speed_factor );</CODE> </LI></UL></TD></TR>
+              <TR>
+                <TD>Listboxes</TD>
+                <TD>
+                  <UL><BR>
+                    <LI><CODE>GLUI_Listbox *GLUI::add_listbox( char *name, void 
+                    *live_var=NULL, int id=-1, GLUI_Update_CB callback = NULL 
+                    );</CODE> 
+                    <LI><CODE>GLUI_Listbox *GLUI::add_listbox_to_panel( 
+                    GLUI_Panel *panel, char *name, void *live_var=NULL, int 
+                    id=-1, GLUI_Update_CB callback = NULL );</CODE> 
+                    <LI><CODE>int GLUI_Listbox::add_item( int id, char *text 
+                    );</CODE> 
+                    <LI><CODE>int GLUI_Listbox::delete_item( int id );</CODE> 
+                    <LI><CODE>int GLUI_Listbox::delete_item( char *text 
+                    );</CODE> </LI></UL></TD></TR></TBODY></TABLE>
+            <H3>Adding Object Properties </H3><IMG height=102 
+            alt="Object Properties GLUI Panel" 
+            src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_9.jpg" 
+            width=169> 
+            <UL>
+              <LI>Add the 'Object Properties' Panel to the GLUI window. A 
+              <EM>panel</EM> is used to group controls together. Panels can be 
+              nested, and thus one can say <CODE>add_panel_to_panel ()</CODE>. 
+              <BR><PRE lang=c++><SPAN class=cpp-comment>//  Add the 'Object Properties' Panel to the GLUI window</SPAN>
+GLUI_Panel *op_panel = glui_window-&gt;add_panel (
+    <SPAN class=cpp-string>"Object Properties"</SPAN>);</PRE>
+              <LI>Add the Draw <EM>Check Box </EM>to the panel. <PRE lang=c++><SPAN class=cpp-comment>//  Draw Check Box Live Variable </SPAN>
+int draw = 1;    
+    
+<SPAN class=cpp-comment>// Add the Draw Check box to the 'Object Properties' Panel</SPAN>
+glui_window-&gt;add_checkbox_to_panel (op_panel, <SPAN class=cpp-string>"Draw"</SPAN>, &amp;draw );</PRE>
+              <P>When the Draw Check box is checked or unchecked, it affects 
+              whether the object is displayed on the window. This is done by 
+              placing the following code segment in the display function: </P><PRE lang=c++>if (draw)
+{
+    <SPAN class=cpp-comment>//  Draw Object...</SPAN>
+}</PRE>
+              <LI>Add the Wireframe Check Box. <PRE lang=c++><SPAN class=cpp-comment>//  Wireframe Check Box Live Variable</SPAN>
+int wireframe = 1;
+
+<SPAN class=cpp-comment>//  Add the Wireframe Check box to the 'Object Properties' Panel</SPAN>
+glui_window-&gt;add_checkbox_to_panel (op_panel, <SPAN class=cpp-string>"Wireframe"</SPAN>, 
+    &amp;wireframe );</PRE>
+              <P>When the Wireframe Check box is checked or unchecked, it 
+              affects whether the object is displayed in solid or wireframe. 
+              This is done by placing the following code segment in the display 
+              function: </P><PRE lang=c++>if (wireframe)
+{
+    drawWireObject ();
+}
+else
+{
+    drawSolidObject ();
+}</PRE>
+              <LI>Add a <EM>separator</EM>.<BR><PRE lang=c++><SPAN class=cpp-comment>//  Add a separator</SPAN>
+glui_window-&gt;add_separator_to_panel (op_panel);</PRE>
+              <LI>Add the Color list box. The <CODE>add_listbox_to_panel</CODE> 
+              takes the following arguments: the panel to which the list box is 
+              to be added, the name of the list box, the live variable which 
+              will be updated with the id of the selected item, the listbox 
+              control id that will be passed to the callback function, and the 
+              callback function. After creating the listbox, an item is added to 
+              it by calling the <CODE>add_item</CODE> function, which takes the 
+              item id and item name as arguments. After creating the listbox, we 
+              set the default item in the listbox by calling the 
+              <CODE>set_int_val ()</CODE> function. <PRE lang=c++><SPAN class=cpp-comment>//  Id of the selected item in the list box (List Box Live Variable)</SPAN>
+int listbox_item_id = 12;    
+
+<SPAN class=cpp-comment>//  Add the Color listbox to the 'Object Properties' Panel</SPAN>
+GLUI_Listbox *color_listbox = glui_window-&gt;add_listbox_to_panel (
+    op_panel, <SPAN class=cpp-string>"Color"</SPAN>, &amp;listbox_item_id, COLOR_LISTBOX, glui_callback);
+
+<SPAN class=cpp-comment>//  Add the items to the listbox</SPAN>
+color_listbox-&gt;add_item (1, <SPAN class=cpp-string>"Black"</SPAN>);
+color_listbox-&gt;add_item (2, <SPAN class=cpp-string>"Blue"</SPAN>);
+color_listbox-&gt;add_item (3, <SPAN class=cpp-string>"Cyan"</SPAN>);
+color_listbox-&gt;add_item (4, <SPAN class=cpp-string>"Dark Grey"</SPAN>);
+color_listbox-&gt;add_item (5, <SPAN class=cpp-string>"Grey"</SPAN>);
+color_listbox-&gt;add_item (6, <SPAN class=cpp-string>"Green"</SPAN>);
+color_listbox-&gt;add_item (7, <SPAN class=cpp-string>"Light Grey"</SPAN>);
+color_listbox-&gt;add_item (8, <SPAN class=cpp-string>"Magenta"</SPAN>);
+color_listbox-&gt;add_item (9, <SPAN class=cpp-string>"Orange"</SPAN>);
+color_listbox-&gt;add_item (10, <SPAN class=cpp-string>"Pink"</SPAN>);
+color_listbox-&gt;add_item (11, <SPAN class=cpp-string>"Red"</SPAN>);
+color_listbox-&gt;add_item (12, <SPAN class=cpp-string>"White"</SPAN>);
+color_listbox-&gt;add_item (13, <SPAN class=cpp-string>"Yellow"</SPAN>);
+
+<SPAN class=cpp-comment>//  Select the White Color by default</SPAN>
+color_listbox-&gt;set_int_val (12);</PRE>
+              <P>Whenever a user selects a color from the list box, the 
+              <CODE>glui_callback</CODE> function is called and the 
+              <CODE>COLOR_LISTBOX</CODE> id is passed to it. Based on the item 
+              selected, the color array will be filled with the appropriate RGB 
+              components. For example, when the user selects the Grey color, the 
+              following code is executed in the <CODE>glui_callback</CODE> 
+              function: </P><PRE lang=c++>switch (control_id)
+{
+    <SPAN class=cpp-comment>//  Color Listbox item changed</SPAN>
+    case COLOR_LISTBOX:
+    
+        switch (listbox_item_id)
+        {
+            <SPAN class=cpp-comment>//  Select grey color</SPAN>
+            case 5:
+                color[0] = 128/255.0;
+                color[1] = 128/255.0;
+                color[2] = 128/255.0;
+                break;
+        }
+    break;
+}</PRE>
+              <P>After a glui callback, GLUI automatically posts a redisplay 
+              event, and the <CODE>display</CODE> function is called. In order 
+              to reflect the changes in the color of the object, the following 
+              code fragment is placed in the display function before the object 
+              is drawn: </P><PRE lang=c++><SPAN class=cpp-comment>//  Set the color</SPAN>
+glColor3fv (color);
+    
+<SPAN class=cpp-comment>//  Draw object</SPAN>
+drawObject ();</PRE></LI></UL>
+            <H3>Adding Object Type</H3>
+            <TABLE class=articletable width="100%">
+              <TBODY>
+              <TR>
+                <TD>
+                  <DIV align=center><IMG height=185 
+                  alt="Object Type GLUI Rollout Panel" 
+                  src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_10.jpg" 
+                  width=141><BR>Rollout Panel </DIV></TD>
+                <TD>
+                  <DIV align=center><IMG height=35 
+                  alt="Object Type GLUI Rollout Panel Collapsed" 
+                  src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_11.jpg" 
+                  width=142><BR>Collapsed Rollout Panel 
+            </DIV></TD></TR></TBODY></TABLE>
+            <UL>
+              <LI>Add the 'Object Type' rollout to the GLUI window. A rollout is 
+              a collpasible panel. <PRE lang=c++><SPAN class=cpp-comment>//  Add the 'Object Type' Rollout Panel to the GLUI window</SPAN>
+GLUI_Rollout *ot_rollout = glui_window-&gt;add_rollout (
+    <SPAN class=cpp-string>"Object Type"</SPAN>);</PRE>
+              <LI>Add a radio group to the 'Object Type' panel. A radio group is 
+              a collection of related radio buttons. <PRE lang=c++><SPAN class=cpp-comment>//  Id of the selcted radio button</SPAN>
+int radiogroup_item_id = 0;
+    
+<SPAN class=cpp-comment>//  Create radio button group</SPAN>
+GLUI_RadioGroup *ot_group = glui_window-&gt;add_radiogroup_to_panel (
+    ot_panel, 
+    &amp;radiogroup_item_id, OBJECTYPE_RADIOGROUP, glui_callback);</PRE>
+              <LI>Add the radio buttons representing object types to the group. 
+              Radio buttons are used to handle mutually exclusive options, and 
+              have no meaning if they are not added to a radio group. Radio 
+              buttons are assigned a number in the order in which they are added 
+              to the group, beginning with zero. The currently selected button 
+              can be determined with 
+              <CODE>GLUI_RadioGroup::get_int_val()</CODE>, or set with 
+              <CODE>GLUI_RadioGroup::set_int_val()</CODE>. <PRE lang=c++><SPAN class=cpp-comment>//  Add the radio buttons to the radio group</SPAN>
+glui_window-&gt;add_radiobutton_to_group( ot_group, <SPAN class=cpp-string>"Cube"</SPAN> );
+glui_window-&gt;add_radiobutton_to_group( ot_group, <SPAN class=cpp-string>"Sphere"</SPAN> );
+glui_window-&gt;add_radiobutton_to_group( ot_group, <SPAN class=cpp-string>"Cone"</SPAN> );
+glui_window-&gt;add_radiobutton_to_group( ot_group, <SPAN class=cpp-string>"Torus"</SPAN> );
+glui_window-&gt;add_radiobutton_to_group( ot_group, <SPAN class=cpp-string>"Dodecahedron"</SPAN> );
+glui_window-&gt;add_radiobutton_to_group( ot_group, <SPAN class=cpp-string>"Octahedron"</SPAN> );
+glui_window-&gt;add_radiobutton_to_group( ot_group, <SPAN class=cpp-string>"Tetrahedron"</SPAN> );
+glui_window-&gt;add_radiobutton_to_group( ot_group, <SPAN class=cpp-string>"Icosahedron"</SPAN> );
+glui_window-&gt;add_radiobutton_to_group( ot_group, <SPAN class=cpp-string>"Teapot"</SPAN> );</PRE>
+              <P>Based on the radio button selected and the wireframe check box 
+              state, we need to display the right GLUT geometric shape. </P><PRE lang=c++><SPAN class=cpp-comment>//  The different GLUT shapes</SPAN>
+enum GLUT_SHAPES
+{
+    GLUT_WIRE_CUBE = 0,
+    GLUT_SOLID_CUBE,
+    GLUT_WIRE_SPHERE,
+    GLUT_SOLID_SPHERE,
+    GLUT_WIRE_CONE,
+    GLUT_SOLID_CONE,
+    GLUT_WIRE_TORUS,
+    GLUT_SOLID_TORUS,
+    GLUT_WIRE_DODECAHEDRON,
+    GLUT_SOLID_DODECAHEDRON,
+    GLUT_WIRE_OCTAHEDRON,
+    GLUT_SOLID_OCTAHEDRON,
+    GLUT_WIRE_TETRAHEDRON,
+    GLUT_SOLID_TETRAHEDRON,
+    GLUT_WIRE_ICOSAHEDRON,
+    GLUT_SOLID_ICOSAHEDRON,
+    GLUT_WIRE_TEAPOT,
+    GLUT_SOLID_TEAPOT
+};
+<SPAN class=cpp-comment>//  Get the id of the selected object</SPAN>
+int selected_object = (radiogroup_item_id * 2) + 1 - wireframe;
+
+switch (selected_object)
+{
+    <SPAN class=cpp-comment>//  draw glut wire cube</SPAN>
+    case GLUT_WIRE_CUBE:
+        
+        glutWireCube (0.5);
+
+        break;
+    <SPAN class=cpp-comment>//  draw glut solid cube</SPAN>
+    case GLUT_SOLID_CUBE:
+        
+        glutSolidCube (0.5);
+
+        break;
+    <SPAN class=cpp-comment>//  draw glut wire sphere</SPAN>
+    case GLUT_WIRE_SPHERE:
+
+        glutWireSphere (0.5, 50, 50);
+
+        break;
+    <SPAN class=cpp-comment>//  draw glut solid sphere</SPAN>
+    case GLUT_SOLID_SPHERE:
+
+        glutSolidSphere (0.5, 50, 50);
+
+        break;
+    <SPAN class=cpp-comment>//  and so on...</SPAN>
+}</PRE>
+              <P>For example, let's say that the wireframe checkbox is checked 
+              and the Teapot radio button is clicked. Then, the<CODE> 
+              wireframe</CODE> live variable would be 1 since the check box is 
+              checked. The <CODE>radiogroup_item_id</CODE> value would be 8, 
+              which is the id of the Teapot radio button. Thus, the selected 
+              object would be calculated as follows: </P><PRE lang=c++>selected_object = (8 * 2) + 1 - 1 = 16.</PRE>
+              <P>where 16 is the same as <CODE>GLUT_WIRE_TEAPOT</CODE>, and thus 
+              the following code segment would be executed to draw the GLUT wire 
+              teapot. </P><PRE lang=c++>glutWireTeapot (0.5);</PRE>
+              <P>For more information about the GLUT geometric shapes, you may 
+              check the <A 
+              href="http://www.codeproject.com/opengl/GLUT_Geometric_Shapes.asp">GLUT 
+              Geometric Shapes</A> article. </P></LI></UL>
+            <H3>Adding Transformation</H3><IMG height=243 
+            alt="GLUI Transformatoin Panel" 
+            src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_18.jpg" 
+            width=227> 
+            <UL>
+              <LI>Add the transformation panel to the GLUI window. <PRE lang=c++><SPAN class=cpp-comment>// Add the 'Transformation' Panel to the GLUI window</SPAN>
+GLUI_Panel *transformation_panel = glui_window-&gt;add_panel (
+    <SPAN class=cpp-string>"Transformation"</SPAN>);</PRE>
+              <LI>Add a panel to the 'Transformation' Panel. This panel is 
+              without a label and is used to hold together the translation 
+              controls. <PRE lang=c++><SPAN class=cpp-comment>//  Create transformation panel 1 that will contain the Translation </SPAN>
+<SPAN class=cpp-comment>//  controls</SPAN>
+GLUI_Panel *transformation_panel1 = glui_window-&gt;add_panel_to_panel (
+    transformation_panel, <SPAN class=cpp-string>""</SPAN>);</PRE>
+              <LI>Add the XY Translation control to transformation panel 1 
+              above. The translation control allows the user to change the X, Y, 
+              or Z position of objects drawn on the window. The rate of change 
+              of translation can be varied by holding down SHIFT for fast 
+              movement (100 times faster), or CTRL for slow movement (100 times 
+              slower). The four types of translation controls are shown below. 
+              When using the XY control, movement can be restricted to a single 
+              axis (either X or Y) by holding down ALT and clicking on either 
+              the horizontal or the vertical arrows. <BR><BR>
+              <TABLE class=articletable width="100%">
+                <TBODY>
+                <TR>
+                  <TD>
+                    <DIV align=center><IMG height=80 
+                    alt="GLUI Translation Control XY" 
+                    src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_12.jpg" 
+                    width=100></DIV></TD>
+                  <TD>
+                    <DIV align=center><IMG height=79 
+                    alt="GLUI Translation Control X" 
+                    src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_13.jpg" 
+                    width=100></DIV></TD>
+                  <TD>
+                    <DIV align=center><IMG height=81 
+                    alt="GLUI Translation Control Y" 
+                    src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_14.jpg" 
+                    width=100></DIV></TD>
+                  <TD>
+                    <DIV align=center><IMG height=77 
+                    alt="GLUI Translation Control Z" 
+                    src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_15.jpg" 
+                    width=100></DIV></TD></TR>
+                <TR>
+                  <TD>
+                    <DIV align=center>GLUI_TRANSLATION_XY</DIV></TD>
+                  <TD>
+                    <DIV align=center>GLUI_TRANSLATION_X</DIV></TD>
+                  <TD>
+                    <DIV align=center>GLUI_TRANSLATION_Y</DIV></TD>
+                  <TD>
+                    <DIV 
+              align=center>GLUI_TRANSLATION_Z</DIV></TD></TR></TBODY></TABLE><BR>In 
+              order to add the XY translation control, we execute the following 
+              code segment: <PRE lang=c++><SPAN class=cpp-comment>//  Translation XY Live Variable</SPAN>
+float translate_xy[2] = {0, 0};
+    
+<SPAN class=cpp-comment>//  Add the xy translation control</SPAN>
+GLUI_Translation *translation_xy = glui_window-&gt;add_translation_to_panel(
+    transformation_panel1, <SPAN class=cpp-string>"Translation XY"</SPAN>, 
+    GLUI_TRANSLATION_XY, translate_xy, 
+    TRANSLATION_XY, glui_callback );
+<SPAN class=cpp-comment>//  Set the translation speed</SPAN>
+translation_xy-&gt;set_speed( 0.005 );</PRE>
+              <P>The first paramter of the <CODE>add_translation_to_panel</CODE> 
+              is the panel to which we want to add the translation control. The 
+              second parameter is the name of the translation control. The third 
+              parameter represents the type of the translation, which could be 
+              any of <CODE>GLUI_TRANSLATION_XY</CODE>, 
+              <CODE>GLUI_TRANSLATION_X</CODE>, <CODE>GLUI_TRANSLATION_Y</CODE>, 
+              or <CODE>GLUI_TRANSLATION_Z</CODE>. The forth parameter is the 
+              live variable used to track the x, y, or z coordinates being 
+              changed. The fifth paramter represents the ID of the control as it 
+              gets passed to the <CODE>callback</CODE> function, which is 
+              specified in the sixth parameter. </P>
+              <P>The <CODE>set_speed</CODE> method allows us to adjust the speed 
+              of the translation control in response to user mouse movements. 
+              </P>
+              <LI>Add invisible column to transformation panel 1 in order to 
+              place the XY and Z translation controls horizontally. <PRE lang=c++><SPAN class=cpp-comment>//  Add column, but don't draw it</SPAN>
+glui_window-&gt;add_column_to_panel (transformation_panel1, <STRONG>false</STRONG>);</PRE>
+              <LI>Add the <EM>Z translation control</EM> to transformation panel 
+              1. <PRE lang=c++><SPAN class=cpp-comment>//  Translation Z Live Variable</SPAN>
+
+float translate_z = 0;
+    
+<SPAN class=cpp-comment>//  Add the z translation control</SPAN>
+GLUI_Translation *translation_z = glui_window-&gt;add_translation_to_panel (
+    transformation_panel1, <SPAN class=cpp-string>"Translation Z"</SPAN>, 
+    GLUI_TRANSLATION_Z, &amp;translate_z, 
+    TRANSLATION_Z, glui_callback );
+<SPAN class=cpp-comment>//  Set the translation speed</SPAN>
+translation_z-&gt;set_speed( 0.005 );</PRE>
+              <P>In order to have our objects translated whenever the user moves 
+              with the translation control, we need to apply the translation to 
+              the matrix on top of the model stack before we display our object. 
+              This is done using the <CODE>glTranslate</CODE> OpenGL function as 
+              follows: </P><PRE lang=c++><SPAN class=cpp-comment>//  Apply the translation</SPAN>
+glTranslatef (translate_xy[0], translate_xy[1], -translate_z);</PRE>
+              <LI>Create transformation panel 2 and add to the main 
+              'Transformation' Panel. <PRE lang=c++><SPAN class=cpp-comment>//  Create transformation panel 2 that will contain the rotation and </SPAN>
+<SPAN class=cpp-comment>//  spinner controls</SPAN>
+GLUI_Panel *transformation_panel2 = glui_window-&gt;add_panel_to_panel (
+    transformation_panel, <SPAN class=cpp-string>""</SPAN>);</PRE>
+              <LI>Add the rotation control to the transformation panel 2. <BR><PRE lang=c++><SPAN class=cpp-comment>//  Rotation Matrix Live Variable Array (Initialize as Identity Matrix)</SPAN>
+float rotation_matrix[16] = { 1.0, 0.0, 0.0, 0.0, 
+                              0.0, 1.0, 0.0, 0.0,
+                              0.0, 0.0, 1.0, 0.0, 
+                              0.0, 0.0, 0.0, 1.0 };
+<SPAN class=cpp-comment>//  Add the rotation control</SPAN>
+glui_window-&gt;add_rotation_to_panel (transformation_panel2, 
+    <SPAN class=cpp-string>"Rotation"</SPAN>, rotation_matrix, ROTATION, glui_callback);</PRE>
+              <P>The <CODE>ROTATION</CODE> is a constant representing the id of 
+              the rotation control, which will be sent to the callback function 
+              whenever the user rotates the archball. The 
+              <CODE>rotation_matrix</CODE> is the live variable for the rotation 
+              control and is automatically updated whenever the archball is 
+              rotated. The <CODE>rotation_matrix</CODE> represents the matrix 
+              that will cause rotation when multiplied to the current matrix at 
+              the top of our model view stack. To cause our object to rotate, we 
+              must multiply the <CODE>rotation_matrix</CODE> by the current 
+              matrix before our object gets displayed. This is done as follows: 
+              </P><PRE lang=c++><SPAN class=cpp-comment>//  Apply the rotation matrix</SPAN>
+glMultMatrixf (rotation_matrix);</PRE>
+              <P>The rotation control can be constrained to horizontal-only 
+              movement by holding the CTRL key, or to vertical rotation by 
+              holding the ALT key.</P><IMG height=83 alt="GLUI Rotation Control" 
+              src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_16.jpg" 
+              width=88> 
+              <LI>Add a separator. <PRE lang=c++><SPAN class=cpp-comment>//  Add separator</SPAN>
+glui_window-&gt;add_separator_to_panel (transformation_panel2);</PRE>
+              <LI>Add a <EM>spinner</EM> to allow for scaling our object. The 
+              spinner is added to transformation panel 2, and it is named 
+              "Scale". <PRE lang=c++><SPAN class=cpp-comment>//  Add the scale spinner</SPAN>
+GLUI_Spinner *spinner = glui_window-&gt;add_spinner_to_panel (
+    transformation_panel2, <SPAN class=cpp-string>"Scale"</SPAN>, GLUI_SPINNER_FLOAT, 
+    &amp;scale, SCALE_SPINNER, glui_callback);
+<SPAN class=cpp-comment>//  Set the limits for the spinner</SPAN>
+spinner-&gt;set_float_limits ( -4.0, 4.0 );</PRE>
+              <P>The spinner is an integer or floating point editable text box 
+              with two attached arrows, which increases or descreases the 
+              current value of the control. The rate at which the spinner 
+              changes can be controlled using the <CODE>set_speed</CODE> 
+              function. Also, one can hold SHIFT while initially clicking an 
+              arrow to increase the step amount by a factor of 100, or CONTROL 
+              to decrease the step amount to 1/100th its usual value. The data 
+              type of the spinner can be either <CODE>GLUI_SPINNER_INT</CODE> or 
+              <CODE>GLUI_SPINNER_FLOAT</CODE>, and it is passed as the third 
+              parameter to the <CODE>add_spinner_to_panel</CODE> method. The 
+              live variable could be a float or int data type, based on the 
+              selected data type of the control. The <CODE>SCALE_SPINNER</CODE> 
+              is the ID of the spinner control, which would be passed to the 
+              <CODE>glui_callback</CODE> function whenever the user manipulates 
+              the spinner control.</P><IMG height=53 alt="GLUI Spinner" 
+              src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_17.jpg" 
+              width=123> 
+              <P>We can use the <CODE>set_float_limits</CODE> and 
+              <CODE>set_int_limits</CODE> methods to set the upper and lower 
+              limits on the integer or float values that an editable text box 
+              can accept. </P>
+              <P>In order for our value in the spinner to affect the scaling of 
+              our object, we need to use the OpenGL <CODE>glScalef</CODE> 
+              function to apply the scaling on the object before it gets drawn: 
+              </P><PRE lang=c++><SPAN class=cpp-comment>//  Apply the scaling</SPAN>
+glScalef (scale, scale, scale);</PRE></LI></UL>
+            <H3>Adding Quit Button</H3><IMG height=34 alt="GLUI Quit Button" 
+            src="GLUI Window Template - OpenGL_archivos/GLUI_Window_Template_19.jpg" 
+            width=116> 
+            <P>Finally, after adding all of the above controls, we add the Quit 
+            button as follows: </P><PRE lang=c++><SPAN class=cpp-comment>//  Add the Quit Button</SPAN>
+glui_window-&gt;add_button (<SPAN class=cpp-string>"Quit"</SPAN>, QUIT_BUTTON, glui_callback);</PRE>
+            <P>When the Quit button is clicked, the <CODE>glui_callback</CODE> 
+            function is executed with <CODE>QUIT_BUTTON</CODE> ID as it's 
+            parameter and cause the program to exit: </P><PRE lang=c++><SPAN class=cpp-comment>//  Quit Button clicked</SPAN>
+case QUIT_BUTTON:
+    printf (<SPAN class=cpp-string>"Quit Button clicked... Exit!\n"</SPAN>);
+
+    exit (1);
+
+break;</PRE>
+            <H3>7- Merge GLUT &amp; GLUI</H3>
+            <P>After creating the GLUI window and adding controls to it, we need 
+            to associate it with the <EM>main graphics window</EM> as 
+            follows:</P><PRE lang=c++>glui_window-&gt;set_main_gfx_window (main_window);</PRE>
+            <P>When a control in the GLUI window changes value, a redisplay 
+            request will be sent to this main graphics window.</P>
+            <H3>8- Main Event Loop </H3>
+            <P>Invoke the standard GLUT<EM> main event loop</EM>:</P><PRE lang=c++>glutMainLoop();</PRE>
+            <H2>Conclusion</H2>
+            <P>I think this article can help significantly in creating an OpenGL 
+            application with graphical user controls, and at the same time, the 
+            template can be used to save lots of copy and paste from old 
+            projects or the Internet.</P>
+            <P>In case you find this template useful or have suggestions, please 
+            let me know.</P>
+            <H2>References</H2>
+            <UL>
+              <LI><A href="http://www.opengl.org/documentation/blue_book/">The 
+              OpenGL Reference Manual - The Bluebook</A> 
+              <LI><A href="http://www.opengl.org/documentation/red_book/">The 
+              OpenGL Programming Guide - The Redbook</A> 
+              <LI><A 
+              href="http://www.opengl.org/documentation/specs/glut/spec3/spec3.html">GLUT 
+              API Version 3 Reference Manual</A> 
+              <LI><A 
+              href="http://www.nigels.com/glt/glui/glui_manual_v2_beta.pdf">GLUI 
+              Version 2.0 Manual </A></LI></UL>
+            <H2>Revision History</H2>
+            <P>30/08/2007:</P>
+            <UL>
+              <LI>Deleted and reposted at author's request </LI></UL>
+            <P>16/07/2007:</P>
+            <UL>
+              <LI>Modified article to meet criteria specified in <A 
+              href="http://www.codeproject.com/scrapbook/whatisagoodarticle.asp">"A 
+              Guide To Writing Articles For Code Project"</A> by Marc Clifton 
+              <LI>Add more controls 
+              <LI>Notes difference between GLUI and GLUT events by placing 
+              'GLUT' or 'GLUI' in front of a message at the command prompt. 
+              <LI>Added references </LI></UL>
+            <P>21/07/2005:</P>
+            <UL>
+              <LI>Original Article </LI></UL><!-- Article Ends --></DIV></SPAN>
+            <SCRIPT src="GLUI Window Template - OpenGL_archivos/togglePre.js" 
+            type=text/javascript></SCRIPT>
+
+            <H2>About Ali BaderEddin</H2>
+            <DIV style="OVERFLOW: hidden">
+            <TABLE border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText noWrap><IMG 
+                  src="GLUI Window Template - OpenGL_archivos/{DEA67C58-79A5-4FC1-BD8A-456A63203F6A}.gif"><BR></TD>
+                <TD class=smallText>Ali has more than 4 years of experience in 
+                  designing and developing software applications. He started out 
+                  as a technical consultant in the supply chain industry and was 
+                  responsible of designing and developing software requirements 
+                  in addition to delivering integration designs and technical 
+                  trainings.<BR><BR>He got the 6th position and the “Extreme 
+                  Programmers” title at “The Arab and North African ACM 
+                  Programming Competition” (2004-2005). His computer interests 
+                  include Algorithms, Low Level Graphics, Game Programming and 
+                  Scientific Visualization.<BR><BR>Ali currently lives in 
+                  Lebanon. He has traveled to UAE, Kuwait, KSA, Syria, Gabon, 
+                  Afghanistan, and China. He plans to move to the U.S. where 
+                  software development can get more challenging.<BR><BR>His 
+                  hobbies are reading, gaming, science, swimming, and seeking 
+                  adventure. You may contact him at ali_badereddin at yahoo dot 
+                  com.<BR>
+                  <P class=smallText>Click <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=2040670">here</A> 
+                  to view Ali BaderEddin's online 
+            profile.</P></TD></TR></TBODY></TABLE></DIV><BR>
+            <TABLE cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%">
+                  <H2>Other popular OpenGL articles:</H2>
+                  <UL>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/wrl_viewer.asp">A 
+                    small VRML viewer using OpenGL and MFC</A>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/ntgraph3d_atl.asp">3D 
+                    Graph ActiveX Control</A>
+                    <DIV class=smallText>An ATL/STL ActiveX control based on 
+                    OpenGL library for 3D data visualization</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/glexport.asp">Achieving 
+                    PostScript and Wmf outputs for OpenGL</A>
+                    <DIV class=smallText>This article explains how to generate 
+                    resolution independent versions of 3D meshes rendered by 
+                    OpenGL/MFC programs, i.e. how to export the rendering 
+                    results to vectorial formats such as encapsulated postscript 
+                    (EPS) and Windows enhanced metafile (EMF) formats. The main 
+                    goal consists of being able to</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/opengl/oglwiz.asp">OpenGL 
+                    Win32 AppWizard</A>
+                    <DIV class=smallText>This Custom AppWizard for VC++ 6.0 or 
+                    VC++.NET creates an OpenGL enabled Win32 application 
+                    suitable for demos and simple games.</DIV></LI></UL></TD>
+                <TD width=360>
+                  <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=4105&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2Fsmiling%5Fgh%5Fmainsoft%5F300x250a%2Egif&C=False&id=4105&cb=4842994\" alt=\"Code .NET / Build Java / Run Linux\" border=0 width=300 height=250></a>");</SCRIPT>
+                </TD></TR></TBODY></TABLE>
+            <FORM action=/script/rating/code/app/insert_vote.asp 
+            method=post><INPUT type=hidden 
+            value=GLUI_Window_Template/opengl8/30/2007 name=vote_name> <INPUT 
+            type=hidden value=/opengl/GLUI_Window_Template.asp name=goal> 
+            <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=4 width="100%" 
+                  bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=smalltext vAlign=center>[<A 
+                        href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp#__top">Top</A>]</TD>
+                      <TD vAlign=center noWrap align=right><I><B>Rate this 
+                        Article for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <I>Poor</I><INPUT type=radio value=1 name=rate><INPUT 
+                        type=radio value=2 name=rate><INPUT type=radio value=3 
+                        name=rate><INPUT type=radio value=4 name=rate><INPUT 
+                        type=radio value=5 
+name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+            <CENTER>
+            <DIV style="MARGIN: 10px"><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=3025&cb=4842983\" border=0 frameborder=0 scrolling=no width=468 height=60></IFRAME>");</SCRIPT>
+            </SPAN></DIV></CENTER><A name=__comments></A>
+            <SCRIPT language=JavaScript>
+
+function MsgVoteForm(MemberID, MsgID)
+{
+	document.write("<span id=\"MVF" + MsgID + "\">");
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+	{
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString());
+		document.write("' onclick='return RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ", ");
+		document.write(i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	}
+	document.write(" (out of 5)");
+	document.writeln("</span>");
+	
+	
+	document.write("<br />Report as <a href='#xx" + MsgID.toString() + "xx' title='Mark as Spam' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-1)'>Spam</a> or ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' title='Mark as Abuse' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-2)'>Abuse</a>");
+	
+}
+
+function RetypeForm(MemberID, MsgID)
+{
+	var types = [
+				 {pic:'news_general.gif',  id: 1},
+	             {pic:'news_info.gif',     id: 2},
+	             {pic:'news_question.gif', id: 4},
+	             {pic:'news_answer.gif',   id: 8},
+	             {pic:'news_game.gif',     id: 16},
+	             {pic:'news_spam.gif',     id: 32}
+	            ];
+	
+	document.write("<span id=\"RTF" + MsgID + "\">");
+	for (var i=0;i<types.length;i++)
+	{
+		document.write("<a href='/script/comments/retype?msg=" + MsgID.toString());
+		document.write("&mid=" + MemberID.toString() + "&type=" + types[i].id + "'>");
+		document.write("<img border=0 src='/script/images/" + types[i].pic + "'></a><br />");
+	}
+	document.writeln("</span>");
+}
+
+function ReportMsg(userid, msgid, score)
+{
+	if (confirm("Are you sure you want to report this message?") == true)
+		return RateMsg(userid, msgid, score);
+	else return false;
+}
+
+
+function RateMsg(userid, msgid, score)
+{
+
+   var req = new ActiveXObject("Msxml2.XMLHTTP"); 
+
+   req.onreadystatechange = function()
+   {
+      if ( req.readyState == 4 )
+      {
+         if ( req.status == 200 )
+         {
+         	var respText = req.responseText;
+         	var re = new RegExp("\<div\>([^\<]*)\</div\>", "g");
+         	var match = re.exec(respText);
+         	status.innerHTML = "<b>" + (match)?match[1]:"An error occured" + "</b>";
+         }
+         else
+         {
+            status.innerHTML = "<b style='color:red'>Failed!" + req.statusText + "</b>";
+         }
+      }
+   }
+   
+   var status = document.getElementById("MVF" + msgid);
+   if (!status) return;  // should never happen...   
+   status.innerHTML = "<b style='color:green'>Voting...</b>";
+   
+   var strAction = "/script/comments/vote.asp?js=1&user="+userid+"&msg="+msgid+"&score="+score;
+   req.open("GET", strAction, true);
+   req.send(null);
+   return false;
+}
+
+</SCRIPT>
+
+            <SCRIPT language=JavaScript>
+var Selected = "";
+
+var AdTime = new Date();
+
+
+// Ensures the expanded message appears reasonably close to where 
+// it should appear: on screen, and if possible, under the mouse cursor.
+function SwitchMessage(e)
+{
+   if ( !e ) e = window.event;
+   var target = e.target ? e.target : e.srcElement;
+
+   // is it a post?
+   while ( target && target.id != 'DynMessLink' )
+      target = target.parentNode;
+   if ( !target || target.id != 'DynMessLink' )
+      return;
+
+   if (Selected)
+   {
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+         body.style.display = 'none';
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#FEF9E7';
+   }
+
+   if (Selected == target.name) // just collapse
+      Selected="";
+   else
+   {
+      Selected = target.name;
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+      {
+         if (body.style.display=='none')
+            body.style.display='';
+         else
+            body.style.display = 'none';
+      }
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#99CCFF';
+
+      if ( body && head && body.style.display != 'none' )
+      {
+         // the bit that keeps the post on-screen and under the cursor
+         //var dif = (getRealPos(head, "Top") + head.offsetHeight/2) - (document.body.scrollTop+e.clientY);
+         //document.body.scrollTop += dif;
+         document.body.scrollTop = getRealPos(head, "Top") - document.body.clientHeight/10;
+         EnsureMessageVisible(target.name, true);
+      }
+   }
+
+   if ( e.preventDefault )
+      e.preventDefault();
+   else
+      e.returnValue = false;
+   return false;
+}
+
+// does its best to make a message visible on-screen (vs. scrolled off somewhere).
+function EnsureMessageVisible(msgID, bShowTop) {
+   var msgHeader = document.getElementById(msgID + "_h0");
+   var msgBody = document.getElementById(msgID + "_h1");
+
+   // determine scroll position of top and bottom
+   var scrollContainer = document.body;
+   var top = getRealPos(msgHeader, 'Top');
+   var bottom = getRealPos(msgBody, 'Top') + msgBody.offsetHeight;
+
+   // if not already visible, scroll to make it so
+   if ( scrollContainer.scrollTop > top && !bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+   if ( scrollContainer.scrollTop+scrollContainer.clientHeight < bottom )
+      scrollContainer.scrollTop = bottom-scrollContainer.clientHeight;
+   if ( scrollContainer.scrollTop > top && bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+}
+
+// utility
+function getRealPos(i,which)
+{
+   iPos = 0
+   while (i!=null)
+   {
+      iPos += i["offset" + which];
+      i = i.offsetParent;
+   }
+   return iPos
+}
+
+
+</SCRIPT>
+
+            <DIV id=_MessageBoard onclick=SwitchMessage(event)>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+                  bgColor=#ff9900 border=0>
+                    <FORM 
+                    action=/script/comments/app/do_filtermessages.asp?main=/opengl/GLUI_Window_Template.asp&amp;df=100&amp;forumid=454635 
+                    method=post>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=3 width="100%" 
+                        bgColor=white border=0>
+                          <TBODY>
+                          <TR bgColor=#fbedbb>
+                            <TD class=smalltext noWrap><A 
+                              href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                              height=16 
+                              src="GLUI Window Template - OpenGL_archivos/forum_faq.gif" 
+                              width=16 align=absMiddle border=0> 
+                            <B>FAQ</B></A>&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>Message score threshold <SELECT 
+                              class=smalltext size=1 name=noise><OPTION 
+                                value=1>1.0</OPTION> <OPTION 
+                                value=2>2.0</OPTION> <OPTION value=3 
+                                selected>3.0</OPTION> <OPTION 
+                                value=4>4.0</OPTION> <OPTION 
+                              value=5>5.0</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=center noWrap align=right 
+                            colSpan=2><A 
+                              href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=454635"><IMG 
+                              height=15 
+                              src="GLUI Window Template - OpenGL_archivos/forum_search.gif" 
+                              width=16 border=0> Search comments</A> &nbsp;</TD>
+                            <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+                          <TR bgColor=#ff9900>
+                            <TD width="100%">&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>View <SELECT class=smalltext size=1 
+                              name=expand><OPTION value=0>Normal 
+                                (slow)</OPTION> <OPTION value=2>Preview 
+                                (slow)</OPTION> <OPTION value=5 selected>Message 
+                                View</OPTION> <OPTION value=6>Topic 
+                                View</OPTION> <OPTION value=1>Thread 
+                                View</OPTION> <OPTION 
+                              value=3>Expanded</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap>Per page 
+                              <SELECT class=smalltext size=1 
+                                name=perpage><OPTION value=10>10</OPTION> 
+                                <OPTION value=25 selected>25</OPTION> <OPTION 
+                                value=50>50</OPTION></SELECT></TD>
+                            <TD 
+                    colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+                    <TR bgColor=#fbedbb>
+                      <TD><A name=xx0xx></A>
+                        <TABLE cellPadding=2 width="100%" bgColor=#fbedbb 
+                        border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle><IMG height=16 
+                              src="GLUI Window Template - OpenGL_archivos/forum_newmsg.gif" 
+                              width=16 align=top border=0><A class=HoverLink 
+                              title="Add a new message to the discussions" 
+                              href="http://www.codeproject.com/script/comments/user_new.asp?main=/opengl/GLUI_Window_Template.asp&amp;df=100&amp;forumid=454635" 
+                              target=_top name=HoverNL><B>New Message</B></A></TD>
+                            <TD class=messagetitle>Msgs 1 to 3 of 3 (Total: 3) 
+                              (<A 
+                              href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?df=100&amp;forumid=454635">Refresh</A>)</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=white>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD class=messagetitle 
+                                width="100%">Subject&nbsp;</TD>
+                                <TD class=messagetitle noWrap 
+                                width=140>Author&nbsp;</TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT 
+                                class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="GLUI Window Template - OpenGL_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2206696_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2206696xx></A><IMG 
+                                src="GLUI Window Template - OpenGL_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle style="COLOR: #aa0000" 
+                                width="100%"><A class=messagetitle 
+                                id=DynMessLink style="COLOR: #aa0000" 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?df=100&amp;forumid=454635&amp;select=2206696#xx2206696xx" 
+                                name=2206696><B>Could not Download DLL 
+                                [modified]</B></A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3325267"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="GLUI Window Template - OpenGL_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT class=messagetitle 
+                                style="COLOR: #aa0000"><B>Ranjan.D</B>&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle 
+                                style="COLOR: #aa0000"><B>20:48 30 Aug 
+                                '07</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2206696_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG 
+                                src="GLUI Window Template - OpenGL_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Hi,<BR><BR>Did u check all 
+                                downloads after loading the Project, I just 
+                                clicked on Download<BR>dll's - 831.2Kb , It was 
+                                a zip file which is of 127Kb(After Downloading). 
+                                When I tried to extract I was getting an error 
+                                message <B>"The Compressed (Zipped ) Folder is 
+                                invalid / corrupted".</B><BR><BR>I also tried 
+                                downloading with this link which you have 
+                                mentioned "You can find all the DLL files in the 
+                                attached zip file GLUI_Window_Template_dll.zip 
+                                under Visual C++\dll", I was getting an error 
+                                message <B>"File Not Found"</B>. <BR><BR>After 
+                                downloading "Download demo project - 85.0 KB" , 
+                                I clicked on the GLUI_Window_Template.exe , got 
+                                an error message <B>"An application has failed 
+                                becuase glut32.dll was not found. Re-install the 
+                                application may fix this 
+                                problem."</B><BR><BR><IMG 
+                                src="GLUI Window Template - OpenGL_archivos/smiley_cry.gif" 
+                                align=absMiddle> <BR><BR>
+                                <DIV 
+                                class=ForumSig>Ranjan.D</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUI_Window_Template.asp&amp;df=100&amp;forumid=454635&amp;select=2206696">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUI_Window_Template.asp&amp;df=100&amp;forumid=454635&amp;select=2206696">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?df=100&amp;tid=2206696&amp;forumid=454635&amp;select=2206696#xx2206696xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?msg=2206696#xx2206696xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?msg=2206696#xx2206696xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 5.0 (1 
+                                vote).
+                                <SCRIPT language=Javascript>MsgVoteForm(3325267,2206696);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="GLUI Window Template - OpenGL_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2206924_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2206924xx></A><IMG 
+                                height=1 
+                                src="GLUI Window Template - OpenGL_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="GLUI Window Template - OpenGL_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?df=100&amp;forumid=454635&amp;select=2206924#xx2206924xx" 
+                                name=2206924>Re: Could not Download DLL</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=2040670"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="GLUI Window Template - OpenGL_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>Ali 
+                                BaderEddin&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>2:46 31 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2206924_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="GLUI Window Template - OpenGL_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="GLUI Window Template - OpenGL_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Ranjan,<BR><BR>Thanks a lot 
+                                for mentioning this...<BR><BR>First, you are 
+                                getting this error "An application has failed 
+                                because glut32.dll was not found. Re-install the 
+                                application may fix this problem." because you 
+                                were not able to download the dlls.<BR><BR>I 
+                                have updated the links and re-uploaded the zip 
+                                file. I will let you know once the article gets 
+                                updated on CodeProject. <BR><BR>
+                                <DIV class=ForumSig>Best Regards,<BR>Ali 
+                                B,</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUI_Window_Template.asp&amp;df=100&amp;forumid=454635&amp;select=2206924">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUI_Window_Template.asp&amp;df=100&amp;forumid=454635&amp;select=2206924">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?df=100&amp;tid=2206696&amp;forumid=454635&amp;select=2206924#xx2206924xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?msg=2206924#xx2206924xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?msg=2206696#xx2206696xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(2040670,2206924);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="GLUI Window Template - OpenGL_archivos/t.gif" 
+                              width=1 border=0></TD></TR>
+                          <TR id=2211889_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2211889xx></A><IMG 
+                                height=1 
+                                src="GLUI Window Template - OpenGL_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="GLUI Window Template - OpenGL_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?df=100&amp;forumid=454635&amp;select=2211889#xx2211889xx" 
+                                name=2211889>Re: Could not Download DLL</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=2040670"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="GLUI Window Template - OpenGL_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>Ali 
+                                BaderEddin&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>3hrs 28mins 
+                                ago&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2211889_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="GLUI Window Template - OpenGL_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="GLUI Window Template - OpenGL_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Ranjan,<BR><BR>The links 
+                                are now updated and the dlls zip file is no 
+                                longer corrupted... You may now download them 
+                                and try.<BR><BR>Enjoy! <BR><BR>
+                                <DIV class=ForumSig>Best Regards,<BR>Ali 
+                                B,</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUI_Window_Template.asp&amp;df=100&amp;forumid=454635&amp;select=2211889">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUI_Window_Template.asp&amp;df=100&amp;forumid=454635&amp;select=2211889">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?df=100&amp;tid=2206696&amp;forumid=454635&amp;select=2211889#xx2211889xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?msg=2211889#xx2211889xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/opengl/GLUI_Window_Template.asp?msg=2206696#xx2206696xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(2040670,2211889);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="GLUI Window Template - OpenGL_archivos/t.gif" 
+                              width=1 border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=#fbedbb>
+                      <TD>
+                        <TABLE cellPadding=2 width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle>Last Visit: 12:28 Tuesday 
+                              4th September, 2007</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+            <P class=smallText><IMG 
+            src="GLUI Window Template - OpenGL_archivos/news_general.gif" 
+            align=absMiddle> General comment &nbsp;&nbsp; <IMG 
+            src="GLUI Window Template - OpenGL_archivos/news_info.gif" 
+            align=absMiddle> News / Info &nbsp;&nbsp; <IMG 
+            src="GLUI Window Template - OpenGL_archivos/news_question.gif" 
+            align=absMiddle> Question &nbsp;&nbsp; <IMG 
+            src="GLUI Window Template - OpenGL_archivos/news_answer.gif" 
+            align=absMiddle> Answer &nbsp;&nbsp; <IMG 
+            src="GLUI Window Template - OpenGL_archivos/news_game.gif" 
+            align=absMiddle> Joke / Game &nbsp;&nbsp; <IMG 
+            src="GLUI Window Template - OpenGL_archivos/news_sticky.gif" 
+            align=absMiddle> Admin message</P><BR>
+            <TABLE cellSpacing=5 width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText>Updated: 30 Aug 2007 </TD>
+                <TD class=SmallText align=right>Article content copyright Ali 
+                  BaderEddin, 2007<BR>everything else Copyright © <A 
+                  href="mailto:webmaster@codeproject.com">CodeProject</A>, 
+                  1999-2007</A>. <BR>Web11 | <A 
+                  href="http://www.codeproject.com/info/MediaKit">Advertise on 
+                  The Code Project</A> | <A 
+                  href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <SCRIPT src="" type=text/javascript></SCRIPT>
+      <BR>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#ff9900 height=1><IMG height=1 
+            src="GLUI Window Template - OpenGL_archivos/space.gif"></TD></TR>
+        <TR>
+          <TD align=middle><FONT size=1><A 
+            href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A> • 
+            <A href="http://aspalliance.com/">ASP Alliance</A> • <A 
+            href="http://www.developerfusion.co.uk/">Developer Fusion</A> • <A 
+            href="http://www.developersdex.com/">Developersdex</A> • <A 
+            href="http://www.devguru.com/">DevGuru</A> • <A 
+            href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+            href="http://www.planet-source-code.com/">Planet Source Code</A> • 
+            <A href="http://www.tek-tips.com/">Tek-Tips Forums</A> • 
+        </FONT></TD></TR></TBODY></TABLE></CENTER></TR></TBODY></TABLE></BODY></HTML>

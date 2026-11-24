@@ -1,0 +1,453 @@
+<HTML><HEAD><TITLE>compiling with borland c++ ide</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#303030 ALINK=#FFFFFF>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070>compilation <FONT COLOR=#305080>compilation</FONT> compilation <FONT COLOR=#305080>compilation</FONT> 
+
+      compilation </FONT></NOBR></B></font><font face="Helvetica, Sans-Serif" size="4" color="#305080"><NOBR><B>compilation
+
+    compil<br>
+
+    </B></NOBR></font><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#204070">ilation</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">compilation</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> compilation
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    compilation </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">compilation<br>
+
+    </font></B></NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=2><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070> <FONT COLOR=#305080>compilation</FONT> compilation <FONT COLOR=#305080>compilation</FONT> 
+
+    compilation </FONT></NOBR></B></font><B><NOBR><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">compilation
+
+    compil</font></NOBR></B></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font></font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">ion</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">compilation</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> compilation
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">compilation</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      compilation </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">co</font> </B></NOBR></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<P><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>introduction</b>
+
+</font>The following page shows you how to create a project from within the
+
+Borland C++ development environment.&nbsp; Once the project has been created you
+
+can compile it into an executable.<br>
+
+<br>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2><TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">ion</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">compilation</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> compilation
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">compilation</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      compilation </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">co</font> </B></NOBR></TABLE>
+
+
+
+<p class="BodyText">After you've downloaded an example, unzip it to its own
+
+directory. Run the executable and watch the program at work. You might have to
+
+copy &quot;glut32.dll&quot; into the directory. Alternatively you could copy the
+
+glut dll into your WINDOWS/SYSTEM directory.
+
+<ul>
+
+  <li>
+
+    <p class="BodyText">Open the &quot;program.cpp&quot; file by double clicking
+
+    on it.</p>
+
+  </li>
+
+  <li>
+
+    <p class="BodyText">Use &quot;Select All&quot; from the edit menu and then
+
+    &quot;Copy&quot; the contents of the file to memory.</p>
+
+  </li>
+
+</ul>
+
+<p class="BodyText">&nbsp;</p>
+
+<table border="0">
+
+  <tr>
+
+    <td>
+
+      <p class="BodyText"><img src="graphics/new.gif" tppabs="http://home.clara.net/paulyg/graphics/new.gif" align="top" WIDTH="239" HEIGHT="146"></td>
+
+  </font>
+
+
+
+</font>
+
+<td>
+
+  <ul>
+
+    <li>
+
+      <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Select
+
+      &quot;new project&quot; from the speedbar. Doing so will open the target
+
+      expert</font></p>
+
+    </li>
+
+  </ul>
+
+</td>
+
+</tr>
+
+</table>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<p class="BodyText">&nbsp;
+
+<p class="BodyText"><img src="graphics/new2.gif" tppabs="http://home.clara.net/paulyg/graphics/new2.gif" WIDTH="508" HEIGHT="440"></p>
+
+<ul>
+
+  <li>
+
+    <p class="BodyText">The &quot;Target Expert&quot; will open, change the
+
+    default settings to the ones shown above</p>
+
+  </li>
+
+</ul>
+
+<table border="0">
+
+  <tr>
+
+    <td>
+
+      <p class="BodyText"><img src="graphics/new3.gif" tppabs="http://home.clara.net/paulyg/graphics/new3.gif" align="top" WIDTH="312" HEIGHT="125"></td>
+
+  </font></font>
+
+
+
+<td>
+
+  <ul>
+
+    <li>
+
+      <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">In the
+
+      project view, select these two files and delete them. As we are not
+
+      creating Windows applications, resource files are not needed</font></p>
+
+    </li>
+
+  </ul>
+
+</td>
+
+</tr>
+
+</table>
+
+<table border="0">
+
+  <tr>
+
+    <td>
+
+      <ul>
+
+        <li>
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Right
+
+          click on the .exe file and select &quot;Add node&quot; from the menu
+
+          that appears</font></p>
+
+        </li>
+
+        <li>
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">A file
+
+          window will appear and you should select the &quot;glut32.lib&quot;
+
+          file. You should have put the .lib file somewhere handy</font></p>
+
+        </li>
+
+        <li>
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">This
+
+          file is used by the compiler to link your program to glut32.dll at
+
+          runtime.</font></p>
+
+        </li>
+
+      </ul>
+
+    </td>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<td>
+
+  <p class="BodyText"><img src="graphics/new4.gif" tppabs="http://home.clara.net/paulyg/graphics/new4.gif" align="top" WIDTH="308" HEIGHT="241"></td>
+
+</tr>
+
+    </table>
+
+    <table border="0">
+
+      <tr>
+
+        <td>
+
+          <p class="BodyText"><img src="graphics/new5.gif" tppabs="http://home.clara.net/paulyg/graphics/new5.gif" WIDTH="482" HEIGHT="121"></td>
+
+      </font></font>
+
+
+
+    <td>
+
+      <ul>
+
+        <li>
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">After
+
+          you've done that your project view window should look something like
+
+          this</font></p>
+
+        </li>
+
+        <li>
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Notice
+
+          how I put the glut.lib file in the Borland &quot;lib\gl&quot;
+
+          directory. I'll always be able to find it there!</font></p>
+
+        </li>
+
+      </ul>
+
+    </td>
+
+  </tr>
+
+</table>
+
+<table border="0">
+
+  <tr>
+
+    <td>
+
+      <ul>
+
+        <li>
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Finally,
+
+          double click the .cpp file in the project view</font></p>
+
+        </li>
+
+        <li>
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">This
+
+          will open a large file edit window, like the one to the right</font></p>
+
+        </li>
+
+        <li>
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">Select
+
+          the window and paste the contents of the buffer in to it</font></p>
+
+        </li>
+
+        <li>
+
+          <p class="BodyText"><font face="Helvetica, Sans-Serif" size="2">&quot;Save
+
+          All&quot; with the file menu and compile the project!</font></p>
+
+        </li>
+
+      </ul>
+
+    </td>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<td>
+
+  <p class="BodyText"><img src="graphics/new6.gif" tppabs="http://home.clara.net/paulyg/graphics/new6.gif" WIDTH="412" HEIGHT="278"></td>
+
+</tr>
+
+    </table>
+
+    <p class="BodyText">After the project compiles to run it you MUST make sure
+
+    that glut32.dll is in the current path. You do this either by having it in
+
+    the same directory as the executable or in your WINDOWS/SYSTEM directory.</p>
+
+    <p class="BodyText">Happy experimenting!&nbsp;</font>
+
+
+
+  </p>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">ion</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">compilation</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> compilation
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">compilation</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      compilation </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">co</font> </B></NOBR></TABLE>
+
+
+
+  <P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font></BODY>

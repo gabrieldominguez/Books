@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxquerychannelrectsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxquerychannelrectsgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXQueryChannelRectSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXQueryChannelRectSGIX - returns area of frame buffer that is to be
+     resized to	match video resolution
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     int glXQueryChannelRectSGIX( Display *display,
+				  int screen,
+				  int channel,
+				  int *x,
+				  int *y,
+				  int *w,
+				  int *h )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     display  Specifies	the connection to the X	server.
+
+     screen   Specifies	the screen of the X server.
+
+     channel  Specifies	the video channel number.
+
+     x,	y, w, h
+	      The origin and size of the area of the frame buffer that is
+	      being converted to the output resolution of the video channel.
+	      (x,y) is relative	to the bottom left corner of channel as
+	      specified	by the current video combination.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXQueryChannelRectSGIX returns the area of the frame buffer that is
+     being converted to	the output resolution of channel.  This	area is	set by
+     glXChannelRectSGIX.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXQueryChannelRectSGIX is	part of	the SGIX_video_resize extension.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIX_video_resize extension is	supported only on InfiniteReality
+     systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXBindChannelToWindowSGIX, glXChannelRectSGIX, glXQueryChannelDeltasSGIX
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

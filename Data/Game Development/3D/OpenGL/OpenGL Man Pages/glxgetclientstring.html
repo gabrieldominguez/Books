@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxgetclientstring Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxgetclientstring</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXGetClientString(3G)	    OpenGL Reference - GLX	glXGetClientString(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXGetClientString	- returns a string describing the client
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     const char	* glXGetClientString( Display *dpy,
+				      int name )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy   Specifies the connection to the X server.
+
+     name  Specifies which string is returned.	One of VENDOR, VERSION,	or
+	   EXTENSIONS.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXGetClientString	returns	a string describing some aspect	of the client
+     library. The possible values for name are VENDOR, VERSION,	and
+     EXTENSIONS. If name is not	set to one of these values then	NULL is
+     returned. The format and contents of the vendor string is implementation
+     dependent.
+
+     The extensions string is null-terminated and contains a space-separated
+     list of extension names. (The extension names never contain spaces.) If
+     there are no extensions to	GLX, then the empty string is returned.
+
+     The version string	is laid	out as follows:
+
+	      &amp;lt;major_version.minor_version&gt;<space><vendor-specific info>
+
+     Both the major and	minor portions of the version number are of arbitrary
+     length.  The vendor-specific information is optional.  However, if	it is
+     present, the format and contents are implementation specific.
+
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	the GLX	version	is 1.1 or 1.0, then the	GL version must	be 1.0.
+
+     This routine only returns information about GLX extensions. Call
+     glGetString to get	a list of GL extensions.
+
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXQueryVersion, glXQueryExtensionsString,	and glXQueryServeryString.
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

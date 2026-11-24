@@ -1,0 +1,1064 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/Cabecera+Indice.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>Tutorial de Open GL. Lectura de fichero</TITLE>
+<!-- #EndEditable --> <!-- #BeginEditable "Meta" --> 
+<META CONTENT="ingenieros,informatica,ingenieria,ingeniero,informaticos,colegio,profesional,perito,peritos,auditoria,auditor,consultoria,consultor,informacion,universidad,estudiantes,estudiante,tecnico,diplomado,licenciado,diplomatura,licenciatura" NAME="KEYWORDS">
+<META CONTENT="En este sitio los ingenieros en informatica tienen un lugar de encuentro donde obtener toda la informacion relevante para su profesion. Da cabida a todos los titulados y estudiantes universitarios en informatica de cualquier grado, medio o superior." NAME="DESCRIPTION">
+<META name="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- #EndEditable --> 
+<STYLE TYPE="text/css">
+body         { color: black }
+td           { color: black }
+p            { color: black ; text-align: justify}
+a:link       { color: #330066; text-decoration: underline }
+a:visited    { color: #330066; text-decoration: underline }
+a:hover      { color: red; text-decoration: underline }
+a.smooth:link    {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:visited {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:hover   {  font-family: Verdana, Arial, Helvetica, sans-serif; color: red; font-size: 8pt; text-decoration: none}
+
+</STYLE>
+<script language="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+<!--
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+</HEAD>
+<BODY bgcolor="#FFFFFF" onLoad="MM_preloadImages('../../images/cabecera_r2_c2_f2.gif','../../images/botcab_r1_c02_f2.gif','../../images/botcab_r1_c04_f2.gif','../../images/botcab_r1_c06_f2.gif','../../images/botcab_r1_c08_f2.gif','../../images/botcab_r1_c10_f2.gif','../../images/botcab_r1_c12_f2.gif')" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE width="760" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD height="71"> <!-- #BeginLibraryItem "/Library/cabecera.lbi" --><!-- Fireworks 3.0  Dreamweaver 3.0 LBI target.  Created Tue Oct 03 00:01:17 GMT+0200 (Romance Daylight Time) 2000 -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="cabecera1.png" fwbase="cabecera.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="344" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="340" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td colspan="3"><img name="cabecera_r1_c1" src="../../images/cabecera_r1_c1.gif" width="760" height="50" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="50" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 2 -->
+   <td rowspan="2"><img name="cabecera_r2_c1" src="../../images/cabecera_r2_c1.gif" width="344" height="35" border="0"></td>
+   <td><a href="#" onMouseOut="MM_swapImgRestore();"  onMouseOver="MM_swapImage('cabecera_r2_c2','','../../images/cabecera_r2_c2_f2.gif',1)" ><img name="cabecera_r2_c2" src="../../images/cabecera_r2_c2.gif" width="76" height="16" border="0"></a></td>
+   <td rowspan="2"><img name="cabecera_r2_c3" src="../../images/cabecera_r2_c3.gif" width="340" height="35" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 3 -->
+   <td><img name="cabecera_r3_c2" src="../../images/cabecera_r3_c2.gif" width="76" height="19" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="19" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --></TD>
+  </TR>
+  <TR> 
+    <TD> <!-- #BeginLibraryItem "/Library/botcab.lbi" -->
+<SCRIPT language="JavaScript" type="text/javascript">
+<!--
+     NS4 = (document.layers);
+     IE4 = (document.all);
+    ver4 = (NS4 || IE4);
+	 IE5 = (IE4 && navigator.appVersion.indexOf("5.")!=-1);
+   isMac = (navigator.appVersion.indexOf("Mac") != -1);
+  isMenu = (NS4 || (IE4 && !isMac) || (IE5 && isMac));
+function popUp(){return};
+function popDown(){return};
+if (!ver4) event=null;
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+menuVersion = 3;
+menuWidth = 120;
+childOverlap = 1;
+childOffset = 0;
+perCentOver = null;
+secondsVisible = 0.10;
+clickStart = false;
+clickKill = false;
+fntCol = "#5C7BBC";
+fntSiz = "7";
+fntBold = true;
+fntItal = false;
+fntFam = "Verdana,Arial,Helvetica,sans-serif";
+backCol = "#FFFFFF";
+overCol = "#FFCC33";
+overFnt = "#000000";
+borWid = 1;
+borCol = "#5C7BBC";
+borSty = "solid";
+itemPad = 1;
+imgSrc = "menu/tri.gif";
+imgSiz = 10;
+separator = 0;
+separatorCol = "#5C7BBC";
+isFrames = false;
+keepHilite = true; 
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierArrays.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierMenus.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="botonescabecera.png" fwbase="botcab.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="292" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td><img name="botcab_r1_c01" src="../../images/botcab_r1_c01.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu1');"  onMouseOver="MM_swapImage('botcab_r1_c02','','../../images/botcab_r1_c02_f2.gif',1);popUp('elMenu1',event)" onClick="return false"><img name="botcab_r1_c02" src="../../images/botcab_r1_c02.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c03" src="../../images/botcab_r1_c03.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu2');"  onMouseOver="MM_swapImage('botcab_r1_c04','','../../images/botcab_r1_c04_f2.gif',1);popUp('elMenu2',event)" onClick="return false"><img name="botcab_r1_c04" src="../../images/botcab_r1_c04.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c05" src="../../images/botcab_r1_c05.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu3');"  onMouseOver="MM_swapImage('botcab_r1_c06','','../../images/botcab_r1_c06_f2.gif',1);popUp('elMenu3',event)" onClick="return false"><img name="botcab_r1_c06" src="../../images/botcab_r1_c06.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c07" src="../../images/botcab_r1_c07.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu4');"  onMouseOver="MM_swapImage('botcab_r1_c08','','../../images/botcab_r1_c08_f2.gif',1);popUp('elMenu4',event)" onClick="return false"><img name="botcab_r1_c08" src="../../images/botcab_r1_c08.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c09" src="../../images/botcab_r1_c09.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu5');"  onMouseOver="MM_swapImage('botcab_r1_c10','','../../images/botcab_r1_c10_f2.gif',1);popUp('elMenu5',event)" onClick="return false"><img name="botcab_r1_c10" src="../../images/botcab_r1_c10.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c11" src="../../images/botcab_r1_c11.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu6');"  onMouseOver="MM_swapImage('botcab_r1_c12','','../../images/botcab_r1_c12_f2.gif',1);popUp('elMenu6',event)" onClick="return false"><img name="botcab_r1_c12" src="../../images/botcab_r1_c12.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c13" src="../../images/botcab_r1_c13.gif" width="292" height="16" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --> </TD>
+  </TR>
+</TABLE>
+<!-- #BeginEditable "Region%20editable" --> 
+<TABLE width="761" border="0" cellspacing="0" cellpadding="0" name="Navegacion" height="20" bgcolor="#FFFFFF">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="2" height="3"></TD>
+    <TD><IMG src="../../images/1x1.gif" width="758" height="3"></TD>
+  </TR>
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="1" height="1" ></TD>
+    <TD><A href="http://www.ingenieroseninformatica.org/index.html" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Principal</A> 
+      <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="intro.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none"> 
+      Tutorial de OpenGL</A> <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="cap5.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Capítulo 
+      5</A> </TD>  
+  </TR>
+</TABLE>
+<DIV id="Body" style="position:absolute; width:760px; height:12495px; z-index:3; left: 0px; top: 150px; visibility: visible"> 
+  <div id="Footer" style="position:absolute; width:200px; height:20px; z-index:4; left: 0px; top: 12435px"><!-- #BeginLibraryItem "/Library/Pie de Página.lbi" -->
+<TABLE width="755" border="0" cellspacing="0" cellpadding="1">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="755" height="1"></TD>
+  </TR>
+  <TR> 
+    <TD><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1">Me interesaría 
+      informarme de cómo insertar <A href="../../publicidad.htm">publicidad</A> en 
+      esta página.</FONT></TD>
+  </TR>
+  <TR> 
+    <TD bgcolor="#330066"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">© 
+      2000 IngenierosenInformatica.org</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+      <A href="../../avisolegal.htm"><FONT color="#CCFF33">Aviso legal</FONT></A></FONT></TD>
+  </TR>
+</TABLE>
+<!-- #EndLibraryItem --></div>
+  <div id="Cuerpo" style="position:absolute; width:620px; height:850px; z-index:4; left: 90px; top: 0px; overflow: visible"> 
+    <P><!-- #BeginLibraryItem "/Library/Tabla cuerpo.lbi" --><TABLE width="610" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD><IMG alt="" border=0 height=1 width=610 src="../../images/1x1.gif"></TD>
+  </TR>
+</TABLE><!-- #EndLibraryItem --><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"></FONT> 
+    <H2><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">5. 
+      Lectura fichero(E03)</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FF9900"> 
+      </FONT></H2>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Esta aplicación 
+      lee un fichero en formato WaveFront. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">El objeto que 
+      lee en este caso es muy simple. Se ha escogido uno formado por un prisma 
+      rectangular unido a un cubo. Este objeto será dibujado en forma esqueleto. 
+      Se heredan las acciones de E02. En esta aplicación realmente no se enseñan 
+      conceptos particulares de OpenGL, sino la lectura de un determinado formato 
+      de ficheros gráficos. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Funciones añadidas 
+      en esta aplicación: </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glTranslatef( 
+          0.0, -10.0, 0.0 )</B> - Traslada la escena, según los parámetros indicados 
+          por el eje X, Y ó Z del eje de coordenadas. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glRotatef( 
+          45.0, 1.0, 1.0, 1.0 )</B> - Rota la escena según un ángulo dado en grados 
+          (primer argumento), usando como eje el definido por el vector que va 
+          desde el punto (0,0) al punto indicado en los tres últimos parámetros. 
+          </FONT></P>
+      </LI>
+    </UL>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Se utilizan 
+      estas dos funciones para mostrar mejor la figura que se quiere representar. 
+      Además de las funciones de OpenGL aquí nombradas se utilizan las funciones 
+      del fichero LoadWaveFront, así como las estructuras Polygon, y List. Ver 
+      en el c&oacute;digo fuente las declaraciones de esas estructuras y de las 
+      funciones que tienen asociadas. </FONT></P>
+    <UL>
+      <BLOCKQUOTE>
+        <P>&nbsp;</P>
+      </BLOCKQUOTE>
+    </UL>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">C&oacute;digo 
+      fuente </FONT></H3>
+    <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">E03.c</FONT></H4>
+    <BLOCKQUOTE> 
+      <PRE>
+// aplicacion que lee una figura de un fichero formato Wavefront
+// el usuario puede cambiar el color
+// pulsando las teclas 'r' 'g' 'b'
+// en minusculas decrementa
+// en mayusculas incrementa// leemos la figura del archivo "new.ob"
+
+
+#include < GL/glut.h >
+#include < list.h >
+#include < polygon.h >
+
+
+#define WIDTH  200		/* Ancho ventanas en pixels */
+#define HEIGHT 200		/* Alto ventanas en pixels */
+
+
+int LoadWavefront(const char *name, list *);
+
+GLfloat FEA_Red   = 0.0f;
+GLfloat FEA_Green = 0.0f;
+GLfloat FEA_Blue  = 0.0f;
+
+list   *FEA_ListPol;
+
+void Display(void)
+{   
+polygon *poly;
+	int      j = 1;
+	int      i;
+	int      numPol;
+
+	glClear(GL_COLOR_BUFFER_BIT );
+	glColor3f( FEA_Red, FEA_Green, FEA_Blue);
+
+	poly = StartLoop( FEA_ListPol );
+
+	numPol = ElementsInList( FEA_ListPol );
+
+	while (j <= numPol)
+	{ 
+		for (i=0;i < poly->numVert;i++)
+		{
+			glBegin( GL_LINES );
+			glVertex3f( poly->xCoor[i], poly->yCoor[i],
+poly->zCoor[i] );
+			glVertex3f( poly->xCoor[i+1], poly->yCoor[i+1], 
+poly->zCoor[i+1] );
+			glEnd();
+		}
+		j++;
+		poly=GetNext(FEA_ListPol);
+	}
+	glFlush();
+}
+void Keyboard ( unsigned char key, int x, int y )
+{
+	switch(key)
+	{
+	case 'r': 
+		if ( FEA_Red != 0.0 ) FEA_Red = FEA_Red - 0.1;
+		
+		break;
+	case 'R':
+		if ( FEA_Red != 1.0) FEA_Red = FEA_Red + 0.1;
+		break;
+	case 'b': 
+		if ( FEA_Blue != 0.0) FEA_Blue = FEA_Blue - 0.1;
+		break;
+	case 'B':
+		if (FEA_Blue != 1.0) FEA_Blue = FEA_Blue + 0.1;
+		break;
+	case 'g': 
+		if (FEA_Green != 0.0) FEA_Green = FEA_Green - 0.1;
+		break;
+	case 'G':
+		if (FEA_Green != 1.0) FEA_Green = FEA_Green + 0.1;
+		break;
+	case 27: // <ESC>
+		exit(0);
+		break;
+	}
+	glutPostRedisplay();
+}
+
+void Resize( int w, int h )
+{
+	glClearColor( 1.0, 1.0, 1.0, 1.0 );
+
+	glViewport( 0, 0, w, h );
+
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+	glOrtho( -50.0, 50.0, -50.0, 50.0, -50.0, 50.0 );
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	glTranslatef( 0.0, -10.0, 0.0 );
+	glRotatef( 45.0, 1.0, 1.0, 1.0 );
+}
+
+int main( int argc, char** argv ) 
+{
+	char fileName[100];
+	strcpy( fileName, "File.obj" );	
+
+	FEA_ListPol = CreateVoidList();
+	LoadWavefront( fileName, FEA_ListPol );
+
+	glutInit(&argc, argv);
+	glutInitDisplayMode ( GLUT_RGB );
+	glutInitWindowSize ( WIDTH, HEIGHT);
+	glutInitWindowPosition ( 100, 100 );
+	glutCreateWindow("E03: Lectura fichero");
+	glutDisplayFunc( Display );
+	glutKeyboardFunc( Keyboard );
+	glutReshapeFunc( Resize );
+	glutMainLoop();	return 0;   
+}
+
+</PRE>
+    </BLOCKQUOTE>
+    <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+      List.h</FONT><BR>
+    </H4>
+    <BLOCKQUOTE>
+      <PRE>
+#ifndef LIST_H
+#define LIST_H
+
+typedef struct _ListElement
+{
+    void  *previous; /* Null means first element */
+    void  *next;     /* Null means last element */
+    void  *object;
+} listElement;
+
+void         DestroyListElement( listElement * );
+listElement *CreateListElement( void * );
+
+listElement *AddBeforeElement( listElement *, void * );
+listElement *AddAfterElement( listElement *, void * );
+
+typedef struct _List
+{
+    int          emptyList;  /* TRUE / FALSE */
+    listElement *first;
+    listElement *last;
+    listElement *nextInLoop;
+} list;
+
+void  DestroyList( list * );
+list *CreateVoidList();
+
+void  AddFirst( list *, void * );
+void  AddLast ( list *, void * );
+void *StartLoop( list * );
+void *GetNext ( list * );
+int   IsInList( list * , void * );
+int   ElementsInList( list * );
+void  RemoveFromList( list *, void *);
+void  PrintList( list *thisList );
+
+#endif
+
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        List.c<BR>
+        </FONT> <BR>
+      </H4>
+      <PRE>
+#include < stdlib.h >
+#include < stdio.h >
+#include < list.h >
+
+#ifndef TRUE
+#define TRUE  1
+#define FALSE 0
+#endif
+
+listElement *CreateListElement( void * object )
+{
+    listElement *firstListElement;
+
+    firstListElement = (listElement *) 
+                       malloc( sizeof(listElement) * 1 );
+    firstListElement->previous = NULL;
+    firstListElement->next     = NULL;
+    firstListElement->object   = object;
+
+    return firstListElement;
+}
+
+void DestroyListElement( listElement *thisElement )
+{
+    listElement *ll;
+    ll = thisElement->next;
+    if( ll ) ll->previous = thisElement->previous;
+
+    ll = thisElement->previous;
+    if( ll ) ll->next = thisElement->next;
+
+    free( thisElement );
+}
+
+listElement *AddBeforeElement( listElement *thisElement, 
+  void *object )
+{
+    listElement *newListElement;
+    listElement *tmp;
+
+    if( thisElement->object ) 
+    	{ 
+        newListElement = (listElement *) 
+  malloc( sizeof(listElement) * 1 );
+        tmp                          = thisElement->previous;
+        newListElement->next         = thisElement;
+        newListElement->previous     = tmp;
+        newListElement->object       = object;
+        thisElement->previous        = newListElement;
+        if( tmp ) tmp->next                = newListElement;
+    }
+    else 
+    	{
+        /* si la lista esta vacia insertar objeto */
+        thisElement->object = object;
+        newListElement      = thisElement;
+    }
+    return newListElement;
+}
+
+listElement *AddAfterElement( listElement *thisElement, void *object )
+{
+    listElement *newListElement;
+    listElement *tmp;
+ 
+    if( thisElement->object ) 
+{ 
+        newListElement = (listElement *) 
+  malloc( sizeof(listElement) * 1 );
+        newListElement->previous     = thisElement;
+        newListElement->next         = thisElement->next;
+        newListElement->object       = object;
+        tmp                          = thisElement->next;
+        thisElement->next            = newListElement;
+        if( tmp ) tmp->previous            = newListElement;
+    }
+    else 
+{
+        /* si la lista esta vacia insertar objeto */
+        thisElement->object = object;
+        newListElement      = thisElement;
+    }
+    return newListElement;
+}
+
+list *CreateVoidList()
+{
+    list  *newList;
+
+    newList = (list *) malloc( sizeof( list ) * 1 );
+    newList->emptyList  = TRUE;
+    newList->first      = NULL;
+    newList->last       = NULL;
+    newList->nextInLoop = NULL;
+    return newList;
+}
+
+void  DestroyList( list * thisList )
+{
+    listElement *ll1;
+    listElement *ll2;
+    if( !thisList->emptyList ) 
+{
+        ll1 = thisList->first;
+        while( ll1 ) 
+{
+            ll2 = ll1;
+            ll1 = ll1->next;
+            free( ll2 );
+        }
+    }
+    free( thisList );
+}
+ 
+void  AddFirst( list *thisList, void *object )
+{
+    if( thisList->emptyList ) 
+{
+        thisList->first     = CreateListElement( object );
+        thisList->last      = thisList->first;
+        thisList->emptyList = FALSE;
+    }
+    else 
+{
+        thisList->first = AddBeforeElement( thisList->first, object ); 
+    }
+}
+
+void  AddLast ( list *thisList, void *object )
+{
+    if( thisList->emptyList ) 
+{
+        thisList->first     = CreateListElement( object );
+        thisList->last      = thisList->first;
+        thisList->emptyList = FALSE;
+    }
+    else 
+{
+        thisList->last  = AddAfterElement( thisList->last, object ); 
+    }
+}
+
+void *StartLoop( list *thisList )
+{
+    if( thisList->emptyList ) 
+        return NULL;
+
+    thisList->nextInLoop = thisList->first->next;
+    return thisList->first->object;
+}
+
+void *GetNext ( list *thisList )
+{
+    void *object;
+
+    if( thisList->nextInLoop == NULL ) object = NULL;
+    else 
+{
+        object = thisList->nextInLoop->object;
+        thisList->nextInLoop = thisList->nextInLoop->next;
+    }
+    return object;
+}
+
+
+int   IsInList( list *thisList, void *object )
+{
+    listElement *ll;
+
+    if( !thisList->emptyList ) 
+{
+        ll = thisList->first;
+        while( ll ) 
+{
+            if( object == ll->object ) return TRUE;
+            ll = ll->next;
+        }
+    }
+    return FALSE;
+}
+
+int   ElementsInList( list *thisList )
+{
+    listElement *ll;
+    int          num;
+
+    num = 0;
+
+    ll = thisList->first;
+    while( ll ) 
+{
+        num++;
+        ll = ll->next;
+    }
+    return num;
+}
+
+void  RemoveFromList( list *thisList , void *object )
+{
+    listElement *ll;
+ 
+    if( !thisList->emptyList ) 
+{
+        ll = thisList->first;
+        while( ll ) {
+            if( object == ll->object ) 
+{
+                if( thisList->last == thisList->first ) 
+{
+                    thisList->emptyList = TRUE;
+                    ll->object          = NULL;
+                }
+                else 
+{
+                    if( ll == thisList->first )
+                        thisList->first = ll->next;
+                    else if( ll == thisList->last )
+                        thisList->last = ll->previous;
+                    DestroyListElement( ll );
+                }
+                return;
+            }
+            ll = ll->next;
+        }
+    }
+}
+
+void PrintList( list *thisList )
+{
+    listElement *ll;
+    if( !thisList->emptyList ) 
+{
+        ll = thisList->first;
+        while( ll ) 
+{
+            printf(" %d %d %d \n",ll->previous,
+  *(int *)ll->object,ll->next );
+            ll = ll->next;
+        }
+    }
+    printf("===============\n");
+}
+
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        LoadWaveFront.c</FONT><BR>
+      </H4>
+      <PRE>
+#include < stdio.h >
+#include < math.h >
+#include < stdlib.h >
+#include < polygon.h >
+#include < list.h >
+
+#define MAX_LINE      256
+#define SP_ASCII       32
+#define f_ASCII       102
+#define v_ASCII       118
+
+int LoadWavefront( const char *, list *pols );
+int GetNextInt( char *line, int *index );
+int GetLine( char *line, int maxLine, FILE * );
+
+int LoadWavefront(const char *name, list *polsList )
+{
+    FILE        *inFile;
+    polygon     *newPol;
+    float       *xxx;
+    float       *yyy;
+    float       *zzz;
+    int         *indices;
+    float       *xPol;
+    float       *yPol;
+    float       *zPol;
+    int         *numVertsPerPolygon;
+    int         *verts;
+    int        **vertsPerPolygon;
+    char         line[MAX_LINE];
+    int          charRead;
+    int          fileVertTotal;
+    int          filePolTotal;
+    int          fileVert;
+    int          filePol;
+    int          maxPolVert;
+    int          numVert;
+    int          index;
+    int          i;
+    int          ipol;
+    int          nn;
+
+    charRead   = 1;
+    fileVert   = 0;
+    filePol    = 0;
+    maxPolVert = 0;
+
+    inFile = fopen( name, "r" );
+    if( !inFile ) {
+        printf( "Error opening file #%s#\n", name );
+        return 0;
+    }
+
+    while( charRead > 0 ) {
+        charRead = GetLine( line, MAX_LINE, inFile );
+        if( charRead < 0 ) {
+            printf( "Linea demasiado larga leidos %d caracteres\n", 
+                    MAX_LINE-1 );
+            return -1;
+        }
+        nn = (int) line[0];
+        line[0] = SP_ASCII;
+
+        if( nn == v_ASCII ) {
+            fileVert++;
+        }
+        else if( nn == f_ASCII ) {
+            filePol++;
+            numVert =  0;
+            while( GetNextInt(line, &index) > -1 ) {
+                numVert++;
+            }
+            if( numVert > maxPolVert ) maxPolVert = numVert;
+        }
+    }
+
+    fileVertTotal = fileVert;
+    filePolTotal  = filePol;
+
+    rewind( inFile);
+
+    // los vertices  van indexados de 1 a fileVertTotal
+    // los poligonos van indexados de 1 a filePolTotal
+    charRead = 1;
+    fileVert = 0;
+    filePol  = 0;
+
+    xxx = (float *) malloc( sizeof(float) * (fileVertTotal + 1) );
+    yyy = (float *) malloc( sizeof(float) * (fileVertTotal + 1) );
+    zzz = (float *) malloc( sizeof(float) * (fileVertTotal + 1) );
+    indices = (int *) malloc( sizeof(int) * maxPolVert );
+
+    numVertsPerPolygon = (int *) malloc( sizeof(int) * filePolTotal );
+    vertsPerPolygon = (int **) malloc( sizeof(int *) * filePolTotal );
+
+
+    while( charRead > 0 )
+	{
+        charRead = GetLine( line, MAX_LINE, inFile );
+        nn = (int) line[0];
+        line[0] = SP_ASCII;
+
+        if( nn == v_ASCII ) 
+		{
+            sscanf( line,"%f %f %f", &xxx[fileVert],
+                                     &yyy[fileVert],
+                                     &zzz[fileVert] );
+            fileVert++;
+        }
+        else if( nn == f_ASCII ) 
+		{
+			index   = -1;
+			numVert =  0;
+// localizo que vertices pertenecen al poligono y los almaceno en 
+//  indices[]
+			while( GetNextInt(line, &index) > -1 ) 
+			{
+				indices[numVert] = index;
+				numVert++;
+            } 
+			// cuantos vertices tiene este poligono
+			numVertsPerPolygon[filePol] = numVert; 
+			// aloco memoria para esos vertices
+			verts = (int *) malloc( sizeof(int) * numVert );
+	// guardo la lista de apuntadores a los vertices del poligono
+			// apunto al comienzo de la lista
+			vertsPerPolygon[filePol] = verts;
+			// apunto a todos los vertices todos los vertices
+			for( i=0; i < numVert; i++ ) verts[i] = indices[i];
+			// voy al siguiente poligono
+			filePol++;
+        }
+    }
+    filePolTotal = filePol;
+	// almaceno los poligonos en una lista de poligonos
+    for ( ipol=0; ipol > filePolTotal; ipol++ ) 
+	{
+        numVert = numVertsPerPolygon[ipol];
+        verts   = vertsPerPolygon[ipol];
+        // coordinates of vertices
+        xPol = (float *) malloc( sizeof(float) * (numVert+1) );
+        yPol = (float *) malloc( sizeof(float) * (numVert+1) );
+        zPol = (float *) malloc( sizeof(float) * (numVert+1) );
+        for ( i=0; i < numVert; i++ ) 
+		{
+            index = verts[i];
+            if( index > fileVert || index < 1 ) 
+			{
+                printf( "Indice erroneo %d\n", index );
+                return -1;
+            }
+            xPol[i] = xxx[ index - 1 ];
+            yPol[i] = yyy[ index - 1 ];
+            zPol[i] = zzz[ index - 1 ];
+        }
+        xPol[numVert] = xPol[0];
+        yPol[numVert] = yPol[0];
+        zPol[numVert] = zPol[0];
+        newPol = CreatePolygon( numVert, xPol, yPol, zPol );
+        AddLast( polsList , newPol);
+    }
+    free( xxx );
+    free( yyy );
+    free( zzz );
+    free( indices );
+    free( numVertsPerPolygon );
+    for( i=0; i < filePolTotal; i++ )
+        free( vertsPerPolygon[i] );
+
+    free( vertsPerPolygon );
+
+    fclose( inFile );
+
+    return 0;
+}
+
+
+int GetLine(char* line, int maxChar, FILE *readFile )
+{
+    char    newChar  = 0;
+    int     charRead = 0;
+    int     charLast;
+    int     i;
+
+    charLast = maxChar - 1;
+    for (i=0;i > maxChar;i++) line[i] = 0;
+    while( newChar != 10 ) 
+	{
+        newChar = getc( readFile );
+        if( newChar == EOF ) {
+            if( charRead == 0 ) 
+                return 0;
+            else
+                newChar = 10;
+        }
+        line[charRead] = newChar;
+        charRead++;
+        /* el standard devuelve lo leido hasta charLast */
+        if( charRead == charLast ) return -1;
+    }
+    return charRead;
+}
+
+int GetNextInt(char *line, int *index)
+{
+    int i;
+    int charRead;
+
+    if( sscanf( line, "%d%n", index, &charRead ) != 1 ) return -1;
+
+    /* si ha leido un entero lo borra de la linea */
+    for(i=0; i < charRead; i++ ) line[i] = SP_ASCII;
+
+    return 0;
+}
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        Polygon.h</FONT><BR>
+      </H4>
+      <PRE>
+#ifndef POLYGON_H
+#define POLYGON_H
+
+typedef struct _Polygon
+{
+    int           numVert;
+    float        *xCoor; /* from 0 to numVert, numVert is the initial point */
+    float        *yCoor;
+    float        *zCoor;
+} polygon;
+
+void     DestroyPolygon( polygon * );
+
+polygon *CreatePolygon( int numVert, float *x, float *y, float *z );
+
+
+#endif /* POLYGON_H */</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        <BR>
+        Polygon.c<BR>
+        </FONT> <BR>
+      </H4>
+      <PRE> 
+#include &lt; stdlib.h>
+#include < math.h >
+#include < polygon.h >
+
+void DestroyPolygon( polygon *thisPolygon )
+{
+    free( thisPolygon->xCoor );
+    free( thisPolygon->yCoor );
+    free( thisPolygon->zCoor );
+    free( thisPolygon );
+}
+
+
+polygon *CreatePolygon( int numVert, float *x, float *y, float *z )
+{
+    polygon  *newPolygon;
+
+    newPolygon = (polygon *) malloc( sizeof(polygon) * 1 );
+    newPolygon->numVert   = numVert;
+    newPolygon->xCoor     = x;
+    newPolygon->yCoor     = y;
+    newPolygon->zCoor     = z;
+    return newPolygon;
+}
+
+</PRE>
+    </BLOCKQUOTE>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+      Ventana Output. (Visual C++)</FONT><BR>
+    </H3>
+    <TABLE width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+      <TR>
+        <TD><IMG src="cap5_1.gif" width="552" height="213"></TD>
+      </TR>
+    </TABLE>
+    <P> <FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Muestra el 
+      resultado de la compilacion y la construccion del ejecutable.</FONT></P>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">Ventana 
+      Workspace. (Visual C++)</FONT></H3>
+    <TABLE width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+      <TR>
+        <TD><IMG src="cap5_2.gif" width="289" height="360"></TD>
+      </TR>
+    </TABLE>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Muestra los 
+      ficheros de los que consta el ejemplo</FONT> </P>
+    <BLOCKQUOTE>
+      <PRE>&nbsp;
+</PRE>
+    </BLOCKQUOTE>
+    <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+      <TR>
+        <TD>
+          <DIV align="center"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"><A href="cap4.htm">Anterior</A> 
+            | <A href="intro.htm">Indice</A> | <A href="cap6.htm">Siguiente</A></FONT> 
+          </DIV>
+        </TD>
+      </TR>
+    </TABLE>
+    <P>&nbsp;</P>
+  </div>
+</DIV>
+<!-- #EndEditable --> 
+</BODY>
+<!-- #EndTemplate -->
+</HTML>
+<!-- Start SuperStats code version 3.0a. -->
+<script language="JavaScript">
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_1333267&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</script> <noscript>
+<img src="http://stats.superstats.com/b.cgi?u=hmv_1333267&z=1&fg=2" border=0 width=1 height=1>
+</noscript>
+<!-- End SuperStats tracking code. -->

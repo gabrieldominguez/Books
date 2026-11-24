@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxbindchanneltowindowsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxbindchanneltowindowsgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXBindChannelToWindowSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXBindChannelToWindowSGIX	- bind or unbind a window and a	channel
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     int glXBindChannelToWindowSGIX( Display *display,
+				     int screen,
+				     int channel,
+				     Window window )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     display  Specifies	the connection to the X	server.
+
+     screen   Specifies	the screen of the X server.
+
+     channel  Specifies	the video channel number.
+
+     window   Specifies	the window that	is to be bound to channel
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     If	window is not NULL, glXBindChannelToWindowSGIX binds window to
+     channel. Once channel is bound to a window, glXChannelRectSGIX can	be
+     called to set the rectangular area	of the frame buffer that will be
+     mapped to the resolution of the video when	glXSwapBuffers is called for
+     that window.
+
+     If	window is destroyed while bound	to channel, then there is an implicit
+     unbind, and any area set by glXChannelRectSGIX is reset to	the default
+     area specified by the video combination currently loaded.
+
+     To	unbind a channel and a window, call glXBindChannelToWindowSGIX with
+     window set	to NULL.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXBindChannelToWindowSGIX	is part	of the SGIX_video_resize extension.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIX_video_resize extension is	supported only on InfiniteReality
+     systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXChannelRectSGIX, glXQueryChannelDeltasSGIX, glXSwapBuffers,
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

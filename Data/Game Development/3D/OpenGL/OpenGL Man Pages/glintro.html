@@ -1,0 +1,820 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glintro Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glintro</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glIntro - Introduction to OpenGL
+
+
+
+<FONT COLOR="#0000CC">OVERVIEW
+</FONT>     OpenGL is a high-performance 3D-oriented renderer that supersedes IrisGL.
+     It	is supported on	all SGI	graphics adaptors except for the G, GT and
+     GTX. A number of other workstation	and personal computer vendors also
+     support OpenGL.
+
+     See glXIntro for a	short example program and compilation instructions.
+
+
+
+<FONT COLOR="#0000CC">OPENGL EXTENSIONS
+</FONT>     SGI has implemented the following extensions to OpenGL.  Note that	the
+     set of supported extensions varies	from machine to	machine; see below for
+     more information.
+
+
+     EXT_abgr
+	  extends the list of host-memory color	formats.  Specifically,	it
+	  provides a reverse-order alternative to image	format RGBA. The ABGR
+	  component order matches the cpack Iris GL format on big-endian
+	  machines. For	more information see glDrawPixels, glGetTexImage,
+	  glReadPixels,	glTexImage1D, and glTexImage2D.
+
+
+     EXT_blend_color
+	  allows a constant to be used as a factor in the blending equation.
+	  A typical use	is to blend two	RGB images.  Without the constant
+	  blend	factor,	one image must have an alpha channel with each pixel
+	  set to the desired blend factor.  For	more information see
+	  glBlendColorEXT, glBlendFunc,	glGetBooleanv, glGetIntegerv,
+	  glGetFloatv, and glGetDoublev.
+
+
+     EXT_blend_logic_op
+	  defines an additional	blending equation for glBlendEquationEXT.
+	  This equation	is a simple logical combination	of the source and
+	  destination colors.  For more	information see	glGetBooleanv,
+	  glGetIntegerv, glGetFloatv, and glGetDoublev.
+
+
+     EXT_blend_minmax
+	  allows the blend equation to be changed using	glBlendEquationEXT and
+	  introduces two new blend equations, one to produce the minimum color
+	  components of	the source and destination colors and one to produce
+	  the maximum.	For more information see glGetBooleanv,	glGetIntegerv,
+	  glGetFloatv, and glGetDoublev.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+     EXT_blend_subtract
+	  defines two additional blending equations for	use with
+	  glBlendEquationEXT. These new	equations are similar to the default
+	  blending equation, but produce the difference	of its terms, rather
+	  than the sum.	Image differences are useful in	many image processing
+	  applications.	For more information see glGetBooleanv,	glGetIntegerv,
+	  glGetFloatv, and glGetDoublev.
+
+
+     SGIX_clipmap
+	  introduces new filtering and memory management techniques for
+	  handling extraordinarily large textures.  Clipmaps provide many of
+	  the features of mipmaps, while using a small fraction	of the texture
+	  memory required for mipmaps of equivalent size.  They	are especially
+	  useful for rendering terrain and roaming over	large images.
+	  Clipmaps are supported on InfiniteReality systems.  For more
+	  information, see glTexParameter.
+
+
+     SGI_color_matrix
+	  adds a 4x4 matrix stack and matrix multiplication to the pixel
+	  transfer path.  The color matrix operates on RGBA pixel components.
+	  It can be used to reorder or duplicate color components, and to
+	  implement simple color-space conversions.  For more information, see
+	  glGetBooleanv, glGetIntegerv,	glGetFloatv, glGetDoublev, and
+	  glPixelTransfer.
+
+
+     SGI_color_table
+	  defines a new	RGBA-format color lookup table mechanism, and several
+	  new lookup tables in the OpenGL pixel	path.  The new lookup tables
+	  are treated as one-dimensional images	with internal formats, like
+	  texture images and convolution filter	images.	 This allows the
+	  tables to operate on a subset	of the components of passing pixels.
+	  (For example,	a table	with internal format GL_ALPHA modifies only
+	  the A	component of each passing pixel, leaving the R,	G, and B
+	  components untouched.)  A small subset of this extension is
+	  supported on RealityEngine, RealityEngine2, and VTX systems; because
+	  of this, the extension is not	listed in the extensions string
+	  returned by glGetString.  The	full extension is supported on all
+	  other	systems.  For more information,	see glColorTableSGI,
+	  glColorTableParameterSGI, and	glGetColorTableParameterSGI.
+
+
+     EXT_convolution
+	  adds 1- or 2-dimensional convolution operations to the pixel
+	  transfer process.  Pixel drawing, reading, and copying, as well as
+	  texture image	definition, are	candidates for convolution. The
+	  convolution kernels are themselves treated as	1- and 2-dimensional
+	  images, which	can be loaded from application memory or from the
+	  framebuffer.	A subset of this extension is supported	on
+	  RealityEngine, RealityEngine2, and VTX systems; the full extension
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+	  is supported on all other systems.  For more information see
+	  glConvolutionFilter1DEXT, glConvolutionFilter2DEXT,
+	  glCopyConvolutionFilter1DEXT,	glCopyConvolutionFilter2DEXT,
+	  glGetConvolutionFilterEXT, glSeparableFilter2DEXT,
+	  glGetSeparableFilterEXT, glConvolutionParameteriEXT,
+	  glConvolutionParameterivEXT, glConvolutionParameterfEXT,
+	  glConvolutionParameterfvEXT, glGetConvolutionParameterivEXT,
+	  glGetConvolutionParameterfvEXT,  glEnable, glDisable,	glIsEnabled,
+	  glGetBooleanv, glGetIntegerv,	glGetFloatv, glGetDoublev,
+	  glPixelTransferi, and	glPixelTransferf.
+
+
+     EXT_copy_texture
+	  provides the ability to copy pixels directly from the	framebuffer
+	  into texture memory.	At present only	a small	subset of this
+	  extension has	been implemented on RealityEngine, RealityEngine2, and
+	  VTX systems, so the extension	name is	not listed in the extensions
+	  string returned by glGetString.  It is fully supported on all	other
+	  systems.  For	more information, see glCopyTexImage1DEXT,
+	  glCopyTexImage2DEXT, glCopyTexSubImage1DEXT, glCopyTexSubImage2DEXT
+	  and glCopyTexSubImage3DEXT.
+
+
+     SGIS_detail_texture
+	  introduces texture magnification filters that	blend between the
+	  level	0 image	and a separately defined "detail" image. This detail
+	  blending can be enabled for all color	channels, for the alpha
+	  channel only,	or for the red,	green, and blue	channels only. It is
+	  available only for 2D	textures.  Supported on	RealityEngine,
+	  RealityEngine2, and VTX systems and on InfiniteReality systems.  For
+	  more information see glDetailTexFuncSGIS, glGetDetailTexFuncSGIS,
+	  glTexImage2D,	glTexParameterf, glTexParameterfv, glTexParameteri,
+	  glTexParameteriv, glTexSubImage2DEXT,	glGetTexImage,
+	  glGetTexLevelParameterfv, glGetTexLevelParameteriv,
+	  glGetTexParameterfv, glGetTexParameteriv, glGetBooleanv,
+	  glGetIntegerv, glGetFloatv, and glGetDoublev.
+
+
+     SGIS_fog_func
+	  Standard OpenGL defines three	fog modes:  GL_LINEAR, GL_EXP
+	  (exponential), and GL_EXP2 (exponential squared).  Visual simulation
+	  systems can benefit from more	sophisticated atmospheric effects.
+	  This extension provides the ability to define	a custom fog blending
+	  function by specifying a set of control points that will be
+	  interpolated by the function.	 Supported on InfiniteReality systems.
+	  For more information,	see glFogFuncSGIS, glFog, and glGet.
+
+
+     SGIX_fog_offset
+	  In highly-fogged environments, emissive objects (like	simulated
+	  automobile headlights	or runway landing lights) can appear
+	  unrealistically dim.	This extension brightens fogged	objects	by
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+	  offsetting the Z value used in fog computations.  Supported on
+	  InfiniteReality systems.  For	more information, see glEnable,	glFog,
+	  and glGet.
+
+
+     EXT_histogram
+	  defines pixel	operations that	count occurrences of specific color
+	  component values (histogram) and track the minimum and maximum color
+	  component values (minmax).  An optional mode allows pixel data to be
+	  discarded after the histogram	and/or minmax operations are
+	  completed.  Otherwise	the pixel data continue	on to the next
+	  operation unaffected.	 For more information see glHistogramEXT,
+	  glResetHistogramEXT, glGetHistogramEXT,
+	  glGetHistogramParameterivEXT,	glGetHistogramParameterfvEXT,
+	  glMinmaxEXT, glResetMinmaxEXT, glGetMinmaxEXT,
+	  glGetMinmaxParameterivEXT, glGetMinmaxParameterfvEXT,	glEnable,
+	  glDisable, glIsEnabled, glGetBooleanv, glGetIntegerv,	glGetFloatv,
+	  and glGetDoublev.
+
+
+     SGIX_interlace
+	  modifies the behavior	of glDrawPixels, glCopyPixels, glTexImage2D,
+	  glTexSubImage2DEXT, glCopyTexImage2DEXT and glCopyTexSubImage2DEXT,
+	  such that when GL_INTERLACE_SGIX is enabled the source image is
+	  considered to	be a field of an "interlaced" frame.  That is, the
+	  effective source image has height equal to twice the actual height
+	  and every other row contains "transparent" pixels that do not	affect
+	  the corresponding destination	pixels in the target image.  For
+	  example:
+
+	       glEnable(GL_INTERLACE_SGIX);
+	       set current raster position to (xr,yr)
+	       glDrawPixels(width, height, GL_RGBA, GL_UNSIGNED_BYTE, I0);
+	       set raster position to (xr,yr+zoomy)
+	       glDrawPixels(width, height, GL_RGBA, GL_UNSIGNED_BYTE, I1);
+
+
+	  is equivalent	to
+
+	       glDisable( GL_INTERLACE_SGIX);
+	       set current raster position to (xr,yr)
+	       glDrawPixels(width, 2xheight, GL_RGBA, GL_UNSIGNED_BYTE,	I2);
+
+
+	  where	pixel rows (0,2,4,...) of I2 are from image I0,	and rows
+	  (1,3,5,...) are from image I1.
+
+	  This is particularly useful for assembling consecutive interlaced
+	  video	format fields to into a	complete frame in either the
+	  framebuffer or in texture memory.  Supported on RealityEngine,
+	  RealityEngine2, and VTX systems and on InfiniteReality systems.
+
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+     SGIS_multisample
+	  provides a mechanism to antialias all	primitives.  The technique is
+	  to sample all	primitives multiple times at different locations
+	  within each pixel (rather than just the pixel	center). The color
+	  sample values	are resolved to	a single, displayable color each time
+	  a pixel is updated, so the antialiasing appears to be	automatic at
+	  the application level.  Supported on RealityEngine, RealityEngine2,
+	  and VTX systems and on InfiniteReality systems.  For more
+	  information see glSampleMaskSGIS, glSamplePatternSGIS,
+	  glTagSampleBufferSGIX, glXChooseVisual, glXGetConfig,	glEnable,
+	  glDisable, glIsEnabled, glPushAttrib,	glGetBooleanv, glGetDoublev,
+	  glGetIntegerv, and glGetFloatv.
+
+
+     EXT_packed_pixels
+	  provides support for packed pixels in	host memory.  A	packed pixel
+	  is represented entirely by one unsigned byte,	one unsigned short, or
+	  one unsigned integer.	The fields with	the packed pixel are not
+	  proper machine types,	but the	pixel as a whole is. Thus the pixel
+	  storage modes, and their unpacking counterparts, all work correctly
+	  with packed pixels. This extension is	not supported on
+	  RealityEngine, RealityEngine2, and VTX systems. For more information
+	  see glDrawPixels, glReadPixels, glTexImage1D,	glTexImage2D,
+	  glTexImage3DEXT, glTexSubImage1DEXT, glTexSubImage2DEXT,
+	  glTexSubImage3DEXT, glConvolutionFilter1DEXT,
+	  glConvolutionFilter2DEXT, glConvolutionFilter3DEXT,
+	  glSeparableFilter2DEXT, glSeparableFilter3DEXT, glColorTableSGI,
+	  glTexImage4DSGIS, and	glTexSubImage4DSGIS.
+
+
+     EXT_polygon_offset
+	  allows depth values of fragments to be displaced so that lines (or
+	  points) and polygons that lie	in the same plane can be rendered
+	  without interaction -- the lines are rendered	either completely in
+	  front	of or behind the polygons (depending on	the sign of the	offset
+	  factor).  It also allows multiple coplanar polygons to be rendered
+	  without interaction, if different offset factors are used for	each
+	  polygon.  For	more information see glPolygonOffsetEXT, glEnable,
+	  glDisable, glIsEnabled, glGetBooleanv, glGetIntegerv,	glGetFloatv,
+	  and glGetDoublev.
+
+
+     SGIX_reference_plane
+	  allows a group of coplanar primitives	to be rendered without depth-
+	  buffering artifacts.	This is	accomplished by	generating the depth
+	  values for all the primitives	from a single ``reference plane''
+	  rather than from the primitives themselves.  This ensures that all
+	  the primitives in the	group have exactly the same depth value	at any
+	  given	sample point, no matter	what imprecision may exist in the
+	  original specifications of the primitives or in the GL's coordinate
+	  transformation process.  SGIX_reference_plane	is useful for
+	  generating hidden-line drawings, for applying	decals to polygons,
+
+
+
+									Page 5
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+	  and for multipass rendering techniques.  Supported on
+	  InfiniteReality systems.  For	more information, see
+	  glReferencePlaneSGIX.
+
+
+     SGIX_shadow
+	  provides support for rendering shadows using shadow maps.  First the
+	  application renders the scene	from the point of view of the light
+	  source, and copies the resulting depth buffer	to a texture with
+	  internal format GL_DEPTH_COMPONENT.  Next the	application renders
+	  the scene from the normal viewpoint.	Then the application enables
+	  the texture parameter	GL_TEXTURE_COMPARE_SGIX, sets the texture
+	  comparison operator and texture matrix appropriately,	and re-renders
+	  the scene with 2D texturing enabled.	During this final rendering
+	  pass,	the depth value	generated by iterating the r texture
+	  coordinate is	compared with the shadow map stored in texture memory,
+	  and the results of the comparison indicate whether the pixel being
+	  textured is in shadow.  The filtered result of the shadow
+	  comparisons can be blended with the pixel to darken it.  Supported
+	  on InfiniteReality systems.  For more	information, see
+	  glTexParameter.
+
+
+     SGIX_shadow_ambient
+	  controls the filtered	texture	value generated	in shadowed regions
+	  (see SGIX_shadow).  In effect, this changes the ambient lighting in
+	  shadows.  Supported on InfiniteReality systems.  For more
+	  information, see glTexParameter.
+
+
+     SGIS_sharpen_texture
+	  introduces texture magnification filters that	sharpen	the resulting
+	  image	by extrapolating from the level	1 image	to the level 0 image.
+	  Sharpening can be enabled for	all color channels, for	the alpha
+	  channel only,	or for the red,	green, and blue	channels only.
+	  Supported on RealityEngine, RealityEngine2, and VTX systems and on
+	  InfiniteReality systems.  For	more information see
+	  glSharpenTexFuncSGIS,	glGetSharpenTexFuncSGIS, glTexParameteri,
+	  glTexParameterf, glTexParameteriv, glTexParameterfv,
+	  glGetTexParameteriv, and glGetTexParameterfv.
+
+
+     EXT_subtexture
+	  allows a contiguous portion of an already-existing texture image to
+	  be redefined without affecting the remaining portion of the image or
+	  any of the other state that describes	the texture. There are three
+	  new calls: glTexSubImage1DEXT, glTexSubImage2DEXT, and
+	  glTexSubImage3DEXT.  A subset	of this	extension is available on
+	  RealityEngine, RealityEngine2, and VTX systems, and the full
+	  extension is available on all	other systems.	Refer to the man pages
+	  for more details.
+
+
+
+
+									Page 6
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+     EXT_texture
+	  provides support for a variety of resolutions	of color components in
+	  texture images. That is, instead of treating a retained image	as
+	  having 1, 2, 3, or 4 components, it is treated as though it had a
+	  specific format, such	as GL_LUMINANCE_ALPHA, or just GL_ALPHA.  This
+	  extension also defines a robust method for applications to determine
+	  what combinations of texture dimensions and resolutions are
+	  supported by an implementation and it	introduces a new texture
+	  environment: GL_REPLACE_EXT.	For more information see glTexImage1D,
+	  glTexImage2D,	glGetTexLevelParameteriv, glGetTexLevelParameterfv,
+	  glTexEnvf, glTexEnvi,	glTexEnvfv, and	glTexEnviv.
+
+
+     EXT_texture3D
+	  supports 3-dimensional texture mapping. It also defines the in-
+	  memory formats for 3D	images,	and adds pixel storage modes to
+	  support them.	For more information see glTexImage3DEXT,
+	  glPixelStore,	glEnable, glDisable, glIsEnabled, glTexParameteriv,
+	  glTexParameterfv, glGetBooleanv, glGetIntegerv, glGetFloatv,
+	  glGetDoublevEnable, glGetTexImage, glGetTexLevelParameteriv,
+	  glGetTexLevelParameterfv, glGetTexParameteriv, and
+	  glGetTexParameterfv.
+
+
+     SGIX_texture_add_env
+	  defines a new	texture	environment function which scales the texture
+	  value	by the constant	texture	color and then adds a bias color.
+	  Supported only on InfiniteReality systems.  For more information see
+	  glTexEnv.
+
+
+     SGI_texture_color_table
+	  adds a color lookup table to the texture mapping process.  For more
+	  information, see glColorTableSGI.
+
+
+     SGIS_texture_edge_clamp
+	  The GL normally clamps texture coordinates to	the range [0,1].  This
+	  can cause the	texture	sampling filter	to straddle the	edge of	the
+	  texture image, taking	half its sample	values from within the texture
+	  image, and the other half from the texture border.  Sometimes	this
+	  is undesirable.  SGIS_texture_edge_clamp defines a new texture
+	  clamping method that ensures all sample values fall within the
+	  texture image.  For more information see glTexParameter.
+
+
+     SGIS_texture_filter4
+	  allows 1D and	2D textures to be filtered using an application-
+	  defined symmetric and	separable filter with four samples per
+	  dimension.  In the most common 2D case, the filter is	bicubic.  This
+	  filtering can	yield better-quality images than mipmapping, and is
+	  often	used in	image processing applications.	Supported on
+
+
+
+									Page 7
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+	  InfiniteReality systems.  For	more information see glTexParameter,
+	  glGetTexParameter, glTexFilterFuncSGIS, and glGetTexFilterFuncSGIS.
+
+
+     SGIS_texture_lod
+	  provides mechanisms that reduce the number of	mipmap levels required
+	  for mipmapped	texturing.  This allows	a large	texture	to be loaded
+	  and used initially at	low resolution,	and to increase	the resolution
+	  gradually as time passes or as more mipmap levels become available.
+	  Supported on InfiniteReality systems.	 For more information, see
+	  glTexParameter.
+
+
+     EXT_texture_object
+	  supports named texture objects whose contents	and parameters may be
+	  changed after	they are defined.  (Contrast this with textures	in
+	  display lists, which cannot be modified after	the display lists are
+	  created.)  For machines with special texture memories,
+	  EXT_texture_object also provides simple texture memory management.
+	  For more information,	see glGenTexturesEXT, glDeleteTexturesEXT,
+	  glBindTextureEXT, glPrioritizeTexturesEXT, glAreTexturesResidentEXT,
+	  and glIsTextureEXT.
+
+
+     SGIX_texture_scale_bias
+	  adds scale, bias, and	clamp operations to the	texture	pipeline.
+	  These	operations are applied to the filtered result of a texture
+	  lookup, before that result is	used in	the texture environment
+	  equations and	before the texture color lookup	table of
+	  SGI_texture_color_table, if that extension exists.  Not supported on
+	  RealityEngine, RealityEngine2, and VTX systems or on High Impact and
+	  Maximum Impact systems.  For more information, see glTexParameterfv,
+	  glTexParameteriv, and	glGetTexParameter.
+
+
+     SGIS_texture_select
+	  adds new texture internal formats beyond those defined by
+	  EXT_texture.	The purpose of these new formats is to reorganize the
+	  components of	a texture into groups of components.  This allows
+	  better utilization of	texture	memory by subdividing the internal
+	  representation of a texel into 1, 2, or 4 smaller texels.
+
+	  For example on InfiniteReality systems, an 8-bit luminance texture
+	  would	normally use a full 16 bits of texture memory for each texel,
+	  but if the application chooses the GL_DUAL_LUMINANCE8_SGIS internal
+	  format, then two 8-bit luminance textures can	be packed into the
+	  same space.  When such a texture is active, the application must
+	  select which of the two packed textures will be used for drawing.
+	  Supported on InfiniteReality systems and on High Impact and Maximum
+	  Impact systems.  For more information, see glTexImage1D,
+	  glTexImage2D,	glTexImage3DEXT, glTexParameterfv, glTexParameteriv,
+	  and glGetTexParameter.
+
+
+
+									Page 8
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+     EXT_vertex_array
+	  adds the ability to specify multiple geometric primitives with very
+	  few subroutine calls.	Instead	of calling an OpenGL procedure to pass
+	  each individual vertex, normal, or color, separate arrays of
+	  vertexes, normals, and colors	are prespecified, and are used to
+	  define a sequence of primitives (all of the same type) when a	single
+	  call is made to glDrawArraysEXT. A stride mechanism is provided so
+	  that an application can choose to keep all vertex data staggered in
+	  a single array, or sparsely in separate arrays. Single-array storage
+	  generally will provide better	performance.
+
+	  This extension also supports the rendering of	individual array
+	  elements, each specified as an index into the	enabled	arrays.
+
+	  For more information see glArrayElementEXT, glDrawArraysEXT,
+	  glVertexPointerEXT, glNormalPointerEXT, glColorPointerEXT,
+	  glIndexPointerEXT, glTexCoordPointerEXT, glEdgeFlagPointerEXT, and
+	  glGetPointervEXT.
+
+
+<FONT COLOR="#0000CC">USING EXTENSIONS
+</FONT>     Procedure names and tokens	for OpenGL extensions are suffixed with	EXT or
+     with a vendor-specfic acronym.  EXT is used for extensions	that have been
+     reviewed and will be supported by more than one OpenGL vendor.
+
+     SGI also supports some vendor-specific extensions.	Procedure names	and
+     tokens for	the SGI-specific extensions are	suffixed with SGI, SGIS	or
+     SGIX. ``SGI'' is used for extensions that will be available across	the
+     product line (although the	support	for all	machines might not be released
+     simultaneously).  ``SGIS''	is used	for extensions that will be available
+     on	a subset of SGI	platforms.  ``SGIX'' extensions	are experimental; in
+     future releases, the API for these	extensions might change	or might not
+     be	supported at all.
+
+     All supported extensions have an associated macro definition in gl.h and
+     a corresponding token in the extensions string returned by	glGetString.
+     For example, if the EXT_abgr extension is supported then the token
+     GL_EXT_abgr will be defined in gl.h and GL_EXT_abgr will appear in	the
+     extensions	string returned	by glGetString.
+
+     The definitions in	gl.h can be used at compile time to determine if an
+     extension's tokens	and procedures exist in	the OpenGL library. However,
+     the tokens	returned by glGetString	must be	consulted at runtime to
+     determine whether the extension is	supported on the particular display in
+     use at that moment.
+
+     As	an alternative to parsing the extensions string, you can determine
+     which extensions are supported by examining the renderer string (to
+     determine which graphics subsystem	is being used) and the version string
+     (to determine the release number of the software being used).  For	more
+     information see glGetString.
+
+
+
+
+									Page 9
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+     On	some machines an extension may be incompletely implemented, and
+     therefore its name	will not appear	in the extensions string.  In such
+     cases the only way	to determine if	the extension can be used is to	query
+     the renderer and version strings.
+
+     GLX also has been extended. Refer to glXIntro for more information.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     When an OpenGL application	uses indirect rendering, additional instances
+     of	Xsgi, the SGI X	server,	process	show up	under ps.  The additional
+     processes are multiple threads of the X server, used to implement
+     indirect rendering.
+
+     Do	not mix	OpenGL and IrisGL calls	from within a single process.
+
+
+<FONT COLOR="#0000CC">BUGS
+</FONT>     Different OpenGL processes	which render to	the same window	using direct
+     rendering will not	share the software ancillary buffers on	that window.
+
+     If	an OpenGL program does a server	grab using its X connection, then for
+     the duration of the grab it should	not render OpenGL into any window that
+     the client	doing the grab did not create.	Otherwise a deadlock occurs.
+     The client	is still able to do X rendering.  This holds for both local
+     and remote	rendering.
+
+     If	the OpenGL DSO (libGL.so) is unloaded, by calling dlclose(), before
+     the X connection is closed	(or before the application is shutdown), a
+     segv will occur. To get around this, call XCloseDisplay before unloading
+     libGL.so.
+
+     glXCopyContext does not work correctly if the source context is not the
+     current context or	if the destination context has never been made
+     current.
+
+     On	High Impact and	Maximum	Impact systems,	and on RealityEngine,
+     RealityEngine2, and VTX systems, GLX_BUFFER_SIZE is not the sum of
+     GLX_RED_SIZE, GLX_GREEN_SIZE, GLX_BLUE_SIZE, and GLX_ALPHA_SIZE for
+     visuals with 12-bit RGBA components.
+
+     glXSwapBuffers does not work for double-buffered GLX pixel	buffers.
+
+     On	XS, XZ,	Elan, and Extreme systems, and Indy and	XL systems,
+     glConvolutionFilter1DEXT, glConvolutionFilter2DEXT, and
+     glSeparableFilter2DEXT, will skip pixels and/or rows when the pixel zoom
+     is	set so that it minifies	(i.e., -1 &amp;lt; zoom &amp;lt; 1).
+
+     When the commands glHistogramEXT and glColorTableSGI are called between a
+     glNewlist and a corresponding glEndList, they are always stored in	the
+     display list even when target is set to GL_PROXY_*. Proxy calls should
+     not be stored in a	display	list; instead they should be executed
+
+
+
+								       Page 10
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+     immediately.
+
+     Even though the SGIX_texture_scale_bias extension is implemented on XS,
+     XZ, Elan, and Extreme systems, and	on Indy	and XL systems,	it is not
+     possible to query GL_POST_TEXTURE_FILTER_BIAS_RANGE_SGIX and
+     GL_POST_TEXTURE_FILTER_SCALE_RANGE_SGIX. Doing so will result in a	gl
+     error.
+
+     On	XS, XZ,	Elan, and Extreme systems, and on Indy and XL systems, calling
+     glHistogramEXT, glResetHistogramEXT, glMinmaxEXT, or glResetMinmaxEXT
+     between a glBegin and glEnd will not generate a GL_INVALID_OPERATION
+     error as it should.
+
+     No	locking	of display list	structures is done on behalf of	indirect
+     OpenGL contexts that share	display	list spaces.  Applications that	use
+     such contexts should use their own	mechanisms to ensure mutual exclusion
+     when defining or destroying display lists.
+
+     You may notice some discrepancies between the OpenGL Reference Manual
+     which is available	through	InSight	and the	man pages (i.e., the ones you
+     get using the "man	gl..." command in a shell window). If so, the man
+     pages contain the correct,	up to date, information.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     Most machine dependencies are documented in the reference pages for the
+     commands with which they're most closely associated.  Some	more general
+     observations follow:
+
+     VGX and VGXT
+
+     On	VGX and	VGXT systems, OpenGL is	implemented atop IrisGL. This
+     implementation passes the ``mustpass'' OpenGL conformance tests but,
+     nonetheless, the following	inconsistencies	exist: pixel centers lie on
+     integer coordinates (not half-integer coordinates), and diffuse and
+     specular light colors are ignored.
+
+     If	any of the following are enabled, then all geometric primitives	will
+     be	rendered through software (i.e., no hardware acceleration will be
+     used):
+
+     o	  alpha	test (unless test is GL_ALWAYS or GL_NOTEQUAL and reference
+	  value	is zero)
+
+     o	  texture
+
+     o	  lighting enabled but no lights enabled
+
+     o	  clock-wise front face
+
+
+
+
+
+								       Page 11
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIntro(3G)		       OpenGL Reference			   glIntro(3G)
+</FONT>
+
+
+     o	  fog enabled and color	index visual
+
+     o	  drawing into both front and back buffer AND blend is enabled,	or
+	  logic	op is enabled
+
+     Points will be rendered through software if evaluators are	used (e.g.,
+     GL_MAP1_VERTEX3 is	enabled).
+
+     Polygons and strips will be rendered through software if any of the
+     following are true:
+
+     o	  front	mode is	not the	same as	back mode and the polygon mode is not
+	  GL_FILL
+
+     o	  polygon offset is enabled and	the scale and bias offset factors are
+	  not 1	and 0, respectively.
+
+     o	  points have to go through software and the polygon mode is GL_POINT
+
+     On	VGXT fog is done per-vertex instead of per-pixel.
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXIntro
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								       Page 12
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

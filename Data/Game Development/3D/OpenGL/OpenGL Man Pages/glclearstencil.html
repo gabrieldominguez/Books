@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glclearstencil Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glclearstencil</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glClearStencil(3G)	       OpenGL Reference		    glClearStencil(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glClearStencil - specify the clear	value for the stencil buffer
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glClearStencil( GLint	s )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     s	Specifies the index used when the stencil buffer is cleared.  The
+	default	value is zero.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glClearStencil specifies the index	used by	glClear	to clear the stencil
+     buffer.  s	is masked with 2m-1, where m is	the number of bits in the
+     stencil buffer.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glClearStencil is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_STENCIL_CLEAR_VALUE
+     glGet with	argument GL_STENCIL_BITS
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glClear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

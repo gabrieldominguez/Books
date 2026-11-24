@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetpixelmap Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetpixelmap</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetPixelMap(3G)	       OpenGL Reference		     glGetPixelMap(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetPixelMapfv, glGetPixelMapuiv,	glGetPixelMapusv - return the
+     specified pixel map
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetPixelMapfv( GLenum map,
+			   GLfloat *values )
+     void glGetPixelMapuiv( GLenum map,
+			    GLuint *values )
+     void glGetPixelMapusv( GLenum map,
+			    GLushort *values )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     map     Specifies the name	of the pixel map to return.  Accepted values
+	     are GL_PIXEL_MAP_I_TO_I, GL_PIXEL_MAP_S_TO_S,
+	     GL_PIXEL_MAP_I_TO_R, GL_PIXEL_MAP_I_TO_G, GL_PIXEL_MAP_I_TO_B,
+	     GL_PIXEL_MAP_I_TO_A, GL_PIXEL_MAP_R_TO_R, GL_PIXEL_MAP_G_TO_G,
+	     GL_PIXEL_MAP_B_TO_B, and GL_PIXEL_MAP_A_TO_A.
+
+     values  Returns the pixel map contents.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Please see	the glPixelMap reference page for a description	of the
+     acceptable	values for the map parameter.  glGetPixelMap returns in	values
+     the contents of the pixel map specified in	map.  Pixel maps are used
+     during the	execution of glReadPixels, glDrawPixels, glCopyPixels,
+     glTexImage1D, and glTexImage2D to map color indices, stencil indices,
+     color components, and depth components to other values.
+
+     Unsigned integer values, if requested, are	linearly mapped	from the
+     internal fixed or floating-point representation such that 1.0 maps	to the
+     largest representable integer value, and 0.0 maps to zero.	 Return
+     unsigned integer values are undefined if the map value was	not in the
+     range [0,1].
+
+     To	determine the required size of map, call glGet with the	appropriate
+     symbolic constant.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	an error is generated, no change is made to the	contents of values.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if map is not	an accepted value.
+
+     GL_INVALID_OPERATION is generated if glGetPixelMap	is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetPixelMap(3G)	       OpenGL Reference		     glGetPixelMap(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_PIXEL_MAP_I_TO_I_SIZE
+     glGet with	argument GL_PIXEL_MAP_S_TO_S_SIZE
+     glGet with	argument GL_PIXEL_MAP_I_TO_R_SIZE
+     glGet with	argument GL_PIXEL_MAP_I_TO_G_SIZE
+     glGet with	argument GL_PIXEL_MAP_I_TO_B_SIZE
+     glGet with	argument GL_PIXEL_MAP_I_TO_A_SIZE
+     glGet with	argument GL_PIXEL_MAP_R_TO_R_SIZE
+     glGet with	argument GL_PIXEL_MAP_G_TO_G_SIZE
+     glGet with	argument GL_PIXEL_MAP_B_TO_B_SIZE
+     glGet with	argument GL_PIXEL_MAP_A_TO_A_SIZE
+     glGet with	argument GL_MAX_PIXEL_MAP_TABLE
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glCopyPixels, glDrawPixels, glPixelMap, glPixelTransfer, glReadPixels,
+     glTexImage1D, glTexImage2D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

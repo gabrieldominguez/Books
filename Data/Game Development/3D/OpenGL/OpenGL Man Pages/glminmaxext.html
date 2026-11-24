@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glminmaxext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glminmaxext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glMinmaxEXT(3G)		       OpenGL Reference		       glMinmaxEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glMinmaxEXT - define minmax table
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glMinmaxEXT( GLenum target,
+		       GLenum internalformat,
+		       GLboolean sink )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target	     The minmax	table whose parameters are to be set.  Must be
+		     GL_MINMAX_EXT.
+
+     internalformat  The format	of entries in the minmax table.	 Must be one
+		     of	GL_ALPHA, GL_ALPHA4_EXT, GL_ALPHA8_EXT,
+		     GL_ALPHA12_EXT, GL_ALPHA16_EXT, GL_LUMINANCE,
+		     GL_LUMINANCE4_EXT,	GL_LUMINANCE8_EXT, GL_LUMINANCE12_EXT,
+		     GL_LUMINANCE16_EXT, GL_LUMINANCE_ALPHA,
+		     GL_LUMINANCE4_ALPHA4_EXT, GL_LUMINANCE6_ALPHA2_EXT,
+		     GL_LUMINANCE8_ALPHA8_EXT, GL_LUMINANCE12_ALPHA4_EXT,
+		     GL_LUMINANCE12_ALPHA12_EXT, GL_LUMINANCE16_ALPHA16_EXT,
+		     GL_RGB, GL_RGB2_EXT, GL_RGB4_EXT, GL_RGB5_EXT,
+		     GL_RGB8_EXT, GL_RGB10_EXT,	GL_RGB12_EXT, GL_RGB16_EXT,
+		     GL_RGBA, GL_RGBA2_EXT, GL_RGBA4_EXT, GL_RGB5_A1_EXT,
+		     GL_RGBA8_EXT, GL_RGB10_A2_EXT, GL_RGBA12_EXT, or
+		     GL_RGBA16_EXT.
+
+     sink	     If	GL_TRUE, pixels	will be	consumed by the	minmax process
+		     and no drawing or texture loading will take place.	 If
+		     GL_FALSE, pixels will proceed to the final	conversion
+		     process after minmax.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Minmax is part of the GL pixel transfer process.  It takes	place
+     immediately after histogramming.  Minmax is performed only	for RGBA
+     pixels (though these may be specified originally as color indices and
+     converted to RGBA by index	table lookup).	Minmax is enabled with
+     glEnable and disabled with	glDisable.
+
+     When GL_MINMAX_EXT	is enabled, the	RGBA components	of incoming pixels are
+     compared to the minimum and maximum values	for each component, which are
+     stored in the 2-element minmax table.  (The first element stores the
+     minima, and the second element stores the maxima.)	 If a pixel component
+     is	greater	than the corresponding component in the	maximum	element, then
+     the maximum element is updated with the pixel component value.  If	a
+     pixel component is	less than the corresponding component in the minimum
+     element, then the minimum element is updated with the pixel component
+     value.  (In both cases, if	the internal format of the minmax table
+     includes luminance, then the R color component of incoming	pixels is used
+     for comparison.)  The contents of the minmax table	may be retrieved at a
+     later time	by calling glGetMinmaxEXT.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glMinmaxEXT(3G)		       OpenGL Reference		       glMinmaxEXT(3G)
+</FONT>
+
+
+     glMinmaxEXT redefines the current minmax table to have entries of the
+     format specified by internalformat.  The maximum element is initialized
+     with the smallest possible	component values, and the minimum element is
+     initialized with the largest possible component values.  The values in
+     the previous minmax table,	if any,	are lost.  If sink is GL_TRUE, then
+     pixels are	discarded after	minmax;	no further processing of the pixels
+     takes place, and no drawing, texture loading, or pixel readback will
+     result.
+
+     The minmax	state information may be queried by calling
+     glGetMinmaxParameterEXT with a target of GL_MINMAX_EXT and	one of the
+     following values for the pname argument:
+
+	       Parameter	    Description
+	       ____________________________________________________
+	       GL_MINMAX_FORMAT	    Internal format of minmax table
+	       GL_MINMAX_SINK_EXT   Value of the sink parameter
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glMinmaxEXT is part of the	EXT_blend_minmax extension, not	part of	the
+     core GL command set. If GL_EXT_blend_minmax is included in	the string
+     returned by glGetString, when called with argument	GL_EXTENSIONS,
+     extension EXT_blend_minmax	is supported by	the connection.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not one of the allowable
+     values.
+
+     GL_INVALID_ENUM is	generated if internalformat is not one of the
+     allowable values.
+
+     GL_INVALID_OPERATION is generated if glMinmaxEXT is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetMinmaxParameterEXT.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems,	histogram and minmax
+     may not be	used when rendering to pixmaps.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glGetMinmaxEXT, glResetMinmaxEXT.
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

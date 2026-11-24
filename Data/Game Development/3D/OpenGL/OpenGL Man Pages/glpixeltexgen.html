@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glpixeltexgen Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glpixeltexgen</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glPixelTexGenSGIX(3G)	       OpenGL Reference		 glPixelTexGenSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glPixelTexGenSGIX - control the generation	of texture coordinates from
+     pixel groups
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPixelTexGenSGIX( GLenum mode )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mode  Specifies a mode of generating texture coordinates from pixel
+	   groups, and corresponds to the number of components in the pixel
+	   group.  Must	be one of the following:  GL_NONE, GL_RGBA, GL_RGB,
+	   GL_LUMINANCE_ALPHA, GL_LUMINANCE.
+	   GL_PIXEL_TEX_GEN_ALPHA_REPLACE_SGIX,
+	   GL_PIXEL_TEX_GEN_ALPHA_NO_REPLACE_SGIX,
+	   GL_PIXEL_TEX_GEN_ALPHA_MS_SGIX, or GL_PIXEL_TEX_GEN_ALPHA_LS_SGIX.
+	   The default value is	GL_NONE.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glPixelTexGenSGIX affects the result of the glDrawPixels and glCopyPixels
+     commands.	It allows the color components of pixel	groups to be used as
+     texture coordinates, effectively converting a color image into a texture
+     coordinate	image.	Because	texture	mapping	is essentially a
+     multidimensional table lookup, this conversion supports multidimensional
+     color lookups for images.	Such multidimensional lookups can be used to
+     implement very accurate color space conversions.
+
+     If	the parameter is GL_LUMINANCE, there must be a valid 1D	texture
+     enabled, which can	have any internal format. The external format of the
+     pixel group must be GL_LUMINANCE; the luminance component will be used to
+     generate an s texture coordinate.
+
+     If	the parameter is GL_LUMINANCE_ALPHA, there must	be a valid 2D texture
+     enabled, which can	have any internal format. The external format of the
+     pixel group must be GL_LUMINANCE_ALPHA; the luminance and alpha
+     components	will be	used to	generate s and t texture coordinates,
+     respectively.
+
+     If	the parameter is GL_RGB, there must be a valid 3D texture enabled,
+     which can have any	internal format. The external format of	the pixel
+     group must	be GL_RGB; the red, green, and blue components will be used to
+     generate s, t and r texture coordinates, respectively.
+
+     If	the parameter is GL_RGBA, there	must be	a valid	4D texture enabled,
+     which can have any	internal format. The external format of	the pixel
+     group must	be GL_RGBA; the	red, green, blue, and alpha components will be
+     used to generate s, t, r, and q texture coordinates, respectively.
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPixelTexGenSGIX(3G)	       OpenGL Reference		 glPixelTexGenSGIX(3G)
+</FONT>
+
+
+     The texture components generated in this way are normalized to the	range
+     [0..1] based on the external type of the pixel group.
+
+     The result	of the texture-mapping operation is texture-blended onto a
+     fragment which has	the attributes of the current raster position.
+     Therefore the desired texture environment mode must be set, based on the
+     internal format of	the texture. For example, it is	possible to have a
+     pixel group with the format GL_RGBA generate texture coordinates into a
+     4D	texture; yet the internal format of the	texture	can be GL_LUMINANCE
+     which is undefined	for GL_DECAL mode in the texture environment.
+
+     If	the parameter is GL_NONE, pixel	texture	is disabled, the default.
+
+     A useful mode of pixel texture is to have a pixel group with the external
+     format GL_RGBA index into a 3D texture, and have the alpha	component
+     combined with the texel output. In	this case the internal format of the
+     texture must have alpha, and that alpha can be replaced by	the "incoming"
+     alpha by calling glPixelTexGenSGIX	with the parameter
+     GL_PIXEL_TEX_GEN_ALPHA_REPLACE_SGIX. Since	the incoming pixel group has
+     four components, the texture must be a 4D texture;	since the alpha	is not
+     intended for lookup, the 4D texture can have a q size of one which	is
+     essentially a 3D texture. The "alpha replace" mode	can be turned off by
+     calling glPixelTexGenSGIX with the	parameter
+     GL_PIXEL_TEX_GEN_ALPHA_NO_REPLACE_SGIX, the default.
+
+     Currently Silicon Graphics	machines that support glPixelTexGenSGIX	in
+     hardware do not have quad-linear interpolation. So	the fourth dimension
+     of	interpolation, q, defaults to nearest-neighbor mode (the other
+     dimensions	may still be linear, depending on the glTexParameter call).
+
+     In	order to achieve a true	quad-linearly interpolated result, a two-pass
+     operation is required, which uses the frame buffer	blend for the last
+     interpolation. For	this purpose special ceiling/floor functions for the q
+     dimension have been supplied, which can be	referenced in the man pages
+     for glTexParameter. These are
+
+     GL_PIXEL_TEX_GEN_Q_CEILING_SGIX
+
+     GL_PIXEL_TEX_GEN_Q_FLOOR_SGIX
+
+     GL_PIXEL_TEX_GEN_Q_ROUND_SGIX
+
+     On	the second pass, use the "alpha	replace" mode (described above)	to
+     combine the incoming alpha	with the output	(as well as using it in	the
+     fourth dimensional	texture	lookup). The original alpha, however, is not
+     usable as a fractional interpolation value	until it gets left-shifted by
+     the number	of bits	corresponding to the logarithm (base 2)	of the q size
+     of	4D texture. The	alpha can be effectively left-shifted using the
+     texture color table. Since	the table has limited precision, a mode	is
+     supplied which will left-shift the	alpha by 4 bits	before combining it
+     with the output. To use it	call glPixelTexGenSGIX with the	parameter
+     GL_PIXEL_TEX_GEN_ALPHA_LS_SGIX. The default, with no left shift, is
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPixelTexGenSGIX(3G)	       OpenGL Reference		 glPixelTexGenSGIX(3G)
+</FONT>
+
+
+     GL_PIXEL_TEX_GEN_ALPHA_MS_SGIX (MS	and LS refer to	"most significant" and
+     "least significant"). This	produces excellent results for 8 and 12	bit
+     components, for different texture q sizes.
+
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated when mode is not an accepted defined value.
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     glPixelTexGenSGIX is supported only on High Impact	and Maximum Impact
+     systems; however, the 1D and 2D modes (GL_LUMINANCE and
+     GL_LUMINANCE_ALPHA) are not supported, however. Those who wish to emulate
+     these functions may define	3D textures with r size	or t size of one, and
+     pad the incoming pixel groups with	concocted blue or green	values.
+
+     On	High Impact and	Maximum	Impact systems,	the effect of the current
+     raster position's color is	not taken into account,	as if the color	is
+     white, with full alpha.  This will	be fixed in the	next release.
+
+     On	High Impact and	Maximum	Impact systems,	glPixelTexGenSGIX for
+     glCopyPixels is not supported. This will be fixed in the next release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glTexEnv, glTexImage1D, glTexImage2D, glTexImage3DEXT, glTexImage4DSGIS,
+     glTexParameter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

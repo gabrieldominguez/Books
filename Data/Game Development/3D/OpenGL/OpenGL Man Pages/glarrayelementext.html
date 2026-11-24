@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glarrayelementext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glarrayelementext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glArrayElementEXT(3G)	       OpenGL Reference		 glArrayElementEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glArrayElementEXT - specify the array elements used to render a vertex
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glArrayElementEXT( GLint i )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     i	Specifies an index in the enabled arrays.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glArrayElementEXT commands	are used within	glBegin/glEnd pairs to specify
+     vertex and/or attribute data for point, line and polygon primitives. If
+     GL_VERTEX_ARRAY_EXT is enabled when glArrayElementEXT is called, then a
+     single vertex is drawn, using vertex and attribute	data taken from
+     location i	of the enabled arrays. If GL_VERTEX_ARRAY_EXT is not enabled
+     then no drawing occurs but	the attributes corresponding to	the enabled
+     arrays are	modified.
+
+     Use glArrayElementEXT to construct	primitives by indexing vertex data,
+     rather than by streaming through arrays of	data in	first-to-last order.
+     Because each call specifies only a	single vertex, it is possible to
+     explicitly	specify	per-primitive attributes, such as a single normal per
+     individual	triangle.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glArrayElementEXT may be included in display lists. If glArrayElementEXT
+     is	entered	into a display list, the necessary array data (determined by
+     the array pointers	and enables) is	also entered into the display list.
+     Because the array pointers	and enables are	client side state, their
+     values affect display lists when the lists	are created, not when the
+     lists are executed.
+
+     Static array data may be read and cached by the implementation at any
+     time.  If static array elements are modified and the arrays are not
+     respecified, the results of any subsequent	calls to glArrayElementEXT are
+     undefined.
+
+     glArrayElementEXT executes	even if	GL_VERTEX_ARRAY_EXT is not enabled.
+     No	drawing	occurs in this case, but the attributes	corresponding to
+     enabled arrays are	modified.
+
+     Although it is not	an error to respecify an array between the execution
+     of	glBegin	and the	corresponding execution	of glEnd, the result of	such
+     respecification is	undefined.
+
+     glArrayElementEXT is part of the EXT_vertex_array extension, not part of
+     the core GL command set. If GL_EXT_vertex_array is	included in the	string
+     returned by glGetString, when called with argument	GL_EXTENSIONS,
+     extension EXT_vertex_array	is supported.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glArrayElementEXT(3G)	       OpenGL Reference		 glArrayElementEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glColorPointerEXT,	glDrawArraysEXT, glEdgeFlagPointerEXT,
+     glGetPointervEXT, glIndexPointerEXT, glNormalPointerEXT,
+     glTexCoordPointerEXT, glVertexPointerEXT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,292 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glfeedbackbuffer Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glfeedbackbuffer</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glFeedbackBuffer(3G)	       OpenGL Reference		  glFeedbackBuffer(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glFeedbackBuffer -	controls feedback mode
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glFeedbackBuffer( GLsizei size,
+			    GLenum type,
+			    GLfloat *buffer )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     size    Specifies the maximum number of values that can be	written	into
+	     buffer.
+
+     type    Specifies a symbolic constant that	describes the information that
+	     will be returned for each vertex.	GL_2D, GL_3D, GL_3D_COLOR,
+	     GL_3D_COLOR_TEXTURE, and GL_4D_COLOR_TEXTURE are accepted.
+
+     buffer  Returns the feedback data.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     The glFeedbackBuffer function controls feedback.  Feedback, like
+     selection,	is a GL	mode.  The mode	is selected by calling glRenderMode
+     with GL_FEEDBACK.	When the GL is in feedback mode, no pixels are
+     produced by rasterization.	 Instead, information about primitives that
+     would have	been rasterized	is fed back to the application using the GL.
+
+     glFeedbackBuffer has three	arguments:  buffer is a	pointer	to an array of
+     floating-point values into	which feedback information is placed.  size
+     indicates the size	of the array.  type is a symbolic constant describing
+     the information that is fed back for each vertex.	glFeedbackBuffer must
+     be	issued before feedback mode is enabled (by calling glRenderMode	with
+     argument GL_FEEDBACK).  Setting GL_FEEDBACK without establishing the
+     feedback buffer, or calling glFeedbackBuffer while	the GL is in feedback
+     mode, is an error.
+
+     When glRenderMode is called while in feedback mode, it returns the	number
+     of	entries	placed in the feedback array, and resets the feedback array
+     pointer to	the base of the	feedback buffer.  The returned value never
+     exceeds size. If the feedback data	required more room than	was available
+     in	buffer,	glRenderMode returns a negative	value.	The GL is taken	out of
+     feedback mode by calling glRenderMode with	a parameter value other	than
+     GL_FEEDBACK.
+
+     While in feedback mode, each primitive, bitmap, or	pixel rectangle	that
+     would be rasterized generates a block of values that get copied into the
+     feedback array.  If doing so would	cause the number of entries to exceed
+     the maximum, the block is partially written so as to fill the array (if
+     there is any room left at all), and an overflow flag is set.  Each	block
+     begins with a code	indicating the primitive type, followed	by values that
+     describe the primitive's vertices and associated data.  Entries are also
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glFeedbackBuffer(3G)	       OpenGL Reference		  glFeedbackBuffer(3G)
+</FONT>
+
+
+     written for bitmaps and pixel rectangles.	Feedback occurs	after polygon
+     culling and glPolyMode interpretation of polygons has taken place,	so
+     polygons that are culled are not returned in the feedback buffer.	It can
+     also occur	after polygons with more than three edges are broken up	into
+     triangles,	if the GL implementation renders polygons by performing	this
+     decomposition.
+
+     The glPassThrough command can be used to insert a marker into the
+     feedback buffer.  See glPassThrough.
+
+     Following is the grammar for the blocks of	values written into the
+     feedback buffer.  Each primitive is indicated with	a unique identifying
+     value followed by some number of vertices.	 Polygon entries include an
+     integer value indicating how many vertices	follow.	 A vertex is fed back
+     as	some number of floating-point values, as determined by type.  Colors
+     are fed back as four values in RGBA mode and one value in color index
+     mode.
+
+	  feedbackList &amp;lt;- feedbackItem feedbackList | feedbackItem
+
+	  feedbackItem &amp;lt;- point	| lineSegment |	polygon	| bitmap |
+	  pixelRectangle | passThru
+
+	  point	&amp;lt;- GL_POINT_TOKEN vertex
+
+	  lineSegment &amp;lt;- GL_LINE_TOKEN vertex vertex | GL_LINE_RESET_TOKEN
+	  vertex vertex
+
+	  polygon &amp;lt;- GL_POLYGON_TOKEN n	polySpec
+
+	  polySpec &amp;lt;- polySpec vertex |	vertex vertex vertex
+
+	  bitmap &amp;lt;- GL_BITMAP_TOKEN vertex
+
+	  pixelRectangle &amp;lt;- GL_DRAW_PIXEL_TOKEN	vertex | GL_COPY_PIXEL_TOKEN
+	  vertex
+
+	  passThru &amp;lt;- GL_PASS_THROUGH_TOKEN value
+
+	  vertex &amp;lt;- 2d | 3d | 3dColor |	3dColorTexture | 4dColorTexture
+
+	  2d &amp;lt;-	value value
+
+	  3d &amp;lt;-	value value value
+
+	  3dColor  &amp;lt;- value value value	color
+
+	  3dColorTexture &amp;lt;- value value	value color tex
+
+	  4dColorTexture &amp;lt;- value value	value value color tex
+
+	  color	&amp;lt;- rgba	| index
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glFeedbackBuffer(3G)	       OpenGL Reference		  glFeedbackBuffer(3G)
+</FONT>
+
+
+	  rgba &amp;lt;- value	value value value
+
+	  index	&amp;lt;- value
+
+	  tex &amp;lt;- value value value value
+
+
+     value is a	floating-point number, and n is	a floating-point integer
+     giving the	number of vertices in the polygon.  GL_POINT_TOKEN,
+     GL_LINE_TOKEN, GL_LINE_RESET_TOKEN, GL_POLYGON_TOKEN, GL_BITMAP_TOKEN,
+     GL_DRAW_PIXEL_TOKEN, GL_COPY_PIXEL_TOKEN and GL_PASS_THROUGH_TOKEN	are
+     symbolic floating-point constants.	 GL_LINE_RESET_TOKEN is	returned
+     whenever the line stipple pattern is reset.  The data returned as a
+     vertex depends on the feedback type.
+
+     The following table gives the correspondence between type and the number
+     of	values per vertex.  k is 1 in color index mode and 4 in	RGBA mode.
+
+  ______________________________________________________________________________
+  |____________________|_____________|_______|_________|________________________|
+  |	  GL_2D	       |    x, y     |	     |	       |	   2		|
+  |	  GL_3D	       |   x, y, z   |	     |	       |	   3		|
+  |    GL_3D_COLOR     |   x, y, z   |	 k   |	       |	  3+k		|
+  |GL_3D_COLOR_TEXTURE |  x, y,	z,   |	 k   |	  4    |	  7+k		|
+  |GL_4D_COLOR_TEXTURE | x, y, z, w  |	 k   |	  4    |	  8+k		|
+  |____________________|_____________|_______|_________|________________________|
+
+     Feedback vertex coordinates are in	window coordinates, except w, which is
+     in	clip coordinates.  Feedback colors are lighted,	if lighting is
+     enabled.  Feedback	texture	coordinates are	generated, if texture
+     coordinate	generation is enabled.	They are always	transformed by the
+     texture matrix.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glFeedbackBuffer, when used in a display list, is not compiled into the
+     display list but rather is	executed immediately.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if type is not an accepted value.
+
+     GL_INVALID_VALUE is generated if size is negative.
+
+     GL_INVALID_OPERATION is generated if glFeedbackBuffer is called while the
+     render mode is GL_FEEDBACK, or if glRenderMode is called with argument
+     GL_FEEDBACK before	glFeedbackBuffer is called at least once.
+
+     GL_INVALID_OPERATION is generated if glFeedbackBuffer is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+
+
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glFeedbackBuffer(3G)	       OpenGL Reference		  glFeedbackBuffer(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_RENDER_MODE
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBegin, glLineStipple, glPassThrough, glPolygonMode, glRenderMode,
+     glSelectBuffer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 4
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

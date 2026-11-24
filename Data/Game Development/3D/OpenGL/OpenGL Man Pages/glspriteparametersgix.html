@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glspriteparametersgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glspriteparametersgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glSpriteParameterSGIX(3G)      OpenGL Reference	     glSpriteParameterSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glSpriteParameterfSGIX, glSpriteParameteriSGIX, glSpriteParameterfvSGIX,
+     glSpriteParameterivSGIX - set sprite parameters
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glSpriteParameterfSGIX( GLenum pname,
+				  GLfloat param	)
+     void glSpriteParameteriSGIX( GLenum pname,
+				  GLint	param )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     pname   The parameter to be set. Must be GL_SPRITE_MODE_SGIX.
+
+     param   The parameter value.  Must	be one of GL_SPRITE_AXIAL_SGIX or
+	     GL_SPRITE_OBJECT_ALIGNED_SGIX or GL_SPRITE_EYE_ALIGNED_SGIX.
+
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glSpriteParameterfvSGIX( GLenum pname,
+				   const GLfloat *params )
+     void glSpriteParameterivSGIX( GLenum pname,
+				   const GLint *params )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     pname
+	  The parameter	to be set. Must	be one of GL_SPRITE_AXIS_SGIX or
+	  GL_SPRITE_TRANSLATION_SGIX.
+
+     params
+	  Must be a pointer to a four-valued vector (for x, y, z, and w,
+	  respectively).
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glSpriteParameterSGIX is part of the GL_SGIX_sprite extension.  This
+     extension provides	support	for geometry that rotates to face the eye, in
+     the manner	of Iris	Performer billboards.  This is most useful for fast
+     approximate rendering of objects that have	rough spherical	or cylindrical
+     symmetry, such as trees, smoke, and clouds, where the objects are modeled
+     as	simple geometry	covered	by a complex partially-transparent texture
+     map.
+
+     Sprite geometry is	modelled in a canonical	frame in which +Z is the up
+     vector, and -Y is the front vector	which is rotated to point to the eye.
+
+     Rendering sprite geometry requires	applying a transformation to
+     primitives	before applying	the current modelview matrix.  This
+     transformation is based on	the current modelview matrix, the sprite
+     rendering mode, and the constraints on sprite motion.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glSpriteParameterSGIX(3G)      OpenGL Reference	     glSpriteParameterSGIX(3G)
+</FONT>
+
+
+     glSpriteParameterSGIX sets	the value of a sprite parameter.  pname
+     specifies the parameter to	be changed.
+
+     When pname	is GL_SPRITE_MODE_SGIX,	param specifies	the sprite rendering
+     mode.  param must be one of the following values:
+
+     GL_SPRITE_AXIAL_SGIX
+	       The front of the	object is rotated about	an axis	so that	it
+	       faces the eye as	much as	the axis constraint allows.
+
+     GL_SPRITE_OBJECT_ALIGNED_SGIX
+	       The front of the	object is rotated about	a point	to face	the
+	       eye. The	remaining rotational degree of freedom is specified by
+	       aligning	the top	of the object with a specified axis in object
+	       coordinates.
+
+     GL_SPRITE_EYE_ALIGNED_SGIX
+	       The front of the	object is rotated about	a point	to face	the
+	       eye. The	remaining rotational degree of freedom is specified by
+	       aligning	the top	of the object with a specified axis in eye
+	       coordinates.
+
+     When pname	is either GL_SPRITE_AXIS_SGIX or GL_SPRITE_TRANSLATION_SGIX,
+     params is a pointer to a four-element vector that specifies the sprite
+     rotation axis or sprite translation, respectively.
+
+     The rendering of sprite geometry is enabled with glEnable and disabled
+     with glDisable using the constant GL_SPRITE_SGIX.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     When using	sprites, the current projection	matrix must not	include	a
+     rotation.
+
+     Be	aware that user-defined	clipping planes, texture coordinates produced
+     by	certain	glTexGen modes,	and the	current	raster position	will be
+     affected by the combined sprite and modelview transformation if they are
+     specified while GL_SPRITE_SGIX is enabled.
+
+     glSpriteParameterSGIX is part of the GL_SGIX_sprite extension, not	part
+     of	the core GL command set.  See glIntro for information about using
+     extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if pname is not an accepted value.
+
+     GL_INVALID_ENUM is	generated if glSpriteParameterfSGIX or
+     glSpriteParameteriSGIX parameter pname is the GL_SPRITE_MODE_SGIX and
+     parameter param is	not one	of the accepted	values.
+
+     GL_INVALID_OPERATION is generated if glSpriteParameterSGIX	is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glSpriteParameterSGIX(3G)      OpenGL Reference	     glSpriteParameterSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glIsEnabled with argument GL_SPRITE_SGIX
+     glGet with	argument GL_SPRITE_MODE_SGIX
+     glGet with	argument GL_SPRITE_AXIS_SGIX
+     glGet with	argument GL_SPRITE_TRANSLATION_SGIX
+     glGetString with argument GL_EXTENSIONS
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

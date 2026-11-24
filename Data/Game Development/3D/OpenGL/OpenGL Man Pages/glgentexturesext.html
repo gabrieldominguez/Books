@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgentexturesext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgentexturesext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGenTexturesEXT(3G)	       OpenGL Reference		  glGenTexturesEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGenTexturesEXT -	generate texture names
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGenTexturesEXT( GLsizei n,
+			    GLuint *textures )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     n	       The number of texture names to be generated.
+
+     textures  An array	in which the generated texture names are stored.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGenTexturesEXT returns n	texture	names in textures.  There is no
+     guarantee that the	names form a contiguous	set of integers; however, it
+     is	guaranteed that	none of	the returned names was in use immediately
+     before the	call to	glGenTexturesEXT.
+
+     The generated textures have no dimensionality; they assume	the
+     dimensionality of the texture target to which they	are first bound	(see
+     glBindTextureEXT).
+
+     Texture names returned by a call to glGenTexturesEXT will not be returned
+     by	subsequent calls, unless they are first	deleted	with
+     glDeleteTexturesEXT.
+
+     glGenTexturesEXT is not included in display lists.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glGenTexturesEXT is part of the EXT_texture_object	extension.  See
+     glIntro for more information about	using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if n	is negative.
+
+     GL_INVALID_OPERATION is generated if glGenTexturesEXT is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glIsTextureEXT
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support texture
+     name sharing.  Texture names are always local to the rendering context
+     which was active at the time the names were created.  High	Impact and
+     Maximum Impact systems do not currently support texture name sharing, but
+     this will be fixed	in the next release.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGenTexturesEXT(3G)	       OpenGL Reference		  glGenTexturesEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBindTextureEXT, glDeleteTexturesEXT, glGet, glGetTexParameter,
+     glTexImage1D, glTexImage2D, glTexImage3DEXT, glTexParameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

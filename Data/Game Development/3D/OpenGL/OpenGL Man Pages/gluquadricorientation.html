@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gluquadricorientation Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gluquadricorientation</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluQuadricOrientation(3G)      OpenGL Reference	     gluQuadricOrientation(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluQuadricOrientation - specify inside/outside orientation	for quadrics
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluQuadricOrientation( GLUquadric* quad,
+				 GLenum	orientation )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     quad	  Specifies the	quadrics object	(created with gluNewQuadric).
+
+     orientation  Specifies the	desired	orientation.  Valid values are
+		  GLU_OUTSIDE and GLU_INSIDE.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluQuadricOrientation specifies what kind of orientation is desired for
+     quadrics rendered with quad.  The orientation values are as follows:
+
+     GLU_OUTSIDE    Quadrics are drawn with normals pointing outward.
+
+     GLU_INSIDE	    Normals point inward.  The default is GLU_OUTSIDE.
+
+     Note that the interpretation of outward and inward	depends	on the quadric
+     being drawn.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluNewQuadric, gluQuadricDrawStyle, gluQuadricNormals, gluQuadricTexture
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

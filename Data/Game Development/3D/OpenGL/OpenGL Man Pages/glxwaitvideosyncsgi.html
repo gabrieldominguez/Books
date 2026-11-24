@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxwaitvideosyncsgi Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxwaitvideosyncsgi</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXWaitVideoSyncSGI(3G)	    OpenGL Reference - GLX     glXWaitVideoSyncSGI(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXWaitVideoSyncSGI - wait	for vertical retrace
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     int glXWaitVideoSyncSGI( int divisor,
+			      int remainder,
+			      unsigned int *count )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     divisor
+
+     remainder	glXWaitVideoSyncSGI puts the calling process to	sleep until
+		the value of the vertical retrace counter modulo divisor
+		equals remainder.
+
+
+     count	Pointer	to variable which receives the value of	the vertical
+		retrace	counter	when the calling process wakes up.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXWaitVideoSyncSGI is part of the	SGI_video_sync extension.  This
+     extension provides	a way to synchronize with the video frame rate of a
+     monitor (in the case of an	interlaced display, the	synchronization	is
+     actually with the field rate).
+
+     A vertical	retrace	precedes the display of	each video frame.  The kernel
+     maintains a 32-bit	unsigned integer counter for each graphics pipe	in the
+     system.  This counter is initialized via the /usr/gfx/gfxinit command,
+     and incremented upon each vertical	retrace.  Since	all the	video output
+     channels of a graphics pipe must be genlocked, one	counter	suffices for
+     all the monitors driven by	a pipe.
+
+     A process can query or sleep on the counter of the	graphics pipe
+     associated	with its current OpenGL	rendering context, provided that the
+     rendering context is direct.  (See	glXCreateContext.)
+
+     glXWaitVideoSyncSGI puts the calling process to sleep until the vertical
+     retrace counter modulo divisor equals remainder.  When this condition is
+     met it places the value of	the vertical retrace counter in	the location
+     referenced	by count and returns zero.
+
+     If	the current context is not direct, glXWaitVideoSyncSGI returns
+     GLX_BAD_CONTEXT_SGI.  If divisor is less than or equal to zero,
+     glXWaitVideoSyncSGI returns GLX_BAD_VALUE_SGI.  If	remainder is less than
+     zero, or greater than or equal to divisor,	glXWaitVideoSyncSGI returns
+     GLX_BAD_VALUE_SGI.
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXWaitVideoSyncSGI(3G)	    OpenGL Reference - GLX     glXWaitVideoSyncSGI(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     glXWaitVideoSyncSGI is not	supported on Personal Iris or VGX and VGXT
+     systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXGetVideoSyncSGI, glXCreateContext, glXQueryVersion, glGetString
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxchannelrectsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxchannelrectsgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXChannelRectSGIX(3G)	    OpenGL Reference - GLX	glXChannelRectSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXChannelRectSGIX	- specify area of frame	buffer to resize to video
+     resolution
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     int glXChannelRectSGIX( Display *display,
+			     int screen,
+			     int channel,
+			     int x,
+			     int y,
+			     int w,
+			     int h )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     display  Specifies	the connection to the X	server.
+
+     screen   Specifies	the screen of the X server.
+
+     channel  Specifies	the video channel number.
+
+     x,	y, w, h
+	      The origin and size of the area of the window that will be
+	      converted	to the output resolution of the	video channel.	(x,y)
+	      is relative to the bottom	left corner of channel specified by
+	      the current video	combination.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXChannelRectSGIX	sets the rectangular area of the frame buffer that
+     will be resized to	match the output resolution of channel.	The specified
+     frame buffer area is not resized until glXSwapBuffers is called for the
+     window that is bound to channel. Call glXBindChannelToWindowSGIX to bind
+     a window to a channel.
+
+     Note that the origin and size of the specified area must conform to the
+     precision constraints returned by glXQueryChannelDeltasSGIX.
+
+     glXChannelRectSGIX	returns	True if	it succeeds. If	it fails, False	is
+     returned and the frame buffer area	remains	unchanged.
+
+<FONT COLOR="#0000CC">EXAMPLE
+</FONT>
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChannelRectSGIX(3G)	    OpenGL Reference - GLX	glXChannelRectSGIX(3G)
+</FONT>
+
+
+	  XSGIvcChannelInfo   *pChanInfo = NULL;
+
+	   ... open display and	screen ...
+
+	  glXBindChannelToWindowSGIX( display,screen,channel,window );
+
+	  glXQueryChannelDeltasSGIX( display,screen,channel, &dx,&dy,&dw,&dh );
+
+	  XSGIvcQueryChannelInfo( display, screen, channel, &pChanInfo );
+
+	  X = pChanInfo-&gt;source.x;
+	  Y = pChanInfo-&gt;source.y;
+	  W = pChanInfo-&gt;source.width;
+	  H = pChanInfo-&gt;source.height;
+
+	   ... open an X window	(preferably with no borders so will not	get ...
+	   ... moved by	window manager)	at location X,Y,W,H (X coord system) ...
+
+	  while( ... )
+	  {
+	      ... determine area(width,height) that will be drawn ...
+		  ... based on performance requirements.  Make ...
+	      ... area smaller if application is fill limited ...
+
+	      w	=  width - ( width % dw	);
+	      h	=  height - ( height % dh );
+
+	      glViewport( 0,0,w,h );
+
+	      glXChannelRectSGIX( display,screen,channel, 0,0,w,h );
+
+	      ... draw scene ...
+
+	      glXSwapBuffers( display,window );
+	  }
+
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXChannelRectSGIX	is part	of the SGIX_video_resize extension.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     glXChannelRectSGIX	returns	False if the specified area does not conform
+     to	the precision constraints returned by glXQueryChannelDeltasSGIX.
+
+     glXChannelRectSGIX	returns	False if channel is not	bound to a window.
+
+     glXChannelRectSGIX	returns	False if channel is not	a valid	independent
+     channel.
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXChannelRectSGIX(3G)	    OpenGL Reference - GLX	glXChannelRectSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIX_video_resize extension is	supported only on InfiniteReality
+     systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXBindChannelToWindowSGIX, glXQueryChannelRect,
+     glXQueryChannelDeltasSGIX,	glXSwapBuffers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

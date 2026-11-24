@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gltexfilterfuncsgis Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gltexfilterfuncsgis</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glTexFilterFuncSGIS(3G)	       OpenGL Reference	       glTexFilterFuncSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glTexFilterFuncSGIS - specify user-defined	texture	filtering function
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glTexFilterFuncSGIS( GLenum target,
+			       GLenum filter,
+			       GLsizei n,
+			       const GLfloat *weights )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target   Specifies	the texture for	which filter weights will be defined.
+	      The allowable values are GL_TEXTURE_1D and GL_TEXTURE_2D.
+
+     filter   Specifies	the filter whose weights will be defined.  Must	be
+	      GL_FILTER4_SGIS.
+
+     n	      The number of filter weight values in weights.
+
+     weights  Specifies	an array of floating-point values which	define the
+	      filter weights.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Texture filtering is the process by which one or more adjacent texels are
+     fetched from a texture image and then combined to form a final texture
+     color.  The algorithm for combining texels	multiplies the texels by a set
+     of	weights, and then sums the results.  The function which	determines the
+     weights is	known as the texture filtering function.
+
+     For most texture filtering	methods, the texture filtering function	is
+     defined implicitly.  For example, when using GL_NEAREST filtering,	only
+     one texel is fetched from the texture image, and the filtering function
+     is	simply the constant 1.	When using 1D GL_LINEAR	filtering, two texels
+     are fetched from the texture image, and the weights applied to the	texels
+     are inversely proportional	to the distance	from their centers to the
+     texture sample point.  (If	the sample point falls precisely on a texel
+     center, then that texel's weight will be 1	and the	weight applied to the
+     other texel will be 0.  If	the sample point falls one-third of the	way
+     from the first texel center to the	second,	the first texel	will be
+     weighted by 2/3 and the second texel will be weighted by 1/3, and so on.)
+
+     For GL_FILTER4_SGIS filtering, however, glTexFilterFuncSGIS allows	the
+     filtering function	f to be	specified explicitly.  The filtering function
+     is	expressed as a table that maps distances from the texture sample point
+     into weights.
+
+     The default filtering function is implementation-dependent.  The
+     filtering function	is specified in	table format by	calling
+     glTexFilterFuncSGIS with weights pointing to an array of n	floating point
+     values.  The value	n must equal 2**m+1 for	some nonnegative integer value
+     of	m.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexFilterFuncSGIS(3G)	       OpenGL Reference	       glTexFilterFuncSGIS(3G)
+</FONT>
+
+
+     The array weights contains	samples	of the filtering function f(x),	0&amp;lt;x&amp;lt;2.
+     Each element weights[i] is	the value of f((2*i)/(n-1)), 0&amp;lt;i<n-1.
+
+     The filtering function is stored and used by GL as	a set of samples
+     f((2*i)/(Size-1)),	0&lt;i<Size-1, where Size is an implementation-dependent
+     constant.	If n equals Size, the array weights is stored directly in GL
+     state.  Otherwise,	an implementation dependent resampling method is used
+     to	compute	the stored samples.
+
+     To	determine the value of Size, use glGetTexParameter with	argument
+     GL_TEXTURE_FILTER4_SIZE_SGIS.  For	best results, call glTexFilterFuncSGIS
+     with n equal to Size.
+
+     In	the 1D filtering case, the four	texels closest to the texture sample
+     point will	be fetched, and	the distances from their centers to the	sample
+     point will	be computed.  Each texel i will	be weighted by f(distance(i))
+     and the results will be summed to form the	final texel value.  Note that
+     the distance from the texel center	to the sample point is not signed, so
+     identical weights will be assigned	to texels at identical distances left
+     and right of the sample point.  Thus, the filter is symmetric.
+
+     The 2D filtering case is best considered as four separate applications of
+     the 1D filter to the four texels in each of the four rows closest to the
+     sample point, followed by a final application of the 1D filter to the
+     four resulting texel values.  That	is, the	filter is separable.  The
+     final texel value is a combination	of 16 adjacent texel values in the
+     texture image.
+
+     As	always,	if any of the texels used in this process refer	to a border
+     texel with	unspecified value, then	the border color given by the current
+     setting of	GL_TEXTURE_BORDER_COLOR	is used	instead	of the unspecified
+     value.
+
+>FONT COLOR="#ffffff">NOTES
+</FONT>     glTexFilterFuncSGIS is part of the	SGIS_texture_filter4 extension,	not
+     part of the core GL command set.  If GL_SGIS_texture_filter4 is included
+     in	the string returned by glGetString when	called with argument
+     GL_EXTENSIONS, extension SGIS_texture_filter4 is supported	by the
+     connection.  See glIntro for more information about using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target or filter do not have one of the
+     allowable values.
+
+     GL_INVALID_VALUE is generated if n	does not equal 2**m+1 for some
+     nonnegative integer value of m.
+
+     GL_INVALID_OPERATION is generated if glTexFilterFuncSGIS is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTexFilterFuncSGIS(3G)	       OpenGL Reference	       glTexFilterFuncSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexFilterFuncSGIS
+     glGetTexParameter with argument GL_TEXTURE_FILTER4_SIZE_SGIS
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIS_texture_filter4 extension	is supported only on InfiniteReality
+     systems.
+
+     On	InfiniteReality	systems, GL_INVALID_VALUE is generated if the value of
+     the argument n to the command glTexFilterFuncSGIS does not	equal the
+     value of the implementation dependent constant Size, which	can be
+     determined	by calling glGetTexParameter with argument
+     GL_TEXTURE_FILTER4_SIZE_SGIS.  This restriction will be removed in	a
+     future release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glTexParameter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

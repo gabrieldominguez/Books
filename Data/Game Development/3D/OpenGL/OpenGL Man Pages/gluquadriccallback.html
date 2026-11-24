@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gluquadriccallback Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gluquadriccallback</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluQuadricCallback(3G)	       OpenGL Reference		gluQuadricCallback(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluQuadricCallback	- define a callback for	a quadrics object
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluQuadricCallback( GLUquadric* quad,
+			      GLenum which,
+			      GLvoid (*CallBackFunc)( )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     quad	   Specifies the quadrics object (created with gluNewQuadric).
+
+     which	   Specifies the callback being	defined.  The only valid value
+		   is GLU_ERROR.
+
+     CallBackFunc  Specifies the function to be	called.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluQuadricCallback	is used	to define a new	callback to be used by a
+     quadrics object.  If the specified	callback is already defined, then it
+     is	replaced.  If CallBackFunc is NULL, then any existing callback is
+     erased.
+
+     The one legal callback is GLU_ERROR:
+
+     GLU_ERROR	    The	function is called when	an error is encountered.  Its
+		    single argument is of type GLenum, and it indicates	the
+		    specific error that	occurred.  Character strings
+		    describing these errors can	be retrieved with the
+		    gluErrorString call.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluErrorString, gluNewQuadric
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

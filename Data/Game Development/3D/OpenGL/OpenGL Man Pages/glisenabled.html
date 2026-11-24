@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glisenabled Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glisenabled</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glIsEnabled(3G)		       OpenGL Reference		       glIsEnabled(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glIsEnabled - test	whether	a capability is	enabled
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLboolean glIsEnabled( GLenum cap )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     cap  Specifies a symbolic constant	indicating a GL	capability.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glIsEnabled returns GL_TRUE if cap	is an enabled capability and returns
+     GL_FALSE otherwise.  The following	capabilities are accepted for cap:
+
+     GL_ALPHA_TEST			    See	glAlphaFunc.
+     GL_AUTO_NORMAL			    See	glEvalCoord.
+     GL_BLEND				    See	glBlendFunc.
+     GL_CLIP_PLANEi			    See	glClipPlane.
+     GL_COLOR_MATERIAL			    See	glColorMaterial.
+     GL_COLOR_TABLE_SGI			    See	glColorTableSGI.
+     GL_CONVOLUTION_1D_EXT		    See	glConvolutionFilter1DEXT.
+     GL_CONVOLUTION_2D_EXT		    See	glConvolutionFilter2DEXT.
+     GL_CULL_FACE			    See	glCullFace.
+     GL_DEPTH_TEST			    See	glDepthFunc and	 glDepthRange.
+     GL_DITHER				    See	glEnable.
+     GL_FOG				    See	glFog.
+     GL_FOG_OFFSET_SGIX			    See	glFog.
+     GL_HISTOGRAM_EXT			    See	glHistogramEXT.
+     GL_INTERLACE_SGIX			    See	glCopyPixels and glCopyTexSubImage2DEXT.
+     GL_LIGHTi				    See	glLightModel and glLight.
+     GL_LIGHTING			    See	glMaterial, glLightModel, and glLight.
+     GL_LINE_SMOOTH			    See	glLineWidth.
+     GL_LINE_STIPPLE			    See	glLineStipple.
+     GL_LOGIC_OP			    See	glLogicOp.
+     GL_MAP1_COLOR_4			    See	glMap1.
+     GL_MAP1_INDEX			    See	glMap1.
+     GL_MAP1_NORMAL			    See	glMap1.
+     GL_MAP1_TEXTURE_COORD_1		    See	glMap1.
+     GL_MAP1_TEXTURE_COORD_2		    See	glMap1.
+     GL_MAP1_TEXTURE_COORD_3		    See	glMap1.
+     GL_MAP1_TEXTURE_COORD_4		    See	glMap1.
+     GL_MAP1_VERTEX_3			    See	glMap1.
+     GL_MAP1_VERTEX_4			    See	glMap1.
+     GL_MAP2_COLOR_4			    See	glMap2.
+     GL_MAP2_INDEX			    See	glMap2.
+     GL_MAP2_NORMAL			    See	glMap2.
+     GL_MAP2_TEXTURE_COORD_1		    See	glMap2.
+     GL_MAP2_TEXTURE_COORD_2		    See	glMap2.
+     GL_MAP2_TEXTURE_COORD_3		    See	glMap2.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glIsEnabled(3G)		       OpenGL Reference		       glIsEnabled(3G)
+</FONT>
+
+
+     GL_MAP2_TEXTURE_COORD_4		    See	glMap2.
+     GL_MAP2_VERTEX_3			    See	glMap2.
+     GL_MAP2_VERTEX_4			    See	glMap2.
+     GL_MINMAX_EXT			    See	glMinmaxEXT.
+     GL_MULTISAMPLE_SGIS		    See	glSamplePatternSGIS, glSampleMaskSGIS.
+     GL_NORMALIZE			    See	glNormal.
+     GL_POINT_SMOOTH			    See	glPointSize.
+     GL_POLYGON_SMOOTH			    See	glPolygonMode.
+     GL_POLYGON_OFFSET_EXT		    See	glPolygonOffsetEXT.
+     GL_POLYGON_STIPPLE			    See	glPolygonStipple.
+     GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI   See	glColorTableSGI.
+     GL_POST_CONVOLUTION_COLOR_TABLE_SGI    See	glColorTableSGI.
+     GL_REFERENCE_PLANE_SGIX		    See	glReferencePlaneSGIX.
+     GL_SAMPLE_ALPHA_TO_MASK_SGIS	    See	glSampleMaskSGIS.
+     GL_SAMPLE_ALPHA_TO_ONE_SGIS	    See	glSampleMaskSGIS.
+     GL_SAMPLE_MASK_SGIS		    See	glSampleMaskSGIS.
+     GL_SCISSOR_TEST			    See	glScissor.
+     GL_SEPARABLE_2D_EXT		    See	glSeparableFilter2DEXT.
+     GL_STENCIL_TEST			    See	glStencilFunc and glStencilOp.
+     GL_TEXTURE_1D			    See	glTexImage1D.
+     GL_TEXTURE_2D			    See	glTexImage2D.
+     GL_TEXTURE_3D_EXT			    See	glTexImage3DEXT.
+     GL_TEXTURE_COLOR_TABLE_SGI		    See	glColorTableSGI.
+     GL_TEXTURE_GEN_Q			    See	glTexGen.
+     GL_TEXTURE_GEN_R			    See	glTexGen.
+     GL_TEXTURE_GEN_S			    See	glTexGen.
+     GL_TEXTURE_GEN_T			    See	glTexGen.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	an error is generated, glIsEnabled returns zero.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if cap is not	an accepted value.
+
+     GL_INVALID_OPERATION is generated if glIsEnabled is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     GL_COLOR_TABLE_SGI, GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI and
+     GL_POST_CONVOLUTION_COLOR_TABLE_SGI are part of the SGI_color_table
+     extension which is	not supported on RealityEngine,	RealityEngine2,	and
+     VTX systems.
+
+     The SGIX_interlace	extension is supported only on InfiniteReality systems
+     and on RealityEngine, RealityEngine2, and VTX systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glEnable
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

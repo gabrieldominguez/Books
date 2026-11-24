@@ -1,0 +1,1805 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0063)http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp -->
+<HTML><HEAD><TITLE>Simple Ray Tracing in C# Part IV (Anti-Aliasing) - The Code Project - C# Programming</TITLE>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META http-equiv=Content-Type content="text/html; charset=ISO-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META content="Simple Ray Tracing in C# Part IV (Anti-Aliasing)" 
+name=Description>
+<META content=kbArticle name=Search.TopicType>
+<META content=andalmeida name=Author>
+<META content="11 Aug 2007 14:00:00 GMT" name=Search.PublishDate>
+<META content="11 Aug 2007 14:00:00 GMT" name=Search.RevisedDate>
+<META content="Free source code, , Visual C++, MFC, Windows, Article" 
+name=keywords>
+<META 
+content="Article content copyright andalmeida, 2007, everthing else Copyright © CodeProject, 1999-2007, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Lounge Postings" 
+href="http://www.codeproject.com/webservices/LoungeRSS.aspx" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - VB.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6" 
+type=application/rss+xml rel=alternate><LINK title="The Code Project" 
+href="http://www.codeproject.com/info/OpenSearch.xml" 
+type=application/opensearchdescription+xml rel=search><LINK href="/favicon.ico" 
+type=image/ico rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="4 - Anti-Aliasing_archivos/global.css" type=text/css rel=stylesheet>
+<SCRIPT language=javascript src="4 - Anti-Aliasing_archivos/oncopy.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+if (top != self) top.location.href = location.href;
+if (typeof(DemoUrl) != "undefined")
+	document.write('<me' + 'ta http' + '-equiv="re' + 'fresh" con' + 'tent="1;url=' + DemoUrl + '">');
+</SCRIPT>
+
+<META content="MSHTML 6.00.2900.3157" name=GENERATOR></HEAD>
+<BODY style="MARGIN: 0px" oncopy="return copyCode();" text=black vLink=navy 
+aLink=red link=blue bgColor=white>
+<SCRIPT src="4 - Anti-Aliasing_archivos/urchin.js" type=text/javascript>
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+_uacct = "UA-1735123-1";
+urchinTracker();
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=HeaderLogo><A href="http://www.codeproject.com/"><IMG height=90 
+      alt=Home src="4 - Anti-Aliasing_archivos/codeproject225x90.gif" 
+      border=0></A></TD>
+    <TD class=HeaderBanner><SPAN id=AdBanner4>
+      <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=4131&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FInstallShield%5Fblkboard%5F728x90%5Fcb%2Ejpg&C=False&id=4131&cb=4832279\" alt=\"\" border=0 width=728 height=90></a>");</SCRIPT>
+      </SPAN></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=MemberNavBar cellSpacing=0 cellPadding=5 width="100%" 
+      border=0>
+        <TBODY>
+        <TR vAlign=center>
+          <TD class=smallText style="FONT-WEIGHT: bold">4,477,037 members and 
+            growing! &nbsp; 9,754 now online. </TD>
+          <TD class=userNavText align=right><A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?id=512155">Gabriel 
+            Dominguez </A>| <A 
+            href="http://www.codeproject.com/script/profile/modify.asp?ct=/csharp/Simple_Ray_Tracing_in_C_4.asp"><B>My 
+            Settings</B></A> | <A 
+            href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+            Bookmarks</A> | <A 
+            href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+            Articles</A> | <A 
+            href="http://www.codeproject.com/script/profile/logoff.asp?ct=/csharp/Simple_Ray_Tracing_in_C_4.asp">Sign 
+            out</A> </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=SiteNavBar id=tblSiteToolbar cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD><A href="http://www.codeproject.com/">Home</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=2">MFC/C++</A></TD>
+          <TD><A href="http://www.codeproject.com/index.asp?cat=3">C#</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=4">ASP.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=6">VB.NET</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=8">Architect</A></TD>
+          <TD noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=9">SQL</A></TD>
+          <TD class=SelCat noWrap><A 
+            href="http://www.codeproject.com/index.asp?cat=1">All Topics</A></TD>
+          <TD width="100%">&nbsp;</TD>
+          <TD>
+            <DIV id=MenuPos 
+            style="WIDTH: 300px; POSITION: relative; TOP: 1px; HEIGHT: 22px">
+            <TABLE id=MPH 
+            style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 20px; BORDER-RIGHT-WIDTH: 0px" 
+            cellSpacing=0 cellPadding=0 width=300>
+              <TBODY>
+              <TR vAlign=center>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                  Boards</A></TD>
+                <TD 
+                style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+                noWrap><A 
+                  href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+      <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+      <SCRIPT src="4 - Anti-Aliasing_archivos/cpmenu_var.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT src="4 - Anti-Aliasing_archivos/menu10_com.js" 
+      type=text/javascript></SCRIPT>
+
+      <SCRIPT type=text/javascript>
+var MPH = document.getElementById("MPH");
+if (MPH) MPH.style.display='none';
+</SCRIPT>
+    </TD></TR>
+  <TR>
+    <TD colSpan=2>
+      <TABLE class=ArticleHeader cellSpacing=0 cellPadding=3 width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText style="PADDING-RIGHT: 10px"><A 
+            href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+            href="http://www.codeproject.com/?cat=3">C#</A>, <A 
+            href="http://www.codeproject.com/?cat=5">.NET</A> &gt;&gt; <A 
+            href="http://www.codeproject.com/csharp/">C# Programming</A> 
+            &gt;&gt; <A 
+            href="http://www.codeproject.com/csharp/#Graphics">Graphics</A><BR><BR>
+            <DIV style="FONT-WEIGHT: bold; FONT-SIZE: 16pt">Simple Ray Tracing 
+            in C# Part IV (Anti-Aliasing)</DIV><B>By <A 
+            href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=3589667">andalmeida</A></B>. 
+            <BR><BR>
+            <DIV style="FONT-SIZE: 12px">Simple Ray Tracing in C# Part IV 
+            (Anti-Aliasing)</DIV></TD>
+          <TD class=smallText style="WIDTH: 200px">C# (C# 2.0)<BR>Windows, 
+            .NET (.NET 2.0)<BR>Win32, VS (VS2005)<BR>Dev<BR><SPAN 
+            style="PADDING-RIGHT: 2ex">Posted</SPAN>: <B>12 Aug 
+            2007</B><BR><SPAN style="PADDING-RIGHT: 3ex">Views</SPAN>: 
+            <B>2,955</B> </TD></TR></TD></TR></TD></TR></TBODY></TABLE>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=LHNavBar rowSpan=2><!-- Yes, there are IE hacks that will allow us to create a min-width DIV 
+	     (eg http://www.webreference.com/programming/min-width/) but I couldn't
+	     be arsed. Wait for it in v2.0 -->
+            <DIV class=FeatureBlockHeader>Announcements</DIV>
+            <DIV class="FeatureBlockContent RHFeatureBar">
+            <DIV style="PADDING-TOP: 5px"><IMG 
+            style="PADDING-RIGHT: 10px; FLOAT: left; MARGIN-LEFT: 5px; MARGIN-RIGHT: 10px" 
+            height=20 alt=Comp 
+            src="4 - Anti-Aliasing_archivos/prize_winner_sm.gif" width=10><A 
+            href="http://www.codeproject.com/script/competitions/monthly/">Monthly 
+            Competition</A></DIV></DIV>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3764&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FWholeTomato%5FChangeSigExt%5F160x600%2Egif&C=False&id=3764&cb=4832287\" alt=\"The intellisense upgrade for Visual Studio .NET - make your IDE as smart as you.\" border=0 width=160 height=600></a>");</SCRIPT>
+            </CENTER><BR><BR><IMG height=1 
+            src="4 - Anti-Aliasing_archivos/t.gif" width=160> </TD>
+          <TD width="100%">
+            <TABLE class=SearchHeaderBar cellSpacing=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=center noWrap align=right width="60%">
+                  <FORM style="MARGIN: 0px" name=Search action=/info/search.asp 
+                  method=post><B>Search &nbsp;</B><INPUT class=smallText 
+                  style="WIDTH: 200px" name=target> <SELECT 
+                  style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" name=st> <OPTION 
+                    value=kw selected>Articles</OPTION> <OPTION 
+                    value=au>Authors</OPTION></SELECT> <INPUT style="FONT-WEIGHT: bold; FONT-SIZE: 8pt" type=submit value=" Go! "> 
+                  &nbsp; </FORM></TD>
+                <TD class=tinyText noWrap><A 
+                  href="http://www.codeproject.com/info/search.asp">Advanced 
+                  Search</A><BR><A 
+                  href="http://www.codeproject.com/script/articles/sections.asp">Sitemap</A> 
+                </TD></TR></TBODY></TABLE>
+            <TABLE width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=SmallText noWrap>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText noWrap><IMG 
+                        src="4 - Anti-Aliasing_archivos/print.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?print=true" 
+                        target=_print>Print</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="4 - Anti-Aliasing_archivos/sitebuild_icon.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=Simple%5FRay%5FTracing%2Fuseritems8%2F12%2F2007">Broken 
+                        Article?</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="4 - Anti-Aliasing_archivos/link.gif" 
+                        align=absMiddle><A 
+                        href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fcsharp%2FSimple%5FRay%5FTracing%5Fin%5FC%5F4%2Easp&amp;guid=Simple%5FRay%5FTracing%2Fuseritems8%2F12%2F2007">Bookmark</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="4 - Anti-Aliasing_archivos/mail_small.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp#__comments">Discuss</A></TD>
+                      <TD class=smallText noWrap><IMG 
+                        src="4 - Anti-Aliasing_archivos/mail.gif" 
+                        align=absMiddle> <A 
+                        href="http://www.codeproject.com/script/recommend/form.asp?guid=Simple%5FRay%5FTracing%2Fuseritems8%2F12%2F2007">Send 
+                        to a friend</A></TD></TR></TBODY></TABLE></TD>
+                <TD noWrap align=right><A name=__top></A>
+                  <TABLE>
+                    <TBODY>
+                    <TR>
+                      <TD class=smallText align=right>9 votes for this 
+                      article.</TD>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 border=2>
+                          <TBODY>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="4 - Anti-Aliasing_archivos/red.gif" width=20 
+                              border=0></TD>
+                            <TD><IMG height=5 
+                              src="4 - Anti-Aliasing_archivos/red.gif" width=20 
+                              border=0></TD>
+                            <TD><IMG height=5 
+                              src="4 - Anti-Aliasing_archivos/red.gif" width=20 
+                              border=0></TD>
+                            <TD><IMG height=5 
+                              src="4 - Anti-Aliasing_archivos/red.gif" width=20 
+                              border=0></TD>
+                            <TD><IMG height=5 
+                              src="4 - Anti-Aliasing_archivos/red.gif" width=2 
+                              border=0><IMG height=5 
+                              src="4 - Anti-Aliasing_archivos/white.gif" 
+                              width=18 border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR>
+                      <TD class=smallText align=right colSpan=2><A 
+                        title="Calculated as rating x Log10(# votes)" 
+                        href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                        3.9</A>. Rating: <B>4.09</B> out of 
+                  5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=ArticlePane><SPAN id=intelliTXT>
+            <DIV id=contentdiv><!-- Article Starts -->
+            <TABLE class=ArticleTableNoBorder style="WIDTH: 100%">
+              <TBODY>
+              <TR>
+                <TD style="WIDTH: 50%">
+                  <P>
+                  <P align=center><IMG height=300 
+                  alt="Screenshot - aliasedB.png" 
+                  src="4 - Anti-Aliasing_archivos/aliasedB.png" 
+                  width=300><BR>Aliased</P></TD>
+                <TD style="WIDTH: 50%">
+                  <P>
+                  <P align=center><IMG height=300 
+                  alt="Screenshot - oneshotB.png" 
+                  src="4 - Anti-Aliasing_archivos/oneshotB.png" 
+                  width=300><BR>Anti-aliased</P></TD></TR></TBODY></TABLE>
+            <H2>Introduction</H2>
+            <P>Anti-aliasing is the name for techniques designed to reduce or 
+            eliminate the jagged effect of square pixels attempting to 
+            approximate curved shapes. </P>
+            <P align=center><IMG height=138 alt="Screenshot - aliasedcurve.png" 
+            src="4 - Anti-Aliasing_archivos/aliasedcurve.png" width=186 
+            border=1><BR>Aliased curve</P>
+            <P>Here we focus on shading the pixels using an averaging algorithm, 
+            adding anti-aliasing to our basic ray tracing. </P>
+            <P>For this, instead of only one ray per pixel, we will fire 4 extra 
+            rays around each pixel, calculate the color average between the 5 
+            results, and plot the pixel with the resulting value. </P>
+            <P align=center><IMG height=204 alt="Screenshot - px2.png" 
+            src="4 - Anti-Aliasing_archivos/px2.png" width=252 border=1></P>
+            <H2>Background</H2>
+            <P>I recommend a quick reading of the previous articles: </P>
+            <UL>
+              <LI><A title="Simple Ray Tracing in C#" 
+              href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_.asp">Simple 
+              Ray Tracing in C#</A> 
+              <LI><A 
+              title="Simple Ray Tracing in C# Part II (Triangles intersection)" 
+              href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_2.asp">Simple 
+              Ray Tracing in C# Part II (Triangles intersection)</A> 
+              <LI><A title="Simple Ray Tracing in C# Part III (Reflection)" 
+              href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_3.asp">Simple 
+              Ray Tracing in C# Part III (Reflection)</A> </LI></UL>
+            <H2>Using the Code</H2>
+            <P>At first let's calculate the distance between 2 adjacent pixels 
+            in or model coordinates:</P><PRE lang=cs>double deltaP = Math.Abs(tAlgebra.GetCoord(rect.Left, rect.Right, 
+                         -fMax, fMax, rect.Left+1)+fMax);</PRE>
+            <P>Now, for each original ray we will fire 4 extra rays, as a 
+            bounding square around the main original ray:</P><PRE lang=cs>...
+ray.x1 = x - deltaP; ray.y1 = y - deltaP; ray.z1 = 0.0;
+tPoint colorA = ray.trace_ray(ray);
+normalizeColor(ref colorA);
+
+ray.x1 = x - deltaP; ray.y1 = y + deltaP; ray.z1 = 0.0;
+tPoint colorB = ray.trace_ray(ray);
+normalizeColor(ref colorB);
+
+ray.x1 = x + deltaP; ray.y1 = y - deltaP; ray.z1 = 0.0;
+tPoint colorC = ray.trace_ray(ray);
+normalizeColor(ref colorC);
+
+ray.x1 = x + deltaP ; ray.y1 = y + deltaP; ray.z1 = 0.0;
+tPoint colorD = ray.trace_ray(ray);
+normalizeColor(ref colorD);
+
+ray.x1 = x; ray.y1 = y; ray.z1 = 0.0;
+tPoint colorE = ray.trace_ray(ray);
+normalizeColor(ref colorE); 
+ 
+<SPAN class=cs-comment>// calculate the average </SPAN>
+color.x = (colorA.x + colorB.x + colorC.x + colorD.x + colorE.x) / 5.0;
+color.y = (colorA.y + colorB.y + colorC.y + colorD.y + colorE.y) / 5.0;
+color.z = (colorA.z + colorB.z + colorC.z + colorD.z + colorE.z) / 5.0;
+normalizeColor(ref color);
+ 
+<SPAN class=cs-comment>// plot the pixel </SPAN>
+Color colorpx = Color.FromArgb((int)color.x, (int)color.y, (int)color.z);
+newBitmap.SetPixel(i, j, colorpx); 
+...
+<SPAN class=cs-comment>// a helper function to normalize colors</SPAN>
+public void normalizeColor(ref tPoint color)
+     {
+     color.x = Math.Min(color.x, 255);
+     color.y = Math.Min(color.y, 255);
+     color.z = Math.Min(color.z, 255);
+     color.x = Math.Max(color.x, 0);
+     color.y = Math.Max(color.y, 0);
+     color.z = Math.Max(color.z, 0);
+     }</PRE>
+            <H3>Algebra Class</H3>
+            <P><PRE lang=cs>public class tAlgebra
+{
+    public tAlgebra()
+    {
+    }
+    public static double GetCoord(double i1, double i2, double w1, 
+        double w2, double p)
+    {
+        return ((p - i1) / (i2 - i1)) * (w2 - w1) + w1;
+    }
+    public static void Cross3(double ax, double ay, double az,
+        double bx, double by, double bz,
+        ref double outx, ref double outy, ref double outz)
+    {
+        outx = ay * bz - az * by;
+        outy = az * bx - ax * bz;
+        outz = ax * by - ay * bx;
+    }
+    public static void Refract(double n1, double n2, 
+        double inx, double iny, double inz,
+        double mirrorx, double mirrory, 
+        double mirrorz,
+        ref double outx, ref double outy, 
+        ref double outz)
+    {
+        double c1 = -Dot3(mirrorx, mirrory, mirrorz, inx, iny, inz);
+        double n = n1 / n2;
+
+        double c2 = Math.Sqrt(1.0 - n * n * (1.0 - c1 * c1));
+        outx = (n * inx) + (n * c1 - c2) * mirrorx;
+        outy = (n * iny) + (n * c1 - c2) * mirrory;
+        outz = (n * inz) + (n * c1 - c2) * mirrorz;
+    }
+    public static void Reflect(double inx, double iny, double inz,
+        double mirrorx, double mirrory, double mirrorz,
+        ref double outx, ref double outy, ref double outz)
+    {
+        double c1 = -Dot3(mirrorx, mirrory, mirrorz, inx, iny, inz);
+
+        <SPAN class=cs-comment>//Rl = V + (2 * N * c1 )</SPAN>
+        outx = -(inx + (2 * mirrorx * c1));
+        outy = -(iny + (2 * mirrory * c1));
+        outz = -(inz + (2 * mirrorz * c1));
+    }
+    public static double Dot3(double x1, double y1, double z1, 
+        double x2, double y2, double z2)
+    {
+        return ((x1 * x2) + (y1 * y2) + (z1 * z2));
+    } 
+    <SPAN class=cs-comment>// * note: use normalized vectors here!</SPAN>
+    public static double GetCosAngleV1V2(double v1x, double v1y, 
+        double v1z, double v2x, double v2y, double v2z)
+    {
+        <SPAN class=cs-comment>// cos(t) = (v.w) / (|v|.|w|) = (v.w) / 1</SPAN>
+        return Dot3(v1x, v1y, v1z, v2x, v2y, v2z);
+    }
+    public static double modv(double vx, double vy, double vz)
+    {
+        return System.Math.Sqrt(vx * vx + vy * vy + vz * vz);
+    }
+    public static bool Normalize(ref double vx, ref double vy, 
+        ref double vz)
+    {
+        double mod_v = tAlgebra.modv(vx, vy, vz);
+        double eps = 1.0E-20;
+        if (Math.Abs(mod_v) &lt; eps)
+            return true;
+
+        vx = vx / mod_v;
+        vy = vy / mod_v;
+        vz = vz / mod_v;
+        return false;
+    }
+    public static void RotX(double angle, ref double y, ref double z)
+    {
+        double y1 = y * System.Math.Cos(angle) - z * 
+            System.Math.Sin(angle);
+        double z1 = y * System.Math.Sin(angle) + z * 
+            System.Math.Cos(angle);
+        y = y1;
+        z = z1;
+    }
+    public static void RotY(double angle, ref double x, ref double z)
+    {
+        double x1 = x * System.Math.Cos(angle) - z * 
+            System.Math.Sin(angle);
+        double z1 = x * System.Math.Sin(angle) + z * 
+            System.Math.Cos(angle);
+        x = x1;
+        z = z1;
+    }
+    public static void RotZ(double angle, ref double x, ref double y)
+    {
+        double x1 = x * System.Math.Cos(angle) - y * 
+            System.Math.Sin(angle);
+        double y1 = x * System.Math.Sin(angle) + y * 
+            System.Math.Cos(angle);
+        x = x1;
+        y = y1;
+    }
+}</PRE>
+            <P>Now, as seen before, we need a class to define materials, in 
+            terms of ambient, diffuse and specular parameters:</P>
+            <H3>Material Class</H3>
+            <P><PRE lang=cs>public class tMaterial
+    {
+    public double ambientR, ambientG, ambientB, ambientA;
+    public double diffuseR, diffuseG, diffuseB, diffuseA;
+    public double specularR, specularG, specularB, specularA;
+    public double shininess;
+    public double alpha;
+    }
+</PRE>
+            <H3>R3 Point Class</H3>
+            <P><PRE lang=cs>public class tPoint
+    {
+        public double x = 0, y = 0, z = 0;
+    }</PRE>
+            <P>In order to create the objects, spheres and triangles I have 
+            created a base abstract class <CODE>tObject</CODE>, and the derived 
+            <CODE>tSphere</CODE> and <CODE>tTriangle</CODE>:</P>
+            <H3>Object Class</H3>
+            <P><PRE lang=cs>public abstract class tObject
+{
+    public tObject()
+    {
+    }
+    public tPoint get_point_color(System.Collections.ArrayList lights, 
+        tRay ray)
+    {
+        tPoint color = new tPoint();
+        tPoint normal = new tPoint();
+        tPoint rayV = ray.getRay();
+
+        <SPAN class=cs-comment>//for each light // i leave it to the next article :) </SPAN>
+        tPoint light = (tPoint)lights[0];
+        getNormal(hitpoint.x, hitpoint.y, hitpoint.z,
+            ref normal.x, ref normal.y, ref normal.z);
+
+        double lvX = light.x - hitpoint.x,
+            lvY = light.y - hitpoint.y,
+            lvZ = light.z - hitpoint.z;
+
+        tAlgebra.Normalize(ref normal.x, ref normal.y, ref normal.z);
+        tAlgebra.Normalize(ref lvX, ref lvY, ref lvZ);
+
+        double cost = tAlgebra.GetCosAngleV1V2(lvX, lvY, lvZ,
+            normal.x, normal.y, normal.z);
+        double cosf = 0;
+
+        tAlgebra.Reflect(-lvX, -lvY, -lvZ,
+            normal.x, normal.y, normal.z,
+            ref vReflX, ref vReflY, ref vReflZ);
+        tAlgebra.Normalize(ref vReflX, ref vReflY, ref vReflZ);
+        tAlgebra.Normalize(ref rayV.x, ref rayV.y, ref rayV.z);
+
+        cosf = tAlgebra.GetCosAngleV1V2(rayV.x, rayV.y, rayV.z, 
+            vReflX, vReflY, vReflZ);
+        double result1 = Math.Max(0, cost) * 255.0;
+        double result2 = Math.Pow(Math.Max(0, cosf), 
+            material.shininess) * 255.0;
+
+        double rgbR = (material.ambientR * 255.0) +
+            (material.diffuseR * result1) +
+            (material.specularR * result2);
+        double rgbG = (material.ambientG * 255.0) +
+            (material.diffuseG * result1) +
+            (material.specularG * result2);
+        double rgbB = (material.ambientB * 255.0) +
+            (material.diffuseB * result1) +
+            (material.specularB * result2);
+
+        color.x = rgbR;
+        color.y = rgbG;
+        color.z = rgbB;
+        return color;
+    }
+    public tRay get_reflected_ray(tRay original_ray)
+    {
+        tRay ray = new tRay();
+        double inx = 0, iny = 0, inz = 0, nx = 0, ny = 0, nz = 0, 
+            rx = 0, ry = 0, rz = 0;
+
+        getNormal(hitpoint.x, hitpoint.y, hitpoint.z, 
+            ref nx, ref ny, ref nz);
+
+        inx = original_ray.getRay().x;
+        iny = original_ray.getRay().y;
+        inz = original_ray.getRay().z;
+
+        tAlgebra.Normalize(ref inx, ref iny, ref inz);
+        tAlgebra.Normalize(ref nx, ref ny, ref nz);
+        tAlgebra.Reflect(-inx, -iny, -inz, nx, ny, nz, ref rx, 
+            ref ry, ref rz);
+        tAlgebra.Normalize(ref rx, ref ry, ref rz);
+
+        ray.x0 = hitpoint.x;
+        ray.y0 = hitpoint.y;
+        ray.z0 = hitpoint.z;
+        ray.x1 = (hitpoint.x + rx);
+        ray.y1 = (hitpoint.y + ry);
+        ray.z1 = (hitpoint.z + rz);
+        return ray;
+    }
+    public tMaterial material
+    {
+        get
+        {
+            return tmaterial;
+        }
+        set
+        {
+            tmaterial = value;
+        }
+    }
+    public tPoint hitpoint
+    {
+        get
+        {
+            return tHitPoint;
+        }
+        set
+        {
+            tHitPoint = value;
+        }
+    }
+    private tMaterial tmaterial;
+    private tPoint tHitPoint;
+    private double vReflX = 0, vReflY = 0, vReflZ = 0;
+
+    public abstract double GetIntersect(double p1x, double p1y, double p1z,
+        double p2x, double p2y, double p2z);
+    public abstract void getNormal(double x, double y, double z,
+        ref double nx, ref double ny, ref double nz);
+
+    public tRay get_refracted_ray(tRay original_ray)
+    {
+        tRay ray = new tRay();
+        double inx = 0, iny = 0, inz = 0, 
+            nx = 0, ny = 0, nz = 0, rx = 0, ry = 0, rz = 0;
+        getNormal(hitpoint.x, hitpoint.y, hitpoint.z, 
+            ref nx, ref ny, ref nz);
+
+        inx = original_ray.getRay().x;
+        iny = original_ray.getRay().y;
+        inz = original_ray.getRay().z;
+
+        tAlgebra.Normalize(ref inx, ref iny, ref inz);
+        tAlgebra.Normalize(ref nx, ref ny, ref nz);
+
+        double n1 = 1.00;
+        double n2 = 1.50;
+
+        tAlgebra.Refract(n1, n2, -inx, -iny, -inz, nx, ny, nz, 
+            ref rx, ref ry, ref rz);
+        tAlgebra.Normalize(ref rx, ref ry, ref rz);
+
+        ray.x0 = hitpoint.x;
+        ray.y0 = hitpoint.y;
+        ray.z0 = hitpoint.z;
+        ray.x1 = (hitpoint.x + rx);
+        ray.y1 = (hitpoint.y + ry);
+        ray.z1 = (hitpoint.z + rz);
+        return ray;
+    }
+}</PRE>
+            <H3>Sphere Class</H3>
+            <P><PRE lang=cs>public class tSphere : tObject
+{
+    public tSphere(double x, double y, double z, double r)
+    {
+        cx = x;
+        cy = y;
+        cz = z;
+        radius = r;
+    }
+
+    void Move(double vx, double vy, double vz)
+    {
+        cx += vx;
+        cy += vy;
+        cz += vz;
+    }
+
+    void MoveTo(double vx, double vy, double vz)
+    {
+        cx = vx;
+        cy = vy;
+        cz = vz;
+    }
+
+    public override double GetIntersect(double px, double py, double pz, 
+        double x, double y, double z)
+    {
+        <SPAN class=cs-comment>// x-xo 2 + y-yo 2 + z-zo 2 = r 2</SPAN>
+        <SPAN class=cs-comment>// x,y,z = p+tv </SPAN>
+        <SPAN class=cs-comment>// At2 + Bt + C = 0</SPAN>
+        double vx = x - px;
+        double vy = y - py;
+        double vz = z - pz;
+
+        double A = (vx * vx + vy * vy + vz * vz);
+        double B = 2.0 * (px * vx + py * vy + 
+            pz * vz - vx * cx - vy * cy - vz * cz);
+        double C = px * px - 2 * px * cx + cx * cx + 
+            py * py - 2 * py * cy + cy * cy + pz * pz - 
+            2 * pz * cz + cz * cz - radius * radius;
+        double D = B * B - 4 * A * C;
+        double t = -1.0;
+
+        if (D &gt;= 0)
+        {
+            double t1 = (-B - System.Math.Sqrt(D)) / (2.0 * A);
+            double t2 = (-B + System.Math.Sqrt(D)) / (2.0 * A);
+            if (t1 &lt; t2) 
+                t = t1; 
+            else 
+                t = t2;
+
+            tPoint pt = new tPoint();
+            pt.x = px + t * vx;
+            pt.y = py + t * vy;
+            pt.z = pz + t * vz;
+            hitpoint = pt;
+        }
+        return t;
+    }
+
+    public override void getNormal(double x, double y, double z, 
+        ref double nx, ref double ny, ref double nz)
+    {
+        nx = x - cx;
+        ny = y - cy;
+        nz = z - cz;
+    }
+
+    public double cx, cy, cz, radius, clR, clG, clB;
+}</PRE>
+            <H3>Triangle Class</H3>
+            <P><PRE lang=cs>public class tTriangle : tObject
+{
+    public tTriangle()
+    {
+    }
+
+    public void Init()
+    {
+        GetNormal(ref tnormalX, ref tnormalY, ref tnormalZ);
+    }
+
+    public bool SameSide(double p1x, double p1y, double p1z,
+        double p2x, double p2y, double p2z,
+        double ax, double ay, double az,
+        double bx, double by, double bz)
+    {
+        double cp1x = 0, cp1y = 0, cp1z = 0, cp2x = 0, cp2y = 0,
+            cp2z = 0;
+        tAlgebra.Cross3(bx - ax, by - ay, bz - az, p1x - ax,
+            p1y - ay, p1z - az, ref cp1x, ref cp1y, ref cp1z);
+        tAlgebra.Cross3(bx - ax, by - ay, bz - az, p2x - ax,
+            p2y - ay, p2z - az, ref cp2x, ref cp2y, ref cp2z);
+        if (tAlgebra.Dot3(cp1x, cp1y, cp1z, cp2x, cp2y, cp2z) &gt;= 0)
+            return true;
+        else
+            return false;
+    }
+
+    public bool PointInTriangle(double px, double py, double pz)
+    {
+        if (SameSide(px, py, pz, tp1x, tp1y, tp1z,
+            tp2x, tp2y, tp2z, tp3x, tp3y, tp3z) &amp;&amp;
+        SameSide(px, py, pz, tp2x, tp2y, tp2z,
+            tp1x, tp1y, tp1z, tp3x, tp3y, tp3z) &amp;&amp;
+        SameSide(px, py, pz, tp3x, tp3y, tp3z,
+            tp1x, tp1y, tp1z, tp2x, tp2y, tp2z))
+            return true;
+        else
+            return false;
+    }
+
+    <SPAN class=cs-comment>// ray p1, ray p2</SPAN>
+    public override double GetIntersect(double p1x, double p1y, double p1z,
+        double p2x, double p2y, double p2z)
+    {
+        double v1x = tp3x - p1x;
+        double v1y = tp3y - p1y;
+        double v1z = tp3z - p1z;
+        double v2x = p2x - p1x;
+        double v2y = p2y - p1y;
+        double v2z = p2z - p1z;
+        double dot1 = tAlgebra.Dot3(tnormalX, tnormalY, tnormalZ,
+            v1x, v1y, v1z);
+        double dot2 = tAlgebra.Dot3(tnormalX, tnormalY, tnormalZ,
+            v2x, v2y, v2z);
+        if (Math.Abs(dot2) &lt; 1.0E-6)
+            return -1; <SPAN class=cs-comment>// division by 0 means parallel</SPAN>
+        double u = dot1 / dot2;
+        <SPAN class=cs-comment>// point in triangle?</SPAN>
+        if (!PointInTriangle(p1x + u * (p2x - p1x),
+            p1y + u * (p2y - p1y), p1z + u * (p2z - p1z)))
+            return -1;
+
+        tPoint pt = new tPoint();
+        pt.x = p1x + u * v2x;
+        pt.y = p1y + u * v2y;
+        pt.z = p1z + u * v2z;
+
+        hitpoint = pt;
+        return u;
+    }
+
+    protected void GetNormal(ref double nx, ref double ny, ref double nz)
+    {
+        double ux = tp3x - tp1x, uy = tp3y - tp1y, uz = tp3z - tp1z;
+        double wx = tp2x - tp1x, wy = tp2y - tp1y, wz = tp2z - tp1z;
+
+
+        <SPAN class=cs-comment>// u x w</SPAN>
+        nx = wz * uy - wy * uz;
+        ny = wx * uz - wz * ux;
+        nz = wy * ux - wx * uy;
+    }
+
+    public override void getNormal(double x, double y, double z, 
+        ref double nx, ref double ny, ref double nz)
+    {
+        nx = -tnormalX;
+        ny = -tnormalY;
+        nz = -tnormalZ;
+    }
+
+    <SPAN class=cs-comment>// should be private with get/set</SPAN>
+    public double tp1x, tp1y, tp1z;
+    public double tp2x, tp2y, tp2z;
+    public double tp3x, tp3y, tp3z;
+    public double tnormalX, tnormalY, tnormalZ;
+}</PRE>
+            <H3>Now finally, the Ray tracing class</H3>
+            <P><PRE lang=cs>public class tRay
+{
+    <SPAN class=cs-comment>// rotation</SPAN>
+    public double rx = 0.0, ry = 0.0, rz = 0.0;
+    public double x0 = 0, y0 = 0, z0 = 0;
+    public double x1 = 0, y1 = 0, z1 = 0;
+    public int levels = 3;
+    int level = 0;
+    System.Collections.ArrayList obj3dArrayList;
+    System.Collections.ArrayList lightsArrayList;
+
+    public tRay()
+    {
+        obj3dArrayList = new System.Collections.ArrayList();
+        lightsArrayList = new System.Collections.ArrayList();
+    }
+    public void AddTriangle(double ax, double ay, double az,
+        double bx, double by, double bz,
+        double cx, double cy, double cz, 
+        tMaterial mat)
+    {
+        tTriangle tri = new tTriangle();
+        tri.tp1x = ax;
+        tri.tp1y = ay;
+        tri.tp1z = az;
+        tri.tp2x = bx;
+        tri.tp2y = by;
+        tri.tp2z = bz;
+        tri.tp3x = cx;
+        tri.tp3y = cy;
+        tri.tp3z = cz;
+
+        tAlgebra.RotX(rx, ref tri.tp1y, ref tri.tp1z);
+        tAlgebra.RotX(rx, ref tri.tp2y, ref tri.tp2z);
+        tAlgebra.RotX(rx, ref tri.tp3y, ref tri.tp3z);
+        tAlgebra.RotY(ry, ref tri.tp1x, ref tri.tp1z);
+        tAlgebra.RotY(ry, ref tri.tp2x, ref tri.tp2z);
+        tAlgebra.RotY(ry, ref tri.tp3x, ref tri.tp3z);
+        tAlgebra.RotZ(rz, ref tri.tp1x, ref tri.tp1y);
+        tAlgebra.RotZ(rz, ref tri.tp2x, ref tri.tp2y);
+        tAlgebra.RotZ(rz, ref tri.tp3x, ref tri.tp3y);
+
+        tri.material = mat;
+        tri.Init();
+        AddObject(tri);
+    }
+    public void AddLight(tPoint light)
+    {
+        tAlgebra.RotX(rx, ref light.y, ref light.z);
+        tAlgebra.RotY(ry, ref light.x, ref light.z);
+        tAlgebra.RotZ(rz, ref light.x, ref light.y);
+        lightsArrayList.Add(light);
+    }
+    public void AddObject(tObject obj)
+    {
+        obj3dArrayList.Add(obj);
+    }
+    private tObject get_first_intersection(tRay original_ray)
+    {
+        double eps = 1.0E-4; 
+        double t = 1.0E10;
+
+        tObject objhit = null;
+
+        for (int k = 0; k &lt; (int)obj3dArrayList.Count; k++)
+        {
+            tObject objn = (tObject)obj3dArrayList[k];
+            double taux = objn.GetIntersect(original_ray.x0, 
+                original_ray.y0, original_ray.z0,
+                original_ray.x1, original_ray.y1, 
+                original_ray.z1);
+
+            if (Math.Abs(taux) &lt;= eps) continue; 
+
+            if (taux &gt; 0 &amp;&amp; taux &lt; t)
+            {
+                t = taux;
+                objhit = objn;
+            }
+        }
+        return objhit;
+    }
+    public tPoint trace_ray(tRay original_ray)
+    {
+        level++;
+        tPoint point_color = new tPoint(), reflect_color = new tPoint(), 
+            refract_color = new tPoint();
+        if (level &gt; levels)
+        {
+            level--;
+            point_color.x = 0;
+            point_color.y = 0;
+            point_color.z = 0; 
+            return point_color;
+        }
+        tObject obj = get_first_intersection(original_ray);
+        if (obj != null)
+        {
+            point_color = obj.get_point_color(lightsArrayList, 
+                original_ray);
+            tRay rfl = obj.get_reflected_ray(original_ray);
+            tRay rfr = obj.get_refracted_ray(original_ray);
+            tPoint clraux = new tPoint();
+            bool brfl = false, brfr = false;
+            reflect_color = trace_ray(rfl);
+            if (reflect_color.x &gt; 0 || reflect_color.y &gt; 0 || 
+                reflect_color.z &gt; 0)
+            {
+                brfl = true;
+            }
+            if (obj.material.alpha &lt; 1.0)
+            {
+                refract_color = trace_ray(rfr);
+                if (refract_color.x &gt; 0 || refract_color.y &gt; 0 || 
+                    refract_color.z &gt; 0)
+                    brfr = true;
+            }
+            if (brfl &amp;&amp; brfr)
+            {
+                clraux.x = (3 * point_color.x + reflect_color.x + 5 * 
+                    refract_color.x) / 9;
+                clraux.y = (3 * point_color.y + reflect_color.y + 5 * 
+                    refract_color.y) / 9;
+                clraux.z = (3 * point_color.z + reflect_color.z + 5 * 
+                    refract_color.z) / 9;
+            }
+            else
+                if (brfl)
+                {
+                    clraux.x = (point_color.x + reflect_color.x) / 2;
+                    clraux.y = (point_color.y + reflect_color.y) / 2;
+                    clraux.z = (point_color.z + reflect_color.z) / 2;
+                }
+                else
+                    if (brfr)
+                    {
+                        clraux.x = (3 * point_color.x + 5 * 
+                            refract_color.x) / 8;
+                        clraux.y = (3 * point_color.y + 5 * 
+                            refract_color.y) / 8;
+                        clraux.z = (3 * point_color.z + 5 * 
+                            refract_color.z) / 8;
+                    }
+                    else
+                    {
+                        clraux.x = point_color.x;
+                        clraux.y = point_color.y;
+                        clraux.z = point_color.z;
+                    }
+                    level--;
+                    return clraux; <SPAN class=cs-comment>// combine with other</SPAN>
+        }
+        level--;
+        return point_color;
+    }
+    public tPoint getRay()
+    {
+        tPoint ray = new tPoint();
+        ray.x = x1 - x0;
+        ray.y = y1 - y0;
+        ray.z = z1 - z0;
+        return ray;
+    }
+    public void AddSphere(double cx, double cy, double cz, double radius, 
+        tMaterial mat)
+    {
+        tAlgebra.RotX(rx, ref cy, ref cz);
+        tAlgebra.RotY(ry, ref cx, ref cz);
+        tAlgebra.RotZ(rz, ref cx, ref cy);
+        tSphere sph = new tSphere(cx, cy, cz, radius);
+        sph.material = mat;
+        AddObject(sph);
+    }
+}</PRE>
+            <H2>Using the Code - Part 2</H2>
+            <P>Follow these samples of code usage.</P><PRE lang=cs>Bitmap newBitmap = new Bitmap(300, 300, 
+                              PixelFormat.Format32bppArgb);
+
+Graphics g = Graphics.FromImage(newBitmap);
+Rectangle rect = new Rectangle(0, 0, 300, 300);
+double fMax = 610.0;
+
+tRay ray = new tRay();
+ray.rx = 0.0; ray.ry = 0.0; ray.rz = 0.0;
+ray.levels = 10;
+
+tPoint pt = new tPoint();
+pt.x = 250;
+pt.y = 250;
+pt.z = 630;
+ray.AddLight(pt);
+
+tMaterial mat1 = new tMaterial();
+mat1.alpha = 1.0;
+mat1.ambientR = 0.1324;
+mat1.ambientG = 0.0324;
+mat1.ambientB = 0.0236;
+mat1.specularR = 0.651;
+mat1.specularG = 0.351;
+mat1.specularB = 0.351;
+mat1.shininess = 20;
+mat1.diffuseR = 0.4775;
+mat1.diffuseG = 0.2775;
+mat1.diffuseB = 0.2775;
+
+tMaterial mat2 = new tMaterial();
+mat2.alpha = 0.20;
+mat2.ambientR = 0.00000;
+mat2.ambientG = 0.00000;
+mat2.ambientB = 0.00000;
+mat2.specularR = 0.35;
+mat2.specularG = 0.35;
+mat2.specularB = 0.35;
+mat2.shininess = 200.0;
+mat2.diffuseR = 0.00;
+mat2.diffuseG = 0.00;
+mat2.diffuseB = 0.00;
+
+tMaterial mat3 = new tMaterial();
+mat3.alpha = 1.0;
+mat3.ambientR = 0.2324;
+mat3.ambientG = 0.2324;
+mat3.ambientB = 0.3236;
+mat3.specularR = 0.351;
+mat3.specularG = 0.351;
+mat3.specularB = 0.851;
+mat3.shininess = 20;
+mat3.diffuseR = 0.3775;
+mat3.diffuseG = 0.3775;
+mat3.diffuseB = 0.6775;
+
+tMaterial mat4 = new tMaterial();
+mat4.alpha = 1.0;
+mat4.ambientR = 0.0124;
+mat4.ambientG = 0.0124;
+mat4.ambientB = 0.0136;
+mat4.specularR = 0.451;
+mat4.specularG = 0.451;
+mat4.specularB = 0.451;
+mat4.shininess = 2;
+mat4.diffuseR = 0.0775;
+mat4.diffuseG = 0.0775;
+mat4.diffuseB = 0.0775;
+
+tMaterial mat5 = new tMaterial();
+mat5.alpha = 1.0;
+mat5.ambientR = 0.39124;
+mat5.ambientG = 0.39124;
+mat5.ambientB = 0.39136;
+mat5.specularR = 0.251;
+mat5.specularG = 0.251;
+mat5.specularB = 0.251;
+mat5.shininess = 2;
+mat5.diffuseR = 0.5775;
+mat5.diffuseG = 0.5775;
+mat5.diffuseB = 0.5775;
+
+tMaterial mat6 = new tMaterial();
+mat6.alpha = 1.0;
+mat6.ambientR = 0.11124;
+mat6.ambientG = 0.49124;
+mat6.ambientB = 0.11136;
+mat6.specularR = 0.151;
+mat6.specularG = 0.651;
+mat6.specularB = 0.151;
+mat6.shininess = 35;
+mat6.diffuseR = 0.1775;
+mat6.diffuseG = 0.3775;
+mat6.diffuseB = 0.1775;
+
+tMaterial mat7 = new tMaterial();
+mat7.alpha = 1.0;
+mat7.ambientR = 0.23735;
+mat7.ambientG = 0.23735;
+mat7.ambientB = 0.23735;
+mat7.specularR = 0.773911;
+mat7.specularG = 0.773911;
+mat7.specularB = 0.773911;
+mat7.shininess = 89;
+mat7.diffuseR = 0.2775;
+mat7.diffuseG = 0.2775;
+mat7.diffuseB = 0.2775;
+
+ray.AddSphere(300, 300, 150, 150, mat1);
+ray.AddSphere(0, 0, 150, 150, mat2);
+ray.AddSphere(-300, 300, 150, 150, mat3);
+ray.AddSphere(300, -300, 150, 150, mat6);
+ray.AddSphere(-300, -300, 150, 150, mat7);
+
+ray.AddTriangle(0, 500, 0, -500, 500, 0, -500, 0, 0, mat4);
+ray.AddTriangle(0, 500, 0, -500, 0, 0, 0, 0, 0, mat4);
+ray.AddTriangle(0, 0, 0, 0, -500, 0, 500, 0, 0, mat4);
+ray.AddTriangle(500, 0, 0, 0, -500, 0, 500, -500, 0, mat4);
+ray.AddTriangle(500, 500, 0, 0, 500, 0, 0, 0, 0, mat5);
+ray.AddTriangle(500, 500, 0, 0, 0, 0, 500, 0, 0, mat5);
+ray.AddTriangle(-500, 0, 0, -500, -500, 0, 0, 0, 0, mat5);
+ray.AddTriangle(0, 0, 0, -500, -500, 0, 0, -500, 0, mat5);
+
+ray.x0 = 0; ray.y0 = 0; ray.z0 = 2000;
+
+tPoint color = new tPoint();
+for (int i = rect.Left; i &lt;= rect.Right; i++)
+{
+    double x = tAlgebra.GetCoord(rect.Left, rect.Right, 
+        -fMax, fMax, i);
+    for (int j = rect.Top; j &lt;= rect.Bottom; j++)
+    {
+        double y = tAlgebra.GetCoord(rect.Top, rect.Bottom, 
+            fMax, -fMax, j);
+        ray.x1 = x - deltaP; ray.y1 = y - deltaP; ray.z1 = 0.0;
+        tPoint colorA = ray.trace_ray(ray);
+        normalizeColor(ref colorA);
+
+        ray.x1 = x - deltaP; ray.y1 = y + deltaP; ray.z1 = 0.0;
+        tPoint colorB = ray.trace_ray(ray);
+        normalizeColor(ref colorB);
+
+        ray.x1 = x + deltaP; ray.y1 = y - deltaP; ray.z1 = 0.0;
+        tPoint colorC = ray.trace_ray(ray);
+        normalizeColor(ref colorC);
+
+        ray.x1 = x + deltaP ; ray.y1 = y + deltaP; ray.z1 = 0.0;
+        tPoint colorD = ray.trace_ray(ray);
+        normalizeColor(ref colorD);
+
+        ray.x1 = x; ray.y1 = y; ray.z1 = 0.0;
+        tPoint colorE = ray.trace_ray(ray);
+        normalizeColor(ref colorE); 
+
+        <SPAN class=cs-comment>// calculate the average </SPAN>
+        color.x = (colorA.x + colorB.x + colorC.x + colorD.x + 
+            colorE.x) / 5.0;
+        color.y = (colorA.y + colorB.y + colorC.y + colorD.y + 
+            colorE.y) / 5.0;
+        color.z = (colorA.z + colorB.z + colorC.z + colorD.z + 
+            colorE.z) / 5.0;
+        normalizeColor(ref color);
+
+        <SPAN class=cs-comment>// plot the pixel </SPAN>
+        Color colorpx = Color.FromArgb((int)color.x, (int)color.y, 
+            (int)color.z);
+        newBitmap.SetPixel(i, j, colorpx); 
+    }
+}
+...</PRE><!-- Article Ends --></DIV></SPAN>
+            <SCRIPT src="4 - Anti-Aliasing_archivos/togglePre.js" 
+            type=text/javascript></SCRIPT>
+
+            <H2>About andalmeida</H2>
+            <DIV style="OVERFLOW: hidden">
+            <TABLE border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText noWrap><IMG 
+                  src="4 - Anti-Aliasing_archivos/{9D04B36A-6D61-4974-91CC-7F40F06C777F}.jpg"><BR></TD>
+                <TD class=smallText>I have started programming in 1990 at 
+                  College with GWBASIC, Fortran and Pascal.<BR>In 1992 started 
+                  programming in C and them didn't stop, passing through C++, 
+                  C#.NET, Java, ASP, COM, DCOM, VRML, OPENGL and other. <BR>
+                  <P class=smallText>Click <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=3589667">here</A> 
+                  to view andalmeida's online 
+            profile.</P></TD></TR></TBODY></TABLE></DIV><BR>
+            <TABLE cellPadding=4 width="100%" border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%">
+                  <H2>Other popular C# Programming articles:</H2>
+                  <UL>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/zedgraph.asp">A 
+                    flexible charting library for .NET</A>
+                    <DIV class=smallText>Looking for a way to draw 2D line 
+                    graphs with C#? Here's yet another charting class library 
+                    with a high degree of configurability, that is also easy to 
+                    use.</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/csppleds.asp">I/O 
+                    Ports Uncensored - 1 - Controlling LEDs (Light Emiting 
+                    Diodes) with Parallel Port</A>
+                    <DIV class=smallText>Controlling LEDs (Light Emiting Diodes) 
+                    with Parallel Port</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/AsyncMethodInvocation.asp">Asynchronous 
+                    Method Invocation</A>
+                    <DIV class=smallText>How to use .NET to call methods in a 
+                    non-blocking mode.</DIV>
+                    <LI><A 
+                    href="http://www.codeproject.com/csharp/cspplcds.asp">I/O 
+                    Ports Uncensored Part 2 - Controlling LCDs (Liquid Crystal 
+                    Displays) and VFDs (Vacuum Fluorescent Displays) with 
+                    Parallel Port</A>
+                    <DIV class=smallText>Controlling LCDs (Liquid Crystal 
+                    Displays) and VFDs (Vacuum Fluorescent Displays) with 
+                    Parallel Port</DIV></LI></UL></TD>
+                <TD width=360>
+                  <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=3981&way=ban\" target=_blank><img src=\"/script/ann/ServeImg.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FDevExpress%2D300x250%2Egif&C=False&id=3981&cb=4832295\" alt=\"\" border=0 width=300 height=250></a>");</SCRIPT>
+                </TD></TR></TBODY></TABLE>
+            <FORM action=/script/rating/code/app/insert_vote.asp 
+            method=post><INPUT type=hidden 
+            value=Simple_Ray_Tracing/useritems8/12/2007 name=vote_name> <INPUT 
+            type=hidden value=/csharp/Simple_Ray_Tracing_in_C_4.asp name=goal> 
+            <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=4 width="100%" 
+                  bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=smalltext vAlign=center>[<A 
+                        href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp#__top">Top</A>]</TD>
+                      <TD vAlign=center noWrap align=right><I><B>Rate this 
+                        Article for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <I>Poor</I><INPUT type=radio value=1 name=rate><INPUT 
+                        type=radio value=2 name=rate><INPUT type=radio value=3 
+                        name=rate><INPUT type=radio value=4 name=rate><INPUT 
+                        type=radio value=5 
+name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                      </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+            <CENTER>
+            <DIV style="MARGIN: 10px"><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/ann/ServeHTML.aspx?C=False&id=4114&cb=4832282\" border=0 frameborder=0 scrolling=no width=468 height=60></IFRAME>");</SCRIPT>
+            </SPAN></DIV></CENTER><A name=__comments></A>
+            <SCRIPT language=JavaScript>
+
+function MsgVoteForm(MemberID, MsgID)
+{
+	document.write("<span id=\"MVF" + MsgID + "\">");
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+	{
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString());
+		document.write("' onclick='return RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ", ");
+		document.write(i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	}
+	document.write(" (out of 5)");
+	document.writeln("</span>");
+	
+	
+	document.write("<br />Report as <a href='#xx" + MsgID.toString() + "xx' title='Mark as Spam' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-1)'>Spam</a> or ");
+	document.write("<a href='#xx" + MsgID.toString() + "xx' title='Mark as Abuse' onclick='return ReportMsg(" + MemberID.toString());
+	document.writeln(", " + MsgID.toString() + ",-2)'>Abuse</a>");
+	
+}
+
+function RetypeForm(MemberID, MsgID)
+{
+	var types = [
+				 {pic:'news_general.gif',  id: 1},
+	             {pic:'news_info.gif',     id: 2},
+	             {pic:'news_question.gif', id: 4},
+	             {pic:'news_answer.gif',   id: 8},
+	             {pic:'news_game.gif',     id: 16},
+	             {pic:'news_spam.gif',     id: 32}
+	            ];
+	
+	document.write("<span id=\"RTF" + MsgID + "\">");
+	for (var i=0;i<types.length;i++)
+	{
+		document.write("<a href='/script/comments/retype?msg=" + MsgID.toString());
+		document.write("&mid=" + MemberID.toString() + "&type=" + types[i].id + "'>");
+		document.write("<img border=0 src='/script/images/" + types[i].pic + "'></a><br />");
+	}
+	document.writeln("</span>");
+}
+
+function ReportMsg(userid, msgid, score)
+{
+	if (confirm("Are you sure you want to report this message?") == true)
+		return RateMsg(userid, msgid, score);
+	else return false;
+}
+
+
+function RateMsg(userid, msgid, score)
+{
+
+   var req = new ActiveXObject("Msxml2.XMLHTTP"); 
+
+   req.onreadystatechange = function()
+   {
+      if ( req.readyState == 4 )
+      {
+         if ( req.status == 200 )
+         {
+         	var respText = req.responseText;
+         	var re = new RegExp("\<div\>([^\<]*)\</div\>", "g");
+         	var match = re.exec(respText);
+         	status.innerHTML = "<b>" + (match)?match[1]:"An error occured" + "</b>";
+         }
+         else
+         {
+            status.innerHTML = "<b style='color:red'>Failed!" + req.statusText + "</b>";
+         }
+      }
+   }
+   
+   var status = document.getElementById("MVF" + msgid);
+   if (!status) return;  // should never happen...   
+   status.innerHTML = "<b style='color:green'>Voting...</b>";
+   
+   var strAction = "/script/comments/vote.asp?js=1&user="+userid+"&msg="+msgid+"&score="+score;
+   req.open("GET", strAction, true);
+   req.send(null);
+   return false;
+}
+
+</SCRIPT>
+
+            <SCRIPT language=JavaScript>
+var Selected = "";
+
+var AdTime = new Date();
+
+
+// Ensures the expanded message appears reasonably close to where 
+// it should appear: on screen, and if possible, under the mouse cursor.
+function SwitchMessage(e)
+{
+   if ( !e ) e = window.event;
+   var target = e.target ? e.target : e.srcElement;
+
+   // is it a post?
+   while ( target && target.id != 'DynMessLink' )
+      target = target.parentNode;
+   if ( !target || target.id != 'DynMessLink' )
+      return;
+
+   if (Selected)
+   {
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+         body.style.display = 'none';
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#FEF9E7';
+   }
+
+   if (Selected == target.name) // just collapse
+      Selected="";
+   else
+   {
+      Selected = target.name;
+      var body = document.getElementById(Selected + "_h1");
+      if (body)
+      {
+         if (body.style.display=='none')
+            body.style.display='';
+         else
+            body.style.display = 'none';
+      }
+      var head = document.getElementById(Selected + "_h0");
+      if (head)
+         head.bgColor = '#99CCFF';
+
+      if ( body && head && body.style.display != 'none' )
+      {
+         // the bit that keeps the post on-screen and under the cursor
+         //var dif = (getRealPos(head, "Top") + head.offsetHeight/2) - (document.body.scrollTop+e.clientY);
+         //document.body.scrollTop += dif;
+         document.body.scrollTop = getRealPos(head, "Top") - document.body.clientHeight/10;
+         EnsureMessageVisible(target.name, true);
+      }
+   }
+
+   if ( e.preventDefault )
+      e.preventDefault();
+   else
+      e.returnValue = false;
+   return false;
+}
+
+// does its best to make a message visible on-screen (vs. scrolled off somewhere).
+function EnsureMessageVisible(msgID, bShowTop) {
+   var msgHeader = document.getElementById(msgID + "_h0");
+   var msgBody = document.getElementById(msgID + "_h1");
+
+   // determine scroll position of top and bottom
+   var scrollContainer = document.body;
+   var top = getRealPos(msgHeader, 'Top');
+   var bottom = getRealPos(msgBody, 'Top') + msgBody.offsetHeight;
+
+   // if not already visible, scroll to make it so
+   if ( scrollContainer.scrollTop > top && !bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+   if ( scrollContainer.scrollTop+scrollContainer.clientHeight < bottom )
+      scrollContainer.scrollTop = bottom-scrollContainer.clientHeight;
+   if ( scrollContainer.scrollTop > top && bShowTop)
+      scrollContainer.scrollTop = top - document.body.clientHeight/10;
+}
+
+// utility
+function getRealPos(i,which)
+{
+   iPos = 0
+   while (i!=null)
+   {
+      iPos += i["offset" + which];
+      i = i.offsetParent;
+   }
+   return iPos
+}
+
+
+</SCRIPT>
+
+            <DIV id=_MessageBoard onclick=SwitchMessage(event)>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+                  bgColor=#ff9900 border=0>
+                    <FORM 
+                    action=/script/comments/app/do_filtermessages.asp?main=/csharp/Simple_Ray_Tracing_in_C_4.asp&amp;df=100&amp;forumid=447599 
+                    method=post>
+                    <TBODY>
+                    <TR>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=3 width="100%" 
+                        bgColor=white border=0>
+                          <TBODY>
+                          <TR bgColor=#fbedbb>
+                            <TD class=smalltext noWrap><A 
+                              href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                              height=16 
+                              src="4 - Anti-Aliasing_archivos/forum_faq.gif" 
+                              width=16 align=absMiddle border=0> 
+                            <B>FAQ</B></A>&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>Message score threshold <SELECT 
+                              class=smalltext size=1 name=noise><OPTION 
+                                value=1>1.0</OPTION> <OPTION 
+                                value=2>2.0</OPTION> <OPTION value=3 
+                                selected>3.0</OPTION> <OPTION 
+                                value=4>4.0</OPTION> <OPTION 
+                              value=5>5.0</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=center noWrap align=right 
+                            colSpan=2><A 
+                              href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=447599"><IMG 
+                              height=15 
+                              src="4 - Anti-Aliasing_archivos/forum_search.gif" 
+                              width=16 border=0> Search comments</A> &nbsp;</TD>
+                            <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+                          <TR bgColor=#ff9900>
+                            <TD width="100%">&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap 
+                              align=right>View <SELECT class=smalltext size=1 
+                              name=expand><OPTION value=0>Normal 
+                                (slow)</OPTION> <OPTION value=2>Preview 
+                                (slow)</OPTION> <OPTION value=5 selected>Message 
+                                View</OPTION> <OPTION value=6>Topic 
+                                View</OPTION> <OPTION value=1>Thread 
+                                View</OPTION> <OPTION 
+                              value=3>Expanded</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                            <TD class=smalltext vAlign=top noWrap>Per page 
+                              <SELECT class=smalltext size=1 
+                                name=perpage><OPTION value=10>10</OPTION> 
+                                <OPTION value=25 selected>25</OPTION> <OPTION 
+                                value=50>50</OPTION></SELECT></TD>
+                            <TD 
+                    colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+                    <TR bgColor=#fbedbb>
+                      <TD><A name=xx0xx></A>
+                        <TABLE cellPadding=2 width="100%" bgColor=#fbedbb 
+                        border=0>
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle><IMG height=16 
+                              src="4 - Anti-Aliasing_archivos/forum_newmsg.gif" 
+                              width=16 align=top border=0><A class=HoverLink 
+                              title="Add a new message to the discussions" 
+                              href="http://www.codeproject.com/script/comments/user_new.asp?main=/csharp/Simple_Ray_Tracing_in_C_4.asp&amp;df=100&amp;forumid=447599" 
+                              target=_top name=HoverNL><B>New Message</B></A></TD>
+                            <TD class=messagetitle>Msgs 1 to 3 of 3 (Total: 3) 
+                              (<A 
+                              href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?df=100&amp;forumid=447599">Refresh</A>)</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=white>
+                      <TD>
+                        <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD class=messagetitle 
+                                width="100%">Subject&nbsp;</TD>
+                                <TD class=messagetitle noWrap 
+                                width=140>Author&nbsp;</TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT 
+                                class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="4 - Anti-Aliasing_archivos/t.gif" width=1 
+                              border=0></TD></TR>
+                          <TR id=2184134_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2184134xx></A><IMG 
+                                src="4 - Anti-Aliasing_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle style="COLOR: #aa0000" 
+                                width="100%"><A class=messagetitle 
+                                id=DynMessLink style="COLOR: #aa0000" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?df=100&amp;forumid=447599&amp;select=2184134#xx2184134xx" 
+                                name=2184134><B>tMaterial is missing the diffuse 
+                                variables</B></A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3032818"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="4 - Anti-Aliasing_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT class=messagetitle 
+                                style="COLOR: #aa0000"><B>Richard 
+                                Hartness</B>&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle 
+                                style="COLOR: #aa0000"><B>21:24 15 Aug 
+                                '07</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2184134_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG 
+                                src="4 - Anti-Aliasing_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>I have 
+                                loved reading your articles and this one is no 
+                                exception. However, I found that it had a couple 
+                                of bugs. The biggest of which is that the 
+                                tMaterial class is missing diffuseR, diffuseG, 
+                                diffuseB and diffuseA. Not a major issue and 
+                                quite easy to fix.<BR><BR>Keep up the good work. 
+                                I'll be reading. <BR><BR>
+                                <DIV class=ForumSig><A 
+                                href="http://www.agloco.com/r/BBCP1986"><BR>Pay-To-Surf 
+                                Returns!</A></DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_4.asp&amp;df=100&amp;forumid=447599&amp;select=2184134">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_4.asp&amp;df=100&amp;forumid=447599&amp;select=2184134">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?df=100&amp;tid=2184134&amp;forumid=447599&amp;select=2184134#xx2184134xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?msg=2184134#xx2184134xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?msg=2184134#xx2184134xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>Score: 5.0 (1 
+                                vote).
+                                <SCRIPT language=Javascript>MsgVoteForm(3032818,2184134);</SCRIPT>
+                                 
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="4 - Anti-Aliasing_archivos/t.gif" width=1 
+                              border=0></TD></TR>
+                          <TR id=2184983_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2184983xx></A><IMG 
+                                height=1 
+                                src="4 - Anti-Aliasing_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="4 - Anti-Aliasing_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?df=100&amp;forumid=447599&amp;select=2184983#xx2184983xx" 
+                                name=2184983>Re: tMaterial is missing the 
+                                diffuse variables</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3589667"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="4 - Anti-Aliasing_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>andalmeida&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>8:23 16 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2184983_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="4 - Anti-Aliasing_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="4 - Anti-Aliasing_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Oh, 
+                                thanks a lot. Just fixed here in the 
+                                article.<BR>Copy/paste issues <IMG 
+                                src="4 - Anti-Aliasing_archivos/smiley_smile.gif" 
+                                align=absMiddle><BR><BR><BR>
+                                <DIV class=ForumSig>Anderson J. 
+                                Almeida<BR>Systems 
+                                Analyst<BR>SimSysBr</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_4.asp&amp;df=100&amp;forumid=447599&amp;select=2184983">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_4.asp&amp;df=100&amp;forumid=447599&amp;select=2184983">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?df=100&amp;tid=2184134&amp;forumid=447599&amp;select=2184983#xx2184983xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?msg=2184983#xx2184983xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?msg=2184134#xx2184134xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(3589667,2184983);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=6 
+                              src="4 - Anti-Aliasing_archivos/t.gif" width=1 
+                              border=0></TD></TR>
+                          <TR id=2184991_h0 bgColor=#fef9e7>
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD bgColor=white><A name=xx2184991xx></A><IMG 
+                                height=1 
+                                src="4 - Anti-Aliasing_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="4 - Anti-Aliasing_archivos/news_general.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD class=messagetitle width="100%"><A 
+                                class=messagetitle id=DynMessLink 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?df=100&amp;forumid=447599&amp;select=2184991#xx2184991xx" 
+                                name=2184991>Re: tMaterial is missing the 
+                                diffuse variables</A></TD>
+                                <TD vAlign=bottom noWrap><A 
+                                href="http://www.codeproject.com/script/profile/whos_who.asp?id=3589667"><IMG 
+                                title="Click for User Profile" height=15 
+                                src="4 - Anti-Aliasing_archivos/userinfo.gif" 
+                                width=14 border=0></A>&nbsp;</TD>
+                                <TD noWrap width=140><FONT 
+                                class=messagetitle>andalmeida&nbsp;</FONT></TD>
+                                <TD style="WIDTH: 9em" noWrap align=right 
+                                width=120><FONT class=messagetitle>8:27 16 Aug 
+                                '07&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR id=2184991_h1 style="DISPLAY: none">
+                            <TD width="100%">
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD><IMG height=1 
+                                src="4 - Anti-Aliasing_archivos/ind.gif" 
+                                width=18><IMG 
+                                src="4 - Anti-Aliasing_archivos/news_blank.gif" 
+                                align=absMiddle>&nbsp;</TD>
+                                <TD width="100%" bgColor=#d5eaff>
+                                <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD>
+                                <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                                border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Please 
+                                let me know if you find more issues <IMG 
+                                src="4 - Anti-Aliasing_archivos/smiley_smile.gif" 
+                                align=absMiddle><BR><BR>Thanks again! <BR><BR>
+                                <DIV class=ForumSig>Anderson J. 
+                                Almeida<BR>Systems 
+                                Analyst<BR>SimSysBr</DIV><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/csharp/Simple_Ray_Tracing_in_C_4.asp&amp;df=100&amp;forumid=447599&amp;select=2184991">Reply</A> 
+                                | <A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/csharp/Simple_Ray_Tracing_in_C_4.asp&amp;df=100&amp;forumid=447599&amp;select=2184991">Email</A> 
+                                | <A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?df=100&amp;tid=2184134&amp;forumid=447599&amp;select=2184991#xx2184991xx">View 
+                                Thread</A> | <A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?msg=2184991#xx2184991xx">PermaLink</A> 
+                                | <A title="Go to Thread Start" 
+                                href="http://www.codeproject.com/csharp/Simple_Ray_Tracing_in_C_4.asp?msg=2184134#xx2184134xx">Go 
+                                to Thread Start</A>]</TD>
+                                <TD class=messagetitle align=right>
+                                <SCRIPT language=Javascript>MsgVoteForm(3589667,2184991);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+                          <TR>
+                            <TD><IMG height=5 
+                              src="4 - Anti-Aliasing_archivos/t.gif" width=1 
+                              border=0></TD></TR></TBODY></TABLE></TD></TR>
+                    <TR bgColor=#fbedbb>
+                      <TD>
+                        <TABLE cellPadding=2 width="100%">
+                          <TBODY>
+                          <TR>
+                            <TD class=messagetitle>Last Visit: 13:57 Thursday 
+                              6th September, 2007</TD>
+                            <TD noWrap align=right><FONT 
+                              class=messagetitle><SPAN 
+                              class=HoverLink>First</SPAN> <SPAN 
+                              class=HoverLink>Prev</SPAN> <SPAN 
+                              class=HoverLink>Next</SPAN> <SPAN 
+                              class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+                              </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+            <P class=smallText><IMG 
+            src="4 - Anti-Aliasing_archivos/news_general.gif" align=absMiddle> 
+            General comment &nbsp;&nbsp; <IMG 
+            src="4 - Anti-Aliasing_archivos/news_info.gif" align=absMiddle> News 
+            / Info &nbsp;&nbsp; <IMG 
+            src="4 - Anti-Aliasing_archivos/news_question.gif" align=absMiddle> 
+            Question &nbsp;&nbsp; <IMG 
+            src="4 - Anti-Aliasing_archivos/news_answer.gif" align=absMiddle> 
+            Answer &nbsp;&nbsp; <IMG 
+            src="4 - Anti-Aliasing_archivos/news_game.gif" align=absMiddle> Joke 
+            / Game &nbsp;&nbsp; <IMG 
+            src="4 - Anti-Aliasing_archivos/news_sticky.gif" align=absMiddle> 
+            Admin message</P><BR>
+            <TABLE cellSpacing=5 width="100%">
+              <TBODY>
+              <TR vAlign=top>
+                <TD class=smallText>Updated: 12 Aug 2007 </TD>
+                <TD class=SmallText align=right>Article content copyright 
+                  andalmeida, 2007<BR>everything else Copyright © <A 
+                  href="mailto:webmaster@codeproject.com">CodeProject</A>, 
+                  1999-2007</A>. <BR>Web08 | <A 
+                  href="http://www.codeproject.com/info/MediaKit">Advertise on 
+                  The Code Project</A> | <A 
+                  href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+      <SCRIPT src="4 - Anti-Aliasing_archivos/front.asp" 
+      type=text/javascript></SCRIPT>
+      <BR>
+      <CENTER>
+      <TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+        <TBODY>
+        <TR>
+          <TD bgColor=#ff9900 height=1><IMG height=1 
+            src="4 - Anti-Aliasing_archivos/space.gif"></TD></TR>
+        <TR>
+          <TD align=middle><FONT size=1><A 
+            href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A> • 
+            <A href="http://aspalliance.com/">ASP Alliance</A> • <A 
+            href="http://www.developerfusion.co.uk/">Developer Fusion</A> • <A 
+            href="http://www.developersdex.com/">Developersdex</A> • <A 
+            href="http://www.devguru.com/">DevGuru</A> • <A 
+            href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+            href="http://www.planet-source-code.com/">Planet Source Code</A> • 
+            <A href="http://www.tek-tips.com/">Tek-Tips Forums</A> • 
+        </FONT></TD></TR></TBODY></TABLE></CENTER></TR></TBODY></TABLE></BODY></HTML>

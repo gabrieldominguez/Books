@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gldeletetexturesext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gldeletetexturesext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glDeleteTexturesEXT(3G)	       OpenGL Reference	       glDeleteTexturesEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glDeleteTexturesEXT - delete named	textures
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glDeleteTexturesEXT( GLsizei n,
+			       const GLuint *textures )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     n	       The number of textures to be deleted.
+
+     textures  An array	in which each element is the name of a texture to be
+	       deleted.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glDeleteTexturesEXT deletes n textures named by the elements of the array
+     textures.	After a	texture	is deleted, it has no contents or
+     dimensionality, and its name is free for reuse (by	glGenTexturesEXT, for
+     example).	If a texture that is currently bound is	deleted, the binding
+     reverts to	zero (the default texture).
+
+     glDeleteTexturesEXT silently ignores zeros	and names that do not
+     correspond	to existing textures.
+
+     glDeleteTexturesEXT is not	included in display lists.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glDeleteTexturesEXT is part of the	EXT_texture_object extension.  See
+     glIntro for more information about	using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if n	is negative.
+
+     GL_INVALID_OPERATION is generated if glDeleteTexturesEXT is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glIsTextureEXT
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBindTextureEXT, glGenTexturesEXT, glGet,	glGetTexParameter,
+     glTexImage1D, glTexImage2D, glTexImage3DEXT, glTexParameter.
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glloadidentity Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glloadidentity</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glLoadIdentity(3G)	       OpenGL Reference		    glLoadIdentity(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glLoadIdentity - replace the current matrix with the identity matrix
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glLoadIdentity( void )
+
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glLoadIdentity replaces the current matrix	with the identity matrix.  It
+     is	semantically equivalent	to calling glLoadMatrix	with the identity
+     matrix
+
+
+				( 1   0	  0   0	 )
+				|		 |
+				| 0   1	  0   0	 |
+				| 0   0	  1   0	 |
+				|		 |
+				( 0   0	  0   1	 )
+
+     but in some cases it is more efficient.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glLoadIdentity is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_MATRIX_MODE
+     glGet with	argument GL_MODELVIEW_MATRIX
+     glGet with	argument GL_PROJECTION_MATRIX
+     glGet with	argument GL_TEXTURE_MATRIX
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glLoadMatrix, glMatrixMode, glMultMatrix, glPushMatrix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

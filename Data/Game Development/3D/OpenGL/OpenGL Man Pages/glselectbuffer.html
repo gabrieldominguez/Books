@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glselectbuffer Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glselectbuffer</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glSelectBuffer(3G)	       OpenGL Reference		    glSelectBuffer(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glSelectBuffer - establish	a buffer for selection mode values
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glSelectBuffer( GLsizei size,
+			  GLuint *buffer )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     size    Specifies the size	of buffer.
+
+     buffer  Returns the selection data.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glSelectBuffer has	two arguments:	buffer is a pointer to an array	of
+     unsigned integers,	and size indicates the size of the array.  buffer
+     returns values from the name stack	(see glInitNames, glLoadName,
+     glPushName) when the rendering mode is GL_SELECT (see glRenderMode).
+     glSelectBuffer must be issued before selection mode is enabled, and it
+     must not be issued	while the rendering mode is GL_SELECT.
+
+     Selection is used by a programmer to determine which primitives are drawn
+     into some region of a window.  The	region is defined by the current
+     modelview and perspective matrices.
+
+     In	selection mode,	no pixel fragments are produced	from rasterization.
+     Instead, if a primitive or	raster position	intersects the clipping	volume
+     defined by	the viewing frustum and	the user-defined clipping planes, this
+     primitive causes a	selection hit.	(With polygons,	no hit occurs if the
+     polygon is	culled.)  When a change	is made	to the name stack, or when
+     glRenderMode is called, a hit record is copied to buffer if any hits have
+     occurred since the	last such event	(name stack change or glRenderMode
+     call).  The hit record consists of	the number of names in the name	stack
+     at	the time of the	event, followed	by the minimum and maximum depth
+     values of all vertices that hit since the previous	event, followed	by the
+     name stack	contents, bottom name first.
+
+     Depth values (which are in	the range [0,1]) are multiplied	by 2^32	- 1,
+     before being placed in the	hit record.
+
+     An	internal index into buffer is reset to zero whenever selection mode is
+     entered.  Each time a hit record is copied	into buffer, the index is
+     incremented to point to the cell just past	the end	of the block of	names
+     - that is,	to the next available cell.  If	the hit	record is larger than
+     the number	of remaining locations in buffer, as much data as can fit is
+     copied, and the overflow flag is set.  If the name	stack is empty when a
+     hit record	is copied, that	record consists	of zero	followed by the
+     minimum and maximum depth values.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glSelectBuffer(3G)	       OpenGL Reference		    glSelectBuffer(3G)
+</FONT>
+
+
+     Selection mode is exited by calling glRenderMode with an argument other
+     than GL_SELECT.  Whenever glRenderMode is called while the	render mode is
+     GL_SELECT,	it returns the number of hit records copied to buffer, resets
+     the overflow flag and the selection buffer	pointer, and initializes the
+     name stack	to be empty.  If the overflow bit was set when glRenderMode
+     was called, a negative hit	record count is	returned.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The contents of buffer are	undefined until	glRenderMode is	called with an
+     argument other than GL_SELECT.
+
+     glBegin/glEnd primitives and calls	to glRasterPos can result in hits.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if size is negative.
+
+     GL_INVALID_OPERATION is generated if glSelectBuffer is called while the
+     render mode is GL_SELECT, or if glRenderMode is called with argument
+     GL_SELECT before glSelectBuffer is	called at least	once.
+
+     GL_INVALID_OPERATION is generated if glSelectBuffer is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_NAME_STACK_DEPTH
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	InfiniteReality	systems	selection and histogramming are	unreliable if
+     interrupted by a graphics context switch.	This will be fixed in the next
+     software release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glFeedbackBuffer, glInitNames, glLoadName,	glPushName, glRenderMode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

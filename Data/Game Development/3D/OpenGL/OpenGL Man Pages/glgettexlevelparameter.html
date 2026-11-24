@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgettexlevelparameter Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgettexlevelparameter</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetTexLevelParameter(3G)     OpenGL Reference	    glGetTexLevelParameter(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetTexLevelParameterfv, glGetTexLevelParameteriv	- return texture
+     parameter values for a specific level of detail
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetTexLevelParameterfv( GLenum target,
+				    GLint level,
+				    GLenum pname,
+				    GLfloat *params )
+     void glGetTexLevelParameteriv( GLenum target,
+				    GLint level,
+				    GLenum pname,
+				    GLint *params )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Specifies the symbolic name of the	target texture,	either
+	     GL_TEXTURE_1D, GL_TEXTURE_2D, GL_TEXTURE_3D,
+	     GL_PROXY_TEXTURE_1D_EXT, GL_PROXY_TEXTURE_2D_EXT,
+	     GL_PROXY_TEXTURE_3D_EXT, or GL_DETAIL_TEXTURE_2D_SGIS.
+
+     level   Specifies the level-of-detail number of the desired image.	 Level
+	     0 is the base image level.	 Level n is the	nth mipmap reduction
+	     image.
+
+     pname   Specifies the symbolic name of a texture parameter.
+	     GL_TEXTURE_WIDTH, GL_TEXTURE_HEIGHT, GL_TEXTURE_DEPTH_EXT,
+	     GL_TEXTURE_COMPONENTS, GL_TEXTURE_BORDER,
+	     GL_TEXTURE_RED_SIZE_EXT, GL_TEXTURE_GREEN_SIZE_EXT,
+	     GL_TEXTURE_BLUE_SIZE_EXT, GL_TEXTURE_ALPHA_SIZE_EXT,
+	     GL_TEXTURE_LUMINANCE_SIZE_EXT, and	GL_TEXTURE_INTENSITY_SIZE_EXT
+	     are accepted.
+
+
+     params  Returns the requested data.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetTexLevelParameter returns in params texture parameter	values for a
+     specific level-of-detail value, specified as level.  target defines the
+     target texture, one of GL_TEXTURE_1D, GL_TEXTURE_2D, GL_TEXTURE_3D,
+     GL_PROXY_TEXTURE_1D_EXT, GL_PROXY_TEXTURE_2D_EXT,
+     GL_PROXY_TEXTURE_3D_EXT, or GL_DETAIL_TEXTURE_2D_SGIS.
+     GL_MAX_TEXTURE_SIZE is not	really descriptive enough.  It has to report
+     the largest square	texture	image which may	be accomodated,	but a long
+     skinny texture may	easily fit in texture memory.  The proxy targets allow
+     the user to more accurately query whether the GL can accomodate a texture
+     of	a given	configuration.	If the texture can not be accomodated, the
+     texture state variables, which may	be queried with
+     glGetTexLevelParameter, are set to	0.  If the texture can be accomodated
+     the texture state values will be set as they would	be set for a non-proxy
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetTexLevelParameter(3G)     OpenGL Reference	    glGetTexLevelParameter(3G)
+</FONT>
+
+
+     target.
+
+     pname specifies the texture parameter whose value or values will be
+     returned.
+
+     The accepted parameter names are as follows:
+
+     GL_TEXTURE_WIDTH
+	       params returns a	single value, the width	of the texture image.
+	       This value includes the border of the texture image.
+
+     GL_TEXTURE_HEIGHT
+	       params returns a	single value, the height of the	texture	image.
+	       This value includes the border of the texture image.
+
+     GL_TEXTURE_DEPTH_EXT
+	       params returns a	single value, the depth	of the texture image.
+	       This value includes the border of the texture image.
+
+     GL_TEXTURE_COMPONENTS
+	       params returns a	single value, the level-of-detail's component
+	       as it was specified by the user.
+
+     GL_TEXTURE_BORDER
+	       params returns a	single value, the width	in pixels of the
+	       border of the texture image.
+
+     GL_TEXTURE_RED_SIZE_EXT,
+
+     GL_TEXTURE_GREEN_SIZE_EXT,
+
+     GL_TEXTURE_BLUE_SIZE_EXT,
+
+     GL_TEXTURE_ALPHA_SIZE_EXT,
+
+     GL_TEXTURE_LUMINANCE_SIZE_EXT, or
+
+     GL_TEXTURE_INTENSITY_SIZE_EXT
+	       The internal storage resolution of an individual	component.
+	       The format chosen by the	GL will	be a close match for the
+	       format requested	by the user with the component argument	of
+	       glTexImage1d, glTexImage2d, or glTexImage3DEXT. These values
+	       for pname query the format chosen by the	GL, while
+	       GL_TEXTURE_COMPONENTS is	used to	query the value	requested by
+	       the user.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	an error is generated, no change is made to the	contents of params.
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetTexLevelParameter(3G)     OpenGL Reference	    glGetTexLevelParameter(3G)
+</FONT>
+
+
+     GL_TEXTURE_RED_SIZE_EXT, GL_TEXTURE_GREEN_SIZE_EXT,
+     GL_TEXTURE_BLUE_SIZE_EXT, GL_TEXTURE_ALPHA_SIZE_EXT,
+     GL_TEXTURE_LUMINANCE_SIZE_EXT, GL_TEXTURE_INTENSITY_SIZE_EXT,
+     GL_PROXY_TEXTURE_1D_EXT, and GL_PROXY_TEXTURE_2D_EXT, are not supported
+     in	standard GL.  texture will be present in the extensions	string of
+     glGetString, if these enumerants are supported.   texture3D will be
+     present if	GL_PROXY_TEXTURE_3D_EXT	and GL_TEXTURE_3D_EXT are supported.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target or pname is	not an accepted	value.
+
+     GL_INVALID_VALUE is generated if level is less than zero or greater than
+     log max, where max	is the returned	value of GL_MAX_TEXTURE_SIZE.
+	2
+     GL_INVALID_OPERATION is generated if glGetTexLevelParameter is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glGetTexParameter,	glTexImage1D, glTexImage2D, glTexImage3DEXT,
+     glTexParameter, glGetString.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

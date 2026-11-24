@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gltagsamplebuffersgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gltagsamplebuffersgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glTagSampleBufferSGIX(3G)      OpenGL Reference	     glTagSampleBufferSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glTagSampleBufferSGIX - mark all samples of a multisample buffer
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glTagSampleBufferSGIX( void )
+
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     When using	a multisample buffer on	some systems (see Machine Dependencies
+     below), glTagSampleBufferSGIX can be used with some restrictions as a
+     faster alternative	to clearing the	depth buffer using glClear.  On	these
+     system, each sample in the	multisample buffer carries a tag that can be
+     either set	or cleared.  glTagSampleBufferSGIX sets	the tags of all	the
+     samples.  When a tag of a sample is set, a	depth test against that	sample
+     always succeeds.  Note, however, that the stencil test (if	enabled) still
+     uses the stencil value that is stored at the sample.  When	a color	is
+     written into a sample, its	tag is cleared.	 Depth tests against a sample
+     with a cleared tag	use the	depth value stored at the sample.
+
+     Initially the state of the	tags of	all samples is undefined.  Clearing
+     the main color buffer clears all the tags.	 For a given pixel, the	color
+     values stored in the sample buffer	are resolved into the main color
+     buffer only when the tags of all samples of that pixel are	cleared.
+     Thus, when	using glTagSampleBufferSGIX, it	is the responsibility of the
+     program to	ensure that the	tags of	all samples are	cleared	(i.e., that a
+     color is stored into each sample least once) before the frame is
+     completed.
+
+     Using glTagSampleBufferSGIX is much faster	than
+     glClear(GL_DEPTH_BUFFER_BIT), but it does not have	the same effect	(i.e.,
+     no	change is made to the contents of the depth buffer).
+
+     The result	of blending a color into a sample whose	tag is set is
+     undefined.	 Therefore, blending should be disabled	when writing into
+     samples with set tags.
+
+     If	a multisample buffer is	not available, glTagSampleBufferSGIX has no
+     effect.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Programs that guarantee that a color value	is stored into every sample of
+     each frame	can use	glTagSampleBufferSGIX instead of clearing the depth
+     and the main color	buffer(s), resulting in	increased performance.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glTagSampleBufferSGIX	is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glTagSampleBufferSGIX(3G)      OpenGL Reference	     glTagSampleBufferSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     Multisampling and sample tags are supported only on RealityEngine,
+     RealityEngine2, and VTX systems.  Sample tags are experimental and	might
+     not be supported in future	systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBlendFunc glClear glEnable glSampleMaskSGIS, glSamplePatternSGIS,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

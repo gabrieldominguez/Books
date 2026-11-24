@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxmakecurrentreadsgi Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxmakecurrentreadsgi</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXMakeCurrentReadSGI(3G)   OpenGL Reference - GLX   glXMakeCurrentReadSGI(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXMakeCurrentReadSGI - attach a GLX context to separate read and write
+     drawables
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     Bool glXMakeCurrentReadSGI( Display *dpy,
+				 GLXDrawable draw,
+				 GLXDrawable read,
+				 GLXContext gc )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy   Specifies the connection to the X server.
+
+
+     draw  A GLX drawable that receives	the results of OpenGL drawing
+	   operations.
+
+
+     read  A GLX drawable that provides	pixels for glReadPixels	and
+	   glCopyPixels	operations.
+
+
+     gc	   A GLX rendering context to be attached to draw and read.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXMakeCurrentReadSGI performs the	same functions as glXMakeCurrent, with
+     one important difference:	it attaches a GLX context to two drawables,
+     rather than one.  The second drawable serves as the source	for any	pixel
+     data that are read	by glReadPixels, glCopyPixels, and OpenGL extension
+     commands that read	color, depth, or stencil data from the framebuffer.
+     It	may be an ordinary GLX drawable, or it may be a	GLX video source (see
+     glXCreateGLXVideoSourceSGIX).  Accumulation operations (see glAccum) are
+     not allowed when draw is not identical to read.
+
+     It	is not necessary for draw and read to have the same ancillary buffers.
+     It	is also	not necessary for read to contain a buffer corresponding to
+     the current GL_READ_BUFFER	of gc.	For example, the current
+     GL_READ_BUFFER of gc might	be GL_BACK, and	read might be single-buffered.
+     If	there is no corresponding buffer in read, then the pixel values
+     extracted from read will be undefined, but	no error will be generated.
+     Operations	that query the value of	GL_READ_BUFFER use the value set last
+     in	gc, regardless of whether read has the corresponding buffer.
+
+     glXMakeCurrentReadSGI returns True	if it is successful, False otherwise.
+     If	False is returned, the previously current rendering context and
+     drawables (if any)	remain unchanged.
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXMakeCurrentReadSGI(3G)   OpenGL Reference - GLX   glXMakeCurrentReadSGI(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     BadMatch is generated if any of the following conditions hold:
+
+	  1.   draw was	not created on the same	X screen and visual as gc.
+
+	  2.   read was	not created on the same	X screen as gc.
+
+	  3.   draw is None and	gc is not None.
+
+	  4.   draw is a GLX video source.
+
+     BadAccess is generated if gc was current to another thread	at the time
+     glXMakeCurrentReadSGI was called.
+
+     GLXBadDrawable is generated if either draw	or read	is not a valid GLX
+     drawable.
+
+     GLXBadContext is generated	if gc is not a valid GLX context.
+
+     GLXBadContextState	is generated if	glXMakeCurrentReadSGI is called
+     between a glBegin and the corresponding call to glEnd.
+
+     GLXBadContextState	is also	generated if the rendering context current to
+     the calling thread	has OpenGL renderer state GL_FEEDBACK or GL_SELECT.
+
+     GLXBadCurrentWindow is generated if there are pending OpenGL commands for
+     the previous context and the current drawable is a	window that is no
+     longer valid.
+
+     BadAlloc may be generated if the server has delayed allocation of
+     ancillary buffers until glXMakeCurrentReadSGI is called, only to find
+     that it has insufficient resources	to complete the	allocation.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGI_make_current_read extension is supported on RealityEngine,
+     RealityEngine2, and VTX systems with the following	restrictions:
+
+	  1.  A	BadMatch error is generated if
+
+	      a.   draw	is RGBA	and read is not, or vice versa.	 A video
+		   source (see glXCreateGLXVideoSourceSGIX) is considered to
+		   be RGBA.
+
+	      b.   read	is not a video source and it does not have the same
+		   color component resolution or the same number of index bits
+		   as draw;
+
+	      c.   Either draw or read is not at buffer	level 0	(the main
+		   frame buffer	planes,	rather than overlay planes).
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXMakeCurrentReadSGI(3G)   OpenGL Reference - GLX   glXMakeCurrentReadSGI(3G)
+</FONT>
+
+
+	      d.   draw	is multisample capable and readP is a pbuffer (see
+		   glXCreateGLXPbufferSGIX).
+
+	  2.  When draw	is a pixmap then read must be the same pixmap.	A
+	      BadAlloc error is	generated otherwise.
+
+     On	RealityEngine, RealityEngine2, and VTX systems and on InfiniteReality
+     systems it	is not possible	to use a context for rendering to both windows
+     and pixmaps.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXMakeCurrent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

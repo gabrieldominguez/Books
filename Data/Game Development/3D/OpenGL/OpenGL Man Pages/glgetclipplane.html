@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetclipplane Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetclipplane</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetClipPlane(3G)	       OpenGL Reference		    glGetClipPlane(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetClipPlane - return the coefficients of the specified clipping	plane
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetClipPlane( GLenum plane,
+			  GLdouble *equation )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     plane     Specifies a clipping plane.  The	number of clipping planes
+	       depends on the implementation, but at least six clipping	planes
+	       are supported.  They are	identified by symbolic names of	the
+	       form GL_CLIP_PLANEi where 0 &amp;lt; i &amp;lt; GL_MAX_CLIP_PLANES.
+
+     equation  Returns four double-precision values that are the coefficients
+	       of the plane equation of	plane in eye coordinates.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetClipPlane returns in equation	the four coefficients of the plane
+     equation for plane.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     It	is always the case that	GL_CLIP_PLANEi = GL_CLIP_PLANE0	+ i.
+
+     If	an error is generated, no change is made to the	contents of equation.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if plane is not an accepted value.
+
+     GL_INVALID_OPERATION is generated if glGetClipPlane is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glClipPlane
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

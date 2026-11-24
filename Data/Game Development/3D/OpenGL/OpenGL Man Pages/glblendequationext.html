@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glblendequationext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glblendequationext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glBlendEquationEXT(3G)	       OpenGL Reference		glBlendEquationEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glBlendEquationEXT	- set the blend	equation
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glBlendEquationEXT( GLenum mode )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mode  specifies how source	and destination	colors are combined.  It must
+	   be GL_FUNC_ADD_EXT, GL_FUNC_SUBTRACT_EXT,
+	   GL_FUNC_REVERSE_SUBTRACT_EXT, GL_MIN_EXT, GL_MAX_EXT, or
+	   GL_LOGIC_OP.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     The blend equation	determines how a new pixel (the	``source'' color) is
+     combined with a pixel already in the framebuffer (the ``destination''
+     color).
+
+     GL_MIN_EXT
+	  sets the blend equation so that each component of the	result color
+	  is the minimum of the	corresponding components of the	source and
+	  destination colors.
+
+     GL_MAX_EXT
+	  sets the blend equation so that each component of the	result color
+	  is the maximum of the	corresponding components of the	source and
+	  destination colors.
+
+     GL_LOGIC_OP
+	  sets the blend equation so that each component of the	result color
+	  is a bitwise logical combination of the corresponding	components of
+	  the source and destination colors.  Use the glLogicOp	command	to
+	  specify the logical operator.
+
+     The remaining blend equations use the source and destination blend
+     factors specified by glBlendFunc.	See glBlendFunc	for a description of
+     the various blend factors.
+
+     In	the equations that follow, source and destination color	components are
+     referred to as (Rs,Gs,Bs,As) and (Rd,Gd,Bd,Ad), respectively.  The	result
+     color is referred to as (Rr,Gr,Br,Ar).  The source	and destination	blend
+     factors are denoted (sR,sG,sB,sA) and (dR,dG,dB,dA), respectively.	 For
+     these equations all color components are understood to have values
+     between 0.0 and 1.0, inclusive.
+
+     GL_FUNC_ADD_EXT
+	  sets the blend equation so that the source and destination data are
+	  added.  Each component of the	source color is	multiplied by the
+	  corresponding	source factor, then each component of the destination
+	  color	is multiplied by the corresponding destination factor.	The
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glBlendEquationEXT(3G)	       OpenGL Reference		glBlendEquationEXT(3G)
+</FONT>
+
+
+	  result is the	componentwise sum of the two products, clamped to the
+	  range	[0,1].
+
+			     Rr	= min(1,  Rs sR	 +  Rd dR)
+			     Gr	= min(1,  Gs sG	 +  Gd dG)
+			     Br	= min(1,  Bs sB	 +  Bd dB)
+			     Ar	= min(1,  As sA	 +  Ad dA)
+
+     GL_FUNC_SUBTRACT_EXT
+	  Is like GL_FUNC_ADD_EXT except the product of	the destination	factor
+	  and the destination color is componentwise subtracted	from the
+	  product of the source	factor and the source color.  The result is
+	  clamped to the range [0,1].
+			     Rr	= max(0,  Rs sR	 -  Rd dR)
+			     Gr	= max(0,  Gs sG	 -  Gd dG)
+			     Br	= max(0,  Bs sB	 -  Bd dB)
+			     Ar	= max(0,  As sA	 -  Ad dA)
+
+     GL_FUNC_REVERSE_SUBTRACT_EXT
+	  Is like GL_FUNC_ADD_EXT except the product of	the source factor and
+	  the source color is componentwise subtracted from the	product	of the
+	  destination factor and the destination color.	 The result is clamped
+	  to the range [0,1].
+			     Rr	= max(0,  Rd dR	 -  Rs sR)
+			     Gr	= max(0,  Gd dG	 -  Gs sG)
+			     Br	= max(0,  Bd dB	 -  Bs sB)
+			     Ar	= max(0,  Ad dA	 -  As sA)
+
+
+     The GL_MIN_EXT and	GL_MAX_EXT equations are useful	for applications that
+     analyze image data	(image thresholding against a constant color, for
+     example).	The GL_LOGIC_OP	equation is most commonly used with GL_XOR for
+     reversible	drawing.  The GL_FUNC_ADD_EXT equation is useful for anti-
+     aliasing and transparency,	among other things.
+
+     Initially the blend equation is set to GL_FUNC_ADD_EXT.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The GL_MIN_EXT, GL_MAX_EXT, and GL_LOGIC_OP equations do not use the
+     source or destination factors, only the source and	destination colors.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if mode is not one of	GL_FUNC_ADD_EXT,
+     GL_FUNC_SUBTRACT_EXT, GL_FUNC_REVERSE_SUBTRACT_EXT, GL_MAX_EXT,
+     GL_MIN_EXT, or GL_LOGIC_OP.
+
+     GL_INVALID_OPERATION is generated if glBlendEquationEXT is	executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glBlendEquationEXT(3G)	       OpenGL Reference		glBlendEquationEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	an argument of GL_BLEND_EQUATION_EXT.
+
+     glGetString with an argument of GL_EXTENSIONS.
+	  This feature is not part of standard GL. The extensions string of
+	  glGetString will contain the name blend_minmax if GL_MIN_EXT and
+	  GL_MAX_EXT are supported.  It	will contain the name blend_logic_op
+	  if GL_LOGIC_OP is supported in RGB mode. It will contain the name
+	  blend_subtract if GL_FUNC_SUBTRACT_EXT and
+	  GL_FUNC_REVERSE_SUBTRACT_EXT are supported.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support the use of
+     blend factor GL_SRC_ALPHA_SATURATE	with blend equation
+     GL_FUNC_REVERSE_SUBTRACT_EXT; this	combination produces incorrect
+     results.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glGetString, glBlendColorEXT, glBlendFunc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

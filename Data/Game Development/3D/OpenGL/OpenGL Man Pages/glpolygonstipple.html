@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glpolygonstipple Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glpolygonstipple</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glPolygonStipple(3G)	       OpenGL Reference		  glPolygonStipple(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glPolygonStipple -	set the	polygon	stippling pattern
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPolygonStipple( const GLubyte *mask	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mask  Specifies a pointer to a 32x32 stipple pattern that will be
+	   unpacked from memory	in the same way	that glDrawPixels unpacks
+	   pixels.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Polygon stippling,	like line stippling (see glLineStipple), masks out
+     certain fragments produced	by rasterization, creating a pattern.
+     Stippling is independent of polygon antialiasing.
+
+     mask is a pointer to a 32x32 stipple pattern that is stored in memory
+     just like the pixel data supplied to a glDrawPixels with height and width
+     both equal	to 32, a pixel format of GL_COLOR_INDEX, and data type of
+     GL_BITMAP.	 That is, the stipple pattern is represented as	a 32x32	array
+     of	1-bit color indices packed in unsigned bytes.  glPixelStore parameters
+     like GL_UNPACK_SWAP_BYTES and GL_UNPACK_LSB_FIRST affect the assembling
+     of	the bits into a	stipple	pattern.  Pixel	transfer operations (shift,
+     offset, pixel map)	are not	applied	to the stipple image, however.
+
+     Polygon stippling is enabled and disabled with glEnable and glDisable,
+     using argument GL_POLYGON_STIPPLE.	 If enabled, a rasterized polygon
+     fragment with window coordinates x	 and y	is sent	to the next stage of
+     the GL if and only	if the (x  mod 32)th bit in the	(y  mod	32)th row of
+     the stipple pattern is one. wWhen polygon stippling is disabled, it is as
+     if	the stipple pattern were all ones.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glPolygonStipple is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetPolygonStipple
+     glIsEnabled with argument GL_POLYGON_STIPPLE
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDrawPixels, glLineStipple, glPixelStore,	glPixelTransfer
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

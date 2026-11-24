@@ -1,0 +1,1192 @@
+ 
+<HTML>
+<!-- #BeginTemplate "/Templates/Cabecera+Indice.dwt" --> 
+<HEAD>
+<!-- #BeginEditable "doctitle" --> 
+<TITLE>Tutorial de Open GL. Luces</TITLE>
+<!-- #EndEditable --> <!-- #BeginEditable "Meta" --> 
+<META CONTENT="ingenieros,informatica,ingenieria,ingeniero,informaticos,colegio,profesional,perito,peritos,auditoria,auditor,consultoria,consultor,informacion,universidad,estudiantes,estudiante,tecnico,diplomado,licenciado,diplomatura,licenciatura" NAME="KEYWORDS">
+<META CONTENT="En este sitio los ingenieros en informatica tienen un lugar de encuentro donde obtener toda la informacion relevante para su profesion. Da cabida a todos los titulados y estudiantes universitarios en informatica de cualquier grado, medio o superior." NAME="DESCRIPTION">
+<META name="Content-Type" content="text/html; charset=iso-8859-1">
+<!-- #EndEditable --> 
+<STYLE TYPE="text/css">
+body         { color: black }
+td           { color: black }
+p            { color: black ; text-align: justify}
+a:link       { color: #330066; text-decoration: underline }
+a:visited    { color: #330066; text-decoration: underline }
+a:hover      { color: red; text-decoration: underline }
+a.smooth:link    {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:visited {  font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none}
+a.smooth:hover   {  font-family: Verdana, Arial, Helvetica, sans-serif; color: red; font-size: 8pt; text-decoration: none}
+
+</STYLE>
+<script language="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+<!--
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+</HEAD>
+<BODY bgcolor="#FFFFFF" onLoad="MM_preloadImages('../../images/cabecera_r2_c2_f2.gif','../../images/botcab_r1_c02_f2.gif','../../images/botcab_r1_c04_f2.gif','../../images/botcab_r1_c06_f2.gif','../../images/botcab_r1_c08_f2.gif','../../images/botcab_r1_c10_f2.gif','../../images/botcab_r1_c12_f2.gif')" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE width="760" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD height="71"> <!-- #BeginLibraryItem "/Library/cabecera.lbi" --><!-- Fireworks 3.0  Dreamweaver 3.0 LBI target.  Created Tue Oct 03 00:01:17 GMT+0200 (Romance Daylight Time) 2000 -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="cabecera1.png" fwbase="cabecera.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="344" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="340" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td colspan="3"><img name="cabecera_r1_c1" src="../../images/cabecera_r1_c1.gif" width="760" height="50" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="50" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 2 -->
+   <td rowspan="2"><img name="cabecera_r2_c1" src="../../images/cabecera_r2_c1.gif" width="344" height="35" border="0"></td>
+   <td><a href="#" onMouseOut="MM_swapImgRestore();"  onMouseOver="MM_swapImage('cabecera_r2_c2','','../../images/cabecera_r2_c2_f2.gif',1)" ><img name="cabecera_r2_c2" src="../../images/cabecera_r2_c2.gif" width="76" height="16" border="0"></a></td>
+   <td rowspan="2"><img name="cabecera_r2_c3" src="../../images/cabecera_r2_c3.gif" width="340" height="35" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+  <tr valign="top"><!-- row 3 -->
+   <td><img name="cabecera_r3_c2" src="../../images/cabecera_r3_c2.gif" width="76" height="19" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="19" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --></TD>
+  </TR>
+  <TR> 
+    <TD> <!-- #BeginLibraryItem "/Library/botcab.lbi" -->
+<SCRIPT language="JavaScript" type="text/javascript">
+<!--
+     NS4 = (document.layers);
+     IE4 = (document.all);
+    ver4 = (NS4 || IE4);
+	 IE5 = (IE4 && navigator.appVersion.indexOf("5.")!=-1);
+   isMac = (navigator.appVersion.indexOf("Mac") != -1);
+  isMenu = (NS4 || (IE4 && !isMac) || (IE5 && isMac));
+function popUp(){return};
+function popDown(){return};
+if (!ver4) event=null;
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+menuVersion = 3;
+menuWidth = 120;
+childOverlap = 1;
+childOffset = 0;
+perCentOver = null;
+secondsVisible = 0.10;
+clickStart = false;
+clickKill = false;
+fntCol = "#5C7BBC";
+fntSiz = "7";
+fntBold = true;
+fntItal = false;
+fntFam = "Verdana,Arial,Helvetica,sans-serif";
+backCol = "#FFFFFF";
+overCol = "#FFCC33";
+overFnt = "#000000";
+borWid = 1;
+borCol = "#5C7BBC";
+borSty = "solid";
+itemPad = 1;
+imgSrc = "menu/tri.gif";
+imgSiz = 10;
+separator = 0;
+separatorCol = "#5C7BBC";
+isFrames = false;
+keepHilite = true; 
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierArrays.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<SCRIPT language="JavaScript1.2" type="text/javascript">
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='menu/hierMenus.js' TYPE='text/javascript'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- fwtable fwsrc="botonescabecera.png" fwbase="botcab.gif" -->
+  <tr>
+<!-- Shim row, height 1. -->
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="2" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="76" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="292" height="1" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr valign="top"><!-- row 1 -->
+   <td><img name="botcab_r1_c01" src="../../images/botcab_r1_c01.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu1');"  onMouseOver="MM_swapImage('botcab_r1_c02','','../../images/botcab_r1_c02_f2.gif',1);popUp('elMenu1',event)" onClick="return false"><img name="botcab_r1_c02" src="../../images/botcab_r1_c02.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c03" src="../../images/botcab_r1_c03.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu2');"  onMouseOver="MM_swapImage('botcab_r1_c04','','../../images/botcab_r1_c04_f2.gif',1);popUp('elMenu2',event)" onClick="return false"><img name="botcab_r1_c04" src="../../images/botcab_r1_c04.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c05" src="../../images/botcab_r1_c05.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu3');"  onMouseOver="MM_swapImage('botcab_r1_c06','','../../images/botcab_r1_c06_f2.gif',1);popUp('elMenu3',event)" onClick="return false"><img name="botcab_r1_c06" src="../../images/botcab_r1_c06.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c07" src="../../images/botcab_r1_c07.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu4');"  onMouseOver="MM_swapImage('botcab_r1_c08','','../../images/botcab_r1_c08_f2.gif',1);popUp('elMenu4',event)" onClick="return false"><img name="botcab_r1_c08" src="../../images/botcab_r1_c08.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c09" src="../../images/botcab_r1_c09.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu5');"  onMouseOver="MM_swapImage('botcab_r1_c10','','../../images/botcab_r1_c10_f2.gif',1);popUp('elMenu5',event)" onClick="return false"><img name="botcab_r1_c10" src="../../images/botcab_r1_c10.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c11" src="../../images/botcab_r1_c11.gif" width="2" height="16" border="0"></td>
+   <td><a href="javascript:void(0)" onMouseOut="MM_swapImgRestore();popDown('elMenu6');"  onMouseOver="MM_swapImage('botcab_r1_c12','','../../images/botcab_r1_c12_f2.gif',1);popUp('elMenu6',event)" onClick="return false"><img name="botcab_r1_c12" src="../../images/botcab_r1_c12.gif" width="76" height="16" border="0"></a></td>
+   <td><img name="botcab_r1_c13" src="../../images/botcab_r1_c13.gif" width="292" height="16" border="0"></td>
+   <td><img src="../../images/shim.gif" width="1" height="16" border="0"></td>
+  </tr>
+</table>
+<!-- #EndLibraryItem --> </TD>
+  </TR>
+</TABLE>
+<!-- #BeginEditable "Region%20editable" --> 
+<TABLE width="761" border="0" cellspacing="0" cellpadding="0" name="Navegacion" height="20" bgcolor="#FFFFFF">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="2" height="3"></TD>
+    <TD><IMG src="../../images/1x1.gif" width="758" height="3"></TD>
+  </TR>
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="1" height="1" ></TD>
+    <TD><A href="http://www.ingenieroseninformatica.org/index.html" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Principal</A> 
+      <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="intro.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none"> 
+      Tutorial de OpenGL</A> <FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#5C7BBC">>></FONT> 
+      <A href="cap9.htm" style="font-family: Verdana, Arial, Helvetica, sans-serif; color: #5C7BBC; font-size: 8pt; text-decoration: none">Capítulo 
+      9</A> </TD>  
+  </TR>
+</TABLE>
+<DIV id="Body" style="position:absolute; width:760px; height:14170px; z-index:3; left: 0px; top: 150px; visibility: visible"> 
+  <div id="Footer" style="position:absolute; width:200px; height:20px; z-index:4; left: 0px; top: 14100px"><!-- #BeginLibraryItem "/Library/Pie de Página.lbi" -->
+<TABLE width="755" border="0" cellspacing="0" cellpadding="1">
+  <TR> 
+    <TD><IMG src="../../images/1x1.gif" width="755" height="1"></TD>
+  </TR>
+  <TR> 
+    <TD><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1">Me interesaría 
+      informarme de cómo insertar <A href="../../publicidad.htm">publicidad</A> en 
+      esta página.</FONT></TD>
+  </TR>
+  <TR> 
+    <TD bgcolor="#330066"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">© 
+      2000 IngenierosenInformatica.org</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"> 
+      <A href="../../avisolegal.htm"><FONT color="#CCFF33">Aviso legal</FONT></A></FONT></TD>
+  </TR>
+</TABLE>
+<!-- #EndLibraryItem --></div>
+  <div id="Cuerpo" style="position:absolute; width:670px; height:13740px; z-index:4; left: 75px; top: 0px; overflow: visible"> 
+    <P><!-- #BeginLibraryItem "/Library/Tabla cuerpo.lbi" --><TABLE width="610" border="0" cellspacing="0" cellpadding="0">
+  <TR> 
+    <TD><IMG alt="" border=0 height=1 width=610 src="../../images/1x1.gif"></TD>
+  </TR>
+</TABLE><!-- #EndLibraryItem --><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"></FONT> 
+    <H2><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">9. 
+      Luces (E07)</FONT><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FF9900"> 
+      </FONT></H2>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Esta función 
+      introduce los conceptos de luminosidad, o luces. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Para ello lo 
+      que se hace es crear una escena en la cual se modifican los parámetros de 
+      las luces, así como su posición. Se dibuja una esfera amarilla en el punto 
+      donde se encuentra el foco de luz, para apreciar mejor la forma de acción. 
+      </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">También se 
+      introducen los conceptos de las cuadricas, que son operaciones definidas 
+      para Win32, para la realización de estructuras simples, cubos, cilindros 
+      y esferas. Estos objetos guardan información relacionada con el material 
+      de los objetos, siendo posible definir un tipo de material y utilizarlo 
+      por más de un objeto. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">OpenGL maneja 
+      hasta ocho luces a la vez, definidas desde GL_LIGHT0 hasta GL_LIGHT7. Para 
+      que el efecto de las luces se note en los objetos hay que proporcionar a 
+      estos unas características de luminosidad y reflectancia. Esto es importante, 
+      ya que ahora un objeto no va a ser de color rojo, sino que va a ser de un 
+      material que refleja principalmente el color rojo. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Para asignar 
+      propiedades a los materiales se utilizan algunas de las funciones vistas 
+      en el ejemplo anterior, que se quedaron sin explicar: </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glEnable 
+          (GL_COLOR_MATERIAL )</B> - Activa el seguimiento de color. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glColorMaterial 
+          (GL_FRONT,GL_DIFFUSE )</B> - Selecciona las propiedades de un material. 
+          Se pueden definir ciertas propiedades siguiendo el color especificado 
+          por glColor(). El primer parámetro indica la cara sobre la que tiene 
+          efecto, y el segundo especifica la propiedad del material que debe seguir 
+          el color actual. Puede tomar los valores GL_AMBIENT, GL_DIFFUSE, GL_SPECULAR 
+          y GL_AMBIENT_AND_DIFFUSE. Esta relacionada con: </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glMaterial()</B> 
+          - Se usa para seleccionar las propiedades reflectivas de los materiales 
+          de los polígonos. Se pueden seleccionar propiedades para la luz incidente(GL_AMBIENT 
+          ..), para aquellos materiales que producen su propia luz (GL_EMISION), 
+          producir reflejos mayores (GL_SHININESS) ... </FONT></P>
+      </LI>
+    </UL>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Otras funciones 
+      relacionadas con las propiedades de los materiales son: </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glGetMaterial()</B> 
+          - Devuelve las propiedades seleccionadas del material actual. Para definir 
+          las luces se utilizan algunas de las funciones vistas en el ejemplo 
+          anterior, y que se quedaron sin explicar: </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glEnable 
+          ( GL_LIGHTING )</B> - Activa las propiedades de luz. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glLightfv 
+          ( GL_LIGHT0, GL_ DIFFUSE, diffuseLight )</B> - Define los parámetros 
+          de una de las ocho fuentes de luz soportadas. Los parámetros que se 
+          pueden definir son: GL_AMBIENT que especifica las componentes ambiente 
+          de la luz; GL_DIFFUSE que especifica las componentes difusa de la luz; 
+          GL_SPECULAR que especifica las componentes especular de la luz; GL_POSITION 
+          especifica la posición de la luz, son cuatro componentes, los tres primeros 
+          especifican la posición, mientras que el cuarto si es uno indica que 
+          la luz esta situada en esa posición mientras que si es cero, que la 
+          luz es direccional y paralela al vector; ... </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glEnable 
+          ( GL_LIGHT0 )</B> - Activa la luz especificada. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glPushAttrib(GL_LIGHTING_BIT)</B> 
+          - Almacena las propiedades de la luz, para que no causen efecto. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glPopAttrib()</B> 
+          - Restablece las propiedades de la luz. Otras instrucciones relacionadas 
+          con las luces son: </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glGetLight()</B> 
+          - Devuelve información sobre los ajustes de la fuente de luz indicada. 
+          El parámetro de retorno depende de propiedad solicitada. Ver [ Wrigth 
+          & Sweet, 1997 ] pagina 340. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>glLightModel()</B> 
+          - Define los parámetros del modelo de iluminación empleado por OpenGL. 
+          </FONT></P>
+      </LI>
+    </UL>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">En esta aplicación 
+      también se tratan las cuadricas que son parte de librería GLU32.LIB que 
+      soporta el dibujo de formas tridimensionales simples. </FONT></P>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Las funciones 
+      empleadas en el ejemplo son: </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>GLUquadricObj</B> 
+          - Tipo cuadrica. · gluNewQuadric() - Función que crea un nuevo objeto 
+          de estado cuadrico. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>gluQuadricDrawStyle(quadObj,GLU_FILL)</B> 
+          - Especifica el estilo con el que se dibujaran los objetos definidos 
+          por quadObj, que es un objeto cuadrico. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>gluQuadricNormals(quadObj,GLU_SMOOTH)</B> 
+          - Especifica la normal que se ha de calcular, en los vértices, o en 
+          el polígono. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>gluQuadricOrientation(quadObj,GLU_OUTSIDE)</B> 
+          - Especifica la orientación de las normales. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>gluSphere(quadObj,2.0f, 
+          25, 25)</B> - Dibuja una esfera siguiendo las características del objeto 
+          cuadrico quadObj, definido anteriormente. </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>gluCylinder(quadObj,2.0f, 
+          0.0f, 4.0f, 25, 25)</B> - Dibuja un cilindro sin tapas siguiendo las 
+          características del objeto cuadrico quadObj, definido anteriormente. 
+          </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>gluDeleteQuadric(quadObj)</B> 
+          - Elimina el objeto cuadrico especificado. </FONT></P>
+      </LI>
+    </UL>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Otras funciones 
+      relacionadas con las cuadricas son: </FONT></P>
+    <UL>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>gluQuadricCallback()</B> 
+          - Define una llamada de rellamada cuadrica. En estos momentos la única 
+          disponible es GLU_ERROR que se invoca cuando se quiere producir un error. 
+          </FONT></P>
+      </LI>
+      <LI>
+        <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2"> <B>gluQuadricTexture()</B> 
+          - Activa o desactiva las coordenadas de textura para el mapeado de texturas 
+          sobre un objeto cuadrico.</FONT></P>
+      </LI>
+    </UL>
+    <P>&nbsp;</P>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">C&oacute;digo 
+      fuente </FONT></H3>
+      
+    <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">E07.c</FONT></H4>
+    <BLOCKQUOTE> 
+      <PRE>#include < windows.h>
+#include < GL/gl.h>
+#include < GL/glaux.h>
+#include < GL/glut.h>
+#include < GL/glu.h>
+#include < gc.h>
+#include < trfm3D.h>
+#include < Camera.h> 
+#include < E07.h>    
+#include < Wordl.h>
+
+
+void Display( void )
+{
+	int      j = 1;
+    GLfloat  glMatrix[16];
+	GLint    viewport[4];
+
+
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );	
+	
+	glGetIntegerv( GL_VIEWPORT, viewport ); 
+
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+
+	gluPerspective(FEA_Camera->angle, viewport[2]/viewport[3],
+		           FEA_Camera->front, FEA_Camera->back);  
+
+	glMatrixMode( GL_MODELVIEW );
+	glLoadIdentity();
+
+	glPushMatrix(); 
+
+	SetGlMatrix( FEA_Transform, glMatrix );
+	glLoadMatrixf( glMatrix );
+
+	gluLookAt( 
+FEA_Camera->eyeX,    FEA_Camera->eyeY,    FEA_Camera->eyeZ,
+FEA_Camera->centerX, FEA_Camera->centerY, FEA_Camera->centerZ,
+	FEA_Camera->upX,     FEA_Camera->upY,     FEA_Camera->upZ); 
+
+
+	glColor3f( 0.0, 1.0, 0.0 );
+
+	// para que tomen los valores modificados
+	glLightfv( GL_LIGHT0, GL_AMBIENT, FEA_AmbientLight );
+	glLightfv( GL_LIGHT0, GL_DIFFUSE, FEA_DiffuseLight );
+	glLightfv( GL_LIGHT0, GL_SPECULAR, FEA_SpecularLight );
+	glLightfv( GL_LIGHT0, GL_POSITION, FEA_LightPos );
+
+	glPolygonMode(GL_FRONT, GL_FILL);
+
+	glShadeModel ( GL_SMOOTH ); 
+
+
+	DrawWordl();
+	
+	glPushMatrix();
+	glTranslatef(FEA_LightPos[0],FEA_LightPos[1],FEA_LightPos[2]);
+// Trasladamos las coordenadas a la posicion donde se encuentra la luz
+// Salvamos las propiedades de las luces
+	glPushAttrib(GL_LIGHTING_BIT);
+// Desabilitamos las luces para que no afecten a la esfera
+	glDisable(GL_LIGHTING);
+// Situamos una esfera amarilla para indicar donde esta la luz
+	glColor3f(1.0f,1.0f,0.0f);
+	auxSolidSphere(0.3f);
+// Restauramos las propiedades de las luces
+	glPopAttrib();
+// Restauramos la matriz de coordenadas
+	glPopMatrix();
+
+	
+	glPopMatrix();
+	glutSwapBuffers();
+}
+
+
+
+
+void Resize( int w, int h )
+{
+	glClearColor(0.8f, 0.7f, 1.0, 1.0);
+
+	glViewport( 0, 0, w, h );
+
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+
+	gluPerspective(FEA_Camera->angle, w/h, FEA_Camera->front, 
+FEA_Camera->back);
+
+	glMatrixMode( GL_MODELVIEW );
+	glLoadIdentity();
+
+	glutPostRedisplay();
+
+}
+
+//******************************************************************
+//				LUCES Y MATERIALES
+//******************************************************************
+
+void Light ()
+{	
+
+	glDepthFunc( GL_LESS);
+	glClearDepth(1.0);
+	glEnable( GL_DEPTH_TEST );
+
+
+	glCullFace (GL_BACK);
+	glFrontFace (GL_CCW);
+	glEnable( GL_CULL_FACE );
+
+	// definimos las luces
+	glEnable( GL_LIGHTING );
+
+
+	glLightfv( GL_LIGHT0, GL_AMBIENT, FEA_AmbientLight );
+	glLightfv( GL_LIGHT0, GL_DIFFUSE, FEA_DiffuseLight );
+	glLightfv( GL_LIGHT0, GL_SPECULAR, FEA_SpecularLight );
+	glLightfv( GL_LIGHT0, GL_POSITION, FEA_LightPos );
+	glEnable( GL_LIGHT0 );
+
+
+	glEnable (GL_COLOR_MATERIAL );
+
+	glColorMaterial (GL_FRONT,GL_AMBIENT_AND_DIFFUSE );
+
+	glMaterialfv (GL_FRONT, GL_SPECULAR, FEA_SpecularLight);
+	glMateriali (GL_FRONT, GL_SHININESS, 128);
+	
+	glEnable(GL_NORMALIZE);
+
+}
+
+
+
+//******************************************************************
+//				INTERACCION (Teclado / menu)
+//******************************************************************
+
+void DisplayMenu()
+{
+printf("\n\n\n");
+printf("###########################################################\n");
+printf("# LUZ     |   AMBIENTE   |    ESPECULAR   |     DIFUSA     #\n");
+printf("#         | R....G....B  |   R....G....B  |   R....G....B  #\n");
+printf("#---------|--------------|----------------|----------------#\n");
+printf("# AUMENTA | Q    W    E  |   R    T    Y  |   U    I    O  #\n");
+printf("# REDUCE  | A    S    D  |   F    G    H  |   J    K    L  #\n");
+printf("############################################################\n\n\n");
+}
+
+void Keyboard ( unsigned char key, int x, int y)
+{
+/*********************************************************
+				Luz AMBIENTE
+*********************************************************/
+	switch( key )
+	{
+// aumenta la componente Red
+	case 'q':
+	case 'Q':
+		if (FEA_AmbientLight[0] < 1.0) 
+			FEA_AmbientLight[0]  = FEA_AmbientLight[0] + 0.1; 
+		break;
+// aumenta la componente Green
+	case 'w':
+	case 'W':
+		if (FEA_AmbientLight[1] < 1.0) 
+			FEA_AmbientLight[1]  = FEA_AmbientLight[1] + 0.1; 
+		break;
+
+// aumenta la componente Blue
+	case 'e':
+	case 'E':
+		if (FEA_AmbientLight[2] < 1.0) 
+			FEA_AmbientLight[2]  = FEA_AmbientLight[2] + 0.1; 
+		break;
+
+// reduce la componente Red
+	case 'a':
+	case 'A':
+		if (FEA_AmbientLight[0] > 0.0) 
+			FEA_AmbientLight[0]  = FEA_AmbientLight[0] - 0.1; 
+		break;
+
+// reduce la componente Green
+	case 's':
+	case 'S':		
+		if (FEA_AmbientLight[1] > 0.0) 
+			FEA_AmbientLight[1]  = FEA_AmbientLight[1] - 0.1; 
+		break;
+
+// reduce la componente Blue
+	case 'd':
+	case 'D':
+		if (FEA_AmbientLight[2] > 0.0) 
+			FEA_AmbientLight[2]  = FEA_AmbientLight[2] - 0.1; 
+		break;
+
+/*********************************************************
+				Luz DIFUSA
+*********************************************************/
+// aumenta la componente Red
+	case 'u':
+	case 'U':
+		if (FEA_DiffuseLight[0] < 1.0) 
+			FEA_DiffuseLight[0]  = FEA_DiffuseLight[0] + 0.1;
+		break;
+// aumenta la componente Green
+	case 'i':
+	case 'I':
+		if (FEA_DiffuseLight[1] < 1.0) 
+			FEA_DiffuseLight[1]  = FEA_DiffuseLight[1] + 0.1;
+		break;
+
+// aumenta la componente Blue
+	case 'o':
+	case 'O':
+		if (FEA_DiffuseLight[2] < 1.0) 
+			FEA_DiffuseLight[2]  = FEA_DiffuseLight[2] + 0.1;
+		break;
+
+// reduce la componente Red
+	case 'j':
+	case 'J':
+		if (FEA_DiffuseLight[0] > 0.0) 
+			FEA_DiffuseLight[0]  = FEA_DiffuseLight[0] - 0.1;
+		break;
+
+// reduce la componente Green
+	case 'k':
+	case 'K':		
+		if (FEA_DiffuseLight[1] > 0.0) 
+			FEA_DiffuseLight[1]  = FEA_DiffuseLight[1] - 0.1;
+		break;
+
+// reduce la componente Blue
+	case 'l':
+	case 'L':
+		if (FEA_DiffuseLight[2] > 0.0) 
+			FEA_DiffuseLight[2]  = FEA_DiffuseLight[2] - 0.1;
+		break;
+
+/*********************************************************
+				Luz ESPECULAR
+*********************************************************/
+// aumenta la componente Red
+	case 'r':
+	case 'R':
+		if (FEA_SpecularLight[0] < 1.0) 
+			FEA_SpecularLight[0]  = FEA_SpecularLight[0] + 0.1;
+		break;
+// aumenta la componente Green
+	case 't':
+	case 'T':
+		if (FEA_SpecularLight[1] < 1.0) 
+			FEA_SpecularLight[1]  = FEA_SpecularLight[1] + 0.1;
+		break;
+
+// aumenta la componente Blue
+	case 'y':
+	case 'Y':
+		if (FEA_SpecularLight[2] < 1.0) 
+			FEA_SpecularLight[2]  = FEA_SpecularLight[2] + 0.1;
+		break;
+
+// reduce la componente Red
+	case 'f':
+	case 'F':
+		if (FEA_SpecularLight[0] > 0.0) 
+			FEA_SpecularLight[0]  = FEA_SpecularLight[0] - 0.1;
+		break;
+
+// reduce la componente Green
+	case 'g':
+	case 'G':		
+		if (FEA_SpecularLight[1] > 0.0) 
+			FEA_SpecularLight[1]  = FEA_SpecularLight[1] - 0.1;
+		break;
+
+// reduce la componente Blue
+	case 'h':
+	case 'H':
+		if (FEA_SpecularLight[2] > 0.0) 
+			FEA_SpecularLight[2]  = FEA_SpecularLight[2] - 0.1;
+		break;
+
+/***********************************************************/
+
+	case 27: // <ESC>
+		exit(0);
+		break;
+	}
+	glutPostRedisplay();
+}
+
+
+
+static void SpecialKey(int k, int x, int y) 
+{
+
+	switch(k) 
+	{
+	case GLUT_KEY_UP:
+		{
+		if (FEA_Action == CAM_MERI_PARAL ) 
+			{if ( FEA_Camera->eyeY < 15.5) CamMeridiam ( FEA_Camera,
+1.0 );}
+		else if (FEA_Action == CAM_TILT_ZOOM ) CamZoom ( FEA_Camera, -1.0 );
+		else if (FEA_Action == MOVE_LIGHT) 
+			 { if (FEA_LightPos[1] < 15.0) FEA_LightPos[1]++; }   
+		}
+		break;
+	case GLUT_KEY_DOWN:
+		{
+		if (FEA_Action == CAM_MERI_PARAL )
+			 {if ( FEA_Camera->eyeY > 5.0) CamMeridiam ( FEA_Camera, 
+-1.0 );}
+		else if (FEA_Action == CAM_TILT_ZOOM ) CamZoom ( FEA_Camera, 1.0 );
+		else if (FEA_Action == MOVE_LIGHT) 
+			 { if (FEA_LightPos[1] > 1.0) FEA_LightPos[1]--; }   
+		}
+		break;
+	case GLUT_KEY_RIGHT:
+		{
+		if (FEA_Action == CAM_MERI_PARAL ) 
+{if ( FEA_Camera->eyeX < 20.0) 
+CamParalell ( FEA_Camera, -1.0 );}
+		else if (FEA_Action == CAM_TILT_ZOOM ) 
+CamTilt ( FEA_Camera, 1.0 );
+		else if (FEA_Action == MOVE_LIGHT)  
+{ if (FEA_LightPos[2] > 1.0) FEA_LightPos[2]--; }
+		}
+		break;		
+	case GLUT_KEY_LEFT:
+		{
+		if (FEA_Action == CAM_MERI_PARAL ) 
+{if ( FEA_Camera->eyeX > 5.0) 
+CamParalell ( FEA_Camera, 1.0 );}
+		else if (FEA_Action == CAM_TILT_ZOOM ) 
+CamTilt ( FEA_Camera, -1.0 );
+		else if (FEA_Action == MOVE_LIGHT)  
+{ if (FEA_LightPos[2] < 20.0) FEA_LightPos[2]++; }
+		}
+		break;
+	case GLUT_KEY_F1:
+		FEA_Action = CAM_MERI_PARAL;
+		break;
+	case GLUT_KEY_F2:
+		FEA_Action = CAM_TILT_ZOOM;
+		break;
+	case GLUT_KEY_F3:
+		CamReset( FEA_Camera );
+		break;
+	default:
+		break;
+	}
+	glutPostRedisplay();
+}
+
+//***********************  MENU  ****************************
+
+void MainMenu (int opcion)
+{
+	switch( opcion )
+	{
+		case 0:  exit(0);
+			break;
+	}
+}
+
+
+void MenuCamera (int identificador)
+{ 
+	switch( identificador)
+	{
+	case 0: FEA_Action = CAM_MERI_PARAL;
+		break;
+	case 1: FEA_Action = CAM_TILT_ZOOM;
+		break;
+	case 2: CamReset( FEA_Camera);
+		break;
+	}
+	glutPostRedisplay();
+}
+
+
+void MenuLigthProperties ( int identificador )
+{
+
+	switch (identificador)
+	{
+	case 0:
+		FEA_Action = MOVE_LIGHT;
+		break;
+	case 1:
+		if (FEA_LightPos[3] == 0.0) 
+		{
+			FEA_LightPos[3] = 1.0;
+			glutChangeToMenuEntry(2, "Luz Direccional", 1);  
+		}
+		else
+		{
+			FEA_LightPos[3] = 0.0;
+			glutChangeToMenuEntry(2, "Luz Fija", 1);  
+		}
+		break;
+	case 2:
+		break;
+	}
+	glutPostRedisplay();
+
+}
+
+
+void Menu ()
+{
+	int camMenu;
+	int propMenu;
+
+
+	propMenu = glutCreateMenu (MenuLigthProperties);
+	glutAddMenuEntry( "Mover Luz Y/Z", 0 );
+	glutAddMenuEntry( "Luz Direccional", 1 );
+	glutAddMenuEntry( "Abilitar y desabilitar con teclado", 2 );
+
+	camMenu = glutCreateMenu ( MenuCamera );
+	glutAddMenuEntry( "Paralell / Meridiam  F1", 0 );
+	glutAddMenuEntry( "Zoom / Tilt          F2", 1 );
+	glutAddMenuEntry( "Reset Camera         F3", 2 );
+
+
+
+	glutCreateMenu( MainMenu );
+	glutAddSubMenu ( "Luces Propiedades", propMenu );
+	glutAddSubMenu ( "Camara", camMenu );
+	glutAddMenuEntry( "Salir", 0 );
+
+	glutAttachMenu( GLUT_RIGHT_BUTTON );
+}
+
+
+
+/*****************************************************************/
+//				 MAIN		//
+/****************************************************************/
+
+int main(int argc, char** argv){
+
+	char fileName[100];
+	strcpy( fileName, "File.obj" );	
+
+	FEA_Transform = CreateTrfm3D();
+
+	FEA_Camera = CamCreate ( FEA_eyeX, FEA_eyeY, FEA_eyeZ,
+		                   FEA_centreX, FEA_centreY, FEA_centreZ); 
+	
+	glutInit( &argc, argv );
+	glutInitDisplayMode ( GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH );  
+	glutInitWindowSize ( WIDTH, HEIGHT );
+	glutInitWindowPosition ( 100, 100 );
+	glutCreateWindow("E07: Luces ");
+
+	Menu();
+
+	DisplayMenu();
+
+	Light();
+	
+	glutDisplayFunc( Display );
+	glutKeyboardFunc( Keyboard );
+	glutReshapeFunc( Resize );
+	glutSpecialFunc( SpecialKey );
+
+	glutMainLoop();
+	return 0;   
+}</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        E07.h</FONT><BR>
+      </H4>
+      <PRE>
+#ifndef E07_H
+#define E07_H
+
+
+
+#include < GL/glut.h>
+
+
+#include < list.h>
+#include < trfm3D.h>
+#include < Camera.h>
+
+
+#define WIDTH  400		/* Ancho ventanas en pixels */
+#define HEIGHT 400		/* Alto ventanas en pixels */
+
+
+// Keyboard actions
+#define CAM_MERI_PARAL  105
+#define CAM_TILT_ZOOM   106
+#define MOVE_LIGHT		107
+
+
+// enable light ?
+static	int		FEA_Ambient	 = TRUE;
+static	int		FEA_Difuse	 = TRUE;
+static	int		FEA_Specular = TRUE;
+
+static	GLfloat FEA_DiffuseLight[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+static	GLfloat FEA_AmbientLight[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+static	GLfloat FEA_SpecularLight[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+static	GLfloat FEA_LightPos[4] = {0.0f, 10.0f, 10.0f, 1.0f };
+
+
+// state data
+static int      FEA_Action  = CAM_MERI_PARAL;
+
+
+static GLfloat  FEA_eyeX = 10.0f;
+static GLfloat  FEA_eyeY = 5.0f;
+static GLfloat  FEA_eyeZ = 40.0f;
+
+static GLfloat  FEA_centreX = 10.0f;
+static GLfloat  FEA_centreY = 1.0f;
+static GLfloat  FEA_centreZ = 10.0f;
+
+
+// model data
+static trfm3D  *FEA_Transform;
+static camera  *FEA_Camera;
+
+#endif /* E07.h */</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        Camera.h</FONT><BR>
+      </H4>
+      <PRE>Se mantiene igual que en <A href="cap7.htm">E05</A>. Se modifica la especificacion de CamCreate().
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        Camera.c</FONT><BR>
+      </H4>
+      <PRE>
+****** Se modifica la funcion CamCreate(). El resultado del cambio es :  *****
+
+camera *CamCreate ( float eX, float eY, float eZ,
+				    float cX, float cY, float cZ)
+{ // La camara se inicializa paralela al eje Zw. 
+  // Se le pasa como parametros el ojo y el centro de mira
+  // Inclinacion vertical. Y un angulo de apertura inicial de 60º
+	
+	float alpha = 60;
+	camera *newCamera;
+
+	newCamera = (camera *) malloc( sizeof(camera) * 1);
+
+
+	newCamera->centerX = cX;
+	newCamera->centerY = cY;
+	newCamera->centerZ = cZ;
+
+
+	newCamera->eyeX = eX;
+	newCamera->eyeY = eY;
+	newCamera->eyeZ = eZ;
+
+	newCamera->upX = 0.0;
+	newCamera->upY = 1.0;
+	newCamera->upZ = 0.0;
+
+	newCamera->angle = alpha;
+
+	newCamera->front  = 0;
+	newCamera->back = 100;
+
+	newCamera->initCenterX = newCamera->centerX;
+	newCamera->initCenterY = newCamera->centerY;
+	newCamera->initCenterZ = newCamera->centerZ;
+
+	newCamera->initEyeX = newCamera->eyeX;
+	newCamera->initEyeY = newCamera->eyeY;
+	newCamera->initEyeZ = newCamera->eyeZ;
+
+	newCamera->initUpX = newCamera->upX;
+	newCamera->initUpY = newCamera->upY;
+	newCamera->initUpZ = newCamera->upZ;
+
+	newCamera->initAngle = newCamera->angle;
+	newCamera->initFront = newCamera->front;
+	newCamera->initBack  = newCamera->back;
+
+	return newCamera;
+}</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        Wordl.h</FONT><BR>
+      </H4>
+      <PRE>
+#ifndef WORDL_H
+#define WORDL_H
+
+
+void DrawWordl();
+
+
+#endif 
+
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+        Wordl.c</FONT><BR>
+      </H4>
+      <PRE>
+#include < stdio.h>
+#include < windows.h>
+#include < GL/gl.h>
+#include < GL/glaux.h>
+#include < GL/glut.h>
+#include < GL/glu.h>
+#include < wordl.h>
+
+void DrawObj () 
+{
+
+	GLUquadricObj *quadObj;
+
+	glColor3f ( 1.0f, 0.0f, 0.0f);
+		// Setup Quadric Styles
+		quadObj = gluNewQuadric();
+		gluQuadricDrawStyle(quadObj,GLU_FILL); // GLU_LINE
+		gluQuadricNormals(quadObj,GLU_SMOOTH); // One for each vertex
+		gluQuadricOrientation(quadObj,GLU_OUTSIDE); // Normals point out
+
+		glPushMatrix();
+			glTranslatef(15.0f, 1.7f, 10.0f);
+			gluSphere(quadObj,2.0f, 25, 25);
+		glPopMatrix();
+		
+
+		// Draw the cone
+		glPushMatrix();
+			glTranslatef(10.0f, 0.0f, 15.0f);
+			glRotatef(-90.0f, 1.0f, 0.0f, 0.0f);
+			gluCylinder(quadObj,2.0f, 0.0f, 4.0f, 25, 25);
+		glPopMatrix();
+		gluDeleteQuadric(quadObj);
+}
+
+
+
+void DrawFloor()
+{
+	int x = 0;
+	int z = 0;
+
+	glPushMatrix();
+	glColor3f ( 1.0f, 1.0f, 1.0f);
+	for (z = 0; z <= 20; z++)
+	{
+		for (x = 0; x <= 20; x++)
+		{
+			
+			glNormal3f( 0.0f, 1.0f, 0.0f );
+			glBegin(GL_QUADS);
+			glVertex3f( (float) x,   0.0f, (float) z+1);
+			glVertex3f( (float) x+1, 0.0f, (float) z+1);
+			glVertex3f( (float) x+1, 0.0f, (float) z);
+			glVertex3f( (float) x,   0.0f, (float) z);
+			glEnd();
+		}
+	}
+
+	glPopMatrix();
+}
+
+
+
+void DrawWordl ()
+{
+
+	DrawObj();
+	DrawFloor();
+
+}
+</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        Gc.h</FONT>
+      </H4>
+      <PRE>Se mantiene igual que en Anexo 04</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        Trfm3D.c</FONT>
+      </H4>
+      <PRE>Se mantiene igual que en Anexo 06.</PRE>
+      <H4><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">
+        Trfm3D.h</FONT>
+      </H4>
+      <PRE>Se mantiene igual que en Anexo 06.
+    </PRE>
+      </BLOCKQUOTE>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900"><BR>
+      Ventana Output. (Visual C++)</FONT><BR>
+    </H3>
+    <TABLE width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+      <TR>
+        <TD><IMG src="cap9_1.gif" width="552" height="213"></TD>
+      </TR>
+    </TABLE>
+    <P> <FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Muestra el 
+      resultado de la compilacion y la construccion del ejecutable.</FONT></P>
+    <H3><FONT face="Verdana, Arial, Helvetica, sans-serif" color="#FF9900">Ventana 
+      Workspace. (Visual C++)</FONT></H3>
+    <TABLE width="100" border="0" cellspacing="0" cellpadding="0" align="center">
+      <TR>
+        <TD><IMG src="cap9_2.gif" width="289" height="360"></TD>
+      </TR>
+    </TABLE>
+    <P><FONT face="Verdana, Arial, Helvetica, sans-serif" size="2">Muestra los 
+      ficheros de los que consta el ejemplo</FONT> </P>
+    <BLOCKQUOTE>
+      <PRE>&nbsp;
+</PRE>
+    </BLOCKQUOTE>
+    <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+      <TR>
+        <TD height="13"> 
+          <DIV align="center"><FONT face="Verdana, Arial, Helvetica, sans-serif" size="1"><A href="cap8.htm">Anterior</A> 
+            | <A href="intro.htm">Indice</A> | <A href="cap10.htm">Siguiente</A></FONT> 
+          </DIV>
+        </TD>
+      </TR>
+    </TABLE>
+    <P>&nbsp;</P>
+  </div>
+</DIV>
+<!-- #EndEditable --> 
+</BODY>
+<!-- #EndTemplate -->
+</HTML>
+<!-- Start SuperStats code version 3.0a. -->
+<script language="JavaScript">
+/* You may give each page an identifying name on the next line. */
+var pageName = "";
+/**** DO NOT ALTER ANYTHING BELOW THIS LINE! ****/
+var code = " ";
+function ss_escape(s) {
+  plus=0; s=escape(s);
+  while ((plus = s.indexOf("+")) > 0) {
+    s = s.substr(0,plus) + "%2B" + s.substr(plus+1,s.length); }
+  return s; }
+var br=navigator.appName+parseInt(navigator.appVersion);
+if(br=='Netscape2'); else {
+var tda=new Date(); var jra=tda.getTime(); var nber=1000000000;
+var rnber=0; var iaj=9301; var icj=49297; var imj=233280;
+jra = (jra*iaj+icj) % imj; rnber=Math.ceil( (jra/(imj*1.0)) *nber);
+var mded=Math.floor(tda.getTime()/10800000) % 10;
+var smded=new String(mded); var n=smded+'ses'+rnber; 
+var s_s="stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) superstats_appn
+var s_s = "stats.superstats.com"; var s_a = navigator.appName;
+if (navigator.userAgent.indexOf("Opera") != -1) s_a = "Opera";
+var s_av = parseFloat(navigator.appVersion);
+var _p; var _s = _c = _v = _k = ""; var _j = "1.0";
+var _g = window.location.href; var _r = parent.document.referrer; var _o = navigator.platform;
+var _t=new Date; t_display=_t.getDate()+'/'+_t.getMonth()+'/'+(_t.getYear()+1900)+' '+_t.getHours()+':'+_t.getMinutes()+':'+_t.getSeconds()+' '+_t.getDay()+' '+_t.getTimezoneOffset();
+document.cookie = "ssAllowCookie=true";
+var s_mc = "  " + document.cookie + ";";
+_k = (s_mc.indexOf(" ssAllowCookie=") >= 0 ? "Y" : "N");
+if (s_a== "Netscape")  {
+  if (!_p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[_i1].name;
+      if (_s_t_a.length > 100)
+        _s_t_a = s_t_a.substring(0,100); _s_t_a += ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  if (s_av >= 2.02) _j = "1.0"; if (s_av >= 3) _j = "1.1"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.pixelDepth; _j = "1.2"; }
+  if (s_av >= 4.06) _j = "1.3";
+  _v = (navigator.javaEnabled() ? "Y" : "N"); }
+if (s_a == "Microsoft Internet Explorer") {
+  _p = ""; if (s_av < 4) _r = ""; if (s_av >= 3) _v = "P"; if (s_av >= 4) {
+    _s = screen.width+'x'+screen.height; _c = screen.colorDepth; _j = "1.2"; _v = (navigator.javaEnabled() ? "Y" : "N"); } }
+if (s_a == "Opera")  {
+  if (! _p) { _p = ""; _i1 = _i2 = 0;
+    while ((_i1 < navigator.plugins.length) && (_i2 < 30)) {
+      _s_t_a = navigator.plugins[i1].name;
+      if (_s_t_a.length > 100) _s_t_a = _s_t_a.substring(0,100) + ';';
+      if (_p.indexOf(_s_t_a) == -1)
+        _p += _s_t_a; ++_i1; ++_i2; }
+    _p = "&p=" + ss_escape(_p); }
+  _j = "1.0"; _v = "N"; }
+if (! _p) _p = ""; if (! _g) _g = ""; if (! _r) _r = ""; if (! _o) _o = ""; var pageName; if (!pageName) pageName = '';
+code = ''
+     + '<img name="banner1_'+n+'" src="http://' + s_s + '/' + 'b.cgi?u=hmv_1333267&z=1&n='+n+'&fg=2&r=' + ss_escape(_r) + '&s=' + escape(_s) + '&c=' + escape(_c) + '&o=' + escape(_o) + '&g=' + ss_escape(_g) + '&a=' + ss_escape(s_a + ' ' + s_av) + _p + '&j=' + _j + '&v=' + _v + '&k=' + _k + '&t=' + ss_escape(t_display) + '&pageName=' + ss_escape(pageName) + '" border=0 width=1 height=1>';
+document.write(code); }
+</script> <noscript>
+<img src="http://stats.superstats.com/b.cgi?u=hmv_1333267&z=1&fg=2" border=0 width=1 height=1>
+</noscript>
+<!-- End SuperStats tracking code. -->

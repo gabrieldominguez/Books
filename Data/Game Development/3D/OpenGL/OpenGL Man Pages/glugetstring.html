@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glugetstring Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glugetstring</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluGetString(3G)	       OpenGL Reference		      gluGetString(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluGetString - returns a string describing	the GLU	version	or GLU
+     extensions
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     const GLubyte * gluGetString( GLenum name )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     name  Specifies a symbolic	constant, one of GLU_VERSION, or
+	   GLU_EXTENSIONS.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluGetString returns a pointer to a static	string describing the version
+     of	the GLU	or the glu extensions which are	supported.
+
+     The version string	is of the following form:
+	 &amp;lt;version number&gt;<space><vendor-specific information>
+     The version number	is of the form 'major_number.minor_number', or
+     'major_number.minor_number.release_number'. Vendor	specific information
+     is	optional.  It's	format and contents depend on the implementation.
+
+     The standard GLU contains a basic set of features and capabilities.  If a
+     company or	group of companies wish	to support other features these	may be
+     included as extensions to the GLU.	If name	is GLU_EXTENSIONS, then
+     gluGetString returns a space-separated list of names of supported GLU
+     extensions.  (Extension names never contain any spaces).
+
+     All strings are null-terminated.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     gluGetString only returns information about GLU extensions. Call
+     glGetString to get	a list of GL extensions.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLU_NULL is returned if name is not one of	GLU_VERSION or GLU_EXTENSIONS.
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The GL_RENDERER strings returned by gluGetString for each graphics	system
+     are listed	below.	Square brackets	([,]) surround optional	parts of the
+     string, and angle brackets	(&amp;lt;,&gt;) surround multi-valued parts that are
+     always present. Neither the square	brackets nor the angle brackets	are
+     part of the string.
+
+     Indy and XL: "NEWPORT &amp;lt;nplanes&gt;", where nplanes is	the number of
+	  configured bitplanes:	8 or 24.
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">gluGetString(3G)	       OpenGL Reference		      gluGetString(3G)
+</FONT>
+
+
+     Personal Iris: "GR1.&amp;lt;version&gt;[/24][/Z][/Turbo]", where version is the
+	  board	version: 1 or 2; /24 indicates 24 bitplanes (otherwise 8); /Z
+	  indicates a hardware depth buffer; /Turbo indicates the "Turbo"
+	  option.
+
+     VGX and VGXT: "VGX[T][&amp;lt;spans&gt;]", where spans is either /5 or /10
+	  indicating the number	of spans other than 20.
+
+     Indigo Entry: "LIGHT".
+
+     XS, XZ, Elan, and Extreme:	"&amp;lt;type&gt;-<graphics>", where type	is one of
+	  GR2, GR3, GU1	or GR2MP and graphics is one of	XS, XSM, XS24, XS24-Z,
+	  XZ, Elan, or Extreme,	corresponding to the configuration of the
+	  graphics board.
+
+     RealityEngine, RealityEngine2, and	VTX: "&amp;lt;type&gt;/<pixd>/<nrm>/<texsz>",
+	  where	type is	REC, RE, or REV	corresponding to Crimson, Power	Series
+	  or Onyx/VTX; pixd is S, M, or	L, corresponding to small, medium, or
+	  large	pixel depth, respectively; nrm is 1, 2,	or 4, indicating the
+	  number of raster manager boards; texsz is 2 or 8 indicating the size
+	  of the texture memory	in megatexels.	(Each texel is 16 bits in
+	  size.)
+
+     InfiniteReality: "&amp;lt;type&gt;/<pixd>/<nrm>/<texsz>/<nge>",
+	  where	type is	IR or IRS, corresponding to Onyx with R4400 or R10000,
+	  respectively;	pixd is	S, M, or L, corresponding to small, medium, or
+	  large	pixel depth, respectively; nrm is 1, 2,	or 4, indicating the
+	  number of raster manager boards; texsz is 16 or 64 indicating	the
+	  size of texture memory in megabytes; and nge indicates the number of
+	  Geometry Engines on the geometry engine board.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glGetString
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

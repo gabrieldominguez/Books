@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glblendcolorext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glblendcolorext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glBlendColorEXT(3G)	       OpenGL Reference		   glBlendColorEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glBlendColorEXT - set the blend color
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glBlendColorEXT( GLclampf red,
+			   GLclampf green,
+			   GLclampf blue,
+			   GLclampf alpha )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     red, green, blue, alpha specify the components of GL_BLEND_COLOR_EXT
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     The GL_BLEND_COLOR_EXT may	be used	to calculate the source	and
+     destination blending factors. See glBlendFunc for a complete description
+     of	the blending operations.  Initially the	GL_BLEND_COLOR_EXT is set to
+     (0,0,0,0).
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glBlendColorEXT is	part of	the EXT_blend_color extension, not part	of the
+     core GL command set.  If GL_EXT_blend_color is included in	the string
+     returned by glGetString, when called with argument	GL_EXTENSIONS,
+     extension EXT_blend_color is supported by the connection.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glBlendColorEXT is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	an argument of GL_BLEND_COLOR_EXT.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support the use of
+     source blend factor GL_SRC_ALPHA_SATURATE and a destination factor	based
+     on	the constant blend color (GL_.._CONSTANT_.._EXT); such combinations
+     produce incorrect results.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBlendFunc, glGetString.
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

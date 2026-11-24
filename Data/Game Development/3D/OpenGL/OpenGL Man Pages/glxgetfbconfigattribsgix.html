@@ -1,0 +1,292 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxgetfbconfigattribsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxgetfbconfigattribsgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXGetFBConfigAttribSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXGetFBConfigAttribSGIX -	return information about a GLX frame buffer
+     configuraton
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     int glXGetFBConfigAttribSGIX( Display *dpy,
+				   GLXFBConfigSGIX config,
+				   int attribute,
+				   int *value )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	Specifies the connection to the	X server.
+
+
+     config	Specifies the GLX frame	buffer configuration to	be queried.
+
+
+     attribute	Specifies the attribute	to be returned.
+
+
+     value	Returns	the requested value.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXGetFBConfigAttribSGIX sets value to the	attribute value	of GLX
+     drawables created with respect to config.	glXGetFBConfigAttribSGIX
+     returns an	error code if it fails for any reason.	Otherwise, zero	is
+     returned.
+
+     attribute is one of the following:
+
+     GLX_BUFFER_SIZE	   Number of bits per color buffer.  If	the frame
+			   buffer configuration	supports RGBA contexts then
+			   GLX_BUFFER_SIZE is the sum of GLX_RED_SIZE,
+			   GLX_GREEN_SIZE, GLX_BLUE_SIZE, and GLX_ALPHA_SIZE.
+			   If the frame	buffer configuration supports only
+			   color index contexts, GLX_BUFFER_SIZE is the	size
+			   of the color	indexes.
+
+     GLX_LEVEL		   Frame buffer	level of the configuration.  Level
+			   zero	is the default frame buffer.  Positive levels
+			   correspond to frame buffers that overlay the
+			   default buffer, and negative	levels correspond to
+			   frame buffers that underlay the default buffer.
+
+     GLX_DOUBLEBUFFER	   True	if color buffers exist in front/back pairs
+			   that	can be swapped,	False otherwise.
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXGetFBConfigAttribSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+     GLX_STEREO		   True	if color buffers exist in left/right pairs,
+			   False otherwise.
+
+     GLX_AUX_BUFFERS	   Number of auxiliary color buffers that are
+			   available.  Zero indicates that no auxiliary	color
+			   buffers exist.
+
+     GLX_RED_SIZE	   Number of bits of red stored	in each	color buffer.
+			   Undefined if	RGBA contexts are not supported	by the
+			   frame buffer	configuration.
+
+     GLX_GREEN_SIZE	   Number of bits of green stored in each color
+			   buffer.  Undefined if RGBA contexts are not
+			   supported by	the frame buffer configuration.
+
+     GLX_BLUE_SIZE	   Number of bits of blue stored in each color buffer.
+			   Undefined if	RGBA contexts are not supported	by the
+			   frame buffer	configuration.
+
+     GLX_ALPHA_SIZE	   Number of bits of alpha stored in each color
+			   buffer.  Undefined if RGBA contexts are not
+			   supported by	the frame buffer configuration.
+
+     GLX_DEPTH_SIZE	   Number of bits in the depth buffer.
+
+     GLX_STENCIL_SIZE	   Number of bits in the stencil buffer.
+
+     GLX_ACCUM_RED_SIZE	   Number of bits of red stored	in the accumulation
+			   buffer.
+
+     GLX_ACCUM_GREEN_SIZE  Number of bits of green stored in the accumulation
+			   buffer.
+
+     GLX_ACCUM_BLUE_SIZE   Number of bits of blue stored in the	accumulation
+			   buffer.
+
+     GLX_ACCUM_ALPHA_SIZE  Number of bits of alpha stored in the accumulation
+			   buffer.
+
+     GLX_SAMPLE_BUFFERS_SGIS
+			   Number of multisample buffers.
+
+     GLX_SAMPLES_SGIS	   Number of samples per pixel in multisample buffers.
+
+     GLX_TRANSPARENT_TYPE_EXT
+			   One of GLX_NONE_EXT,	GLX_TRANSPARENT_RGB_EXT,
+			   GLX_TRANSPARENT_INDEX_EXT, indicating that the
+			   frame buffer	configuration is opaque, is
+			   transparent for particular values of	red, green and
+			   blue	or is transparent for particular index values,
+			   respectively.
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXGetFBConfigAttribSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+     GLX_TRANSPARENT_INDEX_VALUE_EXT
+			   Integer value between 0 and the maximum frame
+			   buffer value	for indices, indicating	the
+			   transparent index value for the frame buffer
+			   configuration. Undefined if
+			   GLX_TRANSPARENT_TYPE_EXT is not
+			   GLX_TRANSPARENT_INDEX_EXT.
+
+     GLX_TRANSPARENT_RED_VALUE_EXT
+			   Integer value between 0 and the maximum frame
+			   buffer value	for red, indicating the	transparent
+			   red value for the frame buffer configuration.
+			   Undefined if	GLX_TRANSPARENT_TYPE_EXT is not
+			   GLX_TRANSPARENT_RGB_EXT.
+
+     GLX_TRANSPARENT_GREEN_VALUE_EXT
+			   Integer value between 0 and the maximum frame
+			   buffer value	for green, indicating the transparent
+			   green value for the frame buffer configuration.
+			   Undefined if	GLX_TRANSPARENT_TYPE_EXT is not
+			   GLX_TRANSPARENT_RGB_EXT.
+
+     GLX_TRANSPARENT_BLUE_VALUE_EXT
+			   Integer value between 0 and the maximum frame
+			   buffer value	for blue, indicating the transparent
+			   blue	value for the frame buffer configuration.
+			   Undefined if	GLX_TRANSPARENT_TYPE_EXT is not
+			   GLX_TRANSPARENT_RGB_EXT.
+
+     GLX_TRANSPARENT_ALPHA_VALUE_EXT
+			   Currently unused.
+
+     GLX_VISUAL_CAVEAT_EXT One of GLX_NONE_EXT,	GLX_SLOW_VISUAL_EXT,
+			   GLX_NON_CONFORMANT_EXT indicating that the frame
+			   buffer configuration	has no caveats,	some aspect of
+			   the frame buffer configuration runs slower than
+			   other frame buffer configurations, or some aspect
+			   of the frame	buffer configuration is	non-confomant,
+			   respectively.
+
+     GLX_DRAWABLE_TYPE_SGIX
+			   Mask	indicating what	drawable types the frame
+			   buffer configuration	supports. Valid	bits are
+			   GLX_WINDOW_BIT_SGIX,	GLX_PIXMAP_BIT_SGIX and
+			   GLX_PBUFFER_BIT_SGIX.
+
+     GLX_RENDER_TYPE_SGIX  Mask	indicating what	type of	GLX contexts can be
+			   made	current	to the frame buffer configuration.
+			   Valid bits are GLX_RGBA_BIT_SGIX and
+			   GLX_COLOR_INDEX_SGIX.
+
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXGetFBConfigAttribSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+     GLX_X_VISUAL_TYPE_EXT Visual type of associated visual.  Undefined	if
+			   there is no associated visual (i.e.,	if
+			   GLX_X_RENDERABLE_SGIX is False or
+			   GLX_DRAWABLE_TYPE_SGIX does not have	the
+			   GLX_WINDOW_BIT_SGIX bit set.)
+
+     GLX_X_RENDERABLE_SGIX True	if drawables created with the frame buffer
+			   configuration can be	rendered to by X.
+
+     Applications should choose	the frame buffer configuration that most
+     closely meets their requirements.	Creating windows, GLX pixmaps or GLX
+     pixel buffers with	unnecessary buffers can	result in reduced rendering
+     performance as well as poor resource allocation.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXGetFBConfigAttribSGIX is part of the GLX_SGIX_fbconfig extension.
+
+     glXGetFBConfigAttribSGIX is implemented as	a client-side utility; it does
+     not require a round-trip to the X server.
+
+     GLX_SAMPLE_BUFFERS_SGIS and GLX_SAMPLES_SGIS are not valid	attributes
+     unless the	SGIS_multisample extension is supported.
+
+     GLX_X_VISUAL_TYPE_EXT, GLX_TRANSPARENT_TYPE_EXT,
+     GLX_TRANSPARENT_INDEX_VALUE_EXT, GLX_TRANSPARENT_RED_VALUE_EXT,
+     GLX_TRANSPARENT_GREEN_VALUE_EXT, GLX_TRANSPARENT_BLUE_VALUE_EXT, and
+     GLX_TRANSPARENT_ALPHA_VALUE_EXT are not valid attributes unless the
+     EXT_visual_info extension is supported.
+
+     GLX_VISUAL_CAVEAT_EXT is not a valid attribute unless the
+     EXT_visual_rating extension is supported.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLX_NO_EXTENSION is returned if dpy does not support the GLX extension.
+
+     GLX_BAD_ATTRIB is returned	if attribute is	not a valid GLX	attribute.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIS_multisample extension is supported only on RealityEngine,
+     RealityEngine2, and VTX systems and InfiniteReality systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXGetConfig, glXChooseFBConfigSGIX, glXCreateGLXPixmapWithConfigSGIX,
+     glXCreateContextWithConfigSGIX, glXGetVisualFromFBConfigSGIX,
+     glXGetFBConfigFromVisualSGIX.
+
+
+
+
+
+									Page 4
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

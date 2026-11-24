@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetmap Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetmap</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetMap(3G)		       OpenGL Reference			  glGetMap(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetMapdv, glGetMapfv, glGetMapiv	- return evaluator parameters
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetMapdv( GLenum target,
+		      GLenum query,
+		      GLdouble *v )
+     void glGetMapfv( GLenum target,
+		      GLenum query,
+		      GLfloat *v )
+     void glGetMapiv( GLenum target,
+		      GLenum query,
+		      GLint *v )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Specifies the symbolic name of a map.  Accepted values are
+	     GL_MAP1_COLOR_4, GL_MAP1_INDEX, GL_MAP1_NORMAL,
+	     GL_MAP1_TEXTURE_COORD_1, GL_MAP1_TEXTURE_COORD_2,
+	     GL_MAP1_TEXTURE_COORD_3, GL_MAP1_TEXTURE_COORD_4,
+	     GL_MAP1_VERTEX_3, GL_MAP1_VERTEX_4, GL_MAP2_COLOR_4,
+	     GL_MAP2_INDEX, GL_MAP2_NORMAL, GL_MAP2_TEXTURE_COORD_1,
+	     GL_MAP2_TEXTURE_COORD_2, GL_MAP2_TEXTURE_COORD_3,
+	     GL_MAP2_TEXTURE_COORD_4, GL_MAP2_VERTEX_3,	and GL_MAP2_VERTEX_4.
+
+     query   Specifies which parameter to return.  Symbolic names GL_COEFF,
+	     GL_ORDER, and GL_DOMAIN are accepted.
+
+     v	     Returns the requested data.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glMap1 and	glMap2 define evaluators.  glGetMap returns evaluator
+     parameters.  target chooses a map,	query selects a	specific parameter,
+     and v points to storage where the values will be returned.
+
+     The acceptable values for the target parameter are	described in the
+     glMap1 and	glMap2 reference pages.
+
+     query can assume the following values:
+
+     GL_COEFF	       v returns the control points for	the evaluator map.
+		       One-dimensional maps return order control points, and
+		       two-dimensional maps return uorder*vorder control
+		       points.	Each control point consists of one, two,
+		       three, or four integer, single-precision	floating-
+		       point, or double-precision floating-point values,
+		       depending on the	type of	the map.  Two-dimensional
+		       control points are returned in row-major	order,
+		       incrementing the	uorder index quickly, and the vorder
+		       index after each	row.  Integer values, when requested,
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetMap(3G)		       OpenGL Reference			  glGetMap(3G)
+</FONT>
+
+
+		       are computed by rounding	the internal floating-point
+		       values to the nearest integer values.
+
+     GL_ORDER	       v returns the order of the map.	One-dimensional	maps
+		       return a	single value, order.  Two-dimensional maps
+		       return two values, uorder and vorder.
+
+     GL_DOMAIN	       v returns the linear u and v mapping parameters.	 One-
+		       dimensional maps	return two values, u1 and u2, as
+		       specified by glMap1.  Two-dimensional maps return four
+		       values (u1, u2, v1, and v2) as specified	by glMap2.
+		       Integer values, when requested, are computed by
+		       rounding	the internal floating-point values to the
+		       nearest integer values.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	an error is generated, no change is made to the	contents of v.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if either target or query is not an accepted
+     value.
+
+     GL_INVALID_OPERATION is generated if glGetMap is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glEvalCoord, glMap1, glMap2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

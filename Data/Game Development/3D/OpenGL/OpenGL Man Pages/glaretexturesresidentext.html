@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glaretexturesresidentext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glaretexturesresidentext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glAreTexturesResidentEXT(3G)   OpenGL Reference	  glAreTexturesResidentEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glAreTexturesResidentEXT -	determine if textures are loaded in texture
+     memory
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLboolean glAreTexturesResidentEXT( GLsizei n,
+					 const GLuint *textures,
+					 GLboolean *residences )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     n		 The number of textures	to be queried.
+
+     textures	 An array containing the names of the textures to be queried.
+
+     residences	 An array in which the texture residence status	is returned.
+		 The residence status of a texture named by an element of
+		 textures is returned in the corresponding element of
+		 residences.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     On	machines with a	limited	amount of texture memory, OpenGL establishes a
+     ``working set'' of	textures that are resident in texture memory.  These
+     textures may be bound to a	texture	target much more efficiently than
+     textures that are not resident.
+
+     glAreTexturesResidentEXT queries the texture residence status of the n
+     textures named by the elements of textures.  If all the named textures
+     are resident, glAreTexturesResidentEXT returns GL_TRUE and	the contents
+     of	residences are undisturbed.  If	not all	the named textures are
+     resident, glAreTexturesResidentEXT	returns	GL_FALSE and detailed status
+     is	returned in the	n elements of residences.  If an element of residences
+     is	GL_TRUE, then the texture named	by the corresponding element of
+     textures is resident.
+
+     The residence status of a single bound texture may	also be	queried	by
+     calling glGetTexParameter with the	target argument	set to the target to
+     which the texture is bound, and the parameter name	argument set to
+     GL_TEXTURE_RESIDENT_EXT.  This is the only	way that the residence status
+     of	a default texture can be queried.
+
+     glAreTexturesResidentEXT is not included in display lists.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glAreTexturesResidentEXT is part of the EXT_texture_object	extension.
+     See glIntro for more information about using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if n	is negative.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glAreTexturesResidentEXT(3G)   OpenGL Reference	  glAreTexturesResidentEXT(3G)
+</FONT>
+
+
+     GL_INVALID_VALUE is generated if any element in textures is zero or does
+     not name a	texture.
+
+     GL_INVALID_OPERATION is generated if glAreTexturesResidentEXT is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexParameter with parameter name GL_TEXTURE_RESIDENT_EXT retrieves
+     the residence status of a currently-bound texture.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBindTextureEXT, glPrioritizeTexturesEXT,	glTexImage1D, glTexImage2D,
+     glTexImage3DEXT, glTexParameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

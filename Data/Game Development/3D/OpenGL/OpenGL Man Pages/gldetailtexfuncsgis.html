@@ -1,0 +1,292 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gldetailtexfuncsgis Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gldetailtexfuncsgis</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glDetailTexFuncSGIS(3G)	       OpenGL Reference	       glDetailTexFuncSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glDetailTexFuncSGIS - specify detail texture scaling function
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glDetailTexFuncSGIS( GLenum target,
+			       GLsizei n,
+			       const GLfloat *points )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  The target	to which the scaling function will be applied. Must be
+	     GL_TEXTURE_2D.
+
+     n	     The number	of scaling function samples in points.
+
+     points  An	array of scaling function samples, each	of which is an (LOD,
+	     function-value) pair.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     The detail	texture	extension defines three	additional texture
+     magnification filters.  These filters are selected	by choosing one	of the
+     values GL_LINEAR_DETAIL_SGIS, GL_LINEAR_DETAIL_ALPHA_SGIS,	or
+     GL_LINEAR_DETAIL_COLOR_SGIS for the current 2D texture's
+     GL_TEXTURE_MAG_FILTER.
+
+     All three filters sample the level	zero texture array exactly as it would
+     be	sampled	with filter mode GL_LINEAR.  All three also sample the level
+     zero texture array	of a second texture, known as the detail texture, when
+     two conditions are	met.  The detail texture corresponding to texture
+     GL_TEXTURE_2D is GL_DETAIL_TEXTURE_2D_SGIS.  The conditions are:
+
+	  1.  The active texture must be GL_TEXTURE_2D.
+
+	  2.  The internal formats of GL_TEXTURE_2D and
+	      GL_DETAIL_TEXTURE_2D_SGIS	must have been specified identically.
+
+	  3   The level	0 image	of GL_DETAIL_TEXTURE_2D_SGIS must have nonzero
+	      width and	height.
+
+	  4   If the internal formats of GL_TEXTURE_2D and
+	      GL_DETAIL_TEXTURE_2D_SGIS	are one	of the dual or quad texture
+	      storage formats as defined by SGIS_texture_select, then the
+	      corresponding texture group selection must be specified
+	      identically.
+
+     If	these conditions are not met, it is as though the magnification
+     texture filter was	GL_LINEAR.  (Although querying the magnification
+     filter value will return the value	as specified.)	If they	are met, the
+     level zero	array of the detail texture is also linearly sampled, using
+     the following arithmetic:
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDetailTexFuncSGIS(3G)	       OpenGL Reference	       glDetailTexFuncSGIS(3G)
+</FONT>
+
+
+	  n = log base 2 of the	width of the level zero	array of GL_TEXTURE_2D
+	  m = log base 2 of the	height of the level zero array of GL_TEXTURE_2D
+	  N = log base 2 of the	width of GL_DETAIL_TEXTURE_2D_SGIS
+	  M = log base 2 of the	height of GL_DETAIL_TEXTURE_2D_SGIS
+	  L = GL_DETAIL_TEXTURE_LEVEL_SGIS value of GL_TEXTURE_2D
+
+	  u = s	* 2**(n-L)
+	  v = t	* 2**(m-L)
+
+	  i0 = floor(u - 1/2) mod 2**N
+	  j0 = floor(v - 1/2) mod 2**M
+
+	  i1 = (i0 + 1)	mod 2**N
+	  j1 = (j0 + 1)	mod 2**M
+
+	  A = frac(u - 1/2)
+	  B = frac(v - 1/2)
+
+	  Tdetail = (1-A) * (1-B) * detail[i0,j0] +
+		       A  * (1-B) * detail[i1,j0] +
+		    (1-A) *    B  * detail[i0,j1] +
+		       A  *    B  * detail[i1,j1]
+
+
+     Note that magnification corresponds to negative values of level-of-detail
+     and minification corresponds to positive values.  Hence L,	the value of
+     the GL_DETAIL_TEXTURE_LEVEL_SGIS parameter	of GL_TEXTURE_2D, must be
+     negative. The absolute value of L can be thought of as the	number of
+     levels that separate the layer zero image of GL_TEXTURE_2D	and the	image
+     of	GL_DETAIL_TEXTURE_2D_SGIS, which is replicated as necessary to fill
+     the appropriate number of texels.	For example, if	L is -2, the detail
+     texture image is replicated as necessary in x and y to form a single
+     image whose dimensions are	four times larger than the level zero array of
+     GL_TEXTURE_2D.
+
+     The texture value computed	from the primary texture (Ttexture) and	the
+     value computed from the detail texture (Tdetail) are combined in one of
+     two ways to compute the final texture value (T).  The values of Ttexture,
+     Tdetail, and T are	treated	as though they range from 0.0 through 1.0 in
+     these equations.
+
+     If	GL_DETAIL_TEXTURE_MODE_SGIS of GL_TEXTURE_2D is	GL_ADD,	then
+
+	  T' = Ttexture	+ F(LOD) * (2*Tdetail-1)
+
+	  T = 0	 if T' &amp;lt; 0;
+	      T' if 0 &amp;lt;= T' &amp;lt;= 1;
+	      1	 if T' &gt; 1.
+
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDetailTexFuncSGIS(3G)	       OpenGL Reference	       glDetailTexFuncSGIS(3G)
+</FONT>
+
+
+     where F is	a function of the level-of-detail parameter LOD.  In effect,
+     the detail	texture	is scaled and biased so	that its range is [-1,1].  The
+     resulting signed value is scaled by a function of LOD, added to the base
+     texture, and clamped to [0,1].
+
+     If	GL_DETAIL_TEXTURE_MODE_SGIS of GL_TEXTURE_2D is	GL_MODULATE, then
+
+	  T' = Ttexture	* (1 + F(LOD) *	(2*Tdetail-1))
+
+	  T = 0	 if T' &amp;lt; 0;
+	      T' if 0 &amp;lt;= T' &amp;lt;= 1;
+	      1	 if T' &gt; 1.
+
+
+     Here again	the detail texture is scaled and biased	so that	its range is
+     [-1,1].  The resulting signed value is scaled by a	function of LOD	and
+     biased by 1.  This	result scales the base texture,	which is then clamped
+     to	[0,1].
+
+     glDetailTexFuncSGIS is used to specify the	scaling	function F.  target
+     must be GL_TEXTURE_2D.  n specifies the number of pairs of	values in
+     points.  points points to an array	of pairs of floating point values.
+     The first value of	each pair specifies a value of LOD, and	the second
+     value of each pair	specifies the corresponding function value.  The order
+     in	which the points are specified is not significant.  The	n value	pairs
+     in	points completely specify the function,	replacing any previous
+     specification that	may have existed.
+
+     The function F is evaluated by fitting a curve through the	sample points
+     specified in points.  This	curve may be linear between adjacent points,
+     or	it may be smoothed, but	it will	pass exactly through the points,
+     limited only by the resolution of the implementation.  The	value pair
+     with the lowest LOD value specifies the function value F for all values
+     of	LOD less than or equal to that pair's LOD.  Likewise, the value	pair
+     with the greatest LOD value specifies the function	value F	for all	values
+     of	LOD greater than or equal to that pair's LOD.
+
+     Since negative values of LOD correspond to	magnification and positive
+     values correspond to minification,	the points should have negative	LOD
+     values (although specifying a positive value does not generate an error).
+     For example, an LOD of -4 corresponds to a	magnification by a factor of
+     2**4, or 16.  The default function	points are (0,0) and (-4,1).
+
+     If	the texture magnification filter is GL_LINEAR_DETAIL_SGIS, then	both
+     the color and the alpha components	of T are computed as described in the
+     equations above.  If the filter is	GL_LINEAR_DETAIL_COLOR_SGIS, then all
+     components	of T other than	alpha are computed as described	above, and the
+     alpha component of	T is computed as if the	texture	magnification filter
+     were GL_LINEAR.  Finally, if the filter is	GL_LINEAR_DETAIL_ALPHA_SGIS,
+     the alpha component of T is computed as described in the equations	above,
+     and all other components of T are computed	as if the texture
+     magnification filter were GL_LINEAR.
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDetailTexFuncSGIS(3G)	       OpenGL Reference	       glDetailTexFuncSGIS(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The detail	texture	itself is specified by calling glTexImage2D with
+     target set	to GL_DETAIL_TEXTURE_2D_SGIS, level set	to 0, border set to 0,
+     and the other parameters specified	to generate the	desired	image.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not GL_TEXTURE_2D.
+
+     GL_INVALID_VALUE is generated if n	is negative.
+
+     GL_INVALID_OPERATION is generated if glDetailTexFuncSGIS is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexParameter,	glGetDetailTexFuncSGIS.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems detail texturing	may
+     not be used when rendering	to pixmaps.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glTexImage2D, glTexParameter, glTexSubImage2DEXT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 4
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

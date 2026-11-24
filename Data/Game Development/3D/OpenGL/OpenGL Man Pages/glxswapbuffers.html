@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxswapbuffers Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxswapbuffers</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXSwapBuffers(3G)	    OpenGL Reference - GLX	    glXSwapBuffers(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXSwapBuffers - exchange front and back buffers
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glXSwapBuffers( Display *dpy,
+			  GLXDrawable drawable )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy       Specifies the connection	to the X server.
+
+
+     drawable  Specifies the window whose buffers are to be swapped.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXSwapBuffers promotes the contents of the back buffer of	drawable to
+     become the	contents of the	front buffer of	drawable.  The contents	of the
+     back buffer then become undefined.	 The update typically takes place
+     during the	vertical retrace of the	monitor, rather	than immediately after
+     glXSwapBuffers is called.	All GLX	rendering contexts share the same
+     notion of which are front buffers and which are back buffers.
+
+     An	implicit glFlush is done by glXSwapBuffers before it returns.
+     Subsequent	OpenGL commands	can be issued immediately after	calling
+     glXSwapBuffers, but are not executed until	the buffer exchange is
+     completed.
+
+     If	drawable was not created with respect to a double-buffered visual,
+     glXSwapBuffers has	no effect, and no error	is generated.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Synchronization of	multiple GLX contexts rendering	to the same double-
+     buffered window is	the responsibility of the clients.  The	X
+     Synchronization Extension can be used to facilitate such cooperation.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLXBadDrawable is generated if drawable is	not a valid GLX	drawable.
+
+     GLXBadCurrentWindow is generated if dpy and drawable are respectively the
+     display and drawable associated with the current context of the calling
+     thread, and drawable identifies a window that is no longer	valid.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     Gang swap (multipipe synchronized buffer swaps) is	not supported on
+     InfiniteReality systems or	on RealityEngine, RealityEngine2, and VTX
+     systems.  This will be fixed in a future release.
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXSwapBuffers(3G)	    OpenGL Reference - GLX	    glXSwapBuffers(3G)
+</FONT>
+
+
+     Before a window's buffers can be swapped, at least	one thread must	have
+     attached an OpenGL	rendering context to the window	via glXMakeCurrent.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glFlush
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,114 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01b6C [en] (X11; I; IRIX 6.3 IP32) [Netscape]">
+   <TITLE>Physically Based Modeling</TITLE>
+</HEAD>
+<BODY>
+
+<H2>
+Physically Based Modeling: Principles and Practice<BR>
+<FONT SIZE=+1>(Online Siggraph '97 Course notes)</FONT></H2>
+Please note: the <B>lecture notes</B> served from this page are copyright
+&copy;1997 by the authors (<A HREF="javascript:if(confirm('http://www-2.cs.cmu.edu/afs/cs.cmu.edu/user/aw/www/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www-2.cs.cmu.edu/afs/cs.cmu.edu/user/aw/www/index.html'" tppabs="http://www-2.cs.cmu.edu/afs/cs.cmu.edu/user/aw/www/index.html">Andrew
+Witkin&nbsp;</A> and <A HREF="javascript:if(confirm('http://www-2.cs.cmu.edu/afs/cs.cmu.edu/user/baraff/www/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www-2.cs.cmu.edu/afs/cs.cmu.edu/user/baraff/www/index.html'" tppabs="http://www-2.cs.cmu.edu/afs/cs.cmu.edu/user/baraff/www/index.html">David
+Baraff</A> ). Chapters may be freely duplicated and distributed so long
+as no consideration is received in return, and this copyright notice remains
+intact.&nbsp;&nbsp; The <B>slide sets</B> are copyright &copy;1997 and
+may be neither distributed nor duplicated without permission of the authors.
+<BR>
+<HR SIZE=4 WIDTH="100%">
+
+<P>All documents on this page are in Adobe Acrobat format.&nbsp; If you
+need to obtain an Acrobat reader, please visit the <A HREF="javascript:if(confirm('http://www.adobe.com/acrobat/readstep.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.adobe.com/acrobat/readstep.html'" tppabs="http://www.adobe.com/acrobat/readstep.html">Adobe
+Acrobat Reader page</A>.
+
+<P>
+<HR SIZE=5 WIDTH="100%">
+<H3>
+Course Material</H3>
+
+<UL>
+<LI>
+<B><A HREF="notesa.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/notesa.pdf">Introduction</A></B></LI>
+
+<LI>
+<B>Differential Equation Basics</B></LI>
+
+<UL>
+<LI>
+<A HREF="notesb.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/notesb.pdf">Lecture Notes</A></LI>
+
+<LI>
+<A HREF="slidesb.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/slidesb.pdf">Slides</A></LI>
+</UL>
+
+<LI>
+<B>Particle&nbsp; Dynamics</B></LI>
+
+<UL>
+<LI>
+<A HREF="notesc.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/notesc.pdf">Lecture Notes</A></LI>
+
+<LI>
+<A HREF="slidesc.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/slidesc.pdf">Slides</A></LI>
+</UL>
+
+<LI>
+<B>Implicit Methods</B></LI>
+
+<UL>
+<LI>
+<A HREF="notese.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/notese.pdf">Lecture Notes</A></LI>
+
+<LI>
+<A HREF="slidese.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/slidese.pdf">Slides</A></LI>
+</UL>
+
+<LI>
+<B>Dynamics in Feature Animation</B></LI>
+
+<UL>
+<LI>
+<A HREF="slidesg.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/slidesg.pdf">Slides</A></LI>
+</UL>
+
+<LI>
+<B>Constrained Dynamics</B></LI>
+
+<UL>
+<LI>
+<A HREF="notesf.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/notesf.pdf">Lecture Notes</A></LI>
+
+<LI>
+<A HREF="slidesf.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/slidesf.pdf">Slides</A></LI>
+</UL>
+
+<LI>
+<B>Rigid Body Dynamics</B></LI>
+
+<UL>
+<LI>
+<A HREF="notesd1.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/notesd1.pdf">Lecture Notes I (unconstrained motion)</A></LI>
+
+<LI>
+<A HREF="notesd2.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/notesd2.pdf">Lectures Notes II (motion with constraints)</A></LI>
+
+<LI>
+<A HREF="slidesd.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/slidesd.pdf">Slides</A></LI>
+</UL>
+
+<LI>
+<B>Dynamics Software</B></LI>
+
+<UL>
+<LI>
+<A HREF="slidesh.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/slidesh.pdf">Slides</A></LI>
+</UL>
+
+<LI>
+<B><A HREF="notesbib.pdf" tppabs="http://www-2.cs.cmu.edu/~baraff/sigcourse/notesbib.pdf">Bibliography</A></B></LI>
+</UL>
+&nbsp;
+</BODY>
+</HTML>

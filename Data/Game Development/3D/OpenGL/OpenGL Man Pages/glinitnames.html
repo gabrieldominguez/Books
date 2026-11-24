@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glinitnames Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glinitnames</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glInitNames(3G)		       OpenGL Reference		       glInitNames(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glInitNames - initialize the name stack
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glInitNames( void )
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     The name stack is used during selection mode to allow sets	of rendering
+     commands to be uniquely identified.  It consists of an ordered set	of
+     unsigned integers.	 glInitNames causes the	name stack to be initialized
+     to	its default empty state.
+
+     The name stack is always empty while the render mode is not GL_SELECT.
+     Calls to glInitNames while	the render mode	is not GL_SELECT are ignored.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glInitNames is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_NAME_STACK_DEPTH
+     glGet with	argument GL_MAX_NAME_STACK_DEPTH
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glLoadName, glPushName, glRenderMode, glSelectBuffer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

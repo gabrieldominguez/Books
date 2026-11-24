@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxcreateglxpixmap Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxcreateglxpixmap</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXCreateGLXPixmap(3G)	    OpenGL Reference - GLX	glXCreateGLXPixmap(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXCreateGLXPixmap	- create an off-screen GLX rendering area
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLXPixmap glXCreateGLXPixmap( Display *dpy,
+				   XVisualInfo *vis,
+				   Pixmap pixmap )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy     Specifies the connection to the X server.
+
+
+     vis     Specifies the visual that defines the structure of	the rendering
+	     area.  It is a pointer to an XVisualInfo structure, not a visual
+	     ID	or a pointer to	a Visual.
+
+
+     pixmap  Specifies the X pixmap that will be used as the front left	color
+	     buffer of the off-screen rendering	area.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXCreateGLXPixmap	creates	an off-screen rendering	area and returns its
+     XID.  Any GLX rendering context that was created with respect to vis can
+     be	used to	render into this off-screen area.  Use glXMakeCurrent to
+     associate the rendering area with a GLX rendering context.
+
+     The X pixmap identified by	pixmap is used as the front left buffer	of the
+     resulting off-screen rendering area.  All other buffers specified by vis,
+     including color buffers other than	the front left buffer, are created
+     without externally	visible	names.	GLX pixmaps with double-buffering are
+     supported.	 However, glXSwapBuffers is ignored by these pixmaps.
+
+     Some implementations may not support GLX pixmaps with direct rendering
+     contexts.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     XVisualInfo is defined in Xutil.h.	 It is a structure that	includes
+     visual, visualID, screen, and depth elements.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     BadMatch is generated if the depth	of pixmap does not match the
+     GLX_BUFFER_SIZE value of vis, or if pixmap	was not	created	with respect
+     to	the same screen	as vis.
+
+     BadValue is generated if vis is not a valid XVisualInfo pointer (e.g., if
+     the GLX implementation does not support this visual).
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXCreateGLXPixmap(3G)	    OpenGL Reference - GLX	glXCreateGLXPixmap(3G)
+</FONT>
+
+
+     BadPixmap is generated if pixmap is not a valid pixmap.
+
+     BadAlloc is generated if the server cannot	allocate the GLX pixmap.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateContext, glXIsDirect, glXMakeCurrent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

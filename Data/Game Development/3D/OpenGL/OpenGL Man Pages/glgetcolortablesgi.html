@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetcolortablesgi Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetcolortablesgi</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetColorTableSGI(3G)	       OpenGL Reference		glGetColorTableSGI(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetColorTableSGI	- retrieve contents of a color lookup table
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetColorTableSGI( GLenum target,
+			      GLenum format,
+			      GLenum type,
+			      GLvoid *table )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Must be GL_TEXTURE_COLOR_TABLE_SGI, GL_COLOR_TABLE_SGI,
+	     GL_POST_CONVOLUTION_COLOR_TABLE_SGI, or
+	     GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
+
+     format  The format	of the pixel data in table.  The possible values are
+	     GL_ALPHA, GL_INTENSITY, GL_LUMINANCE, GL_LUMINANCE_ALPHA, GL_RGB,
+	     GL_RGBA, and GL_ABGR_EXT.
+
+     type    The type of the pixel data	in table.  The allowable values	are
+	     GL_UNSIGNED_BYTE, GL_BYTE,	GL_UNSIGNED_SHORT, GL_SHORT,
+	     GL_UNSIGNED_INT, GL_INT, GL_FLOAT,	GL_UNSIGNED_BYTE_3_3_2_EXT,
+	     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+	     GL_UNSIGNED_INT_8_8_8_8_EXT, and GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+     table   Pointer to	a one-dimensional array	of pixel data containing the
+	     contents of the color table.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetColorTableSGI	is part	of the SGI_color_table extension, and is also
+     used by the SGI_texture_color_table extension.
+
+     glGetColorTableSGI	returns	in table the contents of the color table
+     specified by target. No pixel transfer operations are performed, but
+     pixel storage modes that are applicable to	glReadPixels are performed.
+
+     Color components that are requested in the	specified format, but which
+     are not included in the internal format of	the color lookup table,	are
+     returned as zero.	The assignments	of internal color components to	the
+     components	requested by format are
+		    __________________________________________
+		    |Internal Component	  Resulting Component |
+		    |_________________________________________|
+		    |	    red			  red	      |
+		    |	   green		 green	      |
+		    |	    blue		 blue	      |
+		    |	   alpha		 alpha	      |
+		    |	 luminance		  red	      |
+		    |	 intensity		  red	      |
+		    |_________________________________________|
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glGetColorTableSGI(3G)	       OpenGL Reference		glGetColorTableSGI(3G)
+</FONT>
+
+
+		   _|_________________________________________|
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     If	target is set to GL_TEXTURE_COLOR_TABLE_SGI and	the
+     SGI_texture_color_table extension is not supported	then a GL_INVALID_ENUM
+     error is generated.
+
+     If	target is set to GL_COLOR_TABLE_SGI,
+     GL_POST_CONVOLUTION_COLOR_TABLE_SGI, or
+     GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI and the SGI_color_table extension is
+     not supported then	an GL_INVALID_ENUM error is generated.
+
+     If	type is	set to GL_UNSIGNED_BYTE_3_3_2_EXT,
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT and	the
+     EXT_packed_pixels extension is not	supported then an GL_INVALID_ENUM
+     error is generated.
+
+     See glIntro for more information on using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not one of the allowable
+     values.
+
+     GL_INVALID_ENUM is	generated if format is not one of the allowable
+     values.
+
+     GL_INVALID_ENUM is	generated if type is not one of	the allowable values.
+
+     GL_INVALID_OPERATION is generated if glGetColorTableSGI is	executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support
+     glGetColorTableSGI; calling it results in a GL_INVALID_OPERATION error.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glColorTableSGI.  glColorTableParameterSGI.  glGetColorTableParameterSGI.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

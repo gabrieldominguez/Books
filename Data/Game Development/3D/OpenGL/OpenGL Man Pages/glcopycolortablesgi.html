@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glcopycolortablesgi Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glcopycolortablesgi</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glCopyColorTableSGI(3G)	       OpenGL Reference	       glCopyColorTableSGI(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glCopyColorTableSGI - copy	pixels into a color table
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glCopyColorTableSGI( GLenum target,
+			       GLenum internalformat,
+			       GLint x,
+			       GLint y,
+			       GLsizei width )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target	     The color table target. Must be
+		     GL_TEXTURE_COLOR_TABLE_SGI, GL_COLOR_TABLE_SGI,
+		     GL_POST_CONVOLUTION_COLOR_TABLE_SGI, or
+		     GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI.
+
+     internalformat  The internal storage format of the	texture	image.	Must
+		     be	one of the following symbolic constants:  GL_ALPHA,
+		     GL_ALPHA4_EXT, GL_ALPHA8_EXT, GL_ALPHA12_EXT,
+		     GL_ALPHA16_EXT, GL_LUMINANCE, GL_LUMINANCE4_EXT,
+		     GL_LUMINANCE8_EXT,	GL_LUMINANCE12_EXT,
+		     GL_LUMINANCE16_EXT, GL_LUMINANCE_ALPHA,
+		     GL_LUMINANCE4_ALPHA4_EXT, GL_LUMINANCE6_ALPHA2_EXT,
+		     GL_LUMINANCE8_ALPHA8_EXT, GL_LUMINANCE12_ALPHA4_EXT,
+		     GL_LUMINANCE12_ALPHA12_EXT, GL_LUMINANCE16_ALPHA16_EXT,
+		     GL_INTENSITY_EXT, GL_INTENSITY4_EXT, GL_INTENSITY8_EXT,
+		     GL_INTENSITY12_EXT, GL_INTENSITY16_EXT, GL_RGB,
+		     GL_RGB2_EXT, GL_RGB4_EXT, GL_RGB5_EXT, GL_RGB8_EXT,
+		     GL_RGB10_EXT, GL_RGB12_EXT, GL_RGB16_EXT, GL_RGBA,
+		     GL_RGBA2_EXT, GL_RGBA4_EXT, GL_RGB5_A1_EXT, GL_RGBA8_EXT,
+		     GL_RGB10_A2_EXT, GL_RGBA12_EXT, GL_RGBA16_EXT.
+
+     x		     The x coordinate of the lower-left	corner of the pixel
+		     rectangle to be transferred to the	color table.
+
+     y		     The y coordinate of the lower-left	corner of the pixel
+		     rectangle to be transferred to the	color table.
+
+     width	     The width of the pixel rectangle.	Must be	0 or 1.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glCopyColorTableSGI loads a color table with pixels from the current
+     GL_READ_BUFFER (rather than from main memory, as is the case for
+     glColorTableSGI).
+
+     The screen-aligned	pixel rectangle	with lower-left	corner at (x, y)
+     having width width	and height 1 is	loaded into the	color table. If	any
+     pixels within this	region are outside the window that is associated with
+     the GL context, the values	obtained for those pixels are undefined.
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glCopyColorTableSGI(3G)	       OpenGL Reference	       glCopyColorTableSGI(3G)
+</FONT>
+
+
+     The pixels	in the rectangle are processed just as if glReadPixels were
+     called, with format set to	RGBA, but processing stops after the final
+     conversion	to RGBA.
+
+     The four scale parameters and the four bias parameters that are defined
+     for the table are then used to scale and bias the R, G, B,	and A
+     components	of each	pixel.	( Use glTexParameter to	set the	scale and bias
+     parameters	for the	texture	color table.  Use glColorTableParameterSGI, to
+     set the scale and bias parameters for the other color tables.)
+
+     Next, the R, G, B,	and A values are clamped to the	range [0,1].  Each
+     pixel is then converted to	the internal format specified by
+     internalformat. This conversion simply maps the component values of the
+     pixel (R, G, B, and A) to the values included in the internal format
+     (red, green, blue,	alpha, luminance, and intensity).  The mapping is as
+     follows:
+
+     _________________________________________________________________________
+     |________________________________________________________________________|
+     |GL_ALPHA					  A			      |
+     |GL_LUMINANCE					    R		      |
+     |GL_LUMINANCE_ALPHA			  A	    R		      |
+     |GL_INTENSITY_EXT							R     |
+     |GL_RGB		    R	   G	  B				      |
+     |GL_RGBA		    R	   G	  B	  A			      |
+     |________________________________________________________________________|
+
+     Finally, the red, green, blue, alpha, luminance, and/or intensity
+     components	of the resulting pixels	are stored in the color	table.	They
+     form a one-dimensional table with indices in the range [0,	width -	1].
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glCopyColorTableSGI with target GL_COLOR_TABLE_SGI,
+     GL_POST_CONVOLUTION_COLOR_TABLE_SGI, or
+     GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI is only available if both the
+     EXT_copy_texture and the SGI_color_table extensions are supported.
+     glCopyColorTableSGI with target GL_TEXTURE_COLOR_TABLE_SGI	is only
+     available if both the EXT_copy_texture and	the SGI_texture_color_table
+     extensions	are supported.	See glIntro for	more information about using
+     extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated when target is not one of the	allowable
+     values.
+
+     GL_INVALID_VALUE is generated if width is less than zero.
+
+     GL_INVALID_VALUE is generated if internalformat is	not one	of the
+     allowable values.
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glCopyColorTableSGI(3G)	       OpenGL Reference	       glCopyColorTableSGI(3G)
+</FONT>
+
+
+     GL_TABLE_TOO_LARGE_EXT is generated if the	requested color	table is too
+     large to be supported by the implementation.
+
+     GL_INVALID_OPERATION is generated if glCopyColorTableSGI is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetColorTableParameterSGI
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support
+     glCopyColorTableSGI; calling it results in	a GL_INVALID_OPERATION error.
+
+     InfiniteReality systems will generate incorrect results if	table values
+     are greater than 1.0 after	the scale and bias have	been applied.  This
+     will be fixed in a	future release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glColorTableSGI, glColorTableParameterSGI,	glReadPixels.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

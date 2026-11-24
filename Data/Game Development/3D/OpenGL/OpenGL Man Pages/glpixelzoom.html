@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glpixelzoom Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glpixelzoom</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glPixelZoom(3G)		       OpenGL Reference		       glPixelZoom(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glPixelZoom - specify the pixel zoom factors
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPixelZoom( GLfloat xfactor,
+		       GLfloat yfactor )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     xfactor, yfactor Specify the x and	y zoom factors for pixel write
+		      operations.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glPixelZoom specifies values for the x and	y zoom factors.	 Let, (xr, yr)
+     be	the current raster position, and let interlace be either 1 or 2
+     corresponding to whether GL_INTERLACE_SGIX	is enabled or not,
+     respectively.  Then, during the execution of glDrawPixels or
+     glCopyPixels, for a pixel that is in the mth row and nth column of	the
+     source image, the destination pixels that are candidate for replacement
+     are those whose centers are on the	bottom or left edge of,	or inside the
+     rectangle with corners at
+     (xr + n x xfactor,	yr + m x interlace x yfactor) and
+     (xr + (n +	1) x xfactor,yr	+ (m x interlace + 1) x	yfactor)
+
+     Pixel zoom	factors	are not	limited	to positive values.  Negative zoom
+     factors reflect the resulting image about the current raster position.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glPixelZoom is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_ZOOM_X
+     glGet with	argument GL_ZOOM_Y
+     glGet with	argument GL_INTERLACE_SGIX
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIX_interlace	extension is supported only on InfiniteReality systems
+     and on RealityEngine, RealityEngine2, and VTX systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glCopyPixels, glEnable, glDrawPixels.
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

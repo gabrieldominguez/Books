@@ -1,0 +1,373 @@
+<HTML><HEAD><TITLE>compiling with borland c++ free tools</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#303030 ALINK=#FFFFFF>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070>compilation <FONT COLOR=#305080>compilation</FONT> compilation <FONT COLOR=#305080>compilation</FONT> 
+
+      compilation </FONT></NOBR></B></font><font face="Helvetica, Sans-Serif" size="4" color="#305080"><NOBR><B>compilation
+
+    compil<br>
+
+    </B></NOBR></font><NOBR><B><font face="Helvetica, Sans-Serif" size="4" color="#204070">ilation</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#FFFFFF">compilation</font><font face="Helvetica, Sans-Serif" size="4" color="#204070"> compilation
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation</font><font face="Helvetica, Sans-Serif" size="4" color="#204070">
+
+    compilation </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">compilation<br>
+
+    </font></B></NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=2><B><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070> <FONT COLOR=#305080>compilation</FONT> compilation <FONT COLOR=#305080>compilation</FONT> 
+
+    compilation </FONT></NOBR></B></font><B><NOBR><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation
+
+    </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">compilation
+
+    compil</font></NOBR></B></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P ALIGN=CENTER><nobr><b><a HREF="ogl.htm#Borland" tppabs="http://home.clara.net/paulyg/ogl.htm#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="ogl.htm#Source" tppabs="http://home.clara.net/paulyg/ogl.htm#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a HREF="mailto:Paul%20Groves%20%3cpaulyg@clara.net%3e">mail</a>
+
+&nbsp;&nbsp;&nbsp;&nbsp; <a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+</font></font>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">ion</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">compilation</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> compilation
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">compilation</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      compilation </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">co</font> </B></NOBR></TABLE>
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+<P><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>introduction</b>
+
+</font>The following page shows you how to setup Borland's free command line
+
+compiler tools.&nbsp; After setting up, we'll compile an example program to make
+
+sure everything works correctly.<br>
+
+<br>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2><TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">ion</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">compilation</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> compilation
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">compilation</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      compilation </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">co</font> </B></NOBR></TABLE>
+
+
+
+<p class="BodyText">After you've installed the command line tools you'll need to
+
+setup your computer to use them properly.&nbsp;&nbsp;
+
+<ul>
+
+  <li>
+
+    <p class="BodyText">You have to make sure that the Borland Compiler is setup in your
+
+    path.&nbsp; In your &quot;autoexec.bat&quot; the path line should contain the location of the
+
+    BCC55/BIN directory.  For example my PATH line looks like this.&nbsp;
+
+    (Highlighted for ease of viewing)</p>
+
+  </li>
+
+</ul>
+
+<p class="BodyText" align="center"><img border="0" src="graphics/free1.gif" tppabs="http://home.clara.net/paulyg/graphics/free1.gif" width="476" height="132"></p>
+
+<ul>
+
+  <li>
+
+    <p class="BodyText">Your PATH may be different, just add the location of the BCC55\BIN directory to
+
+    the end.  Remember to separate the different paths with a semicolon ";"</p>
+
+  </li>
+
+  <li>
+
+    <p class="BodyText">Create a "GL" directory in the BORLAND\BCC55\INCLUDE directory.  Copy the
+
+    header files into the new &quot;GL&quot; directory.  You should have gl.h, glu.h and
+
+    glut.h.</p>
+
+  </li>
+
+  <li>
+
+    <p class="BodyText">Copy "glut32.lib" into the BORLAND\BCC55\LIB directory.</p>
+
+  </li>
+
+  <li>
+
+    <p class="BodyText">Create 'standard' .cfg files for the compiler so it knows which&nbsp;
+
+    directory to look for the include and library files.&nbsp; Make a text file called "BCC32.CFG" in the \BIN directory and copy the
+
+    following two lines into it (high lighted for ease of viewing):</p>
+
+  </li>
+
+</ul>
+
+    <p class="BodyText" align="center"><img border="0" src="graphics/free2.gif" tppabs="http://home.clara.net/paulyg/graphics/free2.gif" width="358" height="108"></p>
+
+<ul>
+
+  <li>
+
+    <p class="BodyText" align="left">Again, your directory locations may be different, but you get the idea.&nbsp;
+
+    This file tells the compiler where to look for the standard include files and libraries.</p>
+
+  </li>
+
+  <li>
+
+    <p class="BodyText" align="left">Next, make a text file called "ILINK32.CFG" in the \BIN directory and copy the<br>
+
+    following line into it:</p>
+
+  </li>
+
+</ul>
+
+<p class="BodyText" align="center"><img border="0" src="graphics/free3.gif" tppabs="http://home.clara.net/paulyg/graphics/free3.gif" width="316" height="71"></p>
+
+<ul>
+
+  <li>
+
+    <p class="BodyText" align="left">This tells the linker where to look for the libraries.</p>
+
+  </li>
+
+  <li>
+
+    <p class="BodyText" align="left">Restart the computer so that the new path is loaded.  (If you didn't already
+
+    know, putting the BCC55\BIN in the 'path' means that you can run any program
+
+    from that directory without 'being' in that directory - you'll see what I mean a little later on.)</p>
+
+  </li>
+
+  <li>
+
+    <p class="BodyText" align="left">Open up an MS-DOS prompt (or a console window, if you're using
+
+    WindowsNT/Windows2000).  Make a new directory somewhere on your C:\ drive, lets call it "Test".</p>
+
+  </li>
+
+  <li>
+
+    <p class="BodyText" align="left">Switch to that directory by typing the following in the console window, the
+
+    first line switches you to the C: drive, the second changes the current directory to "TEST":</p>
+
+  </li>
+
+</ul>
+
+<p class="BodyText" align="center"><img border="0" src="graphics/free4.gif" tppabs="http://home.clara.net/paulyg/graphics/free4.gif" width="280" height="138"></p>
+
+<ul>
+
+  <li>
+
+    <p class="BodyText" align="left">Next we'll test whether the path have been setup correctly.  Type "BCC32",
+
+    hopefully the compiler should run - giving you a list of its commands.  If it doesn't then check you set the path up correctly.&nbsp;
+
+    (font size shrunk to save space...)</p>
+
+  </li>
+
+</ul>
+
+<p class="BodyText" align="center"><img border="0" src="graphics/free5.gif" tppabs="http://home.clara.net/paulyg/graphics/free5.gif" width="508" height="271"></p>
+
+<ul>
+
+  <li>
+
+    <p class="BodyText" align="left">Copy a simple example to the test directory - use Windows to do this.  Its
+
+    easier than buggering about with the console commands.  I'll copy the source file
+
+    "program1.cpp" to my directory using explorer.</p>
+
+  </li>
+
+  <li>
+
+    <p class="BodyText" align="left">Compile and link the program by typing in:</p>
+
+  </li>
+
+</ul>
+
+<p class="BodyText" align="center"><img border="0" src="graphics/free6.gif" tppabs="http://home.clara.net/paulyg/graphics/free6.gif" width="309" height="58"></p>
+
+<ul>
+
+  <li>
+
+    <p class="BodyText" align="left">The program will (hopefully) be compiled and the BCC32 will automatically
+
+    invoke the linker and link the glut32.lib with your program.  The standard libraries are always linked - so you don't need to worry about those.&nbsp;
+
+    Your console window should look something like the one below.</p>
+
+  </li>
+
+</ul>
+
+<p class="BodyText" align="center"><img border="0" src="graphics/free7.gif" tppabs="http://home.clara.net/paulyg/graphics/free7.gif" width="525" height="175"></p>
+
+<ul>
+
+  <li>
+
+    <p class="BodyText" align="left">Don't worry about compiler warnings - it's
+
+    only the errors you've got to bother about...&nbsp; Try to run your program.  You'll need glut32.dll in the same directory or in
+
+    the Windows/System directory for it to work.</p>
+
+  </li>
+
+  <li>
+
+    <p class="BodyText" align="left">Compiling programs with multiple source
+
+    files is just as easy... program7.cpp uses the<br>
+
+    bitmap loader functions.  To compile this you simply type:</p>
+
+  </li>
+
+</ul>
+
+<p class="BodyText" align="center"><img border="0" src="graphics/free8.gif" tppabs="http://home.clara.net/paulyg/graphics/free8.gif" width="373" height="67"></p>
+
+<ul>
+
+  <li>
+
+    <p class="BodyText" align="left"><a href="mailto:Paul%20Groves%20%3cpaulyg@clara.net%3e"><b>email me</b></a> if you have any trouble.&nbsp;
+
+    If you know of a good C++ editor/syntax checker available for free give me a
+
+    shout!</p>
+
+  </li>
+
+</ul>
+
+    <p class="BodyText">Happy experimenting!&nbsp;
+
+  </font>
+
+
+
+  </p>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">ion</font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#305080">compilation
+
+      </font><font face="Helvetica, Sans-Serif" size="4" color="#204070">compilation</font><font face="Helvetica, Sans-Serif" size="4" color="#305080"> compilation
+
+      </font><font color="#204070"><font face="Helvetica, Sans-Serif" size="4">compilat</font><font face="Helvetica, Sans-Serif" size="+1">ion
+
+      </font></font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">compilation</font><font color="#204070" face="Helvetica, Sans-Serif" size="+1">
+
+      compilation </font><font face="Helvetica, Sans-Serif" size="+1" color="#305080">co</font> </B></NOBR></TABLE>
+
+
+
+  <P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font>
+
+
+
+</font>
+
+</BODY>

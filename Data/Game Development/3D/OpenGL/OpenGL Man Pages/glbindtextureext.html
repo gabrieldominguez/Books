@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glbindtextureext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glbindtextureext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glBindTextureEXT(3G)	       OpenGL Reference		  glBindTextureEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glBindTextureEXT -	bind a named texture to	a texturing target
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glBindTextureEXT( GLenum target,
+			    GLuint texture )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target   The target to which the texture will be bound.  Must be one of
+	      GL_TEXTURE_1D, GL_TEXTURE_2D, GL_DETAIL_TEXTURE_2D_SGIS, or
+	      GL_TEXTURE_3D_EXT.
+
+     texture  The name of a texture.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glBindTextureEXT is part of the EXT_texture_object	extension.  This
+     extension makes it	possible to use	named 1-, 2-, and 3-dimensional
+     textures in addition to the usual OpenGL texture targets designated by
+     GL_TEXTURE_1D, GL_TEXTURE_2D, etc.
+
+     Texture names are unsigned	integers.  The value zero is reserved to
+     represent the default texture for each texture target.  Texture names and
+     the corresponding texture contents	are local to the shared	display-list
+     space (see	glXCreateContext) of the current OpenGL	rendering context; two
+     rendering contexts	will share texture names only if they also share
+     display lists.
+
+     To	create a named texture,	simply bind a previously-unused	texture	name
+     to	one of the texture targets listed above.  This can be accomplished by
+     calling glBindTextureEXT with target set to the appropriate texture
+     target, and texture set to	the name of the	new texture.  When a texture
+     is	bound to a target, the previous	binding	for that target	is
+     automatically broken.
+
+     Note that glGenTexturesEXT	may be used to generate	a set of fresh texture
+     names.
+
+     When a texture is first bound it assumes the dimensionality of its
+     target:  A	texture	first bound to GL_TEXTURE_1D becomes 1-dimensional, a
+     texture first bound to GL_TEXTURE_2D becomes 2-dimensional, and so	on.
+     The state of a 1-dimensional texture immediately after it is first	bound
+     is	equivalent to the state	of the default GL_TEXTURE_1D at	GL
+     initialization, and similarly for 2- and 3-dimensional textures.  That
+     is, if the	application sets texture parameter values for one texture,
+     those parameter values are	not automatically propagated to	the next
+     texture that the application binds; each newly-created texture receives a
+     fresh copy	of the default texture state.  See glTexParameter for more
+     information about texture parameters and their default values.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glBindTextureEXT(3G)	       OpenGL Reference		  glBindTextureEXT(3G)
+</FONT>
+
+
+     While a texture is	bound, GL operations on	the target to which it is
+     bound affect the bound texture, and queries of the	target to which	it is
+     bound return state	from the bound texture.	 If texture mapping of the
+     dimensionality of the target to which a texture is	bound is active, the
+     bound texture is used.  In	effect,	the texture targets become aliases for
+     the textures currently bound to them, and the texture name	zero refers to
+     the default textures that were bound to them at initialization.
+
+     A texture binding created with glBindTextureEXT remains active until a
+     different texture is bound	to the same target, or until the bound texture
+     is	deleted	with glDeleteTexturesEXT.
+
+     Once created, a named texture may be re-bound to the appropriate target
+     as	often as needed.  It is	usually	much faster to bind an existing	named
+     texture to	one of the texture targets using glBindTextureEXT than it is
+     to	reload the texture image using glTexImage*.  For additional control
+     over performance, consider	using glPrioritizeTexturesEXT.
+
+     glBindTextureEXT is included in display lists.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     See glIntro for more information about using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not one of the allowable
+     values.
+
+     GL_INVALID_OPERATION is generated if texture has a	dimensionality and it
+     doesn't match that	of target.
+
+     GL_INVALID_OPERATION is generated if glBindTextureEXT is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	parameter names	GL_TEXTURE_1D_BINDING_EXT,
+     GL_TEXTURE_2D_BINDING_EXT,	and GL_TEXTURE_3D_BINDING_EXT.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support texture
+     name sharing.  Texture names are always local to the rendering context
+     which was active at the time the names were created.  High	Impact and
+     Maximum Impact systems do not currently support texture name sharing, but
+     this will be fixed	in the next release.
+
+     There is a	known problem with shadow textures and texture binding on
+     InfiniteReality systems.  After using a shadow texture, applications
+     should disable shadowing (by calling glTexParameter with argument
+     GL_TEXTURE_COMPARE_SGIX and value GL_FALSE) before	binding	any other
+     texture.  This will be fixed in the next release.
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glBindTextureEXT(3G)	       OpenGL Reference		  glBindTextureEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDeleteTexturesEXT, glGenTexturesEXT, glGet, glGetTexParameter,
+     glIsTextureEXT, glTexImage1D, glTexImage2D, glTexImage3DEXT,
+     glTexParameter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

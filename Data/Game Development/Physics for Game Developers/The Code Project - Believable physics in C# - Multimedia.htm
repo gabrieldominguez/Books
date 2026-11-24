@@ -1,0 +1,868 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://www.codeproject.com/cs/media/BelievablePhysics.asp -->
+<HTML><HEAD><TITLE>The Code Project - Believable physics in C# - Multimedia</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META content="Free source code and tutorials for Windows developers." 
+name=Description>
+<META 
+content="Free source code, Multimedia, Visual C++, MFC, Windows, DirectX, Particle, Constraint, Physics" 
+name=keywords>
+<META 
+content="Article content copyright Mårten R, 2003, everthing else Copyright © CodeProject, 2003, All Rights Reserved." 
+name=Copyright><LINK href="/favicon.ico" type=image/ico rel=icon><LINK 
+href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="The Code Project - Believable physics in C# - Multimedia_files/global.css" 
+type=text/css rel=stylesheet>
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR></HEAD>
+<BODY text=black vLink=purple aLink=red link=blue bgColor=white leftMargin=3 
+topMargin=3>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE cellSpacing=1 cellPadding=0 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD vAlign=top><A href="http://www.codeproject.com/"><IMG height=72 
+            alt="The Code Project" 
+            src="The Code Project - Believable physics in C# - Multimedia_files/logo225x72.gif" 
+            width=225 border=0></A></TD>
+          <TD align=right><SPAN id=AdBanner4><A 
+            href="http://www.codeproject.com/script/admentor/ads.asp"><IMG 
+            height=60 alt="View our advertisers" 
+            src="The Code Project - Believable physics in C# - Multimedia_files/sponsors.gif" 
+            width=20 border=1></A><A 
+            href="http://www.codeproject.com/script/admentor/admentorredir.asp?id=470&amp;way=ban" 
+            target=_blank><IMG height=60 alt="" 
+            src="The Code Project - Believable physics in C# - Multimedia_files/Nov-bannerRspace.gif" 
+            width=468 border=0></A><A 
+            href="http://www.codeproject.com/info/mediakit"><IMG height=60 
+            alt="Advertise on the CodeProject" 
+            src="The Code Project - Believable physics in C# - Multimedia_files/advertise.gif" 
+            width=20 border=1></A></SPAN></TD></TR>
+        <TR>
+          <TD bgColor=#fbedbb colSpan=2>
+            <TABLE cellPadding=3 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%"><FONT style="FONT-SIZE: 8pt"><A 
+                  href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+                  href="http://www.codeproject.com/?cat=3">C#</A>, <A 
+                  href="http://www.codeproject.com/?cat=5">.NET</A> &gt;&gt; <A 
+                  href="http://www.codeproject.com/cs/media/">Multimedia</A> 
+                  &gt;&gt; <A 
+                  href="http://www.codeproject.com/cs/media/#DirectX">DirectX</A></FONT><BR><BR><B><FONT 
+                  style="FONT-SIZE: 16pt" size=4>Believable physics in 
+                  C#</FONT></B><BR><B>By <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?id=459040">Mårten 
+                  R</A> </B><BR><BR><FONT style="FONT-SIZE: 9pt">How to create 
+                  believable physics using C#.&nbsp;</FONT> </TD>
+                <TD vAlign=top align=right>
+                  <TABLE cellSpacing=0 cellPadding=1 width=140 border=0>
+                    <TBODY>
+                    <TR vAlign=top>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText>C#, XP, W2K, Win2003, .NET 1.1, 
+                        DirectX</TD></TR>
+                    <TR>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText noWrap>Posted 27 Dec 2003</TD></TR>
+                    <TR>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText>Updated 30 Dec 2003</TD></TR>
+                    <TR vAlign=top>
+                      <TD><IMG height=16 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/hlp.gif" 
+                        width=16></TD>
+                      <TD class=SmallText noWrap><A 
+                        href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=459040">Articles 
+                        by this author</A></TD></TR>
+                    <TR vAlign=top>
+                      <TD></TD>
+                      <TD class=SmallText noWrap><B>5,652</B> 
+                    views</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE id=tblSiteToolbar cellSpacing=0 cellPadding=1 width="100%" 
+            border=0>
+              <TBODY>
+              <TR>
+                <FORM name=Search action=/info/search.asp method=post>
+                <TD vAlign=top align=left width="100%">
+                  <TABLE cellSpacing=0 cellPadding=1 border=0>
+                    <TBODY>
+                    <TR vAlign=center>
+                      <TD class=smallText><B><FONT 
+                        color=white>Search:</FONT></B></TD>
+                      <TD class=navbar noWrap><INPUT class=smallText 
+                        maxLength=255 size=10 name=target></TD>
+                      <TD vAlign=top><SELECT class=smallText name=st> 
+                          <OPTION value=kw selected>Articles</OPTION> <OPTION 
+                          value=au>Authors</OPTION></SELECT></TD>
+                      <TD><INPUT class=formButton type=submit value=Go></TD></TR></TBODY></TABLE></TD></FORM>
+                <TD noWrap width="100%"></TD>
+                <TD class=clsButtonBar>
+                  <TABLE class=clsButton id=tblFAQBtn 
+                  title="Frequently Asked Questions" cellSpacing=0 cellPadding=0 
+                  border=0>
+                    <TBODY>
+                    <TR vAlign=center>
+                      <TD noWrap><A class=clsButtonLnk 
+                        href="http://www.codeproject.com/info/faq.asp">FAQ</A></TD></TR></TBODY></TABLE></TD>
+                <TD noWrap width="100%"></TD>
+                <TD class=clsButtonBar>
+                  <TABLE class=clsButton id=tblLatestBtn 
+                  title="View the latest additions and updates at CodeProject" 
+                  cellSpacing=0 cellPadding=0 border=0>
+                    <TBODY>
+                    <TR vAlign=center>
+                      <TD noWrap><A class=clsButtonLnk 
+                        href="http://www.codeproject.com/info/latest.asp">What's 
+                        New</A></TD></TR></TBODY></TABLE></TD>
+                <TD class=smalltext></TD>
+                <TD class=clsButtonBar>
+                  <TABLE class=clsButton id=tblLoungeBtn 
+                  title="Want to laze about and catch up with your fellow developers?" 
+                  cellSpacing=0 cellPadding=0 border=0>
+                    <TBODY>
+                    <TR vAlign=center>
+                      <TD noWrap><A class=clsButtonLnk 
+                        href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></TD>
+                <TD class=smalltext></TD>
+                <TD class=clsButtonBar>
+                  <TABLE class=clsButton 
+                  title="Submit your code to the Code Project" cellSpacing=0 
+                  cellPadding=0 border=0>
+                    <TBODY>
+                    <TR vAlign=center>
+                      <TD noWrap><A class=clsButtonLnk 
+                        href="http://www.codeproject.com/info/submit.asp">Contribute</A></TD></TR></TBODY></TABLE></TD>
+                <TD class=smalltext></TD>
+                <TD class=clsButtonBar>
+                  <TABLE class=clsButton id=tblForumBtn 
+                  title="Need an answer to a programming problem?" cellSpacing=0 
+                  cellPadding=0 border=0>
+                    <TBODY>
+                    <TR vAlign=center>
+                      <TD noWrap><A class=clsButtonLnk 
+                        href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                        Boards</A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=1 border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD vAlign=top bgColor=#fbedbb rowSpan=2>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <SCRIPT language=javascript>
+function ErrorHandle() {}
+window.onerror = ErrorHandle;
+
+function OnNLSubmit(option)
+{
+	if (option=="up")
+		document.subForm.action = "/script/profile/modify.asp?ct=%2Fcs%2Fmedia%2FBelievablePhysics%2Easp";
+	else if (option=="in")
+		document.subForm.action = "/script/profile/process_logon.asp?ct=%2Fcs%2Fmedia%2FBelievablePhysics%2Easp";
+	document.subForm.submit();
+	return true;
+}
+</SCRIPT>
+
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=3 cellPadding=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=InfoBarHeader>Toolbox</TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/space.gif" 
+                  width=1></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/common/mailform.asp?option=Article&amp;Title=Believable+physics+in+C%23&amp;URL=http%3A%2F%2Fwww%2Ecodeproject%2Ecom%2Fcs%2Fmedia%2FBelievablePhysics%2Easp">Broken 
+                  links?</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>VS.NET 2003 from 
+                  $899</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>MSDN Univ. from 
+                  $1950</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/print.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/cs/media/BelievablePhysics.asp?print=true" 
+                  target=_print>Print version</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/link.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fcs%2Fmedia%2FBelievablePhysics%2Easp&amp;guid=BelievablePhysics%2Fcsharp12%2F27%2F2003">Bookmark 
+                  this</A></TD></TR></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/mail.gif" 
+                  width=16></TD>
+                <TD class=SmallText><A 
+                  href="http://www.codeproject.com/script/recommend/form.asp?guid=BelievablePhysics%2Fcsharp12%2F27%2F2003">Send 
+                  to a friend</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=InfoBarHeader>My Profile</TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/space.gif" 
+                  width=1></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/profile_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/modify.asp?ct=/cs/media/BelievablePhysics.asp">My 
+                  Settings</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/submit_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+                  Articles</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/bookmarks.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+                  Bookmarks</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/logoff_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/logoff.asp?ct=/cs/media/BelievablePhysics.asp">Sign 
+                  out</A></TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/space.gif" 
+                  width=1></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD>
+            <CENTER><A 
+            href="http://www.codeproject.com/script/admentor/admentorredir.asp?id=171&amp;way=ban" 
+            target=_blank><IMG height=600 
+            alt="MSDN Magazine - Your guide to Microsoft tools, development environments, and technologies for Windows and the Web." 
+            src="The Code Project - Believable physics in C# - Multimedia_files/mm120_600_codeprot3.gif" 
+            width=120 border=0></A><BR></CENTER><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=5 rowSpan=2><IMG height=1 
+      src="The Code Project - Believable physics in C# - Multimedia_files/space.gif" 
+      width=5> </TD>
+    <TD align=right width="100%" bgColor=white>
+      <DIV align=right><A name=__top></A>
+      <TABLE>
+        <TBODY>
+        <TR>
+          <TD class=smallText align=right>8 members have rated this article. 
+            Result:</TD>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 border=2>
+              <TBODY>
+              <TR>
+                <TD><IMG height=5 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/red.gif" 
+                  width=20 border=0></TD>
+                <TD><IMG height=5 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/red.gif" 
+                  width=20 border=0></TD>
+                <TD><IMG height=5 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/red.gif" 
+                  width=20 border=0></TD>
+                <TD><IMG height=5 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/red.gif" 
+                  width=14 border=0><IMG height=5 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/white.gif" 
+                  width=6 border=0></TD>
+                <TD><IMG height=5 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/white.gif" 
+                  width=20 border=0></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD class=smallText align=right colSpan=2><A 
+            title="Calculated as rating x Log10(# votes)" 
+            href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+            3.34</A>. Rating: <B>3.7</B> out of 
+  5.</TD></TR></TBODY></TABLE></DIV></TD></TR>
+  <TR>
+    <TD vAlign=top width="100%">
+      <DIV id=contentdiv><!-- Article Starts -->
+      <UL class=download>
+        <LI><A 
+        href="http://www.codeproject.com/cs/media/BelievablePhysics/Source.zip">Download 
+        source files - 80.7 Kb</A> 
+        <LI><A 
+        href="http://www.codeproject.com/cs/media/BelievablePhysics/Binaries.zip">Download 
+        demo project - 38.9 Kb</A> </LI></UL>
+      <P><IMG height=476 alt="Sample Image - parachute.jpg" 
+      src="The Code Project - Believable physics in C# - Multimedia_files/parachute.jpg" 
+      width=536></P>
+      <H2>Introduction</H2>
+      <P>After reading the great article 'Advanced Character Physics' <A 
+      href="http://www.codeproject.com/cs/media/BelievablePhysics.asp#REF_1">[1]</A>, 
+      I realized that, contrary to my earlier belief, creating believable 
+      physics on a computer isn't overly complicated. In fact, it's rather 
+      simple and isn't especially CPU-hungry neither. As I figured this might be 
+      an interesting topic for some developers, I put together these projects 
+      and this article for CodeProject.</P>
+      <H2>Setting up</H2>
+      <H3>Requirements</H3>
+      <P>To be able to compile and use the projects, you'll need the managed 
+      extensions for Directx9 <A 
+      href="http://www.codeproject.com/cs/media/BelievablePhysics.asp#REF_2">[2]</A>. 
+      You might need to perform an extra step after installing the DirectX9 SDK. 
+      Please refer to the <I>readme.txt</I> that comes with the DirectX9 SDK. 
+      The project <I>ParticleSystem</I> depends upon DirectX9 for some basic 
+      operations on vectors and matrices. The test application depends on 
+      DirectX9 more heavily as it uses DirectX9 to visualize the 
+      particle-constraint system.</P>
+      <H3>Compiling</H3>
+      <P>Once you have the managed extensions for DirectX9, it should be easy to 
+      compile the projects.</P>
+      <H3>Running the test application</H3>
+      <P>You should see a parachuting box not unlike the picture above. There 
+      are simple commands to move the viewpoint as well as change some 
+      parameters of the particle-constraint system.</P>
+      <UL>
+        <LI>Arrow-keys: Moves the viewpoint. 
+        <LI>A: Makes gravity vector pointing downward. 
+        <LI>B: Makes gravity vector pointing upward. 
+        <LI>S: Shakes the particles. 
+        <LI>K: Increase the strength of the wind (that affects the parachute). 
+        <LI>L: Decrease the strength of the wind (that affects the parachute). 
+        </LI></UL>
+      <P>The code in the test project is close to awful as I only patched the 
+      DirectX9 wizard generated code just enough so I could view the 
+      particle-constraint system. The interesting code is in the 
+      <I>ParticleSystem</I> project.</P>
+      <H2>How to create a simple particle-constraint system</H2>
+      <P>Let's assume you want to create a very simple system with only one 
+      small box in it.</P><PRE lang=cs><SPAN class=cs-comment>// Begin a transaction</SPAN>
+ParticleSystem.Transaction lTransaction = ps.GetTransaction(); 
+<SPAN class=cs-comment>// Adds a global constraint to the system (to make sure that the box </SPAN>
+<SPAN class=cs-comment>// doesn't fall and fall and fall)</SPAN>
+lTransaction.AddGlobalConstraint(<SPAN class=cs-keyword>new</SPAN> AxisAlignedBox( 
+    <SPAN class=cs-keyword>new</SPAN> Vector3(-<SPAN class=cs-literal>10</SPAN>, -<SPAN class=cs-literal>15</SPAN>, -<SPAN class=cs-literal>10</SPAN>), 
+    <SPAN class=cs-keyword>new</SPAN> Vector3(<SPAN class=cs-literal>10</SPAN>, <SPAN class=cs-literal>15</SPAN>, <SPAN class=cs-literal>10</SPAN>))); 
+<SPAN class=cs-comment>// Set the gravity vector of the system</SPAN>
+ps.Gravity = <SPAN class=cs-keyword>new</SPAN> Vector3(<SPAN class=cs-literal>0</SPAN>, -<SPAN class=cs-literal>1</SPAN>, <SPAN class=cs-literal>0</SPAN>); 
+<SPAN class=cs-comment>// Creates a stick-constraint factory (since we want our box to be created </SPAN>
+<SPAN class=cs-comment>// using stiff stick-constraints)</SPAN>
+Tools.ITwoParticleConstraintFactory lStickConstraintFactory = 
+    <SPAN class=cs-keyword>new</SPAN> Tools.StickConstraintFactory(); 
+<SPAN class=cs-comment>// Create the box at position (0,0,0), with mass 10.0 and side-length 1.0</SPAN>
+Tools.CreateBox(
+    <SPAN class=cs-keyword>new</SPAN> Vector3(<SPAN class=cs-literal>0</SPAN>.0f, <SPAN class=cs-literal>0</SPAN>.0f, <SPAN class=cs-literal>0</SPAN>.0f), 
+    <SPAN class=cs-literal>10</SPAN>.0f, 
+    <SPAN class=cs-literal>1</SPAN>.0f, 
+    lStickConstraintFactory, 
+    lTransaction); 
+<SPAN class=cs-comment>// Commit the added particles and constraints to the system</SPAN>
+lTransaction.Commit();</PRE>
+      <P><I>If you want to test what the example looks like, just replace the 
+      code in the function <CODE>InitializeParticleSystem</CODE> with the code 
+      above. Also you have to add the row <CODE lang=cs>windEffect = <SPAN 
+      class=cs-keyword>null</SPAN>;</CODE></I></P>
+      <P>Now let's say you wish to attach a chain to the box and the non moving 
+      particle. The code would then look as this:</P><PRE lang=cs><SPAN class=cs-comment>// Begin a transaction</SPAN>
+ParticleSystem.Transaction lTransaction = ps.GetTransaction(); 
+<SPAN class=cs-comment>// Adds a global constraint to the system (to make sure that the box </SPAN>
+<SPAN class=cs-comment>// doesn't fall and fall and fall) </SPAN>
+lTransaction.AddGlobalConstraint(<SPAN class=cs-keyword>new</SPAN> AxisAlignedBox(
+    <SPAN class=cs-keyword>new</SPAN> Vector3(-<SPAN class=cs-literal>10</SPAN>, -<SPAN class=cs-literal>15</SPAN>, -<SPAN class=cs-literal>10</SPAN>), 
+    <SPAN class=cs-keyword>new</SPAN> Vector3(<SPAN class=cs-literal>10</SPAN>, <SPAN class=cs-literal>15</SPAN>, <SPAN class=cs-literal>10</SPAN>))); 
+<SPAN class=cs-comment>// Set the gravity vector of the system </SPAN>
+ps.Gravity = <SPAN class=cs-keyword>new</SPAN> Vector3(<SPAN class=cs-literal>0</SPAN>, -<SPAN class=cs-literal>1</SPAN>, <SPAN class=cs-literal>0</SPAN>); 
+<SPAN class=cs-comment>// Creates a stick-constraint factory (since we want our box to be created </SPAN>
+<SPAN class=cs-comment>// using stiff stick-constraints) </SPAN>
+Tools.ITwoParticleConstraintFactory lStickConstraintFactory = 
+    <SPAN class=cs-keyword>new</SPAN> Tools.StickConstraintFactory(); 
+<SPAN class=cs-comment>// Create the box at position (0,0,0), with mass 10.0 and side-length 1.0 </SPAN>
+Particle[] lBoxParticles = Tools.CreateBox(
+    <SPAN class=cs-keyword>new</SPAN> Vector3(<SPAN class=cs-literal>0</SPAN>.0f, <SPAN class=cs-literal>0</SPAN>.0f, <SPAN class=cs-literal>0</SPAN>.0f), 
+    <SPAN class=cs-literal>10</SPAN>.0f, 
+    <SPAN class=cs-literal>1</SPAN>.0f, 
+    lStickConstraintFactory, 
+    lTransaction); 
+<SPAN class=cs-comment>// Create a single particle </SPAN>
+Particle lParticle = <SPAN class=cs-keyword>new</SPAN> Particle(<SPAN class=cs-literal>1</SPAN>.0f, <SPAN class=cs-keyword>new</SPAN> Vector3(<SPAN class=cs-literal>0</SPAN>.0f, <SPAN class=cs-literal>5</SPAN>.0f, <SPAN class=cs-literal>0</SPAN>.0f)); 
+<SPAN class=cs-comment>// Make the particle non-moving </SPAN>
+lParticle.Immoveable = <SPAN class=cs-keyword>true</SPAN>; 
+<SPAN class=cs-comment>// Add the particle the system </SPAN>
+lTransaction.AddParticle(lParticle); 
+<SPAN class=cs-comment>// Create a chain between the single particle and a box-particle </SPAN>
+Tools.CreateChain(
+    lParticle, 
+    lBoxParticles[<SPAN class=cs-literal>0</SPAN>], 
+    <SPAN class=cs-literal>1</SPAN>.0f, 
+    <SPAN class=cs-literal>6</SPAN>, 
+    lStickConstraintFactory, 
+    lTransaction); 
+<SPAN class=cs-comment>// Commit the added particles and constraints to the system </SPAN>
+lTransaction.Commit();</PRE>
+      <P>For a more complex example, see the parachuting box code in the 
+      <I>ParticleSystemTestApplication</I>.</P>
+      <H2>A tiny introduction to the ParticleSystem project</H2>
+      <UL>
+        <LI>The project is named <I>ParticleSystem</I>. A better name would be 
+        <I>ParticleConstraintSystem</I> because that's essentially what it is. 
+        <LI>The design goal of <I>ParticleSystem</I> was primarily to make it 
+        easy for a developer to add new constraints, effects and global 
+        constraints classes. Also, I wanted to make it reasonably easy to create 
+        "experiments". Performance hasn't been a primary concern. 
+        <LI>You add instances of particles, constraints, effects and global 
+        constraints to a <CODE>ParticleSystem</CODE> using the 
+        <CODE>Transaction</CODE> object. You get an instance of a 
+        <CODE>Transaction</CODE> object by calling <CODE>GetTransaction()</CODE> 
+        on an instance of a <CODE>ParticleSystem</CODE>. Remember to commit. 
+        <LI>To generate the next frame, you call <CODE>TimeStep()</CODE>. 
+        <LI>You can create own constraints, effects and global constraints by 
+        implementing the required interface. For instance, to create a 
+        constraint, the object has to implement <CODE>IConstraint</CODE> which 
+        only has one method: <CODE>Apply()</CODE>. 
+        <LI>A reasonable question is what should a constraint do when it gets a 
+        call to <CODE>Apply()</CODE>? It should check if the constraint is 
+        invalid. If its invalid, then it should move the particles that's part 
+        of the constraint so that the constraint becomes valid again. As an 
+        example, take a look at the <CODE>StickConstraint</CODE>; if the 
+        particles are too far away, it pulls them together until they are at the 
+        correct distance. If they are too close, it pushes them away until they 
+        are at the correct distance. It also looks at the mass of the particles 
+        and moves differently depending on how much they weigh. Please see 
+        'Advanced Character Physics' <A 
+        href="http://www.codeproject.com/cs/media/BelievablePhysics.asp#REF_1">[1]</A> 
+        for a better insight of how to create constraints. 
+        <LI>The <CODE>Tool</CODE>-class contains a lot of static methods 
+        intended to make it easier for a developer. </LI></UL>
+      <H2>Exercises for the interested reader:</H2>
+      <P>This is of course an ironical nudge towards the impossible 'exercises 
+      for the interested reader' that are so often found in student 
+      literature.</P>
+      <UL>
+        <LI>Implement a 'real' parachute. Instead of having a fixed wind blowing 
+        upwards, the particles in the parachute could be affected by a wind 
+        that's dependent on average velocity of the particles in the parachute. 
+        That is, the faster they are going down, the stronger the wind is 
+        blowing upwards. 
+        <LI>Implement a sailboat game. </LI></UL>
+      <H2>TODO:</H2>
+      <UL>
+        <LI>Add NUnit tests 
+        <LI>Improve the documentation and provide a NDoc project 
+        <LI>Reengineer the gravity to be a <CODE>IEffect</CODE> instead of an 
+        intrinsic part of the <CODE>ParticleSystem</CODE>-class. This to allow 
+        systems where you have a centre of gravity or many gravity sources. 
+        <LI>Implement collision detection between particles and triangles. This 
+        would enable some very cool things such as; solid bodies bouncing 
+        against each other, trampolines and friction. </LI></UL>
+      <H2>Acknowledgments</H2>
+      <P>Thomas Jakobsen - for without his great article <A 
+      href="http://www.codeproject.com/cs/media/BelievablePhysics.asp#REF_1">[1]</A>, 
+      I doubt that I ever would have started playing around with imaginary 
+      particles and constraints (and thus leading a lesser life). Also, I have 
+      shamelessly robbed code from his article when building 
+      <I>ParticleSystem</I>.</P>
+      <H2>References</H2>
+      <UL>
+        <LI>[1] <A 
+        href="http://www.ioi.dk/Homepages/thomasj/publications/gdc2001.htm" 
+        target=_blank>Advanced Character Physics</A>. 
+        <LI>[2] <A 
+        href="http://www.microsoft.com/downloads/details.aspx?FamilyID=9216652f-51e0-402e-b7b5-feb68d00f298&amp;displaylang=en" 
+        target=_blank>DirectX 9.0 SDK Update - (Summer 2003)</A>. </LI></UL>
+      <H2>Change History</H2>
+      <UL>
+        <LI>2003-12-27 - Article posted. 
+        <LI>2003-12-27 - 'Change history' section added. 
+        <LI>2003-12-27 - 'About the Author' section removed. 
+        <LI>2003-12-30 - Source code and binaries updated&nbsp;</LI></UL><!-- Article Ends --></DIV>
+      <H2>Mårten R</H2>
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText noWrap><BR></TD>
+          <TD class=smallText width="100%">
+            <P class=smallText>Click <A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=459040">here</A> 
+            to view Mårten R's online profile.</P></TD></TR></TBODY></TABLE><BR>
+      <H2>Other popular Multimedia articles:</H2>
+      <UL>
+        <LI><A 
+        href="http://www.codeproject.com/cs/media/photoproperties.asp">Photo 
+        Properties</A><BR><SPAN class=smalltext>Reads properties - such as EXIF 
+        - from graphic files.</SPAN>
+        <LI><A 
+        href="http://www.codeproject.com/cs/media/displacementfilters.asp">Image 
+        Processing for Dummies with C# and GDI+ Part 5 - Displacement filters, 
+        including swirl</A><BR><SPAN class=smalltext>In the fifth installment, 
+        we build a framework for generating filters that work by changing a 
+        pixel's location, rather than colour.</SPAN>
+        <LI><A href="http://www.codeproject.com/cs/media/inkanied.asp">Ink AniEd 
+        - An Ink Based Animation Editor</A><BR><SPAN class=smalltext>An 
+        Animation Editor based on the Microsoft Ink API and designed for the 
+        TabletPC</SPAN>
+        <LI><A 
+        href="http://www.codeproject.com/cs/media/KVImageProcess.asp">Blending 
+        of images, raster operations and basic color adjustments with 
+        GDI+</A><BR><SPAN class=smalltext>An article on blending of images using 
+        raster operations as well as simulating blending modes like those found 
+        in Photoshop.</SPAN></LI></UL>
+      <FORM action=/script/rating/code/app/insert_vote.asp method=post><INPUT 
+      type=hidden value=BelievablePhysics/csharp12/27/2003 name=vote_name> 
+      <INPUT type=hidden value=/cs/media/BelievablePhysics.asp name=goal> 
+      <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD width="100%">
+            <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#fbedbb 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD class=smalltext vAlign=center>[<A 
+                  href="http://www.codeproject.com/cs/media/BelievablePhysics.asp#__top">Top</A>]</TD>
+                <TD vAlign=center noWrap align=right><I><B>Rate this Article 
+                  for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; <I>Poor</I><INPUT 
+                  type=radio value=1 name=rate><INPUT type=radio value=2 
+                  name=rate><INPUT type=radio value=3 name=rate><INPUT 
+                  type=radio value=4 name=rate><INPUT type=radio value=5 
+                  name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD vAlign=top>
+            <CENTER><A 
+            href="http://www.codeproject.com/script/admentor/admentorredir.asp?id=544&amp;way=ban" 
+            target=_blank><IMG height=60 alt="" 
+            src="The Code Project - Believable physics in C# - Multimedia_files/SQUARE%20LOGO4.gif" 
+            width=120 border=0></A><BR><FONT size=1><A 
+            href="http://www.codeproject.com/info/MediaKit/">Premium 
+            Sponsor</A></FONT></CENTER><BR></TD>
+          <TD vAlign=top noWrap align=middle><SPAN id=AdBanner5><A 
+            href="http://www.codeproject.com/script/admentor/admentorredir.asp?id=411&amp;way=ban" 
+            target=_blank><IMG height=60 
+            alt="The power of a complete PDF toolkit combined in one handy component" 
+            src="The Code Project - Believable physics in C# - Multimedia_files/banner-468x60-pdfkit.gif" 
+            width=486 
+border=0></A></SPAN></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><A 
+name=__comments></A>
+<SCRIPT language=JavaScript>
+function MsgVoteForm(UserID, MsgID)
+{
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString() + "' onclick='RateMsg(" + UserID.toString() + ", " + MsgID.toString() + ", " + i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	document.write(" (out of 5)");
+}
+
+function RateMsg(userid, msgid, score) 
+{ 
+	open("/script/comments/vote.asp?js=1&user="+userid.toString()+"&msg="+msgid.toString()+"&score="+score.toString() ,"helpful","toolbar=no,resizable=yes,scrollbars=yes,directories=no,menubar=no,width=300,height=200");
+	return false;
+}
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+      bgColor=#ff9900 border=0>
+        <TBODY>
+        <TR>
+          <TD class=smallText bgColor=#ffcc99><B>Hint:</B> For a faster board 
+            use IE 4+ or Mozilla, choose 'Dynamic' from the View dropdown and 
+            hit 'Set Options'.</TD></TR>
+        <FORM 
+        action=/script/comments/app/do_filtermessages.asp?main=/cs/media/BelievablePhysics.asp&amp;df=100&amp;forumid=30778&amp;exp=0 
+        method=post>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=3 width="100%" bgColor=white 
+            border=0>
+              <TBODY>
+              <TR bgColor=#fbedbb>
+                <TD class=smalltext noWrap><A 
+                  href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                  height=16 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/info.gif" 
+                  width=16 align=absMiddle border=0> <B>FAQ</B></A>&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>Noise level 
+                  <SELECT class=smalltext size=1 name=noise><OPTION 
+                    value=1>Very High</OPTION> <OPTION value=2>High</OPTION> 
+                    <OPTION value=3 selected>Medium</OPTION> <OPTION 
+                    value=4>Low</OPTION> <OPTION value=5>Very 
+                  low</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=center noWrap align=right 
+                  colSpan=2><A 
+                  href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=30778"><IMG 
+                  height=15 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/search.gif" 
+                  width=16 border=0> Search comments</A> &nbsp;</TD>
+                <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+              <TR bgColor=#ff9900>
+                <TD width="100%">&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>View <SELECT 
+                  class=smalltext size=1 name=expand><OPTION value=0 
+                    selected>Normal</OPTION> <OPTION value=2>Preview</OPTION> 
+                    <OPTION value=1>Thread View</OPTION> <OPTION 
+                    value=3>Expanded (Supporters 
+                only)</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap>Per page <SELECT 
+                  class=smalltext size=1 name=perpage><OPTION 
+                    value=10>10</OPTION> <OPTION value=25 selected>25</OPTION> 
+                    <OPTION value=50>50</OPTION></SELECT></TD>
+                <TD colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+        <TR bgColor=#fbedbb>
+          <TD>
+            <TABLE cellPadding=2 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR>
+                <TD class=messagetitle><A 
+                  title="Add a new message to the discussions" 
+                  href="http://www.codeproject.com/script/comments/user_new.asp?main=/cs/media/BelievablePhysics.asp&amp;df=100&amp;forumid=30778&amp;exp=0" 
+                  target=_top name=HoverNL><B><IMG height=16 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/admin_modify.gif" 
+                  width=16 align=top border=0> New thread</B></A></TD>
+                <TD class=messagetitle>Msgs 1 to 4 of 4 (Total: 4) (<A 
+                  href="http://www.codeproject.com/cs/media/BelievablePhysics.asp?df=100&amp;forumid=30778&amp;exp=0">Refresh</A>)</TD>
+                <TD noWrap align=right><FONT class=messagetitle>[First] [Prev] 
+                  [Next] [Last] </FONT></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=white>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD width="70%" bgColor=#fbedbb colSpan=2>
+                  <TABLE cellSpacing=0 cellPadding=2 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD 
+                class=messagetitle>Subject&nbsp;</TD></TR></TBODY></TABLE></TD>
+                <TD width=140 bgColor=#fbedbb>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/t.gif" 
+                        width=1 border=0></TD></TR>
+                    <TR>
+                      <TD class=messagetitle>Author&nbsp;</TD></TR>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/t.gif" 
+                        width=1 border=0></TD></TR></TBODY></TABLE></TD>
+                <TD width="12%" bgColor=#fbedbb>
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/t.gif" 
+                        width=1 border=0></TD></TR>
+                    <TR>
+                      <TD class=messagetitle align=right>Date&nbsp;</TD></TR>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/t.gif" 
+                        width=1 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD colSpan=4><IMG height=5 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=701005_h0 bgColor=#fef9e7>
+                <TD width="70%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx701005xx></A><IMG height=1 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/ind.gif" 
+                        width=0><IMG 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/cs/media/BelievablePhysics.asp?df=100&amp;forumid=30778&amp;exp=0&amp;select=701005#xx701005xx" 
+                        name=701005><B>hmmm</B></A></TD></TR></TBODY></TABLE></TD>
+                <TD vAlign=bottom><IMG height=13 
+                  alt="Unconfirmed/Anonymous posting" 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/usersuss.gif" 
+                  width=15></A>&nbsp;</TD>
+                <TD noWrap width=140><FONT 
+                  class=messagetitle><B>RimRimRim</B>&nbsp;</FONT></TD>
+                <TD noWrap align=right width="12%"><FONT 
+                  class=messagetitle><B>12:12 29 Dec '03</B>&nbsp;</FONT></TD></TR>
+              <TR>
+                <TD colSpan=4><IMG height=6 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=701734_h0 bgColor=#fef9e7>
+                <TD width="70%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx701734xx></A><IMG height=1 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/ind.gif" 
+                        width=18><IMG 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/cs/media/BelievablePhysics.asp?df=100&amp;forumid=30778&amp;exp=0&amp;select=701734#xx701734xx" 
+                        name=701734>Re: hmmm</A></TD></TR></TBODY></TABLE></TD>
+                <TD vAlign=bottom><A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?id=459040"><IMG 
+                  title="Click for User Profile" height=15 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/userinfo.gif" 
+                  width=14 border=0></A>&nbsp;</TD>
+                <TD noWrap width=140><FONT class=messagetitle>Mårten 
+                  R&nbsp;</FONT></TD>
+                <TD noWrap align=right width="12%"><FONT 
+                  class=messagetitle>9:54 30 Dec '03&nbsp;</FONT></TD></TR>
+              <TR>
+                <TD colSpan=4><IMG height=5 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR height=1>
+                <TD bgColor=#ff9900 colSpan=4><IMG height=1 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/t.gif" 
+                  width=1></TD></TR>
+              <TR id=699817_h0 bgColor=#fef9e7>
+                <TD width="70%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx699817xx></A><IMG height=1 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/ind.gif" 
+                        width=0><IMG 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/cs/media/BelievablePhysics.asp?df=100&amp;forumid=30778&amp;exp=0&amp;select=699817#xx699817xx" 
+                        name=699817><B>DirectX 
+SDK</B></A></TD></TR></TBODY></TABLE></TD>
+                <TD vAlign=bottom><A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?id=459040"><IMG 
+                  title="Click for User Profile" height=15 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/userinfo.gif" 
+                  width=14 border=0></A>&nbsp;</TD>
+                <TD noWrap width=140><FONT class=messagetitle><B>Mårten 
+                  R</B>&nbsp;</FONT></TD>
+                <TD noWrap align=right width="12%"><FONT 
+                  class=messagetitle><B>10:05 27 Dec '03</B>&nbsp;</FONT></TD></TR>
+              <TR>
+                <TD colSpan=4><IMG height=6 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/t.gif" 
+                  width=1 border=0></TD></TR>
+              <TR id=700147_h0 bgColor=#fef9e7>
+                <TD width="70%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx700147xx></A><IMG height=1 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/ind.gif" 
+                        width=18><IMG 
+                        src="The Code Project - Believable physics in C# - Multimedia_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle style="COLOR: #aa0000" 
+                        width="100%"><A class=messagetitle id=DynMessLink 
+                        style="COLOR: #aa0000" 
+                        href="http://www.codeproject.com/cs/media/BelievablePhysics.asp?df=100&amp;forumid=30778&amp;exp=0&amp;select=700147#xx700147xx" 
+                        name=700147>Re: DirectX SDK</A></TD></TR></TBODY></TABLE></TD>
+                <TD vAlign=bottom><A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?id=311998"><IMG 
+                  title="Click for User Profile" height=15 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/userinfo.gif" 
+                  width=14 border=0></A>&nbsp;</TD>
+                <TD noWrap width=140><FONT class=messagetitle 
+                  style="COLOR: #aa0000">Bill Seddon&nbsp;</FONT></TD>
+                <TD noWrap align=right width="12%"><FONT class=messagetitle 
+                  style="COLOR: #aa0000">6:08 28 Dec '03&nbsp;</FONT></TD></TR>
+              <TR>
+                <TD colSpan=4><IMG height=5 
+                  src="The Code Project - Believable physics in C# - Multimedia_files/t.gif" 
+                  width=1 border=0></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=#fbedbb>
+          <TD>
+            <TABLE cellPadding=2 width="100%">
+              <TBODY>
+              <TR>
+                <TD class=messagetitle>Last Visit: 11:10 Wednesday 31st 
+                  December, 2003</TD>
+                <TD noWrap align=right><FONT class=messagetitle>[First] [Prev] 
+                  [Next] [Last] 
+    </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=5 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD><FONT style="FONT-SIZE: 7pt" size=1><A 
+      href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+      href="http://www.codeproject.com/?cat=3">C#</A>, <A 
+      href="http://www.codeproject.com/?cat=5">.NET</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/cs/media/">Multimedia</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/cs/media/#DirectX">DirectX</A> 
+      <BR>Updated: 30 Dec 2003<BR>Editor: <A 
+      href="http://www.codeproject.com/script/profile/whos_who.asp?id=20248">Nishant 
+      S</A> </FONT></TD>
+    <TD align=right><FONT style="FONT-SIZE: 7pt" size=1>Article content 
+      copyright Mårten R, 2003<BR>everything else Copyright © <A 
+      href="mailto:webmaster@codeproject.com">CodeProject</A>, 1999-2003</A>. 
+      <BR><A href="http://www.codeproject.com/info/MediaKit">Advertise on The 
+      Code Project</A> | <A 
+      href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+  </FONT></TD></TR></TBODY></TABLE><BR>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#ff9900 height=1><IMG height=1 
+      src="The Code Project - Believable physics in C# - Multimedia_files/space.gif"></TD></TR>
+  <TR>
+    <TD align=middle><FONT size=1><A 
+      href="http://www.codeproject.com/redir.asp?id=235">MSDN Communities</A> | 
+      <A href="http://www.aspalliance.com/">ASPAlliance</A> • <A 
+      href="http://www.developersdex.com/">DevelopersDex</A> • <A 
+      href="http://www.devguru.com/">DevGuru</A> • <A 
+      href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+      href="http://www.sitepoint.com/">SitePoint</A> • <A 
+      href="http://www.tek-tips.com/">Tek-Tips Forums</A> • <A 
+      href="http://www.topxml.com/soap/default.asp">TopXML</A> • <A 
+      href="http://www.visualbuilder.com/">VisualBuilder</A> • <A 
+      href="http://www.xmlpitstop.com/">XMLPitstop</A> • <A 
+      href="http://www.zvon.org/">ZVON</A> • <A 
+      href="http://www.codeproject.com/redir.asp?id=169">Search Us!</A> 
+    </FONT></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>

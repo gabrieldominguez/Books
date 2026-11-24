@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glresethistogramext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glresethistogramext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glResetHistogramEXT(3G)	       OpenGL Reference	       glResetHistogramEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glResetHistogramEXT - reset histogram table entries to zero
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glResetHistogramEXT( GLenum target )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Must be GL_HISTOGRAM_EXT.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glResetHistogramEXT resets	all the	elements of the	current	histogram
+     table to zero.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not GL_HISTOGRAM_EXT.
+
+     GL_INVALID_OPERATION is generated if glResetHistogramEXT is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems,	histogram and minmax
+     may not be	used when rendering to pixmaps.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glHistogramEXT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glutessnormal Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glutessnormal</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">gluTessNormal(3G)	       OpenGL Reference		     gluTessNormal(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     gluTessNormal - specify a normal for a polygon
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void gluTessNormal( GLUtesselator*	tess,
+			 GLdouble valueX,
+			 GLdouble valueY,
+			 GLdouble valueZ )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     tess    Specifies the tessellation	object (created	with gluNewTess).
+
+     valueX  Specifies the first component of the normal.
+
+     valueY  Specifies the second component of the normal.
+
+     valueZ  Specifies the third component of the normal.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     gluTessNormal describes a normal for a polygon that the user is defining.
+     All input data will be projected onto a plane perpendicular to one	of the
+     three coordinate axes before tessellation and all output triangles	will
+     be	oriented CCW with respect to the normal	(CW orientation	can be
+     obtained by reversing the sign of the supplied normal). For example, if
+     you know that all polygons	lie in the x-y plane, call gluTessNormal(tess,
+     0.0, 0.0, 1.0) before rendering any polygons.
+
+     If	the supplied normal is (0,0,0) (the default value), the	normal is
+     determined	as follows. The	direction of the normal, up to its sign, is
+     found by fitting a	plane to the vertices, without regard to how the
+     vertices are connected. It	is expected that the input data	lies
+     approximately in the plane; otherwise projection perpendicular to one of
+     the three coordinate axes may substantially change	the geometry. The sign
+     of	the normal is chosen so	that the sum of	the signed areas of all	input
+     contours is non-negative (where a CCW contour has positive	area).
+
+     The supplied normal persists until	it is changed by another call to
+     gluTessNormal.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     gluTessBeginPolygon, gluTessEndPolygon
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

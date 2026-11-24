@@ -1,0 +1,558 @@
+<HTML><HEAD><TITLE>paul's opengl page</TITLE>
+
+<META NAME="author" CONTENT="&copy; 2000, Paul Groves">
+
+<META NAME="description" CONTENT="Tutorials for OpenGL with GLUT and Borland C.">
+
+<META NAME="keywords" CONTENT="opengl, OpenGL, OpenGl, Borland, compile, tutorial, source, examples">
+
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+
+<link rel="stylesheet" type="text/css" href="style.css" tppabs="http://home.clara.net/paulyg/style.css">
+
+</HEAD>
+
+
+
+<BODY BGCOLOR=#006090 TEXT=#E0E0E0 LINK=#B0D0F0 VLINK=#303030 ALINK=#FFFFFF>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><B><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070>ngl page <FONT COLOR=#305080>paul's opengl page</FONT> paul's opengl page <FONT COLOR=#305080>paul's opengl page</FONT> paul's opengl
+
+<BR>page <FONT COLOR=#F0F0F0>paul's opengl page</FONT> <FONT COLOR=#305080>paul's opengl page</FONT> paul's opengl page <FONT COLOR=#305080>paul's opengl
+
+      pag</FONT>
+
+<BR><FONT COLOR=#305080>paul's opengl page</FONT> paul's opengl page <FONT COLOR=#305080>paul's opengl page</FONT> paul's opengl page</FONT></B></NOBR></font><NOBR><B><font face="Helvetica, Sans-Serif" size="+1" color="#204070">
+
+    </font><font face="Helvetica, Sans-Serif" color="#305080" size="4">pal</font><font face="Helvetica, Sans-Serif" size="+1" color="#204070">&nbsp;</font></B></NOBR></TABLE>
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font>
+
+<p align="center"><a href="javascript:if(confirm('http://www.consumer-reviews.co.uk/entry.asp?ID=1613  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.consumer-reviews.co.uk/entry.asp?ID=1613'" tppabs="http://www.consumer-reviews.co.uk/entry.asp?ID=1613"
+        target="_blank"><img src="../../www.consumer-reviews.co.uk/images/banner.jpg" tppabs="http://www.consumer-reviews.co.uk/images/banner.jpg" width="468" height="60"
+        alt="Visit Consumer Reviews UK today" border="0"></a></p>
+
+<P ALIGN=CENTER><nobr><b><a href="aiti.htm" tppabs="http://home.clara.net/paulyg/aiti.htm">consultancy
+
+work for AITI</a>&nbsp;&nbsp;&nbsp; <a HREF="#Borland">borland c &amp; glut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="#Source">source</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm">loading objects</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm">texture coordinates</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<A HREF="mailto:Paul Groves &lt;paulyg@clara.net&gt;">mail</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a HREF="links.htm" tppabs="http://home.clara.net/paulyg/links.htm">links<br>
+
+<br>
+
+</a></b></nobr>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#305080><B>paul's opengl page <FONT COLOR=#204070>paul's opengl page</FONT> paul's opengl page <FONT COLOR=#204070>paul's opengl page</FONT> </B></FONT></NOBR></TABLE>
+
+
+
+<P><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>introduction</b>
+
+</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>I posted this page to help
+
+people who fancied trying a bit of OpenGL, but didn't know where to start.<br>
+
+<br>
+
+I saw the same questions pop up on the news groups and message boards that I
+
+asked when I first started. I figured that it'd be helpful to take you through
+
+the process, learning by example.&nbsp; This to me seems the best way to learn
+
+the fundamentals of OpenGL quickly.
+
+</font><P><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>what
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+ </font>this page won't show you is..</b> </font><font face="Helvetica, Sans-Serif" size="2">how
+to write the next QuakeIII game, anything to do with BSP trees, oct trees,
+terrain generation, particle systems, inverse kinematics, quaternion math
+libraries, skeletal animation, &lt;insert your own fashionable buzz-word
+here&gt;&nbsp;</font><P><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><b>what
+
+
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+ </font>this page will show you is..</b> </font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>well
+annotated C source that displays core and extended OpenGL functionality clearly
+and succinctly.&nbsp;&nbsp;</font><P><FONT FACE="Helvetica, Sans-Serif" SIZE=2><TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070><B>paul's opengl page <FONT COLOR=#305080>paul's opengl page</FONT> paul's opengl page <FONT COLOR=#305080>paul's opengl page</FONT> </B></FONT></NOBR></TABLE>
+
+
+
+<P><B><FONT SIZE=+1 COLOR=#E0E0E0>what's new?</FONT></B><P><b>11 Aug 01:</b><br>
+I've uploaded a tutorial on using the GLU Tessellator. <b><a href="prog11.htm" tppabs="http://home.clara.net/paulyg/prog11.htm">
+[Program11]</a></b> shows you how to setup these functions, useful for creating 
+convex and non planar polygons.&nbsp;&nbsp; The page on SDL is almost ready, as 
+well as some pages devoted to programming languages, their design and 
+implementation.<P><b>5 Mar 01:<br>
+</b>Jonas Geduldig pointed out some pointer errors in the latest tga loading code - he also suggested a fix for them.   All the affected archives have been updated.  If you don't want to re-download all the examples, you can grab it separately from
+<b> <a href="download/tgaload.zip" tppabs="http://home.clara.net/paulyg/download/tgaload.zip"> [here]</a></b>  Thanks again Jonas!&nbsp;<br>
+<br>
+It shouldn't crash when it can't find the .tga file anymore either :)
+<P><b>31 Jan 01:</b>
+
+<BR>I'm still here!&nbsp; I haven't been doing too much OpenGL though.&nbsp;
+I've been playing with <b><a href="javascript:if(confirm('http://www.devolution.com/~slouken/SDL/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.devolution.com/~slouken/SDL/'" tppabs="http://www.devolution.com/~slouken/SDL/">[SDL]</a></b>,
+a cross-platform graphics and sound library - I plan to put a few pages up on
+that soon.&nbsp; If you have any OpenGL questions please do keep them coming,
+especially suggestions for further tutorials...&nbsp; I'll get back to OpenGL
+just as soon as I get bored with SDL :)<P>Still waiting for my Microsoft
+eMbedded Tools SDK.&nbsp; Can't wait to have a play around with WindowsCE...<P><b>9 Nov 00:</b>
+
+<BR>Changed some stuff around on the site.&nbsp; I've dropped paletted texture
+support in my .tga loading code, very few cards seem to support it these days and the code
+was getting pretty unmanageable.&nbsp; That means I've 'refocused' program5 - it
+just talks about loading real file formats now - you can still load RLE
+compressed .tga files though...&nbsp; You can get the latest revised version from <a href="download/tgaload.zip" tppabs="http://home.clara.net/paulyg/download/tgaload.zip"><b>[here]</b></a>,
+or re-download programs 5 - 10.<P><b>31 Oct 00:</b>
+
+<BR>Posted <a href="prog10.htm" tppabs="http://home.clara.net/paulyg/prog10.htm"><b>[program10]</b></a>, it deals with hardware
+multitexturing and vertex arrays.&nbsp; I also finished re-writing the .tga
+loader.&nbsp; There are some issues with compressed textures on the Radeon, so
+I'd appreciate feedback for other cards that support compressed textures.&nbsp;<P><b>24 Oct 00:</b>
+
+<BR>I've bought a new video card!&nbsp; I got the 64 meg version of the ATI
+Radeon.&nbsp; Anyway, this thing is
+extension <i>packed</i> so expect an updated multi-texturing tutorial some time
+soon.&nbsp; The .tga loader is undergoing another overhaul - large chunks of it
+are being rewritten from scratch to accommodate another extension -
+ARB_compressed_textures.<P>I've also noticed that Milkshape3D's file format has
+been updated, so my object loading code is a little out of date.&nbsp; When I've
+got the time I'll upgrade that.&nbsp;<P>
+
+<B><FONT SIZE=+1 COLOR=#E0E0E0>what's ne</FONT></B></font><B><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">xt</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=+1 COLOR=#E0E0E0>?</FONT>&nbsp;
+
+</font></B>Probably have a go at NURBS and other higher order surfaces next...<FONT FACE="Helvetica, Sans-Serif" SIZE=2><br>
+
+<br>
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070><B>paul's opengl page <FONT COLOR=#305080>paul's opengl page</FONT> paul's opengl page <FONT COLOR=#305080>paul's opengl page</FONT> </B></FONT></NOBR></TABLE>
+
+
+
+<P><b><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><a name="Borland"></a>borland
+C</font></font><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">,&nbsp;
+</font></b><FONT FACE="Helvetica, Sans-Serif" SIZE=2><font size="2" face="Helvetica, Sans-Serif">Borland C++ has been floating around for free on magazine
+
+coverdiscs
+
+for a while now. It's the compiler I use, so all of the source here is geared
+
+toward it.&nbsp; If you don't know how to compile OpenGL programs two tutorials are available:</font>
+
+
+
+<UL>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<LI><a HREF="compide.htm" tppabs="http://home.clara.net/paulyg/compide.htm"><b>Borland C++ with IDE</b></a> Borland gave away
+
+  version 4.5 of their compiler and development environment last year.&nbsp; The
+
+  magazine &quot;PCPro&quot; had it on their May coverdisc in the UK
+
+
+
+<LI><a HREF="compfree.htm" tppabs="http://home.clara.net/paulyg/compfree.htm"><b>Borland C++ 'free command line</b></a><b>'</b> The latest version of
+
+  the BCC32 compiler is downloadable from Borland's website at no cost.&nbsp;
+
+  BCC32 forms the 'core' of all their C++ products.&nbsp; As there is no
+
+  development environment (no text editor, no nothing) compiling is a little
+
+  more involved - but hey, it's free!&nbsp;</font>
+
+</UL>
+
+
+
+<b>
+
+
+
+<font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"> glut</font></font><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">...&nbsp;
+</font></b><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT FACE="Helvetica, Sans-Serif" SIZE=2>Without glut to open
+
+windows for us we'd have to use Win32 code.&nbsp; There are many <i>many</i>
+
+ Win32 tutorials on the web if you're interested in that sort of
+
+thing.&nbsp; But let's face it, if you're trying to get your head around OpenGL you
+
+don't want Win32 getting in the way.<br>
+
+<br>
+
+The glut32.lib supplied in precompiled form from SGI only has import libraries
+
+for Microsoft compilers. These don't work with Borland, so we have to use a
+
+utility to make our own glut32.lib.<br>
+
+<br>
+
+You can download version 3.6 of the .dll and Borland .lib <a href="download/glut.zip" tppabs="http://home.clara.net/paulyg/download/glut.zip"><b>[locally]</b></a>.&nbsp;
+
+Put the glut32.h file in your compiler's &quot;/include/gl&quot; directory. Put
+
+the glut32.lib in a place you can easily remember. I put mine in &quot;/libs&quot;
+
+directory.</font>
+
+<p>Additionally, its useful to have a late version of the gl.h file.&nbsp;
+
+Then you can be sure of having all the newest OpenGL extension function pointers
+
+and tokens.&nbsp; Download that <b><a href="javascript:if(confirm('http://home.clara.net/paulyg/download/gl.h  \n\nThis file was not retrieved by Teleport Pro, because it did not meet the project\'s file type specifications.  \n\nDo you want to open it from the server?'))window.location='http://home.clara.net/paulyg/download/gl.h'" tppabs="http://home.clara.net/paulyg/download/gl.h">[locally]</a></b>
+
+too.
+
+</p>
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#305080><B>paul's opengl page <FONT COLOR=#204070>paul's opengl page</FONT> paul's opengl page <FONT COLOR=#204070>paul's opengl page</FONT> </B></FONT></NOBR></TABLE>
+
+
+
+<P><B><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif"><a name="Source"></a>source</font></B><B><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">&nbsp;
+
+</font></B><FONT FACE="Helvetica, Sans-Serif" SIZE=2>Clicking on a program title
+
+takes you to the description and screenshot for that program.&nbsp; The abridged
+
+source will be present - and if we introduce a new opengl function, I'll make it
+
+a hyperlink to the relavant opengl manual page.
+
+
+
+<UL>
+
+<LI><a HREF="prog1.htm" tppabs="http://home.clara.net/paulyg/prog1.htm"><b>Program template</b></a>  </font><font size="-2" face="Helvetica, Sans-Serif">26
+
+Aug</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2> </font><font size="-2" face="Helvetica, Sans-Serif">99</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=-2>
+
+ <a HREF="download/program1.zip" tppabs="http://home.clara.net/paulyg/download/program1.zip">[download]</a>:</FONT>
+
+ The simplest glut program you can create; this opens a window and not much
+
+else.&nbsp; It's a useful starting point though.
+
+
+
+<LI><a HREF="prog2.htm" tppabs="http://home.clara.net/paulyg/prog2.htm"><b>GLU Primitives and Lighting</b></a> </font><font size="-2" face="Helvetica, Sans-Serif">31
+
+Aug</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2> </font><font size="-2" face="Helvetica, Sans-Serif">99</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=-2> 
+
+<a HREF="download/program2.zip" tppabs="http://home.clara.net/paulyg/download/program2.zip">[download]</a>:</FONT>
+
+ A solid glu sphere is drawn and we make the calls necessary to setup OpenGL
+lighting.
+
+
+
+<LI><a HREF="prog3.htm" tppabs="http://home.clara.net/paulyg/prog3.htm"><b>Simple texture mapping</b></a> </font><font size="-2" face="Helvetica, Sans-Serif">13</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font><font size="-2" face="Helvetica, Sans-Serif">Sep </font><font size="-2" face="Helvetica, Sans-Serif">99</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=-2> 
+
+<a HREF="download/program3.zip" tppabs="http://home.clara.net/paulyg/download/program3.zip">[download]</a>:</FONT>
+
+ We write a simple function to load a binary image from disc and wrap it around
+
+our glu sphere.&nbsp; Our grey ball becomes the planet Earth.
+
+
+
+<LI><a HREF="prog4.htm" tppabs="http://home.clara.net/paulyg/prog4.htm"><b>Texture Objects</b></a>  </font><font size="-2" face="Helvetica, Sans-Serif">25</font><FONT SIZE=-2><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font></FONT>
+
+<font size="-2" face="Helvetica, Sans-Serif">Oct</font><FONT SIZE=-2><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font></FONT><font size="-2" face="Helvetica, Sans-Serif">99</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=-2> 
+
+ <a HREF="download/program4.zip" tppabs="http://home.clara.net/paulyg/download/program4.zip">[download]</a>:</FONT>
+
+ The </font></font><FONT face="Courier New" SIZE=2>glBindTexture </font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+function is introduced to load and manage more than one texture at a time.&nbsp;
+
+The Earth gets some cloud cover
+
+
+
+<LI><a HREF="prog5.htm" tppabs="http://home.clara.net/paulyg/prog5.htm"><b>Texture Palettes</b></a>  <font size="-2" face="Helvetica, Sans-Serif">1</font></font><font size="-2" face="Helvetica, Sans-Serif">6</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font><font size="-2" face="Helvetica, Sans-Serif">Mar</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font><font size="-2" face="Helvetica, Sans-Serif">00</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=-2>
+
+<a HREF="download/program5.zip" tppabs="http://home.clara.net/paulyg/download/program5.zip">[download]</a>:</FONT>
+
+ The texture loader function is replaced with a library that loads .tga
+
+files.&nbsp; OpenGL extensions are explored when we use them to load 8-bit
+
+paletted .tga files.
+
+
+
+<LI><a HREF="prog6.htm" tppabs="http://home.clara.net/paulyg/prog6.htm"><b>Vertex Arrays</b></a>  <font size="-2" face="Helvetica, Sans-Serif">30</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font><font size="-2" face="Helvetica, Sans-Serif">Oct</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font><font size="-2" face="Helvetica, Sans-Serif">99</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=-2> 
+
+<a HREF="download/program6.zip" tppabs="http://home.clara.net/paulyg/download/program6.zip">[download]</a>:</FONT>
+
+ Vertex arrays are introduced as well as the often used vertex array 'locking'
+
+extensions.
+
+
+
+<LI><a HREF="prog7.htm" tppabs="http://home.clara.net/paulyg/prog7.htm"><b>Multitexturing</b></a> </font></font><font size="-2" face="Helvetica, Sans-Serif">16</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font><font size="-2" face="Helvetica, Sans-Serif">Mar</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font><font size="-2" face="Helvetica, Sans-Serif">00</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=-2>
+
+<a HREF="download/program7.zip" tppabs="http://home.clara.net/paulyg/download/program7.zip">[download]</a>:</FONT>
+
+ We 'fake' multi-texturing by blending two rendering passes together, just like
+
+in the old days.</font>
+
+
+
+<LI><FONT FACE="Helvetica, Sans-Serif" SIZE=2><a HREF="prog8.htm" tppabs="http://home.clara.net/paulyg/prog8.htm"><b>Alpha
+
+  Channel</b></a> </font><font size="-2" face="Helvetica, Sans-Serif">31</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+  </font><font size="-2" face="Helvetica, Sans-Serif">Mar</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font><font size="-2" face="Helvetica, Sans-Serif">00</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=-2>
+
+ <a HREF="download/program8.zip" tppabs="http://home.clara.net/paulyg/download/program8.zip">[download]</a>:</FONT>
+
+  A neat trick to render trees and other complex shapes is explored.&nbsp;
+
+  Transparency is useful!</font>
+
+
+
+<LI><font face="Helvetica, Sans-Serif" size="2"><a HREF="prog9.htm" tppabs="http://home.clara.net/paulyg/prog9.htm"><b>Selection
+
+  and glut text</b></a> </font><font size="-2" face="Helvetica, Sans-Serif">15</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+  </font><font size="-2" face="Helvetica, Sans-Serif">Jul</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+  </font><font size="-2" face="Helvetica, Sans-Serif">00</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=-2>
+
+ <a HREF="download/program9.zip" tppabs="http://home.clara.net/paulyg/download/program9.zip">[download]</a>:</FONT>
+
+  Opengl's selection mode is explained as well as getting fonts onto the screen
+
+  with glut.</font>
+
+
+
+<LI><font face="Helvetica, Sans-Serif" size="2"><a HREF="prog10.htm" tppabs="http://home.clara.net/paulyg/prog10.htm"><b>Hardware
+  Multi-Texturing and Vertex Arrays</b></a> </font><font size="-2" face="Helvetica, Sans-Serif">31</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+  </font><font size="-2" face="Helvetica, Sans-Serif">Oct</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+  </font><font size="-2" face="Helvetica, Sans-Serif">00</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=-2>
+
+ <a HREF="download/program10.zip" tppabs="http://home.clara.net/paulyg/download/program10.zip">[download]</a>:</FONT>
+
+  Could this be?&nbsp; Finally I get around to writing another tutorial!&nbsp;
+  From the message boards it seems as though a lot of people find
+  multi-texturing with vertex arrays a black art.&nbsp; This tells you how to
+  set everything up.</font>
+
+
+
+<LI>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<b><a href="prog11.htm" tppabs="http://home.clara.net/paulyg/prog11.htm">GLU Tessellator</a></b> </font></font>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=-2>
+
+
+
+11</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+</font>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=-2>
+
+
+
+Aug</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+
+
+
+
+<font size="-2" face="Helvetica, Sans-Serif">01</font><FONT SIZE=-2>
+<a href="download/program11.zip" tppabs="http://home.clara.net/paulyg/download/program11.zip">[download]</a>:</FONT> Setting up the GLU 
+tessellator isn't as self explanatory as it could be, so this page tells you 
+how.&nbsp;
+
+</UL>
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<P>&nbsp;<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070><B>paul's opengl page <FONT COLOR=#305080>paul's opengl page</FONT> paul's opengl page <FONT COLOR=#305080>paul's opengl page</FONT> </B></FONT></NOBR></TABLE>
+
+
+
+</font>
+
+<p><b><font size="+1" color="#E0E0E0" face="Helvetica, Sans-Serif">other
+
+projects..&nbsp; </font></b><FONT FACE="Helvetica, Sans-Serif" SIZE=2>Okay, so I
+lied!&nbsp; Like everyone else, I've got
+
+plenty of other stuff on the go at the moment, most is unfinished and not worth
+
+bothering about yet.&nbsp; As well as the solar system below, I'm working on
+
+'proper' object simulation using multithreaded scene graphs, a quaternion class
+
+with a <i>useful</i> set of features and an object loader. </font></p>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<p align="center"><img border="0" src="graphics/solar.gif" tppabs="http://home.clara.net/paulyg/graphics/solar.gif" width="567" height="194"></p>
+
+
+
+<UL>
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+
+
+<LI><a HREF="download/planets.zip" tppabs="http://home.clara.net/paulyg/download/planets.zip"><b>[Solar system]</b></a> </font><font size="-2" face="Helvetica, Sans-Serif">On
+
+going</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><FONT SIZE=-2>:</FONT>
+
+ I used to go to UMIST in Manchester -- for our Computer Graphics module we had
+
+to write a simple solar system simulation. It didn't have to be accurate, it
+
+just had to work.<br>
+
+<br>
+
+Since then my solar system has become something of a test bed.&nbsp; The latest
+
+incarnation </font></font><font face="Helvetica, Sans-Serif" size="1">[</font><font size="-2" face="Helvetica, Sans-Serif">29</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2><font size="-2" face="Helvetica, Sans-Serif">
+
+</font></font><font size="-2" face="Helvetica, Sans-Serif">Oct</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<font size="-2" face="Helvetica, Sans-Serif">99]</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+ includes proper camera motion / control through Euler angles.&nbsp; It simulates the positions of all the entities using
+
+better maths - this is based on the computer system clock and not frame rate.
+
+
+
+</font></font>
+
+</UL>
+
+
+
+<FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+</font><FONT FACE="Helvetica, Sans-Serif" SIZE=2>
+
+<ul>
+
+  <li><a HREF="objects.htm" tppabs="http://home.clara.net/paulyg/objects.htm"><b>[loading objects]</b></a> from a modeler is
+
+    useful, as well as <a HREF="uv.htm" tppabs="http://home.clara.net/paulyg/uv.htm"><b>[generating texture coordinates]</b></a>
+
+    from the loaded data.&nbsp; Take a look at the pages to see how.<br>
+
+    <br>
+
+ </li>
+
+  <li>Scene management and simulation is the next step.&nbsp; In other words,
+
+    we'll be looking at ways of storing and manipulating data for all your
+
+    objects...&nbsp;  </li>
+
+</ul>
+
+
+
+<p align="center">
+
+&nbsp;<IMG SRC="../cgi-bin/count.cgi-df=paulyg.dat&dd=B" tppabs="http://home.clara.net/cgi-bin/count.cgi?df=paulyg.dat&dd=B"> visits since March
+
+2000<br>
+
+<br>
+
+
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0><TR ALIGN=CENTER><TD BGCOLOR=#284878><NOBR><FONT FACE="Helvetica, Sans-Serif" SIZE=+1 COLOR=#204070><B>paul's opengl page <FONT COLOR=#305080>paul's opengl page</FONT> paul's opengl page <FONT COLOR=#305080>paul's opengl page</FONT> </B></FONT></NOBR></TABLE>
+
+
+
+<P><font size="1"><i><FONT FACE="Helvetica, Sans-Serif">Website </font></i><i><font face="Helvetica, Sans-Serif">and
+
+content, Paul Groves</font></i></font>
+</BODY>

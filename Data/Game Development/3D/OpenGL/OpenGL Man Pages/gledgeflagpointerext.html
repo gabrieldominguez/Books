@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gledgeflagpointerext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gledgeflagpointerext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glEdgeFlagPointerEXT(3G)       OpenGL Reference	      glEdgeFlagPointerEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glEdgeFlagPointerEXT - define an array of edge flags
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glEdgeFlagPointerEXT(	GLsizei	stride,
+				GLsizei	count,
+				const GLboolean	*pointer )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     stride   Specifies	the byte offset	between	consecutive edge flags.	 If
+	      stride is	zero the edge flags are	understood to be tightly
+	      packed in	the array.
+
+     count    Specifies	the number of edge flags, counting from	the first,
+	      that are static.
+
+     pointer  Specifies	a pointer to the first edge flag in the	array.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glEdgeFlagPointerEXT specifies the	location and data format of an array
+     of	boolean	edge flags to use when rendering using the vertex array
+     extension.	stride gives the byte stride from one edge flag	to the next
+     allowing vertexes and attributes to be packed into	a single array or
+     stored in separate	arrays.	 (Single-array storage may be more efficient
+     on	some implementations.)	count indicates	the number of array elements
+     (counting from the	first) that are	static.	Static elements	may be
+     modified by the application, but once they	are modified, the application
+     must explicitly respecify the array before	using it for any rendering.
+     When an edge flag array is	specified, stride, count and pointer are saved
+     as	client-side state, and static array elements may be cached by the
+     implementation.
+
+     The edge flag array is enabled and	disabled using glEnable	and glDisable
+     with the argument GL_EDGE_FLAG_ARRAY_EXT. If enabled, the edge flag array
+     is	used when glDrawArraysEXT or glArrayElementEXT is called.
+
+     Use glDrawArraysEXT to define a sequence of primitives (all of the	same
+     type) from	pre-specified vertex and vertex	attribute arrays.  Use
+     glArrayElementEXT to specify primitives by	indexing vertexes and vertex
+     attributes.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Non-static	array elements are not accessed	until glArrayElementEXT	or
+     glDrawArraysEXT is	executed.
+
+     By	default	the edge flag array is disabled	and it won't be	accessed when
+     glArrayElementEXT or glDrawArraysEXT is called.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glEdgeFlagPointerEXT(3G)       OpenGL Reference	      glEdgeFlagPointerEXT(3G)
+</FONT>
+
+
+     Although it is not	an error to call glEdgeFlagPointerEXT between the
+     execution of glBegin and the corresponding	execution of glEnd, the
+     results are undefined.
+
+
+     glEdgeFlagPointerEXT will typically be implemented	on the client side
+     with no protocol.
+
+
+     Since the edge flag array parameters are client side state, they are not
+     saved or restored by glPushAttrib and glPopAttrib.
+
+
+     glEdgeFlagPointerEXT commands are not entered into	display	lists.
+
+
+     glEdgeFlagPointerEXT is part of the EXT_vertex_array extension, not part
+     of	the core GL command set. If GL_EXT_vertex_array	is included in the
+     string returned by	glGetString, when called with argument GL_EXTENSIONS,
+     extension EXT_vertex_array	is supported.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if stride  or	count is negative.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glIsEnabled with argument GL_EDGE_FLAG_ARRAY_EXT
+     glGet with	argument GL_EDGE_FLAG_ARRAY_STRIDE_EXT
+     glGet with	argument GL_EDGE_FLAG_ARRAY_COUNT_EXT
+     glGetPointervEXT with argument GL_EDGE_FLAG_ARRAY_POINTER_EXT
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems,	do not enable or
+     disable GL_VERTEX_ARRAY_EXT, GL_NORMAL_ARRAY_EXT, GL_COLOR_ARRAY_EXT,
+     GL_INDEX_ARRAY_EXT, GL_TEXTURE_COORD_ARRAY_EXT, or	GL_EDGE_FLAG_ARRAY_EXT
+     between a call to glNewList and the corresponding call to glEndList.
+     Instead, enable or	disable	before the call	to glNewList.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glArrayElementEXT,	glColorPointerEXT, glDrawArraysEXT, glEnable,
+     glGetPointervEXT, glIndexPointerEXT, glNormalPointerEXT,
+     glTexCoordPointerEXT, glVertexPointerEXT
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

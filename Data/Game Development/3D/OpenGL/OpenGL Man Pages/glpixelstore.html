@@ -1,0 +1,421 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glpixelstore Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glpixelstore</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glPixelStore(3G)	       OpenGL Reference		      glPixelStore(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glPixelStoref, glPixelStorei - set	pixel storage modes
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glPixelStoref( GLenum	pname,
+			 GLfloat param )
+     void glPixelStorei( GLenum	pname,
+			 GLint param )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     pname  Specifies the symbolic name	of the parameter to be set.  Eight
+	    values affect the packing of pixel data into memory:
+	    GL_PACK_SWAP_BYTES,	GL_PACK_LSB_FIRST, GL_PACK_ROW_LENGTH,
+	    GL_PACK_SKIP_PIXELS, GL_PACK_SKIP_ROWS, GL_PACK_ALIGNMENT,
+	    GL_PACK_IMAGE_HEIGHT_EXT, GL_PACK_IMAGE_DEPTH_SGIS,
+	    GL_PACK_SKIP_IMAGES_EXT, and GL_PACK_SKIP_VOLUMES_SGIS.  Eight
+	    more affect	the unpacking of pixel data from memory:
+	    GL_UNPACK_SWAP_BYTES, GL_UNPACK_LSB_FIRST, GL_UNPACK_ROW_LENGTH,
+	    GL_UNPACK_SKIP_PIXELS, GL_UNPACK_SKIP_ROWS,	GL_UNPACK_ALIGNMENT,
+	    GL_UNPACK_IMAGE_HEIGHT_EXT,	GL_UNPACK_IMAGE_DEPTH_SGIS,
+	    GL_UNPACK_SKIP_IMAGES_EXT, and GL_UNPACK_SKIP_VOLUMES_SGIS.
+
+     param  Specifies the value	that pname is set to.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glPixelStore sets pixel storage modes that	affect the operation of
+     subsequent	glDrawPixels and glReadPixels as well as the unpacking of
+     polygon stipple patterns (see glPolygonStipple), bitmaps (see glBitmap),
+     and texture patterns (see glTexImage1D, glTexImage2D, glTexImage3DEXT,
+     and glTexImage4DSGIS).
+
+     When glDrawPixels,	glTexImage1D, glTexImage2D, glTexImage3DEXT, or
+     glTexImage4DSGIS is called, pixels	are read from memory and then written
+     to	either the framebuffer or to texture memory. Each pixel	consists of a
+     single index value, a single depth	component, or one, two,	three or four
+     color components, depending on the	pixel format. The pixels may be	packed
+     into memory in which case all the elements	of each	pixel group are	read
+     from a single unsigned byte, unsigned short, or unsigned int.  If the
+     pixels are	not packed, then the elements for each pixel group are read
+     from memory as a sequence of signed or unsigned bytes, shorts, or
+     integers, or single-precision floating-point values.  The pixel type
+     determines	the data type for the packed pixels or pixel elements and
+     whether or	not the	pixels are packed into memory. (See glDrawPixels for
+     more information.)
+
+     When glReadPixels or glGetTexImage	is called, pixels are read from	either
+     the framebuffer or	from texture memory and	then written into client
+     memory. Similiar to glDrawPixels the pixel	format determines the format
+     of	the pixel data and the pixel type indicates the	data type and whether
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPixelStore(3G)	       OpenGL Reference		      glPixelStore(3G)
+</FONT>
+
+
+     or	not the	pixels are packed into memory. (See glReadPixels for more
+     information.)
+
+     pname is a	symbolic constant indicating the parameter to be set, and
+     param is the new value.  Eight of the sixteen storage parameters affect
+     how pixel data is returned	to client memory, and are therefore
+     significant only for glReadPixels and glGetTexImage commands.  They are
+     as	follows:
+
+     GL_PACK_SWAP_BYTES
+	       If true,	byte swapping is performed as the data is written to
+	       client memory.  For pixels that aren't packed, byte ordering
+	       for multibyte color components, depth components, color
+	       indices,	or stencil indices is reversed.	 That is, if a four-
+	       byte component is made up of bytes b0, b1, b2, b3, it is	stored
+	       in memory as b3,	b2, b1,	b0 In the case of the packed pixel
+	       types, byte swapping is performed before	the elements are
+	       extracted from each pixel.
+
+     GL_PACK_LSB_FIRST
+	       If true,	bits are ordered within	a byte from least significant
+	       to most	significant; otherwise,	the first bit in each byte is
+	       the most	significant one.  This parameter is significant	for
+	       bitmap data only.
+
+     GL_PACK_ROW_LENGTH
+	       If greater than zero, GL_PACK_ROW_LENGTH	defines	the number of
+	       pixels in a row.	 If the	first pixel of a row is	placed at
+	       location	p in memory, then the location of the first pixel of
+	       the next	row is obtained	b( skipping
+					 |nl   |  s&gt;a
+				       k=| |___|  s&amp;lt;a
+					 |_| a |
+	       components or indices, where|n is the number of components or
+	       indices in a pixel, l is	the number of pixels in	a row
+	       (GL_PACK_ROW_LENGTH if it is greater than zero, the width
+	       argument	to the pixel routine otherwise), a is the value	of
+	       GL_PACK_ALIGNMENT, and s	is the size, in	bytes, of a single
+	       component (if a&amp;lt;s, then it is as	if a=s).  In the case of 1-bit
+	       values, the location of the next	row is obtained	by skipping
+						 |
+					      |__|
+					  k=8a|8a|
+					      |
+	       components or indices.
+
+	       The word	component in this description refers to	the nonindex
+	       values red, green, blue,	alpha, and depth.  Storage format
+	       GL_RGB, for example, has	three components per pixel:  first
+	       red, then green,	and finally blue.
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPixelStore(3G)	       OpenGL Reference		      glPixelStore(3G)
+</FONT>
+
+
+     GL_PACK_SKIP_PIXELS and GL_PACK_SKIP_ROWS
+	       These values are	provided as a convenience to the programmer;
+	       they provide no functionality that cannot be duplicated simply
+	       by incrementing the pointer passed to glReadPixels.  Setting
+	       GL_PACK_SKIP_PIXELS to i	is equivalent to incrementing the
+	       pointer just once by in components or indices, where n is the
+	       number of components or indices in each pixel.  Setting
+	       GL_PACK_SKIP_ROWS to j is equivalent to incrementing the
+	       pointer just once by jk components or indices, where k is the
+	       number of components or indices per row,	as computed above in
+	       the GL_PACK_ROW_LENGTH section.	Note that the adjustment to
+	       the pointer takes place just once, before the start of the
+	       pixel transfer; specifying a value of one for GL_PACK_SKIP_ROWS
+	       does not	cause every other row of the image to be skipped.
+
+     GL_PACK_ALIGNMENT
+	       Specifies the alignment requirements for	the start of each
+	       pixel row in memory.  The allowable values are 1	(byte-
+	       alignment), 2 (rows aligned to even-numbered bytes), 4 (word
+	       alignment), and 8 (rows start on	double-word boundaries).
+
+     The other six of the twelve storage parameters affect how pixel data is
+     read from client memory.  These values are	significant for	glDrawPixels,
+     glTexImage1D, glTexImage2D, glBitmap, and glPolygonStipple.  They are as
+     follows:
+
+     GL_UNPACK_SWAP_BYTES
+	  If true, byte	ordering for multibyte color components, depth
+	  components, color indices, or	stencil	indices	is reversed.  That is,
+	  if a four-byte component is made up of bytes b0, b1, b2, b3, it is
+	  taken	from memory as b3, b2, b1, b0 if GL_UNPACK_SWAP_BYTES is true.
+	  GL_UNPACK_SWAP_BYTES has no effect on	the memory order of components
+	  within a pixel, only on the order of bytes within components or
+	  indices.  For	example, the three components of a GL_RGB format pixel
+	  are always stored with red first, green second, and blue third,
+	  regardless of	the value of GL_UNPACK_SWAP_BYTES.
+
+     GL_UNPACK_LSB_FIRST
+	  If true, bits	are ordered within a byte from least significant to
+	  most significant; otherwise, the first bit in	each byte is the most
+	  significant one.  This is significant	for bitmap data	only.
+
+     GL_UNPACK_ROW_LENGTH
+	  If greater than zero,	GL_UNPACK_ROW_LENGTH defines the number	of
+	  pixels in a row.  If the first pixel of a row	is placed at location
+	  p in memory, then the	location of the	first pixel of the next	row is
+	  obtained by skipping
+				       (nl	s&gt;a
+				       | |   |	s&amp;lt;a
+				     k=|_|___|
+				       |s| a |
+				       (
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPixelStore(3G)	       OpenGL Reference		      glPixelStore(3G)
+</FONT>
+
+
+	  components or	indices, where n is the	number of components or
+	  indices in a pixel, l	is the number of pixels	in a row
+	  (GL_UNPACK_ROW_LENGTH	if it is greater than zero, the	width argument
+	  to the pixel routine otherwise), a is	the value of
+	  GL_UNPACK_ALIGNMENT, and s is	the size, in bytes, of a single
+	  component (if	a&amp;lt;s, then it is	as if a=s).  In	the case of 1-bit
+	  values, the location of the next row is obtained by skipping
+					    |  |
+					k=8a|__|
+					    |8a|
+	  components or	indices.
+
+	  The word component in	this description refers	to the nonindex	values
+	  red, green, blue, alpha, and depth.  Storage format GL_RGB, for
+	  example, has three components	per pixel:  first red, then green, and
+	  finally blue.
+
+     GL_UNPACK_SKIP_PIXELS and GL_UNPACK_SKIP_ROWS
+	  These	values are provided as a convenience to	the programmer;	they
+	  provide no functionality that	cannot be duplicated simply by
+	  incrementing the pointer passed to glDrawPixels, glTexImage1D,
+	  glTexImage2D,	glBitmap, or glPolygonStipple.	Setting
+	  GL_UNPACK_SKIP_PIXELS	to i is	equivalent to incrementing the pointer
+	  just once by in components or	indices, where n is the	number of
+	  components or	indices	in each	pixel.	Setting	GL_UNPACK_SKIP_ROWS to
+	  j is equivalent to incrementing the pointer just once	by jk
+	  components or	indices, where k is the	number of components or
+	  indices per row, as computed above in	the GL_UNPACK_ROW_LENGTH
+	  section.  As with GL_PACK_SKIP_PIXELS	and GL_PACK_SKIP_ROWS, the
+	  pointer adjustment happens only once;	setting	GL_UNPACK_SKIP_ROWS to
+	  one does not cause every other row of	pixels to be skipped.
+
+     GL_UNPACK_ALIGNMENT
+	  Specifies the	alignment requirements for the start of	each pixel row
+	  in memory.  The allowable values are 1 (byte-alignment), 2 (rows
+	  aligned to even-numbered bytes), 4 (word alignment), and 8 (rows
+	  start	on double-word boundaries).
+
+     The following table gives the type, initial value,	and range of valid
+     values for	each of	the storage parameters that can	be set with
+     glPixelStore.
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPixelStore(3G)	       OpenGL Reference		      glPixelStore(3G)
+</FONT>
+
+
+	__________________________________________________________________
+	 |______________________|_________|_______________|_______________|
+	 | GL_PACK_SWAP_BYTES	| Boolean |	false	  | true or false |
+	 |  GL_PACK_LSB_FIRST	| Boolean |	false	  | true or false |
+	 | GL_PACK_ROW_LENGTH	| integer |	  0	  |    [0,oo)	  |
+	 |  GL_PACK_SKIP_ROWS	| integer |	  0	  |    [0,oo)	  |
+	 | GL_PACK_SKIP_PIXELS	| integer |	  0	  |    [0,oo)	  |
+	 |  GL_PACK_ALIGNMENT	| integer |	  4	  | 1, 2, 4, or	8 |
+	 |______________________|_________|_______________|_______________|
+	 |GL_UNPACK_SWAP_BYTES	| Boolean |	false	  | true or false |
+	 | GL_UNPACK_LSB_FIRST	| Boolean |	false	  | true or false |
+	 |GL_UNPACK_ROW_LENGTH	| integer |	  0	  |    [0,oo)	  |
+	 | GL_UNPACK_SKIP_ROWS	| integer |	  0	  |    [0,oo)	  |
+	 |GL_UNPACK_SKIP_PIXELS	| integer |	  0	  |    [0,oo)	  |
+	 |______________________|_________|_______________|_______________|
+
+     glPixelStoref can be used to set any pixel	store parameter.  If the
+     parameter type is Boolean,	then if	param is 0.0, the parameter is false;
+     otherwise it is set to true.  If pname is a integer type parameter, param
+     is	rounded	to the nearest integer.
+
+     Likewise, glPixelStorei can also be used to set any of the	pixel store
+     parameters.  Boolean parameters are set to	false if param is 0 and	true
+     otherwise.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The pixel storage modes in	effect when glDrawPixels, glReadPixels,
+     glTexImage1D, glTexImage2D, glBitmap, or glPolygonStipple is placed in a
+     display list control the interpretation of	memory data.  The pixel
+     storage modes in effect when a display list is executed are not
+     significant.
+
+     The formulas in this man page are incorrect for 3 dimensional images.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if pname is not an accepted value.
+
+     GL_INVALID_VALUE is generated if a	negative row length, pixel skip, or
+     row skip value is specified, or if	alignment is specified as other	than
+     1,	2, 4, or 8.
+
+     GL_INVALID_OPERATION is generated if glPixelStore is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_PACK_SWAP_BYTES
+     glGet with	argument GL_PACK_LSB_FIRST
+     glGet with	argument GL_PACK_ROW_LENGTH
+     glGet with	argument GL_PACK_SKIP_ROWS
+     glGet with	argument GL_PACK_SKIP_PIXELS
+     glGet with	argument GL_PACK_ALIGNMENT
+     glGet with	argument GL_UNPACK_SWAP_BYTES
+
+
+
+									Page 5
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glPixelStore(3G)	       OpenGL Reference		      glPixelStore(3G)
+</FONT>
+
+
+     glGet with	argument GL_UNPACK_LSB_FIRST
+     glGet with	argument GL_UNPACK_ROW_LENGTH
+     glGet with	argument GL_UNPACK_SKIP_ROWS
+     glGet with	argument GL_UNPACK_SKIP_PIXELS
+     glGet with	argument GL_UNPACK_ALIGNMENT
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBitmap, glDrawPixels, glPixelMap, glPixelTransfer, glPixelZoom,
+     glPolygonStipple, glReadPixels, glTexImage1D, glTexImage2D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 6
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glstencilmask Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glstencilmask</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glStencilMask(3G)	       OpenGL Reference		     glStencilMask(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glStencilMask - control the writing of individual bits in the stencil
+     planes
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glStencilMask( GLuint	mask )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     mask  Specifies a bit mask	to enable and disable writing of individual
+	   bits	in the stencil planes.	Initially, the mask is all ones.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glStencilMask controls the	writing	of individual bits in the stencil
+     planes.  The least	significant n bits of mask, where n is the number of
+     bits in the stencil buffer, specify a mask.  Wherever a one appears in
+     the mask, the corresponding bit in	the stencil buffer is made writable.
+     Where a zero appears, the bit is write-protected.	Initially, all bits
+     are enabled for writing.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glStencilMask	is executed between
+     the execution of glBegin and the corresponding execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_STENCIL_WRITEMASK
+     glGet with	argument GL_STENCIL_BITS
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glColorMask, glDepthMask, glIndexMask, glStencilFunc, glStencilOp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

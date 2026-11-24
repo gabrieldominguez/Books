@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxgetcurrentdisplayext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxgetcurrentdisplayext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXGetCurrentDisplayEXT(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXGetCurrentDisplayEXT - returns the display for the current context
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     Display * glXGetCurrentDisplayEXT(	void )
+
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     If	there is no current context glXGetCurrentDisplayEXT returns NULL;
+     otherwise,	the display for	the current context is returned. The display
+     parameter specifies the X connection for which the	context	was created.
+
+     No	round trip is forced to	the server. Unlike most	X calls	that return a
+     value, glXGetCurrentDisplayEXT does not flush any pending events.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXGetCurrentDisplayEXT is	part of	the EXT_import_context extension.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateContext,XOpenDisplay
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

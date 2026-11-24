@@ -1,0 +1,1242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0061)http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp -->
+<HTML><HEAD><TITLE>The Code Project - GLUT Subwindow Template - OpenGL</TITLE><!-- START Insight XE-->
+<SCRIPT language=JavaScript> 
+var if_Site_ID = "ipro"; 
+var if_sid="1"; 
+var if_protocol=window.location.protocol; 
+var mep1="&Site="+escape("codeproject.com"); 
+</SCRIPT>
+
+<SCRIPT language=JavaScript 
+src="GLUT Subwindow Template - OpenGL_files/ipro_if.js"></SCRIPT>
+<!-- END Insight XE-->
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content=en-US name=MS.LOCALE>
+<META http-equiv=Reply-to content=mailto:webmaster@codeproject.com>
+<META 
+content="This program teaches you how to open multiple sub windows inside a window." 
+name=Description>
+<META 
+content="Free source code, OpenGL, Visual C++, MFC, Windows, Subwindow, template, GLUT GL Utility Toolkit" 
+name=keywords>
+<META 
+content="Article content copyright Ali BaderEddin, 2005, everthing else Copyright © CodeProject, 1999-2005, All Rights Reserved." 
+name=Copyright><LINK title="CodeProject Latest articles - All topics" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - MFC / C++" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - C#" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - ASP.NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4" 
+type=application/rss+xml rel=alternate><LINK 
+title="CodeProject Latest articles - .NET" 
+href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5" 
+type=application/rss+xml rel=alternate><LINK href="/favicon.ico" type=image/ico 
+rel=icon><LINK href="/favicon.ico" rel="SHORTCUT ICON"><LINK 
+href="GLUT Subwindow Template - OpenGL_files/global.css" type=text/css 
+rel=stylesheet>
+<SCRIPT language=javascript 
+src="GLUT Subwindow Template - OpenGL_files/oncopy.js"></SCRIPT>
+
+<META content="MSHTML 6.00.2800.1505" name=GENERATOR></HEAD>
+<BODY oncopy="return copyCode();" text=black vLink=purple aLink=red link=blue 
+bgColor=white leftMargin=3 topMargin=3>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE cellSpacing=1 cellPadding=0 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD vAlign=top><A href="http://www.codeproject.com/"><IMG height=72 
+            alt="The Code Project" 
+            src="GLUT Subwindow Template - OpenGL_files/logo225x72.gif" 
+            width=225 border=0></A></TD>
+          <TD align=right><SPAN id=AdBanner4>
+            <TABLE cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD><A class=AdLink 
+                  href="http://www.codeproject.com/script/admentor/ads.asp">View 
+                  our advertisers</A></TD>
+                <TD align=right><A class=AdLink 
+                  href="http://www.codeproject.com/info/mediakit">Advertise with 
+                  us</A></TD></TR>
+              <TR>
+                <TD colSpan=2>
+                  <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=402&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2Fvsnet468x60%5Fmfc%2Egif&C=False&id=402\" alt=\"Support Code Project and purchase Visual Studio .NET from $899\" border=0 width=468 height=60></a>");</SCRIPT>
+                </TD></TR></TBODY></TABLE></SPAN></TD></TR>
+        <TR>
+          <TD bgColor=#fbedbb colSpan=2>
+            <TABLE cellPadding=3 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD width="100%"><FONT style="FONT-SIZE: 8pt"><A 
+                  href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+                  href="http://www.codeproject.com/?cat=2">MFC / C++</A> 
+                  &gt;&gt; <A 
+                  href="http://www.codeproject.com/opengl/">OpenGL</A> &gt;&gt; 
+                  <A 
+                  href="http://www.codeproject.com/opengl/#General">General</A></FONT><BR><BR><B><FONT 
+                  style="FONT-SIZE: 16pt" size=4>GLUT Subwindow 
+                  Template</FONT></B><BR><B>By <A 
+                  href="http://www.codeproject.com/script/profile/whos_who.asp?id=2040670">Ali 
+                  BaderEddin</A> </B><BR><BR><FONT style="FONT-SIZE: 9pt">This 
+                  program teaches you how to open multiple sub windows inside a 
+                  window.&nbsp;</FONT> </TD>
+                <TD vAlign=top align=right>
+                  <TABLE cellSpacing=0 cellPadding=1 width=200 border=0>
+                    <TBODY>
+                    <TR vAlign=top>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText>C++ (VC5, VC6)<BR>Windows (NT4, 
+                        Win2K, WinXP, Win95, Win98)<BR>Win32, VS (VS5, VS6), 
+                        OpenGL<BR>Dev</TD></TR>
+                    <TR>
+                      <TD>&nbsp;</TD>
+                      <TD class=SmallText noWrap>Posted 21 Jul 2005 1:34</TD></TR>
+                    <TR vAlign=top>
+                      <TD><IMG height=16 
+                        src="GLUT Subwindow Template - OpenGL_files/hlp.gif" 
+                        width=16></TD>
+                      <TD class=SmallText noWrap><A 
+                        href="http://www.codeproject.com/script/Articles/list_articles.asp?userid=2040670">Articles 
+                        by this author</A></TD></TR>
+                    <TR vAlign=top>
+                      <TD></TD>
+                      <TD class=SmallText noWrap><B>1,056</B> 
+                    views</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD colSpan=2>
+            <TABLE id=tblSiteToolbar cellSpacing=0 cellPadding=1 width="100%" 
+            border=0>
+              <TBODY>
+              <TR>
+                <FORM name=Search action=/info/search.asp method=post>
+                <TD vAlign=top align=left width="100%">
+                  <TABLE cellSpacing=0 cellPadding=1 border=0>
+                    <TBODY>
+                    <TR vAlign=center>
+                      <TD class=smallText><B><FONT 
+                        color=white>Search:</FONT></B></TD>
+                      <TD class=navbar noWrap><INPUT class=smallText 
+                        maxLength=255 size=18 name=target></TD>
+                      <TD vAlign=top><SELECT class=smallText name=st> 
+                          <OPTION value=kw selected>Articles</OPTION> <OPTION 
+                          value=au>Authors</OPTION></SELECT></TD>
+                      <TD><INPUT class=formButton type=submit value=Go></TD></TR></TBODY></TABLE></TD></FORM>
+                <TD>
+                  <DIV id=MenuPos 
+                  style="WIDTH: 380px; POSITION: relative; HEIGHT: 20px">
+                  <TABLE height=20 cellSpacing=0 cellPadding=2 width=375>
+                    <TBODY>
+                    <TR>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/info/faq.asp">Help!</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/info/latest.asp">Articles</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/script/comments/forums.asp">Message 
+                        Boards</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/store/">StoreFront</A></TD>
+                      <TD><A class=NavMenuItem 
+                        href="http://www.codeproject.com/lounge.asp">Lounge</A></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE>
+            <SCRIPT type=text/javascript>function Go(){return}</SCRIPT>
+
+            <SCRIPT src="GLUT Subwindow Template - OpenGL_files/cpmenu_var.js" 
+            type=text/javascript></SCRIPT>
+
+            <SCRIPT src="GLUT Subwindow Template - OpenGL_files/menu10_com.js" 
+            type=text/javascript></SCRIPT>
+          </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=1 border=0>
+  <TBODY>
+  <TR vAlign=top>
+    <TD vAlign=top bgColor=#fbedbb rowSpan=2>
+      <TABLE cellSpacing=0 cellPadding=0 border=0>
+        <SCRIPT language=javascript>
+function ErrorHandle() {}
+window.onerror = ErrorHandle;
+
+function OnNLSubmit(option)
+{
+	if (option=="up")
+		document.subForm.action = "/script/profile/modify.asp?ct=%2Fopengl%2FGLUT%5FSubwindow%5FTemplate%2Easp";
+	else if (option=="in")
+		document.subForm.action = "/script/profile/process_logon.asp?ct=%2Fopengl%2FGLUT%5FSubwindow%5FTemplate%2Easp";
+	document.subForm.submit();
+	return true;
+}
+</SCRIPT>
+
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=3 cellPadding=0>
+              <TBODY>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=InfoBarHeader>Toolbox</TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="GLUT Subwindow Template - OpenGL_files/space.gif" 
+                width=1></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/sitebuild_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/submit/ReportProblem.asp?GUID=GLUT%5FSubwindow%5FTemplate%2Fopengl7%2F21%2F2005">Broken 
+                  Article?</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>VS.NET 2003 from 
+                  $899</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/support_icon.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/store/"><B>Ultimate Toolbox 
+                  $499</B></A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/print.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?print=true" 
+                  target=_print>Print version</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/link.gif" 
+                width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/add_bookmark.asp?t=0&amp;ct=%2Fopengl%2FGLUT%5FSubwindow%5FTemplate%2Easp&amp;guid=GLUT%5FSubwindow%5FTemplate%2Fopengl7%2F21%2F2005">Bookmark 
+                  this</A></TD></TR></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/mail.gif" 
+                width=16></TD>
+                <TD class=SmallText><A 
+                  href="http://www.codeproject.com/script/recommend/form.asp?guid=GLUT%5FSubwindow%5FTemplate%2Fopengl7%2F21%2F2005">Send 
+                  to a friend</A></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD></TD></TR>
+              <TR vAlign=top>
+                <TD></TD>
+                <TD class=InfoBarHeader>My Profile</TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="GLUT Subwindow Template - OpenGL_files/space.gif" 
+                width=1></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/profile_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/modify.asp?ct=/opengl/GLUT_Subwindow_Template.asp">My 
+                  Settings</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/submit_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/articles/list_articles.asp?userid=512155">My 
+                  Articles</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/bookmarks.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/bookmark_list.asp">My 
+                  Bookmarks</A></TD></TR>
+              <TR vAlign=top>
+                <TD><IMG height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/logoff_small.gif" 
+                  width=16></TD>
+                <TD class=smallText><A 
+                  href="http://www.codeproject.com/script/profile/logoff.asp?ct=/opengl/GLUT_Subwindow_Template.asp">Sign 
+                  out</A></TD></TR>
+              <TR>
+                <TD bgColor=black colSpan=2><IMG height=1 
+                  src="GLUT Subwindow Template - OpenGL_files/space.gif" 
+                width=1></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD>&nbsp;</TD></TR>
+        <TR>
+          <TD>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/admentor/include/ServeAdHTML.aspx?C=False&id=1198\" border=0 frameborder=0 scrolling=no width=120 height=600></IFRAME>");</SCRIPT>
+            <BR></CENTER><BR></TD></TR></TBODY></TABLE></TD>
+    <TD width=5 rowSpan=2><IMG height=1 
+      src="GLUT Subwindow Template - OpenGL_files/space.gif" width=5> </TD>
+    <TD align=right width="100%" bgColor=white>
+      <TABLE width="100%">
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText vAlign=top noWrap></TD>
+          <TD noWrap align=right><A name=__top></A>
+            <TABLE>
+              <TBODY>
+              <TR>
+                <TD class=smallText align=right>6 members have rated this 
+                  article. Result:</TD>
+                <TD>
+                  <TABLE cellSpacing=0 cellPadding=0 border=2>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=5 
+                        src="GLUT Subwindow Template - OpenGL_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="GLUT Subwindow Template - OpenGL_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="GLUT Subwindow Template - OpenGL_files/red.gif" 
+                        width=20 border=0></TD>
+                      <TD><IMG height=5 
+                        src="GLUT Subwindow Template - OpenGL_files/red.gif" 
+                        width=7 border=0><IMG height=5 
+                        src="GLUT Subwindow Template - OpenGL_files/white.gif" 
+                        width=13 border=0></TD>
+                      <TD><IMG height=5 
+                        src="GLUT Subwindow Template - OpenGL_files/white.gif" 
+                        width=20 border=0></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD class=smallText align=right colSpan=2><A 
+                  title="Calculated as rating x Log10(# votes)" 
+                  href="http://www.codeproject.com/script/articles/top_articles.asp?st=2">Popularity: 
+                  2.59</A>. Rating: <B>3.33</B> out of 
+        5.</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD vAlign=top width="100%">
+      <DIV id=contentdiv><!-- Article Starts -->
+      <UL class=download>
+        <LI><A 
+        href="http://www.codeproject.com/opengl/GLUT_SUBWINDOW_TEMPLATE/Program_2_exe.zip">Download 
+        demo project - 67.7 Kb</A> 
+        <LI><A 
+        href="http://www.codeproject.com/opengl/GLUT_SUBWINDOW_TEMPLATE/Program_2_src.zip">Download 
+        source - 4.92 Kb</A> </LI></UL>
+      <P align=center><B>Example 1</B></P>
+      <P align=center><IMG 
+      src="GLUT Subwindow Template - OpenGL_files/view_2.jpg"></P>
+      <P align=center><B>Example 2</B></P>
+      <P align=center><IMG 
+      src="GLUT Subwindow Template - OpenGL_files/view_22.jpg"></P>
+      <H2>Introduction</H2>
+      <P>This program teaches you how to open multiple sub windows inside a 
+      window. You can also use this program as a template in case you want to 
+      use sub windows in your OpenGL application.</P>
+      <P>There will be two examples on sub windows in order to make you more 
+      familiar with them...</P>
+      <H2>Using the code</H2>
+      <H4>Example 1</H4><PRE><SPAN class=cpp-literal>1</SPAN>     <SPAN class=cpp-comment>//*************************************************************************</SPAN>
+<SPAN class=cpp-literal>2</SPAN>     <SPAN class=cpp-comment>//</SPAN>
+<SPAN class=cpp-literal>3</SPAN>     <SPAN class=cpp-comment>//  File Name: SubWindow Template</SPAN>
+<SPAN class=cpp-literal>4</SPAN>     <SPAN class=cpp-comment>//  Author   : Ali Baderedine</SPAN>
+<SPAN class=cpp-literal>5</SPAN>     <SPAN class=cpp-comment>//  </SPAN>
+<SPAN class=cpp-literal>6</SPAN>     <SPAN class=cpp-comment>//  Description: SubWindow Template</SPAN>
+<SPAN class=cpp-literal>7</SPAN>     <SPAN class=cpp-comment>//  </SPAN>
+<SPAN class=cpp-literal>8</SPAN>     <SPAN class=cpp-comment>//*************************************************************************</SPAN>
+<SPAN class=cpp-literal>9</SPAN>
+<SPAN class=cpp-literal>10</SPAN>    #include &lt;gl/glut.h&gt;
+<SPAN class=cpp-literal>11</SPAN>
+<SPAN class=cpp-literal>12</SPAN>    <SPAN class=cpp-comment>// Link the lib files to the program. This is not necessary </SPAN>
+<SPAN class=cpp-literal>13</SPAN>    <SPAN class=cpp-comment>// if you have added the lib names using Project/Settings/Link</SPAN>
+<SPAN class=cpp-literal>14</SPAN>    #pragma comment (lib, <SPAN class=cpp-string>"opengl32.lib"</SPAN>)
+<SPAN class=cpp-literal>15</SPAN>    #pragma comment (lib, <SPAN class=cpp-string>"glut32.lib"</SPAN>)
+<SPAN class=cpp-literal>16</SPAN>    #pragma comment (lib, <SPAN class=cpp-string>"glu32.lib"</SPAN>)
+<SPAN class=cpp-literal>17</SPAN>
+<SPAN class=cpp-literal>18</SPAN>    <SPAN class=cpp-comment>// ***** Main Window Variables *****//</SPAN>
+<SPAN class=cpp-literal>19</SPAN>
+<SPAN class=cpp-literal>20</SPAN>    #define GAP  <SPAN class=cpp-literal>25</SPAN>             <SPAN class=cpp-comment>/* gap between subwindows */</SPAN>
+<SPAN class=cpp-literal>21</SPAN>
+<SPAN class=cpp-literal>22</SPAN>    <SPAN class=cpp-comment>//  define the window position on screen</SPAN>
+<SPAN class=cpp-literal>23</SPAN>    <SPAN class=cpp-keyword>float</SPAN> main_window_x;
+<SPAN class=cpp-literal>24</SPAN>    <SPAN class=cpp-keyword>float</SPAN> main_window_y;
+<SPAN class=cpp-literal>25</SPAN>
+<SPAN class=cpp-literal>26</SPAN>    <SPAN class=cpp-comment>//  variables representing the window size</SPAN>
+<SPAN class=cpp-literal>27</SPAN>    <SPAN class=cpp-keyword>float</SPAN> main_window_w = <SPAN class=cpp-literal>256</SPAN> + GAP * <SPAN class=cpp-literal>2</SPAN>;
+<SPAN class=cpp-literal>28</SPAN>    <SPAN class=cpp-keyword>float</SPAN> main_window_h = <SPAN class=cpp-literal>256</SPAN> + <SPAN class=cpp-literal>64</SPAN> + GAP * <SPAN class=cpp-literal>3</SPAN>;
+<SPAN class=cpp-literal>29</SPAN>
+<SPAN class=cpp-literal>30</SPAN>    <SPAN class=cpp-comment>//  variable representing the window title</SPAN>
+<SPAN class=cpp-literal>31</SPAN>    <SPAN class=cpp-keyword>char</SPAN> *window_title = <SPAN class=cpp-string>"SubWindow Template"</SPAN>;
+<SPAN class=cpp-literal>32</SPAN>
+<SPAN class=cpp-literal>33</SPAN>    <SPAN class=cpp-comment>// ***** Sub Window 1 Variables *****//</SPAN>
+<SPAN class=cpp-literal>34</SPAN>
+<SPAN class=cpp-literal>35</SPAN>    <SPAN class=cpp-comment>//  define the window position on screen</SPAN>
+<SPAN class=cpp-literal>36</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow1_x;
+<SPAN class=cpp-literal>37</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow1_y;
+<SPAN class=cpp-literal>38</SPAN>
+<SPAN class=cpp-literal>39</SPAN>    <SPAN class=cpp-comment>//  variables representing the window size</SPAN>
+<SPAN class=cpp-literal>40</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow1_w = <SPAN class=cpp-literal>256</SPAN>;
+<SPAN class=cpp-literal>41</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow1_h = <SPAN class=cpp-literal>256</SPAN>;
+<SPAN class=cpp-literal>42</SPAN>
+<SPAN class=cpp-literal>43</SPAN>    <SPAN class=cpp-comment>// ***** Sub Window 2 Variables *****//</SPAN>
+<SPAN class=cpp-literal>44</SPAN>
+<SPAN class=cpp-literal>45</SPAN>    <SPAN class=cpp-comment>//  define the window position on screen</SPAN>
+<SPAN class=cpp-literal>46</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow2_x;
+<SPAN class=cpp-literal>47</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow2_y;
+<SPAN class=cpp-literal>48</SPAN>
+<SPAN class=cpp-literal>49</SPAN>    <SPAN class=cpp-comment>//  variables representing the window size</SPAN>
+<SPAN class=cpp-literal>50</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow2_w = <SPAN class=cpp-literal>256</SPAN>;
+<SPAN class=cpp-literal>51</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow2_h = <SPAN class=cpp-literal>64</SPAN>;
+<SPAN class=cpp-literal>52</SPAN>
+<SPAN class=cpp-literal>53</SPAN>    <SPAN class=cpp-comment>// ***** Main Window callback functions *****//</SPAN>
+<SPAN class=cpp-literal>54</SPAN>
+<SPAN class=cpp-literal>55</SPAN>    <SPAN class=cpp-keyword>void</SPAN> main_display (<SPAN class=cpp-keyword>void</SPAN>);
+<SPAN class=cpp-literal>56</SPAN>    <SPAN class=cpp-keyword>void</SPAN> main_reshape (<SPAN class=cpp-keyword>int</SPAN> w, <SPAN class=cpp-keyword>int</SPAN> h);
+<SPAN class=cpp-literal>57</SPAN>
+<SPAN class=cpp-literal>58</SPAN>    <SPAN class=cpp-comment>// ***** SubWindow 1 callback functions *****//</SPAN>
+<SPAN class=cpp-literal>59</SPAN>
+<SPAN class=cpp-literal>60</SPAN>    <SPAN class=cpp-keyword>void</SPAN> subwindow1_display (<SPAN class=cpp-keyword>void</SPAN>);
+<SPAN class=cpp-literal>61</SPAN>
+<SPAN class=cpp-literal>62</SPAN>    <SPAN class=cpp-comment>// ***** SubWindow 2 callback functions *****//</SPAN>
+<SPAN class=cpp-literal>63</SPAN>
+<SPAN class=cpp-literal>64</SPAN>    <SPAN class=cpp-keyword>void</SPAN> subwindow2_display (<SPAN class=cpp-keyword>void</SPAN>);
+<SPAN class=cpp-literal>65</SPAN>
+<SPAN class=cpp-literal>66</SPAN>    <SPAN class=cpp-comment>//  Redisplay all</SPAN>
+<SPAN class=cpp-literal>67</SPAN>    <SPAN class=cpp-keyword>void</SPAN> redisplay_all (<SPAN class=cpp-keyword>void</SPAN>);
+<SPAN class=cpp-literal>68</SPAN>
+<SPAN class=cpp-literal>69</SPAN>    <SPAN class=cpp-comment>//  A program with two subwindows</SPAN>
+<SPAN class=cpp-literal>70</SPAN>    <SPAN class=cpp-keyword>int</SPAN> main_window, subwindow_1, subwindow_2;
+<SPAN class=cpp-literal>71</SPAN>
+<SPAN class=cpp-literal>72</SPAN>    <SPAN class=cpp-comment>//  Tells whether to display the window full screen or not</SPAN>
+<SPAN class=cpp-literal>73</SPAN>    <SPAN class=cpp-keyword>int</SPAN> fullScreen = <SPAN class=cpp-literal>0</SPAN>;
+<SPAN class=cpp-literal>74</SPAN>
+<SPAN class=cpp-literal>75</SPAN>    <SPAN class=cpp-comment>//  This function centers your window on the screen</SPAN>
+<SPAN class=cpp-literal>76</SPAN>    <SPAN class=cpp-keyword>void</SPAN> centerOnScreen (<SPAN class=cpp-keyword>void</SPAN>);
+<SPAN class=cpp-literal>77</SPAN>
+<SPAN class=cpp-literal>78</SPAN>    <SPAN class=cpp-comment>// ***** Main Window callback functions *****//</SPAN>
+<SPAN class=cpp-literal>79</SPAN>
+<SPAN class=cpp-literal>80</SPAN>    <SPAN class=cpp-keyword>void</SPAN> main_reshape (<SPAN class=cpp-keyword>int</SPAN> width,  <SPAN class=cpp-keyword>int</SPAN> height)
+<SPAN class=cpp-literal>81</SPAN>    {
+<SPAN class=cpp-literal>82</SPAN>        <SPAN class=cpp-comment>//  Just take the case when the user tries</SPAN>
+<SPAN class=cpp-literal>83</SPAN>        <SPAN class=cpp-comment>//  to make the size of the window very small...</SPAN>
+<SPAN class=cpp-literal>84</SPAN>        <SPAN class=cpp-keyword>if</SPAN> (width &lt; GAP * <SPAN class=cpp-literal>4</SPAN> || height &lt; GAP * <SPAN class=cpp-literal>6</SPAN>)
+<SPAN class=cpp-literal>85</SPAN>        {
+<SPAN class=cpp-literal>86</SPAN>            glutSetWindow (main_window);
+<SPAN class=cpp-literal>87</SPAN>            glutReshapeWindow (main_window_w, main_window_h);
+<SPAN class=cpp-literal>88</SPAN>            <SPAN class=cpp-keyword>return</SPAN>;
+<SPAN class=cpp-literal>89</SPAN>        }
+<SPAN class=cpp-literal>90</SPAN>
+<SPAN class=cpp-literal>91</SPAN>        glViewport(<SPAN class=cpp-literal>0</SPAN>, <SPAN class=cpp-literal>0</SPAN>, width, height);
+<SPAN class=cpp-literal>92</SPAN>
+<SPAN class=cpp-literal>93</SPAN>        <SPAN class=cpp-comment>//  Change the subwindow dimensions as window dimensions change</SPAN>
+<SPAN class=cpp-literal>94</SPAN>        <SPAN class=cpp-comment>//  Note (Keep up the ratio!)</SPAN>
+<SPAN class=cpp-literal>95</SPAN>
+<SPAN class=cpp-literal>96</SPAN>        <SPAN class=cpp-comment>//  main_window_w          ---&gt; subwindow1_w</SPAN>
+<SPAN class=cpp-literal>97</SPAN>        <SPAN class=cpp-comment>//  main_window_w' (width) ---&gt; ??</SPAN>
+<SPAN class=cpp-literal>98</SPAN>        <SPAN class=cpp-comment>//  ==&gt; </SPAN>
+<SPAN class=cpp-literal>99</SPAN>        subwindow1_w = (subwindow1_w * (width-GAP*<SPAN class=cpp-literal>2.0</SPAN>))/(main_window_w-GAP*<SPAN class=cpp-literal>2.0</SPAN>);
+<SPAN class=cpp-literal>100</SPAN>       subwindow1_h = (subwindow1_h * (height-GAP*<SPAN class=cpp-literal>3.0</SPAN>))/(main_window_h-GAP*<SPAN class=cpp-literal>3.0</SPAN>);
+<SPAN class=cpp-literal>101</SPAN>
+<SPAN class=cpp-literal>102</SPAN>       glutSetWindow (subwindow_1);
+<SPAN class=cpp-literal>103</SPAN>       glutPositionWindow (GAP, GAP);
+<SPAN class=cpp-literal>104</SPAN>       glutReshapeWindow (subwindow1_w, subwindow1_h);
+<SPAN class=cpp-literal>105</SPAN>
+<SPAN class=cpp-literal>106</SPAN>       subwindow2_w = (subwindow2_w * (width-GAP*<SPAN class=cpp-literal>2.0</SPAN>))/(main_window_w-GAP*<SPAN class=cpp-literal>2.0</SPAN>);
+<SPAN class=cpp-literal>107</SPAN>       subwindow2_h = (subwindow2_h * (height-GAP*<SPAN class=cpp-literal>3.0</SPAN>))/(main_window_h-GAP*<SPAN class=cpp-literal>3.0</SPAN>);
+<SPAN class=cpp-literal>108</SPAN>
+<SPAN class=cpp-literal>109</SPAN>       glutSetWindow (subwindow_2);
+<SPAN class=cpp-literal>110</SPAN>       glutPositionWindow (GAP, GAP+subwindow1_h+GAP);
+<SPAN class=cpp-literal>111</SPAN>       glutReshapeWindow (subwindow2_w, subwindow2_h);
+<SPAN class=cpp-literal>112</SPAN>
+<SPAN class=cpp-literal>113</SPAN>       main_window_w = width;
+<SPAN class=cpp-literal>114</SPAN>       main_window_h = height;
+<SPAN class=cpp-literal>115</SPAN>   }
+<SPAN class=cpp-literal>116</SPAN>
+<SPAN class=cpp-literal>117</SPAN>   <SPAN class=cpp-keyword>void</SPAN> main_display (<SPAN class=cpp-keyword>void</SPAN>)
+<SPAN class=cpp-literal>118</SPAN>   {
+<SPAN class=cpp-literal>119</SPAN>       glClearColor(<SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>);
+<SPAN class=cpp-literal>120</SPAN>       glClear(GL_COLOR_BUFFER_BIT);
+<SPAN class=cpp-literal>121</SPAN>
+<SPAN class=cpp-literal>122</SPAN>       glutSwapBuffers();
+<SPAN class=cpp-literal>123</SPAN>   }
+<SPAN class=cpp-literal>124</SPAN>
+<SPAN class=cpp-literal>125</SPAN>   <SPAN class=cpp-comment>// ***** SubWindow 1 callback functions *****//</SPAN>
+<SPAN class=cpp-literal>126</SPAN>
+<SPAN class=cpp-literal>127</SPAN>   <SPAN class=cpp-keyword>void</SPAN> subwindow1_display (<SPAN class=cpp-keyword>void</SPAN>)
+<SPAN class=cpp-literal>128</SPAN>   {
+<SPAN class=cpp-literal>129</SPAN>       glClearColor(<SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>1.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>);
+<SPAN class=cpp-literal>130</SPAN>       glClear(GL_COLOR_BUFFER_BIT);
+<SPAN class=cpp-literal>131</SPAN>
+<SPAN class=cpp-literal>132</SPAN>       glColor3f (<SPAN class=cpp-literal>1</SPAN>, <SPAN class=cpp-literal>1</SPAN>, <SPAN class=cpp-literal>0</SPAN>);
+<SPAN class=cpp-literal>133</SPAN>
+<SPAN class=cpp-literal>134</SPAN>       glutWireTeapot (<SPAN class=cpp-literal>0.5</SPAN>);
+<SPAN class=cpp-literal>135</SPAN>
+<SPAN class=cpp-literal>136</SPAN>       glutSwapBuffers ();
+<SPAN class=cpp-literal>137</SPAN>   }
+<SPAN class=cpp-literal>138</SPAN>
+<SPAN class=cpp-literal>139</SPAN>   <SPAN class=cpp-comment>// ***** SubWindow 2 callback functions *****//</SPAN>
+<SPAN class=cpp-literal>140</SPAN>
+<SPAN class=cpp-literal>141</SPAN>   <SPAN class=cpp-keyword>void</SPAN> subwindow2_display (<SPAN class=cpp-keyword>void</SPAN>)
+<SPAN class=cpp-literal>142</SPAN>   {
+<SPAN class=cpp-literal>143</SPAN>       glClearColor(<SPAN class=cpp-literal>1.0</SPAN>, <SPAN class=cpp-literal>1.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>);
+<SPAN class=cpp-literal>144</SPAN>       glClear(GL_COLOR_BUFFER_BIT);
+<SPAN class=cpp-literal>145</SPAN>
+<SPAN class=cpp-literal>146</SPAN>       glColor3f (<SPAN class=cpp-literal>0</SPAN>, <SPAN class=cpp-literal>0</SPAN>, <SPAN class=cpp-literal>1</SPAN>);
+<SPAN class=cpp-literal>147</SPAN>
+<SPAN class=cpp-literal>148</SPAN>       glutWireTeapot (<SPAN class=cpp-literal>0.5</SPAN>);
+<SPAN class=cpp-literal>149</SPAN>
+<SPAN class=cpp-literal>150</SPAN>       glutSwapBuffers ();
+<SPAN class=cpp-literal>151</SPAN>   }
+<SPAN class=cpp-literal>152</SPAN>
+<SPAN class=cpp-literal>153</SPAN>   <SPAN class=cpp-comment>//  Redisplay All </SPAN>
+<SPAN class=cpp-literal>154</SPAN>   <SPAN class=cpp-keyword>void</SPAN> redisplay_all (<SPAN class=cpp-keyword>void</SPAN>)
+<SPAN class=cpp-literal>155</SPAN>   {
+<SPAN class=cpp-literal>156</SPAN>       glutSetWindow(subwindow_1);
+<SPAN class=cpp-literal>157</SPAN>       glutPostRedisplay();
+<SPAN class=cpp-literal>158</SPAN>       glutSetWindow(subwindow_2);
+<SPAN class=cpp-literal>159</SPAN>       glutPostRedisplay();
+<SPAN class=cpp-literal>160</SPAN>   }
+<SPAN class=cpp-literal>161</SPAN>
+<SPAN class=cpp-literal>162</SPAN>   <SPAN class=cpp-keyword>void</SPAN> centerOnScreen (<SPAN class=cpp-keyword>void</SPAN>)
+<SPAN class=cpp-literal>163</SPAN>   {
+<SPAN class=cpp-literal>164</SPAN>       <SPAN class=cpp-comment>//  Set the window position such that the window becomes centered</SPAN>
+<SPAN class=cpp-literal>165</SPAN>       main_window_x = (glutGet (GLUT_SCREEN_WIDTH) - main_window_w)/<SPAN class=cpp-literal>2</SPAN>;
+<SPAN class=cpp-literal>166</SPAN>       main_window_y = (glutGet (GLUT_SCREEN_HEIGHT) - main_window_h)/<SPAN class=cpp-literal>2</SPAN>;
+<SPAN class=cpp-literal>167</SPAN>   }
+<SPAN class=cpp-literal>168</SPAN>
+<SPAN class=cpp-literal>169</SPAN>   <SPAN class=cpp-keyword>void</SPAN> main (<SPAN class=cpp-keyword>int</SPAN> argc, <SPAN class=cpp-keyword>char</SPAN> **argv)
+<SPAN class=cpp-literal>170</SPAN>   {
+<SPAN class=cpp-literal>171</SPAN>       centerOnScreen ();
+<SPAN class=cpp-literal>172</SPAN>
+<SPAN class=cpp-literal>173</SPAN>       <SPAN class=cpp-comment>/**** Main Window *****/</SPAN>
+<SPAN class=cpp-literal>174</SPAN>       glutInit(&amp;argc, argv);
+<SPAN class=cpp-literal>175</SPAN>       glutInitWindowSize (main_window_w, main_window_h);
+<SPAN class=cpp-literal>176</SPAN>       glutInitWindowPosition (main_window_x, main_window_y);
+<SPAN class=cpp-literal>177</SPAN>       glutInitDisplayMode (GLUT_RGB | GLUT_DOUBLE);
+<SPAN class=cpp-literal>178</SPAN>       main_window = glutCreateWindow (window_title);
+<SPAN class=cpp-literal>179</SPAN>
+<SPAN class=cpp-literal>180</SPAN>       glutReshapeFunc (main_reshape);
+<SPAN class=cpp-literal>181</SPAN>       glutDisplayFunc (main_display);
+<SPAN class=cpp-literal>182</SPAN>
+<SPAN class=cpp-literal>183</SPAN>       <SPAN class=cpp-comment>// Subwindow 1 (Notice that x, y, w, h are just dummy values here</SPAN>
+<SPAN class=cpp-literal>184</SPAN>       <SPAN class=cpp-comment>// The reason is that they're gonna be reset in main_reshape</SPAN>
+<SPAN class=cpp-literal>185</SPAN>       <SPAN class=cpp-comment>// since the reshape function is called as the program starts.</SPAN>
+<SPAN class=cpp-literal>186</SPAN>       subwindow_1 = glutCreateSubWindow (main_window, <SPAN class=cpp-literal>0</SPAN>, <SPAN class=cpp-literal>0</SPAN>, <SPAN class=cpp-literal>0</SPAN>, <SPAN class=cpp-literal>0</SPAN>);
+<SPAN class=cpp-literal>187</SPAN>       glutDisplayFunc (subwindow1_display);
+<SPAN class=cpp-literal>188</SPAN>
+<SPAN class=cpp-literal>189</SPAN>       <SPAN class=cpp-comment>/**** Subwindow 2 *****/</SPAN>
+<SPAN class=cpp-literal>190</SPAN>       subwindow_2 = glutCreateSubWindow (main_window, <SPAN class=cpp-literal>0</SPAN>,<SPAN class=cpp-literal>0</SPAN> , <SPAN class=cpp-literal>0</SPAN>, <SPAN class=cpp-literal>0</SPAN>);
+<SPAN class=cpp-literal>191</SPAN>       glutDisplayFunc (subwindow2_display);
+<SPAN class=cpp-literal>192</SPAN>
+<SPAN class=cpp-literal>193</SPAN>       <SPAN class=cpp-keyword>if</SPAN> (fullScreen)
+<SPAN class=cpp-literal>194</SPAN>           glutFullScreen ();
+<SPAN class=cpp-literal>195</SPAN>
+<SPAN class=cpp-literal>196</SPAN>       glutMainLoop();
+<SPAN class=cpp-literal>197</SPAN>   }</PRE>
+      <H4>Example 2</H4><PRE><SPAN class=cpp-literal>1</SPAN>     <SPAN class=cpp-comment>//*****************************************************************</SPAN>
+<SPAN class=cpp-literal>2</SPAN>     <SPAN class=cpp-comment>//</SPAN>
+<SPAN class=cpp-literal>3</SPAN>     <SPAN class=cpp-comment>//  File Name: Subwindow Template 2</SPAN>
+<SPAN class=cpp-literal>4</SPAN>     <SPAN class=cpp-comment>//  Author   : Ali Baderedine</SPAN>
+<SPAN class=cpp-literal>5</SPAN>     <SPAN class=cpp-comment>//  </SPAN>
+<SPAN class=cpp-literal>6</SPAN>     <SPAN class=cpp-comment>//  Description: Sub Windows</SPAN>
+<SPAN class=cpp-literal>7</SPAN>     <SPAN class=cpp-comment>//  </SPAN>
+<SPAN class=cpp-literal>8</SPAN>     <SPAN class=cpp-comment>//*****************************************************************</SPAN>
+<SPAN class=cpp-literal>9</SPAN>
+<SPAN class=cpp-literal>10</SPAN>    #include &lt;gl/glut.h&gt;
+<SPAN class=cpp-literal>11</SPAN>    #include &lt;stdarg.h&gt;
+<SPAN class=cpp-literal>12</SPAN>    #include &lt;stdio.h&gt;
+<SPAN class=cpp-literal>13</SPAN>
+<SPAN class=cpp-literal>14</SPAN>    <SPAN class=cpp-comment>// Link the lib files to the program. This is not necessary </SPAN>
+<SPAN class=cpp-literal>15</SPAN>    <SPAN class=cpp-comment>// if you have added the lib names using Project/Settings/Link</SPAN>
+<SPAN class=cpp-literal>16</SPAN>    #pragma comment (lib, <SPAN class=cpp-string>"opengl32.lib"</SPAN>)
+<SPAN class=cpp-literal>17</SPAN>    #pragma comment (lib, <SPAN class=cpp-string>"glut32.lib"</SPAN>)
+<SPAN class=cpp-literal>18</SPAN>    #pragma comment (lib, <SPAN class=cpp-string>"glu32.lib"</SPAN>)
+<SPAN class=cpp-literal>19</SPAN>
+<SPAN class=cpp-literal>20</SPAN>    <SPAN class=cpp-comment>// ***** Main Window Variables *****//</SPAN>
+<SPAN class=cpp-literal>21</SPAN>
+<SPAN class=cpp-literal>22</SPAN>    #define GAP  <SPAN class=cpp-literal>25</SPAN>             <SPAN class=cpp-comment>/* gap between subwindows */</SPAN>
+<SPAN class=cpp-literal>23</SPAN>
+<SPAN class=cpp-literal>24</SPAN>    <SPAN class=cpp-comment>//  define the window position on screen</SPAN>
+<SPAN class=cpp-literal>25</SPAN>    <SPAN class=cpp-keyword>float</SPAN> main_window_x;
+<SPAN class=cpp-literal>26</SPAN>    <SPAN class=cpp-keyword>float</SPAN> main_window_y;
+<SPAN class=cpp-literal>27</SPAN>
+<SPAN class=cpp-literal>28</SPAN>    <SPAN class=cpp-comment>//  variables representing the window size</SPAN>
+<SPAN class=cpp-literal>29</SPAN>    <SPAN class=cpp-keyword>float</SPAN> main_window_w = <SPAN class=cpp-literal>200</SPAN> * <SPAN class=cpp-literal>3</SPAN> + <SPAN class=cpp-literal>4</SPAN> * GAP;
+<SPAN class=cpp-literal>30</SPAN>    <SPAN class=cpp-keyword>float</SPAN> main_window_h = <SPAN class=cpp-literal>200</SPAN> * <SPAN class=cpp-literal>2</SPAN> + <SPAN class=cpp-literal>3</SPAN> * GAP;
+<SPAN class=cpp-literal>31</SPAN>
+<SPAN class=cpp-literal>32</SPAN>    <SPAN class=cpp-comment>//  variable representing the window title</SPAN>
+<SPAN class=cpp-literal>33</SPAN>    <SPAN class=cpp-keyword>char</SPAN> *window_title = <SPAN class=cpp-string>"6 Subwindows"</SPAN>;
+<SPAN class=cpp-literal>34</SPAN>
+<SPAN class=cpp-literal>35</SPAN>    <SPAN class=cpp-comment>// ***** Subwindows Variables *****//</SPAN>
+<SPAN class=cpp-literal>36</SPAN>
+<SPAN class=cpp-literal>37</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow1_x;
+<SPAN class=cpp-literal>38</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow1_y;
+<SPAN class=cpp-literal>39</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow1_w = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>40</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow1_h = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>41</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow2_x;
+<SPAN class=cpp-literal>42</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow2_y;
+<SPAN class=cpp-literal>43</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow2_w = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>44</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow2_h = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>45</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow3_x;
+<SPAN class=cpp-literal>46</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow3_y;
+<SPAN class=cpp-literal>47</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow3_w = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>48</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow3_h = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>49</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow4_x;
+<SPAN class=cpp-literal>50</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow4_y;
+<SPAN class=cpp-literal>51</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow4_w = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>52</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow4_h = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>53</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow5_x;
+<SPAN class=cpp-literal>54</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow5_y;
+<SPAN class=cpp-literal>55</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow5_w = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>56</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow5_h = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>57</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow6_x;
+<SPAN class=cpp-literal>58</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow6_y;
+<SPAN class=cpp-literal>59</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow6_w = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>60</SPAN>    <SPAN class=cpp-keyword>float</SPAN> subwindow6_h = <SPAN class=cpp-literal>200</SPAN>;
+<SPAN class=cpp-literal>61</SPAN>
+<SPAN class=cpp-literal>62</SPAN>    <SPAN class=cpp-comment>// ***** Main Window callback functions *****//</SPAN>
+<SPAN class=cpp-literal>63</SPAN>
+<SPAN class=cpp-literal>64</SPAN>    <SPAN class=cpp-keyword>void</SPAN> main_display (<SPAN class=cpp-keyword>void</SPAN>);
+<SPAN class=cpp-literal>65</SPAN>    <SPAN class=cpp-keyword>void</SPAN> main_reshape (<SPAN class=cpp-keyword>int</SPAN> w, <SPAN class=cpp-keyword>int</SPAN> h);
+<SPAN class=cpp-literal>66</SPAN>
+<SPAN class=cpp-literal>67</SPAN>    <SPAN class=cpp-keyword>void</SPAN> clear (<SPAN class=cpp-keyword>void</SPAN>);
+<SPAN class=cpp-literal>68</SPAN>
+<SPAN class=cpp-literal>69</SPAN>    <SPAN class=cpp-comment>//  A program with two subwindows</SPAN>
+<SPAN class=cpp-literal>70</SPAN>    <SPAN class=cpp-keyword>int</SPAN> main_window, subwindow_1, subwindow_2, subwindow_3, 
+                         subwindow_4, subwindow_5, subwindow_6;
+<SPAN class=cpp-literal>71</SPAN>
+<SPAN class=cpp-literal>72</SPAN>    <SPAN class=cpp-comment>//  This function centers your window on the screen</SPAN>
+<SPAN class=cpp-literal>73</SPAN>    <SPAN class=cpp-keyword>void</SPAN> centerOnScreen (<SPAN class=cpp-keyword>void</SPAN>);
+<SPAN class=cpp-literal>74</SPAN>
+<SPAN class=cpp-literal>75</SPAN>    <SPAN class=cpp-comment>// ***** Main Window callback functions *****//</SPAN>
+<SPAN class=cpp-literal>76</SPAN>
+<SPAN class=cpp-literal>77</SPAN>    <SPAN class=cpp-keyword>void</SPAN> main_reshape (<SPAN class=cpp-keyword>int</SPAN> width,  <SPAN class=cpp-keyword>int</SPAN> height)
+<SPAN class=cpp-literal>78</SPAN>    {
+<SPAN class=cpp-literal>79</SPAN>        <SPAN class=cpp-keyword>if</SPAN> (width != main_window_w || height != main_window_h)
+<SPAN class=cpp-literal>80</SPAN>            glutReshapeWindow (main_window_w, main_window_h);
+<SPAN class=cpp-literal>81</SPAN>    }
+<SPAN class=cpp-literal>82</SPAN>
+<SPAN class=cpp-literal>83</SPAN>    <SPAN class=cpp-keyword>void</SPAN> main_display (<SPAN class=cpp-keyword>void</SPAN>)
+<SPAN class=cpp-literal>84</SPAN>    {
+<SPAN class=cpp-literal>85</SPAN>        glClearColor(<SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>, <SPAN class=cpp-literal>0.0</SPAN>);
+<SPAN class=cpp-literal>86</SPAN>        glClear(GL_COLOR_BUFFER_BIT);
+<SPAN class=cpp-literal>87</SPAN>
+<SPAN class=cpp-literal>88</SPAN>        glutSwapBuffers();
+<SPAN class=cpp-literal>89</SPAN>    }
+<SPAN class=cpp-literal>90</SPAN>
+<SPAN class=cpp-literal>91</SPAN>    <SPAN class=cpp-keyword>void</SPAN> clear (<SPAN class=cpp-keyword>void</SPAN>)
+<SPAN class=cpp-literal>92</SPAN>    {
+<SPAN class=cpp-literal>93</SPAN>        glClearColor (<SPAN class=cpp-literal>1</SPAN>, <SPAN class=cpp-literal>1</SPAN>, <SPAN class=cpp-literal>1</SPAN>, <SPAN class=cpp-literal>1</SPAN>);
+<SPAN class=cpp-literal>94</SPAN>        glClear (GL_COLOR_BUFFER_BIT);
+<SPAN class=cpp-literal>95</SPAN>
+<SPAN class=cpp-literal>96</SPAN>        glutSwapBuffers ();
+<SPAN class=cpp-literal>97</SPAN>    }
+<SPAN class=cpp-literal>98</SPAN>
+<SPAN class=cpp-literal>99</SPAN>    <SPAN class=cpp-keyword>void</SPAN> centerOnScreen (<SPAN class=cpp-keyword>void</SPAN>)
+<SPAN class=cpp-literal>100</SPAN>   {
+<SPAN class=cpp-literal>101</SPAN>       <SPAN class=cpp-comment>//  Set the window position such that the window becomes centered</SPAN>
+<SPAN class=cpp-literal>102</SPAN>       main_window_x = (glutGet (GLUT_SCREEN_WIDTH) - main_window_w)/<SPAN class=cpp-literal>2</SPAN>;
+<SPAN class=cpp-literal>103</SPAN>       main_window_y = (glutGet (GLUT_SCREEN_HEIGHT) - main_window_h)/<SPAN class=cpp-literal>2</SPAN>;
+<SPAN class=cpp-literal>104</SPAN>   }
+<SPAN class=cpp-literal>105</SPAN>
+<SPAN class=cpp-literal>106</SPAN>   <SPAN class=cpp-keyword>void</SPAN> main (<SPAN class=cpp-keyword>int</SPAN> argc, <SPAN class=cpp-keyword>char</SPAN> **argv)
+<SPAN class=cpp-literal>107</SPAN>   {
+<SPAN class=cpp-literal>108</SPAN>       centerOnScreen ();
+<SPAN class=cpp-literal>109</SPAN>
+<SPAN class=cpp-literal>110</SPAN>       <SPAN class=cpp-comment>/**** Main Window *****/</SPAN>
+<SPAN class=cpp-literal>111</SPAN>       glutInit(&amp;argc, argv);
+<SPAN class=cpp-literal>112</SPAN>       glutInitWindowSize (main_window_w, main_window_h);
+<SPAN class=cpp-literal>113</SPAN>       glutInitWindowPosition (main_window_x, main_window_y);
+<SPAN class=cpp-literal>114</SPAN>       glutInitDisplayMode (GLUT_RGB | GLUT_DOUBLE);
+<SPAN class=cpp-literal>115</SPAN>       main_window = glutCreateWindow (window_title);
+<SPAN class=cpp-literal>116</SPAN>
+<SPAN class=cpp-literal>117</SPAN>       glutReshapeFunc (main_reshape);
+<SPAN class=cpp-literal>118</SPAN>       glutDisplayFunc (main_display);
+<SPAN class=cpp-literal>119</SPAN>
+<SPAN class=cpp-literal>120</SPAN>       <SPAN class=cpp-comment>//  Set the position and dimensions of subwindows!</SPAN>
+<SPAN class=cpp-literal>121</SPAN>       subwindow_1 = glutCreateSubWindow (main_window, GAP, GAP, <SPAN class=cpp-literal>200</SPAN>, <SPAN class=cpp-literal>200</SPAN>);
+<SPAN class=cpp-literal>122</SPAN>       glutDisplayFunc (clear);
+<SPAN class=cpp-literal>123</SPAN>       subwindow_2 = glutCreateSubWindow (main_window, 
+                        <SPAN class=cpp-literal>200</SPAN> + GAP*<SPAN class=cpp-literal>2</SPAN>, GAP, <SPAN class=cpp-literal>200</SPAN>, <SPAN class=cpp-literal>200</SPAN>);
+<SPAN class=cpp-literal>124</SPAN>       glutDisplayFunc (clear);
+<SPAN class=cpp-literal>125</SPAN>       subwindow_3 = glutCreateSubWindow (main_window, 
+                        <SPAN class=cpp-literal>400</SPAN> + GAP*<SPAN class=cpp-literal>3</SPAN>, GAP, <SPAN class=cpp-literal>200</SPAN>, <SPAN class=cpp-literal>200</SPAN>);
+<SPAN class=cpp-literal>126</SPAN>       glutDisplayFunc (clear);
+<SPAN class=cpp-literal>127</SPAN>       subwindow_4 = glutCreateSubWindow (main_window, 
+                        GAP, <SPAN class=cpp-literal>200</SPAN> + GAP * <SPAN class=cpp-literal>2</SPAN>, <SPAN class=cpp-literal>200</SPAN>, <SPAN class=cpp-literal>200</SPAN>);
+<SPAN class=cpp-literal>128</SPAN>       glutDisplayFunc (clear);
+<SPAN class=cpp-literal>129</SPAN>       subwindow_5 = glutCreateSubWindow (main_window, 
+                        <SPAN class=cpp-literal>200</SPAN> + GAP*<SPAN class=cpp-literal>2</SPAN>, <SPAN class=cpp-literal>200</SPAN> + GAP * <SPAN class=cpp-literal>2</SPAN>, <SPAN class=cpp-literal>200</SPAN>, <SPAN class=cpp-literal>200</SPAN>);
+<SPAN class=cpp-literal>130</SPAN>       glutDisplayFunc (clear);
+<SPAN class=cpp-literal>131</SPAN>       subwindow_6 = glutCreateSubWindow (main_window, <SPAN class=cpp-literal>400</SPAN> + 
+                        GAP*<SPAN class=cpp-literal>3</SPAN>, <SPAN class=cpp-literal>200</SPAN> + GAP * <SPAN class=cpp-literal>2</SPAN>, <SPAN class=cpp-literal>200</SPAN>, <SPAN class=cpp-literal>200</SPAN>);
+<SPAN class=cpp-literal>132</SPAN>       glutDisplayFunc (clear);
+<SPAN class=cpp-literal>133</SPAN>
+<SPAN class=cpp-literal>134</SPAN>
+<SPAN class=cpp-literal>135</SPAN>       glutMainLoop();
+<SPAN class=cpp-literal>136</SPAN>   }</PRE><!-- Article Ends --></DIV>
+      <H2>Ali BaderEddin</H2>
+      <TABLE width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD class=smallText noWrap><BR></TD>
+          <TD class=smallText width="100%">
+            <P class=smallText>Click <A 
+            href="http://www.codeproject.com/script/profile/whos_who.asp?vt=arts&amp;id=2040670">here</A> 
+            to view Ali BaderEddin's online profile.</P></TD></TR></TBODY></TABLE><BR>
+      <TABLE cellPadding=4 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD width="100%">
+            <H2>Other popular articles:</H2>
+            <UL>
+              <LI><A href="http://www.codeproject.com/opengl/wrl_viewer.asp">A 
+              small VRML viewer using OpenGL and MFC</A>
+              <LI><A href="http://www.codeproject.com/opengl/EGA.asp">Part One: 
+              Euclidian Geometric Algebra and Quaternions</A><BR><SPAN 
+              class=smalltext>Geometric Algebra applied to OpenGL</SPAN>
+              <LI><A href="http://www.codeproject.com/opengl/oglwiz.asp">OpenGL 
+              Win32 AppWizard</A><BR><SPAN class=smalltext>This Custom AppWizard 
+              for VC++ 6.0 or VC++.NET creates an OpenGL enabled Win32 
+              application suitable for demos and simple games.</SPAN>
+              <LI><A 
+              href="http://www.codeproject.com/opengl/glexport.asp">Achieving 
+              PostScript and Wmf outputs for OpenGL</A><BR><SPAN 
+              class=smalltext>This article explains how to generate resolution 
+              independent versions of 3D meshes rendered by OpenGL/MFC programs, 
+              i.e. how to export the rendering results to vectorial formats such 
+              as encapsulated postscript (EPS) and Windows enhanced metafile 
+              (EMF) formats. The main goal consists of being able 
+            to</SPAN></LI></UL></TD>
+          <TD width=360>
+            <SCRIPT language=javascript>document.write("<IFRAME src=\"/script/admentor/include/ServeAdHTML.aspx?C=False&id=786\" border=0 frameborder=0 scrolling=no width=300 height=250></IFRAME>");</SCRIPT>
+          </TD></TR></TBODY></TABLE>
+      <FORM action=/script/rating/code/app/insert_vote.asp method=post><INPUT 
+      type=hidden value=GLUT_Subwindow_Template/opengl7/21/2005 name=vote_name> 
+      <INPUT type=hidden value=/opengl/GLUT_Subwindow_Template.asp name=goal> 
+      <TABLE cellSpacing=0 cellPadding=1 width="100%" bgColor=#ff9900 
+        border=0><TBODY>
+        <TR>
+          <TD width="100%">
+            <TABLE cellSpacing=0 cellPadding=4 width="100%" bgColor=#fbedbb 
+            border=0>
+              <TBODY>
+              <TR>
+                <TD class=smalltext vAlign=center>[<A 
+                  href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp#__top">Top</A>]</TD>
+                <TD vAlign=center noWrap align=right><I><B>Rate this Article 
+                  for us!</B></I>&nbsp;&nbsp;&nbsp;&nbsp; <I>Poor</I><INPUT 
+                  type=radio value=1 name=rate><INPUT type=radio value=2 
+                  name=rate><INPUT type=radio value=3 name=rate><INPUT 
+                  type=radio value=4 name=rate><INPUT type=radio value=5 
+                  name=rate><I>Excellent</I>&nbsp;&nbsp;<INPUT class=FormButton type=submit value=Vote> 
+                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM>
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR vAlign=top>
+          <TD vAlign=top>
+            <CENTER>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=544&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2Fdundas%5Fbluelogo%5F12060CP%2Egif&C=False&id=544\" alt=\"\" border=0 width=120 height=60></a>");</SCRIPT>
+            <BR><FONT size=1><A 
+            href="http://www.codeproject.com/info/MediaKit/">Premium 
+            Sponsor</A></FONT></CENTER><BR></TD>
+          <TD vAlign=top noWrap align=middle><SPAN id=AdBanner5>
+            <SCRIPT language=javascript>document.write("<a href=\"/script/admentor/admentorredir.asp?id=1094&way=ban\" target=_blank><img src=\"/script/admentor/include/ServeAd.aspx?File=%2Fscript%2Fadmentor%2Fimages%2FWholeTomato%5FAutoSuggest%2Egif&C=False&id=1094\" alt=\"The intellisense upgrade for Visual Studio .NET - make your IDE as smart as you.\" border=0 width=468 height=60></a>");</SCRIPT>
+            </SPAN></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><A 
+name=__comments></A>
+<SCRIPT language=JavaScript>
+function MsgVoteForm(UserID, MsgID)
+{
+	document.write("Rate this message: ");
+	for (var i=1; i<=5;i++)
+		document.write("<a href='#xx" + MsgID.toString() + "xx' title='give this message a vote of " + i.toString() + "' onclick='RateMsg(" + UserID.toString() + ", " + MsgID.toString() + ", " + i.toString() + ")'><b>" + i.toString() + "</b></a> ");
+	document.write(" (out of 5)");
+}
+
+function RateMsg(userid, msgid, score) 
+{ 
+	open("/script/comments/vote.asp?js=1&user="+userid.toString()+"&msg="+msgid.toString()+"&score="+score.toString() ,"helpful","toolbar=no,resizable=yes,scrollbars=yes,directories=no,menubar=no,width=300,height=200");
+	return false;
+}
+</SCRIPT>
+
+<SCRIPT language=JavaScript>
+var Selected = "";
+var AdTime = new Date();
+
+function SwitchMessage(elm)
+{
+	
+	var elmref;
+	if (Selected != "")
+	{
+		elmref = eval("document.getElementById('" + Selected + "_h1')");
+		if (elmref) elmref.style.display = 'none';
+		elmref = eval("document.getElementById('" + Selected + "_h0')");
+		if (elmref) elmref.bgColor = '#FEF9E7';
+	}
+	if (Selected != elm.name) 
+	{
+		Selected = elm.name;
+		elmref = eval("document.getElementById('" + Selected + "_h1')");
+		if (elmref) 
+		{
+			if (elmref.style.display=='none') elmref.style.display='';
+			else elmref.style.display = 'none';
+		}
+		elmref = eval("document.getElementById('" + Selected + "_h0')");
+		if (elmref) 
+			elmref.bgColor = '#99CCFF';
+	}
+	else
+		Selected="";
+		
+	window.location = "#xx" + Selected + "xx";
+
+	return false;
+}
+
+</SCRIPT>
+
+<SCRIPT language=javascript event=onclick for=DynMessLink>
+return SwitchMessage(this);
+</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ff9900 border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%">
+      <TABLE id=ForumTable cellSpacing=1 cellPadding=0 width="100%" 
+      bgColor=#ff9900 border=0>
+        <FORM 
+        action=/script/comments/app/do_filtermessages.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508 
+        method=post>
+        <TBODY>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=3 width="100%" bgColor=white 
+            border=0>
+              <TBODY>
+              <TR bgColor=#fbedbb>
+                <TD class=smalltext noWrap><A 
+                  href="http://www.codeproject.com/script/comments/faq.asp"><IMG 
+                  height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/info.gif" width=16 
+                  align=absMiddle border=0> <B>FAQ</B></A>&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>Noise level 
+                  <SELECT class=smalltext size=1 name=noise><OPTION 
+                    value=1>Very High</OPTION> <OPTION value=2>High</OPTION> 
+                    <OPTION value=3 selected>Medium</OPTION> <OPTION 
+                    value=4>Low</OPTION> <OPTION value=5>Very 
+                  low</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=center noWrap align=right 
+                  colSpan=2><A 
+                  href="http://www.codeproject.com/script/comments/search_comments.asp?forumid=200508"><IMG 
+                  height=15 
+                  src="GLUT Subwindow Template - OpenGL_files/search.gif" 
+                  width=16 border=0> Search comments</A> &nbsp;</TD>
+                <TD vAlign=top align=right><INPUT class=FormButton type=submit value="Set Options" name=submit></TD></TR>
+              <TR bgColor=#ff9900>
+                <TD width="100%">&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap align=right>View <SELECT 
+                  class=smalltext size=1 name=expand><OPTION value=0>Normal 
+                    (slow)</OPTION> <OPTION value=2>Preview (slow)</OPTION> 
+                    <OPTION value=5 selected>Message View</OPTION> <OPTION 
+                    value=6>Topic View</OPTION> <OPTION value=1>Thread 
+                    View</OPTION> <OPTION value=3>Expanded (Supporters 
+                    only)</OPTION></SELECT>&nbsp;&nbsp;</TD>
+                <TD class=smalltext vAlign=top noWrap>Per page <SELECT 
+                  class=smalltext size=1 name=perpage><OPTION 
+                    value=10>10</OPTION> <OPTION value=25 selected>25</OPTION> 
+                    <OPTION value=50>50</OPTION></SELECT></TD>
+                <TD colSpan=2>&nbsp;</TD></TR></TBODY></TABLE></TD></TR></FORM>
+        <TR bgColor=#fbedbb>
+          <TD><A name=xx0xx></A>
+            <TABLE cellPadding=2 width="100%" bgColor=#fbedbb border=0>
+              <TBODY>
+              <TR>
+                <TD class=messagetitle><A class=HoverLink 
+                  title="Add a new message to the discussions" 
+                  href="http://www.codeproject.com/script/comments/user_new.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508" 
+                  target=_top name=HoverNL><B><IMG height=16 
+                  src="GLUT Subwindow Template - OpenGL_files/admin_modify.gif" 
+                  width=16 align=top border=0> New thread</B></A></TD>
+                <TD class=messagetitle>Msgs 1 to 4 of 4 (Total: 4) (<A 
+                  href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?df=100&amp;forumid=200508">Refresh</A>)</TD>
+                <TD noWrap align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <SPAN class=HoverLink>Next</SPAN> <SPAN 
+                  class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+              </FONT></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=white>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+              <TBODY>
+              <TR>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=2 bgColor=#fbedbb border=0>
+                    <TBODY>
+                    <TR>
+                      <TD class=messagetitle width="100%">Subject&nbsp;</TD>
+                      <TD class=messagetitle noWrap width=140>Author&nbsp;</TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT 
+                    class=messagetitle>Date&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="GLUT Subwindow Template - OpenGL_files/t.gif" width=1 
+                  border=0></TD></TR>
+              <TR id=1169212_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1169212xx></A><IMG 
+                        src="GLUT Subwindow Template - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?df=100&amp;forumid=200508&amp;select=1169212#xx1169212xx" 
+                        name=1169212><B>Error after complition</B></A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=1233091"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="GLUT Subwindow Template - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT 
+                        class=messagetitle><B>n.srinukumar</B>&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle><B>2:44 21 Jul 
+                        '05</B>&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1169212_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG 
+                        src="GLUT Subwindow Template - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>"Cannot 
+                                open include file: 'gl/glut.h'"<BR>what to do? 
+                                <BR><BR>n.srinukumar<BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169212">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169212">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?df=100&amp;tid=1169212&amp;forumid=200508&amp;select=1169212#xx1169212xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?msg=1169212#xx1169212xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169212"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169212"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(1233091,1169212);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="GLUT Subwindow Template - OpenGL_files/t.gif" width=1 
+                  border=0></TD></TR>
+              <TR id=1169255_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1169255xx></A><IMG height=1 
+                        src="GLUT Subwindow Template - OpenGL_files/ind.gif" 
+                        width=18><IMG 
+                        src="GLUT Subwindow Template - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?df=100&amp;forumid=200508&amp;select=1169255#xx1169255xx" 
+                        name=1169255>Re: Error after complition</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=2040670"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="GLUT Subwindow Template - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Ali 
+                        BaderEddin&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>3:58 21 Jul 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1169255_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="GLUT Subwindow Template - OpenGL_files/ind.gif" 
+                        width=18><IMG 
+                        src="GLUT Subwindow Template - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT 
+                                class=messagecontent>Hi<BR><BR>You have to tell 
+                                me under what IDE your are compiling 
+                                it.<BR><BR>I will send to your mail a zip file 
+                                containing .h, .lib, and .dll files. <BR><BR>If 
+                                you are working on MS Visual Studio, then you 
+                                have to create a folder caleed "GL" and put it 
+                                in this folder: D:\Program Files\Microsoft 
+                                Visual Studio\VC98\Include. Then put in the GL 
+                                folder all the .h files.<BR><BR><BR>Then put the 
+                                .lib files in this folder: D:\Program 
+                                Files\Microsoft Visual 
+                                Studio\VC98\Lib.<BR><BR>Then put the glut32.dll 
+                                files in your windows system folder 
+                                .<BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169255">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169255">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?df=100&amp;tid=1169212&amp;forumid=200508&amp;select=1169255#xx1169255xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?msg=1169255#xx1169255xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169255"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169255"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(2040670,1169255);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="GLUT Subwindow Template - OpenGL_files/t.gif" width=1 
+                  border=0></TD></TR>
+              <TR id=1169452_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1169452xx></A><IMG height=1 
+                        src="GLUT Subwindow Template - OpenGL_files/ind.gif" 
+                        width=36><IMG 
+                        src="GLUT Subwindow Template - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?df=100&amp;forumid=200508&amp;select=1169452#xx1169452xx" 
+                        name=1169452>Re: Error after complition</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=7741"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="GLUT Subwindow Template - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>John 
+                        Simmons / outlaw programmer&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>8:07 21 Jul 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1169452_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="GLUT Subwindow Template - OpenGL_files/ind.gif" 
+                        width=36><IMG 
+                        src="GLUT Subwindow Template - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>This 
+                                could have been explained if you had actually 
+                                included an article with the source 
+                                code.<BR><BR><BR>------- <SMALL>sig 
+                                starts</SMALL><BR><BR><I>"I've heard some 
+                                drivers saying, 'We're going too fast here...'. 
+                                If you're not here to race, go the hell home - 
+                                don't come here and grumble about going too 
+                                fast. Why don't you tie a kerosene rag around 
+                                your ankles so the ants won't climb up and eat 
+                                your candy ass..."</I> - <B>Dale 
+                                Earnhardt</B><BR><BR><I>"...the staggering 
+                                layers of obscenity in your statement make it a 
+                                work of art on so many levels."</I> - <B>Jason 
+                                Jystad, 
+                                10/26/2001</B><BR><BR><BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169452">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169452">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?df=100&amp;tid=1169212&amp;forumid=200508&amp;select=1169452#xx1169452xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?msg=1169452#xx1169452xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169452"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169452"><I>Delete</I></A>]<BR>Score: 
+                                2.0 (1 vote).
+                                <SCRIPT language=Javascript>MsgVoteForm(7741,1169452);</SCRIPT>
+                                 
+                    </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=6 
+                  src="GLUT Subwindow Template - OpenGL_files/t.gif" width=1 
+                  border=0></TD></TR>
+              <TR id=1169488_h0 bgColor=#fef9e7>
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD bgColor=white><A name=xx1169488xx></A><IMG height=1 
+                        src="GLUT Subwindow Template - OpenGL_files/ind.gif" 
+                        width=54><IMG 
+                        src="GLUT Subwindow Template - OpenGL_files/news_unselected.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD class=messagetitle width="100%"><A 
+                        class=messagetitle id=DynMessLink 
+                        href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?df=100&amp;forumid=200508&amp;select=1169488#xx1169488xx" 
+                        name=1169488>Re: Error after complition</A></TD>
+                      <TD vAlign=bottom><A 
+                        href="http://www.codeproject.com/script/profile/whos_who.asp?id=2040670"><IMG 
+                        title="Click for User Profile" height=15 
+                        src="GLUT Subwindow Template - OpenGL_files/userinfo.gif" 
+                        width=14 border=0></A>&nbsp;</TD>
+                      <TD noWrap width=140><FONT class=messagetitle>Ali 
+                        BaderEddin&nbsp;</FONT></TD>
+                      <TD style="WIDTH: 9em" noWrap align=right 
+                        width=120><FONT class=messagetitle>8:43 21 Jul 
+                        '05&nbsp;</FONT></TD></TR></TBODY></TABLE></TD></TR>
+              <TR id=1169488_h1 style="DISPLAY: none">
+                <TD width="100%">
+                  <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+                    <TBODY>
+                    <TR>
+                      <TD><IMG height=1 
+                        src="GLUT Subwindow Template - OpenGL_files/ind.gif" 
+                        width=54><IMG 
+                        src="GLUT Subwindow Template - OpenGL_files/news_none.gif" 
+                        align=absMiddle>&nbsp;</TD>
+                      <TD width="100%" bgColor=#d5eaff>
+                        <TABLE cellSpacing=5 cellPadding=0 width="100%" 
+border=0>
+                          <TBODY>
+                          <TR>
+                            <TD>
+                              <TABLE cellSpacing=0 cellPadding=0 width="100%" 
+                              border=0>
+                                <TBODY>
+                                <TR>
+                                <TD colSpan=2><FONT class=messagecontent>Thanx 
+                                for your feedback... <BR>&nbsp;</FONT></TD></TR>
+                                <TR vAlign=top>
+                                <TD class=messagetitle>[<A 
+                                title="Reply to this current thread" 
+                                href="http://www.codeproject.com/script/comments/user_reply.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169488">Reply</A>][<A 
+                                title="Email a reply to the author of this message" 
+                                href="http://www.codeproject.com/script/comments/user_mail.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169488">Email</A>][<A 
+                                title="View only messages within this thread" 
+                                href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?df=100&amp;tid=1169212&amp;forumid=200508&amp;select=1169488#xx1169488xx">View 
+                                Thread</A>][<A 
+                                title="Get the URL for this message" 
+                                href="http://www.codeproject.com/opengl/GLUT_Subwindow_Template.asp?msg=1169488#xx1169488xx">Get 
+                                Link</A>]</TD>
+                                <TD class=messagetitle align=right>[<A 
+                                href="http://www.codeproject.com/script/comments/owner_modify_pw.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169488"><I>Modify</I></A>|<A 
+                                href="http://www.codeproject.com/script/comments/owner_delete_pw.asp?main=/opengl/GLUT_Subwindow_Template.asp&amp;df=100&amp;forumid=200508&amp;select=1169488"><I>Delete</I></A>]<BR>
+                                <SCRIPT language=Javascript>MsgVoteForm(2040670,1169488);</SCRIPT>
+                                </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR>
+              <TR>
+                <TD><IMG height=5 
+                  src="GLUT Subwindow Template - OpenGL_files/t.gif" width=1 
+                  border=0></TD></TR></TBODY></TABLE></TD></TR>
+        <TR bgColor=#fbedbb>
+          <TD>
+            <TABLE cellPadding=2 width="100%">
+              <TBODY>
+              <TR>
+                <TD class=messagetitle>Last Visit: 17:49 Friday 22nd July, 
+                2005</TD>
+                <TD noWrap align=right><FONT class=messagetitle><SPAN 
+                  class=HoverLink>First</SPAN> <SPAN class=HoverLink>Prev</SPAN> 
+                  <SPAN class=HoverLink>Next</SPAN> <SPAN 
+                  class=HoverLink>&nbsp;&nbsp;&nbsp;&nbsp;</SPAN> 
+              </FONT></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><BR>
+<TABLE cellSpacing=5 width="100%">
+  <TBODY>
+  <TR vAlign=top>
+    <TD><FONT style="FONT-SIZE: 7pt" size=1><A 
+      href="http://www.codeproject.com/?cat=1">All Topics</A>, <A 
+      href="http://www.codeproject.com/?cat=2">MFC / C++</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/opengl/">OpenGL</A> &gt;&gt; <A 
+      href="http://www.codeproject.com/opengl/#General">General</A> <BR>Updated: 
+      21 Jul 2005 1:34 </FONT></TD>
+    <TD align=right><FONT style="FONT-SIZE: 7pt" size=1>Article content 
+      copyright Ali BaderEddin, 2005<BR>everything else Copyright © <A 
+      href="mailto:webmaster@codeproject.com">CodeProject</A>, 1999-2005</A>. 
+      <BR><A href="http://www.codeproject.com/info/MediaKit">Advertise on The 
+      Code Project</A> | <A 
+      href="http://www.codeproject.com/info/privacy.asp">Privacy</A> 
+  </FONT></TD></TR></TBODY></TABLE><BR>
+<CENTER>
+<TABLE cellSpacing=0 cellPadding=0 width="95%" border=0>
+  <TBODY>
+  <TR>
+    <TD bgColor=#ff9900 height=1><IMG height=1 
+      src="GLUT Subwindow Template - OpenGL_files/space.gif"></TD></TR>
+  <TR>
+    <TD align=middle><FONT size=1><A 
+      href="http://www.theultimatetoolbox.com/">The Ultimate Toolbox</A> • <A 
+      href="http://www.codeproject.com/redir.asp?id=235">MSDN Communities</A> | 
+      <A href="http://www.aspalliance.com/">ASP Alliance</A> • <A 
+      href="http://www.developerfusion.co.uk/">Developer Fusion</A> • <A 
+      href="http://www.developersdex.com/">Developersdex</A> • <A 
+      href="http://www.devguru.com/">DevGuru</A> • <A 
+      href="http://www.programmersheaven.com/">Programmers Heaven</A> • <A 
+      href="http://www.planet-source-code.com/">Planet Source Code</A> • <A 
+      href="http://www.tek-tips.com/">Tek-Tips Forums</A> • 
+</FONT></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>

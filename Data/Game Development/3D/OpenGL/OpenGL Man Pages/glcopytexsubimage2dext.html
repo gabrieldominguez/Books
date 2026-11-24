@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glcopytexsubimage2dext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glcopytexsubimage2dext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glCopyTexSubImage2DEXT(3G)     OpenGL Reference	    glCopyTexSubImage2DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glCopyTexSubImage2DEXT - copy pixels into a 2D texture subimage
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glCopyTexSubImage2DEXT( GLenum target,
+				  GLint	level,
+				  GLint	xoffset,
+				  GLint	yoffset,
+				  GLint	x,
+				  GLint	y,
+				  GLsizei width,
+				  GLsizei height )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target   The target texture.  Must	be GL_TEXTURE_2D or
+	      GL_DETAIL_TEXTURE_2D_SGIS.
+
+     level    The level-of-detail number.  Level 0 is the base image level.
+	      Level n is the nth mipmap	reduction image.
+
+     xoffset  A	texel offset in	the x direction	within the texture array.
+
+     yoffset  A	texel offset in	the y direction	within the texture array.
+
+     x	      The x coordinate of the lower-left corner	of the pixel rectangle
+	      to be transferred	to the texture array.
+
+     y	      The y coordinate of the lower-left corner	of the pixel rectangle
+	      to be transferred	to the texture array.
+
+     width    The width	of the texture subimage.
+
+     height   The height of the	texture	subimage.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glCopyTexSubImage2DEXT replaces a rectangular portion of a	two-
+     dimensional texture image with pixels from	the current GL_READ_BUFFER
+     (rather than from main memory, as is the case for glTexSubImage2DEXT).
+
+     The screen-aligned	pixel rectangle	with lower-left	corner at (x, y)
+     having width width	and height height replaces the portion of the texture
+     array with	x indices xoffset through xoffset+width-1, inclusive, and y
+     indices yoffset through yoffset+height-1, inclusive, at the mipmap	level
+     specified by level.  (But see the paragraph about GL_INTERLACE_SGIX
+     below).
+
+     The pixels	in the rectangle are processed exactly as if glCopyPixels had
+     been called, but the process stops	just before final conversion.  At this
+     point all pixel component values are clamped to the range [0, 1] and then
+     converted to the texture's	internal format	for storage in the texel
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glCopyTexSubImage2DEXT(3G)     OpenGL Reference	    glCopyTexSubImage2DEXT(3G)
+</FONT>
+
+
+     array.
+
+     The destination rectangle in the texture array may	not include any	texels
+     outside the texture array as it was originally specified.	It is not an
+     error to specify a	subtexture with	zero width or height, but such a
+     specification has no effect.
+
+     If	any of the pixels within the specified rectangle of the	current
+     GL_READ_BUFFER are	outside	the read window	associated with	the current
+     rendering context,	then the values	obtained for those pixels are
+     undefined.
+
+     When GL_INTERLACE_SGIX is enabled,	successive rows	of source pixels are
+     written to	every other row	in the texture subimage, rather	than to	every
+     successive	row.  That is, row j or	the source image is written to row
+     yoffset+2j	of the destination texture, while rows
+     (yoffset+1,yoffset+3,...) are not modified.  A complete video frame may
+     be	assembled in texture memory by invoking	glCopyTexSubImage2DEXT on two
+     consecutive video fields, with yoffset values that	differ by one.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glCopyTexSubImage2DEXT is part of the EXT_copy_texture extension, and
+     GL_INTERLACE_SGIX is part of the SGIX_interlace extension.	 See glIntro
+     for more information about	using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated when target is not one of the	allowable
+     values.
+
+     GL_INVALID_VALUE is generated if level is less than zero or greater than
+     log2(max),	where max is the returned value	of GL_MAX_TEXTURE_SIZE.
+
+     GL_INVALID_VALUE is generated if xoffset&amp;lt;-TEXTURE_BORDER,
+     (xoffset+width)&gt;(TEXTURE_WIDTH-TEXTURE_BORDER), yoffset&amp;lt;-TEXTURE_BORDER,
+     or	(yoffset+interlacexheight)&gt;(TEXTURE_HEIGHT-TEXTURE_BORDER).  Where
+     TEXTURE_WIDTH, TEXTURE_HEIGHT, and	TEXTURE_BORDER are the state values of
+     the texture image being modified, and interlace is	1 if GL_INTERLACE_SGIX
+     is	disabled and 2 otherwise.  Note	that TEXTURE_WIDTH and TEXTURE_HEIGHT
+     include twice the border width.
+
+     GL_INVALID_VALUE is generated if width or height is negative.
+
+     GL_INVALID_OPERATION is generated when the	texture	array has not been
+     defined by	a previous glTexImage2D	(or equivalent)	operation.
+
+     GL_INVALID_OPERATION is generated if glCopyTexSubImage2DEXT is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+
+
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glCopyTexSubImage2DEXT(3G)     OpenGL Reference	    glCopyTexSubImage2DEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGetTexImage
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems support
+     glCopyTexSubImage2DEXT with the following restrictions:
+
+	  1.  Only level 0 is supported; other levels result in	a
+	      GL_INVALID_VALUE error.
+
+	  2.  The texel	offsets	and the	dimensions of the subimage must	be
+	      multiples	of 32; otherwise a GL_INVALID_VALUE error is
+	      generated.
+
+	  3.  If glCopyTexSubImage2DEXT	is used	when a GLX video source	is the
+	      read drawable (see glXMakeCurrentReadSGI), the X offset and Y
+	      offset must both be 0 and	the subimage width must	be 768;
+	      otherwise	a GL_INVALID_VALUE error is generated.
+
+	  4.  GL_INTERLACE_SGIX	is not supported (see glEnable).
+
+     On	InfiniteReality	systems, the width of the image	to be transferred to
+     texture memory must be a multiple of 8.  This constraint will be lifted
+     in	a future release, though transfers that	are a multiple of 8 in length
+     will have somewhat	higher performance than	other transfers.
+
+     Texture borders are not supported on InfiniteReality systems.  They will
+     be	supported in a future release, however,	they will require large
+     amounts of	texture	memory.	 Whenever possible, applications should	use
+     borderless	textures and GL_CLAMP_TO_EDGE_SGIS wrap	mode.
+
+     On	High Impact and	Maximum	Impact systems,	if the right side of the image
+     to	be transferred to texture memory is not	the right side of the texture,
+     then its index must be a multiple of 32, where index = xoffset+width.
+     Otherwise it will generate	a GL_INVALID_VALUE error.
+
+     The SGIX_interlace	extension is supported only on InfiniteReality systems
+     and on RealityEngine, RealityEngine2, and VTX systems.
+
+     Note that InfiniteReality systems currently do not	support	copying
+     depth-format textures (used for shadow maps) from the framebuffer to
+     texture memory.  This will	be fixed in a subsequent release.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glTexImage2D, glTexSubImage2DEXT, glCopyPixels.
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

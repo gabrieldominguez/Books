@@ -1,0 +1,424 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glreadpixels Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glreadpixels</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glReadPixels(3G)	       OpenGL Reference		      glReadPixels(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glReadPixels - read a block of pixels from	the frame buffer
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glReadPixels(	GLint x,
+			GLint y,
+			GLsizei	width,
+			GLsizei	height,
+			GLenum format,
+			GLenum type,
+			GLvoid *pixels )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     x,	y Specify the window coordinates of the	first pixel that is read from
+	  the frame buffer.  This location is the lower	left corner of a
+	  rectangular block of pixels.
+
+     width, height
+	  Specify the dimensions of the	pixel rectangle.  width	and height of
+	  one correspond to a single pixel.
+
+     format
+	  Specifies the	format of the pixel data.  The following symbolic
+	  values are accepted:	GL_COLOR_INDEX,	GL_STENCIL_INDEX,
+	  GL_DEPTH_COMPONENT, GL_RED, GL_GREEN,	GL_BLUE, GL_ALPHA, GL_RGB,
+	  GL_RGBA, GL_ABGR_EXT,	GL_LUMINANCE, and GL_LUMINANCE_ALPHA.
+
+     type Specifies the	data type of the pixel data.  Must be one of
+	  GL_UNSIGNED_BYTE, GL_BYTE, GL_BITMAP,	GL_UNSIGNED_SHORT, GL_SHORT,
+	  GL_UNSIGNED_INT, GL_INT, GL_FLOAT, GL_UNSIGNED_BYTE_3_3_2_EXT,
+	  GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+	  GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT.
+
+     pixels
+	  Returns the pixel data.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glReadPixels returns pixel	data from the frame buffer, starting with the
+     pixel whose lower left corner is at location (x, y), into client memory
+     starting at location pixels.  Several parameters control the processing
+     of	the pixel data before it is placed into	client memory.	These
+     parameters	are set	with the commands glPixelStore,	glPixelTransfer, and
+     glPixelMap.  The state for	the EXT_convolution, SGI_color_matrix,
+     EXT_histogram, and	SGI_color_table	extensions (see	the reference pages
+     for glPixelTransfer, glConvolutionFilter2DEXT, glColorTableSGI,
+     glHistogramEXT, and glMinmaxEXT) also affect the results of glReadPixels.
+     This reference page describes the effects on glReadPixels of some,	but
+     not all of	the parameters specified by these commands.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glReadPixels(3G)	       OpenGL Reference		      glReadPixels(3G)
+</FONT>
+
+
+     glReadPixels returns values from each pixel with lower left-hand corner
+     at	(x + i,	y + j) for 0&amp;lt;i<width  and 0<j<height.  This pixel is said to
+     be	the ith	pixel in the jth row. Pixels are returned in row order from
+     the lowest	to the highest row, left to right in each row.
+
+     format specifies the format for the returned pixel	values.	 Accepted
+     values for	format are as follows:
+
+     GL_COLOR_INDEX
+	       Color indices are read from the color buffer selected by
+	       glReadBuffer.  Each index is converted to fixed point, shifted
+	       left or right depending on the value and	sign of
+	       GL_INDEX_SHIFT, and added to GL_INDEX_OFFSET. If	GL_MAP_COLOR
+	       is GL_TRUE, indices are replaced	by their mappings in the table
+	       GL_PIXEL_MAP_I_TO_I.
+
+     GL_STENCIL_INDEX
+	       Stencil values are read from the	stencil	buffer.	 Each index is
+	       converted to fixed point, shifted left or right depending on
+	       the value and sign of GL_INDEX_SHIFT, and added to
+	       GL_INDEX_OFFSET.	If GL_MAP_STENCIL is GL_TRUE, indices are
+	       replaced	by their mappings in the table GL_PIXEL_MAP_S_TO_S.
+
+     GL_DEPTH_COMPONENT
+	       Depth values are	read from the depth buffer.  Each component is
+	       converted to floating point such	that the minimum depth value
+	       maps to 0.0 and the maximum value maps to 1.0.  Each component
+	       is then multiplied by GL_DEPTH_SCALE, added to GL_DEPTH_BIAS,
+	       and finally clamped to the range	[0,1].
+
+     GL_RED
+
+     GL_GREEN
+
+     GL_BLUE
+
+     GL_ALPHA
+
+     GL_RGB
+
+     GL_RGBA
+
+     GL_ABGR_EXT
+
+     GL_LUMINANCE
+
+     GL_LUMINANCE_ALPHA
+	       Processing differs depending on whether color buffers store
+	       color indices or	RGBA color components.	If color indices are
+	       stored, they are	read from the color buffer selected by
+	       glReadBuffer.  Each index is converted to fixed point, shifted
+	       left or right depending on the value and	sign of
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glReadPixels(3G)	       OpenGL Reference		      glReadPixels(3G)
+</FONT>
+
+
+	       GL_INDEX_SHIFT, and added to GL_INDEX_OFFSET. Indices are then
+	       replaced	by the red, green, blue, and alpha values obtained by
+	       indexing	the GL_PIXEL_MAP_I_TO_R, GL_PIXEL_MAP_I_TO_G,
+	       GL_PIXEL_MAP_I_TO_B, and	GL_PIXEL_MAP_I_TO_A tables.  Each of
+	       these tables must be of size 2^n, but n may be different	for
+	       different tables. Before	an index is used to look up a value in
+	       a table of size 2^n it must be masked against 2^n-1.
+
+	       If RGBA color components	are stored in the color	buffers, they
+	       are read	from the color buffer selected by glReadBuffer.	 Each
+	       color component is converted to floating	point such that	zero
+	       intensity maps to 0.0 and full intensity	maps to	1.0.  Each
+	       component is then multiplied by GL_c_SCALE and added to
+	       GL_c_BIAS, where	c is RED, GREEN, BLUE, or ALPHA.  Finally, if
+	       GL_MAP_COLOR is GL_TRUE,	Each component is clamped to the range
+	       [0,1], scaled to	the size of its	corresponding table, and is
+	       then replaced by	its mapping in the table GL_PIXEL_MAP_c_TO_c,
+	       where c is R, G,	B, or A.
+
+	       Unneeded	data is	then discarded.	 For example, GL_RED discards
+	       the green, blue,	and alpha components, while GL_RGB discards
+	       only the	alpha component.  GL_LUMINANCE computes	a single
+	       component value as the sum of the red, green, and blue
+	       components, and GL_LUMINANCE_ALPHA does the same, while keeping
+	       alpha as	a second value.	 The final values are clamped to the
+	       range [0,1].
+
+     The shift,	scale, bias, and lookup	factors	described above	are all
+     specified by glPixelTransfer.  The	lookup table contents themselves are
+     specified by glPixelMap.
+
+     The final step involves converting	the indices or components to the
+     proper format, as specified by type.  If format is	GL_COLOR_INDEX or
+     GL_STENCIL_INDEX and type is not GL_FLOAT,	each index is masked with the
+     mask value	given in the following table.
+
+			 ________________________________
+			 |__________________|____________|
+			 |		    |		 |
+			 |GL_UNSIGNED_BYTE  |	2^8-1	 |
+			 |     GL_BYTE	    |	2^7-1	 |
+			 |    GL_BITMAP	    |	  1	 |
+			 |GL_UNSIGNED_SHORT |	2^16-1	 |
+			 |    GL_SHORT	    |	2^15-1	 |
+			 | GL_UNSIGNED_INT  |	2^32-1	 |
+			 |__________________|____________|
+
+     If	type is	GL_FLOAT, then each integer index is converted to single-
+     precision floating-point format.
+
+
+
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glReadPixels(3G)	       OpenGL Reference		      glReadPixels(3G)
+</FONT>
+
+
+     If	format is GL_RED, GL_GREEN, GL_BLUE, GL_ALPHA, GL_RGB, GL_RGBA,
+     GL_ABGR_EXT, GL_LUMINANCE,	or GL_LUMINANCE_ALPHA each component is	first
+     clamped to	[0,1].	If type	is not GL_FLOAT, each component	is then
+     multiplied	by the multiplier shown	in the following table.	 Equations
+     with N as the exponent are	performed for each bitfield of the packed data
+     type, with	N set to the number of bits in the bitfield.
+	      _______________________________________________________
+	      |_______________________________|______________________|
+	      |				      |			     |
+	      |	      GL_UNSIGNED_BYTE	      |	      (2^8-1)c	     |
+	      |		  GL_BYTE	      |	   [(2^8-1)c-1]/2    |
+	      |		 GL_BITMAP	      |		 1	     |
+	      |	     GL_UNSIGNED_SHORT	      |	     (2^16-1)c	     |
+	      |		  GL_SHORT	      |	  [(2^16-1)c-1]/2    |
+	      |	      GL_UNSIGNED_INT	      |	     (2^32-1)c	     |
+	      |		   GL_INT	      |	  [(2^32-1)c-1]/2    |
+	      |	 GL_UNSIGNED_BYTE_3_3_2_EXT   |	      (2^N-1)c	     |
+	      |GL_UNSIGNED_SHORT_4_4_4_4_EXT  |	      (2^N-1)c	     |
+	      |GL_UNSIGNED_SHORT_5_5_5_1_EXT  |	      (2^N-1)c	     |
+	      |	GL_UNSIGNED_INT_8_8_8_8_EXT   |	      (2^N-1)c	     |
+	      |GL_UNSIGNED_INT_10_10_10_2_EXT |	      (2^N-1)c	     |
+	      |_______________________________|______________________|
+
+     If	type is	GL_FLOAT, then each component is passed	as is (or converted to
+     the client's single-precision floating-point format if it is different
+     from the one used by the GL).
+
+     Return values are placed in memory	as follows.  If	format is
+     GL_COLOR_INDEX, GL_STENCIL_INDEX, GL_DEPTH_COMPONENT, GL_RED, GL_GREEN,
+     GL_BLUE, GL_ALPHA,	or GL_LUMINANCE, a single value	is returned and	the
+     data for the ith pixel in the jth row is placed in	location
+     (j) width + i.  GL_RGB returns three values, GL_RGBA and GL_ABGR_EXT
+     return four values, and GL_LUMINANCE_ALPHA	returns	two values for each
+     pixel, with all values corresponding to a single pixel occupying
+     contiguous	space in pixels. (If type is a packed data format then all the
+     elements of each group are	stored in a a single unsigned byte, unsigned
+     short, or unsigned	int.)  Storage parameters set by glPixelStore, such as
+     GL_PACK_SWAP_BYTES	and GL_PACK_LSB_FIRST, affect the way that data	is
+     written into memory.  See glPixelStore for	a description.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Values for	pixels that lie	outside	the window connected to	the current GL
+     context are undefined.
+
+     If	an error is generated, no change is made to the	contents of pixels.
+
+     If	type is	set to GL_UNSIGNED_BYTE_3_3_2_EXT,
+     GL_UNSIGNED_SHORT_4_4_4_4_EXT, GL_UNSIGNED_SHORT_5_5_5_1_EXT,
+     GL_UNSIGNED_INT_8_8_8_8_EXT, or GL_UNSIGNED_INT_10_10_10_2_EXT and	the
+     EXT_packed_pixels extension is not	supported then a GL_INVALID_ENUM error
+     is	generated.
+
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glReadPixels(3G)	       OpenGL Reference		      glReadPixels(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if format or type is not an accepted value.
+
+     GL_INVALID_VALUE is generated if either width or height is	negative.
+
+     GL_INVALID_OPERATION is generated if format is GL_COLOR_INDEX and the
+     color buffers store RGBA color components.
+
+     GL_INVALID_OPERATION is generated if format is GL_STENCIL_INDEX and there
+     is	no stencil buffer.
+
+     GL_INVALID_OPERATION is generated if format is GL_DEPTH_COMPONENT and
+     there is no depth buffer.
+
+     GL_INVALID_OPERATION is generated if glReadPixels is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_INDEX_MODE
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     RealityEngine, RealityEngine2, and	VTX systems do not support convolving
+     images as they are	read from the framebuffer.
+
+     Loading a convolution filter with some combinations of pixel transfer
+     modes may be unreliable on	InfiniteReality	systems.  Straightforward
+     transfers are known to work, though.  The remaining problems will be
+     fixed in the next release.
+
+     On	RealityEngine, RealityEngine2, and VTX systems,	histogramming and
+     minmax never sink pixel data that is being	read from the framebuffer.
+
+     The EXT_packed_pixels extension is	not supported on RealityEngine,
+     RealityEngine2, and VTX systems; it will be supported on High Impact and
+     Maximum Impact systems in a future	release.
+
+     The following problems are	known to exist on RealityEngine,
+     RealityEngine2, and VTX systems:
+
+	  1.  Texturing	must be	disabled for glReadPixels to function
+	      correctly.
+
+	  2.  It is not	possible to read the depth or stencil buffers of
+	      multisample-capable Visuals.
+
+	  3.  Reading the depth-buffer is much slower than reading a color-
+	      buffer.
+
+	  4.  Reading RGBA format data from a color-index window does not work
+	      correctly.
+
+
+
+
+									Page 5
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glReadPixels(3G)	       OpenGL Reference		      glReadPixels(3G)
+</FONT>
+
+
+     The first software	release	for InfiniteReality systems has	the following
+     known problems, all of which will be fixed	in the next release:
+
+	  1.  GL_BITMAP	is not supported.
+
+	  2.  The implementation has not been fully optimized.
+
+	  3.  When reading back	GL_GREEN or GL_BLUE-format values from a
+	      luminance-only window, the returned values are not zero.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glCopyPixels, glDrawPixels, glPixelMap, glPixelStore, glPixelTransfer,
+     glReadBuffer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 6
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

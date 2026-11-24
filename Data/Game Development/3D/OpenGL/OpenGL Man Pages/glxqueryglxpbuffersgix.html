@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxqueryglxpbuffersgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxqueryglxpbuffersgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXQueryGLXPbufferSGIX(3G)  OpenGL Reference - GLX  glXQueryGLXPbufferSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXQueryGLXPbufferSGIX - returns information about	a GLX pixel buffer
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     int glXQueryGLXPbufferSGIX( Display *dpy,
+				 GLXPbufferSGIX	pbuf,
+				 int attribute,
+				 unsigned int *value )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy	Specifies the connection to the	X server.
+
+     pbuf	Specifies the GLX pixel	buffer to be queried.
+
+     attribute	Specifies the attribute	to be returned.
+
+     value	Returns	the requested value.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXQueryGLXPbufferSGIX sets value to the attribute	value for pbuf.	 It
+     returns an	error code if it fails for any reason.	Otherwise, zero	is
+     returned.
+
+     attribute is one of the following:
+
+     GLX_WIDTH_SGIX	   Width of pbuf.
+
+     GLX_HEIGHT_SGIX	   Height of pbuf.
+
+     GLX_PRESERVED_CONTENTS_SGIX
+			   True	if the contents	of pbuf	are preserved when a
+			   resource conflict occurs; False otherwise.
+
+     GLX_LARGEST_PBUFFER_SGIX
+			   Set when the	GLX pixel buffer is created by calling
+			   glXCreateGLXPbufferSGIX.  When False,
+			   glXCreateGLXPbufferSGIX fails if it cannot allocate
+			   a GLX pixel buffer of size width by height.	When
+			   True, a pixel buffer	with the largest width and
+			   height possible (but	not larger than	the values
+			   specified) is created when the allocation of	the
+			   buffer would	otherwise fail.
+
+     GLX_FBCONFIG_ID_SGIX  XID for pbuf.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXQueryGLXPbufferSGIX is part of the SGIX_pbuffer	extension.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXQueryGLXPbufferSGIX(3G)  OpenGL Reference - GLX  glXQueryGLXPbufferSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     A GLXBadPbufferSGIX is generated if pbuf is not a valid GLX pixel buffer.
+
+     GLX_BAD_ATTRIB is returned	if attribute is	not a valid GLX	attribute.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIX_pbuffer extension	is supported only on RealityEngine,
+     RealityEngine2, and VTX systems, InfiniteReality systems and High Impact
+     and Maximum Impact	systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateGLXPbufferSGIX, glXGetFBConfigAttribSGIX,	glXChooseFBConfigSGIX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

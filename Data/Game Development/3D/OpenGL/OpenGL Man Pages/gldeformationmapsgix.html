@@ -1,0 +1,359 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gldeformationmapsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gldeformationmapsgix</CODE><BR>
+	Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glDeformationMapSGIX(3G)       OpenGL Reference	      glDeformationMapSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glDeformationMap3dSGIX, glDeformationMap3fSGIX - specify a	vertex or
+     texture coordinate	deformation
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glDeformationMap3dSGIX( GLenum target,
+				  GLdouble u1,
+				  GLdouble u2,
+				  GLint	ustride,
+				  GLint	uorder,
+				  GLdouble v1,
+				  GLdouble v2,
+				  GLint	vstride,
+				  GLint	vorder,
+				  GLdouble w1,
+				  GLdouble w2,
+				  GLint	wstride,
+				  GLint	worder,
+				  const	GLdouble *points )
+     void glDeformationMap3fSGIX( GLenum target,
+				  GLfloat u1,
+				  GLfloat u2,
+				  GLint	ustride,
+				  GLint	uorder,
+				  GLfloat v1,
+				  GLfloat v2,
+				  GLint	vstride,
+				  GLint	vorder,
+				  GLfloat w1,
+				  GLfloat w2,
+				  GLint	wstride,
+				  GLint	worder,
+				  const	GLfloat	*points	)
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target   Specifies	the deformation	whose map is to	be defined.  Must be
+	      one of GL_GEOMETRY_DEFORMATION_SGIX or
+	      GL_TEXTURE_DEFORMATION_SGIX.
+
+     u1, u2
+
+     v1, v2
+
+     w1, w2   These six	values specify the u, v, and w coordinates that	bound
+	      the pre-image of the map.	 These boundaries are used to perform
+	      a	linear mapping from the	coordinates presented for deformation
+	      to the coordinates actually used in the deformation equations.
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDeformationMapSGIX(3G)       OpenGL Reference	      glDeformationMapSGIX(3G)
+</FONT>
+
+
+     ustride, vstride, wstride
+	      These three values specify the strides for u, v, and w in	the
+	      array of control points.	Let R[i,j,k] represent a control
+	      point.  ustride is the number of floats (or doubles) between the
+	      beginning	of R[i,j,k] and	the beginning of R[i+1,j,k]; vstride
+	      is the number of floats (or doubles) between the beginning of
+	      R[i,j,k] and the beginning of R[i,j+1,k];	and wstride is the
+	      number of	floats (or doubles) between the	beginning of R[i,j,k]
+	      and the beginning	of R[i,j,k+1].	This mechanism allows control
+	      points to	be embedded in arrays of arbitrary data	structures, as
+	      long as the values for any given control point are in adjacent
+	      memory locations.
+
+     uorder, vorder, worder
+	      These three values specify the order (polynomial degree plus
+	      one) of the u, v,	and w portions of the mapping.	They are the
+	      dimensions of the	control	point array along the u, v, and	w
+	      axes, respectively.
+
+     points   Specifies	an array containing uorder * vorder * worder control
+	      points for the deformation map.  Each control point consists of
+	      three single- or double-precision	floating-point values,
+	      possibly followed	by other information if	the u, v, and w
+	      strides permit.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Deformations are geometric	transformations	that may be applied to vertex,
+     normal, and texture coordinates.  Deformation is performed	immediately
+     before vertex coordinates are multiplied by the modelview matrix, normals
+     are multiplied by the inverse of the modelview matrix, and	texture
+     coordinates are multiplied	by the texture matrix.	Therefore deformations
+     may be applied to the results of evaluators (see glMap) as	well as	to
+     geometry specified	directly by the	application.
+
+     In	many respects deformations are similar to evaluators, and it may be
+     worthwhile	to review the reference	page for glMap2	before proceeding
+     here.
+
+     This discussion will use the following notation:
+
+	  Sum(variable=first,last) expression
+		      The sum of terms constructed by substituting the
+		      integers from first to last (inclusive) for occurrences
+		      of variable in the expression that follows.
+
+	  B[i,n](u)   The ith Bernstein	polynomial of degree n,	evaluated at
+		      the point	u.  This is (n!/(n-i)!)(u**i)((1-u)**(n-i)).
+
+	  R[i,j,k]    A	control	point with indices i, j, and k in the
+		      control-points array.  Each control point	is a vector of
+		      three coordinates.  i is in the range [0,uorder-1]; j is
+		      in the range [0,vorder-1]; k is in the range
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDeformationMapSGIX(3G)       OpenGL Reference	      glDeformationMapSGIX(3G)
+</FONT>
+
+
+		      [0,worder-1].  Thus there	are uorder * vorder * worder
+		      control points.
+
+     A deformation is a	function that maps three coordinates into three	new
+     coordinates.  In the case of homogeneous vertex or	texture	coordinates
+     (e.g. (x,y,z,w)) the first	three coordinates are deformed and the fourth
+     coordinate	is unaffected.
+
+     The deformation takes place in two	stages.	 First,	the (u,v,w)
+     coordinates to be deformed	are mapped linearly so that the	pre-image of
+     the deformation maps to the range [0,1].  This is accomplished by simple
+     offsetting	and scaling:
+
+	  r = (u-u1) / (u2-u1)
+	  s = (v-v1) / (v2-v1)
+	  t = (w-w1) / (w2-w1)
+
+
+     Second, the normalized coordinates	are transformed	into the final result
+     by	a trivariate polynomial	mapping:
+
+	  (u',v',w') =
+	    Sum(i=0,uorder-1) Sum(j=0,vorder-1)	Sum(k=0,worder-1)
+	      B[i,uorder-1](r) * B[j,vorder-1](s) * B[k,worder-1](t) * R[i,j,k]
+
+     Vertex and	texture	coordinates are	deformed as described above, using the
+     appropriate map (GL_GEOMETRY_DEFORMATION_SGIX or
+     GL_TEXTURE_DEFORMATION_SGIX, respectively).  The normal for a vertex is
+     deformed by multiplying it	by the inverse of the partial Jacobian matrix
+     of	the vertex deformation function, evaluated at that vertex.  (This is
+     analogous to the usual transformation of normals by the inverse modelview
+     matrix.)
+
+     glDeformationMapSGIX is used to specify all the information needed	for a
+     deformation map.  target is the deformation to be defined.	 For the
+     meanings of u1, u2, uorder, v1, v2, vorder, w1, w2, and worder, refer to
+     the equations above.  points supplies the control points; the three
+     values comprising R[i,j,k]	are located at
+     points + i	* ustride + j *	vstride	+ k * wstride.	Note that careful
+     selection of the stride values allows application-specific	data to	be
+     packed along with the control points, provided that the control point
+     values are	in adjacent memory locations.
+
+     There is an implementation-dependent limit	on the total number of control
+     points for	a deformation.	This limit may be queried by calling glGet
+     with argument GL_MAX_DEFORMATION_ORDER_SGIX.
+
+     The default deformation is	the identity deformation.
+
+     Once a deformation	has been defined, it may be enabled by executing
+     glDeformSGIX with an appropriate bitmask.	This is	allowable even between
+     glBegin and glEnd,	because	in general it will be necessary	to deform some
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDeformationMapSGIX(3G)       OpenGL Reference	      glDeformationMapSGIX(3G)
+</FONT>
+
+
+     vertices of a triangle strip while	leaving	others unaffected.
+
+     A typical application of deformation is to	warp the vertices of the
+     triangle strips that form flexible	joints,	for example in character
+     animation.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glDeformationMapSGIX is part of the SGIX_polynomial_ffd extension,	not
+     part of the core GL command set.  If GL_SGIX_polynomial_ffd is included
+     in	the string returned by glGetString when	called with argument
+     GL_EXTENSIONS, extension SGIX_polynomial_ffd is supported by the
+     connection.  See glIntro for more information about using extensions.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not one of the allowable
+     values.
+
+     GL_INVALID_VALUE is generated if any of uorder, vorder, or	worder is less
+     than one, or if their product is greater than the value returned by glGet
+     with argument GL_MAX_DEFORMATION_ORDER_SGIX.
+
+     GL_INVALID_VALUE is generated if any of ustride, vstride, or wstride is
+     less than 3, if u1	is equal to u2,	if v1 is equal to v2, or if w1 is
+     equal to w2.
+
+     GL_INVALID_OPERATION is generated if glDeformationMapSGIX is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_MAX_DEFORMATION_ORDER_SGIX.
+     glGetMap with arguments GL_GEOMETRY_DEFORMATION_SGIX and
+     GL_TEXTURE_DEFORMATION_SGIX
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     Deformations are supported	only on	InfiniteReality	systems.  The
+     following restrictions apply (but note that much of this behavior may
+     change in subsequent releases):
+
+	  1.   Deformations must be of order 2;	that is, uorder, vorder, and
+	       worder all must equal 2.	 A deformation of lower	order is
+	       simply ignored.
+
+	  2.   Nonlinear terms are ignored.  Note that even the	simplest order
+	       2 deformations may introduce nonlinear terms involving uv, vw,
+	       uw, and uvw.
+
+	  3.   The implementation ignores the pre-image	bounds and assumes
+	       they are	always 0 and 1.
+
+
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glDeformationMapSGIX(3G)       OpenGL Reference	      glDeformationMapSGIX(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glDeformSGIX, glLoadIdentityDeformationMapSGIX, glMap1, glMap2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 5
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

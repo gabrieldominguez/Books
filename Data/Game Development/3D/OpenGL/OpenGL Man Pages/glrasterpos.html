@@ -1,0 +1,226 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glrasterpos Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glrasterpos</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glRasterPos(3G)		       OpenGL Reference		       glRasterPos(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glRasterPos2d, glRasterPos2f, glRasterPos2i, glRasterPos2s,
+     glRasterPos3d, glRasterPos3f, glRasterPos3i, glRasterPos3s,
+     glRasterPos4d, glRasterPos4f, glRasterPos4i, glRasterPos4s,
+     glRasterPos2dv, glRasterPos2fv, glRasterPos2iv, glRasterPos2sv,
+     glRasterPos3dv, glRasterPos3fv, glRasterPos3iv, glRasterPos3sv,
+     glRasterPos4dv, glRasterPos4fv, glRasterPos4iv, glRasterPos4sv - specify
+     the raster	position for pixel operations
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glRasterPos2d( GLdouble x,
+			 GLdouble y )
+     void glRasterPos2f( GLfloat x,
+			 GLfloat y )
+     void glRasterPos2i( GLint x,
+			 GLint y )
+     void glRasterPos2s( GLshort x,
+			 GLshort y )
+     void glRasterPos3d( GLdouble x,
+			 GLdouble y,
+			 GLdouble z )
+     void glRasterPos3f( GLfloat x,
+			 GLfloat y,
+			 GLfloat z )
+     void glRasterPos3i( GLint x,
+			 GLint y,
+			 GLint z )
+     void glRasterPos3s( GLshort x,
+			 GLshort y,
+			 GLshort z )
+     void glRasterPos4d( GLdouble x,
+			 GLdouble y,
+			 GLdouble z,
+			 GLdouble w )
+     void glRasterPos4f( GLfloat x,
+			 GLfloat y,
+			 GLfloat z,
+			 GLfloat w )
+     void glRasterPos4i( GLint x,
+			 GLint y,
+			 GLint z,
+			 GLint w )
+     void glRasterPos4s( GLshort x,
+			 GLshort y,
+			 GLshort z,
+			 GLshort w )
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glRasterPos(3G)		       OpenGL Reference		       glRasterPos(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     x,	y, z, w
+	      Specify the x, y,	z, and w object	coordinates (if	present) for
+	      the raster position.
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glRasterPos2dv( const	GLdouble *v )
+     void glRasterPos2fv( const	GLfloat	*v )
+     void glRasterPos2iv( const	GLint *v )
+     void glRasterPos2sv( const	GLshort	*v )
+     void glRasterPos3dv( const	GLdouble *v )
+     void glRasterPos3fv( const	GLfloat	*v )
+     void glRasterPos3iv( const	GLint *v )
+     void glRasterPos3sv( const	GLshort	*v )
+     void glRasterPos4dv( const	GLdouble *v )
+     void glRasterPos4fv( const	GLfloat	*v )
+     void glRasterPos4iv( const	GLint *v )
+     void glRasterPos4sv( const	GLshort	*v )
+
+
+     v	  Specifies a pointer to an array of two, three, or four elements,
+	  specifying x,	y, z, and w coordinates, respectively.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     The GL maintains a	3-D position in	window coordinates.  This position,
+     called the	raster position, is maintained with subpixel accuracy.	It is
+     used to position pixel and	bitmap write operations.  See glBitmap,
+     glDrawPixels, and glCopyPixels.
+
+     The current raster	position consists of three window coordinates (x, y,
+     z), a clip	coordinate w value, an eye coordinate distance,	a valid	bit,
+     and associated color data and texture coordinates.	 The w coordinate is a
+     clip coordinate, because w	is not projected to window coordinates.
+     glRasterPos4 specifies object coordinates x, y, z,	and w explicitly.
+     glRasterPos3 specifies object coordinate x, y, and	z explicitly, while w
+     is	implicitly set to one.	glRasterPos2 uses the argument values for x
+     and y while implicitly setting z and w to zero and	one.
+
+     The object	coordinates presented by glRasterPos are treated just like
+     those of a	glVertex command:  They	are transformed	by the current
+     modelview and projection matrices and passed to the clipping stage.  If
+     the vertex	is not culled, then it is projected and	scaled to window
+     coordinates, which	become the new current raster position,	and the
+     GL_CURRENT_RASTER_POSITION_VALID flag is set.  If the vertex is culled,
+     then the valid bit	is cleared and the current raster position and
+     associated	color and texture coordinates are undefined.
+
+     The current raster	position also includes some associated color data and
+     texture coordinates.  If lighting is enabled, then
+     GL_CURRENT_RASTER_COLOR, in RGBA mode, or the GL_CURRENT_RASTER_INDEX, in
+     color index mode, is set to the color produced by the lighting
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glRasterPos(3G)		       OpenGL Reference		       glRasterPos(3G)
+</FONT>
+
+
+     calculation (see glLight, glLightModel, and glShadeModel).	 If lighting
+     is	disabled, current color	(in RGBA mode, state variable
+     GL_CURRENT_COLOR) or color	index (in color	index mode, state variable
+     GL_CURRENT_INDEX) is used to update the current raster color.
+
+     Likewise, GL_CURRENT_RASTER_TEXTURE_COORDS	is updated as a	function of
+     GL_CURRENT_TEXTURE_COORDS,	based on the texture matrix and	the texture
+     generation	functions (see glTexGen).  Finally, the	distance from the
+     origin of the eye coordinate system to the	vertex as transformed by only
+     the modelview matrix replaces GL_CURRENT_RASTER_DISTANCE.
+
+     Initially,	the current raster position is (0,0,0,1), the current raster
+     distance is 0, the	valid bit is set, the associated RGBA color is
+     (1,1,1,1),	the associated color index is 1, and the associated texture
+     coordinates are (0, 0, 0, 1).  In RGBA mode, GL_CURRENT_RASTER_INDEX is
+     always 1; in color	index mode, the	current	raster RGBA color always
+     maintains its initial value.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The raster	position is modified both by glRasterPos and by	glBitmap.
+
+     When the raster position coordinates are invalid, drawing commands	that
+     are based on the raster position are ignored (that	is, they do not	result
+     in	changes	to GL state).
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glRasterPos is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_CURRENT_RASTER_POSITION
+     glGet with	argument GL_CURRENT_RASTER_POSITION_VALID
+     glGet with	argument GL_CURRENT_RASTER_DISTANCE
+     glGet with	argument GL_CURRENT_RASTER_COLOR
+     glGet with	argument GL_CURRENT_RASTER_INDEX
+     glGet with	argument GL_CURRENT_RASTER_TEXTURE_COORDS
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBitmap, glCopyPixels, glDrawPixels, glLight, glLightModel,
+     glShadeModel, glTexCoord, glTexGen, glVertex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 3
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

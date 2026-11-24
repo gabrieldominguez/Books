@@ -1,0 +1,84 @@
+/*
+	//Sample usage:
+
+	int pSourceDataLen = lengthOfFile;
+	unsigned char * pSourceData = new unsigned char[ pSourceDataLen ];
+	// ... read file contents into pSourceDataLen.
+
+	int bytesRead( 0 );
+	int width( 0 );
+	int height( 0 );
+	unsigned char * pRGBAData = loadTarga( pSourceData, pSourceDataLen, bytesRead, width, height );
+	if( pRGBAData )
+	{	
+		;	// ... do OGL texture-load stuff.	
+	}
+*/
+
+
+unsigned char *
+loadTarga( const char *pData, int maxLen, int& bytesRead, int& width, int& height )
+{
+	#define DEF_targaHeaderLength			12
+	#define DEF_targaHeaderContent		"\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+
+	int commentOffset = int( (unsigned char)*pData );
+	if( memcmp( pData + 1, DEF_targaHeaderContent, DEF_targaHeaderLength - 1 ) != 0 )
+		return 0;
+
+	unsigned char smallArray[ 2 ];
+
+	memcpy( smallArray, pData + DEF_targaHeaderLength + 0, 2 );
+	width = smallArray[ 0 ] + smallArray[ 1 ] * 0x0100;
+
+	memcpy( smallArray, pData + DEF_targaHeaderLength + 2, 2 );
+	height = smallArray[ 0 ] + smallArray[ 1 ] * 0x0100;
+
+	memcpy( smallArray, pData + DEF_targaHeaderLength + 4, 2 );
+	int depth = smallArray[ 0 ];
+//	int pixelBitFlags = smallArray[ 1 ];
+
+	if( ( width <= 0 ) || ( height <= 0 ) )
+		return 0;
+
+	// Only allow 24-bit and 32-bit!
+	bool is24Bit( depth == 24 );
+	bool is32Bit( depth == 32 );
+	if( !( is24Bit || is32Bit ) )
+		return 0;
+
+	// Make it a BGRA array for now.
+	int bodySize( width * height * 4 );
+	unsigned char * pBuffer = new unsigned char[ bodySize ];
+	if( is32Bit )
+	{
+		// Easy, just copy it.
+		memcpy( pBuffer, pData + DEF_targaHeaderLength + 6 + commentOffset, bodySize );
+	}
+	else if( is24Bit )
+	{
+		int bytesRead = DEF_targaHeaderLength + 6 + commentOffset;
+		for( int loop = 0; loop < bodySize; loop += 4, bytesRead += 3 )
+		{
+			memcpy( pBuffer + loop, pData + bytesRead, 3 );
+			pBuffer[ loop + 3 ] = 255;			// Force alpha to max.
+		}
+	}
+	else
+		assert( 0 );		// Something we don't support!
+
+	// Swap R & B (convert to RGBA).
+	for( int loop = 0; loop < bodySize; loop += 4 )
+	{
+		unsigned char tempC = pBuffer[ loop + 0 ];
+		pBuffer[ loop + 0 ] = pBuffer[ loop + 2 ];
+		pBuffer[ loop + 2 ] = tempC;
+	}
+
+	// Ownership moves out.
+	return pBuffer;
+}
+
+
+
+

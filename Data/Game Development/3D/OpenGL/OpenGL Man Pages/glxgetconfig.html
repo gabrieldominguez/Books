@@ -1,0 +1,358 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxgetconfig Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxgetconfig</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXGetConfig(3G)	    OpenGL Reference - GLX	      glXGetConfig(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXGetConfig - return information about GLX visuals
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     int glXGetConfig( Display *dpy,
+		       XVisualInfo *vis,
+		       int attrib,
+		       int *value )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy     Specifies the connection to the X server.
+
+
+     vis     Specifies the visual to be	queried.  It is	a pointer to an
+	     XVisualInfo structure, not	a visual ID or a pointer to a Visual.
+
+
+     attrib  Specifies the visual attribute to be returned.
+
+
+     value   Returns the requested value.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXGetConfig sets value to	the attrib value of windows or GLX pixmaps
+     created with respect to vis.  glXGetConfig	returns	an error code if it
+     fails for any reason.  Otherwise, zero is returned.
+
+     attrib is one of the following:
+
+     GLX_USE_GL		   True	if OpenGL rendering is supported by this
+			   visual, False otherwise.
+
+     GLX_BUFFER_SIZE	   Number of bits per color buffer.  For RGBA visuals,
+			   GLX_BUFFER_SIZE is the sum of GLX_RED_SIZE,
+			   GLX_GREEN_SIZE, GLX_BLUE_SIZE, and GLX_ALPHA_SIZE.
+			   For color index visuals, GLX_BUFFER_SIZE is the
+			   size	of the color indexes.
+
+     GLX_LEVEL		   Frame buffer	level of the visual.  Level zero is
+			   the default frame buffer.  Positive levels
+			   correspond to frame buffers that overlay the
+			   default buffer, and negative	levels correspond to
+			   frame buffers that underlay the default buffer.
+
+     GLX_RGBA		   True	if color buffers store red, green, blue, and
+			   alpha values, False if they store color indexes.
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXGetConfig(3G)	    OpenGL Reference - GLX	      glXGetConfig(3G)
+</FONT>
+
+
+     GLX_DOUBLEBUFFER	   True	if color buffers exist in front/back pairs
+			   that	can be swapped,	False otherwise.
+
+     GLX_STEREO		   True	if color buffers exist in left/right pairs,
+			   False otherwise.
+
+     GLX_AUX_BUFFERS	   Number of auxiliary color buffers that are
+			   available.  Zero indicates that no auxiliary	color
+			   buffers exist.
+
+     GLX_RED_SIZE	   Number of bits of red stored	in each	color buffer.
+			   Undefined if	GLX_RGBA is False.
+
+     GLX_GREEN_SIZE	   Number of bits of green stored in each color
+			   buffer.  Undefined if GLX_RGBA is False.
+
+     GLX_BLUE_SIZE	   Number of bits of blue stored in each color buffer.
+			   Undefined if	GLX_RGBA is False.
+
+     GLX_ALPHA_SIZE	   Number of bits of alpha stored in each color
+			   buffer.  Undefined if GLX_RGBA is False.
+
+     GLX_DEPTH_SIZE	   Number of bits in the depth buffer.
+
+     GLX_STENCIL_SIZE	   Number of bits in the stencil buffer.
+
+     GLX_ACCUM_RED_SIZE	   Number of bits of red stored	in the accumulation
+			   buffer.
+
+     GLX_ACCUM_GREEN_SIZE  Number of bits of green stored in the accumulation
+			   buffer.
+
+     GLX_ACCUM_BLUE_SIZE   Number of bits of blue stored in the	accumulation
+			   buffer.
+
+     GLX_ACCUM_ALPHA_SIZE  Number of bits of alpha stored in the accumulation
+			   buffer.
+
+     GLX_SAMPLE_BUFFERS_SGIS
+			   Number of multisample buffers.  (Note that
+			   multisampling is supported only on RealityEngine.)
+
+     GLX_SAMPLES_SGIS	   Number of samples per pixel in multisample buffers.
+
+     GLX_X_VISUAL_TYPE_EXT X Visual type. One of GLX_TRUE_COLOR_EXT,
+			   GLX_DIRECT_COLOR_EXT, GLX_PSEUDO_COLOR_EXT,
+			   GLX_STATIC_COLOR_EXT, GLX_GRAY_SCALE_EXT,
+			   GLX_STATIC_GRAY_EXT.
+
+     GLX_TRANSPARENT_TYPE_EXT
+			   One of GLX_NONE_EXT,	GLX_TRANSPARENT_RGB_EXT,
+			   GLX_TRANSPARENT_INDEX_EXT, indicating that the
+
+
+
+									Page 2
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXGetConfig(3G)	    OpenGL Reference - GLX	      glXGetConfig(3G)
+</FONT>
+
+
+			   visual is opaque, is	transparent for	particular
+			   values of red, green	and blue or is transparent for
+			   particular index values, respectively.
+
+     GLX_TRANSPARENT_INDEX_VALUE_EXT
+			   Integer value between 0 and the maximum frame
+			   buffer value	for indices, indicating	the
+			   transparent index value for the visual.  Undefined
+			   if GLX_TRANSPARENT_TYPE_EXT is not
+			   GLX_TRANSPARENT_INDEX_EXT.
+
+     GLX_TRANSPARENT_RED_VALUE_EXT
+			   Integer value between 0 and the maximum frame
+			   buffer value	for red, indicating the	transparent
+			   red value for the visual.  Undefined	if
+			   GLX_TRANSPARENT_TYPE_EXT is not
+			   GLX_TRANSPARENT_RGB_EXT.
+
+     GLX_TRANSPARENT_GREEN_VALUE_EXT
+			   Integer value between 0 and the maximum frame
+			   buffer value	for green, indicating the transparent
+			   green value for the visual.	Undefined if
+			   GLX_TRANSPARENT_TYPE_EXT is not
+			   GLX_TRANSPARENT_RGB_EXT.
+
+     GLX_TRANSPARENT_BLUE_VALUE_EXT
+			   Integer value between 0 and the maximum frame
+			   buffer value	for blue, indicating the transparent
+			   blue	value for the visual.  Undefined if
+			   GLX_TRANSPARENT_TYPE_EXT is not
+			   GLX_TRANSPARENT_RGB_EXT.
+
+     GLX_TRANSPARENT_ALPHA_VALUE_EXT
+			   Currently unused.
+
+     GLX_VISUAL_CAVEAT_EXT One of GLX_NONE_EXT,	GLX_SLOW_VISUAL_EXT,
+			   GLX_NON_CONFORMANT_EXT indicating that the visual
+			   has no caveats, some	aspect of the visual runs
+			   slower than other visuals, or some aspect of	the
+			   visual is non-confomant, respectively.
+
+     The X protocol allows a single visual ID to be instantiated with
+     different numbers of bits per pixel.  Windows or GLX pixmaps that will be
+     rendered with OpenGL, however, must be instantiated with a	color buffer
+     depth of GLX_BUFFER_SIZE.
+
+     Although a	GLX implementation can export many visuals that	support	OpenGL
+     rendering,	it must	support	at least two.  One is an RGBA visual with at
+     least one color buffer, a stencil buffer of at least 1 bit, a depth
+     buffer of at least	12 bits, and an	accumulation buffer.  Alpha bitplanes
+     are optional in this visual.  However, its	color buffer size must be as
+     great as that of the deepest TrueColor, DirectColor,  PseudoColor,	or
+
+
+
+									Page 3
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXGetConfig(3G)	    OpenGL Reference - GLX	      glXGetConfig(3G)
+</FONT>
+
+
+     StaticColor visual	supported on level zero, and it	must itself be made
+     available on level	zero.
+
+     The other required	visual is a color index	one with at least one color
+     buffer, a stencil buffer of at least 1 bit, and a depth buffer of at
+     least 12 bits.  This visual must have as many color bitplanes as the
+     deepest PseudoColor or StaticColor	visual supported on level zero,	and it
+     must itself be made available on level zero.
+
+     Applications are best written to select the visual	that most closely
+     meets their requirements.	Creating windows or GLX	pixmaps	with
+     unnecessary buffers can result in reduced rendering performance as	well
+     as	poor resource allocation.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     XVisualInfo is defined in Xutil.h.	 It is a structure that	includes
+     visual, visualID, screen, and depth elements.
+
+     GLX_SAMPLE_BUFFERS_SGIS and GLX_SAMPLES_SGIS are not valid	attributes
+     unless the	SGIS_multisample extension is supported.
+
+     GLX_X_VISUAL_TYPE_EXT, GLX_TRANSPARENT_TYPE_EXT,
+     GLX_TRANSPARENT_INDEX_VALUE_EXT, GLX_TRANSPARENT_RED_VALUE_EXT,
+     GLX_TRANSPARENT_GREEN_VALUE_EXT, GLX_TRANSPARENT_BLUE_VALUE_EXT, and
+     GLX_TRANSPARENT_ALPHA_VALUE_EXT are not valid attributes unless the
+     EXT_visual_info extension is supported.
+
+     GLX_VISUAL_CAVEAT_EXT is not a valid attribute unless the
+     EXT_visual_rating extension is supported.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GLX_NO_EXTENSION is returned if dpy does not support the GLX extension.
+
+     GLX_BAD_SCREEN is returned	if the screen of vis does not correspond to a
+     screen.
+
+     GLX_BAD_ATTRIB is returned	if attrib is not a valid GLX attribute.
+
+     GLX_BAD_VISUAL is returned	if vis doesn't support GLX and an attribute
+     other than	GLX_USE_GL is requested.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIS_multisample extension is supported only on RealityEngine,
+     RealityEngine2, and VTX systems and InfiniteReality systems.
+
+
+
+
+
+
+
+									Page 4
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXGetConfig(3G)	    OpenGL Reference - GLX	      glXGetConfig(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXChooseVisual, glXCreateContext
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 5
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

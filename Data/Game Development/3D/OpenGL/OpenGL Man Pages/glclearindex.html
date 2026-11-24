@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glclearindex Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glclearindex</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glClearIndex(3G)	       OpenGL Reference		      glClearIndex(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glClearIndex - specify the	clear value for	the color index	buffers
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glClearIndex(	GLfloat	c )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     c	Specifies the index used when the color	index buffers are cleared.
+	The default value is zero.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glClearIndex specifies the	index used by glClear to clear the color index
+     buffers.  c is not	clamped.  Rather, c is converted to a fixed-point
+     value with	unspecified precision to the right of the binary point.	 The
+     integer part of this value	is then	masked with 2m-1, where	m is the
+     number of bits in a color index stored in the frame buffer.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_OPERATION is generated if glClearIndex is executed between the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_INDEX_CLEAR_VALUE
+     glGet with	argument GL_INDEX_BITS
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glClear
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

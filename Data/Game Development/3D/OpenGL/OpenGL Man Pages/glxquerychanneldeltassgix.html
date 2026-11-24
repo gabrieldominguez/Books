@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxquerychanneldeltassgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxquerychanneldeltassgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXQueryChannelDeltasSGIX(3G)				OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXQueryChannelDeltasSGIX - returns the precision constraints for any
+     frame buffer area that is to be resized to	match the video	resolution
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     int glXQueryChannelDeltasSGIX( Display *display,
+				    int	screen,
+				    int	channel,
+				    int	*dx,
+				    int	*dy,
+				    int	*dw,
+				    int	*dh )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     display  Specifies	the connection to the X	server.
+
+     screen   Specifies	the screen of the X server.
+
+     channel  Specifies	the video channel number.
+
+     dx, dy, dw, dh
+	      Precision	deltas for the origin and size of the area specified
+	      by glXChannelRectSGIX
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     When glXChannelRectSGIX is	called,	the origin and size of the specified
+     frame buffer area must be positive	integer	multiples of the associated
+     values returned by	glXQueryChannelDeltasSGIX.  Note that dx, dy, dw and
+     dh	may be greater than one	due to hardware	constraints.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXQueryChannelDeltasSGIX is part of the SGIX_video_resize	extension.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     The SGIX_video_resize extension is	supported only on InfiniteReality
+     systems.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXBindChannelToWindowSGIX, glXChannelRectSGIX, glXQueryChannelRectSGIX
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glscissor Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glscissor</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glScissor(3G)		       OpenGL Reference			 glScissor(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glScissor - define	the scissor box
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glScissor( GLint x,
+		     GLint y,
+		     GLsizei width,
+		     GLsizei height )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     x,	y Specify the lower left corner	of the scissor box.  Initially (0,0).
+
+     width, height
+	  Specify the width and	height of the scissor box.  When a GL context
+	  is first attached to a window, width and height are set to the
+	  dimensions of	that window.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     The glScissor routine defines a rectangle,	called the scissor box,	in
+     window coordinates.  The first two	arguments, x and y, specify the	lower
+     left corner of the	box.  width and	height specify the width and height of
+     the box.
+
+     The scissor test is enabled and disabled using glEnable and glDisable
+     with argument GL_SCISSOR_TEST.  While the scissor test is enabled,	only
+     pixels that lie within the	scissor	box can	be modified by drawing
+     commands.	Window coordinates have	integer	values at the shared corners
+     of	frame buffer pixels, so	 glScissor(0,0,1,1) allows only	the lower left
+     pixel in the window to be modified,  and glScissor(0,0,0,0) disallows
+     modification to all pixels	in the window.
+
+     When the scissor test is disabled,	it is as though	the scissor box
+     includes the entire window.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if either width or height is	negative.
+
+     GL_INVALID_OPERATION is generated if glScissor is executed	between	the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_SCISSOR_BOX
+     glIsEnabled with argument GL_SCISSOR_TEST
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glEnable, glViewport
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

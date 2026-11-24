@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glfrustum Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glfrustum</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glFrustum(3G)		       OpenGL Reference			 glFrustum(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glFrustum - multiply the current matrix by	a perspective matrix
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glFrustum( GLdouble left,
+		     GLdouble right,
+		     GLdouble bottom,
+		     GLdouble top,
+		     GLdouble near,
+		     GLdouble far )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     left, right Specify the coordinates for the left and right	vertical
+		 clipping planes.
+
+     bottom, top Specify the coordinates for the bottom	and top	horizontal
+		 clipping planes.
+
+     near, far	 Specify the distances to the near and far depth clipping
+		 planes.  Both distances must be positive.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glFrustum describes a perspective matrix that produces a perspective
+     projection.  (left, bottom, -near)	and (right, top,  -near) specify the
+     points on the near	clipping plane that are	mapped to the lower left and
+     upper right corners of the	window,	respectively, assuming that the	eye is
+     located at	(0, 0, 0).  -far specifies the location	of the far clipping
+     plane.  Both near and far must be positive.  The corresponding matrix is
+		     (					     )
+		     |					     |
+		     |	__________			     |
+		     |	right-left	 0	 A	 0   |
+		     |					     |
+		     |	    0	    __________	 B	 0   |
+		     |		    top-bottom		     |
+		     |	    0		 0	 C	 D   |
+		     |					     |
+		     (	    0		 0	 -1	 0   )
+
+				  A = __________
+				      right-left
+				  B = __________
+				      top-bottom
+				   C = -________
+					far-near
+				  D = -__________
+					far-near
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glFrustum(3G)		       OpenGL Reference			 glFrustum(3G)
+</FONT>
+
+
+     The current matrix	is multiplied by this matrix with the result replacing
+     the current matrix.  That is, if M	is the current matrix and F is the
+     frustum perspective matrix, then M	is replaced with M o F.
+
+     Use glPushMatrix and glPopMatrix to save and restore the current matrix
+     stack.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     Depth buffer precision is affected	by the values specified	for near and
+     far.  The greater the ratio of far	to near	is, the	less effective the
+     depth buffer will be at distinguishing between surfaces that are near
+     each other.  If
+
+				     r = ____
+					 near
+     roughly log r bits	of depth buffer	precision are lost.  Because r
+     approaches	infinity as near approaches zero, near must never be set to
+     zero.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_VALUE is generated if near or far is not positive.
+
+     GL_INVALID_OPERATION is generated if glFrustum is executed	between	the
+     execution of glBegin and the corresponding	execution of glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_MATRIX_MODE
+     glGet with	argument GL_MODELVIEW_MATRIX
+     glGet with	argument GL_PROJECTION_MATRIX
+     glGet with	argument GL_TEXTURE_MATRIX
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glOrtho, glMatrixMode, glMultMatrix, glPushMatrix,	glViewport
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

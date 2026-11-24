@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	gledgeflag Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>gledgeflag</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glEdgeFlag(3G)		       OpenGL Reference			glEdgeFlag(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glEdgeFlag, glEdgeFlagv - flag edges as either boundary or	nonboundary
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glEdgeFlag( GLboolean	flag )
+
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     flag  Specifies the current edge flag value, either true or false.
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glEdgeFlagv( const GLboolean *flag )
+
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     flag Specifies a pointer to an array that contains	a single Boolean
+	  element, which replaces the current edge flag	value.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     Each vertex of a polygon, separate	triangle, or separate quadrilateral
+     specified between a glBegin/glEnd pair is marked as the start of either a
+     boundary or nonboundary edge.  If the current edge	flag is	true when the
+     vertex is specified, the vertex is	marked as the start of a boundary
+     edge.  Otherwise, the vertex is marked as the start of a nonboundary
+     edge.  glEdgeFlag sets the	edge flag to true if flag is nonzero, false
+     otherwise.
+
+     The vertices of connected triangles and connected quadrilaterals are
+     always marked as boundary,	regardless of the value	of the edge flag.
+
+     Boundary and nonboundary edge flags on vertices are significant only if
+     GL_POLYGON_MODE is	set to GL_POINT	or GL_LINE.  See glPolygonMode.
+
+     Initially,	the edge flag bit is true.
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     The current edge flag can be updated at any time.	In particular,
+     glEdgeFlag	can be called between a	call to	glBegin	and the	corresponding
+     call to glEnd.
+
+<FONT COLOR="#0000CC">ASSOCIATED GETS
+</FONT>     glGet with	argument GL_EDGE_FLAG
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glEdgeFlag(3G)		       OpenGL Reference			glEdgeFlag(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glBegin, glPolygonMode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

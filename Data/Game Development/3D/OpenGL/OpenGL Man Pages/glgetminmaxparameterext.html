@@ -1,0 +1,94 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glgetminmaxparameterext Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glgetminmaxparameterext</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glGetMinmaxParameterEXT(3G)    OpenGL Reference	   glGetMinmaxParameterEXT(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glGetMinmaxParameterfvEXT,	glGetMinmaxParameterivEXT - get	minmax
+     parameters
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     void glGetMinmaxParameterfvEXT( GLenum target,
+				     GLenum pname,
+				     GLfloat *params )
+     void glGetMinmaxParameterivEXT( GLenum target,
+				     GLenum pname,
+				     GLint *params )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     target  Must be GL_MINMAX_EXT.
+
+     pname   The parameter to be retrieved.  Must be one of
+	     GL_MINMAX_FORMAT_EXT or GL_MINMAX_SINK_EXT.
+
+     params  A pointer to storage for the retrieved parameters.
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glGetMinmaxParameterEXT retrieves parameters for the current minmax
+     table.  See glMinmaxEXT for detailed descriptions of these	parameters.
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     GL_INVALID_ENUM is	generated if target is not GL_MINMAX_EXT.
+
+     GL_INVALID_ENUM is	generated if pname is not one of the allowable values.
+
+     GL_INVALID_OPERATION is generated if glGetMinmaxParameterEXT is executed
+     between the execution of glBegin and the corresponding execution of
+     glEnd.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glMinmaxEXT, glGetMinmaxEXT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 1
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

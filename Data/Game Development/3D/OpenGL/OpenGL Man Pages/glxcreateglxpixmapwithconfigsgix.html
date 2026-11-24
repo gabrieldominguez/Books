@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxcreateglxpixmapwithconfigsgix Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxcreateglxpixmapwithconfigsgix</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXCreateGLXPixmapWithConfigSGIX(3G)			OpenGL Reference - GLX
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXCreateGLXPixmapWithConfigSGIX -	create an off-screen GLX rendering
+     area with specified frame buffer configuration
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     GLXPixmap glXCreateGLXPixmapWithConfigSGIX( Display *dpy,
+						 GLXFBConfigSGIX config,
+						 Pixmap	pixmap )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy     Specifies the connection to the X server.
+
+
+     config  Specifies the GLX frame buffer configuration that defines the
+	     structure of the rendering	area.
+
+
+     pixmap  Specifies the X pixmap that will be used as the front left	color
+	     buffer of the off-screen rendering	area.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXCreateGLXPixmapWithConfigSGIX creates an off-screen rendering area and
+     returns its XID.  Use glXMakeCurrent to associate the rendering area with
+     a GLX rendering context.
+
+     The X pixmap identified by	pixmap is used as the front left buffer	of the
+     resulting off-screen rendering area.  All other buffers specified by
+     config, including color buffers other than	the front left buffer, are
+     created without externally	visible	names.	GLX pixmaps with double-
+     buffering are supported.  However,	glXSwapBuffers is ignored by these
+     pixmaps.
+
+     GLX pixmaps are not supported with	direct rendering contexts.
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     glXCreateGLXPixmapWithConfigSGIX is part of the GLX_SGIX_fbconfig
+     extension.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     BadMatch is generated if pixmap was not created with respect to the same
+     screen as config.
+
+     GLXBadFBConfigSGIX	is generated if	config is not a	valid GLXFBConfig.
+
+     BadPixmap is generated if pixmap is not a valid pixmap.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXCreateGLXPixmapWithConfigSGIX(3G)			OpenGL Reference - GLX
+</FONT>
+
+
+     BadAlloc is generated if the server cannot	allocate the GLX pixmap.
+
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateContext, glXIsDirect, glXMakeCurrent, glXCreatePixmap,
+     glXGetFBConfigAttribSGIX, glXChooseFBConfigSGIX,
+     glXCreateGLXPixmapWithConfigSGIX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

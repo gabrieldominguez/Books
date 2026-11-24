@@ -1,0 +1,160 @@
+<HTML>
+
+<HEAD><meta http-equiv="pragma" content="no-cache">
+<TITLE>
+	glxmakecurrent Man Page
+</TITLE>
+</HEAD>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<BODY  BGCOLOR="#FFFFFF">
+
+<BR>
+<CENTER>
+	<FONT SIZE="7"><B>
+		<CODE>glxmakecurrent</CODE> - Man Page
+	</B></FONT>
+</CENTER>
+<BR>
+<BR>
+<HR>
+<BR>
+
+<PRE>
+
+
+
+<FONT COLOR="#0000CC">glXMakeCurrent(3G)	    OpenGL Reference - GLX	    glXMakeCurrent(3G)
+</FONT>
+
+
+<FONT COLOR="#0000CC">NAME
+</FONT>     glXMakeCurrent - attach a GLX context to a	window or a GLX	pixmap
+
+
+<FONT COLOR="#0000CC">C SPECIFICATION
+</FONT>     Bool glXMakeCurrent( Display *dpy,
+			  GLXDrawable drawable,
+			  GLXContext ctx )
+
+
+<FONT COLOR="#0000CC">PARAMETERS
+</FONT>     dpy       Specifies the connection	to the X server.
+
+
+     drawable  Specifies a GLX drawable.  Must be either an X window ID	or a
+	       GLX pixmap ID.
+
+
+     ctx       Specifies a GLX rendering context that is to be attached	to
+	       drawable.
+
+
+<FONT COLOR="#0000CC">DESCRIPTION
+</FONT>     glXMakeCurrent does two things:  It makes ctx the current GLX rendering
+     context of	the calling thread, replacing the previously current context
+     if	there was one, and it attaches ctx to a	GLX drawable, either a window
+     or	a GLX pixmap.  As a result of these two	actions, subsequent OpenGL
+     rendering calls use rendering context ctx to modify GLX drawable
+     drawable.	Because	glXMakeCurrent always replaces the current rendering
+     context with ctx, there can be only one current context per thread.
+
+     Pending commands to the previous context, if any, are flushed before it
+     is	released.
+
+     The first time ctx	is made	current	to any thread, its viewport is set to
+     the full size of drawable.	 Subsequent calls by any thread	to
+     glXMakeCurrent with ctx have no effect on its viewport.
+
+     To	release	the current context without assigning a	new one, call
+     glXMakeCurrent with drawable and ctx set to None and NULL respectively.
+
+     glXMakeCurrent returns True if it is successful, False otherwise.	If
+     False is returned,	the previously current rendering context and drawable
+     (if any) remain unchanged.
+
+
+
+<FONT COLOR="#0000CC">NOTES
+</FONT>     A process is a single-execution environment, implemented in a single
+     address space, consisting of one or more threads.
+
+
+
+
+
+									Page 1
+
+
+
+
+
+
+<FONT COLOR="#0000CC">glXMakeCurrent(3G)	    OpenGL Reference - GLX	    glXMakeCurrent(3G)
+</FONT>
+
+
+     A thread is one of	a set of subprocesses that share a single address
+     space, but	maintain separate program counters, stack spaces, and other
+     related global data.  A thread that is the	only member of its subprocess
+     group is equivalent to a process.
+
+
+<FONT COLOR="#0000CC">ERRORS
+</FONT>     BadMatch is generated if drawable was not created with the	same X screen
+     and visual	as ctx.	 It is also generated if drawable is None and ctx is
+     not None.
+
+     BadAccess is generated if ctx was current to another thread at the	time
+     glXMakeCurrent was	called.
+
+     GLXBadDrawable is generated if drawable is	not a valid GLX	drawable.
+
+     GLXBadContext is generated	if ctx is not a	valid GLX context.
+
+     GLXBadContextState	is generated if	glXMakeCurrent is called between a
+     glBegin and the corresponding call	to glEnd.
+
+     GLXBadContextState	is also	generated if the rendering context current to
+     the calling thread	has OpenGL renderer state GL_FEEDBACK or GL_SELECT.
+
+     GLXBadCurrentWindow is generated if there are pending OpenGL commands for
+     the previous context and the current drawable is a	window that is no
+     longer valid.
+
+     BadAlloc may be generated if the server has delayed allocation of
+     ancillary buffers until glXMakeCurrent is called, only to find that it
+     has insufficient resources	to complete the	allocation.
+
+
+
+<FONT COLOR="#0000CC">MACHINE	DEPENDENCIES
+</FONT>     On	RealityEngine, RealityEngine2, and VTX systems and on InfiniteReality
+     systems it	is not possible	to use a context for rendering to both windows
+     and pixmaps.
+
+
+<FONT COLOR="#0000CC">SEE ALSO
+</FONT>     glXCreateContext, glXCreateGLXPixmap
+
+
+
+
+
+
+
+
+
+
+
+
+
+									Page 2
+
+
+
+</PRE>
+</BODY>
+
+</HTML>

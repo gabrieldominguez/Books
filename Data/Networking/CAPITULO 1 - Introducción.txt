@@ -1,0 +1,278 @@
+X-Apparently-To: gabrielocio@yahoo.com.ar via 216.136.175.138; Tue, 02 Sep 2003 14:49:20 -0700
+X-YahooFilteredBulk: 38.114.11.152
+Return-Path: <hackemate-return-186-gabrielocio=yahoo.com.ar@elistas.net>
+Received: from 38.114.11.152  (HELO q4.elistas.net) (38.114.11.152) by mta122.mail.scd.yahoo.com with SMTP; Tue, 02 Sep 2003 14:49:20 -0700
+Received: (qmail 11112 invoked from network); 2 Sep 2003 23:33:24 +0200
+Received: from mail.egrupos.net (66.7.164.206) by q4.elistas.net with EMQP; 2 Sep 2003 23:33:24 +0200
+Mailing-List: hackemate@eListas.net
+Precedence: bulk
+X-No-Archive: yes
+List-Post: <mailto:hackemate@eListas.net>
+List-Help: <mailto:hackemate-ayuda@eListas.net>
+List-Unsubscribe: <mailto:hackemate-baja-gabrielocio=yahoo.com.ar@eListas.net>
+List-Subscribe: <mailto:hackemate-alta@eListas.net>
+X-eListas-Destinatario: gabrielocio=yahoo.com.ar
+Delivered-To: lista hackemate@eListas.net
+Delivered-To: moderador de hackemate@eListas.net
+Received: (qmail 7426 invoked from network); 2 Sep 2003 12:11:46 +0200
+Date: Tue, 2 Sep 2003 07:18:24 -0300
+From: Karmax <karmax82@yahoo.com.ar>
+X-Mailer: The Bat! (v1.62r) Personal
+Reply-To: Karmax <karmax82@yahoo.com.ar>
+X-Priority: 3 (Normal)
+Message-ID: <1761009907.20030902071824@yahoo.com.ar>
+To: hackemate@elistas.net
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-15
+Content-Transfer-Encoding: 8bit
+Subject: [Hackemate] [Karmax] charla irc
+
+                                Charlas IRC
+                                -----------
+
+El día viernes 22 a las 23hs se dio la charla en el IRC sobre "Networking", la
+charla en una palabra fue un CAOS. Por distintos problemas personales no pude
+organizarlo como tenía planeado y sentía que la situación se me hiba de las
+manos. Luego de terminada la charla y haber leido los logs, considero que es
+mejor cambiar este metodo (chat). De ahora en más sera de la siguiente manera:
+- Se enviará un mail a la lista de hackemate con el tema a explicar.
+- Luego de una semana se trataran las dudas en el IRC.
+
+Pienso que este es el mejor método para que todos podamos aprender, hoy lunes
+25, adjunto el texto de la charla del viernes 22, junto con algunos temas que
+quedaron afuera.
+El día viernes 29 a las 22hs se trataran las dudas referidas al texto que hoy
+envio, no hagan preguntas FUERA de este tema. Entiendo que para muchos es medio
+aburrido este tema y quieren preguntar o entrar en temas mas "complejos" y
+entretenidos. Pero este capitulo es una INTRODUCCION, en el capitulo 2
+comenzaran algunas prácticas y entretenimientos.
+
+LEAN y suerte!
+Nos vemos
+
+                                NETWORKING
+                        CAPITULO 1 - "Introducción"
+
+
+
+                                INTRODUCION
+                                -----------
+
+En los '60 y '70 cada red formada en algun lugar del mundo, contaba con sus
+protocolos e implementaciones. Con el correr del tiempo surgió la necesidad de
+compartir informacion entre estas redes, lo que se transformó en la necesidad
+de establecer un protocolo en común. DARPA ( Defense Advanced Research
+Projects Agency ) comenzó con este desarrollo y asi nació ARPANET, quien
+introdujo el concepto fundamental de capas. Es de él, de donde evolucionó
+TCP/IP (1978). Las agencias de gobierno y centros de investigación hicieron
+uso de este para crear su red, en donde la premisa principal era el compartir
+información. En los '80 (si bien era utilizado por varias redes) comenzó su
+"masificación", ya que el sistema operativo UNIX lo incluia en su sistema.
+TCP/IP es una suite de protocolos y permite (entre otras cosas), la
+comunicacion entre dos hosts, sin importar la pltaforma en la que se
+encuentren. No sólo eso, sino que tambien provee de transporte a otros
+protocolos, como puede ser NetBIOS. Hay que destacar que otro de los motivos
+por los cuales TCP/IP se "estandarizó", fue debido a la programacion en
+sockets. ***(la interfaz entre TCP/IP capa de transport y aplication)***
+Actualmente se continua su desarollo a traves de las RFC (Request For
+Comments).
+
+                        Modelo OSI (Open System Interconection)
+                        ---------------------------------------
+
+Mientras DARPA estaba desarrollando el protocolo que, años mas tarde, se
+transformaría en TCP/IP y, como ya sabemos, en Internet, un estandar
+alternativo estaba siendo investigado por el CCITT (Actual ITU-T) y la ISO
+(International Organization for Standarization). El resultado de esta
+investigación fue el modelo OSI (Open Systems Interconnection) el cual cuenta
+con un modelo de comunicacion formado por 7 capas, cada una de estas capas le
+provee una serie de funciones a la capa superior y a su vez se sirve de las
+funciones que le da la capa inferior. Los datos viajan verticalmente de capa
+en capa y cada una se comunica directamente con su par en el otro sistema.
+Para poder enviar los datos de un sistema a otro es necesario dividirlo en
+paquetes (pequeñas unidades en las que se dividen los datos al ser enviados),
+estos paquetes para ser enviados necesitan de un MEDIO (cable UTP, Coaxial,
+Fibra óptica, "vacío"), ya que es por este mismo por donde viajan los
+paquetes. Si bien el MEDIO es fundamental para que la transmisión origen -
+destino se efectue con éxito, también es necesario que los dispositivos de la
+red utilicen el mismo protocolo (una serie de normas que regulan la
+comunicación). En este modelo (al igual que en el TCP/IP) la comunicación
+entre los hosts se realiza capa con capa, si bien se empaqueta
+todo, al llegar a destino comienza a ser "desenpaquetado" y a medida que
+asciende por las capas, cada una recibe sus datos.
+Esta división de capas permite una mayor interdependencia a la hora de
+desarrollar, estudiar, normalizar, etc.
+En el proceso de comunicación cada una encapsula los datos que le dió la
+capa adyacente y le agrega una determinada cabecera, segun de que capa se
+trate, será la cabecera que le agregue. Esta cabecera se denomina PDU
+(Protocol Data Unit) y tienen un nombre segun de cual se trate. Veamos el
+proceso en detalle:
+Las capas 7,6 y 5 conforman lo que serán basicamente los DATOS a transmitir,
+cada una de estas capas le agrega una informacion determinada, luego la capa
+de 4 (Transport), divide los datos en SEGMENTOS y se los entrega a la capa 3
+(Network). Esta toma uno a uno los segmentos encapsulándolos y agregándoles
+una cabecera, formando asi los PAQUETES. Los paquetes son tomados por la capa
+2 (Data Link) la cual los encapsula y les suma su cabecera, transformandolos
+de esta manera en TRAMAS. Finalmente la capa 1 (Physical) se encarga de tomar
+las TRAMAS y transmitirlas en forma de bits.
+
+Veamos un esquema para entenderlo mejor:
+
+_______________________                          _______________________
+|                       |                               |                       |
+|       Application     |       <-------------->        |       Application     |
+|_______________________|                               |_______________________|
+|                       |                               |                       |
+|       Presentation    |       <-------------->        |     Presentation      |
+|_______________________|                               |_______________________|
+|                       |                               |                       |
+|       Session         |       <-------------->        |       Session         |
+|_______________________|                               |_______________________|
+|                       |                               |                       |
+|       Transport       |       <-------------->        |       Transport       |
+|_______________________|                               |_______________________|
+|                       |                               |                       |
+|       Network         |       <-------------->        |       Network         |
+|_______________________|                               |_______________________|
+|                       |                               |                       |
+|       Data Link       |       <-------------->        |       Data Link       |
+|_______________________|                               |_______________________|
+|                       |                               |                       |
+|       Physical        |       <-------------->        |       Physical        |
+|_______________________|                               |_______________________|
+
+
+Application(7): Esta es la capa mas cercana al usuario, ya que es la que brinda
+a el software portabilidad para comunicarse con las demas capas. Es importante
+no confundirse esta capa con el software en si. Podemos mencionar entre otras
+aplicaciones que hacen utilidad de esta capa a un navegador de internet
+(Internet Explorer, Netscape, etc).
+
+Presentation(6): Esta capa es la encargada de presentarle los datos a la capa
+de aplicacion, es decir, en otras palabras es quien le otorga el formato a los
+datos para que estos puedan ser interpretados por la capa de aplicacion del
+sistema (JPEG, HTML, MPEG).
+
+Session(5): Esta capa es la encargada de establecer, administrar y terminar las
+sesiones entre la capa de aplicacion y el resto de las capas. Es decir, en
+ciertas ocasiones establece quien funciona como servidor y quien como cliente
+de la comunicacion, entre otras funciones.
+
+Transport(4): Esta capa es una de las mas importantes, es la encargada de
+brindar una conexion confiable de host a host. Teniendo en cuenta las
+peculiaridades del medio actual de transferencia. TCP y UDP son ejemplos de
+protocolos de esta capa.
+
+Network(3): La capa de red principalmente es la que se encarga de establecer la
+conexión entre hosts y provee la capacidad de ruteo entre redes. Por ejemplo
+IP (Internet Protocol)
+
+Data link(2): Esta es la capa que se encarga de brindar acceso a los medios y
+detectar y corregir errores que puedan existir en la capa física.
+
+Physical(1): La capa física, es la responsable de transmitir físicamente los
+datos a través del medio de cuminicación.
+
+De esta manera hemos hecho referencia a las diferentes capas que componen al
+modelo OSI, mencionando en pocas palabras cual es la funcion de cada capa.
+Tengan la certeza de saber que las capas antes mencionadas se componen de
+muchas otras funciones y caracteristicas que no han sido mencionadas, ya que
+he intentado dar un breve concepto de cada una.
+
+
+                        Modelo de Referencia TCP/IP
+                        ---------------------------
+
+Ahora entraremos en lo que es el modelo de referencia TCP/IP (estas siglas
+vienen de Transmission Control Protocol y de Internet Protocol). Siendo este
+el modelo base que se ha utilizado, y que continua siendo utilizado para el
+crecimiento de la internet.
+Este modelo de comunicacion se compone de 4 capas (Aplication, Transport,
+Internetwork y Network Interface) las cuales cumplen diferentes funciones.
+Observen el siguiente grafico:
+
+
+Capas del modelo OSI                             Capas del modelo TCP/IP
+--------------------                             -----------------------
+  ------------------ ---------------------------- ------------------
+| Aplication       |                            |                  |
+|------------------|                            |                  |
+| Presentation     |                            | Aplication       |
+|------------------|                            |                  |
+| Session          |                            |                  |
+|------------------|----------------------------|------------------|
+|                  |                            |                  |
+| Transport        |                            | Transport        |
+|                  |                            |                  |
+|------------------|----------------------------|------------------|
+| Network          |                            | Internetwork     |
+|------------------|----------------------------|------------------|
+| Data Link        |                            |                  |
+|------------------|                            | Network Interface|
+| Physical         |                            |                  |
+  ------------------ ---------------------------- ------------------
+
+Aplication (4): Esta es la capa mas cercana al usuario, ya que es la que brinda
+a él, el software que utiliza TCP/IP para la comunicación. Ejemplos de esta
+capa, puede ser: Telnet.
+
+Transport (3): Es la encargada de brindar una conexion confiable de host a
+host. El principal protocolo de esta capa es el TCP (Transmission Control
+Protocol).
+
+Internetwork (2): En esta capa el protocolo principal es IP (Internet Protocol)
+el cual no tiene control de errores, esto se produce a un nivel superior,
+según el protocolo del cual se trate. Esta capa también se encarga del
+enrutamiento.
+
+Network Interface (1): Esta capa es la que brinda acceso al medio y se encarga
+de transmitir los datos. En el modelo TCP/IP no se especifica ningún protocolo
+en particular para esta capa. Ejemplos son X.25, FDDI.
+
+LECTURA COMPLEMENTARIA:
+- Glosario -
+Si hay alguna palabra que no sabes que es o queres saber que es algun concepto
+fijate aca:
+http://www.tectimes.com/cda/glosario.asp?home=1
+o en el poco conocido:
+www.google.com
+
+- Internet en General -
+http://www.datafull.com/datahack/informe.php?id=246
+Habla de todo, es bastante amplio. Honestamente este link es para que el que no
+sabe lo que es una dirección ip lo lea y termine entendiendo un poco las
+cosas.
+
+- Modelo OSI -
+http://www.linti.unlp.edu.ar/trabajos/tesisDeGrado/tutorial/redes/modosi.htm
+No me convenció mucho, pero fue de los mejorcitos que encontré (estaba enfermo
+y sin internet, me tuve que ir a un cybercafe a buscar estos links). Espero
+que nos los confunda.
+
+- Modelo TCP/IP -
+http://www.linti.unlp.edu.ar/trabajos/tesisDeGrado/tutorial/redes/modtcpip.htm
+Repito lo mismo que digo con el modelo OSI.
+
+
+El hosting de www.hackemate.com.ar es gentileza de Dattatec.com
+______________________________________________________________________
+SITIO OFICIAL: http://www.hackemate.com.ar
+FORO: http://foro.hackemate.com.ar
+FAQs: http://www.hackemate.com.ar/faqs
+Ebooks pass: kerozene | Serials2K pass: hackemate.com.ar_4ever
+Hackemate powered by: Club Pachá + Speed + Vodka + Girls
+_______________________________________________________________________
+Su dirección de suscripción a este boletín es gabrielocio@yahoo.com.ar
+Para desuscribirte enviá un mensaje a hackemate-baja@elistas.net
+
+
+_______________________________________________________________________
+Visita nuestro patrocinador:
+~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~
+         ¿Deseas conocer a alguien al otro lado del mundo...?
+                ¿...al otro lado de la esquina?
+                  ¿Deseas hacer nuevos amigos?
+  !!Conoce la mayor red de contactos y amistades hispana en Internet!!
+Haz clic aquí -> http://elistas.net/ml/117/7165668273697679677379/zbipp3dpn3bs
+~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~
+

@@ -1,0 +1,150 @@
+------------------------------------------------------------------------
+
+		********************************
+		*			       *
+		* PING... el cuchillo olvidado *
+		*			       *
+		********************************
+
+------------------------------------------------------------------------
+
+Quién de ustedes apostaría a que sabe usar el comando PING? En algún momento me pregunté que tan profundo podria ir un comando o simple ejecutable, y desde lo mas complejo, como nmap o netcat, terminé pensando en uno de los mas simples: PING.
+
+Pero este olvidado comando reemplazado por los multipinguers o multi_IP_tools nos presenta varias cosas que cualquier amante de los fierros no puede dejar de conocer, ya que el primero apareció allá por la versión 4.3 BSD.
+
+El manual de PING en cualquier sistema Liunux nos indica que "envía un ICMP ECHO_REQUEST" a un terminal de red. Y que demonios es eso? Asi que ping hace eso y uno ni siquiera sabe lo que es ICMP? Bueno, vamos a aclarar esto.
+
+ICMP significa Internet Control Message Protocol, y técnicamente está documentado en el RFC 792 (hace bastante, no?). Por supuesto esta muy vinculado al protocolo IP, y algunas de sus funciones son:
+
+Anunciar errores de red (terminales o porciones inalcanzables por un paquete TCP o UDP, por ejemplo)
+
+Anunciar congestión en una red (utilizado por dispositivos como los routers para encaminar los paquetes de manera optima)
+
+Ayudar con la solucion de problemas (utiliza la función de eco para enviar y recibir un paquetre calculando el tiempo entre los mismos, funcion utilizada por PING.
+
+Anunciar tiempos (en caso de obtener un paquete TTL, o time to live, un router descarta el datagrama y gebera un paquete ICMP que lo anuncia, función utilizada por TRACEROUTE.
+
+------------------------------------------------------------------------
+
+Bien, ahora conocemos un poco mas el protocolo que aparece en la descripcion del PING, y sabemos que el ECHO es el eco, o retorno al que se refiere cuando un paquete que enviamos es devuelto. Ahora veamos algunas opciones y modificadores de PING (algunas dije?) En verdad son muchisimas, pero vamos a ver los mas divertidos en orden alfabético. Aclaro que el PING de windows tiene diferencias con el PING de linux, ustedes sabrán cual usar, yo les cuento los dos, saquen conclusiones.
+
+PING EN LINUX (simple interpretacion del man)
+
+-a	Ping audible, wow...
+-A	Ping Adaptable, en cuanto a rtt (round trip time)
+-b	Permite pinguear direcciones de broadcast
+-c 	Pinguea X cantidad de veces, aclaradas a continuacion de "-c"
+-d	Setea la opcion DEBUG en el socket utilizado
+-f	Flood ping, se puede aclarar cuantas veces por segundo quiero pinguear
+-i	Se aclara cantidad de segundos entre paquetes
+-I	Aclaro la IP de donde pingueo (mmmm)
+-n	Solo salida numérica
+-p	Puedo especificar 16 bytes que yo quiera para el paquete
+-q	No muestra nada, salvo el sumario al comienzo y fin
+-r	Saltea la tabla de ruteo y envia directo el paquete a un host
+-s	Especifica los bytes a enviar (por default es 56+8 del ICMP header)
+-t	Setea el TTL (time to live) del IP
+-v	Muestra la salida "verboseada", o mas aclarada que lo normal
+-w	Se especifica el tiempo que quiero que pinguee
+
+
+PING EN WINDOWS (cuasi copypasteado del cmd)
+
+-a             	Resolver direcciones en nombres de host.
+-n cuenta      	Número de peticiones eco para enviar.
+-l tamaño      	Enviar tamaño del búfer.
+-f             	Establecer No fragmentar el indicador en paquetes.
+-i TTL         	Tiempo de vida.
+-v TOS         	Tipo de servicio.
+-r cuenta      	Ruta del registro para la cuenta de saltos.
+-s count       	Sello de hora para la cuenta de saltos.
+-t             	Ping al host especificado hasta que se pare (ctrl+c)
+-j lista-host  	Sigue la ruta de origen a lo largo de la lista- host.
+-k lista-host  	Restringe la ruta de origen a lo largo de la lista- host.
+-w 		Tiempo de espera en milisegundos para cada respuesta.
+
+
+Supongo que esperarán que les enseñe a armar superpaquetes todoterreno para vengarse de los enemigos mortales de la net, suena tan tonto e irónico como obvio, no lo voy a hacer, prefiero gastar las yemas de los dedos en darles data para que investiguen por su cuenta.
+
+------------------------------------------------------------------------
+
+Ahora algunas aclaraciones y BUGS que se puedan topar cuando utilicen el comando PING:
+
+* Muchos equipos, sistemas y gateways ignoran algunas opciones, como RECORD_ROUTE, para grabar cabeceras IP con las rutas del paquete.
+
+* El maximo tamaño de cabecera IP es demasiado pequeño para opciones como la anterior.
+
+* El ping flood esta abierto a cualquier payaso que haya entendido 2 o 3 opciones, o bien haya copiado la linea de algun txt de superhax0rs antiguos.
+
+------------------------------------------------------------------------
+
+/* Solo para programadores */
+
+Si ping no recibe ninguna respuesta, devuelve una salida de código 1, o mejor dicho, exit(1);
+Ante otros errores, PING devuelve un codigo 2, o exit(2);
+Si todo anduvo bien, retorna un codigo cero, o exit(0);
+
+------------------------------------------------------------------------
+
+El famoso TTL
+
+El TTL de un paquete IP representa el maximo numero de ruteos que un paquete pued atravesar antes de ser enviado. Podemos decir que cada router en Internet por donde pasa nuestro paquete, decrementa en uno este valor.
+
+Las especificaciones del TCP/IP dicen que el TTL para los paquetes TCP deberia ser de 60. Su maximo valor es 255 (FF en hexadecimal), con lo cual podríamos alcanzar un host con ping, pero no hacerlo con telnet, o por FTP, curioso, no? El TCP/IP tambien tiene sus limitaciones.
+
+Normalmente el PING muestra el valor TTL de cada paquete, pero cuand un host remoto recibe un ping, puede hacer alguna de estas 3 cosas con el campo TTL:
+
+* No cambiar nada
+* Setearlo a 255
+* Setearlo a otro valor
+
+------------------------------------------------------------------------
+
+Usos del PING
+
+Bueno, todo muy lindo, pero para que me sirve a mi el PING? Hay muchas formas de aprovechar el PING, personalmente destaco las siguientes:
+
+Quiero saber el IP de una pagina web, entonces escribo: ping www.google.com y el PING se encarga de decirme entre paréntesis, y al lado de la dirección, el IP que yo esperaba.
+
+Quiero comprobar si una conexión de red esta activa, o una placa esta conectada, o una PC esta encendida, solo pingueando al IP local o de internet, si recibo respuesta es porque esta activo en principio.
+
+Quiero ver si una conexion a un host o página es rapida o no, entonces me fijo los tiempos en milisegundos que tarda en llegar el paquete enviado.
+
+Quiero analizar el buen funcionamiento de una red con hub o switch, entonces pingueo entre si el server y las terminales para ver si no pierdo paquetes. Al final del pingueo se aclara el porcentaje de paquetes perdidos.
+
+------------------------------------------------------------------------
+
+Ejemplo práctico:
+
+Por si a alguno le queda alguna duda, reproduzco un ejemplo de pingueo al buscador google:
+
+[root@linux root]# ping -c 4 www.google.com
+PING www.google.com (216.239.39.99) from 200.61.165.73 : 56(84) bytes of data.
+64 bytes from 216.239.39.99: icmp_seq=1 ttl=49 time=167 ms
+64 bytes from 216.239.39.99: icmp_seq=2 ttl=49 time=166 ms
+64 bytes from 216.239.39.99: icmp_seq=3 ttl=49 time=166 ms
+64 bytes from 216.239.39.99: icmp_seq=4 ttl=49 time=166 ms
+
+--- www.google.com ping statistics ---
+4 packets transmitted, 4 received, 0% loss, time 3028ms
+rtt min/avg/max/mdev = 166.161/166.558/167.255/0.607 ms
+
+Bien, vemos que envia 56 bytes de datos por paquete, con un ttl de 49, en un tiempo de aproximadamente 166 milisegundos (0,166 segundos), sin haber perdido ninguno (0% loss).
+
+Si son usuarios de wind0w$ no se asusten, PING no les va a colgar la PC (ahora) asi que pueden probarlo sin dolor de cabeza de la misma forma que lo explicado.
+
+------------------------------------------------------------------------
+
+Palabras finales:
+
+Espero que les haya servido y gustado, hay muchisimo mas para hablar de este simple comando, pero como ven, si creian que lo conocían ahora pueden pensarlo 2 veces cuando les pregunten si saben usar el telnet, el tracert, el netstat o alguno mas complejo, hay muchas cosas nuevas para investigar, pero hay muchas cosas viejas que deben ser investigadas antes. 
+
+Ya saben, si tienen alguna duda, lean el man, el help, o lo que tengan mas a mano, siempre hay buena data en internet, prueben el google, los howtos, los papers, los txts y demas cosas antes de pasar por un foro a pasar papelones, como todos lo hemos hecho alguna vez...
+
+
+Saludos a todos!!!
+
+Quark
+
+
+------------------------------------------------------------------------

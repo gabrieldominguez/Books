@@ -1,0 +1,17 @@
+https://gist.github.com/subfuzion/08c5d85437d5d4f00e58
+
+curl -X POST http://localhost:3000/data -H "Content-Type: application/json" -d {\"key1\":\"value1\", \"key2\":\"value2\"} -v --trace-time
+
+curl 
+-X POST http://localhost:3000/data 
+-H "Content-Type: application/json" 
+-d {\"key1\":\"value1\", \"key2\":\"value2\"} 
+-v --trace-time
+-w "\n\n==== cURL measurements stats ====\ntotal: %{time_total} seconds \nsize: %{size_download} bytes \ndnslookup: %{time_namelookup} seconds \nconnect: %{time_connect} seconds \nappconnect: %{time_appconnect} seconds \nredirect: %{time_redirect} seconds \npretransfer: %{time_pretransfer} seconds \nstarttransfer: %{time_starttransfer} seconds \ndownloadspeed: %{speed_download} byte/sec \nuploadspeed: %{speed_upload} byte/sec \n\n"
+
+curl -X POST http://nbsfdessrv02:1490/api/operaciones -H Content-Type:application/json -d {\"PaisDocumento\":\"AR\",\"IdentificacionPersona\":\"20123132131\",\"Monto\":500,\"Efectivo\":true,\"TipoOperacion\":\"C\"}  -v --trace-time -w "\n\n==== cURL measurements stats ====\ntotal: %{time_total} seconds \nsize: %{size_download} bytes \ndnslookup: %{time_namelookup} seconds \nconnect: %{time_connect} seconds \nappconnect: %{time_appconnect} seconds \nredirect: %{time_redirect} seconds \npretransfer: %{time_pretransfer} seconds \nstarttransfer: %{time_starttransfer} seconds \ndownloadspeed: %{speed_download} byte/sec \nuploadspeed: %{speed_upload} byte/sec \n\n"
+
+curl -X POST http://nbsfdessrv02:1490/api/operaciones -H Content-Type:application/json -d {\"PaisDocumento\":\"AR\",\"IdentificacionPersona\":\"20123132131\",\"Monto\":500,\"Efectivo\":true,\"TipoOperacion\":\"C\"}  -v --trace-time -w "\nTotal time: %{time_total} seconds\n"
+
+
+curl --request POST https://padronpymes.produccion.gob.ar/oauth/token --header Content-Type:application/x-www-form-urlencoded --data-urlencode 'username=30692432661' --data-urlencode 'password=EX202000830105' --data-urlencode 'grant_type=password' --data-urlencode 'client_id=5e0a4d18afcb99016577a2a4' --data-urlencode 'client_secret=Kxnbp9EokrbLRP0CRy1n8L4m6paLsCxPUnJwQ4nf'

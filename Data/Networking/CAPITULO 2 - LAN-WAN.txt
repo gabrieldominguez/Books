@@ -1,0 +1,434 @@
+X-Apparently-To: gabrielocio@yahoo.com.ar via 216.136.175.137; Fri, 19 Sep 2003 12:58:54 -0700
+X-YahooFilteredBulk: 38.114.11.153
+Return-Path: <hackemate-return-191-gabrielocio=yahoo.com.ar@elistas.net>
+Received: from 38.114.11.153  (HELO q5.elistas.net) (38.114.11.153) by mta186.mail.scd.yahoo.com with SMTP; Fri, 19 Sep 2003 12:58:54 -0700
+Received: (qmail 20005 invoked from network); 19 Sep 2003 21:56:06 +0200
+Received: from mail.egrupos.net (66.7.164.206) by q5.elistas.net with EMQP; 19 Sep 2003 21:56:06 +0200
+Mailing-List: hackemate@eListas.net
+Precedence: bulk
+X-No-Archive: yes
+List-Post: <mailto:hackemate@eListas.net>
+List-Help: <mailto:hackemate-ayuda@eListas.net>
+List-Unsubscribe: <mailto:hackemate-baja-gabrielocio=yahoo.com.ar@eListas.net>
+List-Subscribe: <mailto:hackemate-alta@eListas.net>
+X-eListas-Destinatario: gabrielocio=yahoo.com.ar
+Delivered-To: lista hackemate@eListas.net
+Delivered-To: moderador de hackemate@eListas.net
+Received: (qmail 18426 invoked from network); 19 Sep 2003 20:51:50 +0200
+Message-ID: <3F6B4A7C.4000003@yahoo.com.ar>
+Date: Fri, 19 Sep 2003 15:27:08 -0300
+From: KarMax <karmax82@yahoo.com.ar>
+Reply-To:  karmax82@yahoo.com.ar
+Organization: Utopia
+User-Agent: ZoneSurf 2.4 (BeOS)
+MIME-Version: 1.0
+To:  hackemate@elistas.net
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 8bit
+Subject: [Hackemate] [KarMax] Charla IRC - Capitulo 2.1
+
+
+				--= CHARLA IRC =--
+
+    Hola amigos, como andan? como verán me retrasé en la entrega del Capitulo 2 
+esto basicamente se debió a la crítica sagaz, mordaz, ¿inteligente? de un amigo, 
+por lo que re-escribí el capítulo (espero que para mejor). El capitulo 2 es 
+sobre LAN-WAN, pero en esta segunda entrega, veremos una introducción a LAN-WAN 
+y luego Ethernet. En la próxima veremos Token-Ring, FDDI, y seguramente ya 
+comenzemos con WAN.
+    Los temas se volveran cada vez más técnicos por lo que cada vez será más 
+"obligatoria" la lectura de los links.
+    Bueno la semana que viene nos juntaremos varios días para que este tema se 
+entienda BIEN. Dias y horarios para todos los gustos:
+Lunes 22/09   23:45
+Martes 23/09   21:15
+Viernes 26/09   21:30
+Todos los horarios son GMT -3 (Buenos Aires)
+
+irc.elsitio.com
+#hackemate
+
+    Les pido que cuando nos juntemos RESPETEN LOS TEMAS PLANTEADOS EN ESTA ENTREGA.
+
+
+
+			CAPITULO 2 - "LAN - WAN"
+			-----------------------
+			  -------------------
+
+
+    Antes de continuar es importante que se entienda como se transmiten los
+datos en una red IP, veamos:
+    Cada host se conecta a la red a través de una NIC (Network Interface Card),
+la cual tiene una dirección única por hardware (MAC). En la capa 1 estos hosts
+se comunican entre ellos utilizando esta dirección. IP, es un protocolo que se
+encuentra en una capa superior, el cual utiliza direcciones lógicas para
+comunicarse. Cuando el host A con la dirección ip 192.168.1.1 se quiere
+comunicar con el host B (192.168.1.2), la NIC no entiende estas direcciones
+lógicas, por lo tanto es necesario implementar algún mecanismo que permita
+"convertir" 192.168.1.2 a una direccion de hardware que la NIC pueda entender.
+
+    Antes de ver este pasaje (ip-hardware), veamos algunos aspectos a tener en 
+cuenta:
+
+*Ruteo:
+
+    Es el proceso de transportar paquetes IP de una red a otra, asi como es de
+importante en redes IP, es la cantidad de tecnologías disponibles para
+realizarlo. Existen también los denominados "switch", con los cuales es
+posible establecer caminos condicionados previos al proceso de ruteo. De esta
+manera se utilizan menos recursos de la red, se gana mayor velocidad y se
+evita el proceso de ruteo en muchas secciones de la red, el cual es un proceso
+que implica ascender más por las capas e implica un mayor proceso. ( Más
+adelante se hablará en detalle sobre el "switch" asi también como "hub",
+"router", etc.)
+
+*Fragmentación:
+
+    La fragmentación se produce cuando son implementados protocolos en la capa
+"Data Link" que tienen distintos tamaños de MTU (Maximum Transmission Unit).
+Este indica el tamaño maximo en bytes que pueden tener los datos en el frame,
+un mayor MTU permite enviar mayor cantidad de datos en un frame, lo que
+termina requiriendo una menor cantidad de paquetes para enviar información en
+la red. El proceso de fragmentación es el de dividir paquetes que sobrepasan
+el MTU, en paquetes mas pequeños. La fragmentación implica que haya mayor
+cantidad de paquetes circulando por la red, lo cual disminuye el flujo (entre
+otras cosas). Si se puede evitar, mejor =).
+
+*Broadcast:
+
+    La mejor manera de describir una red que implementa broadcast, es la de
+imaginarse a alguien dando una conferencia, uno habla y todos los demás
+escuchan. En una red que no implementa broadcast sería un grupo de gente donde
+se dicen secretos entre ellos, sólo el que lo dice y el que lo escucha, saben
+de que se trata. Es importante diferenciar estos dos tipos de redes ya que
+cada uno tiene sus virtudes y limitaciones, las cuales deben ser consideradas
+a la hora de estudiar o armar una red.
+    Ejemplos de broadcast: Ethernet, token-ring. No broadcast: ATM.
+
+
+				RESOLUCION (ip-hardware)
+				----------
+
+* ARP (Address Resolution Protocol)
+  ----------------------------------
+
+    En una red (broadcast) el ARP es utilizado para resolver una direccion de
+protocolo (por ejemplo IP) a una dirección de red local (por ejemplo
+direcciones Ethernet). Recordemos que el ARP no es una especificación de
+Internet.
+    Cada host que utiliza TCP/IP mantiene una tabla (ARP Cache), la cual
+contiene estas resoluciones. Cuando se intenta enviar datos a un host (IP) que
+no se encuentra en esta tabla, se envia un broadcast (ARP Broadcast) a toda la
+red (siempre y cuando el host destino se encuentre en la misma subred). Todos
+los hosts que esten en la red, al recibir el broadcast, verifican si la ip que
+no se encuentra en la tabla es la suya, el host al cual pertenece esa ip
+contesta (ARP Reply) indicando cual es su dirección de hardware. El host que
+envió el broadcast, al recibir la respuesta con la dirección de hardware, la
+guarda en su tabla (ARP Cache) y comienza a enviar datos a la nueva dirección
+de hardware aprendida.
+    Si bien ARP resulta simple y efectivo para resolver direcciones
+(IP-hardware), existe un fenómeno conocido como (ARP Broadcast Storm).
+Supongamos que en una LAN (Local Area Network) de 150 hosts se utiliza ARP
+para resolver direcciones. Si los hosts poseen una tabla (ARP Cache) muy
+pequeña o que se renueva cada poco tiempo, circularan constantemente por la
+red, cientos de ARP Broadcast para poder resolver destinos. Lo cual termina
+haciendo casi imposible el enviarse datos entre hosts.
+    En el próximo capitulo veremos con mayor profundidad este protocolo.
+
+* Proxy ARP
+  ----------
+
+    Como vimos anteriormente el ARP, es utilizado para resolver direcciones
+entre hosts pertenecientes a una misma red, es decir que si tenemos dos redes
+distintas interconectadas por un router, en principio el ARP no podría cumplir
+su función. El Proxy ARP se utiliza para solucionar este problema, al
+implementarlo el router contesta (ARP Reply) enviando su dirección MAC como la
+correspondiente a la dirección IP que queremos alcanzar en la otra red.
+    Supongamos que el host A perteneciente a una LAN (192.168.1.1) se quiere
+comunicar con el host 1 perteneciente a otra LAN (10.0.1.1), estas dos LANs
+estan interconectadas por un router, de esta manera el router actua como
+gateway y cuando el host A intenta acceder a otro host fuera de su LAN se
+comunica con el router, este sabe que la dirección ip destino se encuentra en
+la otra LAN, por lo que le responde al host A y se continua haciendo cargo de
+la comunicación. Digamos que el host A se comunicaría directamente con el
+router y este a su vez, se comunicaría con el host 1. En la tabla (ARP Cache)
+del host A la direccion IP del host 1 estará relacionada con la direccion MAC
+del router.
+
+AVISO: Con respecto a ARP, les pido que se mantengan en estos conceptos por 
+ahora y no hagan preguntas fuera de lo explicado aqui. En proximos capitulos 
+veremos en PROFUNDIDAD ARP (asi tambien como RARP, PROXY ARP... etc.)
+
+
+				Tecnología LAN
+				--------------
+
+* Ethernet
+  ---------
+
+    Esta es una de las Tecnologías LAN más difundidas hoy en día en el mundo,
+esto no sólo se debe al bajo costo económico sino que a esto se le suma la
+simple implementación. Esta tecnología fue inventada por Xerox en 1970 y fue
+lanzada como Ethernet V1. El cual fue modificado por Digital, Intel y Xerox, y
+se transformó en Ethernet V2. Este luego fue levemente modificado por la IEEE
+y lo aceptó como estandar internacional (IEEE 802.3)
+    Una LAN Ethernet es un ejemplo de una red CSMA/CD (Carrier Sense Multiple
+Access / Collision Detection), esto quiere decir que hosts de una misma LAN
+transmiten datos y retrasmiten cuando hay colisión. CSMA/CD también es un
+clásico ejemplo de una red broadcast porque todos los hosts tienen acceso a
+todos los datos que son transmitidos por la red.
+    Cuando un host de la red quiere transmitir datos, primero comprueba si algún
+otro esta transmitiendo en la red, de ser asi, espera a que termine la
+transmisión existente para luego enviar sus datos. Pero muchas veces sucede
+que se tarda en avisarle que esta siendo utilizada, por lo que el host asume
+que no esta siendo utilizada y envía los datos, y ocurre una colisión, la cual
+es detectada por todos los hosts de la red. Cuando hay una colisión los dos
+hosts que querían transmitir, esperan cierto tiempo para retrasmitir sus
+datos.
+    Una colisión puede ocurrir por:
+      * Muchos hosts en la red.
+      * Hosts muy distanciados en la red.
+      * Si el MTU es muy grande, debido a que un paquete más grande tarda más en
+ser transmitido, lo que aumenta la posibilidad de una colisión.
+
+    Otra cuestión a tener en cuenta es que nuestra LAN tenga la cantidad de
+hosts por segmento de red y que se utilize un frame correcto. Con respecto al
+frame hay que tener cierto equilibrio, por un lado un frame grande requiere
+transmitir una menor cantidad de paquetes, el que sea tan grande hace que
+existan muchas posibilidades de colisiones. Pero por otro lado un frame muy
+pequeño reduce las posibilidades de colisión pero requiere muchos más para
+transmitir la misma información.
+    Las redes ethernet tienen dos grandes tipos de nodos, los que envian y
+reciben datos denominados Data Terminal Equipment (DTE), por ejemplo: PCs,
+servidores de impresión, etc. Y también existen los que actuan recibiendo y
+simplemante reenviando estos datos por la red, a estos se les denomina Data
+Communication Equipment (DCE), por ejemplo hubs, switches, etc.
+
+    - Topologías Ethernet:
+
+  .Punto a punto:
+    Esta conexion es la que se realiza al conectar DTE y DTE, DTE y DCE o DCE y
+DCE. Es una conexion simple la distancia entre los dos depende del tipo de
+cable y transmisión.
+
+..Bus:
+    Esta conexion ya no se utiliza mucho actualmente, basicamente veanlo como el
+grafico que intenté armar ;)
+
+	  A		B		C	
+	  |		|		|
+	  -------------------------------
+
+    Como pueden apreciar es un segmento donde se conectan los hosts (A, B, C).
+En ambos extremos debe estar cerrada con un "terminador".
+    Esta topología utiliza cable coaxial y los segmentos de red estan limitados
+a 500 metros y se pueden conectar 100 hosts en un segmento. Estos segmentos
+pueden estar interconectados por un repetidor, siempre y cuando no haya más de
+1024 DTE. Como pueden ver es una red bastante limitada pensando en las
+tecnologías actuales.
+
+  .Estrella:
+    Esta topologia es la predominante hoy en día y consiste en un hub o switch
+"central", al cual todos los hosts estan conectados. Se podría considerar como
+que cada host con otro host forma una conexion punto a punto a punto a traves
+del central. Es lapredominante hoy en día debido entre otras cosas a las
+velocidades de transferencia y alcance. Esta topología permite la utilización,
+tanto de par trenzado (UTP: Unshielded Twisted Pair) como de Fibra Optica.
+
+
+      	           -----                         -----
+                   |     |                       |     |
+                   |  C  |                       |  D  |
+                    ----- \                     / -----
+                            \                 /
+                              \             /
+                                \ ------- /
+                                 | DISP. |
+                                / ------- \
+                              /             \
+                            /                 \
+                    ----- /                     \ -----
+                   |     |                       |     |
+                   |  A  |                       |  B  |
+                    -----                         -----
+
+
+
+    - Ethernet (IEEE 802.3) en relación al Modelo OSI:
+
+    Modelo OSI				      IEEE 802.3
+
+  ---------------------			 ---------------------
+|		      |			|    	LLC	      |
+|      Data Link      |			|_____________________|
+|		      |			|   	MAC	      |
+|		      |			|   		      |
+  ---------------------			 ---------------------
+|		      |			|		      |
+|      Physical       |			|       Physical      |
+|		      |			|		      |
+  ---------------------			 ---------------------
+
+  .LLC:
+  - LLC (Logical Link Cotrol) esta subcapa provee la interface entre Ethernet 
+MAC y las capas superiores.
+  Esta subcapa es más compleja y se denomina "Mac-Client", pero considero mejor 
+hacerlo asi.
+
+  .MAC
+  - Encapsular los datos y detectar errores en los frames durante y despues de 
+la transmisión.
+  - Acceso al medio, incluyendo el inicio de la transmisión del frame y 
+recuperacion al producirse una falla en la transmisión.
+
+    - Ethernet Frame:
+
+    Ahora veremos el Frame que indica el estandar 802.3, el cual cuenta con 7 capas:
+  .Preamble (PRE): Avisa al host receptor que se le envia un frame.
+  .Start Frame Delimiter (SOF): Es 1 byte de 1 y 0, alternados con sus últimos 
+dos bits iguales a 11, indicando asi que a continuación se encuentra el comienzo 
+de la direccion destino.
+  .Destination Address (DA): Indica la direcciñon del host que debe recibir el 
+frame.
+  .Source Address (SA): Indica la direccion del host que envió el frame.
+  .Lenght/Type: Indica entre otros datos el tamaño de los datos que se envian.
+  .Data: Los datos
+  .Frame Check Sequence (FCS): Comprueba si hay frames con errores.
+
+    - Transmisión de Frames:
+
+    Cuando la subcapa MAC de un host recibe el pedido para enviar un frame, 
+acompañado de la dirección y datos de la subcapa LLC, la subcapa MAC inicia la 
+transmisión transferiendo la informacón de LLC al frame-buffer en la MAC.
+  .Preamble y Start Frame Delimiter son insertados en los campos PRE y SOF.
+  .Destination y Source Address, son insertados en los campos de direcciones.
+  .Se cuentan los bytes de los datos LLC y se insertan en el campo Lenght/Type.
+  .Los bytes de datos LLC son insertados en el campo Data.
+  .FCS es generado según los campos DA,SA,Lenght/Type y Data, y es agregado al 
+final del campo Data.
+
+    - Recepción de Frames:
+
+    La Destination Address (host al que se le envia el frame) del frame es 
+comparada con la dirección del host que lo recibe para comprobar si el frame es 
+para él. Si es así se comprueba el tamaño del frame y el FCS recibido es 
+comparado con el FCS generado durante la recepción del frame. Si el tamaño del 
+frame esta bien y los FCS son los correctos, se comprueba el tipo de frame según 
+el campo Length/Type y luego continua a la capa superior correspondiente.
+
+    - CSMA/CD
+
+    En una LAN Ethernet, sin switch, la cual no cuenta con tokens, ni ninguna 
+asignación de tiempos(turnos) que le indique a cada host cuando enviar o 
+recibir, cada host determina por si solo cuando puede  enviar un frame. CSMA/CD 
+intenta "reglamentar" el acceso al medio de cada host, para esto cuenta:
+  .Carrier Sense: Cada host continuamente "escucha" el trafico en el medio.
+  .Multiple Access: Pueden transmitir en cualquier momento que detecten que no 
+hay trafico en el medio.
+  .Collision Detect: Si dos o más hosts comienzan a transmitir aprox. al mismo 
+tiempo, estos colisionaran (interferiran uno con otro) y ambas transmisiones 
+seran erroneas. Si esto ocurre ambos hosts deben detectar que esto ha ocurrido 
+antes de finalizar el envio del frame. Además ambos hosts dejan de transmitir 
+cuando detectan la colisión y aguardan un tiempo aleatorio antes de intentar 
+enviar el frame nuevamente.
+
+    - Full-Duplex
+
+    Full-Duplex permite una transmisión simultanea (enviar y recibir) en 
+conexiones punto a punto (host a host). Esta funcionalidad MAC implica que no 
+haya colisiones y que no se necesite estar programando retransmisiones, entre 
+otras cosas. De esta manera no sólo se logra mayor tiempo para transmitir (ya 
+que no hay que esperar), sino que se duplica el ancho de banda.
+    Por otra parte hay que tener en cuenta que para poder aplicar esta 
+funcionalidad en la red necesitamos control de flujo. Para plantearlo más 
+simple, al utilizar un switch estariamos posibilitando nuestra LAN Ethernet para 
+aprovechar esta capacidad.
+
+    La tecnología Ethernet ha evolucionado notablemente, hoy en día ya existen 
+redes Ethernet de 100Mbps "Fast Ethernet" (IEEE 802.3u) y de hasta de 1Gbps 
+(IEEE 802.3z).
+    Veamos a GRANDES RASGOS las diferencias (para más información vean los links 
+al final del texto):
+
+  - IEEE 802.3u
+      Los cables utilizados para este tipo de red son 100BaseTx, 100BaseT4 y 
+100BaseFx y los tamaños de los frames son los mismos que en Ethernet (IEEE 
+802.3). Como podemos observar es bastante simple actualizar nuestra red Ethernet 
+a IEEE 802.3u. Como contra hay que remarcar que el tamaño de la red debe ser 
+disminuido, ya que de otra manera las colisiones no serían detectadas.
+
+  - IEEE 802.3z
+       Para conectar esta red, comunmente se utilizan cables de fibra optica 
+1000BaseSx (onda corta), 1000BaseLx (onda larga) y también 1000BaseT (UTP). El 
+tamaño de frame sigue siendo el mismo.
+
+   Quiero aclarar que estas comparaciones estan a modo de que conozcan que 
+Ethernet no es sólo (10BaseT), si el leer esto les trajo muchas dudas dejenlo 
+"ahí" para luego analizarlo con detenimiento o al leer los links, si asi lo 
+creen necesario.
+    Como hemos observado las tecnologías continuan avanzando y cada vez es mayor
+el ancho de banda posible, pero existe un "dilema" paralelo. Es realmente
+"necesaria" una red de más de 10Mbps?. En la mayoria de los casos no se 
+justifica si tambien le incluimos el condicionante ( PRECIO ). Pensemoslo como 
+que tenemos un caño de 10 metros de diámentro y nosotros sólo utilizamos 2... de 
+que nos serviría tener uno de 20 metros de diámetro? Si además le sumamos la 
+utilización de un switch el cual nos brinda una conexion de 10Mbps con cada host 
+de la red, se piensa 2 veces antes de "actualizar" nuestra red. Por otra parte, 
+hoy en día cada vez son más las tarjetas Ethernet de 10/100Mbps, lo cual brinda 
+la posibilidad de conectarnos a la red a 100Mbps.
+    Ahora que hemos visto lo que es Ethernet, podemos concluir que es buena para 
+redes que no manejan grandes volumenes de datos ni aplicaciones que requieren un 
+gran ancho de banda. Debido a sus colisiones (aleatorias) es imposible 
+determinar el tiempo de respuesta.
+    Ethernet es una tecnología de red muy barata y de simple implementación, lo 
+que permite que hoy en día sea una de las tecnologías de red más utilizadas en 
+el Mundo.
+
+
+Links:
+
+- Tutoriales de redes LAN
+Muchos documentos sobre distintos temas relacionados con LAN, si tienen alguna 
+duda visiten este link
+http://www.abcdatos.com/tutoriales/redes/lan.html
+
+- IEEE 802.3 (Ethernet)
+El estandar dividido en 3 archivos pdf para poder bajarlo (por partes)
+www.hispacoders.net/802-3/802.3-2002_part1.pdf
+www.hispacoders.net/802-3/802.3-2002_part2.pdf
+www.hispacoders.net/802-3/802.3-2002_part3.pdf
+
+- Migración de 10 a 100 Mbps
+Varios textos que giran, principalmente en migrar de la mejor manera posible
+http://www.transition-spanish.com/products/services/index.htm
+
+Chau y Suerte
+Nos vemos
+KarMax
+
+
+______________________________________________________________________
+SITIO OFICIAL: http://www.hackemate.com.ar
+FAQs: http://www.hackemate.com.ar/faqs
+Ebooks pass: kerozene | Serials2K pass: hackemate.com.ar_4ever
+Hackemate powered by: Club Pachá + Speed + Vodka + Girls
+_______________________________________________________________________
+Su dirección de suscripción a este boletín es gabrielocio@yahoo.com.ar
+Para desuscribirte enviá un mensaje a hackemate-baja@elistas.net
+
+
+_______________________________________________________________________
+Visita nuestro patrocinador:
+~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~
+
+            ¿Quieres ver tus sueños ... hechos realidad?
+
+          !!ENTRA EN CLUB CONCURSOS!!  GARANTIA DE PREMIO ...
+
+                  Ganarás coches, Viajes, Ordenadores, 
+                       y hasta 1 Millón al día !
+
+¡PULSA AQUI! -> http://elistas.net/ml/125/7165668273697679677379/zbipp3dpn3bs
+~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~
+

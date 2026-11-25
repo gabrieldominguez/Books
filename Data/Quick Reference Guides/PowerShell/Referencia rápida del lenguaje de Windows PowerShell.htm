@@ -1,0 +1,2851 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List
+href="Referencia%20rápida%20del%20lenguaje%20de%20Windows%20PowerShell_archivos/filelist.xml">
+<title>MSH LANGUAGE </title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>James W. Truher</o:Author>
+  <o:LastAuthor>Tecnologia y Sistemas</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:LastPrinted>2005-06-16T17:52:00Z</o:LastPrinted>
+  <o:Created>2010-03-05T18:16:00Z</o:Created>
+  <o:LastSaved>2010-03-05T18:16:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>2211</o:Words>
+  <o:Characters>12166</o:Characters>
+  <o:Company>TruTech</o:Company>
+  <o:Lines>101</o:Lines>
+  <o:Paragraphs>28</o:Paragraphs>
+  <o:CharactersWithSpaces>14349</o:CharactersWithSpaces>
+  <o:Version>10.6626</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:DoNotHyphenateCaps/>
+  <w:PunctuationKerning/>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 4 9 2 2 5 2 4 4;
+	mso-font-alt:"Courier New";
+	mso-font-charset:0;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:Wingdings;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:???¡ì??;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-alt:Verdana;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;
+	mso-fareast-language:EN-US;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;
+	mso-ansi-language:EN-US;
+	mso-fareast-language:EN-US;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;
+	mso-ansi-language:EN-US;
+	mso-fareast-language:EN-US;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-noshow:yes;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;
+	mso-fareast-language:EN-US;}
+span.MsoCommentReference
+	{mso-style-noshow:yes;
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:2.0pt;
+	margin-left:43.2pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:SimSun;
+	color:maroon;
+	mso-ansi-language:EN-US;
+	mso-fareast-language:ZH-CN;}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-noshow:yes;
+	mso-style-parent:"Texto comentario";
+	mso-style-next:"Texto comentario";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;
+	mso-fareast-language:EN-US;
+	font-weight:bold;}
+span.CharChar
+	{mso-style-name:"Char Char";
+	font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:SimSun;
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";
+	color:maroon;
+	mso-ansi-language:EN-US;
+	mso-fareast-language:ZH-CN;}
+p.NOLOC, li.NOLOC, div.NOLOC
+	{mso-style-name:NOLOC;
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;
+	mso-fareast-language:EN-US;}
+span.NOLOCChar
+	{mso-style-name:"NOLOC Char";
+	mso-ansi-font-size:8.0pt;
+	mso-bidi-font-size:8.0pt;
+	font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	mso-ansi-language:EN-US;
+	mso-fareast-language:EN-US;}
+ins
+	{mso-style-type:export-only;
+	text-decoration:none;}
+span.msoIns
+	{mso-style-type:export-only;
+	mso-style-name:"";
+	text-decoration:underline;
+	text-underline:single;}
+span.msoDel
+	{mso-style-type:export-only;
+	mso-style-name:"";
+	text-decoration:line-through;
+	color:red;}
+@page Section1
+	{size:1008.0pt 612.0pt;
+	mso-page-orientation:landscape;
+	margin:36.0pt 36.0pt 36.0pt 36.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-columns:4 not-even 223.2pt 14.4pt 223.2pt 14.4pt 223.2pt 14.4pt 223.2pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:108932462;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-77822444 510572522 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-text:"\(%1\)";
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-bidi-font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:1015040287;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1096140200 -725729484 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;
+	color:windowtext;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l1:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l1:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l1:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l1:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l1:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Wingdings;}
+@list l2
+	{mso-list-id:2124301084;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1849383006 1786693248 -1548970576 388152538 -1367586586 499649070 -972888518 -1073865160 -1654125432 397040190;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-start-at:2427;
+	mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l2:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l2:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l2:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l2:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l2:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l2:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+@list l2:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Tabla normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=ES-AR style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal style='margin-right:-9.0pt'><b><span lang=ES
+style='font-size:22.0pt;font-family:Verdana;mso-bidi-font-family:Verdana;
+mso-ansi-language:ES'>Referencia rápida del lenguaje de Windows PowerShell</span></b><span
+lang=ES style='font-size:10.0pt;font-family:Verdana;mso-bidi-font-family:Verdana;
+mso-ansi-language:ES'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=288
+ style='width:216.0pt;border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:480;mso-padding-alt:0cm 5.4pt 0cm 5.4pt;mso-border-insideh:
+ .5pt solid windowtext;mso-border-insidev:.5pt solid windowtext'>
+ <tr style='mso-yfti-irow:0'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Compatibilidad nativa con distintos sistemas de tipos<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Windows PowerShell adapta los objetos WMI, XML, ASDI, ADO y COM para
+  proporcionar una sintaxis común que permite obtener acceso a sus propiedades
+  y métodos.<span style='mso-spacerun:yes'>   </span><o:p></o:p></span></p>
+  <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Ejemplo</span></b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><br>
+  <span class=NOLOCChar><span style='mso-ansi-language:ES'>$g = Get-WmiObject
+  Win32_Process<o:p></o:p></span></span></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>$g[0].Name<span style='mso-spacerun:yes'>  </span># en lugar de
+  $g[0].Properties[“Name”]<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Operadores aritméticos binarios<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+   mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+   0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+   .5pt solid windowtext'>
+   <tr style='mso-yfti-irow:0'>
+    <td width=60 valign=top style='width:44.75pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>+ <o:p></o:p></span></p>
+    </td>
+    <td width=196 valign=top style='width:147.1pt;border:solid windowtext 1.0pt;
+    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Suma, concatenación<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td width=60 valign=top style='width:44.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>-<o:p></o:p></span></p>
+    </td>
+    <td width=196 valign=top style='width:147.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Resta<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td width=60 valign=top style='width:44.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>*<o:p></o:p></span></p>
+    </td>
+    <td width=196 valign=top style='width:147.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Multiplicación, repetición de cadenas<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td width=60 valign=top style='width:44.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>/ <o:p></o:p></span></p>
+    </td>
+    <td width=196 valign=top style='width:147.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>División<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes'>
+    <td width=60 valign=top style='width:44.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>% <o:p></o:p></span></p>
+    </td>
+    <td width=196 valign=top style='width:147.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Módulo<o:p></o:p></span></p>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'><o:p>&nbsp;</o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Operaciones con matrices<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Determinar si esta matriz contiene el número 3<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>1,2,3,5,3,2
+  –contains 3<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><br>
+  Devolver todos los elementos que son iguales a 3:<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>1,2,3,5,3,2 –eq 3<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Devolver todos los elementos que son menores que 3:<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>1,2,3,5,3,2 –lt 3<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Comprobar si el número 2 está en el conjunto:<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>if (1, 3, 5
+  –contains 2) …<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Otros operadores: -gt, -le, -ge, -ne<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Matrices<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+   mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+   0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+   .5pt solid windowtext'>
+   <tr style='mso-yfti-irow:0'>
+    <td width=85 valign=top style='width:63.95pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>“a”,“b”,”c”<o:p></o:p></span></p>
+    </td>
+    <td width=166 valign=top style='width:124.8pt;border:solid windowtext 1.0pt;
+    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Matriz de cadenas<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td width=85 valign=top style='width:63.95pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>1,2,3 <o:p></o:p></span></p>
+    </td>
+    <td width=166 valign=top style='width:124.8pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Matriz de enteros<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td width=85 valign=top style='width:63.95pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>@()<o:p></o:p></span></p>
+    </td>
+    <td width=166 valign=top style='width:124.8pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Matriz vacía<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td width=85 valign=top style='width:63.95pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>@(2)<o:p></o:p></span></p>
+    </td>
+    <td width=166 valign=top style='width:124.8pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Matriz de 1 elemento<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td width=85 valign=top style='width:63.95pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>1,(2,3),4<o:p></o:p></span></p>
+    </td>
+    <td width=166 valign=top style='width:124.8pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Matriz dentro de otra matriz<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td width=85 valign=top style='width:63.95pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES-TRAD style='mso-ansi-language:ES-TRAD'>,”hola”</span><span
+    lang=ES style='mso-ansi-language:ES'><o:p></o:p></span></p>
+    </td>
+    <td width=166 valign=top style='width:124.8pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Matriz de un elemento<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6'>
+    <td width=85 valign=top style='width:63.95pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a[5]<o:p></o:p></span></p>
+    </td>
+    <td width=166 valign=top style='width:124.8pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Sexto elemento de la matriz*<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:7'>
+    <td width=85 valign=top style='width:63.95pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a[2][3]<o:p></o:p></span></p>
+    </td>
+    <td width=166 valign=top style='width:124.8pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Tercer o cuarto<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:8'>
+    <td width=85 valign=top style='width:63.95pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+    </td>
+    <td width=166 valign=top style='width:124.8pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>elemento de la matriz<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:9;mso-yfti-lastrow:yes'>
+    <td width=85 valign=top style='width:63.95pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a[2..20]<o:p></o:p></span></p>
+    </td>
+    <td width=166 valign=top style='width:124.8pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Devuelve los elementos comprendidos entre el tercero y el vigésimo
+    primero (ambos incluidos)<o:p></o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:
+  l2 level1 lfo1;tab-stops:list 36.0pt'><![if !supportLists]><span lang=ES
+  style='font-size:8.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol;mso-ansi-language:ES'><span style='mso-list:Ignore'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span lang=ES style='font-size:8.0pt;
+  mso-ansi-language:ES'>Las matrices tienen base cero.<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:18.0pt'><span lang=ES style='font-size:
+  8.0pt;mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Operadores de asignación<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>=, +=, -=, *=, /=,
+  %=<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Matrices asociativas (tablas hash)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+   mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+   0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+   .5pt solid windowtext'>
+   <tr style='mso-yfti-irow:0'>
+    <td width=113 valign=top style='width:84.6pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$hash = @{ }<o:p></o:p></span></p>
+    </td>
+    <td width=168 valign=top style='width:126.0pt;border:solid windowtext 1.0pt;
+    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Crea una tabla hash vacía<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td width=113 valign=top style='width:84.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$h
+    =@{foo=1;bar=2}<o:p></o:p></span></p>
+    </td>
+    <td width=168 valign=top style='width:126.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Crea e inicializa una tabla hash<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td width=113 valign=top style='width:84.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$hash.clave1 = 1<o:p></o:p></span></p>
+    </td>
+    <td width=168 valign=top style='width:126.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Asigna el valor 1 a la clave “clave1”<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td width=113 valign=top style='width:84.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$hash.clave1<o:p></o:p></span></p>
+    </td>
+    <td width=168 valign=top style='width:126.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Devuelve el valor de clave1<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4;mso-yfti-lastrow:yes'>
+    <td width=113 valign=top style='width:84.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$hash[&quot;clave1&quot;]<o:p></o:p></span></p>
+    </td>
+    <td width=168 valign=top style='width:126.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Devuelve el valor de clave1<o:p></o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Operadores y valores booleanos<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:13'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+   mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+   0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+   .5pt solid windowtext'>
+   <tr style='mso-yfti-irow:0'>
+    <td width=136 valign=top style='width:102.2pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>TRUE<o:p></o:p></span></b></p>
+    </td>
+    <td width=136 valign=top style='width:102.25pt;border:solid windowtext 1.0pt;
+    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>FALSE<o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td width=136 valign=top style='width:102.2pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$TRUE<o:p></o:p></span></p>
+    </td>
+    <td width=136 valign=top style='width:102.25pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$FALSE<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td width=136 valign=top style='width:102.2pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Cualquier cadena de longitud &gt; 0 excepto la palabra “false”<o:p></o:p></span></p>
+    </td>
+    <td width=136 valign=top style='width:102.25pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Cadena vacía o la cadena “false”<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td width=136 valign=top style='width:102.2pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Cualquier número != 0<o:p></o:p></span></p>
+    </td>
+    <td width=136 valign=top style='width:102.25pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Cualquier número = 0<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td width=136 valign=top style='width:102.2pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Matriz de más de 1 elemento<o:p></o:p></span></p>
+    </td>
+    <td width=136 valign=top style='width:102.25pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Matriz de 0 elementos<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td width=136 valign=top style='width:102.2pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Matriz cuyo único elemento es TRUE</span><span lang=ES
+    style='mso-ansi-language:ES'><o:p></o:p></span></p>
+    </td>
+    <td width=136 valign=top style='width:102.25pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Matriz cuyo único elemento es FALSE<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+    <td width=136 valign=top style='width:102.2pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Una referencia a cualquier objeto<o:p></o:p></span></p>
+    </td>
+    <td width=136 valign=top style='width:102.25pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Valor NULL<o:p></o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:14'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Break (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:15'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>El comando <b>break</b> permite salir de un bucle. Puede usar una
+  ETIQUETA opcional para interrumpir el bucle.<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Ejemplo:<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>while (1)<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>{<span
+  style='mso-spacerun:yes'>        </span>$a = valor<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><span
+  style='mso-spacerun:yes'>          </span>if ($a –eq 1) break;<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>}<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:16'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Operadores de expansión de comandos<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:17'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+   mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+   0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+   .5pt solid windowtext'>
+   <tr style='mso-yfti-irow:0;height:8.45pt'>
+    <td width=101 valign=top style='width:75.6pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+    height:8.45pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$( )<o:p></o:p></span></p>
+    </td>
+    <td width=156 valign=top style='width:117.0pt;border:solid windowtext 1.0pt;
+    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:8.45pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Devuelve un valor NULL<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1;height:17.4pt'>
+    <td width=101 valign=top style='width:75.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:17.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$(1,2,3)<o:p></o:p></span></p>
+    </td>
+    <td width=156 valign=top style='width:117.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+    height:17.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Devuelve una matriz que contiene los elementos 1,2,3.<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2;height:17.4pt'>
+    <td width=101 valign=top style='width:75.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:17.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$(Get-Alias a*)<o:p></o:p></span></p>
+    </td>
+    <td width=156 valign=top style='width:117.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+    height:17.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Devuelve el resultado de evaluar la expresión<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes;height:25.85pt'>
+    <td width=101 valign=top style='width:75.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;height:25.85pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>@(Get-Alias;Get-Process)<o:p></o:p></span></p>
+    </td>
+    <td width=156 valign=top style='width:117.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+    height:25.85pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Ejecuta los dos comandos y devuelve los resultados en una matriz<o:p></o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:18'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Comentarios<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:19'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'># Esto es un comentario porque # es el primer carácter de un símbolo
+  (token)<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>$a = “#Esto no es un comentario…”<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>$a = “un valor” # …pero esto sí lo es.<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Write-Host Hello#world<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:20'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Operadores de comparación<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:21'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+   mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+   0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+   .5pt solid windowtext'>
+   <tr style='mso-yfti-irow:0'>
+    <td width=84 valign=top style='width:62.75pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-eq<o:p></o:p></span></p>
+    </td>
+    <td width=172 valign=top style='width:129.1pt;border:solid windowtext 1.0pt;
+    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Igual a<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td width=84 valign=top style='width:62.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-ne <o:p></o:p></span></p>
+    </td>
+    <td width=172 valign=top style='width:129.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Distinto de<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td width=84 valign=top style='width:62.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-gt –ge<o:p></o:p></span></p>
+    </td>
+    <td width=172 valign=top style='width:129.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Mayor que, mayor o igual que<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3;mso-yfti-lastrow:yes'>
+    <td width=84 valign=top style='width:62.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-lt –le<o:p></o:p></span></p>
+    </td>
+    <td width=172 valign=top style='width:129.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Menor que, menor o igual que<o:p></o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Puede anteponerse “c” para que las operaciones distingan mayúsculas de
+  minúsculas o “i” para que no lo hagan (por ejemplo, –ceq )<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:22'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Continue (uso en scripts)</span><span lang=ES style='mso-ansi-language:
+  ES'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:23'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>La instrucción <b>continue</b> pasa a la siguiente iteración de un bucle
+  sin salir de él. Ejemplo:<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>while (1)<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>{<span
+  style='mso-spacerun:yes'>               </span>$a = valor<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><span
+  style='mso-tab-count:1'>                </span>if ($a –eq 1) (continue)<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='mso-ansi-language:ES'><span
+  style='mso-tab-count:1'>            </span></span><span lang=ES
+  style='font-size:8.0pt;mso-ansi-language:ES'># No se llega a esta línea a
+  menos que $a == 1</span><span lang=ES style='mso-ansi-language:ES'><o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>}<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>#<span style='mso-spacerun:yes'>  </span>Nunca se llega a esta línea</span><span
+  lang=ES style='mso-ansi-language:ES'>.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:24'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Agregar un punto al comienzo<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:25'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Al agregar un punto al comienzo, se pueden ejecutar funciones, bloques de
+  script y scripts en el ámbito actual en lugar de hacerlo en el ámbito local.
+  Ejemplo:<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>. MiFunción<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Si MiFunción define una variable, ésta se define en el ámbito actual y no
+  en el ámbito local de la función.<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a = {$x =
+  Get-Process | Select –First 2}<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>. $a<span style='mso-spacerun:yes'>    </span>#Evalúa el bloque de script
+  en el ámbito actual<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:26'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Secuencias de escape<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:27'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>El carácter de escape de Windows PowerShell es el acento grave (`). Para
+  convertir un carácter en un literal, basta con anteponer `. Para especificar
+  un carácter ` literal, utilice ``.<o:p></o:p></span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+   mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+   0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+   .5pt solid windowtext'>
+   <tr style='mso-yfti-irow:0'>
+    <td width=256 colspan=2 valign=top style='width:191.85pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Secuencias de escape especiales<o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>`0 <o:p></o:p></span></p>
+    </td>
+    <td width=184 valign=top style='width:138.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>(NULL)<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>`a <o:p></o:p></span></p>
+    </td>
+    <td width=184 valign=top style='width:138.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>(alerta)<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>`b <o:p></o:p></span></p>
+    </td>
+    <td width=184 valign=top style='width:138.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>(retroceso)<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>`f <o:p></o:p></span></p>
+    </td>
+    <td width=184 valign=top style='width:138.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>(avance de página)<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>`n <o:p></o:p></span></p>
+    </td>
+    <td width=184 valign=top style='width:138.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>(nueva línea)<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>`r <o:p></o:p></span></p>
+    </td>
+    <td width=184 valign=top style='width:138.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>(retorno de carro)<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:7'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>`t <o:p></o:p></span></p>
+    </td>
+    <td width=184 valign=top style='width:138.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>(tabulación)<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:8;mso-yfti-lastrow:yes'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>`v<o:p></o:p></span></p>
+    </td>
+    <td width=184 valign=top style='width:138.1pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>(comilla vertical)<o:p></o:p></span></p>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'><o:p>&nbsp;</o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:28'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Orden de ejecución<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:29'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Windows PowerShell intenta resolver los comandos en el orden siguiente:
+  alias, funciones, cmdlets, scripts, ejecutables y archivos normales.<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:30'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>For (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:31'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>[:etiqueta] for
+  ([inicialización]; [condición]; [iterador]) {}<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Ejemplo:<o:p></o:p></span></b></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>for ($i = 0; $i –lt
+  5; $i++) {Write-Object $i}<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:32'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Foreach (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:33'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>[:etiqueta] <o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>foreach
+  (&lt;identificador&gt; in &lt;colección&gt;) {}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>&lt;Expresión&gt; |
+  foreach {}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>&lt;Expresión&gt; |
+  foreach {BEGIN{} PROCESS{} END{}}<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Ejemplos:<o:p></o:p></span></b></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$i = 1,2,3<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>foreach ($z in $i)
+  {Write-Object $z}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>Get-Process
+  |foreach {BEGIN{$x=1}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><span
+  style='mso-spacerun:yes'>       </span>PROCESS{$X++} <o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><span
+  style='mso-spacerun:yes'>       </span>END{“Procesos de $X”}}<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:34'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Funciones (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:35'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>function MiFunción
+  {<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><span
+  style='mso-tab-count:1'>                </span>write-object $args[0]<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>function test
+  ([string]$label=“etiqueta predeterminada”,[int]$start=0)<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>{ BEGIN {$x=$start}
+  PROCESS {“$label: $_”’; $x++}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><span
+  style='mso-spacerun:yes'>     </span>END{“$x total”}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>}<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:36'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Filtros (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:37'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Los filtros constituyen un método abreviado para escribir una función con
+  un bloque de script PROCESS.<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>filter MiFiltro {<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><span
+  style='mso-tab-count:1'>                </span>$_.name<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>}<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:38'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>If/elseif/else (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:39'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>if
+  (&lt;condición&gt;) {…}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>elseif
+  (&lt;condición&gt;) {…}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>else {…}<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>En la línea de comandos, la llave de cierre debe estar en la misma línea
+  que elseif y else. Esta restricción no se aplica a los scripts.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:40'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Operador de invocación<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:41'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>El operador <b>&amp;</b> puede utilizarse para llamar a un bloque de
+  script o para llamar a un comando o una función.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Ejemplo:</span></b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a = “Get-Process”<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>&amp;$a<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a = { Get-Process
+  | Select -First 2 }<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>&amp;$a<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:42'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Operadores lógicos<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:43'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>!, -not, -and, -or<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:44'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Llamadas a métodos<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:45'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Se puede llamar a los métodos en los objetos. Ejemplos:<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a = “Esto es una
+  cadena”<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a.ToUpper()<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a.SubString(0,3)<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a.SubString(0,($a.length/2))<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a.Substring(($a.length/2),
+  ($a.length/3))<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Los métodos estáticos se pueden llamar con el operador “::”<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>[DateTime]::IsLeapYear(2005)<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:46'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Variables automáticas de Windows PowerShell (lista parcial)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:47'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+   mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+   0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+   .5pt solid windowtext'>
+   <tr style='mso-yfti-irow:0'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$$<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border:solid windowtext 1.0pt;
+    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Último símbolo (token) de la línea de comandos anterior<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$?<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Estado booleano del último comando<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$^<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Primer símbolo de la línea de comandos anterior<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$_<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Objeto de canalización actual<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$Args<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Argumentos de un script o una función<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$Error<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Matriz de errores de comandos anteriores<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$Foreach<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Referencia al enumerador de un bucle foreach.<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:7'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$Home<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Directorio principal del usuario; normalmente se establece en
+    %HOMEDRIVE%\%HOMEPATH%<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:8'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$Host<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Referencia a la aplicación que hospeda al lenguaje POWERSHELL<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:9'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$Input<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Enumerador de objetos canalizados a un script<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:10'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$LastExitCode<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Código de salida del último programa o script<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:11'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$Matches<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Tabla hash que contiene las coincidencias encontradas con el operador
+    –match<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:12'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$PSHome<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Ubicación de instalación de Windows PowerShell<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:13'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$profile<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Perfil estándar (puede no estar disponible)<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:14'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$StackTrace<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Última excepción capturada por Windows PowerShell<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:15;mso-yfti-lastrow:yes'>
+    <td width=89 valign=top style='width:66.6pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$Switch<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Enumerador de una instrucción switch<o:p></o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:48'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Propiedades de objetos<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:49;height:47.65pt'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:47.65pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Se pueden establecer referencias a las propiedades de un objeto
+  directamente mediante el operador “.”.<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a = Get-Date<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a.Date<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a.TimeOfDay.Hours<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Se pueden establecer referencias a las propiedades estáticas mediante el
+  operador “::”.<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>[DateTime]::Now<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:50'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Prioridad de operadores<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:51'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>En Windows PowerShell, los operadores se evalúan según la siguiente
+  prioridad:<span style='mso-spacerun:yes'>  </span>() {}, @ $, !, [ ], .,
+  &amp;, ++ --, + - unarios, * / %, + - binarios, operadores de comparación,
+  -and –or, |, &gt; &gt;&gt;, =<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:52'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Otros operadores<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:53'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+   mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+   0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+   .5pt solid windowtext'>
+   <tr style='mso-yfti-irow:0'>
+    <td width=130 valign=top style='width:97.7pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>,<o:p></o:p></span></p>
+    </td>
+    <td width=130 valign=top style='width:97.75pt;border:solid windowtext 1.0pt;
+    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Constructor de matrices<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td width=130 valign=top style='width:97.7pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>..<o:p></o:p></span></p>
+    </td>
+    <td width=130 valign=top style='width:97.75pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Operador de intervalo<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td width=130 valign=top style='width:97.7pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-contains<o:p></o:p></span></p>
+    </td>
+    <td width=130 valign=top style='width:97.75pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'><o:p>&nbsp;</o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td width=130 valign=top style='width:97.7pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-is<o:p></o:p></span></p>
+    </td>
+    <td width=130 valign=top style='width:97.75pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Evaluador de tipos<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td width=130 valign=top style='width:97.7pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-as<o:p></o:p></span></p>
+    </td>
+    <td width=130 valign=top style='width:97.75pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Conversor de tipos<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td width=130 valign=top style='width:97.7pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-band<o:p></o:p></span></p>
+    </td>
+    <td width=130 valign=top style='width:97.75pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>AND binario<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6'>
+    <td width=130 valign=top style='width:97.7pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-bor<o:p></o:p></span></p>
+    </td>
+    <td width=130 valign=top style='width:97.75pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>OR binario<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:7;mso-yfti-lastrow:yes'>
+    <td width=130 valign=top style='width:97.7pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-bnot<o:p></o:p></span></p>
+    </td>
+    <td width=130 valign=top style='width:97.75pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>NOT binario<o:p></o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:54'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Return (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:55'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>El comando <b>return</b> sale del script o la función actual y devuelve
+  un valor.<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Ejemplo:<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>function foo {<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><span
+  style='mso-tab-count:1'>                </span>return 1<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>}<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:56'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Ámbitos (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:57'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Se pueden crear instancias de variables y otros elementos de datos en
+  diferentes ámbitos:<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span lang=ES
+  style='font-size:8.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol;mso-ansi-language:ES'><span style='mso-list:Ignore'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span lang=ES style='font-size:8.0pt;
+  mso-ansi-language:ES'>Las variables del ámbito global pueden usarse en todos
+  los ámbitos. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span lang=ES
+  style='font-size:8.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol;mso-ansi-language:ES'><span style='mso-list:Ignore'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span lang=ES style='font-size:8.0pt;
+  mso-ansi-language:ES'>Las variables del ámbito de script pueden usarse en
+  todos los ámbitos del archivo de script. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span lang=ES
+  style='font-size:8.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol;mso-ansi-language:ES'><span style='mso-list:Ignore'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span lang=ES style='font-size:8.0pt;
+  mso-ansi-language:ES'>Las variables de ámbito local pueden usarse únicamente
+  en el ámbito local y en sus ámbitos secundarios. <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:27.0pt;text-indent:-18.0pt;mso-list:
+  l1 level1 lfo2;tab-stops:list 36.0pt'><![if !supportLists]><span lang=ES
+  style='font-size:8.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+  mso-bidi-font-family:Symbol;mso-ansi-language:ES'><span style='mso-list:Ignore'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span></span><![endif]><span lang=ES style='font-size:8.0pt;
+  mso-ansi-language:ES'>Las variables de ámbito privado sólo pueden usarse en
+  dicho ámbito.<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Un ámbito se crea en el cuerpo de una función del shell (consulte la
+  forma de crear funciones) <o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Ejemplo:<o:p></o:p></span></b></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$global:a = 4<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$script:a = 5<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$local:a<span
+  style='mso-spacerun:yes'>  </span>= 3 <o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$private:a = 6<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:58'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Bloques de script<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:59'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Los comandos y las expresiones pueden almacenarse en un objeto de bloque
+  de script para ejecutarse posteriormente.<span style='mso-spacerun:yes'> 
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span lang=ES
+  style='font-size:8.0pt;mso-ansi-language:ES'>Ejemplo:<o:p></o:p></span></b></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$block =
+  {Get-Process; $a=1}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>&amp;$block<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:60'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Scripts<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:61'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Los comandos de Windows PowerShell pueden almacenarse y ejecutarse en
+  archivos de scripts. La extensión de archivo de los scripts de Windows
+  PowerShell es “.ps1”. Un script puede recibir parámetros y devolver un
+  valor.<span style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span lang=ES
+  style='font-size:8.0pt;mso-ansi-language:ES'>Ejemplo:<o:p></o:p></span></b></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$suma = MiSuma.ps1
+  1 2 3<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:62'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Cadenas<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:63'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Constantes de cadenas:<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>“esto es una cadena, esta $variable se expande como $(2+2)”<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>‘esto es una cadena, esta $variable no se expande’<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>@”<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES-TRAD style='font-size:8.0pt;mso-ansi-language:
+  ES-TRAD'>Esto es una “cadena multilínea intercalada en el código” que puede
+  contener cualquier cosa, incluidos retornos de carro y comillas.</span><span
+  lang=ES style='font-size:8.0pt;mso-ansi-language:ES'> Se evalúan las
+  expresiones $(2+2)<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>”@<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>@’<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES-TRAD style='font-size:8.0pt;mso-ansi-language:
+  ES-TRAD'>Una “cadena multilínea intercalada en el código” con comillas
+  simples no evalúa las expresiones.</span><span lang=ES style='font-size:8.0pt;
+  mso-ansi-language:ES'> ‘@<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+   mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+   0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+   .5pt solid windowtext'>
+   <tr style='mso-yfti-irow:0'>
+    <td width=269 colspan=2 valign=top style='width:201.6pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Operadores de cadenas<o:p></o:p></span></b></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>+<o:p></o:p></span></p>
+    </td>
+    <td width=197 valign=top style='width:147.85pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Concatena dos cadenas<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>*<o:p></o:p></span></p>
+    </td>
+    <td width=197 valign=top style='width:147.85pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Repite una cadena cierto número de veces<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-f<o:p></o:p></span></p>
+    </td>
+    <td width=197 valign=top style='width:147.85pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Aplica formato a una cadena (especificadores de formato .NET)<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-replace<o:p></o:p></span></p>
+    </td>
+    <td width=197 valign=top style='width:147.85pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Operador de sustitución<br>
+    &quot;abcd&quot; –replace “bc”, “TEST”<o:p></o:p></span></p>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>aTESTd<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-match<o:p></o:p></span></p>
+    </td>
+    <td width=197 valign=top style='width:147.85pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Comparación de expresiones regulares<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+    <td width=72 valign=top style='width:53.75pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>-like<o:p></o:p></span></p>
+    </td>
+    <td width=197 valign=top style='width:147.85pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+    ES'>Comparación de caracteres comodín<o:p></o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:64'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Switch (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:65'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>La variable $_ está disponible en el script. $_ representa el valor que
+  se está evaluando en ese momento. Si se utiliza una matriz en una instrucción
+  switch, se comprueba cada elemento de la matriz.<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Ejemplo:</span></b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$var =
+  &quot;palabra1&quot;,&quot;palabra2&quot;,&quot;palabra3&quot;<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>switch -regex
+  ($var) {<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>&quot;palabra1&quot;<span
+  style='mso-spacerun:yes'>  </span>{&quot;Coincidencia múltiple exacta&quot; +
+  $_ }<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>&quot;palabra2&quot;<span
+  style='mso-spacerun:yes'>  </span>{&quot;Coincidencia múltiple exacta&quot; +
+  $_ }<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>&quot;w.*2&quot;<span
+  style='mso-spacerun:yes'>   </span>{&quot;Coincidencia de patrón exacta&quot;
+  + $_ }<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>default<span
+  style='mso-spacerun:yes'>  </span>{&quot;Coincidencia múltiple
+  predeterminada&quot; + $_ }<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>}<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Salida:<o:p></o:p></span></b></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>Coincidencia
+  múltiple exacta palabra1<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>Coincidencia
+  múltiple exacta palabra2<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>Coincidencia de
+  patrón exacta palabra2<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>Coincidencia
+  múltiple predeterminada palabra3<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:66'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Throw<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:67'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Throw</span></b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'> proporciona a los scripts la misma funcionalidad que la API
+  ThrowTerminatingError proporciona a los cmdlets.<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=NOLOC style='margin-left:36.0pt'><span lang=ES style='font-family:
+  Courier;mso-bidi-font-family:Courier;mso-ansi-language:ES'>throw
+  &quot;Peligro, peligro&quot;<o:p></o:p></span></p>
+  <p class=NOLOC style='margin-left:36.0pt'><span lang=ES style='font-family:
+  Courier;mso-bidi-font-family:Courier;mso-ansi-language:ES'>Peligro, peligro<o:p></o:p></span></p>
+  <p class=NOLOC style='margin-left:36.0pt'><span lang=ES style='font-family:
+  Courier;mso-bidi-font-family:Courier;mso-ansi-language:ES'>En línea:1
+  carácter:6<o:p></o:p></span></p>
+  <p class=NOLOC style='margin-left:36.0pt'><span lang=ES style='font-family:
+  Courier;mso-bidi-font-family:Courier;mso-ansi-language:ES'>+ throw<span
+  style='mso-spacerun:yes'>  </span>&lt;&lt;&lt;&lt; &quot;Peligro,
+  peligro&quot;<o:p></o:p></span></p>
+  <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Throw</span></b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'> admite una cadena, una excepción o un registro de error (ErrorRecord)
+  como argumento.<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:68'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Capturas<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:69'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>Trap
+  [ExceptionType] {<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><span
+  style='mso-spacerun:yes'>    </span>if (…)<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>{<span
+  style='mso-spacerun:yes'>    </span>continue <o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>#<span style='mso-spacerun:yes'>  </span>Continúa en la instrucción del
+  script siguiente a la que <o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>#<span style='mso-spacerun:yes'>  </span>ha causado la captura <o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>#<span style='mso-spacerun:yes'>  </span>$? se actualiza pero no se
+  genera ningún registro de error<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>} else<span
+  style='mso-spacerun:yes'>  </span>(…)<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>{<span
+  style='mso-spacerun:yes'>      </span>Break<span style='mso-spacerun:yes'>  
+  </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>#<span style='mso-spacerun:yes'>  </span>Vuelve a producir la excepción<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>}<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>#<span style='mso-spacerun:yes'>  </span>Si no se hace nada, hará lo que
+  se haya especificado en la <o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>#<span style='mso-spacerun:yes'>  </span>configuración
+  $ErrorActionPreference<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:70'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Operaciones de tipos (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:71'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>-is<span style='mso-spacerun:yes'>   </span>es de tipo (p. ej. $a -is
+  [int] )<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>-as<span style='mso-spacerun:yes'>   </span>convertir al tipo (p. ej. 1
+  -as [string] hace que se trate al símbolo 1 como una cadena)<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:72'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Until (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:73'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>do<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>{ <o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>…<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>} until
+  (&lt;condición&gt;)<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:74'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Variables<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:75'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Formato:<o:p></o:p></span></b></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$[ámbito:]nombre<span
+  style='mso-spacerun:yes'>  </span>o ${cualquier_nombre} o ${cualquier_ruta}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><b><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Ejemplos:<o:p></o:p></span></b></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$a = 1<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>${!@#$%^&amp;*()}=3<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>$global:a = 1<span style='mso-spacerun:yes'>  </span># Puede usarse en
+  cualquier parte<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$local:a = 1<span
+  style='mso-spacerun:yes'>     </span># Definida en este ámbito<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><span style='mso-spacerun:yes'>                        </span># y puede
+  usarse en ámbitos secundarios<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>$private:a=1<span style='mso-spacerun:yes'>    </span># Igual que local,
+  pero<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><span style='mso-spacerun:yes'>             </span><span
+  style='mso-spacerun:yes'>           </span># no puede usarse en ámbitos
+  secundarios<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>$script:a=1<span style='mso-spacerun:yes'>     </span># Se puede usar en
+  cualquier parte de este script<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>$env:path =
+  “d:\windows”<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>${C:\TEMP\testfile.txt}=”Escribe en un archivo”<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Get-Variable –scope 1 a<span style='mso-spacerun:yes'>  </span>#Obtiene
+  el valor del ámbito principal<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Get-Variable –scope 2 a<span style='mso-spacerun:yes'>  </span># Ámbito
+  principal de segundo nivel<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:76'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>While (uso en scripts)<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:77'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>[:label] while
+  (&lt;condición&gt;)<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>{<span
+  style='mso-spacerun:yes'>  </span><o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>… <o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>}<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>do<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>{ <o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>…<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>} while
+  (&lt;condición&gt;)<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:78'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:#E6E6E6;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Análisis<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:79;mso-yfti-lastrow:yes'>
+  <td width=288 valign=top style='width:216.0pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Windows PowerShell cuenta con dos modos de análisis: comando y expresión.
+  En el modo de expresión, Windows PowerShell realiza el análisis del mismo
+  modo que la mayoría de lenguajes de alto nivel: los números son números, las
+  cadenas deben escribirse entre comillas, etc. Las expresiones son cosas como
+  las siguientes: <o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'>2+2<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'>4<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'>&quot;Hola&quot; + &quot; mundo&quot;<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'>Hola mundo<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'>$a = &quot;hola&quot;<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'>$a.length * 13<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'>26<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Cuando el análisis se realiza en modo de comando, no es necesario
+  escribir las cadenas entre comillas y todos los elementos se tratan como si
+  fueran cadenas a excepción de las variables y los elementos entre paréntesis.
+  Por ejemplo: <o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'><span style='mso-spacerun:yes'>   </span>copy
+  users.txt accounts.txt<span style='mso-spacerun:yes'>      </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>users.txt y accounts.txt se tratan como cadenas<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'><span style='mso-spacerun:yes'>  
+  </span>write-host 2+2<span style='mso-spacerun:yes'>            </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>2+2 se trata como una cadena y no como una expresión que debe calcularse<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'><span style='mso-spacerun:yes'>   </span>copy
+  $src $dest<span style='mso-spacerun:yes'>           </span><o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>$src y $dest son variables. A largo plazo puede resultar muy beneficioso
+  no tener que utilizar las comillas al trabajar en un shell de comandos, ya
+  que esto implica escribir menos. <o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>El modo de análisis viene determinado por el primer símbolo que se
+  encuentra. Si el token es un número, una variable o una cadena
+  entrecomillada, el shell realiza el análisis en modo de expresión. Si la
+  línea comienza con una letra, una Y comercial (&amp;) o un punto (.) seguido
+  de un espacio o una letra, el análisis se realiza en modo de comando. <o:p></o:p></span></p>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+   style='border-collapse:collapse;mso-table-layout-alt:fixed;border:none;
+   mso-border-alt:solid windowtext .5pt;mso-yfti-tbllook:480;mso-padding-alt:
+   0cm 5.4pt 0cm 5.4pt;mso-border-insideh:.5pt solid windowtext;mso-border-insidev:
+   .5pt solid windowtext'>
+   <tr style='mso-yfti-irow:0'>
+    <td width=88 valign=top style='width:66.35pt;border:solid windowtext 1.0pt;
+    mso-border-alt:solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>2+2 <o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border:solid windowtext 1.0pt;
+    border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal style='margin-right:-5.65pt'><span lang=ES
+    style='font-size:8.0pt;mso-ansi-language:ES'>El modo de expresión comienza
+    con un número.<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:1'>
+    <td width=88 valign=top style='width:66.35pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>&quot;texto&quot;<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal style='margin-right:-5.65pt'><span lang=ES
+    style='font-size:8.0pt;mso-ansi-language:ES'>El modo de expresión comienza
+    con comillas.<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:2'>
+    <td width=88 valign=top style='width:66.35pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>texto<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal style='margin-right:-5.65pt'><span lang=ES
+    style='font-size:8.0pt;mso-ansi-language:ES'>El modo de comando comienza
+    con una letra. <o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:3'>
+    <td width=88 valign=top style='width:66.35pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>&amp;
+    &quot;texto&quot; <o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal style='margin-right:-5.65pt'><span lang=ES
+    style='font-size:8.0pt;mso-ansi-language:ES'>El modo de comando comienza
+    con una Y comercial.<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:4'>
+    <td width=88 valign=top style='width:66.35pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>.
+    &quot;archivo.ps1&quot;<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal style='margin-right:-5.65pt'><span lang=ES
+    style='font-size:8.0pt;mso-ansi-language:ES'>El modo de comando comienza
+    con un punto seguido de un espacio. <o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:5'>
+    <td width=88 valign=top style='width:66.35pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>.125<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal style='margin-right:-5.65pt'><span lang=ES
+    style='font-size:8.0pt;mso-ansi-language:ES'>El modo de expresión comienza
+    con un punto, seguido de un número (pero no un espacio o una letra).<o:p></o:p></span></p>
+    </td>
+   </tr>
+   <tr style='mso-yfti-irow:6;mso-yfti-lastrow:yes'>
+    <td width=88 valign=top style='width:66.35pt;border:solid windowtext 1.0pt;
+    border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:
+    solid windowtext .5pt;background:white;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=NOLOC><span lang=ES style='mso-ansi-language:ES'>.text<o:p></o:p></span></p>
+    </td>
+    <td width=192 valign=top style='width:144.0pt;border-top:none;border-left:
+    none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+    mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+    mso-border-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt'>
+    <p class=MsoNormal style='margin-right:-5.65pt'><span lang=ES
+    style='font-size:8.0pt;mso-ansi-language:ES'>El modo de comando comienza
+    con un punto, que forma parte del nombre del comando, &quot;.text&quot; <o:p></o:p></span></p>
+    </td>
+   </tr>
+  </table>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Resulta de gran utilidad poder combinar expresiones y comandos, lo que
+  puede hacerse mediante paréntesis. Dentro de los paréntesis, el proceso de
+  detección del modo de análisis comienza de nuevo. <o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'>Write-Host (2+2) <o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:12.6pt'><span lang=ES style='font-size:
+  8.0pt;mso-ansi-language:ES'>2+2 se trata como si fuera una expresión que
+  tiene que evaluarse y se pasa al comando <b>Write-Host</b>.<o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'>(Get-Date).day + 2<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:12.6pt'><b><span lang=ES
+  style='font-size:8.0pt;mso-ansi-language:ES'>Get-Date</span></b><span
+  lang=ES style='font-size:8.0pt;mso-ansi-language:ES'> se trata como un
+  comando, y el resultado de su ejecución pasa a ser el valor izquierdo de la
+  expresión. <o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'>Los comandos y las expresiones se pueden anidar sin restricciones. <o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'>Write-Host ((Get-Date).day + 2)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:12.6pt'><b><span lang=ES
+  style='font-size:8.0pt;mso-ansi-language:ES'>Get-Date</span></b><span
+  lang=ES style='font-size:8.0pt;mso-ansi-language:ES'> es un comando.
+  ((Get-Date).day+2) es una expresión y Write-Host ((Get-Date).day + 2) es de
+  nuevo un comando. <o:p></o:p></span></p>
+  <p class=NOLOC><span lang=ES style='font-family:Courier;mso-bidi-font-family:
+  Courier;mso-ansi-language:ES'>Write-Host ((Get-Date) - (Get-Date).date)<o:p></o:p></span></p>
+  <p class=MsoNormal style='margin-left:12.6pt'><span lang=ES style='font-size:
+  8.0pt;mso-ansi-language:ES'>El comando <b>Get-Date</b> se utiliza dos veces
+  para determinar cuánto tiempo ha pasado desde medianoche (condición).<o:p></o:p></span></p>
+  <p class=MsoNormal><span lang=ES style='font-size:8.0pt;mso-ansi-language:
+  ES'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=ES style='mso-ansi-language:ES'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

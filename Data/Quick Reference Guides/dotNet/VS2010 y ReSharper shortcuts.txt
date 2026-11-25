@@ -1,0 +1,35 @@
+VS2010
+
+Shift + Alt + Up/Down: MODO SELECCION/EDICION DE COLUMNAS!!!
+
+Ctrl + Shift + Up/Down: referencia anterior/siguiente
+
+Ctrl + L: borra la linea actual
+
+Triple Click: selecciona la linea actual
+
+F12: ir a declaración
+Ctrl + F12: ir a implementacion
+
+
+-----------------------------------------------------------
+ReSharper 
+
+Alt + Enter: activa ReSharper 
+
+Alt + PagUp/PagDown: ir a error anterior/siguiente dentro del archivo actual
+
+Alt + ]: navegar desde el tipo sobre el cursor (declaracion, implementacion, usos, etc)
+
+Ctrl + T: buscar tipo (usa *)
+Alt + Shift + T: buscar simbolo (tipo, propiedad, metodo, etc)
+
+Ctrl + Shift + , : ir a archivos editados recientemente
+Ctrl + , : ir a archivos vistos recientemente
+
+Ctrl + Shift + Backspace: ultima posicion de edicion
+
+Ctrl + Shift + Alt + Up/Down/Left/Right: mueve el codigo sobre el cursor en la direccion especificada.
+
+Ctrl + E, U: rodea el codigo seleccionado con un template.
+
